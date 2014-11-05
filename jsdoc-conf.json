@@ -1,0 +1,42 @@
+{
+  "opts": {
+    "template": "node_modules/ink-docstrap/template",
+    "encoding": "utf8",
+    "destination": "./doc/",
+    "recurse": true,
+    "private": true
+  },
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": ["lib", "sql"],
+    "includePattern": ".+\\.js(doc)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins"   : ["plugins/markdown"],
+  "i18n": {
+    "locale": "<en_US|tr_TR>",
+    "extension": ".js"
+  },
+  "templates" : {
+    "cleverLinks"           : false,
+    "monospaceLinks"        : false,
+    "dateFormat"            : "ddd MMM Do YYYY",
+    "outputSourceFiles"     : true,
+    "outputSourcePath"      : true,
+    "systemName"            : "pg-structure",
+    "footer"                : "",
+    "copyright"             : "pg-structure Copyright © 2014 Özüm Eldoğan.",
+    "navType"               : "vertical",
+    "theme"                 : "cerulean",
+    "linenums"              : true,
+    "collapseSymbols"       : false,
+    "inverseNav"            : true,
+    "highlightTutorialCode" : true
+  },
+  "markdown"  : {
+    "parser"   : "gfm",
+    "hardwrap" : true
+  }
+}
