@@ -7,8 +7,9 @@ var pg              = require('pg');
 var async           = require('async');
 var dbConfig        = { host: 'localhost', port:5432, user: 'user', password: 'password'  };
 
-var conStringTest       = 'postgres://user:password@127.0.0.1:5432/pg_generator_test_724839'; //'postgres://user:pass@host:port/db'
-var conStringTemplate   = 'postgres://user:password@127.0.0.1:5432/node'; //'postgres://user:pass@host:port/db'
+var conString           = 'postgres://'+dbConfig.user+':'+dbConfig.password+'@'+dbConfig.host+':'+dbConfig.port+'/';;   //'postgres://user:pass@host:port/'
+var conStringTest       = conString + 'pg_generator_test_724839';                                                       //'postgres://user:pass@host:port/db'
+var conStringTemplate   = conString + 'template1';                                                                      //'postgres://user:pass@host:port/db'
 
 var sql = {
     createDB        : "CREATE DATABASE pg_generator_test_724839 WITH ENCODING = 'UTF8' TEMPLATE = template0;",
@@ -63,7 +64,6 @@ function dropDB(callback) {
 }
 
 
-
 describe('Module', function() {
     before(function(done) {
         resetDB(done)
@@ -71,7 +71,6 @@ describe('Module', function() {
 
     after(function(done) {
         dropDB(done);
-        done();
     })
 
     it('should process db schema & generate structure', function (done) {
