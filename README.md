@@ -305,7 +305,7 @@ Callback to handle database structure object.
 
 - name `string` - Name of the table  
 - description `string` - Table description. This description is defined in database.  
-- columns `column` - An object which contains column names as keys, column details as values.  
+- columns `object` - An object which contains column names as keys, column details as values.  
 - columns.[columnName].name `string` - Name of the database column  
 - columns.[columnName].default `string` - Default value of the column  
 - columns.[columnName].allowNull `boolean` - Is the column allowed to contain null values?  
