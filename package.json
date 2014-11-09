@@ -41,11 +41,11 @@
   "devDependencies": {
     "chai": "^1.9.2",
     "ink-docstrap": "^0.4.12",
-    "mocha": "^2.0.1"
+    "mocha": "^2.0.1",
+    "fs": "0.0.2"
   },
   "dependencies": {
     "async": "^0.9.0",
-    "fs": "0.0.2",
     "lodash": "^2.4.1",
     "pg": "^3.6.2"
   }
