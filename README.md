@@ -303,6 +303,7 @@ Callback to handle database structure object.
 #type: table
 **Properties**
 
+- schemaName `string` - Schema name of the table.  
 - name `string` - Name of the table  
 - description `string` - Table description. This description is defined in database.  
 - columns `object` - An object which contains column names as keys, column details as values.  
