@@ -585,6 +585,7 @@ module.exports = {
         }],
         description: 'Firma bilgilerinin tutulduğu tablo.',
         name: 'account',
+        schemaName: 'public',
         foreignKeys: {
             contact_has_companies: [{
                 schemaName: 'public',
@@ -886,6 +887,7 @@ module.exports = {
         }],
         description: 'Alışveriş sepetlerini tutan tablo.',
         name: 'cart',
+        schemaName: 'public',
         foreignKeys: {
             contact_has_carts: [{
                 schemaName: 'public',
@@ -1211,6 +1213,7 @@ module.exports = {
             }],
         description: 'Sepetteki ürünleri tutan tablo.',
         name: 'cart_line_item',
+        schemaName: 'public',
         foreignKeys: {
             cart_has_products: [{
                 schemaName: 'public',
@@ -1718,6 +1721,7 @@ module.exports = {
         }],
         description: 'Sepete atılan ürünlerin loglarını tutan tablo. Multi primary keye ref veren tablonun test edilmesi için.',
         name: 'cart_line_item_audit_log',
+        schemaName: 'public',
         foreignKeys: {
             cart_line_item_has_audit_logs: [{
                 schemaName: 'public',
@@ -2003,6 +2007,7 @@ module.exports = {
         }],
         description: 'Composite key içeren many to many tablo testi için oluşturulmuş olan tablo.',
         name: 'cart_line_item_cross_composite',
+        schemaName: 'public',
         foreignKeys: {
             cart_line_item_has_many_primary_cross: [{
                 schemaName: 'public',
@@ -2291,6 +2296,7 @@ module.exports = {
             }],
         description: '3\'lü composite key test etmek için oluşturulmuş yapay ikinci tablo.',
         name: 'class',
+        schemaName: 'public',
         hasMany: {
             class_has_many_students: {
                 tableName: 'class_register',
@@ -2886,6 +2892,7 @@ module.exports = {
             }],
         description: '3 lü komposit key ile birleşen many to many tabloları test etmek için yapay tablo.',
         name: 'class_register',
+        schemaName: 'public',
         foreignKeys: {
             class_has_many_students: [{
                 schemaName: 'public',
@@ -3461,6 +3468,7 @@ module.exports = {
         }],
         description: 'Kişi bilgilerini tutan tablo.',
         name: 'contact',
+        schemaName: 'public',
         foreignKeys: {
             account_has_contacts: [{
                 schemaName: 'public',
@@ -3888,6 +3896,7 @@ module.exports = {
         }],
         description: '3\'lü composite key içeren self referencing tabloları test etmek için yapay tablo.',
         name: 'message',
+        schemaName: 'public',
         foreignKeys: {
             student_has_many_messages_received: [{
                 schemaName: 'public',
@@ -4219,6 +4228,7 @@ module.exports = {
         }],
         description: 'Ürünleri tutan tablo.',
         name: 'product',
+        schemaName: 'public',
         foreignKeys: {
             Relationship4: [{
                 schemaName: 'public',
@@ -4441,6 +4451,7 @@ module.exports = {
         }],
         description: 'Ürün kategorilerini tutan tablo.',
         name: 'product_category',
+        schemaName: 'public',
         foreignKeys: {
             product_category_has_parent_category: [{
                 schemaName: 'public',
@@ -4717,6 +4728,7 @@ module.exports = {
             }],
         description: '3\'lü composit key test için oluşturulmuş yapay tablo.',
         name: 'student',
+        schemaName: 'public',
         hasMany: {
             student_has_many_classes: {
                 tableName: 'class_register',
