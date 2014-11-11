@@ -53,6 +53,24 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html#internal">internal</a>
+						</li>
+						
+						<li>
+							<a href="global.html#objectInternal">objectInternal</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -199,6 +217,73 @@
     
 </dd>
 
+        
+            
+<dt class="name" id="objectInternal">
+    <h4><span class="type-signature"></span>objectInternal<span class="type-signature"> :WeakMap.&lt;object, internalValues></span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">WeakMap.&lt;object, internalValues></span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="lib_obj.js.html">lib/obj.js</a>,
+				 <a href="lib_obj.js.html#sunlight-1-line-11">line 11</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
         </dl>
     
 
@@ -206,6 +291,146 @@
         <h3 class="subsection-title">Methods</h3>
 
         <dl>
+            
+<dt>
+    <h4 class="name" id="internal"><span class="type-signature"></span>internal<span class="signature">(object)</span><span class="type-signature"> &rarr; {internalValues}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Gets/sets internal properties of an object by storing each object's internal values to private variable.
+This private variable uses object itself as key. (Similar to Perl).</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Used as key of the storage array.</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="lib_obj.js.html">lib/obj.js</a>,
+				 <a href="lib_obj.js.html#sunlight-1-line-19">line 19</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">internalValues</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
             
 <dt>
     <h4 class="name" id="module:pg-structure"><span class="type-signature"></span>require("pg-structure")<span class="signature">(host, database, username, password, options, callback)</span><span class="type-signature"></span></h4>
@@ -557,7 +782,7 @@ will get as a result.</p>
     <pre class="sunlight-highlight-javascript">var pg-structure = require(&#x27;pg-structure&#x27;);
 var util         = require(&#x27;util&#x27;);
 pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;password&#x27;, { schema: &#x27;public&#x27;, port: 5432 }, function(result) {console.log(util.inspect(result, {depth: null}));} );
-pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;password&#x27;, &#x27;public&#x27;, function(result) {console.log(JSON.stringify(result));} );</pre>
+pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;password&#x27;, {}, function(result) {console.log(JSON.stringify(result));} );</pre>
 
 
     

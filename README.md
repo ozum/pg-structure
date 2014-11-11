@@ -260,6 +260,14 @@ I added both jsdox and jsdoc2md output below
       * [Structure~processIndexes(dbResult, next)](#module_pg-structure..Structure..processIndexes)
       * [Structure~processRelations(next)](#module_pg-structure..Structure..processRelations)
 
+**Functions**
+
+* [internal(object)](#internal)
+
+**Members**
+
+* [objectInternal](#objectInternal)
+
 **Typedefs**
 
 * [callback: exportCallback](#exportCallback)
@@ -288,8 +296,21 @@ will get as a result.
 var pg-structure = require('pg-structure');
 var util         = require('util');
 pg-structure('localhost', 'db', 'user', 'password', { schema: 'public', port: 5432 }, function(result) {console.log(util.inspect(result, {depth: null}));} );
-pg-structure('localhost', 'db', 'user', 'password', 'public', function(result) {console.log(JSON.stringify(result));} );
+pg-structure('localhost', 'db', 'user', 'password', {}, function(result) {console.log(JSON.stringify(result));} );
 
+<a name="internal"></a>
+#internal(object)
+Gets/sets internal properties of an object by storing each object's internal values to private variable.
+This private variable uses object itself as key. (Similar to Perl).
+
+**Params**
+
+- object  - Used as key of the storage array.  
+
+**Returns**: `internalValues`  
+<a name="objectInternal"></a>
+#objectInternal
+**Type**: `WeakMap.<object, internalValues>`  
 <a name="exportCallback"></a>
 #callback: exportCallback
 Callback to handle database structure object.
@@ -342,6 +363,38 @@ Callback to handle database structure object.
 - hasMany.[constraintName].foreignKeys `array.<columnRef>` - Array of references to foreign key column(s) of referencing table.  
 - hasManyThrough.[constraintName].through `string` - Many to many connection table name which has references to this table and other table.  
 
+# Global
+
+
+
+
+
+* * *
+
+### internal(object) 
+
+Gets/sets internal properties of an object by storing each object's internal values to private variable.
+This private variable uses object itself as key. (Similar to Perl).
+
+**Parameters**
+
+**object**: , Used as key of the storage array.
+
+**Returns**: `internalValues`
+
+
+
+* * *
+
+
+
+
+
+
+
+
+
+
 # pg-structure
 
 
@@ -379,7 +432,7 @@ will get as a result.
 var pg-structure = require('pg-structure');
 var util         = require('util');
 pg-structure('localhost', 'db', 'user', 'password', { schema: 'public', port: 5432 }, function(result) {console.log(util.inspect(result, {depth: null}));} );
-pg-structure('localhost', 'db', 'user', 'password', 'public', function(result) {console.log(JSON.stringify(result));} );
+pg-structure('localhost', 'db', 'user', 'password', {}, function(result) {console.log(JSON.stringify(result));} );
 ```
 
 
