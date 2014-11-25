@@ -54,5 +54,3 @@ All contributions are welcome. Please send bug reports with tests and small piec
 
 ## JSDOC Output
 
-I added both jsdox and jsdoc2md output below
-
