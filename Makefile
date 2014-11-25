@@ -12,9 +12,12 @@ doc:
 	jsdoc -c jsdoc-conf.json README-JSDOC.md
 	echo Creating README.md *****************************************************
 	rm -f README.md
-	jsdoc2md --private --src lib/*  >>JSDOC.md
-	jsdox --All -r --output JSDOX lib/*
+	jsdoc2md --src lib/**/*   >>JSDOC.md
 	cat README-JSDOC.md JSDOC.md JSDOX/*  > README.md
 	rm -r -f JSDOC.md JSDOX
 
-.PHONY: test doc
+cover:
+	clear
+	istanbul cover _mocha
+
+.PHONY: test doc cover

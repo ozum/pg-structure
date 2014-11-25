@@ -1,6 +1,6 @@
 /*
 Created: 02/10/2014
-Modified: 05/11/2014
+Modified: 24/11/2014
 Project: Node Test
 Model: Node Test
 Company: Fortibase
@@ -17,6 +17,11 @@ Database: PostgreSQL 9.2
 CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;           -- HStore
 
 
+
+-- Create schemas section -------------------------------------------------
+
+CREATE SCHEMA "other_schema"
+;
 
 -- Create functions section -------------------------------------------------
 
@@ -604,6 +609,35 @@ CREATE INDEX "IX_Relationship12" ON "message" ("receiver_first_name","receiver_m
 ALTER TABLE "message" ADD CONSTRAINT "Key12" PRIMARY KEY ("id")
 ;
 
+-- Table other_schema.other_schema_table
+
+CREATE TABLE "other_schema"."other_schema_table"(
+ "id" Serial NOT NULL,
+ "name" Character varying(20),
+ "account_id" Integer
+)
+WITH (OIDS=FALSE)
+;
+
+COMMENT ON TABLE "other_schema"."other_schema_table" IS 'Diğer bir şemayı kontrol etmek için kullanılan tablo.'
+;
+COMMENT ON COLUMN "other_schema"."other_schema_table"."id" IS 'Kayıt no.'
+;
+COMMENT ON COLUMN "other_schema"."other_schema_table"."name" IS 'Adı'
+;
+COMMENT ON COLUMN "other_schema"."other_schema_table"."account_id" IS 'Bağlı olduğu firma.'
+;
+
+-- Create indexes for table other_schema.other_schema_table
+
+CREATE INDEX "IX_other_schema_table_id" ON "other_schema"."other_schema_table" ("account_id")
+;
+
+-- Add keys for table other_schema.other_schema_table
+
+ALTER TABLE "other_schema"."other_schema_table" ADD CONSTRAINT "Key13" PRIMARY KEY ("id")
+;
+
 -- Create relationships section ------------------------------------------------- 
 
 ALTER TABLE "contact" ADD CONSTRAINT "account_has_contacts" FOREIGN KEY ("company_id") REFERENCES "account" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -651,8 +685,5 @@ ALTER TABLE "message" ADD CONSTRAINT "student_has_many_messages_sent" FOREIGN KE
 ALTER TABLE "message" ADD CONSTRAINT "student_has_many_messages_received" FOREIGN KEY ("receiver_first_name", "receiver_middle_name", "receiver_last_name") REFERENCES "student" ("first_name", "middle_name", "last_name") ON DELETE CASCADE ON UPDATE CASCADE
 ;
 
-
-
-
-
-
+ALTER TABLE "other_schema"."other_schema_table" ADD CONSTRAINT "account_has_other_schema_tables" FOREIGN KEY ("account_id") REFERENCES "account" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+;

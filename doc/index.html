@@ -31,10 +31,6 @@
 							<a href="module-pg-structure.html">pg-structure</a>
 						</li>
 						
-						<li>
-							<a href="module-sql.html">sql</a>
-						</li>
-						
 
 					</ul>
 				</li>
@@ -46,7 +42,23 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="module-pg-structure-Structure.html">pg-structure~Structure</a>
+							<a href="Column.html">Column</a>
+						</li>
+						
+						<li>
+							<a href="Constraint.html">Constraint</a>
+						</li>
+						
+						<li>
+							<a href="DB.html">DB</a>
+						</li>
+						
+						<li>
+							<a href="Schema.html">Schema</a>
+						</li>
+						
+						<li>
+							<a href="Table.html">Table</a>
 						</li>
 						
 
@@ -60,11 +72,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="global.html#internal">internal</a>
+							<a href="global.html#columnAttributes">columnAttributes</a>
 						</li>
 						
 						<li>
-							<a href="global.html#objectInternal">objectInternal</a>
+							<a href="global.html#constraintAttributes">constraintAttributes</a>
+						</li>
+						
+						<li>
+							<a href="global.html#schemaAttributes">schemaAttributes</a>
 						</li>
 						
 
@@ -109,16 +125,23 @@
 
     <section class="readme-section">
         <article><h1>pg-structure</h1><p>Get PostgreSQL database structure as a detailed JS Object.</p>
-<h2>Synopsis</h2><pre class="prettyprint source"><code>var pg-structure = require('pg-structure');
-var util         = require('util');
-pg-structure('localhost', 'db', 'user', 'password', { schema: 'public', port: 5432 }, function(result) {console.log(util.inspect(result, {depth: null}));} );
-pg-structure('localhost', 'db', 'user', 'password', 'public', function(result) {console.log(JSON.stringify(result));} );</code></pre><h2>Abstract</h2><p>pg-structure creates a detailed object of a PostgreSQL database. This object may be used to auto generate
+<h2>Synopsis</h2><pre class="prettyprint source"><code>var pgs     = require('pg-structure');
+var util    = require('util');
+
+pgs('127.0.0.1', 'node', 'user', 'password', { schema: ['public', 'other_schema'] }, function (err, db) {
+    console.log(db.schema('public').name());
+    db.schema('public').tables(function (table) {
+        console.log(table.name());
+    });
+    console.log(db.schema('public').table('cart').column('contact_id').foreignKeyConstraint().referencesTable().name());
+});</code></pre><h2>Abstract</h2><p>pg-structure creates a detailed object of a PostgreSQL database. This object may be used to auto generate
 documentation or ORM models from database. It is much easier to work with JS object than working manually
 with database.</p>
 <h2>Description</h2><p>pg-structure connects to a PostgreSQL database, examines its structure and creates an JS object. The passed callback
 is executed with result object as parameter.</p>
 <h2>Features</h2><ul>
-<li>Fully documented with JSDOC and HTML including public and private API (HTML docs are in doc directory)</li>
+<li>Fully tested (Istanbul-JS coverage reports are in coverage folder)</li>
+<li>Fully documented with JSDOC and HTML (HTML docs are in doc directory)</li>
 <li>All PostgreSQL data types including array, JSON and HSTore</li>
 <li>Support composite keys (Multiple field keys)</li>
 <li>Schema support</li>
@@ -128,7 +151,7 @@ is executed with result object as parameter.</p>
 <li>Unique Indexes</li>
 <li>Identifies hasMany relationships</li>
 <li>Identifies possible many to many relationships (through relationships)</li>
-<li>Columns can be accessed by name or by database order. (Contains object and array referencing to this objects fileds)</li>
+<li>Columns can be accessed by name or by order. (Contains object and array referencing to this objects fields)</li>
 <li>Very detailed column meta data:<ul>
 <li>Allow null</li>
 <li>Description</li>
@@ -140,200 +163,7 @@ is executed with result object as parameter.</p>
 </li>
 </ul>
 <h2>Contributions</h2><p>All contributions are welcome. Please send bug reports with tests and small piece of code.</p>
-<h2>Example Output (a part of)</h2><pre class="prettyprint source"><code>cart: {
-    columns: {
-        id: {
-            schemaName: 'public',
-            tableName: 'cart',
-            name: 'id',
-            default: 'nextval(\'cart_id_seq\'::regclass)',
-            allowNull: false,
-            type: 'integer',
-            special: null,
-            length: null,
-            precision: 32,
-            scale: 0,
-            arrayType: null,
-            arrayDimension: null,
-            description: 'Kayıt no.',
-            isAutoIncrement: true,
-            constraintName: 'Key3',
-            isPrimaryKey: true,
-            unique: 'Key3'
-        },
-
-        contact_id: {
-            schemaName: 'public',
-            tableName: 'cart',
-            name: 'contact_id',
-            default: null,
-            allowNull: false,
-            type: 'integer',
-            special: null,
-            length: null,
-            precision: 32,
-            scale: 0,
-            arrayType: null,
-            arrayDimension: null,
-            description: 'Alışveriş sepetinin sahibi.',
-            constraintName: 'contact_has_carts',
-            isForeignKey: true,
-            referencesSchema: 'public',
-            referencesTable: 'contact',
-            referencesColumn: 'id',
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE'
-        }
-    },
-    columnsOrdered: [{
-        schemaName: 'public',
-        tableName: 'cart',
-        name: 'id',
-        default: 'nextval(\'cart_id_seq\'::regclass)',
-        allowNull: false,
-        type: 'integer',
-        special: null,
-        length: null,
-        precision: 32,
-        scale: 0,
-        arrayType: null,
-        arrayDimension: null,
-        description: 'Kayıt no.',
-        isAutoIncrement: true,
-        constraintName: 'Key3',
-        isPrimaryKey: true,
-        unique: 'Key3'
-    },
-
-    {
-        schemaName: 'public',
-        tableName: 'cart',
-        name: 'contact_id',
-        default: null,
-        allowNull: false,
-        type: 'integer',
-        special: null,
-        length: null,
-        precision: 32,
-        scale: 0,
-        arrayType: null,
-        arrayDimension: null,
-        description: 'Alışveriş sepetinin sahibi.',
-        constraintName: 'contact_has_carts',
-        isForeignKey: true,
-        referencesSchema: 'public',
-        referencesTable: 'contact',
-        referencesColumn: 'id',
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-    }],
-    primaryKeys: [{
-        schemaName: 'public',
-        tableName: 'cart',
-        name: 'id',
-        default: 'nextval(\'cart_id_seq\'::regclass)',
-        allowNull: false,
-        type: 'integer',
-        special: null,
-        length: null,
-        precision: 32,
-        scale: 0,
-        arrayType: null,
-        arrayDimension: null,
-        description: 'Kayıt no.',
-        isAutoIncrement: true,
-        constraintName: 'Key3',
-        isPrimaryKey: true,
-        unique: 'Key3'
-    }],
-    description: 'Alışveriş sepetlerini tutan tablo.',
-    name: 'cart',
-    foreignKeys: {
-        contact_has_carts: [{
-            schemaName: 'public',
-            tableName: 'cart',
-            name: 'contact_id',
-            default: null,
-            allowNull: false,
-            type: 'integer',
-            special: null,
-            length: null,
-            precision: 32,
-            scale: 0,
-            arrayType: null,
-            arrayDimension: null,
-            description: 'Alışveriş sepetinin sahibi.',
-            constraintName: 'contact_has_carts',
-            isForeignKey: true,
-            referencesSchema: 'public',
-            referencesTable: 'contact',
-            referencesColumn: 'id',
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE'
-        }]
-    },
-    hasMany: {
-        cart_has_products: {
-            tableName: 'cart_line_item',
-            foreignKeys: [{
-                schemaName: 'public',
-                tableName: 'cart_line_item',
-                name: 'cart_id',
-                default: null,
-                allowNull: false,
-                type: 'integer',
-                special: null,
-                length: null,
-                precision: 32,
-                scale: 0,
-                arrayType: null,
-                arrayDimension: null,
-                description: null,
-                constraintName: 'cart_has_products',
-                isPrimaryKey: true,
-                isForeignKey: true,
-                referencesSchema: 'public',
-                referencesTable: 'cart',
-                referencesColumn: 'id',
-                onUpdate: 'CASCADE',
-                onDelete: 'RESTRICT',
-                unique: 'Key5'
-            }],
-            constraintName: 'cart_has_products'
-        }
-    },
-    hasManyThrough: {
-        cart_has_products: {
-            tableName: 'product',
-            foreignKeys: [{
-                schemaName: 'public',
-                tableName: 'cart_line_item',
-                name: 'cart_id',
-                default: null,
-                allowNull: false,
-                type: 'integer',
-                special: null,
-                length: null,
-                precision: 32,
-                scale: 0,
-                arrayType: null,
-                arrayDimension: null,
-                description: null,
-                constraintName: 'cart_has_products',
-                isPrimaryKey: true,
-                isForeignKey: true,
-                referencesSchema: 'public',
-                referencesTable: 'cart',
-                referencesColumn: 'id',
-                onUpdate: 'CASCADE',
-                onDelete: 'RESTRICT',
-                unique: 'Key5'
-            }],
-            constraintName: 'cart_has_products',
-            through: 'cart_line_item'
-        }
-    }
-},</code></pre><h2>JSDOC Output</h2><p>I added both jsdox and jsdoc2md output below</p></article>
+<h2>JSDOC Output</h2><p>I added both jsdox and jsdoc2md output below</p></article>
     </section>
 
 
@@ -355,7 +185,7 @@ is executed with result object as parameter.</p>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha10</a>
-		on Tue Nov 11th 2014 using the <a
+		on Tue Nov 25th 2014 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>

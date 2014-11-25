@@ -31,5 +31,5 @@ FROM information_schema.columns
   LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace AND pg_catalog.pg_table_is_visible(c.oid)
   LEFT JOIN pg_catalog.pg_type arraytype ON arraytype.typname = RIGHT(udt_name, -1)
   INNER JOIN pg_type t ON a.atttypid = t.oid
-WHERE table_schema = $1
+WHERE table_schema = ANY ($1)
 ORDER BY table_schema, table_name, ordinal_position

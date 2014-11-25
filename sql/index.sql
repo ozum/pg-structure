@@ -17,7 +17,7 @@ WHERE  t.oid = ix.indrelid
        AND a.attnum = ANY ( ix.indkey )
        AND t.relkind = 'r'
        AND ns.oid = i.relnamespace
-       AND ns.nspname = $1
+       AND ns.nspname = ANY ($1)
 GROUP  BY ns.nspname,
           t.relname,
           i.relname,

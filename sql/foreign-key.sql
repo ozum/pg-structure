@@ -28,7 +28,8 @@ FROM information_schema.referential_constraints rc
        AND tc.constraint_schema = kcu.constraint_schema
        AND tc.constraint_name = kcu.constraint_name
 
-WHERE kcu.table_schema = $1
+WHERE kcu.table_schema = ANY ($1)
+      OR kcu2.table_schema = ANY ($1)
 
 ORDER BY kcu.table_schema,
   kcu.table_name,

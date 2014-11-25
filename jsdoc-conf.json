@@ -4,7 +4,7 @@
     "encoding": "utf8",
     "destination": "./doc/",
     "recurse": true,
-    "private": true
+    "private": false
   },
   "tags": {
     "allowUnknownTags": true

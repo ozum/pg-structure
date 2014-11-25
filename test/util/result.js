@@ -1,4 +1,168 @@
+/*jslint node: true */
+"use strict";
 module.exports = {
+    other_schema_table: {
+        columns: {
+            id: {
+                schemaName: 'other_schema',
+                tableName: 'other_schema_table',
+                name: 'id',
+                default: 'nextval(\'other_schema.other_schema_table_id_seq\'::regclass)',
+                allowNull: false,
+                type: 'integer',
+                special: null,
+                length: null,
+                precision: 32,
+                scale: 0,
+                arrayType: null,
+                arrayDimension: null,
+                description: 'Kayıt no.',
+                isAutoIncrement: true,
+                constraintName: 'Key13',
+                isPrimaryKey: true,
+                unique: 'Key13'
+            },
+            name: {
+                schemaName: 'other_schema',
+                tableName: 'other_schema_table',
+                name: 'name',
+                default: null,
+                allowNull: true,
+                type: 'character varying',
+                special: null,
+                length: 20,
+                precision: null,
+                scale: null,
+                arrayType: null,
+                arrayDimension: null,
+                description: 'Adı'
+            },
+            account_id: {
+                schemaName: 'other_schema',
+                tableName: 'other_schema_table',
+                name: 'account_id',
+                default: null,
+                allowNull: true,
+                type: 'integer',
+                special: null,
+                length: null,
+                precision: 32,
+                scale: 0,
+                arrayType: null,
+                arrayDimension: null,
+                description: 'Bağlı olduğu firma.',
+                constraintName: 'account_has_other_schema_tables',
+                isForeignKey: true,
+                referencesSchema: 'public',
+                referencesTable: 'account',
+                referencesColumn: 'id',
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
+            }
+        },
+        columnsOrdered: [{
+            schemaName: 'other_schema',
+            tableName: 'other_schema_table',
+            name: 'id',
+            default: 'nextval(\'other_schema.other_schema_table_id_seq\'::regclass)',
+            allowNull: false,
+            type: 'integer',
+            special: null,
+            length: null,
+            precision: 32,
+            scale: 0,
+            arrayType: null,
+            arrayDimension: null,
+            description: 'Kayıt no.',
+            isAutoIncrement: true,
+            constraintName: 'Key13',
+            isPrimaryKey: true,
+            unique: 'Key13'
+        },
+            {
+                schemaName: 'other_schema',
+                tableName: 'other_schema_table',
+                name: 'name',
+                default: null,
+                allowNull: true,
+                type: 'character varying',
+                special: null,
+                length: 20,
+                precision: null,
+                scale: null,
+                arrayType: null,
+                arrayDimension: null,
+                description: 'Adı'
+            },
+            {
+                schemaName: 'other_schema',
+                tableName: 'other_schema_table',
+                name: 'account_id',
+                default: null,
+                allowNull: true,
+                type: 'integer',
+                special: null,
+                length: null,
+                precision: 32,
+                scale: 0,
+                arrayType: null,
+                arrayDimension: null,
+                description: 'Bağlı olduğu firma.',
+                constraintName: 'account_has_other_schema_tables',
+                isForeignKey: true,
+                referencesSchema: 'public',
+                referencesTable: 'account',
+                referencesColumn: 'id',
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
+            }],
+        primaryKeys: [{
+            schemaName: 'other_schema',
+            tableName: 'other_schema_table',
+            name: 'id',
+            default: 'nextval(\'other_schema.other_schema_table_id_seq\'::regclass)',
+            allowNull: false,
+            type: 'integer',
+            special: null,
+            length: null,
+            precision: 32,
+            scale: 0,
+            arrayType: null,
+            arrayDimension: null,
+            description: 'Kayıt no.',
+            isAutoIncrement: true,
+            constraintName: 'Key13',
+            isPrimaryKey: true,
+            unique: 'Key13'
+        }],
+        description: 'Diğer bir şemayı kontrol etmek için kullanılan tablo.',
+        name: 'other_schema_table',
+        schemaName: 'other_schema',
+        foreignKeys: {
+            account_has_other_schema_tables: [{
+                schemaName: 'other_schema',
+                tableName: 'other_schema_table',
+                name: 'account_id',
+                default: null,
+                allowNull: true,
+                type: 'integer',
+                special: null,
+                length: null,
+                precision: 32,
+                scale: 0,
+                arrayType: null,
+                arrayDimension: null,
+                description: 'Bağlı olduğu firma.',
+                constraintName: 'account_has_other_schema_tables',
+                isForeignKey: true,
+                referencesSchema: 'public',
+                referencesTable: 'account',
+                referencesColumn: 'id',
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
+            }]
+        }
+    },
     account: {
         columns: {
             id: {
@@ -611,6 +775,32 @@ module.exports = {
             }]
         },
         hasMany: {
+            account_has_other_schema_tables: {
+                tableName: 'other_schema_table',
+                foreignKeys: [{
+                    schemaName: 'other_schema',
+                    tableName: 'other_schema_table',
+                    name: 'account_id',
+                    default: null,
+                    allowNull: true,
+                    type: 'integer',
+                    special: null,
+                    length: null,
+                    precision: 32,
+                    scale: 0,
+                    arrayType: null,
+                    arrayDimension: null,
+                    description: 'Bağlı olduğu firma.',
+                    constraintName: 'account_has_other_schema_tables',
+                    isForeignKey: true,
+                    referencesSchema: 'public',
+                    referencesTable: 'account',
+                    referencesColumn: 'id',
+                    onUpdate: 'CASCADE',
+                    onDelete: 'CASCADE'
+                }],
+                constraintName: 'account_has_other_schema_tables'
+            },
             account_has_contacts: {
                 tableName: 'contact',
                 foreignKeys: [{
@@ -5169,4 +5359,4 @@ module.exports = {
             }
         }
     }
-}
+};

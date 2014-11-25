@@ -31,10 +31,6 @@
 							<a href="module-pg-structure.html">pg-structure</a>
 						</li>
 						
-						<li>
-							<a href="module-sql.html">sql</a>
-						</li>
-						
 
 					</ul>
 				</li>
@@ -46,7 +42,23 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="module-pg-structure-Structure.html">pg-structure~Structure</a>
+							<a href="Column.html">Column</a>
+						</li>
+						
+						<li>
+							<a href="Constraint.html">Constraint</a>
+						</li>
+						
+						<li>
+							<a href="DB.html">DB</a>
+						</li>
+						
+						<li>
+							<a href="Schema.html">Schema</a>
+						</li>
+						
+						<li>
+							<a href="Table.html">Table</a>
 						</li>
 						
 
@@ -60,11 +72,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="global.html#internal">internal</a>
+							<a href="global.html#columnAttributes">columnAttributes</a>
 						</li>
 						
 						<li>
-							<a href="global.html#objectInternal">objectInternal</a>
+							<a href="global.html#constraintAttributes">constraintAttributes</a>
+						</li>
+						
+						<li>
+							<a href="global.html#schemaAttributes">schemaAttributes</a>
 						</li>
 						
 
@@ -107,7 +123,7 @@
     
     
     <div class="description">
-        <p>Exports a PostgreSQL schema as a detailed object. Please see @see <a href="global.html#table">table</a> object for callback argument that you
+        <p>Exports a PostgreSQL schema as a detailed object. Please see <a href="DB.html">DB</a> object for callback argument that you
 will get as a result.</p>
     </div>
     
@@ -286,6 +302,9 @@ will get as a result.</p>
             <td class="type">
             
                 
+<span class="param-type">Array</span>
+|
+
 <span class="param-type">String</span>
 
 
@@ -307,12 +326,12 @@ will get as a result.</p>
             
                 <td class="default">
                 
-                    public
+                    'public'
                 
                 </td>
             
 
-            <td class="description last"><p>Schema of the database.</p></td>
+            <td class="description last"><p>Schema(s) of the database.</p></td>
         </tr>
 
 	
@@ -371,7 +390,7 @@ will get as a result.</p>
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#exportCallback">exportCallback</a></span>
+<span class="param-type">exportCallback</span>
 
 
             
@@ -418,7 +437,7 @@ will get as a result.</p>
 		<ul class="dummy">
 			<li>
 				<a href="lib_pg-structure.js.html">lib/pg-structure.js</a>,
-				 <a href="lib_pg-structure.js.html#sunlight-1-line-37">line 37</a>
+				 <a href="lib_pg-structure.js.html#sunlight-1-line-201">line 201</a>
 			</li>
 		</ul>
 	</dd>
@@ -445,10 +464,15 @@ will get as a result.</p>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">var pg-structure = require(&#x27;pg-structure&#x27;);
-var util         = require(&#x27;util&#x27;);
-pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;password&#x27;, { schema: &#x27;public&#x27;, port: 5432 }, function(result) {console.log(util.inspect(result, {depth: null}));} );
-pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;password&#x27;, {}, function(result) {console.log(JSON.stringify(result));} );</pre>
+    <pre class="sunlight-highlight-javascript">var pgs     = require(&#x27;pg-structure&#x27;);
+var util    = require(&#x27;util&#x27;);
+pgs(&#x27;127.0.0.1&#x27;, &#x27;node&#x27;, &#x27;user&#x27;, &#x27;password&#x27;, { schema: [&#x27;public&#x27;, &#x27;other_schema&#x27;] }, function (err, db) {
+    console.log(db.schema(&#x27;public&#x27;).name());
+        db.schema(&#x27;public&#x27;).tables(function (table) {
+            console.log(table.name());
+        });
+    console.log(db.schema(&#x27;public&#x27;).table(&#x27;cart&#x27;).column(&#x27;contact_id&#x27;).foreignKeyConstraint().referencesTable().name());
+});</pre>
 
 
     
@@ -519,20 +543,142 @@ pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;pass
     
 
     
-        <h3 class="subsection-title">Classes</h3>
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
 
         <dl>
-            <dt><a href="module-pg-structure-Structure.html">Structure</a></dt>
-            <dd></dd>
-        </dl>
+                
+<dt>
+    <h4 class="name" id="exportCallback"><span class="type-signature"></span>exportCallback<span class="signature">(Structure)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Callback to handle database structure object.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>Structure</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object.&lt;string, Object.&lt;table>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object of the database.</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="lib_pg-structure.js.html">lib/pg-structure.js</a>,
+				 <a href="lib_pg-structure.js.html#sunlight-1-line-15">line 15</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
     
 
     
 
     
-
     
+    
+    
+    
+    
+    
+</dd>
 
+            </dl>
     
 
     
@@ -556,7 +702,7 @@ pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;pass
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha10</a>
-		on Tue Nov 11th 2014 using the <a
+		on Tue Nov 25th 2014 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>

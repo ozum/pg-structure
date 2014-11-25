@@ -17,7 +17,7 @@ FROM information_schema.table_constraints tc
        AND tc.constraint_schema = kcu.constraint_schema
        AND tc.constraint_name = kcu.constraint_name
 
-WHERE Lower(tc.constraint_schema) IN ($1)
+WHERE Lower(tc.constraint_schema) = ANY ($1)
       AND Lower(tc.constraint_type) NOT IN ('check', 'foreign key')
 ORDER BY tc.table_schema,
   tc.table_name,

@@ -2,8 +2,11 @@
  * Exports SQL queries.
  *
  * @module sql
+ * @private
  * @author Özüm Eldoğan
  */
+/*jslint node: true, nomen: true, stupid: true */
+"use strict";
 
 var fs = require('fs');
 

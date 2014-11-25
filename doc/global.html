@@ -31,10 +31,6 @@
 							<a href="module-pg-structure.html">pg-structure</a>
 						</li>
 						
-						<li>
-							<a href="module-sql.html">sql</a>
-						</li>
-						
 
 					</ul>
 				</li>
@@ -46,7 +42,23 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="module-pg-structure-Structure.html">pg-structure~Structure</a>
+							<a href="Column.html">Column</a>
+						</li>
+						
+						<li>
+							<a href="Constraint.html">Constraint</a>
+						</li>
+						
+						<li>
+							<a href="DB.html">DB</a>
+						</li>
+						
+						<li>
+							<a href="Schema.html">Schema</a>
+						</li>
+						
+						<li>
+							<a href="Table.html">Table</a>
 						</li>
 						
 
@@ -60,11 +72,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="global.html#internal">internal</a>
+							<a href="global.html#columnAttributes">columnAttributes</a>
 						</li>
 						
 						<li>
-							<a href="global.html#objectInternal">objectInternal</a>
+							<a href="global.html#constraintAttributes">constraintAttributes</a>
+						</li>
+						
+						<li>
+							<a href="global.html#schemaAttributes">schemaAttributes</a>
 						</li>
 						
 
@@ -152,6 +168,148 @@
 
         <dl>
             
+<dt class="name" id="columnAttributes">
+    <h4><span class="type-signature"></span>columnAttributes<span class="type-signature"> :Object</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Allowed column attributes and validations.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="lib_util_column.js.html">lib/util/column.js</a>,
+				 <a href="lib_util_column.js.html#sunlight-1-line-42">line 42</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="constraintAttributes">
+    <h4><span class="type-signature"></span>constraintAttributes<span class="type-signature"> :Object</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Allowed column attributes and validations.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="lib_util_constraint.js.html">lib/util/constraint.js</a>,
+				 <a href="lib_util_constraint.js.html#sunlight-1-line-33">line 33</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
 <dt class="name" id="module:sql">
     <h4><span class="type-signature"></span>module:sql<span class="type-signature"> :Object</span></h4>
 
@@ -200,7 +358,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sql_index.js.html">sql/index.js</a>,
-				 <a href="sql_index.js.html#sunlight-1-line-13">line 13</a>
+				 <a href="sql_index.js.html#sunlight-1-line-16">line 16</a>
 			</li>
 		</ul>
 	</dd>
@@ -219,12 +377,16 @@
 
         
             
-<dt class="name" id="objectInternal">
-    <h4><span class="type-signature"></span>objectInternal<span class="type-signature"> :WeakMap.&lt;object, internalValues></span></h4>
+<dt class="name" id="schemaAttributes">
+    <h4><span class="type-signature"></span>schemaAttributes<span class="type-signature"> :Object</span></h4>
 
     
 </dt>
 <dd>
+    
+    <div class="description">
+        <p>Allowed schema attributes and validations.</p>
+    </div>
     
 
     
@@ -232,7 +394,7 @@
         <ul>
             <li>
                 
-<span class="param-type">WeakMap.&lt;object, internalValues></span>
+<span class="param-type">Object</span>
 
 
             </li>
@@ -266,8 +428,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="lib_obj.js.html">lib/obj.js</a>,
-				 <a href="lib_obj.js.html#sunlight-1-line-11">line 11</a>
+				<a href="lib_util_schema.js.html">lib/util/schema.js</a>,
+				 <a href="lib_util_schema.js.html#sunlight-1-line-25">line 25</a>
 			</li>
 		</ul>
 	</dd>
@@ -293,7 +455,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="internal"><span class="type-signature"></span>internal<span class="signature">(object)</span><span class="type-signature"> &rarr; {internalValues}</span></h4>
+    <h4 class="name" id="module:pg-structure"><span class="type-signature"></span>require("pg-structure")<span class="signature">(host, database, username, password, options, callback)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -301,8 +463,8 @@
     
     
     <div class="description">
-        <p>Gets/sets internal properties of an object by storing each object's internal values to private variable.
-This private variable uses object itself as key. (Similar to Perl).</p>
+        <p>Exports a PostgreSQL schema as a detailed object. Please see <a href="DB.html">DB</a> object for callback argument that you
+will get as a result.</p>
     </div>
     
 
@@ -336,10 +498,15 @@ This private variable uses object itself as key. (Similar to Perl).</p>
 
         <tr>
             
-                <td class="name"><code>object</code></td>
+                <td class="name"><code>host</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
             
             </td>
 
@@ -347,7 +514,233 @@ This private variable uses object itself as key. (Similar to Perl).</p>
 
             
 
-            <td class="description last"><p>Used as key of the storage array.</p></td>
+            <td class="description last"><p>Hostname of the database.</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>database</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Database name</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>username</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Username for connecting to db.</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Password to connecting to db.</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Options</p>
+                <h6>Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+		<th>Default</th>
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>schema</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    'public'
+                
+                </td>
+            
+
+            <td class="description last"><p>Schema(s) of the database.</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>port</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    5432
+                
+                </td>
+            
+
+            <td class="description last"><p>Connection port of the database server.</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+            </td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">exportCallback</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback to handle database structure object.</p></td>
         </tr>
 
 	
@@ -383,8 +776,8 @@ This private variable uses object itself as key. (Similar to Perl).</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="lib_obj.js.html">lib/obj.js</a>,
-				 <a href="lib_obj.js.html#sunlight-1-line-19">line 19</a>
+				<a href="lib_pg-structure.js.html">lib/pg-structure.js</a>,
+				 <a href="lib_pg-structure.js.html#sunlight-1-line-201">line 201</a>
 			</li>
 		</ul>
 	</dd>
@@ -407,33 +800,28 @@ This private variable uses object itself as key. (Similar to Perl).</p>
     
     
     
-    <h5>Returns:</h5>
     
-            
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">internalValues</span>
-
-
-	</dd>
-</dl>
-
-
+    
+        <h5>Example</h5>
         
-    
+    <pre class="sunlight-highlight-javascript">var pgs     = require(&#x27;pg-structure&#x27;);
+var util    = require(&#x27;util&#x27;);
+pgs(&#x27;127.0.0.1&#x27;, &#x27;node&#x27;, &#x27;user&#x27;, &#x27;password&#x27;, { schema: [&#x27;public&#x27;, &#x27;other_schema&#x27;] }, function (err, db) {
+    console.log(db.schema(&#x27;public&#x27;).name());
+        db.schema(&#x27;public&#x27;).tables(function (table) {
+            console.log(table.name());
+        });
+    console.log(db.schema(&#x27;public&#x27;).table(&#x27;cart&#x27;).column(&#x27;contact_id&#x27;).foreignKeyConstraint().referencesTable().name());
+});</pre>
+
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="module:pg-structure"><span class="type-signature"></span>require("pg-structure")<span class="signature">(host, database, username, password, options, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="module:pg-structure-plain-object"><span class="type-signature"></span>module:pg-structure-plain-object<span class="signature">(host, database, username, password, options, callback)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -441,7 +829,7 @@ This private variable uses object itself as key. (Similar to Perl).</p>
     
     
     <div class="description">
-        <p>Exports a PostgreSQL schema as a detailed object. Please see @see <a href="global.html#table">table</a> object for callback argument that you
+        <p>Exports a PostgreSQL schema as a detailed object. Please see @see table object for callback argument that you
 will get as a result.</p>
     </div>
     
@@ -705,7 +1093,7 @@ will get as a result.</p>
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#exportCallback">exportCallback</a></span>
+<span class="param-type">exportCallback</span>
 
 
             
@@ -751,8 +1139,8 @@ will get as a result.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="lib_pg-structure.js.html">lib/pg-structure.js</a>,
-				 <a href="lib_pg-structure.js.html#sunlight-1-line-37">line 37</a>
+				<a href="lib_pg-structure-plain-object.js.html">lib/pg-structure-plain-object.js</a>,
+				 <a href="lib_pg-structure-plain-object.js.html#sunlight-1-line-275">line 275</a>
 			</li>
 		</ul>
 	</dd>
@@ -797,16 +1185,12 @@ pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;pass
         <dl>
                 
 <dt>
-    <h4 class="name" id="exportCallback"><span class="type-signature"></span>exportCallback<span class="signature">(Structure)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="columnCallback"><span class="type-signature"></span>columnCallback<span class="signature">(column)</span><span class="type-signature"></span></h4>
     
     
 </dt>
 <dd>
     
-    
-    <div class="description">
-        <p>Callback to handle database structure object.</p>
-    </div>
     
 
     
@@ -839,13 +1223,13 @@ pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;pass
 
         <tr>
             
-                <td class="name"><code>Structure</code></td>
+                <td class="name"><code>column</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object.&lt;TableName, Object.&lt;<a href="global.html#table">table</a>>></span>
+<span class="param-type"><a href="Column.html">Column</a></span>
 
 
             
@@ -855,7 +1239,7 @@ pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;pass
 
             
 
-            <td class="description last"><p>object of the database.</p></td>
+            <td class="description last"><p>Column object</p></td>
         </tr>
 
 	
@@ -891,8 +1275,8 @@ pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;pass
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="lib_pg-structure.js.html">lib/pg-structure.js</a>,
-				 <a href="lib_pg-structure.js.html#sunlight-1-line-12">line 12</a>
+				<a href="lib_util_table.js.html">lib/util/table.js</a>,
+				 <a href="lib_util_table.js.html#sunlight-1-line-14">line 14</a>
 			</li>
 		</ul>
 	</dd>
@@ -921,971 +1305,72 @@ pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;pass
 
             
                 
-<dt class="name" id="table">
-    <h4>table</h4>
-
+<dt>
+    <h4 class="name" id="columnCallback"><span class="type-signature"></span>columnCallback<span class="signature">(column)</span><span class="type-signature"></span></h4>
+    
     
 </dt>
 <dd>
     
-
     
 
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>column</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Column.html">Column</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Column object</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
     
 <dl class="details">
-	
-
-	<h5 class="subsection-title">Properties:</h5>
-
-	<dl>
-
-<table class="props table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>schemaName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Schema name of the table.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Name of the table</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>description</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Table description. This description is defined in database.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>columns</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An object which contains column names as keys, column details as values.</p>
-                <h6>Properties</h6>
-
-<table class="props table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Name of the database column</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].default</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Default value of the column</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].allowNull</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Is the column allowed to contain null values?</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Data type of the column. Data types has PostgreSQL long style names such as 'integer', 'timestamp without time zone', 'character varying' etc.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].special</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Special attribute of the column.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].length</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Length of the column.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].precision</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Precision of the column. Used for data types such as numeric etc. Date and datetime types also has optional precision.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].scale</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Scale of the column.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].arrayTpe</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>(If column data type is array) Indicates what kind of data type does this array contain.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].arrayDimension</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>(If column data type is array). Dimension of the array.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].description</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Column description. This description is defined in database.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].isAutoIncrement</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Is the column data type one of auto incremented types such as serial, bigserial etc.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].isPrimaryKey</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Is the column a primary key?</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].isForeignKey</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Is the column a foreign key?</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].constraintName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Primary/foreign key constraint name</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].referencesTable</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>(If column is foreign key) Table name which this column refers to.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].referencesColumn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>(If column is foreign key) Column name which this column refers to.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].onUpdate</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>(If column is foreign key) Action which will be taken on update.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].onDelete</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>(If column is foreign key) Action which will be taken on delete.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].unique</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>(NOT BOOLEAN) If this column is unique, unique index or part of combined unique index, this column contains name of the unique index name.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].tableName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Table name of the column.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[columnName].schemaName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Schema name of the column.</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-            </td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>columnsOrdered</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">array.&lt;columnRef></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An array containing references to columns. Array has same order of columns with database table.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>primaryKeys</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">array.&lt;columnRef></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An array containing references to primary key columns of the table.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>foreignKeys</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object.&lt;constraintName, array.&lt;columnRef>></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An object containing constraint names as keys and array of foreign key field references as values.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>hasMany</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object.&lt;constraintName, object></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An array containing details about tables which this table has many of. (Other tables which references to this table)</p>
-                <h6>Properties</h6>
-
-<table class="props table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>[constraintName].tableName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Name of the table which references to this table.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[constraintName].constraintName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Constraint name</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>[constraintName].foreignKeys</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">array.&lt;columnRef></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Array of references to foreign key column(s) of referencing table.</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-            </td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>hasManyThrough</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object.&lt;constraintName, object></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An array containing details about tables which this table has many of through many to many relationship. (Other tables which references to this table via many to many)</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>hasMany.[constraintName].tableName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Name of the table which references to this table.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>hasMany.[constraintName].constraintName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Constraint name</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>hasMany.[constraintName].foreignKeys</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">array.&lt;columnRef></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Array of references to foreign key column(s) of referencing table.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>hasManyThrough.[constraintName].through</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Many to many connection table name which has references to this table and other table.</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-</dl>
-
 	
 
 	
@@ -1911,8 +1396,8 @@ pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;pass
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="lib_pg-structure.js.html">lib/pg-structure.js</a>,
-				 <a href="lib_pg-structure.js.html#sunlight-1-line-223">line 223</a>
+				<a href="lib_util_constraint.js.html">lib/util/constraint.js</a>,
+				 <a href="lib_util_constraint.js.html#sunlight-1-line-171">line 171</a>
 			</li>
 		</ul>
 	</dd>
@@ -1925,7 +1410,380 @@ pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;pass
 	
 </dl>
 
+    
+    
 
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="constraintCallback"><span class="type-signature"></span>constraintCallback<span class="signature">(constraint)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>constraint</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Constraint.html">Constraint</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Constraint object</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="lib_util_table.js.html">lib/util/table.js</a>,
+				 <a href="lib_util_table.js.html#sunlight-1-line-19">line 19</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="schemaCallback"><span class="type-signature"></span>schemaCallback<span class="signature">(schema)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>schema</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Schema.html">Schema</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Schema object</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="lib_util_db.js.html">lib/util/db.js</a>,
+				 <a href="lib_util_db.js.html#sunlight-1-line-75">line 75</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="tableCallback"><span class="type-signature"></span>tableCallback<span class="signature">(table)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>table</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Table.html">Table</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Table object</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="lib_util_schema.js.html">lib/util/schema.js</a>,
+				 <a href="lib_util_schema.js.html#sunlight-1-line-95">line 95</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
     
 </dd>
 
@@ -1953,7 +1811,7 @@ pg-structure(&#x27;localhost&#x27;, &#x27;db&#x27;, &#x27;user&#x27;, &#x27;pass
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha10</a>
-		on Tue Nov 11th 2014 using the <a
+		on Tue Nov 25th 2014 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
