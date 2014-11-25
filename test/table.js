@@ -90,6 +90,18 @@ describe('foreignKeyConstraints function', function () {
     });
 });
 
+describe('foreignKeyConstraintExist function', function () {
+    it('should return true for existing foreign key constraint.', function () {
+        assert.isTrue(table.foreignKeyConstraintExist('industry_has_companies'));
+    });
+    it('should return true for existing foreign key constraint.', function () {
+        assert.isFalse(table.foreignKeyConstraintExist('ZZZZ'));
+    });
+    it('should throw error for non validated arguments', function () {
+        assert.throw(function () { table.foreignKeyConstraintExist(); }, /Error in function arguments/)
+    });
+});
+
 describe('foreignKeyConstraintsByName function', function () {
     it('should get foreign key constraints with constraint name without callback.', function () {
         assert.equal(table.foreignKeyConstraintsByName().industry_has_companies.name(), 'industry_has_companies');
@@ -208,22 +220,22 @@ describe('addForeignKey function', function () {
     it('should throw error for false schema name.', function () {
         assert.throw(function () {
             table.addForeignKey({ constraintName: 'fake', columnName: 'industry_id', foreignSchemaName: 'ZZZ', foreignTableName: 'industry', foreignColumnName: 'id', onUpdate: 'CASCADE', onDelete: 'SET NULL' });
-        }, /schema cannot be found/);
+        }, /cannot be found/);
     });
     it('should throw error for false table name.', function () {
         assert.throw(function () {
             table.addForeignKey({ constraintName: 'fake', columnName: 'industry_id', foreignSchemaName: 'public', foreignTableName: 'ZZZ', foreignColumnName: 'id', onUpdate: 'CASCADE', onDelete: 'SET NULL' });
-        }, /table cannot be found/);
+        }, /cannot be found/);
     });
     it('should throw error for false column name.', function () {
         assert.throw(function () {
             table.addForeignKey({ constraintName: 'fake', columnName: 'ZZZ', foreignSchemaName: 'public', foreignTableName: 'industry', foreignColumnName: 'id', onUpdate: 'CASCADE', onDelete: 'SET NULL' });
-        }, /column cannot be found/);
+        }, /cannot be found/);
     });
     it('should throw error for false foreign column name.', function () {
         assert.throw(function () {
             table.addForeignKey({ constraintName: 'fake', columnName: 'industry_id', foreignSchemaName: 'public', foreignTableName: 'industry', foreignColumnName: 'ZZZ', onUpdate: 'CASCADE', onDelete: 'SET NULL' });
-        }, /column \(referenced by foreign key\) cannot be found/);
+        }, /cannot be found/);
     });
     it('should throw error for non validated parameters.', function () {
         assert.throw(function () {

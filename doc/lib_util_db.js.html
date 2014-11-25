@@ -161,9 +161,13 @@ var DB = function DB(args, options) {
 DB.prototype.name = helper.accessor('name');
 
 /**
+ * Gets full name of the object in database . notation.
+ */
+DB.prototype.fullName = helper.objectFullName();
+
+/**
  * Adds schema to the schema and returns schema created newly.
  * @method
- * @protected
  * @param { Schema | object } args - Schema object or general object to create column object
  * @param {string} args.name - Name of the schema.
  * @returns { Schema }

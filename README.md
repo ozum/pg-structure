@@ -54,14 +54,13 @@ All contributions are welcome. Please send bug reports with tests and small piec
 
 ## JSDOC Output
 
-I added both jsdox and jsdoc2md output below
-
 #Index
 
 **Classes**
 
 * [class: Column](#Column)
   * [new Column(args, [options])](#new_Column)
+  * [column.fullName](#Column#fullName)
   * [column.name([value])](#Column#name)
   * [column.default([value])](#Column#default)
   * [column.allowNull([value])](#Column#allowNull)
@@ -86,6 +85,7 @@ I added both jsdox and jsdoc2md output below
   * [column.sequelizeType([varName])](#Column#sequelizeType)
 * [class: Constraint](#Constraint)
   * [new Constraint(args, [options])](#new_Constraint)
+  * [constraint.fullName](#Constraint#fullName)
   * [constraint.name([value])](#Constraint#name)
   * [constraint.onUpdate([value])](#Constraint#onUpdate)
   * [constraint.onDelete([value])](#Constraint#onDelete)
@@ -95,16 +95,19 @@ I added both jsdox and jsdoc2md output below
   * [constraint.referencesTable([value])](#Constraint#referencesTable)
   * [constraint.through([value])](#Constraint#through)
   * [constraint.foreignKey(nameOrPos)](#Constraint#foreignKey)
+  * [constraint.foreignKeyExist(nameOrPos)](#Constraint#foreignKeyExist)
   * [constraint.foreignKeysByName([callback])](#Constraint#foreignKeysByName)
   * [constraint.foreignKeys([callback])](#Constraint#foreignKeys)
 * [class: DB](#DB)
   * [new DB(args, [options])](#new_DB)
+  * [dB.fullName](#DB#fullName)
   * [dB.name([value])](#DB#name)
   * [dB.addSchema(args)](#DB#addSchema)
   * [dB.schema(name)](#DB#schema)
   * [dB.schemas([callback])](#DB#schemas)
 * [class: Schema](#Schema)
   * [new Schema(args, [options])](#new_Schema)
+  * [schema.fullName](#Schema#fullName)
   * [schema.name([value])](#Schema#name)
   * [schema.db([value])](#Schema#db)
   * [schema.parent([value])](#Schema#parent)
@@ -112,6 +115,7 @@ I added both jsdox and jsdoc2md output below
   * [schema.tables([callback])](#Schema#tables)
 * [class: Table](#Table)
   * [new Table(args, [options])](#new_Table)
+  * [table.fullName](#Table#fullName)
   * [table.name([value])](#Table#name)
   * [table.description([value])](#Table#description)
   * [table.schema([value])](#Table#schema)
@@ -121,6 +125,7 @@ I added both jsdox and jsdoc2md output below
   * [table.columnsByName([callback])](#Table#columnsByName)
   * [table.primaryKeys([callback])](#Table#primaryKeys)
   * [table.foreignKeyConstraint(name)](#Table#foreignKeyConstraint)
+  * [table.foreignKeyConstraintExist(name)](#Table#foreignKeyConstraintExist)
   * [table.foreignKeyConstraints([callback])](#Table#foreignKeyConstraints)
   * [table.foreignKeyConstraintsByName([callback])](#Table#foreignKeyConstraintsByName)
   * [table.hasMany(name)](#Table#hasMany)
@@ -150,6 +155,7 @@ I added both jsdox and jsdoc2md output below
 
 * [class: Column](#Column)
   * [new Column(args, [options])](#new_Column)
+  * [column.fullName](#Column#fullName)
   * [column.name([value])](#Column#name)
   * [column.default([value])](#Column#default)
   * [column.allowNull([value])](#Column#allowNull)
@@ -192,6 +198,10 @@ I added both jsdox and jsdoc2md output below
   - table <code>[Table](#Table)</code> - [Table](#Table) of the class  
 - \[options\] `Object` - Options  
   - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
+
+<a name="Column#fullName"></a>
+##column.fullName
+Gets full name of the object in database . notation.
 
 <a name="Column#name"></a>
 ##column.name([value])
@@ -361,6 +371,7 @@ var typeB = column.sequelizeType('Sequelize');   // Sequelize.INTEGER(3)
 
 * [class: Constraint](#Constraint)
   * [new Constraint(args, [options])](#new_Constraint)
+  * [constraint.fullName](#Constraint#fullName)
   * [constraint.name([value])](#Constraint#name)
   * [constraint.onUpdate([value])](#Constraint#onUpdate)
   * [constraint.onDelete([value])](#Constraint#onDelete)
@@ -370,6 +381,7 @@ var typeB = column.sequelizeType('Sequelize');   // Sequelize.INTEGER(3)
   * [constraint.referencesTable([value])](#Constraint#referencesTable)
   * [constraint.through([value])](#Constraint#through)
   * [constraint.foreignKey(nameOrPos)](#Constraint#foreignKey)
+  * [constraint.foreignKeyExist(nameOrPos)](#Constraint#foreignKeyExist)
   * [constraint.foreignKeysByName([callback])](#Constraint#foreignKeysByName)
   * [constraint.foreignKeys([callback])](#Constraint#foreignKeys)
 
@@ -386,6 +398,10 @@ var typeB = column.sequelizeType('Sequelize');   // Sequelize.INTEGER(3)
   - table <code>[Table](#Table)</code> - [Table](#Table) object which contains this constraint.  
 - \[options\] `Object` - Options  
   - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
+
+<a name="Constraint#fullName"></a>
+##constraint.fullName
+Gets full name of the object in database . notation.
 
 <a name="Constraint#name"></a>
 ##constraint.name([value])
@@ -458,6 +474,15 @@ Returns foreign key as a [Column](#Column) object with given name or order numbe
 - nameOrPos `string` | `integer` - Name or order number of the foreign key  
 
 **Returns**: [Column](#Column)  
+<a name="Constraint#foreignKeyExist"></a>
+##constraint.foreignKeyExist(nameOrPos)
+Returns true if foreign key object with given name or order number exists.
+
+**Params**
+
+- nameOrPos `string` | `integer` - Name or order number of the foreign key  
+
+**Returns**: `boolean`  
 <a name="Constraint#foreignKeysByName"></a>
 ##constraint.foreignKeysByName([callback])
 Retrieves all foreign keys in the constraint. If callback is provided, it is executed for each foreign key column.
@@ -486,6 +511,7 @@ contains foreign key {@link Column} objects.
 
 * [class: DB](#DB)
   * [new DB(args, [options])](#new_DB)
+  * [dB.fullName](#DB#fullName)
   * [dB.name([value])](#DB#name)
   * [dB.addSchema(args)](#DB#addSchema)
   * [dB.schema(name)](#DB#schema)
@@ -499,6 +525,10 @@ contains foreign key {@link Column} objects.
   - name `String` - Name of the database.  
 - \[options\] `Object` - Options  
   - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
+
+<a name="DB#fullName"></a>
+##dB.fullName
+Gets full name of the object in database . notation.
 
 <a name="DB#name"></a>
 ##dB.name([value])
@@ -519,7 +549,6 @@ Adds schema to the schema and returns schema created newly.
   - name `string` - Name of the schema.  
 
 **Returns**: [Schema](#Schema)  
-**Access**: protected  
 <a name="DB#schema"></a>
 ##dB.schema(name)
 Returns the [Schema](#Schema) object with given name.
@@ -546,6 +575,7 @@ values are {@link Schema} objects.
 
 * [class: Schema](#Schema)
   * [new Schema(args, [options])](#new_Schema)
+  * [schema.fullName](#Schema#fullName)
   * [schema.name([value])](#Schema#name)
   * [schema.db([value])](#Schema#db)
   * [schema.parent([value])](#Schema#parent)
@@ -561,6 +591,10 @@ values are {@link Schema} objects.
   - db <code>[DB](#DB)</code> - [DB](#DB) of the schema.  
 - \[options\] `Object` - Options  
   - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
+
+<a name="Schema#fullName"></a>
+##schema.fullName
+Gets full name of the object in database . notation.
 
 <a name="Schema#name"></a>
 ##schema.name([value])
@@ -615,6 +649,7 @@ values are {@link Table} objects.
 
 * [class: Table](#Table)
   * [new Table(args, [options])](#new_Table)
+  * [table.fullName](#Table#fullName)
   * [table.name([value])](#Table#name)
   * [table.description([value])](#Table#description)
   * [table.schema([value])](#Table#schema)
@@ -624,6 +659,7 @@ values are {@link Table} objects.
   * [table.columnsByName([callback])](#Table#columnsByName)
   * [table.primaryKeys([callback])](#Table#primaryKeys)
   * [table.foreignKeyConstraint(name)](#Table#foreignKeyConstraint)
+  * [table.foreignKeyConstraintExist(name)](#Table#foreignKeyConstraintExist)
   * [table.foreignKeyConstraints([callback])](#Table#foreignKeyConstraints)
   * [table.foreignKeyConstraintsByName([callback])](#Table#foreignKeyConstraintsByName)
   * [table.hasMany(name)](#Table#hasMany)
@@ -643,6 +679,10 @@ values are {@link Table} objects.
   - schema <code>[Schema](#Schema)</code> - [Schema](#Schema) of the table.  
 - \[options\] `Object` - Options  
   - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
+
+<a name="Table#fullName"></a>
+##table.fullName
+Gets full name of the object in database . notation.
 
 <a name="Table#name"></a>
 ##table.name([value])
@@ -730,6 +770,15 @@ Returns foreign key [Constraint](#Constraint) object with given name.
 - name `string` - Name of the foreign key constraint  
 
 **Returns**: [Constraint](#Constraint)  
+<a name="Table#foreignKeyConstraintExist"></a>
+##table.foreignKeyConstraintExist(name)
+Returns true if foreign key object with given name exists.
+
+**Params**
+
+- name `string` - Name of the foreign key constraint  
+
+**Returns**: `boolean`  
 <a name="Table#foreignKeyConstraints"></a>
 ##table.foreignKeyConstraints([callback])
 Retrieves all foreign key constraints in the table. If callback is provided, it is executed for each one.
@@ -864,718 +913,862 @@ Allowed schema attributes and validations.
 - constraint <code>[Constraint](#Constraint)</code> - Constraint object  
 
 **Type**: `function`  
-# Global
-
-
-
-
-
-* * *
-
-## Class: Column
-
-
-### Column.name(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Column.default(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Column.allowNull(value) 
-
-**Parameters**
-
-**value**: `boolean`, New value
-
-**Returns**: `boolean`
-
-### Column.type(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Column.special(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Column.length(value) 
-
-**Parameters**
-
-**value**: `integer`, New value
-
-**Returns**: `integer`
-
-### Column.precision(value) 
-
-**Parameters**
-
-**value**: `integer`, New value
-
-**Returns**: `integer`
-
-### Column.scale(value) 
-
-**Parameters**
-
-**value**: `integer`, New value
-
-**Returns**: `integer`
-
-### Column.arrayType(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Column.arrayDimension(value) 
-
-**Parameters**
-
-**value**: `integer`, New value
-
-**Returns**: `integer`
-
-### Column.description(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Column.isAutoIncrement(value) 
-
-**Parameters**
-
-**value**: `boolean`, New value
-
-**Returns**: `boolean`
-
-### Column.isPrimaryKey(value) 
-
-**Parameters**
-
-**value**: `boolean`, New value
-
-**Returns**: `boolean`
-
-### Column.isForeignKey(value) 
-
-**Parameters**
-
-**value**: `boolean`, New value
-
-**Returns**: `boolean`
-
-### Column.referencesColumn(value) 
-
-**Parameters**
-
-**value**: `Table`, New value
-
-**Returns**: `Table`
-
-### Column.onUpdate(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Column.onDelete(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Column.unique(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Column.table(value) 
-
-**Parameters**
-
-**value**: `Table`, New value
-
-**Returns**: `Table`
-
-### Column.parent(value) 
-
-**Parameters**
-
-**value**: `Table`, New value
-
-**Returns**: `Table`
-
-### Column.foreignKeyConstraint(value) 
-
+#Index
+
+**Classes**
+
+* [class: Column](#Column)
+  * [new Column(args, [options])](#new_Column)
+  * [column.fullName](#Column#fullName)
+  * [column.name([value])](#Column#name)
+  * [column.default([value])](#Column#default)
+  * [column.allowNull([value])](#Column#allowNull)
+  * [column.type([value])](#Column#type)
+  * [column.special([value])](#Column#special)
+  * [column.length([value])](#Column#length)
+  * [column.precision([value])](#Column#precision)
+  * [column.scale([value])](#Column#scale)
+  * [column.arrayType([value])](#Column#arrayType)
+  * [column.arrayDimension([value])](#Column#arrayDimension)
+  * [column.description([value])](#Column#description)
+  * [column.isAutoIncrement([value])](#Column#isAutoIncrement)
+  * [column.isPrimaryKey([value])](#Column#isPrimaryKey)
+  * [column.isForeignKey([value])](#Column#isForeignKey)
+  * [column.referencesColumn([value])](#Column#referencesColumn)
+  * [column.onUpdate([value])](#Column#onUpdate)
+  * [column.onDelete([value])](#Column#onDelete)
+  * [column.unique([value])](#Column#unique)
+  * [column.table([value])](#Column#table)
+  * [column.parent([value])](#Column#parent)
+  * [column.foreignKeyConstraint([value])](#Column#foreignKeyConstraint)
+  * [column.sequelizeType([varName])](#Column#sequelizeType)
+* [class: Constraint](#Constraint)
+  * [new Constraint(args, [options])](#new_Constraint)
+  * [constraint.fullName](#Constraint#fullName)
+  * [constraint.name([value])](#Constraint#name)
+  * [constraint.onUpdate([value])](#Constraint#onUpdate)
+  * [constraint.onDelete([value])](#Constraint#onDelete)
+  * [constraint.table([value])](#Constraint#table)
+  * [constraint.parent([value])](#Constraint#parent)
+  * [constraint.referencesSchema([value])](#Constraint#referencesSchema)
+  * [constraint.referencesTable([value])](#Constraint#referencesTable)
+  * [constraint.through([value])](#Constraint#through)
+  * [constraint.foreignKey(nameOrPos)](#Constraint#foreignKey)
+  * [constraint.foreignKeyExist(nameOrPos)](#Constraint#foreignKeyExist)
+  * [constraint.foreignKeysByName([callback])](#Constraint#foreignKeysByName)
+  * [constraint.foreignKeys([callback])](#Constraint#foreignKeys)
+* [class: DB](#DB)
+  * [new DB(args, [options])](#new_DB)
+  * [dB.fullName](#DB#fullName)
+  * [dB.name([value])](#DB#name)
+  * [dB.addSchema(args)](#DB#addSchema)
+  * [dB.schema(name)](#DB#schema)
+  * [dB.schemas([callback])](#DB#schemas)
+* [class: Schema](#Schema)
+  * [new Schema(args, [options])](#new_Schema)
+  * [schema.fullName](#Schema#fullName)
+  * [schema.name([value])](#Schema#name)
+  * [schema.db([value])](#Schema#db)
+  * [schema.parent([value])](#Schema#parent)
+  * [schema.table(name)](#Schema#table)
+  * [schema.tables([callback])](#Schema#tables)
+* [class: Table](#Table)
+  * [new Table(args, [options])](#new_Table)
+  * [table.fullName](#Table#fullName)
+  * [table.name([value])](#Table#name)
+  * [table.description([value])](#Table#description)
+  * [table.schema([value])](#Table#schema)
+  * [table.parent([value])](#Table#parent)
+  * [table.column(nameOrPos)](#Table#column)
+  * [table.columns([callback])](#Table#columns)
+  * [table.columnsByName([callback])](#Table#columnsByName)
+  * [table.primaryKeys([callback])](#Table#primaryKeys)
+  * [table.foreignKeyConstraint(name)](#Table#foreignKeyConstraint)
+  * [table.foreignKeyConstraintExist(name)](#Table#foreignKeyConstraintExist)
+  * [table.foreignKeyConstraints([callback])](#Table#foreignKeyConstraints)
+  * [table.foreignKeyConstraintsByName([callback])](#Table#foreignKeyConstraintsByName)
+  * [table.hasMany(name)](#Table#hasMany)
+  * [table.hasManies([callback])](#Table#hasManies)
+  * [table.hasManiesByName([callback])](#Table#hasManiesByName)
+  * [table.hasManyThrough(name)](#Table#hasManyThrough)
+  * [table.hasManyThroughs([callback])](#Table#hasManyThroughs)
+  * [table.hasManyThroughsByName([callback])](#Table#hasManyThroughsByName)
+
+**Members**
+
+* [columnAttributes](#columnAttributes)
+* [constraintAttributes](#constraintAttributes)
+* [schemaAttributes](#schemaAttributes)
+
+**Typedefs**
+
+* [callback: columnCallback](#columnCallback)
+* [callback: schemaCallback](#schemaCallback)
+* [callback: tableCallback](#tableCallback)
+* [callback: columnCallback](#columnCallback)
+* [callback: constraintCallback](#constraintCallback)
+ 
+<a name="Column"></a>
+#class: Column
+**Members**
+
+* [class: Column](#Column)
+  * [new Column(args, [options])](#new_Column)
+  * [column.fullName](#Column#fullName)
+  * [column.name([value])](#Column#name)
+  * [column.default([value])](#Column#default)
+  * [column.allowNull([value])](#Column#allowNull)
+  * [column.type([value])](#Column#type)
+  * [column.special([value])](#Column#special)
+  * [column.length([value])](#Column#length)
+  * [column.precision([value])](#Column#precision)
+  * [column.scale([value])](#Column#scale)
+  * [column.arrayType([value])](#Column#arrayType)
+  * [column.arrayDimension([value])](#Column#arrayDimension)
+  * [column.description([value])](#Column#description)
+  * [column.isAutoIncrement([value])](#Column#isAutoIncrement)
+  * [column.isPrimaryKey([value])](#Column#isPrimaryKey)
+  * [column.isForeignKey([value])](#Column#isForeignKey)
+  * [column.referencesColumn([value])](#Column#referencesColumn)
+  * [column.onUpdate([value])](#Column#onUpdate)
+  * [column.onDelete([value])](#Column#onDelete)
+  * [column.unique([value])](#Column#unique)
+  * [column.table([value])](#Column#table)
+  * [column.parent([value])](#Column#parent)
+  * [column.foreignKeyConstraint([value])](#Column#foreignKeyConstraint)
+  * [column.sequelizeType([varName])](#Column#sequelizeType)
+
+<a name="new_Column"></a>
+##new Column(args, [options])
+**Params**
+
+- args `Object` - Column arguments  
+  - name `string` - Name of the column  
+  - \[default\] `string` - Default value of the column  
+  - allowNull `boolean` - Is this column allowed to contain null values?  
+  - type `string` - Data type of the column.  
+  - \[special\] `string` - Special attributes of the column.  
+  - \[length\] `number` - Length of the column.  
+  - \[precision\] `number` - Precision of the column.  
+  - \[scale\] `number` - Scale of the column.  
+  - \[arrayType\] `string` - If column is array. Data type of the array.  
+  - \[arrayDimension\] `number` - array dimension of the column.  
+  - \[description\] `String` - Description of the table  
+  - table <code>[Table](#Table)</code> - [Table](#Table) of the class  
+- \[options\] `Object` - Options  
+  - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
+
+<a name="Column#fullName"></a>
+##column.fullName
+Gets full name of the object in database . notation.
+
+<a name="Column#name"></a>
+##column.name([value])
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+<a name="Column#default"></a>
+##column.default([value])
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+<a name="Column#allowNull"></a>
+##column.allowNull([value])
+**Params**
+
+- \[value\] `boolean` - New value  
+
+**Returns**: `boolean`  
+<a name="Column#type"></a>
+##column.type([value])
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+<a name="Column#special"></a>
+##column.special([value])
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+<a name="Column#length"></a>
+##column.length([value])
+**Params**
+
+- \[value\] `integer` - New value  
+
+**Returns**: `integer`  
+<a name="Column#precision"></a>
+##column.precision([value])
+**Params**
+
+- \[value\] `integer` - New value  
+
+**Returns**: `integer`  
+<a name="Column#scale"></a>
+##column.scale([value])
+**Params**
+
+- \[value\] `integer` - New value  
+
+**Returns**: `integer`  
+<a name="Column#arrayType"></a>
+##column.arrayType([value])
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+<a name="Column#arrayDimension"></a>
+##column.arrayDimension([value])
+**Params**
+
+- \[value\] `integer` - New value  
+
+**Returns**: `integer`  
+<a name="Column#description"></a>
+##column.description([value])
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+<a name="Column#isAutoIncrement"></a>
+##column.isAutoIncrement([value])
+**Params**
+
+- \[value\] `boolean` - New value  
+
+**Returns**: `boolean`  
+<a name="Column#isPrimaryKey"></a>
+##column.isPrimaryKey([value])
+**Params**
+
+- \[value\] `boolean` - New value  
+
+**Returns**: `boolean`  
+<a name="Column#isForeignKey"></a>
+##column.isForeignKey([value])
+**Params**
+
+- \[value\] `boolean` - New value  
+
+**Returns**: `boolean`  
+<a name="Column#referencesColumn"></a>
+##column.referencesColumn([value])
+**Params**
+
+- \[value\] <code>[Table](#Table)</code> - New value  
+
+**Returns**: [Table](#Table)  
+<a name="Column#onUpdate"></a>
+##column.onUpdate([value])
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+<a name="Column#onDelete"></a>
+##column.onDelete([value])
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+<a name="Column#unique"></a>
+##column.unique([value])
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+<a name="Column#table"></a>
+##column.table([value])
+**Params**
+
+- \[value\] <code>[Table](#Table)</code> - New value  
+
+**Returns**: [Table](#Table)  
+<a name="Column#parent"></a>
+##column.parent([value])
+**Params**
+
+- \[value\] <code>[Table](#Table)</code> - New value  
+
+**Returns**: [Table](#Table)  
+<a name="Column#foreignKeyConstraint"></a>
+##column.foreignKeyConstraint([value])
 Gets/sets foreign key constraint of the column, if column is a foreign key.
 
-**Parameters**
+**Params**
 
-**value**: `Constraint`, New value
+- \[value\] <code>[Constraint](#Constraint)</code> - New value  
 
-**Returns**: `Constraint`
-
-### Column.sequelizeType(varName) 
-
+**Returns**: [Constraint](#Constraint)  
+<a name="Column#sequelizeType"></a>
+##column.sequelizeType([varName])
 Returns Sequelize ORM datatype for column.
 
-**Parameters**
+**Params**
 
-**varName**: `String`, Variable name to use in sequelize data type. ie. 'DataTypes' for DataTypes.INTEGER
+- \[varName=DataTypes\] `String` - Variable name to use in sequelize data type. ie. 'DataTypes' for DataTypes.INTEGER  
 
-**Returns**: `string`
-
-**Example**:
-```js
+**Returns**: `string`  
+**Example**  
 var typeA = column.sequelizeType();              // DataTypes.INTEGER(3)
 var typeB = column.sequelizeType('Sequelize');   // Sequelize.INTEGER(3)
-```
 
+<a name="Constraint"></a>
+#class: Constraint
+**Members**
 
+* [class: Constraint](#Constraint)
+  * [new Constraint(args, [options])](#new_Constraint)
+  * [constraint.fullName](#Constraint#fullName)
+  * [constraint.name([value])](#Constraint#name)
+  * [constraint.onUpdate([value])](#Constraint#onUpdate)
+  * [constraint.onDelete([value])](#Constraint#onDelete)
+  * [constraint.table([value])](#Constraint#table)
+  * [constraint.parent([value])](#Constraint#parent)
+  * [constraint.referencesSchema([value])](#Constraint#referencesSchema)
+  * [constraint.referencesTable([value])](#Constraint#referencesTable)
+  * [constraint.through([value])](#Constraint#through)
+  * [constraint.foreignKey(nameOrPos)](#Constraint#foreignKey)
+  * [constraint.foreignKeyExist(nameOrPos)](#Constraint#foreignKeyExist)
+  * [constraint.foreignKeysByName([callback])](#Constraint#foreignKeysByName)
+  * [constraint.foreignKeys([callback])](#Constraint#foreignKeys)
 
-* * *
+<a name="new_Constraint"></a>
+##new Constraint(args, [options])
+**Params**
 
+- args `Object` - Constraint arguments  
+  - name `string` - Name of the constraint  
+  - referencesSchema <code>[Schema](#Schema)</code> - [Schema](#Schema) containing table which this constraint references to.  
+  - referencesTable <code>[Table](#Table)</code> - [Table](#Table) which this constraint references to.  
+  - \[onUpdate\] `string` - Action taken on update. One of: 'NO ACTION', 'CASCADE', 'SET NULL', 'RESTRICT'  
+  - \[onUpdate\] `string` - Action taken on delete. One of: 'NO ACTION', 'CASCADE', 'SET NULL', 'RESTRICT'  
+  - table <code>[Table](#Table)</code> - [Table](#Table) object which contains this constraint.  
+- \[options\] `Object` - Options  
+  - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
 
+<a name="Constraint#fullName"></a>
+##constraint.fullName
+Gets full name of the object in database . notation.
 
+<a name="Constraint#name"></a>
+##constraint.name([value])
+**Params**
 
+- \[value\] `string` - New value  
 
+**Returns**: `string`  
+<a name="Constraint#onUpdate"></a>
+##constraint.onUpdate([value])
+**Params**
 
+- \[value\] `string` - New value  
 
+**Returns**: `string`  
+<a name="Constraint#onDelete"></a>
+##constraint.onDelete([value])
+**Params**
 
+- \[value\] `string` - New value  
 
+**Returns**: `string`  
+<a name="Constraint#table"></a>
+##constraint.table([value])
+**Params**
 
-# Global
+- \[value\] `string` - New value  
 
+**Returns**: `string`  
+<a name="Constraint#parent"></a>
+##constraint.parent([value])
+**Params**
 
+- \[value\] `string` - New value  
 
+**Returns**: `string`  
+<a name="Constraint#referencesSchema"></a>
+##constraint.referencesSchema([value])
+Returns [Schema](#Schema) object this constraint refers to.
 
+**Params**
 
-* * *
+- \[value\] <code>[Schema](#Schema)</code> - New value  
 
-## Class: Constraint
+**Returns**: [Schema](#Schema)  
+<a name="Constraint#referencesTable"></a>
+##constraint.referencesTable([value])
+Returns [Table](#Table) object this constraint refers to.
 
+**Params**
 
-### Constraint.name(value) 
+- \[value\] <code>[Table](#Table)</code> - New value  
 
-**Parameters**
+**Returns**: [Table](#Table)  
+<a name="Constraint#through"></a>
+##constraint.through([value])
+Returns [Table](#Table) object this constraint refers through.
 
-**value**: `string`, New value
+**Params**
 
-**Returns**: `string`
+- \[value\] <code>[Table](#Table)</code> - New value  
 
-### Constraint.onUpdate(value) 
+**Returns**: [Table](#Table)  
+<a name="Constraint#foreignKey"></a>
+##constraint.foreignKey(nameOrPos)
+Returns foreign key as a [Column](#Column) object with given name or order number.
 
-**Parameters**
+**Params**
 
-**value**: `string`, New value
+- nameOrPos `string` | `integer` - Name or order number of the foreign key  
 
-**Returns**: `string`
+**Returns**: [Column](#Column)  
+<a name="Constraint#foreignKeyExist"></a>
+##constraint.foreignKeyExist(nameOrPos)
+Returns true if foreign key object with given name or order number exists.
 
-### Constraint.onDelete(value) 
+**Params**
 
-**Parameters**
+- nameOrPos `string` | `integer` - Name or order number of the foreign key  
 
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Constraint.table(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Constraint.parent(value) 
-
-**Parameters**
-
-**value**: `string`, New value
-
-**Returns**: `string`
-
-### Constraint.referencesSchema(value) 
-
-Returns {@link Schema} object this constraint refers to.
-
-**Parameters**
-
-**value**: `Schema`, New value
-
-**Returns**: `Schema`
-
-### Constraint.referencesTable(value) 
-
-Returns {@link Table} object this constraint refers to.
-
-**Parameters**
-
-**value**: `Table`, New value
-
-**Returns**: `Table`
-
-### Constraint.through(value) 
-
-Returns {@link Table} object this constraint refers through.
-
-**Parameters**
-
-**value**: `Table`, New value
-
-**Returns**: `Table`
-
-### Constraint.foreignKey(nameOrPos) 
-
-Returns foreign key as a {@link Column} object with given name or order number.
-
-**Parameters**
-
-**nameOrPos**: `string | integer`, Name or order number of the foreign key
-
-**Returns**: `Column`
-
-### Constraint.foreignKeysByName(callback) 
-
+**Returns**: `boolean`  
+<a name="Constraint#foreignKeysByName"></a>
+##constraint.foreignKeysByName([callback])
 Retrieves all foreign keys in the constraint. If callback is provided, it is executed for each foreign key column.
-Callback is passed {@link Column} object as parameter. If no callback is provided, returns a plain object. Object keys are column names,
+Callback is passed [Column](#Column) object as parameter. If no callback is provided, returns a plain object. Object keys are column names,
 values are {@link Column} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `columnCallback`, Callback to be executed for each column.
+- \[callback\] <code>[columnCallback](#columnCallback)</code> - Callback to be executed for each column.  
 
-**Returns**: `object.&lt;string, Column&gt; | undefined`
-
-### Constraint.foreignKeys(callback) 
-
+**Returns**: `object.<string, Column>` | `undefined`  
+<a name="Constraint#foreignKeys"></a>
+##constraint.foreignKeys([callback])
 Retrieves all foreign keys in the constraint. If callback is provided, it is executed for each foreign key column.
-Callback is passed {@link Column} object as parameter. If no callback is provided, returns an array which
+Callback is passed [Column](#Column) object as parameter. If no callback is provided, returns an array which
 contains foreign key {@link Column} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `columnCallback`, Callback to be executed for each column.
+- \[callback\] <code>[columnCallback](#columnCallback)</code> - Callback to be executed for each column.  
 
-**Returns**: `object.&lt;string, Column&gt; | undefined`
+**Returns**: `object.<string, Column>` | `undefined`  
+<a name="DB"></a>
+#class: DB
+**Members**
 
+* [class: DB](#DB)
+  * [new DB(args, [options])](#new_DB)
+  * [dB.fullName](#DB#fullName)
+  * [dB.name([value])](#DB#name)
+  * [dB.addSchema(args)](#DB#addSchema)
+  * [dB.schema(name)](#DB#schema)
+  * [dB.schemas([callback])](#DB#schemas)
 
+<a name="new_DB"></a>
+##new DB(args, [options])
+**Params**
 
-* * *
+- args `Object` - Database arguments.  
+  - name `String` - Name of the database.  
+- \[options\] `Object` - Options  
+  - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
 
+<a name="DB#fullName"></a>
+##dB.fullName
+Gets full name of the object in database . notation.
 
-
-
-
-
-
-
-
-
-# Global
-
-
-
-
-
-* * *
-
-## Class: DB
-
-
-### DB.name(value) 
-
+<a name="DB#name"></a>
+##dB.name([value])
 Returns name of the db
 
-**Parameters**
+**Params**
 
-**value**: `string`, New value
+- \[value\] `string` - New value  
 
-**Returns**: `string`
-
-### DB.addSchema(args, args.name) 
-
+**Returns**: `string`  
+<a name="DB#addSchema"></a>
+##dB.addSchema(args)
 Adds schema to the schema and returns schema created newly.
 
-**Parameters**
+**Params**
 
-**args**: `Schema | object`, Schema object or general object to create column object
+- args <code>[Schema](#Schema)</code> | `object` - Schema object or general object to create column object  
+  - name `string` - Name of the schema.  
 
-**args.name**: `string`, Name of the schema.
+**Returns**: [Schema](#Schema)  
+<a name="DB#schema"></a>
+##dB.schema(name)
+Returns the [Schema](#Schema) object with given name.
 
-**Returns**: `Schema`
+**Params**
 
-### DB.schema(name) 
+- name `string` - Name of the schema  
 
-Returns the {@link Schema} object with given name.
-
-**Parameters**
-
-**name**: `string`, Name of the schema
-
-**Returns**: `Schema`
-
-### DB.schemas(callback) 
-
-Retrieves all schemas in the schema. If callback is provided, it is executed for each schema. Callback is passed {@link Schema}
+**Returns**: [Schema](#Schema)  
+<a name="DB#schemas"></a>
+##dB.schemas([callback])
+Retrieves all schemas in the schema. If callback is provided, it is executed for each schema. Callback is passed [Schema](#Schema)
 object as parameter. If no callback is provided, returns a plain object. Object keys are schema names,
 values are {@link Schema} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `schemaCallback`, Callback to be executed for each schema.
+- \[callback\] <code>[schemaCallback](#schemaCallback)</code> - Callback to be executed for each schema.  
 
-**Returns**: `object.&lt;string, Schema&gt; | undefined`
+**Returns**: `object.<string, Schema>` | `undefined`  
+<a name="Schema"></a>
+#class: Schema
+**Members**
 
+* [class: Schema](#Schema)
+  * [new Schema(args, [options])](#new_Schema)
+  * [schema.fullName](#Schema#fullName)
+  * [schema.name([value])](#Schema#name)
+  * [schema.db([value])](#Schema#db)
+  * [schema.parent([value])](#Schema#parent)
+  * [schema.table(name)](#Schema#table)
+  * [schema.tables([callback])](#Schema#tables)
 
+<a name="new_Schema"></a>
+##new Schema(args, [options])
+**Params**
 
-* * *
+- args `Object` - Schema arguments.  
+  - name `string` - Name of the schema.  
+  - db <code>[DB](#DB)</code> - [DB](#DB) of the schema.  
+- \[options\] `Object` - Options  
+  - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
 
+<a name="Schema#fullName"></a>
+##schema.fullName
+Gets full name of the object in database . notation.
 
-
-
-
-
-
-
-
-
-* * *
-
-
-
-
-
-
-
-
-
-
-# Global
-
-
-
-
-
-* * *
-
-## Class: Schema
-
-
-### Schema.name(value) 
-
+<a name="Schema#name"></a>
+##schema.name([value])
 Returns name of the schema
 
-**Parameters**
+**Params**
 
-**value**: `string`, New value
+- \[value\] `string` - New value  
 
-**Returns**: `string`
+**Returns**: `string`  
+<a name="Schema#db"></a>
+##schema.db([value])
+Retrieves [DB](#DB) object of the schema.
 
-### Schema.db(value) 
+**Params**
 
-Retrieves {@link DB} object of the schema.
+- \[value\] <code>[DB](#DB)</code> - New value  
 
-**Parameters**
+**Returns**: [DB](#DB)  
+<a name="Schema#parent"></a>
+##schema.parent([value])
+Retrieves [DB](#DB) object of the schema.
 
-**value**: `DB`, New value
+**Params**
 
-**Returns**: `DB`
+- \[value\] <code>[DB](#DB)</code> - New value  
 
-### Schema.parent(value) 
+**Returns**: [DB](#DB)  
+<a name="Schema#table"></a>
+##schema.table(name)
+Returns the [Table](#Table) object with given name.
 
-Retrieves {@link DB} object of the schema.
+**Params**
 
-**Parameters**
+- name `string` - Name of the table  
 
-**value**: `DB`, New value
-
-**Returns**: `DB`
-
-### Schema.table(name) 
-
-Returns the {@link Table} object with given name.
-
-**Parameters**
-
-**name**: `string`, Name of the table
-
-**Returns**: `Table`
-
-### Schema.tables(callback) 
-
-Retrieves all tables in the schema. If callback is provided, it is executed for each table. Callback is passed {@link Table}
+**Returns**: [Table](#Table)  
+<a name="Schema#tables"></a>
+##schema.tables([callback])
+Retrieves all tables in the schema. If callback is provided, it is executed for each table. Callback is passed [Table](#Table)
 object as parameter. If no callback is provided, returns a plain object. Object keys are table names,
 values are {@link Table} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `tableCallback`, Callback to be executed for each table.
+- \[callback\] <code>[tableCallback](#tableCallback)</code> - Callback to be executed for each table.  
 
-**Returns**: `object.&lt;string, Table&gt; | undefined`
+**Returns**: `object.<string, Table>` | `undefined`  
+<a name="Table"></a>
+#class: Table
+**Members**
 
+* [class: Table](#Table)
+  * [new Table(args, [options])](#new_Table)
+  * [table.fullName](#Table#fullName)
+  * [table.name([value])](#Table#name)
+  * [table.description([value])](#Table#description)
+  * [table.schema([value])](#Table#schema)
+  * [table.parent([value])](#Table#parent)
+  * [table.column(nameOrPos)](#Table#column)
+  * [table.columns([callback])](#Table#columns)
+  * [table.columnsByName([callback])](#Table#columnsByName)
+  * [table.primaryKeys([callback])](#Table#primaryKeys)
+  * [table.foreignKeyConstraint(name)](#Table#foreignKeyConstraint)
+  * [table.foreignKeyConstraintExist(name)](#Table#foreignKeyConstraintExist)
+  * [table.foreignKeyConstraints([callback])](#Table#foreignKeyConstraints)
+  * [table.foreignKeyConstraintsByName([callback])](#Table#foreignKeyConstraintsByName)
+  * [table.hasMany(name)](#Table#hasMany)
+  * [table.hasManies([callback])](#Table#hasManies)
+  * [table.hasManiesByName([callback])](#Table#hasManiesByName)
+  * [table.hasManyThrough(name)](#Table#hasManyThrough)
+  * [table.hasManyThroughs([callback])](#Table#hasManyThroughs)
+  * [table.hasManyThroughsByName([callback])](#Table#hasManyThroughsByName)
 
+<a name="new_Table"></a>
+##new Table(args, [options])
+**Params**
 
-* * *
+- args `Object` - Table arguments.  
+  - name `String` - Name of the table.  
+  - \[description\] `String` - Description of the table.  
+  - schema <code>[Schema](#Schema)</code> - [Schema](#Schema) of the table.  
+- \[options\] `Object` - Options  
+  - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
 
+<a name="Table#fullName"></a>
+##table.fullName
+Gets full name of the object in database . notation.
 
-
-
-
-
-
-
-
-
-* * *
-
-
-
-
-
-
-
-
-
-
-# Global
-
-
-
-
-
-* * *
-
-## Class: Table
-
-
-### Table.name(value) 
-
+<a name="Table#name"></a>
+##table.name([value])
 Retrieves name of the table.
 
-**Parameters**
+**Params**
 
-**value**: `string`, New value
+- \[value\] `string` - New value  
 
-**Returns**: `string`
-
-### Table.description(value) 
-
+**Returns**: `string`  
+<a name="Table#description"></a>
+##table.description([value])
 Retrieves description of the table.
 
-**Parameters**
+**Params**
 
-**value**: `string`, New value
+- \[value\] `string` - New value  
 
-**Returns**: `string`
+**Returns**: `string`  
+<a name="Table#schema"></a>
+##table.schema([value])
+Retrieves [Schema](#Schema) object of the table.
 
-### Table.schema(value) 
+**Params**
 
-Retrieves {@link Schema} object of the table.
+- \[value\] <code>[Schema](#Schema)</code> - New value  
 
-**Parameters**
+**Returns**: [Schema](#Schema)  
+<a name="Table#parent"></a>
+##table.parent([value])
+Retrieves [Schema](#Schema) object of the table.
 
-**value**: `Schema`, New value
+**Params**
 
-**Returns**: `Schema`
+- \[value\] <code>[Schema](#Schema)</code> - New value  
 
-### Table.parent(value) 
+**Returns**: [Schema](#Schema)  
+<a name="Table#column"></a>
+##table.column(nameOrPos)
+Returns [Column](#Column) object with given name or order number.
 
-Retrieves {@link Schema} object of the table.
+**Params**
 
-**Parameters**
+- nameOrPos `string` | `integer` - Name or order number of the column  
 
-**value**: `Schema`, New value
-
-**Returns**: `Schema`
-
-### Table.column(nameOrPos) 
-
-Returns {@link Column} object with given name or order number.
-
-**Parameters**
-
-**nameOrPos**: `string | integer`, Name or order number of the column
-
-**Returns**: `Column`
-
-### Table.columns(callback) 
-
-Retrieves all columns in the table in an ordered list. If callback is provided, it is executed for each column. Callback is passed {@link Column}
+**Returns**: [Column](#Column)  
+<a name="Table#columns"></a>
+##table.columns([callback])
+Retrieves all columns in the table in an ordered list. If callback is provided, it is executed for each column. Callback is passed [Column](#Column)
 object as parameter. If no callback is provided, returns array of {@link Column} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `columnCallback`, Callback to be executed for each column.
+- \[callback\] <code>[columnCallback](#columnCallback)</code> - Callback to be executed for each column.  
 
-**Returns**: `Array.&lt;Column&gt; | undefined`
-
-### Table.columnsByName(callback) 
-
-Retrieves all columns in the table. If callback is provided, it is executed for each column. Callback is passed {@link Column}
+**Returns**: [Array.&lt;Column&gt;](#Column) | `undefined`  
+<a name="Table#columnsByName"></a>
+##table.columnsByName([callback])
+Retrieves all columns in the table. If callback is provided, it is executed for each column. Callback is passed [Column](#Column)
 object as parameter. If no callback is provided, returns a plain Object. Object keys are column names,
 values are {@link Column} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `columnCallback`, Callback to be executed for each column.
+- \[callback\] <code>[columnCallback](#columnCallback)</code> - Callback to be executed for each column.  
 
-**Returns**: `Object.&lt;string, Column&gt; | undefined`
-
-### Table.primaryKeys(callback) 
-
+**Returns**: `Object.<string, Column>` | `undefined`  
+<a name="Table#primaryKeys"></a>
+##table.primaryKeys([callback])
 Retrieves all primary key columns in the table. If callback is provided, it is executed for each primary key.
-Callback is passed {@link Column} object as parameter.
+Callback is passed [Column](#Column) object as parameter.
 If no callback is provided, returns an array of {@link Column} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `columnCallback`, Callback to be executed for each primary key column.
+- \[callback\] <code>[columnCallback](#columnCallback)</code> - Callback to be executed for each primary key column.  
 
-**Returns**: `Array.&lt;Column&gt;`
+**Returns**: [Array.&lt;Column&gt;](#Column)  
+<a name="Table#foreignKeyConstraint"></a>
+##table.foreignKeyConstraint(name)
+Returns foreign key [Constraint](#Constraint) object with given name.
 
-### Table.foreignKeyConstraint(name) 
+**Params**
 
-Returns foreign key {@link Constraint} object with given name.
+- name `string` - Name of the foreign key constraint  
 
-**Parameters**
+**Returns**: [Constraint](#Constraint)  
+<a name="Table#foreignKeyConstraintExist"></a>
+##table.foreignKeyConstraintExist(name)
+Returns true if foreign key object with given name exists.
 
-**name**: `string`, Name of the foreign key constraint
+**Params**
 
-**Returns**: `Constraint`
+- name `string` - Name of the foreign key constraint  
 
-### Table.foreignKeyConstraints(callback) 
-
+**Returns**: `boolean`  
+<a name="Table#foreignKeyConstraints"></a>
+##table.foreignKeyConstraints([callback])
 Retrieves all foreign key constraints in the table. If callback is provided, it is executed for each one.
-Callback is passed {@link Constraint} object as parameter.
+Callback is passed [Constraint](#Constraint) object as parameter.
 If no callback is provided, returns a plain Object. Plain object keys are names of {@link Constraint} objects and values are {@link Constraint} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `constraintCallback`, Callback to be executed for each constraint.
+- \[callback\] <code>[constraintCallback](#constraintCallback)</code> - Callback to be executed for each constraint.  
 
-**Returns**: `Array.&lt;Constraint&gt;`
-
-### Table.foreignKeyConstraintsByName(callback) 
-
+**Returns**: [Array.&lt;Constraint&gt;](#Constraint)  
+<a name="Table#foreignKeyConstraintsByName"></a>
+##table.foreignKeyConstraintsByName([callback])
 Retrieves all foreign key constraints in the table. If callback is provided, it is executed for each one.
-Callback is passed {@link Constraint} object as parameter.
+Callback is passed [Constraint](#Constraint) object as parameter.
 If no callback is provided, returns an array of {@link Constraint} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `constraintCallback`, Callback to be executed for each constrained.
+- \[callback\] <code>[constraintCallback](#constraintCallback)</code> - Callback to be executed for each constrained.  
 
-**Returns**: `Object.&lt;string, Constraint&gt; | undefined`
+**Returns**: `Object.<string, Constraint>` | `undefined`  
+<a name="Table#hasMany"></a>
+##table.hasMany(name)
+Returns has many [Constraint](#Constraint) object with given name.
 
-### Table.hasMany(name) 
+**Params**
 
-Returns has many {@link Constraint} object with given name.
+- name `string` - Name of the has many constraint  
 
-**Parameters**
-
-**name**: `string`, Name of the has many constraint
-
-**Returns**: `Constraint`
-
-### Table.hasManies(callback) 
-
+**Returns**: [Constraint](#Constraint)  
+<a name="Table#hasManies"></a>
+##table.hasManies([callback])
 Retrieves all has many constraints in the table. If callback is provided, it is executed for each one.
-Callback is passed {@link Constraint} object as parameter.
+Callback is passed [Constraint](#Constraint) object as parameter.
 If no callback is provided, returns a plain Object. Plain object keys are names of {@link Constraint} objects and values are {@link Constraint} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `constraintCallback`, Callback to be executed for each constraint.
+- \[callback\] <code>[constraintCallback](#constraintCallback)</code> - Callback to be executed for each constraint.  
 
-**Returns**: `Array.&lt;Constraint&gt;`
-
-### Table.hasManiesByName(callback) 
-
+**Returns**: [Array.&lt;Constraint&gt;](#Constraint)  
+<a name="Table#hasManiesByName"></a>
+##table.hasManiesByName([callback])
 Retrieves all has many constraints in the table. If callback is provided, it is executed for one.
-Callback is passed {@link Constraint} object as parameter.
+Callback is passed [Constraint](#Constraint) object as parameter.
 If no callback is provided, returns an array of {@link Constraint} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `constraintCallback`, Callback to be executed for each constraint.
+- \[callback\] <code>[constraintCallback](#constraintCallback)</code> - Callback to be executed for each constraint.  
 
-**Returns**: `Object.&lt;string, Constraint&gt; | undefined`
+**Returns**: `Object.<string, Constraint>` | `undefined`  
+<a name="Table#hasManyThrough"></a>
+##table.hasManyThrough(name)
+Returns has many through [Constraint](#Constraint) object with given name.
 
-### Table.hasManyThrough(name) 
+**Params**
 
-Returns has many through {@link Constraint} object with given name.
+- name `string` - Name of the has many through constraint  
 
-**Parameters**
-
-**name**: `string`, Name of the has many through constraint
-
-**Returns**: `Constraint`
-
-### Table.hasManyThroughs(callback) 
-
+**Returns**: [Constraint](#Constraint)  
+<a name="Table#hasManyThroughs"></a>
+##table.hasManyThroughs([callback])
 Retrieves all has many through constraints in the table. If callback is provided, it is executed for each one.
-Callback is passed {@link Constraint} object as parameter.
+Callback is passed [Constraint](#Constraint) object as parameter.
 If no callback is provided, returns a plain Object. Plain object keys are names of {@link Constraint} objects and values are {@link Constraint} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `constraintCallback`, Callback to be executed for each constraint.
+- \[callback\] <code>[constraintCallback](#constraintCallback)</code> - Callback to be executed for each constraint.  
 
-**Returns**: `Array.&lt;Constraint&gt;`
-
-### Table.hasManyThroughsByName(callback) 
-
+**Returns**: [Array.&lt;Constraint&gt;](#Constraint)  
+<a name="Table#hasManyThroughsByName"></a>
+##table.hasManyThroughsByName([callback])
 Retrieves all has many through constraints in the table. If callback is provided, it is executed for one.
-Callback is passed {@link Constraint} object as parameter.
+Callback is passed [Constraint](#Constraint) object as parameter.
 If no callback is provided, returns an array of {@link Constraint} objects.
 
-**Parameters**
+**Params**
 
-**callback**: `constraintCallback`, Callback to be executed for each constraint.
+- \[callback\] <code>[constraintCallback](#constraintCallback)</code> - Callback to be executed for each constraint.  
 
-**Returns**: `Object.&lt;string, Constraint&gt; | undefined`
+**Returns**: `Object.<string, Constraint>` | `undefined`  
+<a name="columnAttributes"></a>
+#columnAttributes
+Allowed column attributes and validations.
 
+**Type**: `Object`  
+<a name="constraintAttributes"></a>
+#constraintAttributes
+Allowed column attributes and validations.
 
+**Type**: `Object`  
+<a name="schemaAttributes"></a>
+#schemaAttributes
+Allowed schema attributes and validations.
 
-* * *
+**Type**: `Object`  
+<a name="columnCallback"></a>
+#callback: columnCallback
+**Params**
 
+- column <code>[Column](#Column)</code> - Column object  
 
+**Type**: `function`  
+<a name="schemaCallback"></a>
+#callback: schemaCallback
+**Params**
 
+- schema <code>[Schema](#Schema)</code> - Schema object  
 
+**Type**: `function`  
+<a name="tableCallback"></a>
+#callback: tableCallback
+**Params**
 
+- table <code>[Table](#Table)</code> - Table object  
 
+**Type**: `function`  
+<a name="columnCallback"></a>
+#callback: columnCallback
+**Params**
 
+- column <code>[Column](#Column)</code> - Column object  
 
+**Type**: `function`  
+<a name="constraintCallback"></a>
+#callback: constraintCallback
+**Params**
 
+- constraint <code>[Constraint](#Constraint)</code> - Constraint object  
 
+**Type**: `function`  

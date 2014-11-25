@@ -136,13 +136,6 @@ var allowedTypes = [
 ];
 
 /**
- * Allowed actions onDelete and onUpdate
- * @private
- * @type {string[]}
- */
-var allowedActions = ['NO ACTION', 'CASCADE', 'SET NULL', 'RESTRICT'];
-
-/**
  * Allowed column attributes and validations.
  * @type {{name: *, default: *, allowNull: *, type: *, special: *, length: *, precision: *, scale: *, arrayType: *, arrayDimension: *, description: *, isAutoIncrement: *, table: *}}
  */
@@ -200,6 +193,10 @@ var Column = function Column(args, options) {
  * @returns {string}
  */
 Column.prototype.name = helper.accessor('name');
+/**
+ * Gets full name of the object in database . notation.
+ */
+Column.prototype.fullName = helper.objectFullName();
 /**
  * @method
  * @param {string} [value] - New value

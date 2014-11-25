@@ -13,8 +13,8 @@ doc:
 	echo Creating README.md *****************************************************
 	rm -f README.md
 	jsdoc2md --src lib/**/*   >>JSDOC.md
-	cat README-JSDOC.md JSDOC.md JSDOX/*  > README.md
-	rm -r -f JSDOC.md JSDOX
+	cat README-JSDOC.md JSDOC.md > README.md
+	rm -r -f JSDOC.md
 
 cover:
 	clear

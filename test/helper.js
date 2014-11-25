@@ -35,5 +35,16 @@ describe('getObject function', function () {
     });
 });
 
+describe('addObject function', function () {
+    it('should throw error for non-validated parameters.', function () {
+        assert.throw(function () { helper.addObject(0); }, /ValidationError:/);
+    });
+});
+
+describe('objectExist function', function () {
+    it('should throw error for non-validated parameters.', function () {
+        assert.throw(function () { helper.objectExist(0); }, /ValidationError:/);
+    });
+});
 
 
