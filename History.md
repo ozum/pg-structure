@@ -1,3 +1,7 @@
+1.2.1 / 2014-11-26
+==================
+* Fix: Documentation updated for 1.2
+
 1.2.0 / 2014-11-26
 ==================
 * Fix: pg-structure callback does not get error object. Instead error is thrown. Now callback gets error object as its first parameter as expected.

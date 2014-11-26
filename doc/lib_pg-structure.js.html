@@ -143,7 +143,7 @@ var Structure = function (host, database, username, password, options) {
     var port                = options.port || 5432,
         schemas             = options.schema || 'public',
         conString           = 'postgres://' + username + ':' + password + '@' + host + ':' + port + '/' + database, // 'postgres://user:pass@host:port/db'
-        db                  = DB({ name: database });
+        db                  = DB({ name: database }, { schemas: schemas });
 
     /**
      * Processes result of the column SQL and populates result object.
@@ -152,29 +152,33 @@ var Structure = function (host, database, username, password, options) {
      * @param {nextCallback} next - Callback to execute after this function finishes its job.
      */
     function processColumns(dbResult, next) {
-        var row, table, schema, i;
-        for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
-            row     = dbResult.rows[i];
-            schema  = db.addSchema({name: row.schemaName });
-            table   = schema.addTable({
-                name        : row.tableName,
-                description : row.description
-            });
-            table.addColumn({
-                name            : row.name,
-                default         : row.default,
-                allowNull       : row.allowNull,
-                type            : row.type,
-                special         : row.special,
-                length          : row.length,
-                precision       : row.precision,
-                scale           : row.scale,
-                arrayType       : row.arrayType,
-                arrayDimension  : row.arrayDimension,
-                description     : row.description
-            });
+        var row, table, schema, i, error;
+        try {
+            for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
+                row = dbResult.rows[i];
+                schema = db.addSchema({name: row.schemaName});
+                table = schema.addTable({
+                    name: row.tableName,
+                    description: row.description
+                });
+                table.addColumn({
+                    name: row.name,
+                    default: row.default,
+                    allowNull: row.allowNull,
+                    type: row.type,
+                    special: row.special,
+                    length: row.length,
+                    precision: row.precision,
+                    scale: row.scale,
+                    arrayType: row.arrayType,
+                    arrayDimension: row.arrayDimension,
+                    description: row.description
+                });
+            }
+        } catch (err) {
+            error = err;
         }
-        next();
+        next(error);
     }
 
     /**
@@ -184,18 +188,22 @@ var Structure = function (host, database, username, password, options) {
      * @param {nextCallback} next - Callback to execute after this function finishes its job.
      */
     function processConstraints(dbResult, next) {
-        var row, column, i;
+        var row, column, i, error;
 
-        for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
-            row = dbResult.rows[i];
-            column = db.schema(row.tableSchema).table(row.tableName).column(row.columnName);
-            if (row.constraintType === 'PRIMARY KEY') {
-                column.isPrimaryKey(true);
-            } else if (row.constraintType === 'UNIQUE') {
-                column.unique(row.constraintName);
+        try {
+            for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
+                row = dbResult.rows[i];
+                column = db.schema(row.tableSchema).table(row.tableName).column(row.columnName);
+                if (row.constraintType === 'PRIMARY KEY') {
+                    column.isPrimaryKey(true);
+                } else if (row.constraintType === 'UNIQUE') {
+                    column.unique(row.constraintName);
+                }
             }
+        } catch (err) {
+            error = err;
         }
-        next();
+        next(error);
     }
 
     /**
@@ -205,22 +213,25 @@ var Structure = function (host, database, username, password, options) {
      * @param {nextCallback} next - Callback to execute after this function finishes its job.
      */
     function processForeignKeys(dbResult, next) {
-        var row, table, i;
-
-        for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
-            row = dbResult.rows[i];
-            table = db.schema(row.tableSchema).table(row.tableName);
-            table.addForeignKey({
-                constraintName      : row.constraintName,
-                columnName          : row.columnName,
-                foreignSchemaName   : row.foreignSchemaName,
-                foreignTableName    : row.foreignTableName,
-                foreignColumnName   : row.foreignColumnName,
-                onUpdate            : row.onUpdate,
-                onDelete            : row.onDelete
-            });
+        var row, table, i, error;
+        try {
+            for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
+                row = dbResult.rows[i];
+                table = db.schema(row.tableSchema).table(row.tableName);
+                table.addForeignKey({
+                    constraintName      : row.constraintName,
+                    columnName          : row.columnName,
+                    foreignSchemaName   : row.foreignSchemaName,
+                    foreignTableName    : row.foreignTableName,
+                    foreignColumnName   : row.foreignColumnName,
+                    onUpdate            : row.onUpdate,
+                    onDelete            : row.onDelete
+                });
+            }
+        } catch (err) {
+            error = err;
         }
-        next();
+        next(error);
     }
 
 
@@ -231,19 +242,24 @@ var Structure = function (host, database, username, password, options) {
      * @param {nextCallback} next - Callback to execute after this function finishes its job.
      */
     function processIndexes(dbResult, next) {
-        var row, i, j, table, columnNames;
-        for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
-            row = dbResult.rows[i];
-            table = db.schema(row.schema).table(row.tableName);
-            if (row.unique) {
-                // String {name,surname} to Array ['name','surname']
-                columnNames = row.columnNames.substr(1, row.columnNames.length - 2).split(',');
-                for (j = 0; j &lt; columnNames.length; j = j + 1) {
-                    table.column(columnNames[j]).unique(row.name);
+        var row, i, j, table, columnNames, error;
+        try {
+            for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
+                row = dbResult.rows[i];
+                table = db.schema(row.schema).table(row.tableName);
+                if (row.unique) {
+                    // String {name,surname} to Array ['name','surname']
+                    columnNames = row.columnNames.substr(1, row.columnNames.length - 2).split(',');
+                    for (j = 0; j &lt; columnNames.length; j = j + 1) {
+                        table.column(columnNames[j]).unique(row.name);
+                    }
                 }
             }
+        } catch (err) {
+            error = err;
         }
-        next();
+
+        next(error);
     }
 
 
@@ -329,7 +345,7 @@ module.exports = function (host, database, username, password, options, callback
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha10</a>
-		on Tue Nov 25th 2014 using the <a
+		on Wed Nov 26th 2014 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
