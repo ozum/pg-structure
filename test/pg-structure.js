@@ -8,7 +8,7 @@ var testDB          = require('./util/db.js');
 var db;
 
 before(function (done) {
-    testDB.resetDB(function () {
+    testDB.resetDB(1, function () {
         structure('localhost', 'pg_generator_test_724839', testDB.dbConfig.user, testDB.dbConfig.password, {schema: ['public', 'other_schema']}, function (err, result) {
             if (err) { throw err; }
             db = result;

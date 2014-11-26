@@ -220,7 +220,7 @@ describe('addForeignKey function', function () {
     it('should throw error for false schema name.', function () {
         assert.throw(function () {
             table.addForeignKey({ constraintName: 'fake', columnName: 'industry_id', foreignSchemaName: 'ZZZ', foreignTableName: 'industry', foreignColumnName: 'id', onUpdate: 'CASCADE', onDelete: 'SET NULL' });
-        }, /cannot be found/);
+        }, /This schema is also not in the options/);
     });
     it('should throw error for false table name.', function () {
         assert.throw(function () {

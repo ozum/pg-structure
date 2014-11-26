@@ -47,11 +47,13 @@ describe('addTable function', function () {
     });
 });
 
-
 describe('table function', function () {
     it('should get table', function () {
         assert.equal(schema.table('account').name(), 'account');
         assert.equal(schema.table('product').name(), 'product');
+    });
+    it('should throw error if non existing table requested.', function () {
+        assert.throw(function () { schema.table(); }, /Error in function arguments/);
     });
 });
 

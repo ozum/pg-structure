@@ -6,7 +6,7 @@ var assert              = require('chai').assert;
 var constraintModule    = require('../lib/util/constraint.js');
 
 
-describe('Constraint function', function () {
+describe('Constraint module', function () {
     it('should throw error if no args provided.', function () {
         assert.throw(function () { constraintModule(); }, /constraint arguments are required/);
     });
@@ -14,3 +14,4 @@ describe('Constraint function', function () {
         assert.throw(function () { constraintModule({ corruptParam: true }); }, /constraint\. ValidationError: name is required/);
     });
 });
+

@@ -14,18 +14,19 @@ var conStringTemplate   = conString + 'template1';                              
 var sql = {
     createDB        : "CREATE DATABASE pg_generator_test_724839 WITH ENCODING = 'UTF8' TEMPLATE = template0;",
     dropDB          : "DROP DATABASE IF EXISTS pg_generator_test_724839;",
-    createSchema    : fs.readFileSync(path.join(__dirname, 'create-test-db.sql')).toString(),
+    createSchema    : function (sqlNo) { return fs.readFileSync(path.join(__dirname, 'create-test-db-' + sqlNo  + '.sql')).toString(); },
     dropConnection  : "SELECT pg_terminate_backend(pid) FROM pg_stat_activity where datname='pg_generator_test_724839';"
 };
 
 pg.on('error', function (err) {
-    // Do nothing on termination due to admin. We do this to drop previously created test db.
+    // Do nothing on termination due to admin command. We do this to drop previously created test db.
     if (!err.message.match('terminating connection due to administrator command')) { console.log('Database error!', err); }
 });
 
 module.exports.dbConfig = dbConfig;
 
-module.exports.resetDB = function resetDB(callback) {
+module.exports.resetDB = function resetDB(dbNo, callback) {
+    dbNo = dbNo || 1;
     var client = new pg.Client(conStringTemplate);
 
     client.connect(function () {
@@ -36,7 +37,7 @@ module.exports.resetDB = function resetDB(callback) {
             function (next) {
                 var clientTest = new pg.Client(conStringTest);
                 clientTest.connect(function () {
-                    clientTest.query(sql.createSchema, function () {
+                    clientTest.query(sql.createSchema(dbNo), function () {
                         clientTest.end();
                         next();
                     });

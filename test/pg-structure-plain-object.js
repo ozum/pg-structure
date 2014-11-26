@@ -11,7 +11,7 @@ var testDB          = require('./util/db.js');
 
 describe('Module', function () {
     before(function (done) {
-        testDB.resetDB(done);
+        testDB.resetDB(1, done);
     });
 
     after(function (done) {
