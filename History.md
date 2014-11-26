@@ -15,4 +15,4 @@
 
 1.0.0 / 2014-11-25
 ==================
-* Completly rewritten to migrate from plain object to object oriented design.
+* Completely rewritten to migrate from plain object to object oriented design.
