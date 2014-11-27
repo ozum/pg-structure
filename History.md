@@ -1,3 +1,14 @@
+Note
+----
+Version history for minimal documentation updates are not listed here to prevent cluttering.
+Important documentation changes are included anyway.
+
+1.3.0 / 2014-11-27
+==================
+* Parameter validation added to pg-structure main function. This would ease debugging.
+* Fix: pg-structure.generate function was throwing error, now it calls its callback with error
+if database connection error occurs.
+
 1.2.1 / 2014-11-26
 ==================
 * Fix: Documentation updated for 1.2
