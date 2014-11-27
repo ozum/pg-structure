@@ -6,12 +6,21 @@ Get PostgreSQL database structure as a detailed JS Object.
 
     var pgs     = require('pg-structure');
     var util    = require('util');
-
     pgs('127.0.0.1', 'node', 'user', 'password', { schema: ['public', 'other_schema'] }, function (err, db) {
+        if (err) { throw err; }
         console.log(db.schema('public').name());
+
+        // Callback style
         db.schema('public').tables(function (table) {
             console.log(table.name());
         });
+
+        // Array Style
+        console.log(schema('public').tables());
+
+        // Long access chain:
+        // public schema -> cart table -> contact_id columns -> foreign key constraint of contact_id
+        // -> table of the constraint -> name of the referenced table
         console.log(db.schema('public').table('cart').column('contact_id').foreignKeyConstraint().referencesTable().name());
     });
 
