@@ -2,6 +2,9 @@
 
 Get PostgreSQL database structure as a detailed JS Object.
 
+## History
+[History & Release Notes](#History)
+
 ## Synopsis
 
     var pgs     = require('pg-structure');

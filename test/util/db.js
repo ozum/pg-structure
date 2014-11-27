@@ -7,6 +7,7 @@ var pg              = require('pg');
 var async           = require('async');
 var dbConfig        = { host: 'localhost', port: 5432, user: 'user', password: 'password'  };
 
+
 var conString           = 'postgres://' + dbConfig.user + ':' + dbConfig.password + '@' + dbConfig.host + ':' + dbConfig.port + '/'; //'postgres://user:pass@host:port/'
 var conStringTest       = conString + 'pg_generator_test_724839';                                                       //'postgres://user:pass@host:port/db'
 var conStringTemplate   = conString + 'template1';                                                                      //'postgres://user:pass@host:port/db'
@@ -14,7 +15,7 @@ var conStringTemplate   = conString + 'template1';                              
 var sql = {
     createDB        : "CREATE DATABASE pg_generator_test_724839 WITH ENCODING = 'UTF8' TEMPLATE = template0;",
     dropDB          : "DROP DATABASE IF EXISTS pg_generator_test_724839;",
-    createSchema    : function (sqlNo) { return fs.readFileSync(path.join(__dirname, 'create-test-db-' + sqlNo  + '.sql')).toString(); },
+    createSchema    : function (sqlID) { return fs.readFileSync(path.join(__dirname, 'create-test-db-' + sqlID  + '.sql')).toString(); },
     dropConnection  : "SELECT pg_terminate_backend(pid) FROM pg_stat_activity where datname='pg_generator_test_724839';"
 };
 
@@ -25,8 +26,8 @@ pg.on('error', function (err) {
 
 module.exports.dbConfig = dbConfig;
 
-module.exports.resetDB = function resetDB(dbNo, callback) {
-    dbNo = dbNo || 1;
+module.exports.resetDB = function resetDB(sqlID, callback) {
+    if (sqlID === undefined) { sqlID = 1; }
     var client = new pg.Client(conStringTemplate);
 
     client.connect(function () {
@@ -37,7 +38,7 @@ module.exports.resetDB = function resetDB(dbNo, callback) {
             function (next) {
                 var clientTest = new pg.Client(conStringTest);
                 clientTest.connect(function () {
-                    clientTest.query(sql.createSchema(dbNo), function () {
+                    clientTest.query(sql.createSchema(sqlID), function () {
                         clientTest.end();
                         next();
                     });

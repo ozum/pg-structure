@@ -1,7 +1,22 @@
+
+---------------------------------------
+
+<a name="History"></a>
+History & Release Notes
+=======================
+
 Note
 ----
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
+
+1.3.1 / 2014-11-27
+==================
+* Added history to readme.
+* Fix: Major error: Single schema or default 'public' schema databases throw error.
+* Fix: Databases without any table throw error.
+* Added tests of this fixes and table without any column.
+
 
 1.3.0 / 2014-11-27
 ==================

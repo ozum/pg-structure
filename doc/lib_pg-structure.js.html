@@ -146,22 +146,61 @@ var Structure = function (host, database, username, password, options) {
         conString           = 'postgres://' + username + ':' + password + '@' + host + ':' + port + '/' + database, // 'postgres://user:pass@host:port/db'
         db                  = DB({ name: database }, { schemas: schemas });
 
+    if (!lodash.isArray(schemas)) { schemas = [schemas]; }      // In SQL query it is used as: schemas = ANY($1) -- pg expects Array for ANY()
+
+
     /**
-     * Processes result of the column SQL and populates result object.
+     * Processes result of the schema SQL 
+     * @private
+     * @param {Object} dbResult - Result of the pg module query.
+     * @param {nextCallback} next - Callback to execute after this function finishes its job.
+     */
+    function processSchemas(dbResult, next) {
+        var i, error;
+        try {
+            for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
+                db.addSchema({name: dbResult.rows[i].schemaName});
+            }
+        } catch (err) {
+            error = err;
+        }
+        next(error);
+    }
+
+    /**
+     * Processes result of the table SQL
+     * @private
+     * @param {Object} dbResult - Result of the pg module query.
+     * @param {nextCallback} next - Callback to execute after this function finishes its job.
+     */
+    function processTables(dbResult, next) {
+        var i, row, error;
+        try {
+            for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
+                row = dbResult.rows[i];
+                db.schema(row.schemaName).addTable({
+                    name        : row.tableName,
+                    description : row.tableDescription
+                });
+            }
+        } catch (err) {
+            error = err;
+        }
+        next(error);
+    }
+
+    /**
+     * Processes result of the column SQL
      * @private
      * @param {Object} dbResult - Result of the pg module query.
      * @param {nextCallback} next - Callback to execute after this function finishes its job.
      */
     function processColumns(dbResult, next) {
-        var row, table, schema, i, error;
+        var row, table, i, error;
         try {
             for (i = 0; i &lt; dbResult.rows.length; i = i + 1) {
                 row = dbResult.rows[i];
-                schema = db.addSchema({name: row.schemaName});
-                table = schema.addTable({
-                    name: row.tableName,
-                    description: row.description
-                });
+                table = db.schema(row.schemaName).table(row.tableName);
                 table.addColumn({
                     name: row.name,
                     default: row.default,
@@ -183,7 +222,7 @@ var Structure = function (host, database, username, password, options) {
     }
 
     /**
-     * Processes result of the constraint SQL and populates result object.
+     * Processes result of the constraint SQL
      * @private
      * @param {Object} dbResult - Result of the pg module query.
      * @param {nextCallback} next - Callback to execute after this function finishes its job.
@@ -208,7 +247,7 @@ var Structure = function (host, database, username, password, options) {
     }
 
     /**
-     * Processes result of the foreigin key SQL and populates result object.
+     * Processes result of the foreigin key SQL
      * @private
      * @param {Object} dbResult - Result of the pg module query.
      * @param {nextCallback} next - Callback to execute after this function finishes its job.
@@ -237,7 +276,7 @@ var Structure = function (host, database, username, password, options) {
 
 
     /**
-     * Processes result of the index SQL and populates result object.
+     * Processes result of the index SQL
      * @private
      * @param {Object} dbResult - Result of the pg module query.
      * @param {nextCallback} next - Callback to execute after this function finishes its job.
@@ -271,9 +310,15 @@ var Structure = function (host, database, username, password, options) {
      */
     this.generate = function (callback) {
         pg.connect(conString, function (err, client, done) {
-            if (err) { callback(new Error('error fetching client from pool', err)); }
+            if (err) { callback(new Error('error fetching client from pool.', err)); }
 
             async.waterfall([
+                client.query.bind(client, sql.schema, [schemas]),
+                processSchemas,
+
+                client.query.bind(client, sql.table, [schemas]),
+                processTables,
+
                 client.query.bind(client, sql.column, [schemas]),
                 processColumns,
 
