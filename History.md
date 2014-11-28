@@ -13,7 +13,7 @@ Important documentation changes are included anyway.
 1.4.0 / 2014-11-28
 ==================
 * Added support for user-defined types.
-* Added column.udtType() method to get user defined type name.
+* Added column.udType() method to get user defined type name.
 * Added necessary tests.
 
 1.3.1 / 2014-11-27
