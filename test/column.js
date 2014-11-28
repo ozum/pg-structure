@@ -5,7 +5,7 @@
 var assert          = require('chai').assert;
 var dbModule        = require('../lib/util/db.js');
 var columnModule    = require('../lib/util/column.js');
-var table, column, columnNumeric, columnAutoInc;
+var table, column, columnNumeric, columnAutoInc, columnUdt;
 
 beforeEach(function (done) {
     table = dbModule({name: 'db'}).addSchema({name: 'public'}).addTable({name: 'account'});
@@ -38,6 +38,11 @@ beforeEach(function (done) {
         allowNull           : false,
         type                : 'integer',
         description         : 'Auto increment'
+    });
+    columnUdt = table.addColumn({
+        name                : 'column_udt',
+        type                : 'user-defined',
+        udType              : 'tax_number'
     });
     done();
 });
@@ -107,6 +112,9 @@ describe('Attribute functions', function () {
     });
     it('should get scale', function () {
         assert.equal(columnNumeric.scale(), 2);
+    });
+    it('should get user defined type', function () {
+        assert.equal(columnUdt.udType(), 'tax_number');
     });
 
 

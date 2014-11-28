@@ -38,3 +38,14 @@ describe('Inter-Schema Relationship', function () {
         assert.equal(db.schema('other_schema').table('other_schema_table').column('account_id').foreignKeyConstraint().referencesTable().name(), 'account');
     });
 });
+
+describe('User Defined Type', function () {
+    it('should have udtType', function () {
+        assert.equal(db.schema('public').table('type_table').column('company').type(), 'user-defined');
+        assert.equal(db.schema('public').table('type_table').column('company').udType(), 'composite_udt');
+
+    });
+    it('should have Sequelize Type', function () {
+        assert.equal(db.schema('public').table('type_table').column('company').sequelizeType(), 'DataTypes.STRING');
+    });
+});

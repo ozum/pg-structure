@@ -24,6 +24,7 @@ SELECT
   ELSE NULL END                                                      AS "arrayType",
   CASE WHEN LOWER(data_type) = 'array' THEN a.attndims
   ELSE NULL END                                                      AS "arrayDimension",
+  udt_name                                                           AS "udType",      -- User Defined Types such as composite, enumerated etc.
   ordinal_position                                                   AS "position",
   pg_catalog.col_description(c.oid, columns.ordinal_position :: INT) AS "description"
 FROM information_schema.columns

@@ -10,6 +10,12 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
+1.4.0 / 2014-11-28
+==================
+* Added support for user-defined types.
+* Added column.udtType() method to get user defined type name.
+* Added necessary tests.
+
 1.3.1 / 2014-11-27
 ==================
 * Added history to readme.
@@ -42,3 +48,4 @@ if database connection error occurs.
 1.0.0 / 2014-11-25
 ==================
 * Completely rewritten to migrate from plain object to object oriented design.
+* column.sequelizeType() method added. This method gets sequelize compatible type of the column.

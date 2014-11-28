@@ -1,6 +1,6 @@
 /*
 Created: 02/10/2014
-Modified: 24/11/2014
+Modified: 28/11/2014
 Project: Node Test
 Model: Node Test
 Company: Fortibase
@@ -23,6 +23,11 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;           -- HStore
 CREATE SCHEMA "other_schema"
 ;
 
+-- Create domain types section -------------------------------------------------
+
+CREATE DOMAIN "tax_no" AS Character varying(20) DEFAULT 1234 NOT NULL
+;
+
 -- Create functions section -------------------------------------------------
 
 CREATE FUNCTION "t_updated_at"()
@@ -36,6 +41,17 @@ BEGIN
      RETURN NEW;
 END;
 $$
+;
+
+-- Create user data types section -------------------------------------------------
+
+CREATE TYPE "composite_udt" AS
+ ( company_id                          INTEGER,
+business_unit_id            INTEGER )
+;
+
+CREATE TYPE "enumerated_udt" AS ENUM
+ ( 'option_a', 'option_b' )
 ;
 
 -- Create tables section -------------------------------------------------
@@ -636,6 +652,34 @@ CREATE INDEX "IX_other_schema_table_id" ON "other_schema"."other_schema_table" (
 -- Add keys for table other_schema.other_schema_table
 
 ALTER TABLE "other_schema"."other_schema_table" ADD CONSTRAINT "Key13" PRIMARY KEY ("id")
+;
+
+-- Table type_table
+
+CREATE TABLE "type_table"(
+ "id" Serial NOT NULL,
+ "person_tax" "tax_no",
+ "name" Character varying(20) DEFAULT 'oz',
+ "company" "composite_udt",
+ "options" "enumerated_udt"
+)
+WITH (OIDS=FALSE)
+;
+
+COMMENT ON TABLE "type_table" IS 'Table to test custom data types.'
+;
+COMMENT ON COLUMN "type_table"."id" IS 'Kayıt no.'
+;
+COMMENT ON COLUMN "type_table"."person_tax" IS 'Tax number of person.'
+;
+COMMENT ON COLUMN "type_table"."name" IS 'Name of the person'
+;
+COMMENT ON COLUMN "type_table"."options" IS 'Options of person'
+;
+
+-- Add keys for table type_table
+
+ALTER TABLE "type_table" ADD CONSTRAINT "type_table_key" PRIMARY KEY ("id")
 ;
 
 -- Create relationships section ------------------------------------------------- 
