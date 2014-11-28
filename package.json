@@ -1,6 +1,6 @@
 {
   "name": "pg-structure",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Get PostgreSQL database structure as a detailed JS Object",
   "main": "lib/pg-structure.js",
   "scripts": {
