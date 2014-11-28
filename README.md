@@ -94,6 +94,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [column.table([value])](#Column#table)
   * [column.parent([value])](#Column#parent)
   * [column.foreignKeyConstraint([value])](#Column#foreignKeyConstraint)
+  * [column.udType([value])](#Column#udType)
   * [column.sequelizeType([varName])](#Column#sequelizeType)
 * [class: Constraint](#Constraint)
   * [new Constraint(args, [options])](#new_Constraint)
@@ -190,6 +191,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [column.table([value])](#Column#table)
   * [column.parent([value])](#Column#parent)
   * [column.foreignKeyConstraint([value])](#Column#foreignKeyConstraint)
+  * [column.udType([value])](#Column#udType)
   * [column.sequelizeType([varName])](#Column#sequelizeType)
 
 <a name="new_Column"></a>
@@ -207,6 +209,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   - \[scale\] `number` - Scale of the column.  
   - \[arrayType\] `string` - If column is array. Data type of the array.  
   - \[arrayDimension\] `number` - array dimension of the column.  
+  - \[udType\] `string` - User defined type of the column if the column type is user defined  
   - \[description\] `String` - Description of the table  
   - table <code>[Table](#Table)</code> - [Table](#Table) of the class  
 - \[options\] `Object` - Options  
@@ -365,6 +368,15 @@ Gets/sets foreign key constraint of the column, if column is a foreign key.
 - \[value\] <code>[Constraint](#Constraint)</code> - New value  
 
 **Returns**: [Constraint](#Constraint)  
+<a name="Column#udType"></a>
+##column.udType([value])
+Gets/sets user defined type of the column, if column is a user defined type.
+
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
 <a name="Column#sequelizeType"></a>
 ##column.sequelizeType([varName])
 Returns Sequelize ORM datatype for column.
@@ -949,6 +961,12 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
+1.4.0 / 2014-11-28
+==================
+* Added support for user-defined types.
+* Added column.udtType() method to get user defined type name.
+* Added necessary tests.
+
 1.3.1 / 2014-11-27
 ==================
 * Added history to readme.
@@ -981,3 +999,4 @@ if database connection error occurs.
 1.0.0 / 2014-11-25
 ==================
 * Completely rewritten to migrate from plain object to object oriented design.
+* column.sequelizeType() method added. This method gets sequelize compatible type of the column.

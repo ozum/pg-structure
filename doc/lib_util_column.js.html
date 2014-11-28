@@ -132,7 +132,7 @@ var allowedTypes = [
     'cidr', 'circle', 'date', 'double precision', 'hstore', 'inet', 'integer', 'interval', 'json', 'line', 'lseg',
     'macaddr', 'money', 'numeric', 'path', 'point', 'polygon', 'real', 'serial', 'smallint', 'smallserial', 'text',
     'time with time zone', 'time without time zone', 'timestamp with time zone', 'timestamp without time zone',
-    'tsquery', 'tsvector', 'txid_snapshot', 'uuid', 'xml'
+    'tsquery', 'tsvector', 'txid_snapshot', 'user-defined', 'uuid', 'xml'
 ];
 
 /**
@@ -150,6 +150,7 @@ var columnAttributes = {
     scale               : joi.number().integer().allow(null),
     arrayType           : joi.string().valid(allowedTypes).allow(null),
     arrayDimension      : joi.number().integer().allow(null),
+    udType              : joi.string().allow(null),
     description         : joi.string().allow(null),
     table               : joi.object().required()
 };
@@ -167,6 +168,7 @@ var columnAttributes = {
  * @param {number} [args.scale] - Scale of the column.
  * @param {string} [args.arrayType] - If column is array. Data type of the array.
  * @param {number} [args.arrayDimension] - array dimension of the column.
+ * @param {string} [args.udType] - User defined type of the column if the column type is user defined
  * @param {String} [args.description] - Description of the table
  * @param {Table} args.table - {@link Table} of the class
  * @param {Object} [options] - Options
@@ -318,6 +320,15 @@ Column.prototype.parent = Column.prototype.table;
  * @returns {Constraint}
  */
 Column.prototype.foreignKeyConstraint = helper.accessor('foreignKeyConstraint');
+
+/**
+ * Gets/sets user defined type of the column, if column is a user defined type.
+ * @method
+ * @param {string} [value] - New value
+ * @returns {string}
+ */
+Column.prototype.udType = helper.accessor('udType');
+
 
 /**
  * Returns Sequelize ORM datatype for column.
