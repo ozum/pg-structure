@@ -1,3 +1,5 @@
+-- Should return:
+-- schemaName, tableName, name, default, allowNull, type, special, length, precision, scale, arrayType, arrayDimension, position, description
 SELECT
   table_schema                                                       AS "schemaName",
   table_name                                                         AS "tableName",
@@ -23,8 +25,7 @@ SELECT
   CASE WHEN LOWER(data_type) = 'array' THEN a.attndims
   ELSE NULL END                                                      AS "arrayDimension",
   ordinal_position                                                   AS "position",
-  pg_catalog.col_description(c.oid, columns.ordinal_position :: INT) AS "description",
-  pg_catalog.obj_description(c.oid)                                  AS "tableDescription"
+  pg_catalog.col_description(c.oid, columns.ordinal_position :: INT) AS "description"
 FROM information_schema.columns
   INNER JOIN pg_catalog.pg_attribute a ON a.attname = column_name
   INNER JOIN pg_catalog.pg_class c ON c.oid = a.attrelid AND c.relname = table_name
