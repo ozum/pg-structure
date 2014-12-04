@@ -18,8 +18,7 @@ before(function (done) {
 });
 
 after(function (done) {
-    //testDB.dropDB(done);
-    done();
+    testDB.dropDB(done);
 });
 
 describe('DB Object', function () {
