@@ -56,14 +56,14 @@ describe('Column Default', function () {
         assert.equal(db.schema('public').table('contact').column('surname').default(), '\'O\'\'Reilly\'');
         assert.equal(db.schema('public').table('contact').column('birth_date').default(), '\'2010-01-01\'');
         assert.equal(db.schema('public').table('contact').column('is_active').default(), 'true');
-        assert.equal(db.schema('public').table('contact').column('email').default(), '\'x@x.com\'');
+        assert.equal(db.schema('public').table('contact').column('email').default(), '\'x"x@x.com\'');
     });
     it('contact should have some default values with typecast.', function () {
         assert.equal(db.schema('public').table('contact').column('name').defaultWithTypeCast(), '\'oz\'::character varying');
         assert.equal(db.schema('public').table('contact').column('surname').defaultWithTypeCast(), '\'O\'\'Reilly\'::character varying');
         assert.equal(db.schema('public').table('contact').column('birth_date').defaultWithTypeCast(), '\'2010-01-01\'::date');
         assert.equal(db.schema('public').table('contact').column('is_active').defaultWithTypeCast(), 'true');
-        assert.equal(db.schema('public').table('contact').column('email').defaultWithTypeCast(), '\'x@x.com\'::character varying');
+        assert.equal(db.schema('public').table('contact').column('email').defaultWithTypeCast(), '\'x"x@x.com\'::character varying');
     });
 
     it('cart_line_item should have some default values.', function () {

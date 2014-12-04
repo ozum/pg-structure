@@ -64,7 +64,7 @@ CREATE TABLE "contact"(
  "updated_at" Timestamp(0) DEFAULT now() NOT NULL,
  "name" Character varying(20) NOT NULL DEFAULT 'oz',
  "surname" Character varying(20) NOT NULL DEFAULT 'O''Reilly',
- "email" Character varying(20) NOT NULL DEFAULT 'x@x.com',
+ "email" Character varying(20) NOT NULL DEFAULT 'x"x@x.com',
  "birth_date" Date NOT NULL DEFAULT '2010-01-01',
  "is_active" Boolean DEFAULT TRUE NOT NULL,
  "company_id" Integer NOT NULL,
