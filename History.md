@@ -10,6 +10,10 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
+1.5.1 / 2014-12-04
+==================
+* Fix: Test db does not destroyed after tests.
+
 1.5.0 / 2014-12-04
 ==================
 * Fix: column.default() method returns default value with type cast. From now on yype cast part is stripped.
