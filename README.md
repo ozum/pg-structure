@@ -74,6 +74,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [new Column(args, [options])](#new_Column)
   * [column.fullName](#Column#fullName)
   * [column.name([value])](#Column#name)
+  * [column.defaultWithTypeCast([value])](#Column#defaultWithTypeCast)
   * [column.default([value])](#Column#default)
   * [column.allowNull([value])](#Column#allowNull)
   * [column.type([value])](#Column#type)
@@ -171,6 +172,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [new Column(args, [options])](#new_Column)
   * [column.fullName](#Column#fullName)
   * [column.name([value])](#Column#name)
+  * [column.defaultWithTypeCast([value])](#Column#defaultWithTypeCast)
   * [column.default([value])](#Column#default)
   * [column.allowNull([value])](#Column#allowNull)
   * [column.type([value])](#Column#type)
@@ -226,13 +228,29 @@ Gets full name of the object in database . notation.
 - \[value\] `string` - New value  
 
 **Returns**: `string`  
-<a name="Column#default"></a>
-##column.default([value])
+<a name="Column#defaultWithTypeCast"></a>
+##column.defaultWithTypeCast([value])
+Returns default value with type cast.
+
 **Params**
 
 - \[value\] `string` - New value  
 
 **Returns**: `string`  
+<a name="Column#default"></a>
+##column.default([value])
+Returns default value without type cast.
+
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+**Example**  
+var column = db('crm').schema('public').table('contact').column('name');
+console.log(column.defaultWithTypeCast());  // 'George'::character varying
+console.log(column.default());              // George
+
 <a name="Column#allowNull"></a>
 ##column.allowNull([value])
 **Params**
@@ -960,6 +978,12 @@ Note
 ----
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
+
+1.5.0 / 2014-12-04
+==================
+* Fix: column.default() method returns default value with type cast. From now on yype cast part is stripped.
+* Added column.defaultWithTypeCast() method for getting default values with type cast part.
+* Tests added for default values.
 
 1.4.0 / 2014-11-28
 ==================
