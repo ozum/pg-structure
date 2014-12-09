@@ -18,7 +18,8 @@ before(function (done) {
 });
 
 after(function (done) {
-    testDB.dropDB(done);
+    //testDB.dropDB(done);
+    done();
 });
 
 describe('DB Object', function () {
@@ -50,7 +51,7 @@ describe('User Defined Type', function () {
     });
 });
 
-describe('Column Default', function () {
+describe('Column Default:', function () {
     it('contact should have some default values.', function () {
         assert.equal(db.schema('public').table('contact').column('name').default(), '\'oz\'');
         assert.equal(db.schema('public').table('contact').column('surname').default(), '\'O\'\'Reilly\'');
@@ -68,5 +69,12 @@ describe('Column Default', function () {
 
     it('cart_line_item should have some default values.', function () {
         assert.equal(db.schema('public').table('cart_line_item').column('quantity').default(), 1);
+    });
+});
+
+describe('Description:', function () {
+    it('cart_line_item_audit_log should have some description.', function() {
+        assert.equal(db.schema('public').table('cart_line_item_audit_log').column('created_at').description(), 'Kaydın oluşturulduğu zaman.');
+        assert.equal(db.schema('public').table('cart_line_item_audit_log').column('cart_id').description(), 'Sepet atılan ürünün sepet id\'si.');
     });
 });
