@@ -119,6 +119,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [dB.name([value])](#DB#name)
   * [dB.addSchema(args)](#DB#addSchema)
   * [dB.schema(name)](#DB#schema)
+  * [dB.get(path)](#DB#get)
   * [dB.schemaExist(name)](#DB#schemaExist)
   * [dB.schemas([callback])](#DB#schemas)
 * [class: Schema](#Schema)
@@ -128,10 +129,12 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [schema.db([value])](#Schema#db)
   * [schema.parent([value])](#Schema#parent)
   * [schema.table(name)](#Schema#table)
+  * [schema.get(path)](#Schema#get)
   * [schema.tables([callback])](#Schema#tables)
 * [class: Table](#Table)
   * [new Table(args, [options])](#new_Table)
   * [table.fullName](#Table#fullName)
+  * [table.get](#Table#get)
   * [table.name([value])](#Table#name)
   * [table.description([value])](#Table#description)
   * [table.schema([value])](#Table#schema)
@@ -569,6 +572,7 @@ contains foreign key {@link Column} objects.
   * [dB.name([value])](#DB#name)
   * [dB.addSchema(args)](#DB#addSchema)
   * [dB.schema(name)](#DB#schema)
+  * [dB.get(path)](#DB#get)
   * [dB.schemaExist(name)](#DB#schemaExist)
   * [dB.schemas([callback])](#DB#schemas)
 
@@ -614,6 +618,20 @@ Returns the [Schema](#Schema) object with given name.
 - name `string` - Name of the schema  
 
 **Returns**: [Schema](#Schema)  
+<a name="DB#get"></a>
+##dB.get(path)
+Shortcut function which returns object based on path.
+
+**Params**
+
+- path `string` - Database path of the requested item.  
+
+**Returns**: [Schema](#Schema) | [Table](#Table) | [Column](#Column)  
+**Example**  
+var schema = db.get('public'),                   // Returns public schema.
+    table  = db.get('public.contact'),           // Returns contact table in public schema.
+    column = db.get('public.contact.name');      // Returns name column of the contact table in public schema.
+
 <a name="DB#schemaExist"></a>
 ##dB.schemaExist(name)
 Returns true if object with given name exist.
@@ -645,6 +663,7 @@ values are {@link Schema} objects.
   * [schema.db([value])](#Schema#db)
   * [schema.parent([value])](#Schema#parent)
   * [schema.table(name)](#Schema#table)
+  * [schema.get(path)](#Schema#get)
   * [schema.tables([callback])](#Schema#tables)
 
 <a name="new_Schema"></a>
@@ -697,6 +716,19 @@ Returns the [Table](#Table) object with given name.
 - name `string` - Name of the table  
 
 **Returns**: [Table](#Table)  
+<a name="Schema#get"></a>
+##schema.get(path)
+Shortcut function which returns object based on path.
+
+**Params**
+
+- path `string` - Database path of the requested item.  
+
+**Returns**: [Table](#Table) | [Column](#Column)  
+**Example**  
+var table  = db.get('contact'),           // Returns contact table in public schema.
+    column = db.get('contact.name');      // Returns name column of the contact table in public schema.
+
 <a name="Schema#tables"></a>
 ##schema.tables([callback])
 Retrieves all tables in the schema. If callback is provided, it is executed for each table. Callback is passed [Table](#Table)
@@ -715,6 +747,7 @@ values are {@link Table} objects.
 * [class: Table](#Table)
   * [new Table(args, [options])](#new_Table)
   * [table.fullName](#Table#fullName)
+  * [table.get](#Table#get)
   * [table.name([value])](#Table#name)
   * [table.description([value])](#Table#description)
   * [table.schema([value])](#Table#schema)
@@ -748,6 +781,18 @@ values are {@link Table} objects.
 <a name="Table#fullName"></a>
 ##table.fullName
 Gets full name of the object in database . notation.
+
+<a name="Table#get"></a>
+##table.get
+Shortcut function which returns object based on path.
+
+**Params**
+
+- path `string` - Database path of the requested item.  
+
+**Returns**: [Column](#Column)  
+**Example**  
+var column = db.get('name');      // Returns name column of the contact table in public schema.
 
 <a name="Table#name"></a>
 ##table.name([value])
@@ -989,6 +1034,10 @@ Note
 ----
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
+
+1.7.1 / 2014-12-10
+==================
+* Fix: hasManyThrough does not return foreign keys.
 
 1.7.0 / 2014-12-10
 ==================

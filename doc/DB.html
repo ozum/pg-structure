@@ -730,6 +730,164 @@
         
             
 <dt>
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(path)</span><span class="type-signature"> &rarr; {<a href="Schema.html">Schema</a>|<a href="Table.html">Table</a>|<a href="Column.html">Column</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Shortcut function which returns object based on path.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Database path of the requested item.</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="lib_util_db.js.html">lib/util/db.js</a>,
+				 <a href="lib_util_db.js.html#sunlight-1-line-95">line 95</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="Schema.html">Schema</a></span>
+|
+
+<span class="param-type"><a href="Table.html">Table</a></span>
+|
+
+<span class="param-type"><a href="Column.html">Column</a></span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var schema = db.get(&#x27;public&#x27;),                   // Returns public schema.
+    table  = db.get(&#x27;public.contact&#x27;),           // Returns contact table in public schema.
+    column = db.get(&#x27;public.contact.name&#x27;);      // Returns name column of the contact table in public schema.</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="name"><span class="type-signature"></span>name<span class="signature">(<span class="optional">value</span>)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
     
@@ -1137,7 +1295,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="lib_util_db.js.html">lib/util/db.js</a>,
-				 <a href="lib_util_db.js.html#sunlight-1-line-92">line 92</a>
+				 <a href="lib_util_db.js.html#sunlight-1-line-107">line 107</a>
 			</li>
 		</ul>
 	</dd>
@@ -1295,7 +1453,7 @@ values are <a href="Schema.html">Schema</a> objects.</p>
 		<ul class="dummy">
 			<li>
 				<a href="lib_util_db.js.html">lib/util/db.js</a>,
-				 <a href="lib_util_db.js.html#sunlight-1-line-107">line 107</a>
+				 <a href="lib_util_db.js.html#sunlight-1-line-122">line 122</a>
 			</li>
 		</ul>
 	</dd>

@@ -10,6 +10,12 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
+1.8.0 / 2014-12-10
+==================
+* Added: Shortcut function 'get' added to db, schema and table classes.
+* Fix: hasManyThrough does not return foreign keys.
+
+
 1.7.0 / 2014-12-10
 ==================
 * Added: onDelete and onUpdate added to hasMany and hasManyThrough relations.

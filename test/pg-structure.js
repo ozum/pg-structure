@@ -95,3 +95,55 @@ describe('account.account_has_other_schema_tables has many constraint', function
         assert.equal(db.schema('public').table('account').hasMany('account_has_contacts').onUpdate(), 'NO ACTION');
     });
 });
+
+describe('contact Table', function () {
+    it('should have foreign key in cart table.', function () {
+        assert.equal(db.schema('public').table('cart').foreignKeyConstraint('contact_has_carts').name(), 'contact_has_carts');
+        assert.equal(db.schema('public').table('cart').foreignKeyConstraint('contact_has_carts').foreignKey(0).name(), 'contact_id');
+    });
+    it('should have many contacts.', function () {
+        assert.equal(db.schema('public').table('contact').hasMany('contact_has_carts').name(), 'contact_has_carts');
+        assert.equal(db.schema('public').table('contact').hasMany('contact_has_carts').foreignKey(0).name(), 'contact_id');
+    });
+});
+
+describe('cart Table', function () {
+    it('should have many products through cart line items.', function () {
+        assert.equal(db.schema('public').table('cart').hasManyThrough('cart_has_products').name(), 'cart_has_products');
+        assert.equal(db.schema('public').table('cart').hasManyThrough('cart_has_products').foreignKey(0).name(), 'cart_id');
+    });
+});
+
+describe('product Table', function () {
+    it('should have many carts through cart line items.', function () {
+        assert.equal(db.schema('public').table('product').hasManyThrough('product_has_carts').name(), 'product_has_carts');
+        assert.equal(db.schema('public').table('product').hasManyThrough('product_has_carts').foreignKey(0).name(), 'product_id');
+    });
+});
+
+describe('db.get function', function () {
+    it('should get schema', function () {
+        assert.equal(db.get('public').name(), 'public');
+    });
+    it('should get table', function () {
+        assert.equal(db.get('public.product').name(), 'product');
+    });
+    it('should get column', function () {
+        assert.equal(db.get('public.product.name').name(), 'name');
+    });
+});
+
+describe('schema.get function', function () {
+    it('should get table', function () {
+        assert.equal(db.schema('public').get('product').name(), 'product');
+    });
+    it('should get column', function () {
+        assert.equal(db.schema('public').get('product.name').name(), 'name');
+    });
+});
+
+describe('column.get function', function () {
+    it('should get column', function () {
+        assert.equal(db.schema('public').table('product').get('name').name(), 'name');
+    });
+});

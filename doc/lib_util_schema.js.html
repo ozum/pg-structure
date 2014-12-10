@@ -108,7 +108,7 @@
 			class="sunlight-highlight-javascript linenums">/**
  * @author Özüm Eldoğan
  */
-/*jslint node: true */
+/*jslint node: true, regexp: true */
 "use strict";
 
 var joi             = require('joi');
@@ -209,6 +209,20 @@ Schema.prototype.table = helper.getObject('tables', null);
  * @callback tableCallback
  * @param {Table} table - Table object
  */
+
+/**
+ * Shortcut function which returns object based on path.
+ * @param {string} path - Database path of the requested item.
+ * @returns {Table|Column}
+ * @example
+ * var table  = db.get('contact'),           // Returns contact table in public schema.
+ *     column = db.get('contact.name');      // Returns name column of the contact table in public schema.
+ */
+Schema.prototype.get = function (path) {
+    var parts   = path.split('.'),
+        table   = parts.shift();
+    return parts.length === 0 ? this.table(table) : this.table(table).get(parts.join('.'));
+};
 
 /**
  * Retrieves all tables in the schema. If callback is provided, it is executed for each table. Callback is passed {@link Table}
