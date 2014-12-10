@@ -5,7 +5,7 @@
 var assert          = require('chai').assert;
 var dbModule        = require('../lib/util/db.js');
 var columnModule    = require('../lib/util/column.js');
-var table, column, columnNumeric, columnAutoInc, columnUdt;
+var table, column, columnNumeric, columnAutoInc, columnUdt, columnChar;
 
 beforeEach(function (done) {
     table = dbModule({name: 'db'}).addSchema({name: 'public'}).addTable({name: 'account'});
@@ -14,7 +14,7 @@ beforeEach(function (done) {
         default             : undefined,
         allowNull           : false,
         type                : 'array',
-        enumValues             : undefined,
+        enumValues          : undefined,
         length              : 32,
         precision           : undefined,
         scale               : undefined,
@@ -27,7 +27,7 @@ beforeEach(function (done) {
         default             : undefined,
         allowNull           : false,
         type                : 'numeric',
-        enumValues             : undefined,
+        enumValues          : undefined,
         precision           : 4,
         scale               : 2,
         description         : 'Success percentage'
@@ -43,6 +43,11 @@ beforeEach(function (done) {
         name                : 'column_udt',
         type                : 'user-defined',
         udType              : 'tax_number'
+    });
+    columnChar = table.addColumn({
+        name                : 'surname',
+        type                : 'character',
+        length              : 25
     });
     done();
 });
@@ -104,8 +109,9 @@ describe('Attribute functions', function () {
         assert.equal(column.unique(), undefined);
     });
     it('should get sequelizeType', function () {
-        assert.equal(column.sequelizeType(), 'DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.INTEGER(32)))');
         assert.equal(columnNumeric.sequelizeType(), 'DataTypes.DECIMAL(4,2)');
+        assert.equal(columnChar.sequelizeType(), 'DataTypes.CHAR(25)');
+        assert.equal(column.sequelizeType(), 'DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.INTEGER(32)))');
     });
     it('should get precision', function () {
         assert.equal(columnNumeric.precision(), 4);

@@ -1035,11 +1035,16 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
+1.8.1 / 2014-12-10
+==================
+* Fix: Sequelize type date, time etc. has no length property.
+* Fix: Sequelize type dateonly added.
+* Tests added.
+
 1.8.0 / 2014-12-10
 ==================
 * Added: Shortcut function 'get' added to db, schema and table classes.
 * Fix: hasManyThrough does not return foreign keys.
-
 
 1.7.0 / 2014-12-10
 ==================

@@ -369,10 +369,13 @@ Column.prototype.udType = helper.accessor('udType');
  * var typeB = column.sequelizeType('Sequelize');   // Sequelize.INTEGER(3)
  */
 Column.prototype.sequelizeType = function (varName) {
-    varName         = varName || 'DataTypes';       // DataTypes.INTEGER etc. prefix
-    var enumValues  = internal(this).attributes.enumValues,
-        type        = enumValues ? '.ENUM' : sequelizeTypes[internal(this).attributes.type].type,
-        isObject    = type &amp;&amp; type.indexOf('.') !== -1,             // . ile başlıyorsa değişkene çevirmek için
+    varName             = varName || 'DataTypes';       // DataTypes.INTEGER etc. prefix
+    var enumValues      = internal(this).attributes.enumValues,
+        type            = enumValues ? '.ENUM' : sequelizeTypes[internal(this).attributes.type].type,
+        realType        = internal(this).attributes.arrayDimension >= 1 ? internal(this).attributes.arrayType : internal(this).attributes.type, // type or type of array (if array).
+        hasLength       = sequelizeTypes[realType].hasLength,
+        hasPrecision    = sequelizeTypes[realType].hasPrecision,
+        isObject        = type &amp;&amp; type.indexOf('.') !== -1,             // . ile başlıyorsa değişkene çevirmek için
         details,
         isArrayTypeObject;
 
@@ -403,8 +406,12 @@ Column.prototype.sequelizeType = function (varName) {
         type += '(' + enumValues + ')';
     }
 
-    type += details(internal(this).attributes.precision, internal(this).attributes.scale);
-    type += details(internal(this).attributes.length);
+    if (hasPrecision) {
+        type += details(internal(this).attributes.precision, internal(this).attributes.scale);
+    }
+    if (hasLength) {
+        type += details(internal(this).attributes.length);
+    }
 
     if (internal(this).attributes.arrayDimension >= 1) {
         type += new Array(internal(this).attributes.arrayDimension + 1).join(')'); // arrayDimension -1 tane ) yaz
