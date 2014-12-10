@@ -338,7 +338,9 @@ Table.prototype.addForeignKey = function (args) {
         name                : args.constraintName,
         referencesSchema    : this.schema(),
         referencesTable     : this,
-        table               : referencesTable
+        table               : referencesTable,
+        onUpdate            : args.onUpdate,
+        onDelete            : args.onDelete
     });
     hasMany.addForeignKey(column);
 
@@ -350,12 +352,16 @@ Table.prototype.addForeignKey = function (args) {
                 name                : otherFKC.name(),
                 referencesSchema    : fkConstraint.referencesSchema(),
                 referencesTable     : fkConstraint.referencesTable(),
+                onUpdate            : fkConstraint.onUpdate(),
+                onDelete            : fkConstraint.onDelete(),
                 through             : table
             });
             fkConstraint.referencesTable().addHasManyThrough({
                 name                : fkConstraint.name(),
                 referencesSchema    : otherFKC.referencesSchema(),
                 referencesTable     : otherFKC.referencesTable(),
+                onUpdate            : otherFKC.onUpdate(),
+                onDelete            : otherFKC.onDelete(),
                 through             : table
             });
         });

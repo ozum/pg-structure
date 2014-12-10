@@ -10,6 +10,10 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
+1.7.0 / 2014-12-10
+==================
+* Added: onDelete and onUpdate added to hasMany and hasManyThrough relations.
+
 1.6.0 / 2014-12-10
 ==================
 * DEPRECATED: column.special function. Use column.enumValues instead.

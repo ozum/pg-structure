@@ -86,3 +86,12 @@ describe('type_table options column', function () {
         assert.equal(db.schema('public').table('type_table').column('options').enumValues(), "{option_a,option_b}");
     });
 });
+
+describe('account.account_has_other_schema_tables has many constraint', function () {
+    it('should have onDelete and onUpdate', function () {
+        assert.equal(db.schema('public').table('account').hasMany('account_has_second_contacts').onDelete(), 'SET NULL');
+        assert.equal(db.schema('public').table('account').hasMany('account_has_second_contacts').onUpdate(), 'CASCADE');
+        assert.equal(db.schema('public').table('account').hasMany('account_has_contacts').onDelete(), 'NO ACTION');
+        assert.equal(db.schema('public').table('account').hasMany('account_has_contacts').onUpdate(), 'NO ACTION');
+    });
+});
