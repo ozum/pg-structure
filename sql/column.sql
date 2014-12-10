@@ -10,7 +10,7 @@ SELECT
   ELSE LOWER(data_type) END                                          AS "type",
   (SELECT Array_agg(e.enumlabel)
    FROM pg_catalog.pg_type t JOIN pg_catalog.pg_enum e ON t.oid = e.enumtypid
-   WHERE t.typname = udt_name)                                       AS "special",
+   WHERE t.typname = udt_name)                                       AS "enumValues",
   CASE WHEN LOWER(data_type) = 'array' THEN information_schema._pg_char_max_length(arraytype.oid, a.atttypmod)
   ELSE character_maximum_length END                                  AS "length",
   CASE WHEN LOWER(data_type) = 'array' THEN COALESCE(

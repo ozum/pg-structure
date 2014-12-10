@@ -10,6 +10,13 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
+1.5.5 / 2014-12-10
+==================
+* DEPRECATED: column.special function. Use column.enumValues instead.
+* Added: Tests for enum values.
+* Added: Enum support for column.sequelizeType function.
+* Updated: Documentation
+
 1.5.1 / 2014-12-04
 ==================
 * Fix: Test db does not destroyed after tests.

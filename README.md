@@ -79,6 +79,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [column.allowNull([value])](#Column#allowNull)
   * [column.type([value])](#Column#type)
   * [column.special([value])](#Column#special)
+  * [column.enumValues([value])](#Column#enumValues)
   * [column.length([value])](#Column#length)
   * [column.precision([value])](#Column#precision)
   * [column.scale([value])](#Column#scale)
@@ -177,6 +178,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [column.allowNull([value])](#Column#allowNull)
   * [column.type([value])](#Column#type)
   * [column.special([value])](#Column#special)
+  * [column.enumValues([value])](#Column#enumValues)
   * [column.length([value])](#Column#length)
   * [column.precision([value])](#Column#precision)
   * [column.scale([value])](#Column#scale)
@@ -205,7 +207,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   - \[default\] `string` - Default value of the column  
   - allowNull `boolean` - Is this column allowed to contain null values?  
   - type `string` - Data type of the column.  
-  - \[special\] `string` - Special attributes of the column.  
+  - \[enumValues\] `string` - Special attributes of the column.  
   - \[length\] `number` - Length of the column.  
   - \[precision\] `number` - Precision of the column.  
   - \[scale\] `number` - Scale of the column.  
@@ -267,6 +269,15 @@ console.log(column.default());              // George
 **Returns**: `string`  
 <a name="Column#special"></a>
 ##column.special([value])
+DEPRECATED: use enumValues method instead.
+
+**Params**
+
+- \[value\] `string` - New value  
+
+**Returns**: `string`  
+<a name="Column#enumValues"></a>
+##column.enumValues([value])
 **Params**
 
 - \[value\] `string` - New value  
@@ -978,6 +989,17 @@ Note
 ----
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
+
+1.5.5 / 2014-12-10
+==================
+* DEPRECATED: column.special function. Use column.enumValues instead.
+* Added: Tests for enum values.
+* Added: Enum support for column.sequelizeType function.
+* Updated: Documentation
+
+1.5.1 / 2014-12-04
+==================
+* Fix: Test db does not destroyed after tests.
 
 1.5.0 / 2014-12-04
 ==================

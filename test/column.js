@@ -14,7 +14,7 @@ beforeEach(function (done) {
         default             : undefined,
         allowNull           : false,
         type                : 'array',
-        special             : undefined,
+        enumValues             : undefined,
         length              : 32,
         precision           : undefined,
         scale               : undefined,
@@ -27,7 +27,7 @@ beforeEach(function (done) {
         default             : undefined,
         allowNull           : false,
         type                : 'numeric',
-        special             : undefined,
+        enumValues             : undefined,
         precision           : 4,
         scale               : 2,
         description         : 'Success percentage'
@@ -69,8 +69,8 @@ describe('Attribute functions', function () {
     it('should get type', function () {
         assert.equal(column.type(), 'array');
     });
-    it('should get special', function () {
-        assert.equal(column.special(), undefined);
+    it('should get enumValues', function () {
+        assert.equal(column.enumValues(), undefined);
     });
     it('should get length', function () {
         assert.equal(column.length(), 32);

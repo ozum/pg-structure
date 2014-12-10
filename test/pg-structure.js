@@ -72,8 +72,17 @@ describe('Column Default:', function () {
 });
 
 describe('Description:', function () {
-    it('cart_line_item_audit_log should have some description.', function() {
+    it('cart_line_item_audit_log should have some description.', function () {
         assert.equal(db.schema('public').table('cart_line_item_audit_log').column('created_at').description(), 'Kaydın oluşturulduğu zaman.');
         assert.equal(db.schema('public').table('cart_line_item_audit_log').column('cart_id').description(), 'Sepet atılan ürünün sepet id\'si.');
+    });
+});
+
+describe('type_table options column', function () {
+    it('should have sequelize type enum.', function () {
+        assert.equal(db.schema('public').table('type_table').column('options').sequelizeType(), "DataTypes.ENUM('option_a', 'option_b')");
+    });
+    it('should have enumValues.', function () {
+        assert.equal(db.schema('public').table('type_table').column('options').enumValues(), "{option_a,option_b}");
     });
 });
