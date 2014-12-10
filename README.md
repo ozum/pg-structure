@@ -134,7 +134,6 @@ All contributions are welcome. Please send bug reports with tests and small piec
 * [class: Table](#Table)
   * [new Table(args, [options])](#new_Table)
   * [table.fullName](#Table#fullName)
-  * [table.get](#Table#get)
   * [table.name([value])](#Table#name)
   * [table.description([value])](#Table#description)
   * [table.schema([value])](#Table#schema)
@@ -153,6 +152,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [table.hasManyThrough(name)](#Table#hasManyThrough)
   * [table.hasManyThroughs([callback])](#Table#hasManyThroughs)
   * [table.hasManyThroughsByName([callback])](#Table#hasManyThroughsByName)
+  * [table.get(path)](#Table#get)
 
 **Members**
 
@@ -747,7 +747,6 @@ values are {@link Table} objects.
 * [class: Table](#Table)
   * [new Table(args, [options])](#new_Table)
   * [table.fullName](#Table#fullName)
-  * [table.get](#Table#get)
   * [table.name([value])](#Table#name)
   * [table.description([value])](#Table#description)
   * [table.schema([value])](#Table#schema)
@@ -766,6 +765,7 @@ values are {@link Table} objects.
   * [table.hasManyThrough(name)](#Table#hasManyThrough)
   * [table.hasManyThroughs([callback])](#Table#hasManyThroughs)
   * [table.hasManyThroughsByName([callback])](#Table#hasManyThroughsByName)
+  * [table.get(path)](#Table#get)
 
 <a name="new_Table"></a>
 ##new Table(args, [options])
@@ -781,18 +781,6 @@ values are {@link Table} objects.
 <a name="Table#fullName"></a>
 ##table.fullName
 Gets full name of the object in database . notation.
-
-<a name="Table#get"></a>
-##table.get
-Shortcut function which returns object based on path.
-
-**Params**
-
-- path `string` - Database path of the requested item.  
-
-**Returns**: [Column](#Column)  
-**Example**  
-var column = db.get('name');      // Returns name column of the contact table in public schema.
 
 <a name="Table#name"></a>
 ##table.name([value])
@@ -973,6 +961,18 @@ If no callback is provided, returns an array of {@link Constraint} objects.
 - \[callback\] <code>[constraintCallback](#constraintCallback)</code> - Callback to be executed for each constraint.  
 
 **Returns**: `Object.<string, Constraint>` | `undefined`  
+<a name="Table#get"></a>
+##table.get(path)
+Shortcut function which returns object based on path.
+
+**Params**
+
+- path `string` - Database path of the requested item.  
+
+**Returns**: [Column](#Column)  
+**Example**  
+var column = db.get('name');      // Returns name column of the contact table in public schema.
+
 <a name="columnAttributes"></a>
 #columnAttributes
 Allowed column attributes and validations.
@@ -1035,9 +1035,11 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
-1.7.1 / 2014-12-10
+1.8.0 / 2014-12-10
 ==================
+* Added: Shortcut function 'get' added to db, schema and table classes.
 * Fix: hasManyThrough does not return foreign keys.
+
 
 1.7.0 / 2014-12-10
 ==================
