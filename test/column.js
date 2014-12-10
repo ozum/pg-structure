@@ -5,7 +5,7 @@
 var assert          = require('chai').assert;
 var dbModule        = require('../lib/util/db.js');
 var columnModule    = require('../lib/util/column.js');
-var table, column, columnNumeric, columnAutoInc, columnUdt, columnChar;
+var table, column, columnNumeric, columnAutoInc, columnUdt, columnChar, columnArrayDate, columnDate;
 
 beforeEach(function (done) {
     table = dbModule({name: 'db'}).addSchema({name: 'public'}).addTable({name: 'account'});
@@ -21,6 +21,24 @@ beforeEach(function (done) {
         arrayType           : 'integer',
         arrayDimension      : 2,
         description         : 'Last 2 scores'
+    });
+    columnArrayDate = table.addColumn({
+        name                : 'date_list',
+        default             : undefined,
+        allowNull           : false,
+        type                : 'array',
+        enumValues          : undefined,
+        length              : 0,
+        precision           : undefined,
+        scale               : undefined,
+        arrayType           : 'date',
+        arrayDimension      : 2,
+        description         : 'Last 2 dates'
+    });
+    columnDate = table.addColumn({
+        name                : 'birth_date',
+        type                : 'date',
+        length              : 0
     });
     columnNumeric = table.addColumn({
         name                : 'success_ratio',
@@ -112,6 +130,8 @@ describe('Attribute functions', function () {
         assert.equal(columnNumeric.sequelizeType(), 'DataTypes.DECIMAL(4,2)');
         assert.equal(columnChar.sequelizeType(), 'DataTypes.CHAR(25)');
         assert.equal(column.sequelizeType(), 'DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.INTEGER(32)))');
+        assert.equal(columnArrayDate.sequelizeType(), 'DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.DATEONLY))');
+        assert.equal(columnDate.sequelizeType(), 'DataTypes.DATEONLY');
     });
     it('should get precision', function () {
         assert.equal(columnNumeric.precision(), 4);
@@ -122,6 +142,5 @@ describe('Attribute functions', function () {
     it('should get user defined type', function () {
         assert.equal(columnUdt.udType(), 'tax_number');
     });
-
 
 });

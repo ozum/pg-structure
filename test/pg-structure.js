@@ -147,3 +147,9 @@ describe('column.get function', function () {
         assert.equal(db.schema('public').table('product').get('name').name(), 'name');
     });
 });
+
+describe('account.field4', function () {
+    it('should have correct sequelizeType', function () {
+        assert.equal(db.get('public.account.field4').sequelizeType(), 'DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.DATE))');
+    });
+});

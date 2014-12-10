@@ -1035,6 +1035,10 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
+1.8.3 / 2014-12-10
+==================
+* Fix: Sequelize type length, precision.
+
 1.8.2 / 2014-12-10
 ==================
 * Fix: Sequelize type date, time etc. has no length property.
