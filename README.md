@@ -109,6 +109,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [constraint.referencesSchema([value])](#Constraint#referencesSchema)
   * [constraint.referencesTable([value])](#Constraint#referencesTable)
   * [constraint.through([value])](#Constraint#through)
+  * [constraint.throughForeignKeyConstraint([value])](#Constraint#throughForeignKeyConstraint)
   * [constraint.foreignKey(nameOrPos)](#Constraint#foreignKey)
   * [constraint.foreignKeyExist(nameOrPos)](#Constraint#foreignKeyExist)
   * [constraint.foreignKeysByName([callback])](#Constraint#foreignKeysByName)
@@ -437,6 +438,7 @@ var typeB = column.sequelizeType('Sequelize');   // Sequelize.INTEGER(3)
   * [constraint.referencesSchema([value])](#Constraint#referencesSchema)
   * [constraint.referencesTable([value])](#Constraint#referencesTable)
   * [constraint.through([value])](#Constraint#through)
+  * [constraint.throughForeignKeyConstraint([value])](#Constraint#throughForeignKeyConstraint)
   * [constraint.foreignKey(nameOrPos)](#Constraint#foreignKey)
   * [constraint.foreignKeyExist(nameOrPos)](#Constraint#foreignKeyExist)
   * [constraint.foreignKeysByName([callback])](#Constraint#foreignKeysByName)
@@ -453,6 +455,7 @@ var typeB = column.sequelizeType('Sequelize');   // Sequelize.INTEGER(3)
   - \[onUpdate\] `string` - Action taken on update. One of: 'NO ACTION', 'CASCADE', 'SET NULL', 'RESTRICT'  
   - \[onUpdate\] `string` - Action taken on delete. One of: 'NO ACTION', 'CASCADE', 'SET NULL', 'RESTRICT'  
   - table <code>[Table](#Table)</code> - [Table](#Table) object which contains this constraint.  
+  - through <code>[Table](#Table)</code> - [Table](#Table) object which this constraint references through.  
 - \[options\] `Object` - Options  
   - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
 
@@ -522,6 +525,21 @@ Returns [Table](#Table) object this constraint refers through.
 - \[value\] <code>[Table](#Table)</code> - New value  
 
 **Returns**: [Table](#Table)  
+<a name="Constraint#throughForeignKeyConstraint"></a>
+##constraint.throughForeignKeyConstraint([value])
+Returns [Table](#Table) foreign key constraint this constraint refers to other table through.
+With this method it is possible to learn how this table is connected to other table.
+
+**Params**
+
+- \[value\] <code>[Table](#Table)</code> - New value  
+
+**Returns**: [Table](#Table)  
+**Example**  
+// Assume there are three tables for many to many relation:  cart ----< line_item >---- product
+db.get('public.cart').hasManyThrough('cart_has_products').foreignKey(0).name(); // equals 'cart_id'
+db.get('public.cart').hasManyThrough('cart_has_products').throughForeignKeyConstraint().foreignKey(0).name() // equals 'product_id'
+
 <a name="Constraint#foreignKey"></a>
 ##constraint.foreignKey(nameOrPos)
 Returns foreign key as a [Column](#Column) object with given name or order number.
@@ -1034,6 +1052,10 @@ Note
 ----
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
+
+1.9.0/ 2014-12-12
+==================
+* Add: table.hasManyThrough.throughForeignKeyConstraint method added to constraint class.
 
 1.8.3 / 2014-12-10
 ==================

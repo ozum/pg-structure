@@ -153,3 +153,13 @@ describe('account.field4', function () {
         assert.equal(db.get('public.account.field4').sequelizeType(), 'DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.DATE))');
     });
 });
+
+describe('cart', function() {
+    it('should access own foreign key in through table', function () {
+        assert.equal(db.get('public.cart').hasManyThrough('cart_has_products').foreignKey(0).name(), 'cart_id');
+    });
+    it('should access through foreign key in through table', function () {
+        assert.equal(db.get('public.cart').hasManyThrough('cart_has_products').throughForeignKeyConstraint().foreignKey(0).name(), 'product_id');
+    });
+
+});
