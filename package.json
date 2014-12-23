@@ -37,7 +37,7 @@
     "type": "git",
     "url": "https://github.com/ozum/pg-structure.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "chai": "^1.9.2",
     "fs": "0.0.2",
