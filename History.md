@@ -10,9 +10,16 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
-1.9.0/ 2014-12-12
+1.10.0 / 2014-12-23
 ==================
-* Add: table.hasManyThrough.throughForeignKeyConstraint method added to constraint class.
+* Added: db.includedSchemas method to get list of requested schemas to be parsed.
+* Added: db.schemaIncluded method to determine if given schema name is one of the requested schemas to be parsed.
+* Fix: If a table has a reference to not included schema, throws exception. Should not include its foreign key.
+* Doc update.
+
+1.9.0 / 2014-12-12
+==================
+* Added: table.hasManyThrough.throughForeignKeyConstraint method added to constraint class.
 
 1.8.3 / 2014-12-10
 ==================

@@ -38,6 +38,9 @@ with database.
 pg-structure connects to a PostgreSQL database, examines its structure and creates an JS object. The passed callback
 is executed with result object as parameter.
 
+## Special Thanks
+This module is developed with sponsorship of Fortibase.
+
 ## Features
 
 * Fully tested (Istanbul-JS coverage reports are in coverage folder)

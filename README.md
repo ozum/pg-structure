@@ -38,6 +38,9 @@ with database.
 pg-structure connects to a PostgreSQL database, examines its structure and creates an JS object. The passed callback
 is executed with result object as parameter.
 
+## Special Thanks
+This module is developed with sponsorship of Fortibase.
+
 ## Features
 
 * Fully tested (Istanbul-JS coverage reports are in coverage folder)
@@ -122,6 +125,8 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [dB.schema(name)](#DB#schema)
   * [dB.get(path)](#DB#get)
   * [dB.schemaExist(name)](#DB#schemaExist)
+  * [dB.schemaIncluded(schemaName)](#DB#schemaIncluded)
+  * [dB.includedSchemas()](#DB#includedSchemas)
   * [dB.schemas([callback])](#DB#schemas)
 * [class: Schema](#Schema)
   * [new Schema(args, [options])](#new_Schema)
@@ -592,6 +597,8 @@ contains foreign key {@link Column} objects.
   * [dB.schema(name)](#DB#schema)
   * [dB.get(path)](#DB#get)
   * [dB.schemaExist(name)](#DB#schemaExist)
+  * [dB.schemaIncluded(schemaName)](#DB#schemaIncluded)
+  * [dB.includedSchemas()](#DB#includedSchemas)
   * [dB.schemas([callback])](#DB#schemas)
 
 <a name="new_DB"></a>
@@ -659,6 +666,20 @@ Returns true if object with given name exist.
 - name `string` - Name of the schema  
 
 **Returns**: `boolean`  
+<a name="DB#schemaIncluded"></a>
+##dB.schemaIncluded(schemaName)
+Returns if given schema is one of the requested schemas to be parsed.
+
+**Params**
+
+- schemaName `string` - Name of the schema to check  
+
+**Returns**: `boolean`  
+<a name="DB#includedSchemas"></a>
+##dB.includedSchemas()
+Returns the list of requested schemas to be parsed.
+
+**Returns**: `Array`  
 <a name="DB#schemas"></a>
 ##dB.schemas([callback])
 Retrieves all schemas in the schema. If callback is provided, it is executed for each schema. Callback is passed [Schema](#Schema)
@@ -1053,9 +1074,16 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
-1.9.0/ 2014-12-12
+1.10.0 / 2014-12-23
 ==================
-* Add: table.hasManyThrough.throughForeignKeyConstraint method added to constraint class.
+* Added: db.includedSchemas method to get list of requested schemas to be parsed.
+* Added: db.schemaIncluded method to determine if given schema name is one of the requested schemas to be parsed.
+* Fixed: If a table has a reference to not included schema, throws exception. Should not include its foreign key.
+* Doc update.
+
+1.9.0 / 2014-12-12
+==================
+* Added: table.hasManyThrough.throughForeignKeyConstraint method added to constraint class.
 
 1.8.3 / 2014-12-10
 ==================
