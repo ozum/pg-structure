@@ -96,3 +96,4 @@ if database connection error occurs.
 ==================
 * Completely rewritten to migrate from plain object to object oriented design.
 * column.sequelizeType() method added. This method gets sequelize compatible type of the column.
+
