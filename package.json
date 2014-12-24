@@ -49,7 +49,7 @@
     "inflection": "^1.5.2",
     "joi": "^4.8.1",
     "lodash": "^2.4.1",
-    "pg": "^3.6.2",
+    "pg": "^4.1.1",
     "weakmap": "0.0.6"
   },
   "jshintConfig": {}

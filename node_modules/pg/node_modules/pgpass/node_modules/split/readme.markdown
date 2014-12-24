@@ -33,6 +33,18 @@ Valid options:
   split(JSON.parse, null, { maxLength: 2})
 ```
 
+## keep matched splitter
+
+As with `Array#split`, if you split by a regular expression with a matching group,
+the matches will be retained in the collection.
+
+```
+stdin
+.pipe(split(/(\r?\n)/))
+... //lines + separators.
+```
+
+
 # NDJ - Newline Delimited Json
 
 `split` accepts a function which transforms each line.
