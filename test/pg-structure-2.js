@@ -10,8 +10,7 @@ var db;
 
 describe('pg-structure', function () {
     afterEach(function (done) {
-        //testDB.dropDB(done);
-        done();
+        testDB.dropDB(done);
     });
 
     it('should be ok with empty databases without any table.', function (done) {

@@ -109,15 +109,15 @@ describe('contact Table', function () {
 
 describe('cart Table', function () {
     it('should have many products through cart line items.', function () {
-        assert.equal(db.schema('public').table('cart').hasManyThrough('cart_has_products').name(), 'cart_has_products');
-        assert.equal(db.schema('public').table('cart').hasManyThrough('cart_has_products').foreignKey(0).name(), 'cart_id');
+        assert.equal(db.schema('public').table('cart').hasManyThrough('cart_has_products&product_has_carts').name(), 'cart_has_products&product_has_carts');
+        assert.equal(db.schema('public').table('cart').hasManyThrough('cart_has_products&product_has_carts').foreignKey(0).name(), 'cart_id');
     });
 });
 
 describe('product Table', function () {
     it('should have many carts through cart line items.', function () {
-        assert.equal(db.schema('public').table('product').hasManyThrough('product_has_carts').name(), 'product_has_carts');
-        assert.equal(db.schema('public').table('product').hasManyThrough('product_has_carts').foreignKey(0).name(), 'product_id');
+        assert.equal(db.schema('public').table('product').hasManyThrough('product_has_carts&cart_has_products').name(), 'product_has_carts&cart_has_products');
+        assert.equal(db.schema('public').table('product').hasManyThrough('product_has_carts&cart_has_products').foreignKey(0).name(), 'product_id');
     });
 });
 
@@ -156,10 +156,12 @@ describe('account.field4', function () {
 
 describe('cart', function() {
     it('should access own foreign key in through table', function () {
-        assert.equal(db.get('public.cart').hasManyThrough('cart_has_products').foreignKey(0).name(), 'cart_id');
+        assert.equal(db.get('public.cart').hasManyThrough('cart_has_products&product_has_carts').foreignKey(0).name(), 'cart_id');
     });
     it('should access through foreign key in through table', function () {
-        assert.equal(db.get('public.cart').hasManyThrough('cart_has_products').throughForeignKeyConstraint().foreignKey(0).name(), 'product_id');
+        assert.equal(db.get('public.cart').hasManyThrough('cart_has_products&product_has_carts').throughForeignKeyConstraint().foreignKey(0).name(), 'product_id');
     });
-
+    it('should access through foreign key in through table', function () {
+        assert.equal(db.get('public.cart').hasManyThrough('cart_has_products&product_has_carts').throughForeignKeyConstraintToSelf().foreignKey(0).name(), 'cart_id');
+    });
 });

@@ -50,7 +50,8 @@
     "joi": "^4.8.1",
     "lodash": "^2.4.1",
     "pg": "^4.1.1",
-    "weakmap": "0.0.6"
+    "weakmap": "0.0.6",
+    "winston": "^0.8.3"
   },
   "jshintConfig": {}
 }

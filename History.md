@@ -10,6 +10,12 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
+1.11.0 / 2014-12-30
+===================
+* Added: Constraint.throughForeignKeyConstraintToSelf() method added.
+* Added: Winston logging.
+* Fixed: Many to Many relations has name collisions if join table connects more than one table and one of the tables has more than one connection to join table. Naming of many to many relations changed.
+
 1.10.0 / 2014-12-23
 ==================
 * Added: db.includedSchemas method to get list of requested schemas to be parsed.
