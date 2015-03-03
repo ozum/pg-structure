@@ -113,6 +113,7 @@ All contributions are welcome. Please send bug reports with tests and small piec
   * [constraint.referencesTable([value])](#Constraint#referencesTable)
   * [constraint.through([value])](#Constraint#through)
   * [constraint.throughForeignKeyConstraint([value])](#Constraint#throughForeignKeyConstraint)
+  * [constraint.throughForeignKeyConstraintToSelf([value])](#Constraint#throughForeignKeyConstraintToSelf)
   * [constraint.foreignKey(nameOrPos)](#Constraint#foreignKey)
   * [constraint.foreignKeyExist(nameOrPos)](#Constraint#foreignKeyExist)
   * [constraint.foreignKeysByName([callback])](#Constraint#foreignKeysByName)
@@ -444,6 +445,7 @@ var typeB = column.sequelizeType('Sequelize');   // Sequelize.INTEGER(3)
   * [constraint.referencesTable([value])](#Constraint#referencesTable)
   * [constraint.through([value])](#Constraint#through)
   * [constraint.throughForeignKeyConstraint([value])](#Constraint#throughForeignKeyConstraint)
+  * [constraint.throughForeignKeyConstraintToSelf([value])](#Constraint#throughForeignKeyConstraintToSelf)
   * [constraint.foreignKey(nameOrPos)](#Constraint#foreignKey)
   * [constraint.foreignKeyExist(nameOrPos)](#Constraint#foreignKeyExist)
   * [constraint.foreignKeysByName([callback])](#Constraint#foreignKeysByName)
@@ -461,6 +463,8 @@ var typeB = column.sequelizeType('Sequelize');   // Sequelize.INTEGER(3)
   - \[onUpdate\] `string` - Action taken on delete. One of: 'NO ACTION', 'CASCADE', 'SET NULL', 'RESTRICT'  
   - table <code>[Table](#Table)</code> - [Table](#Table) object which contains this constraint.  
   - through <code>[Table](#Table)</code> - [Table](#Table) object which this constraint references through.  
+  - throughForeignKeyConstraint <code>[Table](#Table)</code> - [Constraint](#Constraint) object in through table referencing to other table.  
+  - throughForeignKeyConstraintToSelf <code>[Table](#Table)</code> - [Constraint](#Constraint) object in through table referencing to this table.  
 - \[options\] `Object` - Options  
   - \[allowUnknown=true\] `boolean` - If true, unknown parameters passed to constructor does not throw error while creating object.  
 
@@ -532,7 +536,7 @@ Returns [Table](#Table) object this constraint refers through.
 **Returns**: [Table](#Table)  
 <a name="Constraint#throughForeignKeyConstraint"></a>
 ##constraint.throughForeignKeyConstraint([value])
-Returns [Table](#Table) foreign key constraint this constraint refers to other table through.
+Returns [Constraint](#Constraint) (foreign key constraint) this constraint referring to other table through join table.
 With this method it is possible to learn how this table is connected to other table.
 
 **Params**
@@ -545,6 +549,16 @@ With this method it is possible to learn how this table is connected to other ta
 db.get('public.cart').hasManyThrough('cart_has_products').foreignKey(0).name(); // equals 'cart_id'
 db.get('public.cart').hasManyThrough('cart_has_products').throughForeignKeyConstraint().foreignKey(0).name() // equals 'product_id'
 
+<a name="Constraint#throughForeignKeyConstraintToSelf"></a>
+##constraint.throughForeignKeyConstraintToSelf([value])
+Returns [Constraint](#Constraint) (foreign key constraint) this constraint referring to itself through join table.
+With this method it is possible to learn how this table is connected to other table.
+
+**Params**
+
+- \[value\] <code>[Table](#Table)</code> - New value  
+
+**Returns**: [Table](#Table)  
 <a name="Constraint#foreignKey"></a>
 ##constraint.foreignKey(nameOrPos)
 Returns foreign key as a [Column](#Column) object with given name or order number.
@@ -567,7 +581,7 @@ Returns true if foreign key object with given name or order number exists.
 ##constraint.foreignKeysByName([callback])
 Retrieves all foreign keys in the constraint. If callback is provided, it is executed for each foreign key column.
 Callback is passed [Column](#Column) object as parameter. If no callback is provided, returns a plain object. Object keys are column names,
-values are {@link Column} objects.
+values are [Column](#Column) objects.
 
 **Params**
 
@@ -578,7 +592,7 @@ values are {@link Column} objects.
 ##constraint.foreignKeys([callback])
 Retrieves all foreign keys in the constraint. If callback is provided, it is executed for each foreign key column.
 Callback is passed [Column](#Column) object as parameter. If no callback is provided, returns an array which
-contains foreign key {@link Column} objects.
+contains foreign key [Column](#Column) objects.
 
 **Params**
 
@@ -684,7 +698,7 @@ Returns the list of requested schemas to be parsed.
 ##dB.schemas([callback])
 Retrieves all schemas in the schema. If callback is provided, it is executed for each schema. Callback is passed [Schema](#Schema)
 object as parameter. If no callback is provided, returns a plain object. Object keys are schema names,
-values are {@link Schema} objects.
+values are [Schema](#Schema) objects.
 
 **Params**
 
@@ -772,7 +786,7 @@ var table  = db.get('contact'),           // Returns contact table in public sch
 ##schema.tables([callback])
 Retrieves all tables in the schema. If callback is provided, it is executed for each table. Callback is passed [Table](#Table)
 object as parameter. If no callback is provided, returns a plain object. Object keys are table names,
-values are {@link Table} objects.
+values are [Table](#Table) objects.
 
 **Params**
 
@@ -869,7 +883,7 @@ Returns [Column](#Column) object with given name or order number.
 <a name="Table#columns"></a>
 ##table.columns([callback])
 Retrieves all columns in the table in an ordered list. If callback is provided, it is executed for each column. Callback is passed [Column](#Column)
-object as parameter. If no callback is provided, returns array of {@link Column} objects.
+object as parameter. If no callback is provided, returns array of [Column](#Column) objects.
 
 **Params**
 
@@ -880,7 +894,7 @@ object as parameter. If no callback is provided, returns array of {@link Column}
 ##table.columnsByName([callback])
 Retrieves all columns in the table. If callback is provided, it is executed for each column. Callback is passed [Column](#Column)
 object as parameter. If no callback is provided, returns a plain Object. Object keys are column names,
-values are {@link Column} objects.
+values are [Column](#Column) objects.
 
 **Params**
 
@@ -891,7 +905,7 @@ values are {@link Column} objects.
 ##table.primaryKeys([callback])
 Retrieves all primary key columns in the table. If callback is provided, it is executed for each primary key.
 Callback is passed [Column](#Column) object as parameter.
-If no callback is provided, returns an array of {@link Column} objects.
+If no callback is provided, returns an array of [Column](#Column) objects.
 
 **Params**
 
@@ -920,7 +934,7 @@ Returns true if foreign key object with given name exists.
 ##table.foreignKeyConstraints([callback])
 Retrieves all foreign key constraints in the table. If callback is provided, it is executed for each one.
 Callback is passed [Constraint](#Constraint) object as parameter.
-If no callback is provided, returns a plain Object. Plain object keys are names of {@link Constraint} objects and values are {@link Constraint} objects.
+If no callback is provided, returns a plain Object. Plain object keys are names of [Constraint](#Constraint) objects and values are [Constraint](#Constraint) objects.
 
 **Params**
 
@@ -931,7 +945,7 @@ If no callback is provided, returns a plain Object. Plain object keys are names 
 ##table.foreignKeyConstraintsByName([callback])
 Retrieves all foreign key constraints in the table. If callback is provided, it is executed for each one.
 Callback is passed [Constraint](#Constraint) object as parameter.
-If no callback is provided, returns an array of {@link Constraint} objects.
+If no callback is provided, returns an array of [Constraint](#Constraint) objects.
 
 **Params**
 
@@ -951,7 +965,7 @@ Returns has many [Constraint](#Constraint) object with given name.
 ##table.hasManies([callback])
 Retrieves all has many constraints in the table. If callback is provided, it is executed for each one.
 Callback is passed [Constraint](#Constraint) object as parameter.
-If no callback is provided, returns a plain Object. Plain object keys are names of {@link Constraint} objects and values are {@link Constraint} objects.
+If no callback is provided, returns a plain Object. Plain object keys are names of [Constraint](#Constraint) objects and values are [Constraint](#Constraint) objects.
 
 **Params**
 
@@ -962,7 +976,7 @@ If no callback is provided, returns a plain Object. Plain object keys are names 
 ##table.hasManiesByName([callback])
 Retrieves all has many constraints in the table. If callback is provided, it is executed for one.
 Callback is passed [Constraint](#Constraint) object as parameter.
-If no callback is provided, returns an array of {@link Constraint} objects.
+If no callback is provided, returns an array of [Constraint](#Constraint) objects.
 
 **Params**
 
@@ -982,7 +996,7 @@ Returns has many through [Constraint](#Constraint) object with given name.
 ##table.hasManyThroughs([callback])
 Retrieves all has many through constraints in the table. If callback is provided, it is executed for each one.
 Callback is passed [Constraint](#Constraint) object as parameter.
-If no callback is provided, returns a plain Object. Plain object keys are names of {@link Constraint} objects and values are {@link Constraint} objects.
+If no callback is provided, returns a plain Object. Plain object keys are names of [Constraint](#Constraint) objects and values are [Constraint](#Constraint) objects.
 
 **Params**
 
@@ -993,7 +1007,7 @@ If no callback is provided, returns a plain Object. Plain object keys are names 
 ##table.hasManyThroughsByName([callback])
 Retrieves all has many through constraints in the table. If callback is provided, it is executed for one.
 Callback is passed [Constraint](#Constraint) object as parameter.
-If no callback is provided, returns an array of {@link Constraint} objects.
+If no callback is provided, returns an array of [Constraint](#Constraint) objects.
 
 **Params**
 
@@ -1073,6 +1087,12 @@ Note
 ----
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
+
+1.11.0 / 2014-12-30
+===================
+* Added: Constraint.throughForeignKeyConstraintToSelf() method added.
+* Added: Winston logging.
+* Fixed: Many to Many relations has name collisions if join table connects more than one table and one of the tables has more than one connection to join table. Naming of many to many relations changed.
 
 1.10.0 / 2014-12-23
 ==================
