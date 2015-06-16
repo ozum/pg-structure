@@ -5,7 +5,8 @@
 var assert          = require('chai').assert;
 var dbModule        = require('../lib/util/db.js');
 var columnModule    = require('../lib/util/column.js');
-var table, column, columnNumeric, columnAutoInc, columnUdt, columnChar, columnArrayDate, columnDate;
+var table, column, columnNumeric, columnAutoInc, columnUdt, columnChar,
+    columnArrayDate, columnDate, columnJson, columnJsonb;
 
 beforeEach(function (done) {
     table = dbModule({name: 'db'}).addSchema({name: 'public'}).addTable({name: 'account'});
@@ -66,6 +67,14 @@ beforeEach(function (done) {
         name                : 'surname',
         type                : 'character',
         length              : 25
+    });
+    columnJson = table.addColumn({
+        name                : 'column_json',
+        type                : 'json'
+    });
+    columnJsonb = table.addColumn({
+        name                : 'column_jsonb',
+        type                : 'jsonb'
     });
     done();
 });
@@ -132,6 +141,8 @@ describe('Attribute functions', function () {
         assert.equal(column.sequelizeType(), 'DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.INTEGER(32)))');
         assert.equal(columnArrayDate.sequelizeType(), 'DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.DATEONLY))');
         assert.equal(columnDate.sequelizeType(), 'DataTypes.DATEONLY');
+        assert.equal(columnJson.sequelizeType(), 'DataTypes.JSON');
+        assert.equal(columnJsonb.sequelizeType(), 'DataTypes.JSONB');
     });
     it('should get precision', function () {
         assert.equal(columnNumeric.precision(), 4);
