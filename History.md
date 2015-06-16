@@ -10,6 +10,10 @@ Note
 Version history for minimal documentation updates are not listed here to prevent cluttering.
 Important documentation changes are included anyway.
 
+1.11.1 / 2015-06-16
+===================
+* Added: JSONB support. Contributed by: viniciuspinto (https://github.com/viniciuspinto)
+
 1.11.0 / 2014-12-30
 ===================
 * Added: Constraint.throughForeignKeyConstraintToSelf() method added.
