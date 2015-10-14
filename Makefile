@@ -8,6 +8,7 @@ test:
 
 doc:
 	clear
+	rm -R doc
 	echo Starting JSDOC *********************************************************
 	jsdoc -c jsdoc-conf.json README-JSDOC.md
 	echo Creating README.md *****************************************************
