@@ -18,10 +18,11 @@ doc:
 	rm -r -f JSDOC.md
 
 pages:
-    git subtree push --prefix doc origin gh-pages
+	clear
+	git subtree push --prefix doc origin gh-pages
 
 cover:
 	clear
 	istanbul cover _mocha
 
-.PHONY: test doc cover pages
+.PHONY: test doc pages cover
