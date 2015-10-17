@@ -16,7 +16,6 @@ doc:
 	jsdoc2md --src lib/**/*   >>JSDOC.md
 	cat README-JSDOC.md JSDOC.md History.md LICENSE > README.md
 	rm -r -f JSDOC.md
-	git subtree push --prefix doc origin gh-pages
 
 cover:
 	clear

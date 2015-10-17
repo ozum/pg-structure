@@ -3,7 +3,7 @@
 Get PostgreSQL database structure as a detailed JS Object.
 
 ## API DOC
-Generated API doc can be found on [Project's GitHub Pages](http://ozum.github.io/pg-structure/index.html)
+Generated API doc can be found on [Project's GitHub Pages](http://ozum.github.io/pg-structure/index.html).
 
 ## History
 [History & Release Notes](#History)
