@@ -17,8 +17,11 @@ doc:
 	cat README-JSDOC.md JSDOC.md History.md LICENSE > README.md
 	rm -r -f JSDOC.md
 
+pages:
+    git subtree push --prefix doc origin gh-pages
+
 cover:
 	clear
 	istanbul cover _mocha
 
-.PHONY: test doc cover
+.PHONY: test doc cover pages
