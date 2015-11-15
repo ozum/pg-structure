@@ -1,8 +1,0 @@
-.jshintrc
-.travis.yml
-Jake/
-Jakefile.js
-jsdoc$
-jsdoc.cmd
-rhino/
-test/

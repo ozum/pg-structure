@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>O2M Relation - pg-structure 2.0.0-alpha.1</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "O2M Relation";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> pg-structure 2.0.0-alpha.1</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../concepts/">Concepts</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../history/">History</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../license/">License</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../report/">Test & Coverage Report</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../column/">Column</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../constraint/">Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../db/">DB</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../">PG Structrue</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../m2m-relation/">M2M Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../m2o-relation/">M2O Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">O2M Relation</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#o2mrelation-relation">O2MRelation ⇐ Relation</a></li>
+                
+                    <li><a class="toctree-l4" href="#new-o2mrelation">new O2MRelation()</a></li>
+                
+                    <li><a class="toctree-l4" href="#o2mrelationtype-relationtype">o2MRelation.type : relationType</a></li>
+                
+                    <li><a class="toctree-l4" href="#o2mrelationsourcetable-table">o2MRelation.sourceTable : Table</a></li>
+                
+                    <li><a class="toctree-l4" href="#o2mrelationtargettable-table">o2MRelation.targetTable : Table</a></li>
+                
+                    <li><a class="toctree-l4" href="#o2mrelationconstraint-table">o2MRelation.constraint : Table</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../relation/">Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../table/">Table</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">pg-structure 2.0.0-alpha.1</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API &raquo;</li>
+        
+      
+    
+    <li>O2M Relation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ozum/pg-structure.git" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><a name="O2MRelation"></a></p>
+<h2 id="o2mrelation-relation">O2MRelation ⇐ <code>Relation</code></h2>
+<p><strong>Kind</strong>: global class<br />
+<strong>Extends:</strong> <code>Relation</code>  </p>
+<ul>
+<li><a href="#O2MRelation">O2MRelation</a> ⇐ <code>Relation</code></li>
+<li><a href="#new_O2MRelation_new">new O2MRelation()</a></li>
+<li><a href="#O2MRelation+type">.type</a> : <code>relationType</code></li>
+<li><a href="#O2MRelation+sourceTable">.sourceTable</a> : <code>Table</code></li>
+<li><a href="#O2MRelation+targetTable">.targetTable</a> : <code>Table</code></li>
+<li><a href="#O2MRelation+constraint">.constraint</a> : <code>Table</code></li>
+</ul>
+<p><a name="new_O2MRelation_new"></a></p>
+<h3 id="new-o2mrelation">new O2MRelation()</h3>
+<p>Class which represent many to one relationship which resembles <code>hasMany</code> relation in ORMs (Object Relational Mappers).
+Provides attributes and methods for details of the relationship.</p>
+<p><span id="exampleSchema"></span>Below is a database schema as an example:</p>
+<pre><code>size -------------------
+id (PK)                |  ---------------------------&lt; line_item &gt;------------ cart
+name                   |  |                            product_id (PFK)        id (PK)
+                       |  |                            cart_id    (PFK)        name
+                       ^  |
+color -------------&lt; product &gt;------------- vendor
+id (PK)              id        (PK)         id (PK)
+name                 name                   name
+                     color_id  (FK)
+                     size_id   (FK)
+                     vendor_id (FK)
+
+</code></pre>
+
+<p>Below is the same schema as image:
+<img alt="Database Schema" src="../../../images/schema-through.png" /></p>
+<p>Some definitions used in descriptions for <a href="#O2MRelation">O2MRelation</a>.
+<em> <strong> Source Table: </strong> Table which this relationship belongs to.
+</em> <strong> Target Table: </strong> Table that is related to base table.</p>
+<p><strong>Example</strong>  </p>
+<pre><code class="js">// Example tables have single primary key and examples first relation. So zero index ([0]) is used. Use all array elements if necessary.
+// product ----&lt; line_item
+// (source)       (target)
+
+let relation         = product.o2mRelations[0];              // RELATION:    product ---&lt; line_item
+let constraint       = relation.constraint;                  // CONSTRAINT:           ^-- product_has_carts
+let sourceTable      = relation.sourceTable;                 // TABLE:       product
+let targetTable      = relation.targetTable;                 // TABLE:       line_item
+let FKColumn         = relation.constraint.columns[0];       // COLUMN:      product_id  (from line_item table)
+let sourcePKColumn   = relation.sourceTable.primaryKeys[0];  // COLUMN:      id          (from product table)
+</code></pre>
+
+<p><a name="O2MRelation+type"></a></p>
+<h3 id="o2mrelationtype-relationtype">o2MRelation.type : <code>relationType</code></h3>
+<p>Type of relation. One of <code>ONE TO MANY</code> or <code>MANY TO MANY</code>.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#O2MRelation">O2MRelation</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="O2MRelation+sourceTable"></a></p>
+<h3 id="o2mrelationsourcetable-table">o2MRelation.sourceTable : <code>Table</code></h3>
+<p><a href="../Table">Table</a> which this relation belongs to.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#O2MRelation">O2MRelation</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let relation     = product.O2MRelationRelations[0];  // RELATION:    product ---&lt; line_item
+let sourceTable  = relation.sourceTable;             // TABLE:       product
+</code></pre>
+
+<p><a name="O2MRelation+targetTable"></a></p>
+<h3 id="o2mrelationtargettable-table">o2MRelation.targetTable : <code>Table</code></h3>
+<p><a href="../Table">Table</a> which this relation is referring to.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#O2MRelation">O2MRelation</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let relation     = product.O2MRelationRelations[0];  // RELATION:    product ---&lt; line_item
+let targetTable  = relation.targetTable;             // TABLE:       line_item
+</code></pre>
+
+<p><a name="O2MRelation+constraint"></a></p>
+<h3 id="o2mrelationconstraint-table">o2MRelation.constraint : <code>Table</code></h3>
+<p>Foreign key <a href="../Constraint">constraint</a> between <a href="#O2MRelation+sourceTable">source table</a> and <a href="#O2MRelation+targetTable">target table</a>.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#O2MRelation">O2MRelation</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let relation     = product.O2MRelationRelations[0];  // RELATION:    product ---&lt; line_item
+let constraint   = relation.constraint;              // CONSTRAINT:           ^-- product_has_carts
+let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id (from line_item table)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../relation/" class="btn btn-neutral float-right" title="Relation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../m2o-relation/" class="btn btn-neutral" title="M2O Relation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../m2o-relation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../relation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
