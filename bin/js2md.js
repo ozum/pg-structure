@@ -54,6 +54,7 @@ function getApiPagesConfig() {
 fs.removeSync(path.join(mdBase, 'api'));
 fs.ensureDir(path.join(mdBase, 'api'));
 fs.copySync(path.join(__dirname, '..', 'LICENSE'), path.join(mdBase, 'license.md'));
+fs.writeFileSync(path.join(mdBase, 'link-to-doc.md'), `\n\n# Documentation\n\nSee full documentation at [${pack.homepage}](${pack.homepage})\n\n`);
 
 // Create API md files.
 getFiles(__dirname + '/../lib', function(err, dir, file) {

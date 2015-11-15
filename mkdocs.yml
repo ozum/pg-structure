@@ -6,7 +6,7 @@ pages:
   - Examples: examples.md
   - History: history.md
   - License: license.md
-  - Test & Coverage Report: report.md
+  - 'Test & Coverage Report': report.md
   - API:
       - Column: api/column.md
       - Constraint: api/constraint.md

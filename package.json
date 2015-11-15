@@ -15,11 +15,11 @@
   "scripts": {
     "test": "node_modules/lab/bin/lab",
     "xdoc": "jsdoc --package ./package.json -c jsdoc-conf.json README-JSDOC.md;    rm -f README.md;    jsdoc2md --src \"lib/**/*\" >JSDOC.md;    cat README-JSDOC.md JSDOC.md History.md LICENSE > README.md;    rm -r -f JSDOC.md;",
+    "xdoc:readme-jsdoc": "rm -f docs/readme.md; cat docs/link-to-doc.md docs/index.md docs/concepts.md docs/history.md docs/license.md > docs/readme-jsdoc.md",
     "doc:report": "lab -r html -o site/report.html",
-    "doc:mkdocs": "mkdocs build --clean",
-    "doc:readme-jsdoc": "rm -f docs/readme.md; cat docs/index.md docs/concepts.md docs/history.md docs/license.md > docs/readme-jsdoc.md",
-    "doc:readme": "jsdoc2md --src \"lib/**/*\" > JSDOC.md; cat docs/index.md docs/concepts.md JSDOC.md docs/history.md docs/license.md > README.md; rm -f JSDOC.md;",
-    "doc": "npm run doc:mkdocs && npm run doc:report && npm run doc:readme-jsdoc && npm run doc:readme && rm -f docs/readme-jsdoc.md",
+    "doc:mkdocs": "node bin/js2md.js && mkdocs build --clean",
+    "doc:readme": "jsdoc2md --src \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
+    "doc": "npm run doc:mkdocs && npm run doc:report && npm run doc:readme",
     "preversion": "npm run doc && eslint lib &&  npm test",
     "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags && rm -rf build/temp"
