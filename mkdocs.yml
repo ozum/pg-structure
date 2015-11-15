@@ -1,0 +1,25 @@
+site_name: pg-structure 2.0.0-alpha.1
+theme: readthedocs
+pages:
+  - Home: index.md
+  - Concepts: concepts.md
+  - Examples: examples.md
+  - History: history.md
+  - License: license.md
+  - Test & Coverage Report: report.md
+  - API:
+      - Column: api/column.md
+      - Constraint: api/constraint.md
+      - DB: api/db.md
+      - PG Structrue: api/index.md
+      - M2M Relation: api/m2m-relation.md
+      - M2O Relation: api/m2o-relation.md
+      - O2M Relation: api/o2m-relation.md
+      - Relation: api/relation.md
+      - Schema: api/schema.md
+      - Table: api/table.md
+site_url: 'http://www.pg-structure.com'
+repo_url: 'https://github.com/ozum/pg-structure.git'
+site_description: Get PostgreSQL database structure as a detailed JS Object.
+site_author: Özüm Eldoğan
+docs_dir: docs

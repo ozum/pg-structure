@@ -1,30 +1,43 @@
 {
   "name": "pg-structure",
-  "version": "1.11.4",
-  "description": "Get PostgreSQL database structure as a detailed JS Object",
-  "main": "lib/pg-structure.js",
+  "version": "2.0.0-alpha.1",
+  "description": "Get PostgreSQL database structure as a detailed JS Object.",
+  "homepage": "http://www.pg-structure.com",
+  "bugs": "https://github.com/ozum/pg-structure/issues",
+  "main": "lib/index.js",
+  "directories": {
+    "bin": "bin",
+    "doc": "docs"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "scripts": {
-    "test": "make test"
+    "test": "node_modules/lab/bin/lab",
+    "xdoc": "jsdoc --package ./package.json -c jsdoc-conf.json README-JSDOC.md;    rm -f README.md;    jsdoc2md --src \"lib/**/*\" >JSDOC.md;    cat README-JSDOC.md JSDOC.md History.md LICENSE > README.md;    rm -r -f JSDOC.md;",
+    "doc:report": "lab -r html -o site/report.html",
+    "doc:mkdocs": "mkdocs build --clean",
+    "doc:readme-jsdoc": "rm -f docs/readme.md; cat docs/index.md docs/concepts.md docs/history.md docs/license.md > docs/readme-jsdoc.md",
+    "doc:readme": "jsdoc2md --src \"lib/**/*\" > JSDOC.md; cat docs/index.md docs/concepts.md JSDOC.md docs/history.md docs/license.md > README.md; rm -f JSDOC.md;",
+    "doc": "npm run doc:mkdocs && npm run doc:report && npm run doc:readme-jsdoc && npm run doc:readme && rm -f docs/readme-jsdoc.md",
+    "preversion": "npm run doc && eslint lib &&  npm test",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags && rm -rf build/temp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozum/pg-structure.git"
   },
   "keywords": [
     "postgresql",
     "pg",
-    "postgres",
     "database",
     "schema",
     "model",
-    "schema",
     "export",
     "dump",
-    "etl",
-    "erd",
-    "migration",
-    "transform",
     "extract",
     "information_schema",
-    "sequelize",
-    "orm",
-    "model",
     "structure",
     "auto generate",
     "meta"
@@ -33,24 +46,30 @@
     "name": "Özüm Eldoğan",
     "url": "http://www.fortibase.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ozum/pg-structure.git"
-  },
   "license": "MIT",
-  "devDependencies": {
-    "chai": "^1.9.2",
-    "ink-docstrap": "^0.5.2",
-    "mocha": "^2.0.1"
-  },
   "dependencies": {
-    "async": "^0.9.0",
-    "inflection": "^1.5.2",
-    "joi": "^4.8.1",
-    "lodash": "^2.4.1",
-    "pg": "^4.1.1",
-    "weakmap": "0.0.6",
-    "winston": "^0.8.3"
+    "inflection": "^1.7.2",
+    "lodash": "^2.4.2",
+    "lokijs": "^1.3.10",
+    "pg": "^4.4.3"
   },
-  "jshintConfig": {}
+  "optionalDependencies": {
+    "pg-native": "^1.9.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "code": "^2.0.0",
+    "fs-extra": "^0.26.2",
+    "js-yaml": "^3.4.3",
+    "lab": "^7.3.0",
+    "pg-test-util": "^1.2.3"
+  },
+  "jscsConfig": {
+    "validateQuoteMarks": {
+      "mark": "'",
+      "escape": true
+    },
+    "validateIndentation": 4,
+    "requireTrailingComma": false
+  }
 }

@@ -1,42 +1,44 @@
 {
   "opts": {
-    "template": "node_modules/ink-docstrap/template",
+    "template": "node_modules/zoo-jsdoc",
     "encoding": "utf8",
-    "destination": "./doc/",
+    "destination": "./site/",
     "recurse": true,
     "private": false
   },
-  "tags": {
-    "allowUnknownTags": true
-  },
   "source": {
-    "include": ["lib", "sql"],
-    "includePattern": ".+\\.js(doc)?$",
-    "excludePattern": "(^|\\/|\\\\)_"
+    "include": ["lib"]
   },
-  "plugins"   : ["plugins/markdown"],
-  "i18n": {
-    "locale": "<en_US|tr_TR>",
-    "extension": ".js"
+  "tags": {
+    "allowUnknownTags" : true
   },
-  "templates" : {
-    "cleverLinks"           : false,
-    "monospaceLinks"        : false,
-    "dateFormat"            : "ddd MMM Do YYYY",
-    "outputSourceFiles"     : true,
-    "outputSourcePath"      : true,
-    "systemName"            : "pg-structure",
-    "footer"                : "",
-    "copyright"             : "pg-structure Copyright © 2014 Özüm Eldoğan.",
-    "navType"               : "vertical",
-    "theme"                 : "cerulean",
-    "linenums"              : true,
-    "collapseSymbols"       : false,
-    "inverseNav"            : true,
-    "highlightTutorialCode" : true
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles" : true
+    },
+    "applicationName": "pg-structure",
+    "disqus": "",
+    "googleAnalytics": "",
+    "openGraph": {
+      "title": "",
+      "type": "website",
+      "image": "",
+      "site_name": "",
+      "url": ""
+    },
+    "meta": {
+      "title": "",
+      "description": "",
+      "keyword": ""
+    },
+    "linenums": false
   },
-  "markdown"  : {
-    "parser"   : "gfm",
-    "hardwrap" : true
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": false,
+    "tags": ["examples"]
   }
 }

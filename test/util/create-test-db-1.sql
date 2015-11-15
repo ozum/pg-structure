@@ -51,7 +51,7 @@ business_unit_id            INTEGER )
 ;
 
 CREATE TYPE "enumerated_udt" AS ENUM
- ( 'option_a', 'option_b' )
+ ( 'option_a', 'option_b', '"quote"', 'with,comma and "quote"' )
 ;
 
 -- Create tables section -------------------------------------------------
