@@ -22,7 +22,7 @@
     "doc": "npm run doc:mkdocs && npm run doc:report && npm run doc:readme",
     "preversion": "npm run doc && eslint lib &&  npm test",
     "version": "npm run build && git add -A dist",
-    "postversion": "git push && git push --tags && rm -rf build/temp"
+    "postversion": "git push && git push --tags && rm -rf build/temp && git subtree push --prefix site origin gh-pages"
   },
   "repository": {
     "type": "git",
