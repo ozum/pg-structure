@@ -22,5 +22,7 @@ site_url: 'http://www.pg-structure.com'
 repo_url: 'https://github.com/ozum/pg-structure.git'
 site_description: Get PostgreSQL database structure as a detailed JS Object.
 site_author: Özüm Eldoğan
-google_analytics: ['UA-45732546-4', 'pg-structrue.com']
+google_analytics:
+  - UA-45732546-4
+  - pg-structrue.com
 docs_dir: docs
