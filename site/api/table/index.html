@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Table - pg-structure 2.0.0-alpha.1</title>
+  <title>Table - pg-structure 2.0.0-alpha.2</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.0-alpha.1</a>
+        <a href="../.." class="icon icon-home"> pg-structure 2.0.0-alpha.2</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -182,12 +182,6 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#classes">Classes</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#functions">Functions</a></li>
-                
-            
                 <li class="toctree-l3"><a href="#table">Table</a></li>
                 
                     <li><a class="toctree-l4" href="#new-tableargs">new Table(args)</a></li>
@@ -285,9 +279,6 @@
                     <li><a class="toctree-l4" href="#tablegetindexescallback-arrayindex-undefined-null">table.getIndexes([callback]) ⇒ Array.&lt;Index&gt; &#124; undefined &#124; null</a></li>
                 
             
-                <li class="toctree-l3"><a href="#createindexgetterfilter-function">createIndexGetter([filter]) ⇒ function</a></li>
-                
-            
             </ul>
         
     </li>
@@ -306,7 +297,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.0-alpha.1</a>
+        <a href="../..">pg-structure 2.0.0-alpha.2</a>
       </nav>
 
       
@@ -336,34 +327,7 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="classes">Classes</h2>
-<p><dl>
-<dt><a href="#Table">Table</a></dt>
-<dd><p>Class which represent a table. Provides attributes and methods for details of the table. Tables have relationships
-with other tables.</p>
-<p><span id="exampleSchema"></span>Below is a database schema which is used in code examples.</p>
-<pre><code>size -------------------
-id (PK)                |  ---------------------------&lt; line_item &gt;------------ cart
-name                   |  |                            product_id (PFK)        id (PK)
-                       |  |                            cart_id    (PFK)        name
-                       ^  |
-color -------------&lt; product &gt;------------- vendor
-id (PK)              id        (PK)         id (PK)
-name                 name                   name
-                     color_id  (FK)
-                     size_id   (FK)
-                     vendor_id (FK)
-</code></pre><p>Below is the same schema as image:
-<img src="../../images/schema-through.png" alt="Database Schema"></p>
-</dd>
-</dl></p>
-<h2 id="functions">Functions</h2>
-<p><dl>
-<dt><a href="#createIndexGetter">createIndexGetter([filter])</a> ⇒ <code>function</code></dt>
-<dd><p>Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.</p>
-</dd>
-</dl>
-<a name="Table"></a></p>
+                <p><a name="Table"></a></p>
 <h2 id="table">Table</h2>
 <p>Class which represent a table. Provides attributes and methods for details of the table. Tables have relationships
 with other tables.</p>
@@ -1179,27 +1143,6 @@ Results are ordered by index name.</p>
 <td>[callback]</td>
 <td><code>orderedIndexCallback</code></td>
 <td>Callback to be executed for each <a href="../Index">Index</a>.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="createIndexGetter"></a></p>
-<h2 id="createindexgetterfilter-function">createIndexGetter([filter]) ⇒ <code>function</code></h2>
-<p>Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.</p>
-<p><strong>Kind</strong>: global function<br />
-<strong>Returns</strong>: <code>function</code> - - Getter function.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[filter]</td>
-<td><code>object</code></td>
-<td>Filter object to use in Loki.js query.</td>
 </tr>
 </tbody>
 </table>

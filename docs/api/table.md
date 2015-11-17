@@ -1,30 +1,3 @@
-## Classes
-<dl>
-<dt><a href="#Table">Table</a></dt>
-<dd><p>Class which represent a table. Provides attributes and methods for details of the table. Tables have relationships
-with other tables.</p>
-<p><span id="exampleSchema"></span>Below is a database schema which is used in code examples.</p>
-<pre><code>size -------------------
-id (PK)                |  ---------------------------&lt; line_item &gt;------------ cart
-name                   |  |                            product_id (PFK)        id (PK)
-                       |  |                            cart_id    (PFK)        name
-                       ^  |
-color -------------&lt; product &gt;------------- vendor
-id (PK)              id        (PK)         id (PK)
-name                 name                   name
-                     color_id  (FK)
-                     size_id   (FK)
-                     vendor_id (FK)
-</code></pre><p>Below is the same schema as image:
-<img src="../../images/schema-through.png" alt="Database Schema"></p>
-</dd>
-</dl>
-## Functions
-<dl>
-<dt><a href="#createIndexGetter">createIndexGetter([filter])</a> ⇒ <code>function</code></dt>
-<dd><p>Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.</p>
-</dd>
-</dl>
 <a name="Table"></a>
 ## Table
 Class which represent a table. Provides attributes and methods for details of the table. Tables have relationships
@@ -696,15 +669,4 @@ Results are ordered by index name.
 | Param | Type | Description |
 | --- | --- | --- |
 | [callback] | <code>orderedIndexCallback</code> | Callback to be executed for each [Index](Index). |
-
-<a name="createIndexGetter"></a>
-## createIndexGetter([filter]) ⇒ <code>function</code>
-Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.
-
-**Kind**: global function  
-**Returns**: <code>function</code> - - Getter function.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| [filter] | <code>object</code> | Filter object to use in Loki.js query. |
 
