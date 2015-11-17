@@ -18,6 +18,7 @@ config['repo_url']          = pack.repository.url;
 config['site_description']  = pack.description;
 config['site_author']       = pack.author.name;
 config['docs_dir']          = pack.directories.doc;
+config['copyright']         = '© ' + pack.author.name;
 
 // Special inflected words
 var conversion = {

@@ -1,15 +1,3 @@
-## Classes
-<dl>
-<dt><a href="#Column">Column</a></dt>
-<dd><p>Class which represent a database column. Provides attributes and methods for details of the column.</p>
-</dd>
-</dl>
-## Functions
-<dl>
-<dt><a href="#createIndexGetter">createIndexGetter([filter])</a> ⇒ <code>function</code></dt>
-<dd><p>Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.</p>
-</dd>
-</dl>
 <a name="Column"></a>
 ## Column
 Class which represent a database column. Provides attributes and methods for details of the column.
@@ -384,15 +372,4 @@ Results are ordered by index name.
 | Param | Type | Description |
 | --- | --- | --- |
 | [callback] | <code>orderedIndexCallback</code> | Callback to be executed for each [Index](Index). |
-
-<a name="createIndexGetter"></a>
-## createIndexGetter([filter]) ⇒ <code>function</code>
-Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.
-
-**Kind**: global function  
-**Returns**: <code>function</code> - - Getter function.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| [filter] | <code>object</code> | Filter object to use in Loki.js query. |
 
