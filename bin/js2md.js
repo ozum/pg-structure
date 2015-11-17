@@ -24,6 +24,7 @@ var conversion = {
     'm2m-relation': 'M2M Relation',
     'o2m-relation': 'O2M Relation',
     'm2o-relation': 'M2O Relation',
+    'pg-index': 'Index',
     index: 'PG Structrue',
     db: 'DB'
 };

@@ -91,6 +91,8 @@
             
                 <li class="toctree-l3"><a href="#history-release-notes">History &amp; Release Notes</a></li>
                 
+                    <li><a class="toctree-l4" href="#200-alpha2-2015-11-17">2.0.0-alpha.2  / 2015-11-17</a></li>
+                
                     <li><a class="toctree-l4" href="#200-alpha1-2015-11-11">2.0.0-alpha.1  / 2015-11-11</a></li>
                 
                     <li><a class="toctree-l4" href="#1111-2015-06-16">1.11.1 / 2015-06-16</a></li>
@@ -203,6 +205,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../api/pg-index/">Index</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../api/relation/">Relation</a>
         
     </li>
@@ -272,6 +281,13 @@
 <p>For example many to many relations are virtual relationships which do not actually exist in database. They are
 tables joined via a third join table.</p>
 <h1 id="history-release-notes">History &amp; Release Notes</h1>
+<h6 id="200-alpha2-2015-11-17">2.0.0-alpha.2  / 2015-11-17</h6>
+<ul>
+<li>Added: Index class is added.</li>
+<li>Fixed: Column#unique was assuming that a column can have only one unique constraint. Now it returns array.</li>
+<li>Fixed: Column#unique was ignoring unique indexes Now it considers unique indexes too.</li>
+<li>Fixed: Many typos in constraint class documentation.</li>
+</ul>
 <h6 id="200-alpha1-2015-11-11">2.0.0-alpha.1  / 2015-11-11</h6>
 <ul>
 <li><strong> BREAKING CHANGES </strong></li>

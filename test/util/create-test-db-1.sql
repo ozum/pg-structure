@@ -125,6 +125,10 @@ CREATE INDEX "IX_Relationship6" ON "contact" ("second_company_id")
 CREATE UNIQUE INDEX "IX_Unique_Full_Name" ON "contact" ("name","surname")
 ;
 
+CREATE UNIQUE INDEX "IX_Unique_Mail_Surname" ON "contact" ("email","surname")
+;
+
+
 -- Add keys for table contact
 
 ALTER TABLE "contact" ADD CONSTRAINT "Key1" PRIMARY KEY ("id")
@@ -132,6 +136,10 @@ ALTER TABLE "contact" ADD CONSTRAINT "Key1" PRIMARY KEY ("id")
 
 ALTER TABLE "contact" ADD CONSTRAINT "email" UNIQUE ("email")
 ;
+
+ALTER TABLE "contact" ADD CONSTRAINT "nameandemail" UNIQUE ("name", "email")
+;
+
 
 -- Create triggers for table contact
 

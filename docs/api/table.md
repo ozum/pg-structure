@@ -1,3 +1,30 @@
+## Classes
+<dl>
+<dt><a href="#Table">Table</a></dt>
+<dd><p>Class which represent a table. Provides attributes and methods for details of the table. Tables have relationships
+with other tables.</p>
+<p><span id="exampleSchema"></span>Below is a database schema which is used in code examples.</p>
+<pre><code>size -------------------
+id (PK)                |  ---------------------------&lt; line_item &gt;------------ cart
+name                   |  |                            product_id (PFK)        id (PK)
+                       |  |                            cart_id    (PFK)        name
+                       ^  |
+color -------------&lt; product &gt;------------- vendor
+id (PK)              id        (PK)         id (PK)
+name                 name                   name
+                     color_id  (FK)
+                     size_id   (FK)
+                     vendor_id (FK)
+</code></pre><p>Below is the same schema as image:
+<img src="../../images/schema-through.png" alt="Database Schema"></p>
+</dd>
+</dl>
+## Functions
+<dl>
+<dt><a href="#createIndexGetter">createIndexGetter([filter])</a> ⇒ <code>function</code></dt>
+<dd><p>Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.</p>
+</dd>
+</dl>
 <a name="Table"></a>
 ## Table
 Class which represent a table. Provides attributes and methods for details of the table. Tables have relationships
@@ -53,6 +80,7 @@ Below is the same schema as image:
   * [.m2mRelations](#Table+m2mRelations) : <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>null</code>
   * [.o2mRelations](#Table+o2mRelations) : <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>null</code>
   * [.m2oRelations](#Table+m2oRelations) : <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>null</code>
+  * [.indexes](#Table+indexes) : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code>
   * [.getColumn(key)](#Table+getColumn) ⇒ <code>Column</code> &#124; <code>undefined</code>
   * [.columnExists(name)](#Table+columnExists) ⇒ <code>boolean</code>
   * [.get(path)](#Table+get) ⇒ <code>Column</code> &#124; <code>undefined</code>
@@ -68,6 +96,7 @@ Below is the same schema as image:
   * [.getM2MRelations([callback])](#Table+getM2MRelations) ⇒ <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
   * [.getO2MRelations([callback])](#Table+getO2MRelations) ⇒ <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
   * [.getM2ORelations([callback])](#Table+getM2ORelations) ⇒ <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
+  * [.getIndexes([callback])](#Table+getIndexes) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
 
 <a name="new_Table_new"></a>
 ### new Table(args)
@@ -412,6 +441,12 @@ List of [many to one relationships](M2ORelation) of the table. [M2ORelation](M2O
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
+<a name="Table+indexes"></a>
+### table.indexes : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code>
+List of [indexes](Index), which this table has. Results are ordered by index name.
+
+**Kind**: instance property of <code>[Table](#Table)</code>  
+**Read only**: true  
 <a name="Table+getColumn"></a>
 ### table.getColumn(key) ⇒ <code>Column</code> &#124; <code>undefined</code>
 Returns [Column](Column) instance with given name or order.
@@ -464,6 +499,7 @@ Retrieves all columns in the table, executes given callback and returns null, if
 ([Column](Column), index, collection). If no callback is provided, returns an array of all [columns](Column).
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All [columns](Column) of the table.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -482,6 +518,7 @@ Retrieves all constraints in the table, executes given callback and returns null
 ([Constraint](Constraint), index, collection). If no callback is provided, returns an array of all [constraints](Constraint).
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All [constraints](Constraint) of the table.  
 **See**: [getForeignKeyConstraints](#Table+getForeignKeyConstraints) to get only foreign key constraints.  
 
 | Param | Type | Description |
@@ -498,9 +535,10 @@ table.getConstraints(function(constraint, i, collection) {
 <a name="Table+getForeignKeyConstraints"></a>
 ### table.getForeignKeyConstraints([callback]) ⇒ <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
 Retrieves all [constraints](Constraint) which are foreign key constraints in the table, executes given callback and returns null, if provided. Callback has a signature of
-([Constraint](Constraint), index, collection). If no callback is provided, returns an array of all [constraints](Constraint).
+([Constraint](Constraint), index, collection). If no callback is provided, returns an array of all foreign key [constraints](Constraint).
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All foreign key [constraints](Constraint) of the table.  
 **See**
 
 - [getO2MRelations](#Table+getO2MRelations), [getM2MRelations](#Table+getM2MRelations) to get more details about [relations](Relation).
@@ -521,9 +559,10 @@ table.getConstraints(function(constraint, i, collection) {
 <a name="Table+getForeignKeyColumns"></a>
 ### table.getForeignKeyColumns([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
 Retrieves all foreign key [columns](Column) of all foreign key [constraints](Constraint) in the table, executes given callback and returns null, if provided. Callback has a signature of
-([Column](Column), index, collection). If no callback is provided, returns an array of all [columns](Column).
+([Column](Column), index, collection). If no callback is provided, returns an array of all foreign key [columns](Column).
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All foreign key [columns](Column) of the table.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -539,9 +578,10 @@ table.getForeignKeyColumns(function(column, i, collection) {
 <a name="Table+getPrimaryKeyColumns"></a>
 ### table.getPrimaryKeyColumns([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
 Retrieves all primary key [columns](Column) in the table, executes given callback and returns null, if provided. Callback has a signature of
-([Column](Column), index, collection). If no callback is provided, returns an array of all [columns](Column).
+([Column](Column), index, collection). If no callback is provided, returns an array of all primary key [columns](Column).
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All primary key [columns](Column) of the table.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -557,9 +597,10 @@ table.getPrimaryKeyColumns(function(column, i, collection) {
 <a name="Table+getPrimaryKeyConstraint"></a>
 ### table.getPrimaryKeyConstraint([callback]) ⇒ <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
 Retrieves [primary key constraint](Constraint) of the table and executes given callback and returns null, if provided. Callback has a signature of
-([Constraint](Constraint), index, collection). If no callback is provided, returns single element array of [primary key constraint](Constraint).
+([Constraint](Constraint), index, collection). If no callback is provided, returns single element array of primary key [constraint](Constraint).
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - Primary key [constraint](Constraint) of the table.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -578,6 +619,7 @@ Retrieves all [tables](#Table) which this table has relationship of type `one to
 Callback has a signature of ([Table](#Table), index, collection). If no callback is provided, returns an array of all [tables](#Table).
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All [tables](#Table) which this table has relationship of type `one to many`.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -589,6 +631,7 @@ Retrieves all [tables](#Table) which this table has relationship of type `one to
 Callback has a signature of ([Table](#Table), index, collection). If no callback is provided, returns an array of all [tables](#Table).
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All [tables](#Table) which this table has relationship of type `one to many`.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -600,6 +643,7 @@ Retrieves all [tables](#Table) which this table has relationship of type `many t
 Callback has a signature of ([Table](#Table), index, collection). If no callback is provided, returns an array of all [tables](#Table).
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All [tables](#Table) which this table has relationship of type `many to many`.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -611,6 +655,7 @@ List of [many to many relationships](M2MRelation) of the table. [M2MRelation](M2
 `has many through` and `belongs to many` relations in ORMs has some useful methods and information for generating ORM classes.
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - [M2M Relations](M2MRelation) of the table.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -622,6 +667,7 @@ List of [one to many relationships](O2MRelation) of the table. [O2MRelation](O2M
 `has many` relations in ORMs and has some useful methods and information for generating ORM classes.
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - [O2M Relations](O2MRelation) of the table.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -633,8 +679,32 @@ List of [many to one relationships](M2ORelation) of the table. [M2ORelation](M2O
 `belongs to` relations in ORMs and has some useful methods and information for generating ORM classes.
 
 **Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - [M2O Relations](M2ORelation) of the table.  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | [callback] | <code>orderedRelationCallback</code> | Callback to be executed for each [many to one relation](M2ORelation). |
+
+<a name="Table+getIndexes"></a>
+### table.getIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
+Executes callback for every [Index](Index) or returns list of [indexes](Index), which this table has.
+Results are ordered by index name.
+
+**Kind**: instance method of <code>[Table](#Table)</code>  
+**Returns**: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - [indexes](Index) this table has.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [callback] | <code>orderedIndexCallback</code> | Callback to be executed for each [Index](Index). |
+
+<a name="createIndexGetter"></a>
+## createIndexGetter([filter]) ⇒ <code>function</code>
+Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.
+
+**Kind**: global function  
+**Returns**: <code>function</code> - - Getter function.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [filter] | <code>object</code> | Filter object to use in Loki.js query. |
 

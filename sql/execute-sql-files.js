@@ -31,6 +31,7 @@ var Table               = require('../lib/table');
 var Column              = require('../lib/column');
 var Constraint          = require('../lib/constraint');
 var RelationFabricator  = require('../lib/util/relation-fabricator.js');
+var Index               = require('../lib/pg-index.js');
 
 var config = {
     db: {
@@ -71,6 +72,16 @@ var config = {
         uniqueIndex: 'fullCatalogName',
         indices: ['tableFullCatalogName'],
         inflator: Constraint
+    },
+    index: {
+        collection: 'index',
+        uniqueIndex: 'fullCatalogName',
+        indices: ['tableFullCatalogName'],
+        inflator: Index
+    },
+    indexColumn: {
+        collection: 'indexColumn',
+        indices: ['columnFullCatalogName', 'indexFullCatalogName', 'tableFullCatalogName']
     }
 };
 

@@ -112,6 +112,12 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#classes">Classes</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#functions">Functions</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#column">Column</a></li>
                 
                     <li><a class="toctree-l4" href="#new-columnargs">new Column(args)</a></li>
@@ -174,7 +180,20 @@
                 
                     <li><a class="toctree-l4" href="#columnuserdefinedtype-postgresqldatatype-null">column.userDefinedType : postgreSQLDataType &#124; null</a></li>
                 
-                    <li><a class="toctree-l4" href="#columnunique-string-null">column.unique : string &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#columnuniqueindexesnopk-arrayindex-null">column.uniqueIndexesNoPK : Array.&lt;Index&gt; &#124; null</a></li>
+                
+                    <li><a class="toctree-l4" href="#columnuniqueindexes-arrayindex-null">column.uniqueIndexes : Array.&lt;Index&gt; &#124; null</a></li>
+                
+                    <li><a class="toctree-l4" href="#columnindexes-arrayindex-null">column.indexes : Array.&lt;Index&gt; &#124; null</a></li>
+                
+                    <li><a class="toctree-l4" href="#columngetuniqueindexesnopkcallback-arrayindex-undefined-null">column.getUniqueIndexesNoPK([callback]) ⇒ Array.&lt;Index&gt; &#124; undefined &#124; null</a></li>
+                
+                    <li><a class="toctree-l4" href="#columngetuniqueindexescallback-arrayindex-undefined-null">column.getUniqueIndexes([callback]) ⇒ Array.&lt;Index&gt; &#124; undefined &#124; null</a></li>
+                
+                    <li><a class="toctree-l4" href="#columngetindexescallback-arrayindex-undefined-null">column.getIndexes([callback]) ⇒ Array.&lt;Index&gt; &#124; undefined &#124; null</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#createindexgetterfilter-function">createIndexGetter([filter]) ⇒ function</a></li>
                 
             
             </ul>
@@ -220,6 +239,13 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../o2m-relation/">O2M Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../pg-index/">Index</a>
         
     </li>
 
@@ -288,7 +314,19 @@
           <div role="main">
             <div class="section">
               
-                <p><a name="Column"></a></p>
+                <h2 id="classes">Classes</h2>
+<p><dl>
+<dt><a href="#Column">Column</a></dt>
+<dd><p>Class which represent a database column. Provides attributes and methods for details of the column.</p>
+</dd>
+</dl></p>
+<h2 id="functions">Functions</h2>
+<p><dl>
+<dt><a href="#createIndexGetter">createIndexGetter([filter])</a> ⇒ <code>function</code></dt>
+<dd><p>Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.</p>
+</dd>
+</dl>
+<a name="Column"></a></p>
 <h2 id="column">Column</h2>
 <p>Class which represent a database column. Provides attributes and methods for details of the column.</p>
 <p><strong>Kind</strong>: global class  </p>
@@ -324,7 +362,12 @@
 <li><a href="#Column+type">.type</a> : <code>postgreSQLDataType</code></li>
 <li><a href="#Column+table">.table</a> : <code>Table</code></li>
 <li><a href="#Column+userDefinedType">.userDefinedType</a> : <code>postgreSQLDataType</code> &#124; <code>null</code></li>
-<li><a href="#Column+unique">.unique</a> : <code>string</code> &#124; <code>null</code></li>
+<li><a href="#Column+uniqueIndexesNoPK">.uniqueIndexesNoPK</a> : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Column+uniqueIndexes">.uniqueIndexes</a> : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Column+indexes">.indexes</a> : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Column+getUniqueIndexesNoPK">.getUniqueIndexesNoPK([callback])</a> ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
+<li><a href="#Column+getUniqueIndexes">.getUniqueIndexes([callback])</a> ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
+<li><a href="#Column+getIndexes">.getIndexes([callback])</a> ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
 </ul>
 <p><a name="new_Column_new"></a></p>
 <h3 id="new-columnargs">new Column(args)</h3>
@@ -589,13 +632,116 @@ of the data type of the array.</li>
 <p>If type of column is user defined such as composite, enumerated, this is the data type of the underlying type.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="Column+unique"></a></p>
-<h3 id="columnunique-string-null">column.unique : <code>string</code> &#124; <code>null</code></h3>
-<p>If column is unique or part of a unique constraint returns constraint name, otherwise null.
-Also adding a unique constraint to a column will automatically create a unique btree index on the column
-or group of columns used in the constraint. As a result this attribute includes all.</p>
+<a name="Column+uniqueIndexesNoPK"></a></p>
+<h3 id="columnuniqueindexesnopk-arrayindex-null">column.uniqueIndexesNoPK : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></h3>
+<p>List of unique <a href="../Index">indexes</a>, which column is part of. Results are ordered by index name. Excludes primary key indexes. PostgreSQL already creates a unique index for unique
+<a href="../Constraint">constraints</a>. So there is no need to look for unique constraints which will result duplicates.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
-<strong>Read only</strong>: true  </p>
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: <a href="#Column+uniqueIndexes">uniqueIndexes</a> for all unique indexes including primary key indexes.<br />
+<a name="Column+uniqueIndexes"></a></p>
+<h3 id="columnuniqueindexes-arrayindex-null">column.uniqueIndexes : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></h3>
+<p>List of unique <a href="../Index">indexes</a>, which column is part of. Results are ordered by index name. PostgreSQL already creates a unique index for unique
+<a href="../Constraint">constraints</a>. So there is no need to look for unique constraints which will result duplicates.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: <a href="#Column+uniqueIndexesNoPK">uniqueIndexesNoPK</a> for unique indexes excluding primary key indexes.<br />
+<a name="Column+indexes"></a></p>
+<h3 id="columnindexes-arrayindex-null">column.indexes : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></h3>
+<p>List of <a href="../Index">indexes</a>, which column is part of. Results are ordered by index name.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Column+getUniqueIndexesNoPK"></a></p>
+<h3 id="columngetuniqueindexesnopkcallback-arrayindex-undefined-null">column.getUniqueIndexesNoPK([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
+<p>Executes callback for every unique <a href="../Index">Index</a> or returns list of unique <a href="../Index">indexes</a>, which column is part of.
+Results are ordered by index name. Excludes primary key indexes. PostgreSQL already creates a unique index for unique
+<a href="../Constraint">constraints</a>. So there is no need to look for unique constraints which will result duplicates.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Column">Column</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - Unique <a href="../Index">indexes</a> this column is a part of.<br />
+<strong>See</strong>: <a href="#Column+getUniqueIndexes">getUniqueIndexes</a> for all unique indexes including primary key indexes.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[callback]</td>
+<td><code>orderedIndexCallback</code></td>
+<td>Callback to be executed for each unique <a href="../Index">Index</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Column+getUniqueIndexes"></a></p>
+<h3 id="columngetuniqueindexescallback-arrayindex-undefined-null">column.getUniqueIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
+<p>Executes callback for every unique <a href="../Index">Index</a> or returns list of unique <a href="../Index">indexes</a>, which column is part of.
+Results are ordered by index name. PostgreSQL already creates a unique index for unique
+<a href="../Constraint">constraints</a>. So there is no need to look for unique constraints which will result duplicates.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Column">Column</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - Unique <a href="../Index">indexes</a> this column is a part of.<br />
+<strong>See</strong>: <a href="#Column+getUniqueIndexesNoPK">getUniqueIndexesNoPK</a> for all unique indexes excluding primary key indexes.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[callback]</td>
+<td><code>orderedIndexCallback</code></td>
+<td>Callback to be executed for each unique <a href="../Index">Index</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Column+getIndexes"></a></p>
+<h3 id="columngetindexescallback-arrayindex-undefined-null">column.getIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
+<p>Executes callback for every <a href="../Index">Index</a> or returns list of <a href="../Index">indexes</a>, which column is part of.
+Results are ordered by index name.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Column">Column</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - <a href="../Index">indexes</a> this column is a part of.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[callback]</td>
+<td><code>orderedIndexCallback</code></td>
+<td>Callback to be executed for each <a href="../Index">Index</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="createIndexGetter"></a></p>
+<h2 id="createindexgetterfilter-function">createIndexGetter([filter]) ⇒ <code>function</code></h2>
+<p>Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.</p>
+<p><strong>Kind</strong>: global function<br />
+<strong>Returns</strong>: <code>function</code> - - Getter function.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[filter]</td>
+<td><code>object</code></td>
+<td>Filter object to use in Loki.js query.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

@@ -15,6 +15,7 @@ pages:
       - M2M Relation: api/m2m-relation.md
       - M2O Relation: api/m2o-relation.md
       - O2M Relation: api/o2m-relation.md
+      - Index: api/pg-index.md
       - Relation: api/relation.md
       - Schema: api/schema.md
       - Table: api/table.md

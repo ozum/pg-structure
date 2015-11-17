@@ -14,6 +14,12 @@ tables joined via a third join table.
 
 # History & Release Notes
 
+###### 2.0.0-alpha.2  / 2015-11-17
+* Added: Index class is added.
+* Fixed: Column#unique was assuming that a column can have only one unique constraint. Now it returns array.
+* Fixed: Column#unique was ignoring unique indexes Now it considers unique indexes too.
+* Fixed: Many typos in constraint class documentation.
+
 ###### 2.0.0-alpha.1  / 2015-11-11
 * ** BREAKING CHANGES **
 * Completely rewritten.

@@ -95,7 +95,7 @@ Constraint type. One of `PRIMARY KEY`, `FOREIGN KEY` or `CHECK`
 **Read only**: true  
 <a name="Constraint+child"></a>
 ### constraint.child : <code>Table</code>
-Child [table](Table) of this [contraint](#Constraint).
+Child [table](Table) of this [constraint](#Constraint).
 **Note for foreign key constraints:** Child table is the table which contains foreign key.
 In [example schema](#exampleSchema) product is a child table (vendor_id FK) of vendor table.
 
@@ -107,7 +107,7 @@ var table = constraint.child;
 ```
 <a name="Constraint+table"></a>
 ### constraint.table : <code>Table</code>
-[Table](Table) which this [contraint](#Constraint) belongs to or defined in. <br>
+[Table](Table) which this [constraint](#Constraint) belongs to or defined in. <br>
 **Note for foreign key constraints:** As usual PostgreSQL defines foreign key constraints in child tables,
 where foreign key column is defined, so this is child table for foreign key constraints.
 
@@ -119,42 +119,42 @@ var table = constraint.table;
 ```
 <a name="Constraint+db"></a>
 ### constraint.db : <code>DB</code>
-[DB](DB) this [contraint](#Constraint) belongs to.
+[DB](DB) this [constraint](#Constraint) belongs to.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+schema"></a>
 ### constraint.schema : <code>Schema</code>
-[Schema](Schema) this [contraint](#Constraint) belongs to.
+[Schema](Schema) this [constraint](#Constraint) belongs to.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+onUpdate"></a>
 ### constraint.onUpdate : <code>constraintRule</code> &#124; <code>null</code>
-Update rule for foreign key [contraints](#Constraint). One of `CASCADE`, `SET NULL`, `SET DEFAULT`, `RESTRICT`, `NO ACTION`
-If this is not a foreign key [contraint](#Constraint) this is `null`.
+Update rule for foreign key [constraints](#Constraint). One of `CASCADE`, `SET NULL`, `SET DEFAULT`, `RESTRICT`, `NO ACTION`
+If this is not a foreign key [constraint](#Constraint) this is `null`.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+onDelete"></a>
 ### constraint.onDelete : <code>constraintRule</code> &#124; <code>null</code>
-Update rule for foreign key [contraints](#Constraint). One of `CASCADE`, `SET NULL`, `SET DEFAULT`, `RESTRICT`, `NO ACTION`
-If this is not a foreign key [contraint](#Constraint) this is `null`.
+Update rule for foreign key [constraints](#Constraint). One of `CASCADE`, `SET NULL`, `SET DEFAULT`, `RESTRICT`, `NO ACTION`
+If this is not a foreign key [constraint](#Constraint) this is `null`.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+referencedTable"></a>
 ### constraint.referencedTable : <code>Table</code> &#124; <code>null</code>
-For foreign key [contraints](#Constraint) this is [Table](Table) instance this [contraint](#Constraint) refers to.
-If this is not a foreign key [contraint](#Constraint) this is `null`.
+For foreign key [constraints](#Constraint) this is [Table](Table) instance this [constraint](#Constraint) refers to.
+If this is not a foreign key [constraint](#Constraint) this is `null`.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 **See**: Aliases [parent](#Constraint+parent)  
 <a name="Constraint+parent"></a>
 ### constraint.parent : <code>Table</code> &#124; <code>null</code>
-For foreign key [contraints](#Constraint) this is [Table](Table) instance this [contraint](#Constraint) refers to.
-If this is not a foreign key [contraint](#Constraint) this is `null`. <br>
+For foreign key [constraints](#Constraint) this is [Table](Table) instance this [constraint](#Constraint) refers to.
+If this is not a foreign key [constraint](#Constraint) this is `null`. <br>
 **Please Note:** This is not the [Table](Table) this constraint belongs to or defined in. Parent applies only to
 foreign key constraints and for foreign key constraints parent means referenced table not the table it is defined in.
 
@@ -167,15 +167,15 @@ foreign key constraints and for foreign key constraints parent means referenced 
 
 <a name="Constraint+columns"></a>
 ### constraint.columns : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code>
-List of [columns](Column) restricted by [contraint](#Constraint), in order their ordinal position
+List of [columns](Column) restricted by [constraint](#Constraint), in order their ordinal position
 within the constraint key. If [constraint](#Constraint) does not have any [columns](Column) this is `null`.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+columnsByName"></a>
 ### constraint.columnsByName : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code>
-List of columns restricted by [contraint](#Constraint), in order their ordinal position within the constraint key.
-If [contraint](#Constraint) does not have any columns this is `null`.
+List of columns restricted by [constraint](#Constraint), in order their ordinal position within the constraint key.
+If [constraint](#Constraint) does not have any columns this is `null`.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  

@@ -157,6 +157,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../pg-index/">Index</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../relation/">Relation</a>
         
     </li>
@@ -174,6 +181,12 @@
         <a class="current" href="./">Table</a>
         
             <ul>
+            
+                <li class="toctree-l3"><a href="#classes">Classes</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#functions">Functions</a></li>
+                
             
                 <li class="toctree-l3"><a href="#table">Table</a></li>
                 
@@ -237,6 +250,8 @@
                 
                     <li><a class="toctree-l4" href="#tablem2orelations-arraym2orelation-null">table.m2oRelations : Array.&lt;M2ORelation&gt; &#124; null</a></li>
                 
+                    <li><a class="toctree-l4" href="#tableindexes-arrayindex-null">table.indexes : Array.&lt;Index&gt; &#124; null</a></li>
+                
                     <li><a class="toctree-l4" href="#tablegetcolumnkey-column-undefined">table.getColumn(key) ⇒ Column &#124; undefined</a></li>
                 
                     <li><a class="toctree-l4" href="#tablecolumnexistsname-boolean">table.columnExists(name) ⇒ boolean</a></li>
@@ -266,6 +281,11 @@
                     <li><a class="toctree-l4" href="#tablegeto2mrelationscallback-arrayo2mrelation-undefined-null">table.getO2MRelations([callback]) ⇒ Array.&lt;O2MRelation&gt; &#124; undefined &#124; null</a></li>
                 
                     <li><a class="toctree-l4" href="#tablegetm2orelationscallback-arraym2orelation-undefined-null">table.getM2ORelations([callback]) ⇒ Array.&lt;M2ORelation&gt; &#124; undefined &#124; null</a></li>
+                
+                    <li><a class="toctree-l4" href="#tablegetindexescallback-arrayindex-undefined-null">table.getIndexes([callback]) ⇒ Array.&lt;Index&gt; &#124; undefined &#124; null</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#createindexgetterfilter-function">createIndexGetter([filter]) ⇒ function</a></li>
                 
             
             </ul>
@@ -316,7 +336,34 @@
           <div role="main">
             <div class="section">
               
-                <p><a name="Table"></a></p>
+                <h2 id="classes">Classes</h2>
+<p><dl>
+<dt><a href="#Table">Table</a></dt>
+<dd><p>Class which represent a table. Provides attributes and methods for details of the table. Tables have relationships
+with other tables.</p>
+<p><span id="exampleSchema"></span>Below is a database schema which is used in code examples.</p>
+<pre><code>size -------------------
+id (PK)                |  ---------------------------&lt; line_item &gt;------------ cart
+name                   |  |                            product_id (PFK)        id (PK)
+                       |  |                            cart_id    (PFK)        name
+                       ^  |
+color -------------&lt; product &gt;------------- vendor
+id (PK)              id        (PK)         id (PK)
+name                 name                   name
+                     color_id  (FK)
+                     size_id   (FK)
+                     vendor_id (FK)
+</code></pre><p>Below is the same schema as image:
+<img src="../../images/schema-through.png" alt="Database Schema"></p>
+</dd>
+</dl></p>
+<h2 id="functions">Functions</h2>
+<p><dl>
+<dt><a href="#createIndexGetter">createIndexGetter([filter])</a> ⇒ <code>function</code></dt>
+<dd><p>Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.</p>
+</dd>
+</dl>
+<a name="Table"></a></p>
 <h2 id="table">Table</h2>
 <p>Class which represent a table. Provides attributes and methods for details of the table. Tables have relationships
 with other tables.</p>
@@ -369,6 +416,7 @@ name                 name                   name
 <li><a href="#Table+m2mRelations">.m2mRelations</a> : <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>null</code></li>
 <li><a href="#Table+o2mRelations">.o2mRelations</a> : <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>null</code></li>
 <li><a href="#Table+m2oRelations">.m2oRelations</a> : <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Table+indexes">.indexes</a> : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></li>
 <li><a href="#Table+getColumn">.getColumn(key)</a> ⇒ <code>Column</code> &#124; <code>undefined</code></li>
 <li><a href="#Table+columnExists">.columnExists(name)</a> ⇒ <code>boolean</code></li>
 <li><a href="#Table+get">.get(path)</a> ⇒ <code>Column</code> &#124; <code>undefined</code></li>
@@ -384,6 +432,7 @@ name                 name                   name
 <li><a href="#Table+getM2MRelations">.getM2MRelations([callback])</a> ⇒ <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
 <li><a href="#Table+getO2MRelations">.getO2MRelations([callback])</a> ⇒ <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
 <li><a href="#Table+getM2ORelations">.getM2ORelations([callback])</a> ⇒ <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
+<li><a href="#Table+getIndexes">.getIndexes([callback])</a> ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
 </ul>
 <p><a name="new_Table_new"></a></p>
 <h3 id="new-tableargs">new Table(args)</h3>
@@ -718,6 +767,11 @@ let productTable = cartTable.belongsToManyTablesByName['public.product'];
 <code>belongs to</code> relations in ORMs and has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
+<a name="Table+indexes"></a></p>
+<h3 id="tableindexes-arrayindex-null">table.indexes : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></h3>
+<p>List of <a href="../Index">indexes</a>, which this table has. Results are ordered by index name.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
+<strong>Read only</strong>: true<br />
 <a name="Table+getColumn"></a></p>
 <h3 id="tablegetcolumnkey-column-undefined">table.getColumn(key) ⇒ <code>Column</code> &#124; <code>undefined</code></h3>
 <p>Returns <a href="../Column">Column</a> instance with given name or order.</p>
@@ -798,7 +852,8 @@ var jokeColumn = db.schemaExists('joke'); // false
 <h3 id="tablegetcolumnscallback-arraycolumn-undefined-null">table.getColumns([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>Retrieves all columns in the table, executes given callback and returns null, if provided. Callback has a signature of
 (<a href="../Column">Column</a>, index, collection). If no callback is provided, returns an array of all <a href="../Column">columns</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code>  </p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All <a href="../Column">columns</a> of the table.  </p>
 <table>
 <thead>
 <tr>
@@ -827,6 +882,7 @@ var jokeColumn = db.schemaExists('joke'); // false
 <p>Retrieves all constraints in the table, executes given callback and returns null, if provided. Callback has a signature of
 (<a href="../Constraint">Constraint</a>, index, collection). If no callback is provided, returns an array of all <a href="../Constraint">constraints</a>.</p>
 <p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All <a href="../Constraint">constraints</a> of the table.<br />
 <strong>See</strong>: <a href="#Table+getForeignKeyConstraints">getForeignKeyConstraints</a> to get only foreign key constraints.  </p>
 <table>
 <thead>
@@ -854,8 +910,9 @@ var jokeColumn = db.schemaExists('joke'); // false
 <p><a name="Table+getForeignKeyConstraints"></a></p>
 <h3 id="tablegetforeignkeyconstraintscallback-arrayconstraint-undefined-null">table.getForeignKeyConstraints([callback]) ⇒ <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>Retrieves all <a href="../Constraint">constraints</a> which are foreign key constraints in the table, executes given callback and returns null, if provided. Callback has a signature of
-(<a href="../Constraint">Constraint</a>, index, collection). If no callback is provided, returns an array of all <a href="../Constraint">constraints</a>.</p>
+(<a href="../Constraint">Constraint</a>, index, collection). If no callback is provided, returns an array of all foreign key <a href="../Constraint">constraints</a>.</p>
 <p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All foreign key <a href="../Constraint">constraints</a> of the table.<br />
 <strong>See</strong></p>
 <ul>
 <li><a href="#Table+getO2MRelations">getO2MRelations</a>, <a href="#Table+getM2MRelations">getM2MRelations</a> to get more details about <a href="../Relation">relations</a>.</li>
@@ -887,8 +944,9 @@ var jokeColumn = db.schemaExists('joke'); // false
 <p><a name="Table+getForeignKeyColumns"></a></p>
 <h3 id="tablegetforeignkeycolumnscallback-arraycolumn-undefined-null">table.getForeignKeyColumns([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>Retrieves all foreign key <a href="../Column">columns</a> of all foreign key <a href="../Constraint">constraints</a> in the table, executes given callback and returns null, if provided. Callback has a signature of
-(<a href="../Column">Column</a>, index, collection). If no callback is provided, returns an array of all <a href="../Column">columns</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code>  </p>
+(<a href="../Column">Column</a>, index, collection). If no callback is provided, returns an array of all foreign key <a href="../Column">columns</a>.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All foreign key <a href="../Column">columns</a> of the table.  </p>
 <table>
 <thead>
 <tr>
@@ -915,8 +973,9 @@ var jokeColumn = db.schemaExists('joke'); // false
 <p><a name="Table+getPrimaryKeyColumns"></a></p>
 <h3 id="tablegetprimarykeycolumnscallback-arraycolumn-undefined-null">table.getPrimaryKeyColumns([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>Retrieves all primary key <a href="../Column">columns</a> in the table, executes given callback and returns null, if provided. Callback has a signature of
-(<a href="../Column">Column</a>, index, collection). If no callback is provided, returns an array of all <a href="../Column">columns</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code>  </p>
+(<a href="../Column">Column</a>, index, collection). If no callback is provided, returns an array of all primary key <a href="../Column">columns</a>.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All primary key <a href="../Column">columns</a> of the table.  </p>
 <table>
 <thead>
 <tr>
@@ -943,8 +1002,9 @@ var jokeColumn = db.schemaExists('joke'); // false
 <p><a name="Table+getPrimaryKeyConstraint"></a></p>
 <h3 id="tablegetprimarykeyconstraintcallback-arrayconstraint-undefined-null">table.getPrimaryKeyConstraint([callback]) ⇒ <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>Retrieves <a href="../Constraint">primary key constraint</a> of the table and executes given callback and returns null, if provided. Callback has a signature of
-(<a href="../Constraint">Constraint</a>, index, collection). If no callback is provided, returns single element array of <a href="../Constraint">primary key constraint</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code>  </p>
+(<a href="../Constraint">Constraint</a>, index, collection). If no callback is provided, returns single element array of primary key <a href="../Constraint">constraint</a>.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - Primary key <a href="../Constraint">constraint</a> of the table.  </p>
 <table>
 <thead>
 <tr>
@@ -972,7 +1032,8 @@ var jokeColumn = db.schemaExists('joke'); // false
 <h3 id="tablegethasmanytablescallback-arraycolumn-undefined-null">table.getHasManyTables([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>Retrieves all <a href="#Table">tables</a> which this table has relationship of type <code>one to many</code>, executes given callback and returns null if provided.
 Callback has a signature of (<a href="#Table">Table</a>, index, collection). If no callback is provided, returns an array of all <a href="#Table">tables</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code>  </p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All <a href="#Table">tables</a> which this table has relationship of type <code>one to many</code>.  </p>
 <table>
 <thead>
 <tr>
@@ -993,7 +1054,8 @@ Callback has a signature of (<a href="#Table">Table</a>, index, collection). If 
 <h3 id="tablegetbelongstotablescallback-arraycolumn-undefined-null">table.getBelongsToTables([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>Retrieves all <a href="#Table">tables</a> which this table has relationship of type <code>one to many</code> which is reverse direction of <code>one to many</code>, executes given callback and returns null if provided.
 Callback has a signature of (<a href="#Table">Table</a>, index, collection). If no callback is provided, returns an array of all <a href="#Table">tables</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code>  </p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All <a href="#Table">tables</a> which this table has relationship of type <code>one to many</code>.  </p>
 <table>
 <thead>
 <tr>
@@ -1014,7 +1076,8 @@ Callback has a signature of (<a href="#Table">Table</a>, index, collection). If 
 <h3 id="tablegetbelongstomanytablescallback-arraycolumn-undefined-null">table.getBelongsToManyTables([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>Retrieves all <a href="#Table">tables</a> which this table has relationship of type <code>many to many</code>, executes given callback and returns null if provided.
 Callback has a signature of (<a href="#Table">Table</a>, index, collection). If no callback is provided, returns an array of all <a href="#Table">tables</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code>  </p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All <a href="#Table">tables</a> which this table has relationship of type <code>many to many</code>.  </p>
 <table>
 <thead>
 <tr>
@@ -1035,7 +1098,8 @@ Callback has a signature of (<a href="#Table">Table</a>, index, collection). If 
 <h3 id="tablegetm2mrelationscallback-arraym2mrelation-undefined-null">table.getM2MRelations([callback]) ⇒ <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>List of <a href="../M2MRelation">many to many relationships</a> of the table. <a href="../M2MRelation">M2MRelation</a> resembles
 <code>has many through</code> and <code>belongs to many</code> relations in ORMs has some useful methods and information for generating ORM classes.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code>  </p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - <a href="../M2MRelation">M2M Relations</a> of the table.  </p>
 <table>
 <thead>
 <tr>
@@ -1056,7 +1120,8 @@ Callback has a signature of (<a href="#Table">Table</a>, index, collection). If 
 <h3 id="tablegeto2mrelationscallback-arrayo2mrelation-undefined-null">table.getO2MRelations([callback]) ⇒ <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>List of <a href="../O2MRelation">one to many relationships</a> of the table. <a href="../O2MRelation">O2MRelation</a> resembles
 <code>has many</code> relations in ORMs and has some useful methods and information for generating ORM classes.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code>  </p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - <a href="../O2MRelation">O2M Relations</a> of the table.  </p>
 <table>
 <thead>
 <tr>
@@ -1077,7 +1142,8 @@ Callback has a signature of (<a href="#Table">Table</a>, index, collection). If 
 <h3 id="tablegetm2orelationscallback-arraym2orelation-undefined-null">table.getM2ORelations([callback]) ⇒ <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>List of <a href="../M2ORelation">many to one relationships</a> of the table. <a href="../M2ORelation">M2ORelation</a> resembles
 <code>belongs to</code> relations in ORMs and has some useful methods and information for generating ORM classes.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code>  </p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - <a href="../M2ORelation">M2O Relations</a> of the table.  </p>
 <table>
 <thead>
 <tr>
@@ -1091,6 +1157,49 @@ Callback has a signature of (<a href="#Table">Table</a>, index, collection). If 
 <td>[callback]</td>
 <td><code>orderedRelationCallback</code></td>
 <td>Callback to be executed for each <a href="../M2ORelation">many to one relation</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Table+getIndexes"></a></p>
+<h3 id="tablegetindexescallback-arrayindex-undefined-null">table.getIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
+<p>Executes callback for every <a href="../Index">Index</a> or returns list of <a href="../Index">indexes</a>, which this table has.
+Results are ordered by index name.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<strong>Returns</strong>: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - <a href="../Index">indexes</a> this table has.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[callback]</td>
+<td><code>orderedIndexCallback</code></td>
+<td>Callback to be executed for each <a href="../Index">Index</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="createIndexGetter"></a></p>
+<h2 id="createindexgetterfilter-function">createIndexGetter([filter]) ⇒ <code>function</code></h2>
+<p>Returns a function which returns unique indexes of the column. Based on excludePK results includes Primary Keys or not.</p>
+<p><strong>Kind</strong>: global function<br />
+<strong>Returns</strong>: <code>function</code> - - Getter function.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[filter]</td>
+<td><code>object</code></td>
+<td>Filter object to use in Loki.js query.</td>
 </tr>
 </tbody>
 </table>

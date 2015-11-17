@@ -1,6 +1,6 @@
 {
   "name": "pg-structure",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "Get PostgreSQL database structure as a detailed JS Object.",
   "homepage": "http://www.pg-structure.com",
   "bugs": "https://github.com/ozum/pg-structure/issues",
@@ -69,7 +69,10 @@
       "mark": "'",
       "escape": true
     },
+    "disallowSpaceAfterObjectKeys": false,
     "validateIndentation": 4,
-    "requireTrailingComma": false
+    "requireTrailingComma": false,
+    "maximumLineLength": null,
+    "requireCamelCaseOrUpperCaseIdentifiers": false
   }
 }

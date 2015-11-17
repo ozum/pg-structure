@@ -197,6 +197,19 @@ describe('Table attributes', function() {
         expect(cartLineItemTable.m2oRelations[0].constraint.name).to.equal('cart_has_products');
         done();
     });
+
+    it('should have indexes.', function(done) {
+        let collection = db.get('public.contact').indexes;
+
+        expect(collection.length).to.equal(7);
+        expect(collection[0].name).to.equal('email');
+        expect(collection[1].name).to.equal('IX_Relationship1');
+        expect(collection[2].name).to.equal('IX_Relationship6');
+
+        expect(collection[0].columns[0].name).to.equal('email');
+
+        done();
+    });
 });
 
 describe('Table methods', function() {
@@ -336,6 +349,21 @@ describe('Table methods', function() {
         });
 
         expect(result[0].sourceConstraint.name).to.equal('cart_has_products');
+        done();
+    });
+
+    it('should have getIndexes.', function(done) {
+        let collection = [];
+
+        db.get('public.contact').getIndexes((value) => {
+            collection.push(value);
+        });
+
+        expect(collection.length).to.equal(7);
+        expect(collection[0].name).to.equal('email');
+        expect(collection[1].name).to.equal('IX_Relationship1');
+        expect(collection[2].name).to.equal('IX_Relationship6');
+
         done();
     });
 });

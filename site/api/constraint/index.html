@@ -196,6 +196,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../pg-index/">Index</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../relation/">Relation</a>
         
     </li>
@@ -365,7 +372,7 @@ color and vendor tables would have many to many <code>through constraints</code>
 <strong>Read only</strong>: true<br />
 <a name="Constraint+child"></a></p>
 <h3 id="constraintchild-table">constraint.child : <code>Table</code></h3>
-<p>Child <a href="../Table">table</a> of this <a href="#Constraint">contraint</a>.
+<p>Child <a href="../Table">table</a> of this <a href="#Constraint">constraint</a>.
 <strong>Note for foreign key constraints:</strong> Child table is the table which contains foreign key.
 In <a href="#exampleSchema">example schema</a> product is a child table (vendor_id FK) of vendor table.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
@@ -376,7 +383,7 @@ In <a href="#exampleSchema">example schema</a> product is a child table (vendor_
 
 <p><a name="Constraint+table"></a></p>
 <h3 id="constrainttable-table">constraint.table : <code>Table</code></h3>
-<p><a href="../Table">Table</a> which this <a href="#Constraint">contraint</a> belongs to or defined in. <br>
+<p><a href="../Table">Table</a> which this <a href="#Constraint">constraint</a> belongs to or defined in. <br>
 <strong>Note for foreign key constraints:</strong> As usual PostgreSQL defines foreign key constraints in child tables,
 where foreign key column is defined, so this is child table for foreign key constraints.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
@@ -387,37 +394,37 @@ where foreign key column is defined, so this is child table for foreign key cons
 
 <p><a name="Constraint+db"></a></p>
 <h3 id="constraintdb-db">constraint.db : <code>DB</code></h3>
-<p><a href="../DB">DB</a> this <a href="#Constraint">contraint</a> belongs to.</p>
+<p><a href="../DB">DB</a> this <a href="#Constraint">constraint</a> belongs to.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+schema"></a></p>
 <h3 id="constraintschema-schema">constraint.schema : <code>Schema</code></h3>
-<p><a href="../Schema">Schema</a> this <a href="#Constraint">contraint</a> belongs to.</p>
+<p><a href="../Schema">Schema</a> this <a href="#Constraint">constraint</a> belongs to.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+onUpdate"></a></p>
 <h3 id="constraintonupdate-constraintrule-null">constraint.onUpdate : <code>constraintRule</code> &#124; <code>null</code></h3>
-<p>Update rule for foreign key <a href="#Constraint">contraints</a>. One of <code>CASCADE</code>, <code>SET NULL</code>, <code>SET DEFAULT</code>, <code>RESTRICT</code>, <code>NO ACTION</code>
-If this is not a foreign key <a href="#Constraint">contraint</a> this is <code>null</code>.</p>
+<p>Update rule for foreign key <a href="#Constraint">constraints</a>. One of <code>CASCADE</code>, <code>SET NULL</code>, <code>SET DEFAULT</code>, <code>RESTRICT</code>, <code>NO ACTION</code>
+If this is not a foreign key <a href="#Constraint">constraint</a> this is <code>null</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+onDelete"></a></p>
 <h3 id="constraintondelete-constraintrule-null">constraint.onDelete : <code>constraintRule</code> &#124; <code>null</code></h3>
-<p>Update rule for foreign key <a href="#Constraint">contraints</a>. One of <code>CASCADE</code>, <code>SET NULL</code>, <code>SET DEFAULT</code>, <code>RESTRICT</code>, <code>NO ACTION</code>
-If this is not a foreign key <a href="#Constraint">contraint</a> this is <code>null</code>.</p>
+<p>Update rule for foreign key <a href="#Constraint">constraints</a>. One of <code>CASCADE</code>, <code>SET NULL</code>, <code>SET DEFAULT</code>, <code>RESTRICT</code>, <code>NO ACTION</code>
+If this is not a foreign key <a href="#Constraint">constraint</a> this is <code>null</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+referencedTable"></a></p>
 <h3 id="constraintreferencedtable-table-null">constraint.referencedTable : <code>Table</code> &#124; <code>null</code></h3>
-<p>For foreign key <a href="#Constraint">contraints</a> this is <a href="../Table">Table</a> instance this <a href="#Constraint">contraint</a> refers to.
-If this is not a foreign key <a href="#Constraint">contraint</a> this is <code>null</code>.</p>
+<p>For foreign key <a href="#Constraint">constraints</a> this is <a href="../Table">Table</a> instance this <a href="#Constraint">constraint</a> refers to.
+If this is not a foreign key <a href="#Constraint">constraint</a> this is <code>null</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Constraint+parent">parent</a><br />
 <a name="Constraint+parent"></a></p>
 <h3 id="constraintparent-table-null">constraint.parent : <code>Table</code> &#124; <code>null</code></h3>
-<p>For foreign key <a href="#Constraint">contraints</a> this is <a href="../Table">Table</a> instance this <a href="#Constraint">contraint</a> refers to.
-If this is not a foreign key <a href="#Constraint">contraint</a> this is <code>null</code>. <br>
+<p>For foreign key <a href="#Constraint">constraints</a> this is <a href="../Table">Table</a> instance this <a href="#Constraint">constraint</a> refers to.
+If this is not a foreign key <a href="#Constraint">constraint</a> this is <code>null</code>. <br>
 <strong>Please Note:</strong> This is not the <a href="../Table">Table</a> this constraint belongs to or defined in. Parent applies only to
 foreign key constraints and for foreign key constraints parent means referenced table not the table it is defined in.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
@@ -429,14 +436,14 @@ foreign key constraints and for foreign key constraints parent means referenced 
 </ul>
 <p><a name="Constraint+columns"></a></p>
 <h3 id="constraintcolumns-arraycolumn-null">constraint.columns : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></h3>
-<p>List of <a href="../Column">columns</a> restricted by <a href="#Constraint">contraint</a>, in order their ordinal position
+<p>List of <a href="../Column">columns</a> restricted by <a href="#Constraint">constraint</a>, in order their ordinal position
 within the constraint key. If <a href="#Constraint">constraint</a> does not have any <a href="../Column">columns</a> this is <code>null</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+columnsByName"></a></p>
 <h3 id="constraintcolumnsbyname-objectstring-column-null">constraint.columnsByName : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></h3>
-<p>List of columns restricted by <a href="#Constraint">contraint</a>, in order their ordinal position within the constraint key.
-If <a href="#Constraint">contraint</a> does not have any columns this is <code>null</code>.</p>
+<p>List of columns restricted by <a href="#Constraint">constraint</a>, in order their ordinal position within the constraint key.
+If <a href="#Constraint">constraint</a> does not have any columns this is <code>null</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true  </p>
               
