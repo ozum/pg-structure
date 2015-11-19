@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Index - pg-structure 2.0.0-alpha.2</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Index";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-45732546-4', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> pg-structure 2.0.0-alpha.2</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../concepts/">Concepts</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../history/">History</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../license/">License</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../report/">Test & Coverage Report</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Column/">Column</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Constraint/">Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../DB/">DB</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Index</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#index">Index</a></li>
+                
+                    <li><a class="toctree-l4" href="#new-indexargs">new Index(args)</a></li>
+                
+                    <li><a class="toctree-l4" href="#indexname-string">index.name : string</a></li>
+                
+                    <li><a class="toctree-l4" href="#indexfullname-string">index.fullName : string</a></li>
+                
+                    <li><a class="toctree-l4" href="#indexfullcatalogname-string">index.fullCatalogName : string</a></li>
+                
+                    <li><a class="toctree-l4" href="#indexisunique-boolean">index.isUnique : boolean</a></li>
+                
+                    <li><a class="toctree-l4" href="#indexisprimarykey-boolean">index.isPrimaryKey : boolean</a></li>
+                
+                    <li><a class="toctree-l4" href="#indextable-table">index.table : Table</a></li>
+                
+                    <li><a class="toctree-l4" href="#indexparent-table">index.parent : Table</a></li>
+                
+                    <li><a class="toctree-l4" href="#indexdb-db">index.db : DB</a></li>
+                
+                    <li><a class="toctree-l4" href="#indexschema-schema">index.schema : Schema</a></li>
+                
+                    <li><a class="toctree-l4" href="#indexcolumns-arraycolumn-null">index.columns : Array.&lt;Column&gt; &#124; null</a></li>
+                
+                    <li><a class="toctree-l4" href="#indexcolumnsbyname-objectstring-column-null">index.columnsByName : Object.&lt;string, Column&gt; &#124; null</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../M2MRelation/">M2M Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../M2ORelation/">M2O Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../O2MRelation/">O2M Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../PgStructure/">pgStructure</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Relation/">Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Table/">Table</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">pg-structure 2.0.0-alpha.2</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API &raquo;</li>
+        
+      
+    
+    <li>Index</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ozum/pg-structure.git" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><a name="Index"></a></p>
+<h2 id="index">Index</h2>
+<p>Class which represent a database index. Provides attributes and methods for details of the index.</p>
+<p><strong>Kind</strong>: global class  </p>
+<ul>
+<li><a href="#Index">Index</a></li>
+<li><a href="#new_Index_new">new Index(args)</a></li>
+<li><a href="#Index+name">.name</a> : <code>string</code></li>
+<li><a href="#Index+fullName">.fullName</a> : <code>string</code></li>
+<li><a href="#Index+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
+<li><a href="#Index+isUnique">.isUnique</a> : <code>boolean</code></li>
+<li><a href="#Index+isPrimaryKey">.isPrimaryKey</a> : <code>boolean</code></li>
+<li><a href="#Index+table">.table</a> : <code>Table</code></li>
+<li><a href="#Index+parent">.parent</a> : <code>Table</code></li>
+<li><a href="#Index+db">.db</a> : <code>DB</code></li>
+<li><a href="#Index+schema">.schema</a> : <code>Schema</code></li>
+<li><a href="#Index+columns">.columns</a> : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Index+columnsByName">.columnsByName</a> : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></li>
+</ul>
+<p><a name="new_Index_new"></a></p>
+<h3 id="new-indexargs">new Index(args)</h3>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>args</td>
+<td><code>Object</code></td>
+<td>Index arguments.</td>
+</tr>
+<tr>
+<td>args.registry</td>
+<td><code>Loki</code></td>
+<td>Loki.js database object.</td>
+</tr>
+<tr>
+<td>args.attributes</td>
+<td><code>Object</code></td>
+<td>Attributes of the <a href="#Index">Index</a> instance.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Index+name"></a></p>
+<h3 id="indexname-string">index.name : <code>string</code></h3>
+<p>Name of the index.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Index+fullName"></a></p>
+<h3 id="indexfullname-string">index.fullName : <code>string</code></h3>
+<p>Full name of the <a href="#Index">index</a> with (.) notation.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>Example</strong>  </p>
+<pre><code class="js">var fullName = index.fullName; // crm.public
+</code></pre>
+
+<p><a name="Index+fullCatalogName"></a></p>
+<h3 id="indexfullcatalogname-string">index.fullCatalogName : <code>string</code></h3>
+<p>Full name of the <a href="#Index">index</a> with (.) notation including catalog name.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>Example</strong>  </p>
+<pre><code class="js">var fullCatalogName = index.fullCatalogName; // crm.public
+</code></pre>
+
+<p><a name="Index+isUnique"></a></p>
+<h3 id="indexisunique-boolean">index.isUnique : <code>boolean</code></h3>
+<p>If true, this is a unique index.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Index+isPrimaryKey"></a></p>
+<h3 id="indexisprimarykey-boolean">index.isPrimaryKey : <code>boolean</code></h3>
+<p>If true, this index represents the primary key of the table (<a href="#Index+isUnique">isUnique</a> should always be true when this is true.)</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Index+table"></a></p>
+<h3 id="indextable-table">index.table : <code>Table</code></h3>
+<p><a href="../Table">Table</a> which this <a href="#Index">index</a> belongs to.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Index+parent"></a></p>
+<h3 id="indexparent-table">index.parent : <code>Table</code></h3>
+<p><a href="../Table">Table</a> which this <a href="#Index">index</a> belongs to.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Index+db"></a></p>
+<h3 id="indexdb-db">index.db : <code>DB</code></h3>
+<p><a href="../DB">DB</a> this <a href="#Index">index</a> belongs to.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Index+schema"></a></p>
+<h3 id="indexschema-schema">index.schema : <code>Schema</code></h3>
+<p><a href="../Schema">Schema</a> this <a href="#Index">index</a> belongs to.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Index+columns"></a></p>
+<h3 id="indexcolumns-arraycolumn-null">index.columns : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></h3>
+<p>List of <a href="../Column">columns</a> restricted by <a href="#Index">index</a>, in order their ordinal position
+within the index key. If <a href="#Index">index</a> does not have any <a href="../Column">columns</a> this is <code>null</code>.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Index+columnsByName"></a></p>
+<h3 id="indexcolumnsbyname-objectstring-column-null">index.columnsByName : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></h3>
+<p>List of columns restricted by <a href="#Index">index</a>, in order their ordinal position within the index key.
+If <a href="#Index">index</a> does not have any columns this is <code>null</code>.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<strong>Read only</strong>: true  </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../M2MRelation/" class="btn btn-neutral float-right" title="M2M Relation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../DB/" class="btn btn-neutral" title="DB"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© Özüm Eldoğan</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../DB/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../M2MRelation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
