@@ -20,7 +20,7 @@
     </tr>
 </table>
 
-pg-structure examines given PostgreSQL database by reverse engineering and lets you easily code, analyze, operate on PostgreSQL database structure by providing details about [DB](http://www.pg-structure.com/api/DB), [Schema](http://www.pg-structure.com/api/Schema), [Table](http://www.pg-structure.com/api/Table), [Column](http://www.pg-structure.com/api/Column), [Constraint](http://www.pg-structure.com/api/Constraint) and [Relation](http://www.pg-structure.com/api/Relation).
+pg-structure examines given PostgreSQL database by reverse engineering and lets you easily code, analyze, operate on PostgreSQL database structure by providing details about [DB](http://www.pg-structure.com/api/DB/), [Schema](http://www.pg-structure.com/api/Schema/), [Table](http://www.pg-structure.com/api/Table/), [Column](http://www.pg-structure.com/api/Column/), [Constraint](http://www.pg-structure.com/api/Constraint/), [Relation](http://www.pg-structure.com/api/Relation/) and [Relation](http://www.pg-structure.com/api/Index/).
 
 Created object can be used to auto generate documentation or ORM models from database. It is much easier to work with JS object than working manually with database.
 
@@ -62,7 +62,7 @@ Created object can be used to auto generate documentation or ORM models from dat
 ## Features
 
 * Fully tested
-* Fully documented with JSDOC and HTML (HTML docs are in doc directory)
+* Fully documented with JSDOC and HTML
 * All PostgreSQL data types including array, JSON and HSTore
 * Support composite keys (Multiple field keys)
 * Schema support
@@ -80,9 +80,17 @@ Created object can be used to auto generate documentation or ORM models from dat
     * onUpdate
     * onDelete
     * etc. (Full details can be found in [Column](http://www.pg-structure.com/api/Column) doc)
+* Support for:
+    * DB
+    * Schema
+    * Table
+    * Column
+    * Constraint
+    * Index
+    * Relation
 
 ## Special Thanks
-**pg-structure** is developed under sponsorship of [Fortibase](http://www.fortibase.com) and released as open source. See [license](http://www.pg-structure/license).
+**pg-structure** is developed under sponsorship of [Fortibase](http://www.fortibase.com) and released as open source. See [license](http://www.pg-structure.com/license/).
 
 Also documentation is auto generated thanks to:
 
