@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pg-structure 2.0.0-alpha.2</title>
+  <title>pg-structure 2.0.0-alpha.3</title>
   
 
   <link rel="shortcut icon" href="./img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> pg-structure 2.0.0-alpha.2</a>
+        <a href="." class="icon icon-home"> pg-structure 2.0.0-alpha.3</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -213,7 +213,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">pg-structure 2.0.0-alpha.2</a>
+        <a href=".">pg-structure 2.0.0-alpha.3</a>
       </nav>
 
       
@@ -258,7 +258,7 @@
     </tr>
 </table>
 
-<p>pg-structure examines given PostgreSQL database by reverse engineering and lets you easily code, analyze, operate on PostgreSQL database structure by providing details about <a href="http://www.pg-structure.com/api/DB">DB</a>, <a href="http://www.pg-structure.com/api/Schema">Schema</a>, <a href="http://www.pg-structure.com/api/Table">Table</a>, <a href="http://www.pg-structure.com/api/Column">Column</a>, <a href="http://www.pg-structure.com/api/Constraint">Constraint</a> and <a href="http://www.pg-structure.com/api/Relation">Relation</a>.</p>
+<p>pg-structure examines given PostgreSQL database by reverse engineering and lets you easily code, analyze, operate on PostgreSQL database structure by providing details about <a href="http://www.pg-structure.com/api/DB/">DB</a>, <a href="http://www.pg-structure.com/api/Schema/">Schema</a>, <a href="http://www.pg-structure.com/api/Table/">Table</a>, <a href="http://www.pg-structure.com/api/Column/">Column</a>, <a href="http://www.pg-structure.com/api/Constraint/">Constraint</a>, <a href="http://www.pg-structure.com/api/Relation/">Relation</a> and <a href="http://www.pg-structure.com/api/Index/">Relation</a>.</p>
 <p>Created object can be used to auto generate documentation or ORM models from database. It is much easier to work with JS object than working manually with database.</p>
 <h2 id="example">Example</h2>
 <pre><code>var pgStructure = require('pg-structure');
@@ -296,7 +296,7 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
 <h2 id="features">Features</h2>
 <ul>
 <li>Fully tested</li>
-<li>Fully documented with JSDOC and HTML (HTML docs are in doc directory)</li>
+<li>Fully documented with JSDOC and HTML</li>
 <li>All PostgreSQL data types including array, JSON and HSTore</li>
 <li>Support composite keys (Multiple field keys)</li>
 <li>Schema support</li>
@@ -316,9 +316,19 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
 <li>etc. (Full details can be found in <a href="http://www.pg-structure.com/api/Column">Column</a> doc)</li>
 </ul>
 </li>
+<li>Support for:<ul>
+<li>DB</li>
+<li>Schema</li>
+<li>Table</li>
+<li>Column</li>
+<li>Constraint</li>
+<li>Index</li>
+<li>Relation</li>
+</ul>
+</li>
 </ul>
 <h2 id="special-thanks">Special Thanks</h2>
-<p><strong>pg-structure</strong> is developed under sponsorship of <a href="http://www.fortibase.com">Fortibase</a> and released as open source. See <a href="http://www.pg-structure/license">license</a>.</p>
+<p><strong>pg-structure</strong> is developed under sponsorship of <a href="http://www.fortibase.com">Fortibase</a> and released as open source. See <a href="http://www.pg-structure.com/license/">license</a>.</p>
 <p>Also documentation is auto generated thanks to:</p>
 <ul>
 <li><a href="http://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>.</li>
@@ -378,5 +388,5 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
 
 <!--
 MkDocs version : 0.14.0
-Build Date UTC : 2015-11-19 09:29:11.554394
+Build Date UTC : 2015-11-19 09:36:14.707058
 -->
