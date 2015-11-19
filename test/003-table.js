@@ -201,6 +201,7 @@ describe('Table attributes', function() {
     it('should have relations.', function(done) {
         let cartLineItemTable = db.get('public.cart_line_item');
         expect(cartLineItemTable.relations.length).to.equal(7);
+        expect(db.get('public.type_table').relations).to.equal(null);
         done();
     });
 
