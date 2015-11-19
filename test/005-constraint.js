@@ -1,7 +1,7 @@
 'use strict';
 var Lab         = require('lab');
 var Chai        = require('chai');
-var pgStructure = require('../lib');
+var pgStructure = require('../lib/pg-structure');
 
 var lab         = exports.lab = Lab.script();
 var describe    = lab.describe;

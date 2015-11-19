@@ -25,8 +25,7 @@ var conversion = {
     'm2m-relation': 'M2M Relation',
     'o2m-relation': 'O2M Relation',
     'm2o-relation': 'M2O Relation',
-    'pg-index': 'Index',
-    index: 'PG Structrue',
+    'pg-structure': 'pgStructure',
     db: 'DB'
 };
 
@@ -60,8 +59,9 @@ fs.writeFileSync(path.join(mdBase, 'link-to-doc.md'), `\n\n# Documentation\n\nSe
 
 // Create API md files.
 getFiles(__dirname + '/../lib', function(err, dir, file) {
-    let base    = path.basename(file, path.extname(file));
-    let title   = conversion[base] || inflection.titleize(base);
+    let jsFileBase  = path.basename(file, path.extname(file));                      // Ex: m2o-relation, column etc.
+    let title       = conversion[jsFileBase] || inflection.titleize(jsFileBase);    // Ex: M2O Relation, Column etc.
+    let base        = inflection.classify(title.replace(/\s/g, ''));                // Ex: M2ORelation, Column etc.
 
     if (dir.match(/util$/) || path.extname(file) !== '.js') return; // Only js files not located in util directory.
 

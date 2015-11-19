@@ -31,7 +31,7 @@ var Table               = require('../lib/table');
 var Column              = require('../lib/column');
 var Constraint          = require('../lib/constraint');
 var RelationFabricator  = require('../lib/util/relation-fabricator.js');
-var Index               = require('../lib/pg-index.js');
+var Index               = require('../lib/index.js');
 
 var config = {
     db: {
