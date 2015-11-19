@@ -54,7 +54,7 @@ let PKColumn     = relation.targetTable.primaryKeys[0];  // COLUMN:      id     
 ```
 <a name="M2ORelation+type"></a>
 ### m2ORelation.type : <code>relationType</code>
-Type of relation. One of `ONE TO MANY` or `MANY TO MANY`.
+Type of relation which is `MANY TO ONE`.
 
 **Kind**: instance property of <code>[M2ORelation](#M2ORelation)</code>  
 **Read only**: true  
