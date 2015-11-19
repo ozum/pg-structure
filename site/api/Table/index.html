@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Table - pg-structure 2.0.0-alpha.4</title>
+  <title>Table - pg-structure 2.0.0-alpha.5</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.0-alpha.4</a>
+        <a href="../.." class="icon icon-home"> pg-structure 2.0.0-alpha.5</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -244,6 +244,8 @@
                 
                     <li><a class="toctree-l4" href="#tablem2orelations-arraym2orelation-null">table.m2oRelations : Array.&lt;M2ORelation&gt; &#124; null</a></li>
                 
+                    <li><a class="toctree-l4" href="#tablerelations-arrayo2mrelationm2orelationm2mrelation-null">table.relations : Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt; &#124; null</a></li>
+                
                     <li><a class="toctree-l4" href="#tableindexes-arrayindex-null">table.indexes : Array.&lt;Index&gt; &#124; null</a></li>
                 
                     <li><a class="toctree-l4" href="#tablegetcolumnkey-column-undefined">table.getColumn(key) ⇒ Column &#124; undefined</a></li>
@@ -276,6 +278,8 @@
                 
                     <li><a class="toctree-l4" href="#tablegetm2orelationscallback-arraym2orelation-undefined-null">table.getM2ORelations([callback]) ⇒ Array.&lt;M2ORelation&gt; &#124; undefined &#124; null</a></li>
                 
+                    <li><a class="toctree-l4" href="#tablegetrelations-arrayo2mrelationm2orelationm2mrelation-null">table.getRelations() ⇒ Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt; &#124; null</a></li>
+                
                     <li><a class="toctree-l4" href="#tablegetindexescallback-arrayindex-undefined-null">table.getIndexes([callback]) ⇒ Array.&lt;Index&gt; &#124; undefined &#124; null</a></li>
                 
             
@@ -297,7 +301,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.0-alpha.4</a>
+        <a href="../..">pg-structure 2.0.0-alpha.5</a>
       </nav>
 
       
@@ -380,6 +384,7 @@ name                 name                   name
 <li><a href="#Table+m2mRelations">.m2mRelations</a> : <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>null</code></li>
 <li><a href="#Table+o2mRelations">.o2mRelations</a> : <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>null</code></li>
 <li><a href="#Table+m2oRelations">.m2oRelations</a> : <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Table+relations">.relations</a> : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code></li>
 <li><a href="#Table+indexes">.indexes</a> : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></li>
 <li><a href="#Table+getColumn">.getColumn(key)</a> ⇒ <code>Column</code> &#124; <code>undefined</code></li>
 <li><a href="#Table+columnExists">.columnExists(name)</a> ⇒ <code>boolean</code></li>
@@ -396,6 +401,7 @@ name                 name                   name
 <li><a href="#Table+getM2MRelations">.getM2MRelations([callback])</a> ⇒ <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
 <li><a href="#Table+getO2MRelations">.getO2MRelations([callback])</a> ⇒ <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
 <li><a href="#Table+getM2ORelations">.getM2ORelations([callback])</a> ⇒ <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
+<li><a href="#Table+getRelations">.getRelations()</a> ⇒ <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code></li>
 <li><a href="#Table+getIndexes">.getIndexes([callback])</a> ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
 </ul>
 <p><a name="new_Table_new"></a></p>
@@ -729,6 +735,11 @@ let productTable = cartTable.belongsToManyTablesByName['public.product'];
 <h3 id="tablem2orelations-arraym2orelation-null">table.m2oRelations : <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>null</code></h3>
 <p>List of <a href="../M2ORelation">many to one relationships</a> of the table. <a href="../M2ORelation">M2ORelation</a> resembles
 <code>belongs to</code> relations in ORMs and has some useful methods and information for generating ORM classes.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Table+relations"></a></p>
+<h3 id="tablerelations-arrayo2mrelationm2orelationm2mrelation-null">table.relations : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code></h3>
+<p>List of all <a href="../Relation">relationships</a> of the table.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+indexes"></a></p>
@@ -1124,7 +1135,11 @@ Callback has a signature of (<a href="#Table">Table</a>, index, collection). If 
 </tr>
 </tbody>
 </table>
-<p><a name="Table+getIndexes"></a></p>
+<p><a name="Table+getRelations"></a></p>
+<h3 id="tablegetrelations-arrayo2mrelationm2orelationm2mrelation-null">table.getRelations() ⇒ <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code></h3>
+<p>List of all <a href="../Relation">relationships</a> of the table.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
+<a name="Table+getIndexes"></a></p>
 <h3 id="tablegetindexescallback-arrayindex-undefined-null">table.getIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
 <p>Executes callback for every <a href="../Index">Index</a> or returns list of <a href="../Index">indexes</a>, which this table has.
 Results are ordered by index name.</p>

@@ -53,6 +53,7 @@ Below is the same schema as image:
   * [.m2mRelations](#Table+m2mRelations) : <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>null</code>
   * [.o2mRelations](#Table+o2mRelations) : <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>null</code>
   * [.m2oRelations](#Table+m2oRelations) : <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>null</code>
+  * [.relations](#Table+relations) : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code>
   * [.indexes](#Table+indexes) : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code>
   * [.getColumn(key)](#Table+getColumn) ⇒ <code>Column</code> &#124; <code>undefined</code>
   * [.columnExists(name)](#Table+columnExists) ⇒ <code>boolean</code>
@@ -69,6 +70,7 @@ Below is the same schema as image:
   * [.getM2MRelations([callback])](#Table+getM2MRelations) ⇒ <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
   * [.getO2MRelations([callback])](#Table+getO2MRelations) ⇒ <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
   * [.getM2ORelations([callback])](#Table+getM2ORelations) ⇒ <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
+  * [.getRelations()](#Table+getRelations) ⇒ <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code>
   * [.getIndexes([callback])](#Table+getIndexes) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
 
 <a name="new_Table_new"></a>
@@ -414,6 +416,12 @@ List of [many to one relationships](M2ORelation) of the table. [M2ORelation](M2O
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
+<a name="Table+relations"></a>
+### table.relations : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code>
+List of all [relationships](Relation) of the table.
+
+**Kind**: instance property of <code>[Table](#Table)</code>  
+**Read only**: true  
 <a name="Table+indexes"></a>
 ### table.indexes : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code>
 List of [indexes](Index), which this table has. Results are ordered by index name.
@@ -658,6 +666,11 @@ List of [many to one relationships](M2ORelation) of the table. [M2ORelation](M2O
 | --- | --- | --- |
 | [callback] | <code>orderedRelationCallback</code> | Callback to be executed for each [many to one relation](M2ORelation). |
 
+<a name="Table+getRelations"></a>
+### table.getRelations() ⇒ <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code>
+List of all [relationships](Relation) of the table.
+
+**Kind**: instance method of <code>[Table](#Table)</code>  
 <a name="Table+getIndexes"></a>
 ### table.getIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
 Executes callback for every [Index](Index) or returns list of [indexes](Index), which this table has.

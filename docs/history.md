@@ -14,6 +14,12 @@ tables joined via a third join table.
 
 # History & Release Notes
 
+###### 2.0.0-alpha.5  / 2015-11-19
+* Added: Table#relations and Table#getRelations().
+
+###### 2.0.0-alpha.3  / 2015-11-19
+* Fixed: Broken links in documentation.
+
 ###### 2.0.0-alpha.2  / 2015-11-17
 * Added: Index class is added.
 * Fixed: Column#unique was assuming that a column can have only one unique constraint. Now it returns array.

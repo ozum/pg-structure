@@ -198,6 +198,12 @@ describe('Table attributes', function() {
         done();
     });
 
+    it('should have relations.', function(done) {
+        let cartLineItemTable = db.get('public.cart_line_item');
+        expect(cartLineItemTable.relations.length).to.equal(7);
+        done();
+    });
+
     it('should have indexes.', function(done) {
         let collection = db.get('public.contact').indexes;
 
@@ -349,6 +355,17 @@ describe('Table methods', function() {
         });
 
         expect(result[0].sourceConstraint.name).to.equal('cart_has_products');
+        done();
+    });
+
+    it('should have getRelations.', function(done) {
+        var result  = [];
+        let table   = db.get('public.cart_line_item');
+        table.getRelations((row) => {
+            result.push(row);
+        });
+
+        expect(result.length).to.equal(7);
         done();
     });
 
