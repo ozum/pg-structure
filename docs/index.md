@@ -15,7 +15,7 @@
         </td>
         <td style="width:28%; padding:10px 10px 10px 10px; border:1px solid #CCCCCC; background:#EEEEEE;">
             <strong>Utilitarian</strong><br>
-            Beyond database objects (i.e. <a href="api/m2m-relation">many to many relation</a>).
+            Beyond database objects (i.e. <a href="http://www.pg-structure.com/api/M2MRelation/">many to many relation</a>).
         </td>
     </tr>
 </table>
