@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pgStructure - pg-structure 2.0.0-alpha.5</title>
+  <title>pgStructure - pg-structure 2.0.0-alpha.7</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.0-alpha.5</a>
+        <a href="../.." class="icon icon-home"> pg-structure 2.0.0-alpha.7</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -161,9 +161,9 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#pgstructrue">pgStructrue</a></li>
+                <li class="toctree-l3"><a href="#pgstructure">pgStructure</a></li>
                 
-                    <li><a class="toctree-l4" href="#pgstructruegetdbpgoptions-schemas-promiset">pgStructrue~getDB(pgOptions, [schemas]) ⇒ Promise.&lt;T&gt;</a></li>
+                    <li><a class="toctree-l4" href="#pgstructuregetdbpgoptions-schemas-promiset">pgStructure~getDB(pgOptions, [schemas]) ⇒ Promise.&lt;T&gt;</a></li>
                 
             
             </ul>
@@ -205,7 +205,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.0-alpha.5</a>
+        <a href="../..">pg-structure 2.0.0-alpha.7</a>
       </nav>
 
       
@@ -235,11 +235,11 @@
           <div role="main">
             <div class="section">
               
-                <p><a name="module_pgStructrue"></a></p>
-<h2 id="pgstructrue">pgStructrue</h2>
-<p><a name="module_pgStructrue..getDB"></a></p>
-<h3 id="pgstructruegetdbpgoptions-schemas-promiset">pgStructrue~getDB(pgOptions, [schemas]) ⇒ <code>Promise.&lt;T&gt;</code></h3>
-<p><strong>Kind</strong>: inner method of <code><a href="#module_pgStructrue">pgStructrue</a></code><br />
+                <p><a name="module_pgStructure"></a></p>
+<h2 id="pgstructure">pgStructure</h2>
+<p><a name="module_pgStructure..getDB"></a></p>
+<h3 id="pgstructuregetdbpgoptions-schemas-promiset">pgStructure~getDB(pgOptions, [schemas]) ⇒ <code>Promise.&lt;T&gt;</code></h3>
+<p><strong>Kind</strong>: inner method of <code><a href="#module_pgStructure">pgStructure</a></code><br />
 <strong>Returns</strong>: <code>Promise.&lt;T&gt;</code> - - Promise with signature (<a href="../DB">DB</a>).  </p>
 <table>
 <thead>
@@ -255,7 +255,7 @@
 <td>pgOptions</td>
 <td><code>Object</code> &#124; <code>pg.client</code></td>
 <td></td>
-<td>Pg client or Connection parameters to connect to database.</td>
+<td>node-postgres client or connection parameters. Parameters passed directly to node-postgres. See it for details.</td>
 </tr>
 <tr>
 <td>pgOptions.database</td>
@@ -286,6 +286,12 @@
 <td><code>string</code></td>
 <td></td>
 <td>Password to connecting to db.</td>
+</tr>
+<tr>
+<td>[pgOptions.ssl]</td>
+<td><code>boolean</code> &#124; <code>Object</code></td>
+<td><code>false</code></td>
+<td>Pass the same options as tls.connect().</td>
 </tr>
 <tr>
 <td>[schemas]</td>
