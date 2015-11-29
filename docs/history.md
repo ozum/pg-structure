@@ -14,6 +14,9 @@ tables joined via a third join table.
 
 # History & Release Notes
 
+###### 2.0.0-alpha.9 / 2015-11-29
+# Fixed: One to many and many to one relations duplicates.
+
 ###### 2.0.0-alpha.8 / 2015-11-29
 * Fixed: Join tables with more than one relations produce warning about non-unique constraint.
 * Fixed: referencedTable returns undefined.
