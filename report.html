@@ -544,7 +544,7 @@
             <a href="#lib/column.js"><span class="dirname">lib/</span><span class="basename">column.js</span></a>
         </li>
         <li>
-            <span class="cov high">99.56</span>
+            <span class="cov high">99.57</span>
             <a href="#lib/constraint.js"><span class="dirname">lib/</span><span class="basename">constraint.js</span></a>
         </li>
         <li>
@@ -610,8 +610,8 @@
       <div class="stats high">
           <div class="failures">0</div>
           <div class="skipped">0</div>
-          <div class="test-count">141</div>
-          <div class="duration">8930</div>
+          <div class="test-count">145</div>
+          <div class="duration">9011</div>
       </div>
       <div id="filters">
           <input type="checkbox" checked="" onchange="filter(this)" value="success" id="show-success"><label for="show-success">Show Success</label></input>
@@ -629,6 +629,8 @@
           <input type="checkbox" checked="" onchange="filter(this)" value="m2oRelation_attributes" id="show-m2oRelation_attributes"><label for="show-m2oRelation_attributes">m2oRelation attributes</label></input>
           <input type="checkbox" checked="" onchange="filter(this)" value="O2MRelation_attributes" id="show-O2MRelation_attributes"><label for="show-O2MRelation_attributes">O2MRelation attributes</label></input>
           <input type="checkbox" checked="" onchange="filter(this)" value="Index_attributes" id="show-Index_attributes"><label for="show-Index_attributes">Index attributes</label></input>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Constraint_from_join_table" id="show-Constraint_from_join_table"><label for="show-Constraint_from_join_table">Constraint from join table</label></input>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Constraint_from_non-join_table" id="show-Constraint_from_non-join_table"><label for="show-Constraint_from_non-join_table">Constraint from non-join table</label></input>
       </div>
       <table>
           <thead>
@@ -651,7 +653,7 @@
               <td class="test-title">DB attributes should have fullName.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show DB_attributes success">
               <td class="test-id">3</td>
@@ -700,14 +702,14 @@
               <td class="test-title">DB methods should have getSchemas().
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Schema_attributes success">
               <td class="test-id">10</td>
               <td class="test-title">Schema attributes should have name.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Schema_attributes success">
               <td class="test-id">11</td>
@@ -728,7 +730,7 @@
               <td class="test-title">Schema attributes should have parent.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Schema_attributes success">
               <td class="test-id">14</td>
@@ -742,7 +744,7 @@
               <td class="test-title">Schema attributes should have tables.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Schema_attributes success">
               <td class="test-id">16</td>
@@ -756,7 +758,7 @@
               <td class="test-title">Schema methods should have getTable().
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Schema_methods success">
               <td class="test-id">18</td>
@@ -770,14 +772,14 @@
               <td class="test-title">Schema methods should have get().
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Schema_methods success">
               <td class="test-id">20</td>
               <td class="test-title">Schema methods should have getSchemas().
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">21</td>
@@ -819,14 +821,14 @@
               <td class="test-title">Table attributes should have schema.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">27</td>
               <td class="test-title">Table attributes should have columns.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">28</td>
@@ -840,14 +842,14 @@
               <td class="test-title">Table attributes should have constraints.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">30</td>
               <td class="test-title">Table attributes should have constraintsByName.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">31</td>
@@ -882,14 +884,14 @@
               <td class="test-title">Table attributes should have primaryKeyConstraint.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">36</td>
               <td class="test-title">Table attributes should have primaryKeyColumns.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">37</td>
@@ -903,7 +905,7 @@
               <td class="test-title">Table attributes should have hasManyTables.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">39</td>
@@ -917,14 +919,14 @@
               <td class="test-title">Table attributes should have hasManyTablesByFullName.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">41</td>
               <td class="test-title">Table attributes should have belongsToTables.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">42</td>
@@ -980,14 +982,14 @@
               <td class="test-title">Table attributes should have m2oRelations.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">50</td>
               <td class="test-title">Table attributes should have relations.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_attributes success">
               <td class="test-id">51</td>
@@ -1015,7 +1017,7 @@
               <td class="test-title">Table methods should have get().
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_methods success">
               <td class="test-id">55</td>
@@ -1036,14 +1038,14 @@
               <td class="test-title">Table methods should have getForeignKeyColumns.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_methods success">
               <td class="test-id">58</td>
               <td class="test-title">Table methods should have getPrimaryKeyConstraint().
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_methods success">
               <td class="test-id">59</td>
@@ -1071,21 +1073,21 @@
               <td class="test-title">Table methods should have getBelongsToTables().
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_methods success">
               <td class="test-id">63</td>
               <td class="test-title">Table methods should have getM2ORelations().
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_methods success">
               <td class="test-id">64</td>
               <td class="test-title">Table methods should have getM2ORelations().
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_methods success">
               <td class="test-id">65</td>
@@ -1113,21 +1115,21 @@
               <td class="test-title">Column attributes should have allowNull.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_attributes success">
               <td class="test-id">69</td>
               <td class="test-title">Column attributes should have arrayDimension.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_attributes success">
               <td class="test-id">70</td>
               <td class="test-title">Column attributes should have arrayDimension.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Column_attributes success">
               <td class="test-id">71</td>
@@ -1169,7 +1171,7 @@
               <td class="test-title">Column attributes should have domainFullName.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_attributes success">
               <td class="test-id">77</td>
@@ -1260,7 +1262,7 @@
               <td class="test-title">Column attributes should have notNull.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_attributes success">
               <td class="test-id">90</td>
@@ -1281,21 +1283,21 @@
               <td class="test-title">Column attributes should have referencedColumn.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Column_attributes success">
               <td class="test-id">93</td>
               <td class="test-title">Column attributes should have scale.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_attributes success">
               <td class="test-id">94</td>
               <td class="test-title">Column attributes should have schema.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Column_attributes success">
               <td class="test-id">95</td>
@@ -1316,7 +1318,7 @@
               <td class="test-title">Column attributes should have uniqueIndexesNoPK.
                   
               </td>
-              <td class="test-duration">2</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Column_attributes success">
               <td class="test-id">98</td>
@@ -1344,7 +1346,7 @@
               <td class="test-title">Table methods should have getUniqueIndexesNoPK.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_methods success">
               <td class="test-id">102</td>
@@ -1358,7 +1360,7 @@
               <td class="test-title">Table methods should have getIndexes.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Constraint_attributes success">
               <td class="test-id">104</td>
@@ -1372,14 +1374,14 @@
               <td class="test-title">Constraint attributes should have fullName.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Constraint_attributes success">
               <td class="test-id">106</td>
               <td class="test-title">Constraint attributes should have fullCatalogName.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Constraint_attributes success">
               <td class="test-id">107</td>
@@ -1428,49 +1430,49 @@
               <td class="test-title">Constraint attributes should have onDelete.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Constraint_attributes success">
               <td class="test-id">114</td>
               <td class="test-title">Constraint attributes should have referencedTable.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Constraint_attributes success">
               <td class="test-id">115</td>
               <td class="test-title">Constraint attributes should have parent.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Constraint_attributes success">
               <td class="test-id">116</td>
               <td class="test-title">Constraint attributes should have columns.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Constraint_attributes success">
               <td class="test-id">117</td>
               <td class="test-title">Constraint attributes should have columns returning null for non column based constraints.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Constraint_attributes success">
               <td class="test-id">118</td>
               <td class="test-title">Constraint attributes should have columnsByName.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show o2mRelation_attributes success">
               <td class="test-id">119</td>
               <td class="test-title">o2mRelation attributes should have type.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show o2mRelation_attributes success">
               <td class="test-id">120</td>
@@ -1484,14 +1486,14 @@
               <td class="test-title">o2mRelation attributes should have targetTable.
                   
               </td>
-              <td class="test-duration">3</td>
+              <td class="test-duration">2</td>
           </tr>
           <tr class="show o2mRelation_attributes success">
               <td class="test-id">122</td>
               <td class="test-title">o2mRelation attributes should have constraint.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show m2oRelation_attributes success">
               <td class="test-id">123</td>
@@ -1519,7 +1521,7 @@
               <td class="test-title">m2oRelation attributes should have constraint.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show O2MRelation_attributes success">
               <td class="test-id">127</td>
@@ -1533,7 +1535,7 @@
               <td class="test-title">O2MRelation attributes should have sourceTable.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show O2MRelation_attributes success">
               <td class="test-id">129</td>
@@ -1561,7 +1563,7 @@
               <td class="test-title">O2MRelation attributes should have targetConstraint.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Index_attributes success">
               <td class="test-id">133</td>
@@ -1582,7 +1584,7 @@
               <td class="test-title">Index attributes should have fullCatalogName.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Index_attributes success">
               <td class="test-id">136</td>
@@ -1617,11 +1619,39 @@
               <td class="test-title">Index attributes should have columns.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Index_attributes success">
               <td class="test-id">141</td>
               <td class="test-title">Index attributes should have columnsByName.
+                  
+              </td>
+              <td class="test-duration">0</td>
+          </tr>
+          <tr class="show Constraint_from_join_table success">
+              <td class="test-id">142</td>
+              <td class="test-title">Constraint from join table should have name.
+                  
+              </td>
+              <td class="test-duration">0</td>
+          </tr>
+          <tr class="show Constraint_from_join_table success">
+              <td class="test-id">143</td>
+              <td class="test-title">Constraint from join table should have referenced table.
+                  
+              </td>
+              <td class="test-duration">0</td>
+          </tr>
+          <tr class="show Constraint_from_non-join_table success">
+              <td class="test-id">144</td>
+              <td class="test-title">Constraint from non-join table should have name.
+                  
+              </td>
+              <td class="test-duration">0</td>
+          </tr>
+          <tr class="show Constraint_from_non-join_table success">
+              <td class="test-id">145</td>
+              <td class="test-title">Constraint from non-join table should have referenced table.
                   
               </td>
               <td class="test-duration">0</td>
@@ -1632,9 +1662,9 @@
     </div>    <div id="coverage">
         <h1>Code Coverage Report</h1>
         <div class="stats high">
-            <div class="percentage">98.68%</div>
-            <div class="sloc">2585</div>
-            <div class="hits">2551</div>
+            <div class="percentage">98.69%</div>
+            <div class="sloc">2591</div>
+            <div class="hits">2557</div>
             <div class="misses">34</div>
         </div>
         <div id="files">
@@ -1761,7 +1791,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>18</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>771</td>
+                            <td class="hits" data-tooltip>783</td>
                             <td class="source">        internal.set(this, {</td>
                         </tr>
                         <tr class="hit">
@@ -4590,9 +4620,9 @@
             <div class="file">
                 <h2 id="lib/constraint.js">lib/constraint.js</h2>
                 <div class="stats high">
-                    <div class="percentage">99.56%</div>
-                    <div class="sloc">229</div>
-                    <div class="hits">228</div>
+                    <div class="percentage">99.57%</div>
+                    <div class="sloc">235</div>
+                    <div class="hits">234</div>
                     <div class="misses">1</div>
                 </div>
                 <table>
@@ -4902,7 +4932,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>50</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>744</td>
+                            <td class="hits" data-tooltip>756</td>
                             <td class="source">        internal.set(this, {</td>
                         </tr>
                         <tr class="hit">
@@ -4945,505 +4975,505 @@
                             <td class="line" data-tooltip>57</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">// ATTRIBUTES</td>
+                            <td class="source">/**</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>58</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
+                            <td class="source"> * Fetches foreign key constraint details from Loki.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>59</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
+                            <td class="source"> * @private</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>60</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#name</td>
+                            <td class="source"> * @returns {Object|undefined} - Loki referentialConstraint document.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>61</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {string}</td>
+                            <td class="source"> */</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>62</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">function getForeignConstraint() {</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>63</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description Name of the constraint.</td>
+                            <td class="hits" data-tooltip>7</td>
+                            <td class="source">    return internal.get(this).registry.getCollection(&#x27;referentialConstraint&#x27;).find({&#x27;leftJoinConstraintFullCatalogName&#x27;: this.fullCatalogName})[0];</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>64</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
+                            <td class="source">}</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>65</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;name&#x27;, { get: helper.createGetter(&#x27;name&#x27;), enumerable: true });</td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>66</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
+                            <td class="source">// ATTRIBUTES</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>67</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
+                            <td class="source"></td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>68</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#fullName</td>
+                            <td class="source">/**</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>69</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {string}</td>
+                            <td class="source"> * @name Constraint#name</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>70</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
+                            <td class="source"> * @type {string}</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>71</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description Full name of the {@link Constraint constraint} with (.) notation.</td>
+                            <td class="source"> * @readonly</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>72</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @example</td>
+                            <td class="source"> * @description Name of the constraint.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>73</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * var fullName &#x3D; constraint.fullName; // crm.public</td>
+                            <td class="source"> */</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>74</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;name&#x27;, { get: helper.createGetter(&#x27;name&#x27;), enumerable: true });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>75</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;fullName&#x27;, { get: helper.createGetter(&#x27;fullName&#x27;), enumerable: true });</td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>76</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
+                            <td class="source">/**</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>77</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
+                            <td class="source"> * @name Constraint#fullName</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>78</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#fullCatalogName</td>
+                            <td class="source"> * @type {string}</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>79</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {string}</td>
+                            <td class="source"> * @readonly</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>80</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
+                            <td class="source"> * @description Full name of the {@link Constraint constraint} with (.) notation.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>81</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description Full name of the {@link Constraint constraint} with (.) notation including catalog name.</td>
+                            <td class="source"> * @example</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>82</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @example</td>
+                            <td class="source"> * var fullName &#x3D; constraint.fullName; // crm.public</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>83</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * var fullCatalogName &#x3D; constraint.fullCatalogName; // crm.public</td>
+                            <td class="source"> */</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>84</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;fullName&#x27;, { get: helper.createGetter(&#x27;fullName&#x27;), enumerable: true });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>85</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;fullCatalogName&#x27;, { get: helper.createGetter(&#x27;fullCatalogName&#x27;), enumerable: true });</td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>86</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
+                            <td class="source">/**</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>87</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
+                            <td class="source"> * @name Constraint#fullCatalogName</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>88</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#type</td>
+                            <td class="source"> * @type {string}</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>89</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {contsraintType}</td>
+                            <td class="source"> * @readonly</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>90</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
+                            <td class="source"> * @description Full name of the {@link Constraint constraint} with (.) notation including catalog name.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>91</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description Constraint type. One of &#x60;PRIMARY KEY&#x60;, &#x60;FOREIGN KEY&#x60; or &#x60;CHECK&#x60;</td>
+                            <td class="source"> * @example</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>92</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
+                            <td class="source"> * var fullCatalogName &#x3D; constraint.fullCatalogName; // crm.public</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>93</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;type&#x27;, { get: helper.createGetter(&#x27;constraintType&#x27;), enumerable: true });</td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> */</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>94</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;fullCatalogName&#x27;, { get: helper.createGetter(&#x27;fullCatalogName&#x27;), enumerable: true });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>95</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
+                            <td class="source"></td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>96</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#child</td>
+                            <td class="source">/**</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>97</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {Table}</td>
+                            <td class="source"> * @name Constraint#type</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>98</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
+                            <td class="source"> * @type {contsraintType}</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>99</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description Child {@link Table table} of this {@link Constraint constraint}.</td>
+                            <td class="source"> * @readonly</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>100</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * **Note for foreign key constraints:** Child table is the table which contains foreign key.</td>
+                            <td class="source"> * @description Constraint type. One of &#x60;PRIMARY KEY&#x60;, &#x60;FOREIGN KEY&#x60; or &#x60;CHECK&#x60;</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>101</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * In [example schema](#exampleSchema) product is a child table (vendor_id FK) of vendor table.</td>
+                            <td class="source"> */</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>102</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @example</td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;type&#x27;, { get: helper.createGetter(&#x27;constraintType&#x27;), enumerable: true });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>103</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * var table &#x3D; constraint.child;</td>
+                            <td class="source"></td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>104</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
+                            <td class="source">/**</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>105</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;child&#x27;, { get: helper.createReferencedObjectGetter(&#x27;tableFullCatalogName&#x27;, &#x27;table&#x27;), enumerable: true });</td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @name Constraint#child</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>106</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
+                            <td class="source"> * @type {Table}</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>107</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
+                            <td class="source"> * @readonly</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>108</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#table</td>
+                            <td class="source"> * @description Child {@link Table table} of this {@link Constraint constraint}.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>109</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {Table}</td>
+                            <td class="source"> * **Note for foreign key constraints:** Child table is the table which contains foreign key.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>110</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
+                            <td class="source"> * In [example schema](#exampleSchema) product is a child table (vendor_id FK) of vendor table.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>111</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description {@link Table} which this {@link Constraint constraint} belongs to or defined in. &lt;br&gt;</td>
+                            <td class="source"> * @example</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>112</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * **Note for foreign key constraints:** As usual PostgreSQL defines foreign key constraints in child tables,</td>
+                            <td class="source"> * var table &#x3D; constraint.child;</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>113</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * where foreign key column is defined, so this is child table for foreign key constraints.</td>
+                            <td class="source"> */</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>114</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @example</td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;child&#x27;, { get: helper.createReferencedObjectGetter(&#x27;tableFullCatalogName&#x27;, &#x27;table&#x27;), enumerable: true });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>115</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * var table &#x3D; constraint.table;</td>
+                            <td class="source"></td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>116</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
+                            <td class="source">/**</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>117</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;table&#x27;, { get: helper.createReferencedObjectGetter(&#x27;tableFullCatalogName&#x27;, &#x27;table&#x27;), enumerable: true });</td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @name Constraint#table</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>118</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
+                            <td class="source"> * @type {Table}</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>119</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
+                            <td class="source"> * @readonly</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>120</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#db</td>
+                            <td class="source"> * @description {@link Table} which this {@link Constraint constraint} belongs to or defined in. &lt;br&gt;</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>121</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {DB}</td>
+                            <td class="source"> * **Note for foreign key constraints:** As usual PostgreSQL defines foreign key constraints in child tables,</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>122</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
+                            <td class="source"> * where foreign key column is defined, so this is child table for foreign key constraints.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>123</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description {@link DB} this {@link Constraint constraint} belongs to.</td>
+                            <td class="source"> * @example</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>124</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
+                            <td class="source"> * var table &#x3D; constraint.table;</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>125</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;db&#x27;, { get: helper.createDBGetter(), enumerable: true });</td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> */</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>126</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;table&#x27;, { get: helper.createReferencedObjectGetter(&#x27;tableFullCatalogName&#x27;, &#x27;table&#x27;), enumerable: true });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>127</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
+                            <td class="source"></td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>128</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#schema</td>
+                            <td class="source">/**</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>129</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {Schema}</td>
+                            <td class="source"> * @name Constraint#db</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>130</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
+                            <td class="source"> * @type {DB}</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>131</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description {@link Schema} this {@link Constraint constraint} belongs to.</td>
+                            <td class="source"> * @readonly</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>132</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
+                            <td class="source"> * @description {@link DB} this {@link Constraint constraint} belongs to.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>133</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;schema&#x27;, { get: helper.createSchemaGetter(), enumerable: true });</td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> */</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>134</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;db&#x27;, { get: helper.createDBGetter(), enumerable: true });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>135</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
+                            <td class="source"></td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>136</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#onUpdate</td>
+                            <td class="source">/**</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>137</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {constraintRule|null}</td>
+                            <td class="source"> * @name Constraint#schema</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>138</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
+                            <td class="source"> * @type {Schema}</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>139</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description Update rule for foreign key {@link Constraint constraints}. One of &#x60;CASCADE&#x60;, &#x60;SET NULL&#x60;, &#x60;SET DEFAULT&#x60;, &#x60;RESTRICT&#x60;, &#x60;NO ACTION&#x60;</td>
+                            <td class="source"> * @readonly</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>140</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source"> * If this is not a foreign key {@link Constraint constraint} this is &#x60;null&#x60;.</td>
+                            <td class="source"> * @description {@link Schema} this {@link Constraint constraint} belongs to.</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>141</td>
@@ -5455,658 +5485,700 @@
                             <td class="line" data-tooltip>142</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;onUpdate&#x27;, {</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;schema&#x27;, { get: helper.createSchemaGetter(), enumerable: true });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>143</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">    /**</td>
+                            <td class="source"></td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>144</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">     * @private</td>
+                            <td class="source">/**</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>145</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">     * @returns {constraintRule|null}   - Constraint rule.</td>
+                            <td class="source"> * @name Constraint#onUpdate</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>146</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">     */</td>
+                            <td class="source"> * @type {constraintRule|null}</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>147</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">    get: function() {</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>148</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">        let fkConstraint &#x3D; internal.get(this).registry.getCollection(&#x27;referentialConstraint&#x27;).by(&#x27;leftJoinConstraintFullCatalogName&#x27;, this.fullCatalogName);</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>149</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">        return fkConstraint.leftJoinConstraintOnUpdate;</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>150</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">    }, enumerable: true });</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>151</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>152</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>153</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#onDelete</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>154</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {constraintRule|null}</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>155</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
                             <td class="source"> * @readonly</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>156</td>
+                            <td class="line" data-tooltip>148</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source"> * @description Update rule for foreign key {@link Constraint constraints}. One of &#x60;CASCADE&#x60;, &#x60;SET NULL&#x60;, &#x60;SET DEFAULT&#x60;, &#x60;RESTRICT&#x60;, &#x60;NO ACTION&#x60;</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>157</td>
+                            <td class="line" data-tooltip>149</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source"> * If this is not a foreign key {@link Constraint constraint} this is &#x60;null&#x60;.</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>158</td>
+                            <td class="line" data-tooltip>150</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source"> */</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>159</td>
+                            <td class="line" data-tooltip>151</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;onDelete&#x27;, {</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;onUpdate&#x27;, {</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>160</td>
+                            <td class="line" data-tooltip>152</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source">    /**</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>161</td>
+                            <td class="line" data-tooltip>153</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source">     * @private</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>162</td>
+                            <td class="line" data-tooltip>154</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source">     * @returns {constraintRule|null}   - Constraint rule.</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>163</td>
+                            <td class="line" data-tooltip>155</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source">     */</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>156</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">    get: function() {</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>157</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">        return getForeignConstraint.apply(this).leftJoinConstraintOnUpdate;</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>158</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">    }, enumerable: true });</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>159</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>160</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">/**</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>161</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @name Constraint#onDelete</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>162</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @type {constraintRule|null}</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>163</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @readonly</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>164</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">    get: function() {</td>
+                            <td class="source"> * @description Update rule for foreign key {@link Constraint constraints}. One of &#x60;CASCADE&#x60;, &#x60;SET NULL&#x60;, &#x60;SET DEFAULT&#x60;, &#x60;RESTRICT&#x60;, &#x60;NO ACTION&#x60;</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>165</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">        let fkConstraint &#x3D; internal.get(this).registry.getCollection(&#x27;referentialConstraint&#x27;).by(&#x27;leftJoinConstraintFullCatalogName&#x27;, this.fullCatalogName);</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>166</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">        return fkConstraint.leftJoinConstraintOnDelete;</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>167</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">    }, enumerable: true });</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>168</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>169</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>170</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * For foreign key constraints, returns referenced {@link Table table} by this {@link Constraint constraint}.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>171</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @returns {Table|null}    - Referenced {@link Table} object.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>172</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @private</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>173</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>174</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">function getReferencedTable() {</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>175</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>3</td>
-                            <td class="source">    let fkConstraint &#x3D; internal.get(this).registry.getCollection(&#x27;referentialConstraint&#x27;).by(&#x27;leftJoinConstraintFullCatalogName&#x27;, this.fullCatalogName);</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>176</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>4</td>
-                            <td class="source">    if (!fkConstraint) return null;</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>177</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>2</td>
-                            <td class="source">    let tableName &#x3D; fkConstraint.leftTableFullCatalogName;</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>178</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>2</td>
-                            <td class="source">    return internal.get(this).registry.getCollection(&#x27;table&#x27;).by(&#x27;fullCatalogName&#x27;, tableName).object;</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>179</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">}</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>180</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>181</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>182</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#referencedTable</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>183</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {Table|null}</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>184</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>185</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description For foreign key {@link Constraint constraints} this is {@link Table} instance this {@link Constraint constraint} refers to.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>186</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source"> * If this is not a foreign key {@link Constraint constraint} this is &#x60;null&#x60;.</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>187</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @see Aliases {@link Constraint#parent parent}</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>188</td>
+                            <td class="line" data-tooltip>166</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source"> */</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>189</td>
+                            <td class="line" data-tooltip>167</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;referencedTable&#x27;, { get: getReferencedTable, enumerable: true });</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;onDelete&#x27;, {</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>190</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>191</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>192</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#parent</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>193</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {Table|null}</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>194</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>195</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description For foreign key {@link Constraint constraints} this is {@link Table} instance this {@link Constraint constraint} refers to.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>196</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * If this is not a foreign key {@link Constraint constraint} this is &#x60;null&#x60;. &lt;br&gt;</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>197</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * **Please Note:** This is not the {@link Table} this constraint belongs to or defined in. Parent applies only to</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>198</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * foreign key constraints and for foreign key constraints parent means referenced table not the table it is defined in.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>199</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @see Aliases {@link Constraint#referencedTable referencedTable}</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>200</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @see To get {@link Table} this constraint belongs to or defined in, use {@link Constraint#table table}.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>201</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>202</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;parent&#x27;, { get: getReferencedTable, enumerable: true });</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>203</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>204</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>205</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * If callback is defined executes it for each {@link Column} and returns undefined.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>206</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * Otherwise, returns array of {@link Column columns} belonging to this {@link Constraint constraint}.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>207</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * If there aren&#x27;t any related {@link Column columns}, returns &#x60;null&#x60;.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>208</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @param {Function} [callback]             - Callback function to call for each column.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>209</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @returns {Array.&lt;Column&gt;|null|undefined} - Array of columns belonging to this constraint. Null if no</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>210</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @private</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>211</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>212</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">function getColumns(callback) {</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>213</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>16</td>
-                            <td class="source">    let _       &#x3D; internal.get(this);</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>214</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>16</td>
-                            <td class="source">    let result  &#x3D;  _.registry.getCollection(&#x27;constraintColumn&#x27;).chain()</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>215</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">        .find({constraintFullCatalogName: this.fullCatalogName})</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>216</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">        .simplesort(&#x27;position&#x27;)</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>217</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">        .data()</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>218</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">        .map((row) &#x3D;&gt; {</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>219</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>25</td>
-                            <td class="source">            return _.registry.getCollection(&#x27;column&#x27;).by(&#x27;fullCatalogName&#x27;, row.columnFullCatalogName).object;</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>220</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">        });</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>221</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>222</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>16</td>
-                            <td class="source">    return helper.getCollection(result, callback, {objectKey: null});</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>223</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">}</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>224</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>225</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>226</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#columns</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>227</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {Array.&lt;Column&gt;|null}</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>228</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>229</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description List of {@link Column columns} restricted by {@link Constraint constraint}, in order their ordinal position</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>230</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * within the constraint key. If {@link Constraint constraint} does not have any {@link Column columns} this is &#x60;null&#x60;.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>231</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>232</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;columns&#x27;, { get: getColumns, enumerable: true });</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>233</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>234</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source">/**</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>235</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @name Constraint#columnsByName</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>236</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @type {Object.&lt;string,Column&gt;|null}</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>237</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @readonly</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>238</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * @description List of columns restricted by {@link Constraint constraint}, in order their ordinal position within the constraint key.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>239</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> * If {@link Constraint constraint} does not have any columns this is &#x60;null&#x60;.</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>240</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip></td>
-                            <td class="source"> */</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>241</td>
-                            <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>1</td>
-                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;columnsByName&#x27;, {</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line" data-tooltip>242</td>
+                            <td class="line" data-tooltip>168</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source">    /**</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>243</td>
+                            <td class="line" data-tooltip>169</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source">     * @private</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>244</td>
+                            <td class="line" data-tooltip>170</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">     * @returns {Object.&lt;string,Column&gt;|null}   - Columns as key/value object.</td>
+                            <td class="source">     * @returns {constraintRule|null}   - Constraint rule.</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>245</td>
+                            <td class="line" data-tooltip>171</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source">     */</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>246</td>
+                            <td class="line" data-tooltip>172</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source">    get: function() {</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>247</td>
+                            <td class="line" data-tooltip>173</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>2</td>
-                            <td class="source">        return helper.getCollection(getColumns.call(this), null, {nameKey: &#x27;name&#x27;, objectKey: null});</td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">        return getForeignConstraint.apply(this).leftJoinConstraintOnDelete;</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>248</td>
+                            <td class="line" data-tooltip>174</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source">    }, enumerable: true });</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>249</td>
+                            <td class="line" data-tooltip>175</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
+                            <td class="line" data-tooltip>176</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">/**</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>177</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * For foreign key constraints, returns referenced {@link Table table} by this {@link Constraint constraint}.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>178</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @returns {Table|null}    - Referenced {@link Table} object.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>179</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @private</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>180</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> */</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>181</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">function getReferencedTable() {</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>182</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>5</td>
+                            <td class="source">    let fkConstraint &#x3D; getForeignConstraint.apply(this);</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>183</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>6</td>
+                            <td class="source">    if (!fkConstraint) return null;</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>184</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>4</td>
+                            <td class="source">    let tableName &#x3D; fkConstraint.leftTableFullCatalogName;</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>185</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>4</td>
+                            <td class="source">    return internal.get(this).registry.getCollection(&#x27;table&#x27;).by(&#x27;fullCatalogName&#x27;, tableName).object;</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>186</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">}</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>187</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>188</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">/**</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>189</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @name Constraint#referencedTable</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>190</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @type {Table|null}</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>191</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @readonly</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>192</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @description For foreign key {@link Constraint constraints} this is {@link Table} instance this {@link Constraint constraint} refers to.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>193</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * If this is not a foreign key {@link Constraint constraint} this is &#x60;null&#x60;.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>194</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @see Aliases {@link Constraint#parent parent}</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>195</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> */</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>196</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;referencedTable&#x27;, { get: getReferencedTable, enumerable: true });</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>197</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>198</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">/**</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>199</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @name Constraint#parent</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>200</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @type {Table|null}</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>201</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @readonly</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>202</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @description For foreign key {@link Constraint constraints} this is {@link Table} instance this {@link Constraint constraint} refers to.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>203</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * If this is not a foreign key {@link Constraint constraint} this is &#x60;null&#x60;. &lt;br&gt;</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>204</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * **Please Note:** This is not the {@link Table} this constraint belongs to or defined in. Parent applies only to</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>205</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * foreign key constraints and for foreign key constraints parent means referenced table not the table it is defined in.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>206</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @see Aliases {@link Constraint#referencedTable referencedTable}</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>207</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @see To get {@link Table} this constraint belongs to or defined in, use {@link Constraint#table table}.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>208</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> */</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>209</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;parent&#x27;, { get: getReferencedTable, enumerable: true });</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>210</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>211</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">/**</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>212</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * If callback is defined executes it for each {@link Column} and returns undefined.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>213</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * Otherwise, returns array of {@link Column columns} belonging to this {@link Constraint constraint}.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>214</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * If there aren&#x27;t any related {@link Column columns}, returns &#x60;null&#x60;.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>215</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @param {Function} [callback]             - Callback function to call for each column.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>216</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @returns {Array.&lt;Column&gt;|null|undefined} - Array of columns belonging to this constraint. Null if no</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>217</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @private</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>218</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> */</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>219</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">function getColumns(callback) {</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>220</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>16</td>
+                            <td class="source">    let _       &#x3D; internal.get(this);</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>221</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>16</td>
+                            <td class="source">    let result  &#x3D;  _.registry.getCollection(&#x27;constraintColumn&#x27;).chain()</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>222</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">        .find({constraintFullCatalogName: this.fullCatalogName})</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>223</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">        .simplesort(&#x27;position&#x27;)</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>224</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">        .data()</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>225</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">        .map((row) &#x3D;&gt; {</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>226</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>25</td>
+                            <td class="source">            return _.registry.getCollection(&#x27;column&#x27;).by(&#x27;fullCatalogName&#x27;, row.columnFullCatalogName).object;</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>227</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">        });</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>228</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>229</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>16</td>
+                            <td class="source">    return helper.getCollection(result, callback, {objectKey: null});</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>230</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">}</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>231</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>232</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">/**</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>233</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @name Constraint#columns</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>234</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @type {Array.&lt;Column&gt;|null}</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>235</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @readonly</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>236</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @description List of {@link Column columns} restricted by {@link Constraint constraint}, in order their ordinal position</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>237</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * within the constraint key. If {@link Constraint constraint} does not have any {@link Column columns} this is &#x60;null&#x60;.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>238</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> */</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>239</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;columns&#x27;, { get: getColumns, enumerable: true });</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>240</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>241</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">/**</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>242</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @name Constraint#columnsByName</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>243</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @type {Object.&lt;string,Column&gt;|null}</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>244</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @readonly</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>245</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * @description List of columns restricted by {@link Constraint constraint}, in order their ordinal position within the constraint key.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>246</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> * If {@link Constraint constraint} does not have any columns this is &#x60;null&#x60;.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>247</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"> */</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>248</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">Object.defineProperty(Constraint.prototype, &#x27;columnsByName&#x27;, {</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>249</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">    /**</td>
+                        </tr>
+                        <tr class="hit">
                             <td class="line" data-tooltip>250</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">     * @private</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>251</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">     * @returns {Object.&lt;string,Column&gt;|null}   - Columns as key/value object.</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>252</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">     */</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>253</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">    get: function() {</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>254</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>2</td>
+                            <td class="source">        return helper.getCollection(getColumns.call(this), null, {nameKey: &#x27;name&#x27;, objectKey: null});</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>255</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source">    }, enumerable: true });</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>256</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
+                            <td class="source"></td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line" data-tooltip>257</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip>1</td>
                             <td class="source">module.exports &#x3D; Constraint;</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line" data-tooltip>251</td>
+                            <td class="line" data-tooltip>258</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
                             <td class="source"></td>
@@ -6243,7 +6315,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>19</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">        internal.set(this, {</td>
                         </tr>
                         <tr class="hit">
@@ -6783,19 +6855,19 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>109</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>47</td>
+                            <td class="hits" data-tooltip>51</td>
                             <td class="source">        let parts   &#x3D; path.split(&#x27;.&#x27;);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>110</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>47</td>
+                            <td class="hits" data-tooltip>51</td>
                             <td class="source">        let schema  &#x3D; parts.shift();</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>111</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>47</td>
+                            <td class="hits" data-tooltip>51</td>
                             <td class="source">        return parts.length &#x3D;&#x3D;&#x3D; 0 ? this.getSchema(schema) : this.getSchema(schema).get(parts.join(&#x27;.&#x27;));</td>
                         </tr>
                         <tr class="hit">
@@ -7032,7 +7104,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>18</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>268</td>
+                            <td class="hits" data-tooltip>276</td>
                             <td class="source">        internal.set(this, {</td>
                         </tr>
                         <tr class="hit">
@@ -9918,7 +9990,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>22</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">            return loki.getCollection(&#x27;db&#x27;).get(1).object;</td>
                         </tr>
                         <tr class="hit">
@@ -10113,7 +10185,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>20</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>376</td>
+                            <td class="hits" data-tooltip>396</td>
                             <td class="source">        internal.set(this, {</td>
                         </tr>
                         <tr class="hit">
@@ -10296,7 +10368,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>19</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>17</td>
+                            <td class="hits" data-tooltip>18</td>
                             <td class="source">        internal.set(this, {</td>
                         </tr>
                         <tr class="hit">
@@ -10980,19 +11052,19 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>133</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>48</td>
+                            <td class="hits" data-tooltip>52</td>
                             <td class="source">        let parts   &#x3D; path.split(&#x27;.&#x27;);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>134</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>48</td>
+                            <td class="hits" data-tooltip>52</td>
                             <td class="source">        let table   &#x3D; parts.shift();</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>135</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>48</td>
+                            <td class="hits" data-tooltip>52</td>
                             <td class="source">        return parts.length &#x3D;&#x3D;&#x3D; 0 ? this.getTable(table) : this.getTable(table).get(parts.join(&#x27;.&#x27;));</td>
                         </tr>
                         <tr class="hit">
@@ -11349,7 +11421,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>38</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>125</td>
+                            <td class="hits" data-tooltip>129</td>
                             <td class="source">        internal.set(this, {</td>
                         </tr>
                         <tr class="hit">
@@ -15780,7 +15852,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>22</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>542</td>
+                            <td class="hits" data-tooltip>560</td>
                             <td class="source">        return internal.get(this).attributes[attribute];</td>
                         </tr>
                         <tr class="hit">
@@ -16140,13 +16212,13 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>82</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>50</td>
+                            <td class="hits" data-tooltip>54</td>
                             <td class="source">    let re &#x3D; /\$this\.(.+)/;</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>83</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>50</td>
+                            <td class="hits" data-tooltip>54</td>
                             <td class="source">    let resultSet &#x3D; internal.get(this).registry.getCollection(collectionName).chain();</td>
                         </tr>
                         <tr class="hit">
@@ -16158,7 +16230,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>85</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>50</td>
+                            <td class="hits" data-tooltip>54</td>
                             <td class="source">    for (let key in filter) {</td>
                         </tr>
                             <tr class="chunks">
@@ -16170,25 +16242,25 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>87</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>64</td>
+                            <td class="hits" data-tooltip>68</td>
                             <td class="source">            let condition &#x3D; {};</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>88</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>64</td>
+                            <td class="hits" data-tooltip>68</td>
                             <td class="source">            let thisAttribute &#x3D; re.exec(filter[key]); // capture after &#x27;$this.&#x27;</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>89</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>64</td>
+                            <td class="hits" data-tooltip>68</td>
                             <td class="source">            condition[key] &#x3D; (thisAttribute) ? this[thisAttribute[1]] : filter[key]; // parent: &#x27;$this.name&#x27; &#x3D;&gt; parent: this.name</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>90</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>64</td>
+                            <td class="hits" data-tooltip>68</td>
                             <td class="source">            resultSet &#x3D; resultSet.find(condition);</td>
                         </tr>
                         <tr class="hit">
@@ -16212,7 +16284,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>94</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>50</td>
+                            <td class="hits" data-tooltip>54</td>
                             <td class="source">    return resultSet.simplesort(&#x27;insertOrder&#x27;).data();</td>
                         </tr>
                         <tr class="hit">
@@ -16296,13 +16368,13 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>108</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>110</td>
+                            <td class="hits" data-tooltip>114</td>
                             <td class="source">    options &#x3D; lodash.defaults(options || {}, { objectKey: &#x27;object&#x27; });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>109</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>110</td>
+                            <td class="hits" data-tooltip>114</td>
                             <td class="source">    let result &#x3D; {};</td>
                         </tr>
                         <tr class="hit">
@@ -16314,7 +16386,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>111</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>119</td>
+                            <td class="hits" data-tooltip>123</td>
                             <td class="source">    if (collection.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; !callback) return null;</td>
                         </tr>
                         <tr class="hit">
@@ -16326,13 +16398,13 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>113</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>101</td>
+                            <td class="hits" data-tooltip>105</td>
                             <td class="source">    if (options.nameKey) {</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>114</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>130</td>
+                            <td class="hits" data-tooltip>154</td>
                             <td class="source">        if (options.objectKey) collection.forEach((value) &#x3D;&gt; { result[value[options.nameKey]] &#x3D; value[options.objectKey]; });</td>
                         </tr>
                         <tr class="hit">
@@ -16380,7 +16452,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>122</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>181</td>
+                            <td class="hits" data-tooltip>189</td>
                             <td class="source">    if (!callback) return result;</td>
                         </tr>
                         <tr class="hit">
@@ -16500,13 +16572,13 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>142</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>50</td>
+                            <td class="hits" data-tooltip>54</td>
                             <td class="source">        let result &#x3D; getFilteredObjects.call(this, collectionName, filter);//.map((value) &#x3D;&gt; { return value[objectKey]; });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>143</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>50</td>
+                            <td class="hits" data-tooltip>54</td>
                             <td class="source">        return module.exports.getCollection(result, callback, options);</td>
                         </tr>
                         <tr class="hit">
@@ -16584,7 +16656,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>156</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>190</td>
+                            <td class="hits" data-tooltip>198</td>
                             <td class="source">    let criteria &#x3D; { parent: this.fullCatalogName };</td>
                         </tr>
                         <tr class="hit">
@@ -16602,19 +16674,19 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>159</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>190</td>
+                            <td class="hits" data-tooltip>198</td>
                             <td class="source">    else criteria.name &#x3D; key;</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>160</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>190</td>
+                            <td class="hits" data-tooltip>198</td>
                             <td class="source">    var result &#x3D; internal.get(this).registry.getCollection(collectionName).findObject(criteria);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>161</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>190</td>
+                            <td class="hits" data-tooltip>198</td>
                             <td class="source">    return result ? result.object : undefined;</td>
                         </tr>
                         <tr class="hit">
@@ -16716,7 +16788,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>178</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>184</td>
+                            <td class="hits" data-tooltip>192</td>
                             <td class="source">        return getOrderedOrNamedObject.call(this, collectionName, key);</td>
                         </tr>
                         <tr class="hit">
@@ -17013,7 +17085,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>25</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>895</td>
+                            <td class="hits" data-tooltip>929</td>
                             <td class="source">    return objectInternal.get(key);</td>
                         </tr>
                         <tr class="hit">
@@ -17103,13 +17175,13 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>40</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>2310</td>
+                            <td class="hits" data-tooltip>2368</td>
                             <td class="source">    objectInternal.set(key, value);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>41</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>2310</td>
+                            <td class="hits" data-tooltip>2368</td>
                             <td class="source">    return objectInternal.get(key);</td>
                         </tr>
                         <tr class="hit">
@@ -17250,19 +17322,19 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>13</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>143</td>
+                            <td class="hits" data-tooltip>150</td>
                             <td class="source">        args.attributes.o2mObject &#x3D; new O2MRelation(args);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>14</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>143</td>
+                            <td class="hits" data-tooltip>150</td>
                             <td class="source">        args.attributes.m2oObject &#x3D; new M2ORelation(args);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>15</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>233</td>
+                            <td class="hits" data-tooltip>246</td>
                             <td class="source">        if (args.attributes.rightTable) args.attributes.m2mObject &#x3D; new M2MRelation(args);</td>
                         </tr>
                         <tr class="hit">
@@ -17692,7 +17764,7 @@
                             <td class="line" data-tooltip>63</td>
                             <td class="lint empty"></td>
                             <td class="hits" data-tooltip></td>
-                            <td class="source">        uniqueIndex: &#x27;leftJoinConstraintFullCatalogName&#x27;,</td>
+                            <td class="source">        indices: [&#x27;leftJoinConstraintFullCatalogName&#x27;, &#x27;rightJoinConstraintFullCatalogName&#x27;],</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>64</td>
@@ -17901,25 +17973,25 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>98</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">    return new Promise((resolve, reject) &#x3D;&gt; {</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>99</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">        let insertOrder &#x3D; 0;</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>100</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">        let query       &#x3D; config[type].skipParameters ? client.query(sql) : client.query(sql, [schemas]);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>101</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">        let collection  &#x3D; createCollection(loki, type);</td>
                         </tr>
                         <tr class="hit">
@@ -17931,19 +18003,19 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>103</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">        query.on(&#x27;row&#x27;, (row) &#x3D;&gt; {</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>104</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>3009</td>
+                            <td class="hits" data-tooltip>3070</td>
                             <td class="source">            insertIntoCollection(loki, collection, row, type, insertOrder);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>105</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>3009</td>
+                            <td class="hits" data-tooltip>3070</td>
                             <td class="source">            insertOrder++;</td>
                         </tr>
                         <tr class="hit">
@@ -17955,13 +18027,13 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>107</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">        query.on(&#x27;end&#x27;, resolve);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>108</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">        query.on(&#x27;error&#x27;, (error) &#x3D;&gt; { reject(new Error(error)); });</td>
                         </tr>
                         <tr class="hit">
@@ -18027,25 +18099,25 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>119</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">    let collection &#x3D; loki.addCollection(config[type].collection, { indices: config[type].indices });</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>120</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>144</td>
+                            <td class="hits" data-tooltip>150</td>
                             <td class="source">    if (config[type].uniqueIndex) collection.ensureUniqueIndex(config[type].uniqueIndex);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>121</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">    collection.ensureUniqueIndex(&#x27;insertOrder&#x27;);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>122</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">    return collection;</td>
                         </tr>
                         <tr class="hit">
@@ -18135,13 +18207,13 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>137</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>3009</td>
+                            <td class="hits" data-tooltip>3070</td>
                             <td class="source">    let document &#x3D; collection.insert(data);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>138</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>3009</td>
+                            <td class="hits" data-tooltip>3070</td>
                             <td class="source">    let Inflator &#x3D; config[type].inflator;</td>
                         </tr>
                         <tr class="hit">
@@ -18153,7 +18225,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>140</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>5086</td>
+                            <td class="hits" data-tooltip>5192</td>
                             <td class="source">    if (Inflator) document.object &#x3D; new Inflator({ registry: loki, attributes: document });</td>
                         </tr>
                         <tr class="hit">
@@ -18165,7 +18237,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>142</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>3009</td>
+                            <td class="hits" data-tooltip>3070</td>
                             <td class="source">    document.insertOrder &#x3D; insertOrder || 0;</td>
                         </tr>
                         <tr class="hit">
@@ -18177,7 +18249,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>144</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>3009</td>
+                            <td class="hits" data-tooltip>3070</td>
                             <td class="source">    return document;</td>
                         </tr>
                         <tr class="hit">
@@ -18237,7 +18309,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>154</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>18</td>
+                            <td class="hits" data-tooltip>20</td>
                             <td class="source">    return typeof pgOptions.query &#x3D;&#x3D;&#x3D; &#x27;function&#x27;;</td>
                         </tr>
                         <tr class="hit">
@@ -18297,7 +18369,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>164</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">    return new Promise((resolve, reject) &#x3D;&gt; {</td>
                         </tr>
                             <tr class="chunks">
@@ -18309,7 +18381,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>166</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">        let client &#x3D; new pg.Client(pgOptions);</td>
                         </tr>
                         <tr class="hit">
@@ -18321,7 +18393,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>168</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">        client.connect((err) &#x3D;&gt; {</td>
                         </tr>
                             <tr class="chunks">
@@ -18333,7 +18405,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>170</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">            return resolve(client);</td>
                         </tr>
                         <tr class="hit">
@@ -18399,13 +18471,13 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>181</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">    let type &#x3D; filename.replace(/-/g, &#x27;_&#x27;);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>182</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">    return inflection.camelize(type, true);</td>
                         </tr>
                         <tr class="hit">
@@ -18477,7 +18549,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>194</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">    let client;</td>
                         </tr>
                         <tr class="hit">
@@ -18489,7 +18561,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>196</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">    return Promise.all([readSQLFiles(), getClient(pgOptions)])</td>
                         </tr>
                         <tr class="hit">
@@ -18501,25 +18573,25 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>198</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">            let queries         &#x3D; result[0];</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>199</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">            client              &#x3D; result[1];</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>200</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">            let promises        &#x3D; [];</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>201</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">            let loki            &#x3D; new Loki();</td>
                         </tr>
                         <tr class="hit">
@@ -18531,7 +18603,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>203</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">            for (let name in queries) {</td>
                         </tr>
                             <tr class="chunks">
@@ -18543,7 +18615,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>205</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>81</td>
+                            <td class="hits" data-tooltip>90</td>
                             <td class="source">                    promises.push(executeSQL(client, queries[name], schemas, loki, fileNameToType(name)));</td>
                         </tr>
                         <tr class="hit">
@@ -18567,7 +18639,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>209</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">            return Promise.all(promises)</td>
                         </tr>
                         <tr class="hit">
@@ -18591,7 +18663,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>213</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">                    return loki;</td>
                         </tr>
                         <tr class="hit">
@@ -19062,7 +19134,7 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>61</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">    let promises &#x3D; [];</td>
                         </tr>
                         <tr class="hit">
@@ -19074,13 +19146,13 @@
                         <tr class="hit">
                             <td class="line" data-tooltip>63</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>9</td>
+                            <td class="hits" data-tooltip>10</td>
                             <td class="source">    return new Promise((resolve, reject) &#x3D;&gt; {</td>
                         </tr>
                         <tr class="hit">
                             <td class="line" data-tooltip>64</td>
                             <td class="lint empty"></td>
-                            <td class="hits" data-tooltip>17</td>
+                            <td class="hits" data-tooltip>19</td>
                             <td class="source">        if (status &#x3D;&#x3D;&#x3D; &#x27;READY&#x27;) return resolve(sqlFiles);</td>
                         </tr>
                             <tr class="chunks">
