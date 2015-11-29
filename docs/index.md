@@ -27,9 +27,10 @@ Created object can be used to auto generate documentation or ORM models from dat
 ## Example
 
     var pgStructure = require('pg-structure');
-    
+           
     pgStructure({database: 'db', user: 'user', password: 'password'}, ['public', 'other_schema'])
-        .then((db) => { return db.get('public.account').columns; }
+        .then((db) => { console.log( db.get('public.account').columns[0].name ); })
+        .catch((err) => { console.log(err.stack); });
 
 ## Detailed Example
 
@@ -53,10 +54,10 @@ Created object can be used to auto generate documentation or ORM models from dat
             var sameName = db.getSchema('public').getTable('cart').getColumn('contact_id').foreignKeyConstraint.referencedTable.name;
             
             // Many to many relation:
-            var joinTable = db.get('public.cart_line_item').m2mrelations[0].joinTable;
+            var joinTable = db.get('public.cart_line_item').m2mRelations[0].joinTable;
         })
         .catch((err) => {
-            console.log(err);
+            console.log(err.stack);
         });
 
 ## Features

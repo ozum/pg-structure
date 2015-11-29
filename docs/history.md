@@ -14,19 +14,25 @@ tables joined via a third join table.
 
 # History & Release Notes
 
-###### 2.0.0-alpha.5  / 2015-11-19
+###### 2.0.0-alpha.8 / 2015-11-29
+* Fixed: Join tables with more than one relations produce warning about non-unique constraint.
+* Fixed: referencedTable returns undefined.
+* Fixed: Example on README throws exception. Typo corrected. Catch part added.
+* Added: New tests for fixed bugs.
+
+###### 2.0.0-alpha.5 / 2015-11-19
 * Added: Table#relations and Table#getRelations().
 
-###### 2.0.0-alpha.3  / 2015-11-19
+###### 2.0.0-alpha.3 / 2015-11-19
 * Fixed: Broken links in documentation.
 
-###### 2.0.0-alpha.2  / 2015-11-17
+###### 2.0.0-alpha.2 / 2015-11-17
 * Added: Index class is added.
 * Fixed: Column#unique was assuming that a column can have only one unique constraint. Now it returns array.
 * Fixed: Column#unique was ignoring unique indexes Now it considers unique indexes too.
 * Fixed: Many typos in constraint class documentation.
 
-###### 2.0.0-alpha.1  / 2015-11-11
+###### 2.0.0-alpha.1 / 2015-11-11
 * ** BREAKING CHANGES **
 * Completely rewritten.
 * Methods are converted to read only attributes.

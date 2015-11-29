@@ -60,7 +60,7 @@ var config = {
     },
     referentialConstraint: {
         collection: 'referentialConstraint',
-        uniqueIndex: 'leftJoinConstraintFullCatalogName',
+        indices: ['leftJoinConstraintFullCatalogName', 'rightJoinConstraintFullCatalogName'],
         inflator: RelationFabricator
     },
     constraintColumn: {
