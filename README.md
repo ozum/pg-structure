@@ -26,7 +26,7 @@ See full documentation at [http://www.pg-structure.com](http://www.pg-structure.
     </tr>
 </table>
 
-pg-structure examines given PostgreSQL database by reverse engineering and lets you easily code, analyze, operate on PostgreSQL database structure by providing details about [DB](http://www.pg-structure.com/api/DB/), [Schema](http://www.pg-structure.com/api/Schema/), [Table](http://www.pg-structure.com/api/Table/), [Column](http://www.pg-structure.com/api/Column/), [Constraint](http://www.pg-structure.com/api/Constraint/), [Relation](http://www.pg-structure.com/api/Relation/) and [Relation](http://www.pg-structure.com/api/Index/).
+pg-structure examines given PostgreSQL database by reverse engineering and lets you easily code, analyze, operate on PostgreSQL database structure by providing details about [DB](http://www.pg-structure.com/api/DB/), [Schema](http://www.pg-structure.com/api/Schema/), [Table](http://www.pg-structure.com/api/Table/), [Column](http://www.pg-structure.com/api/Column/), [Constraint](http://www.pg-structure.com/api/Constraint/), [Relation](http://www.pg-structure.com/api/Relation/) and [Index](http://www.pg-structure.com/api/Index/).
 
 Created object can be used to auto generate documentation or ORM models from database. It is much easier to work with JS object than working manually with database.
 
