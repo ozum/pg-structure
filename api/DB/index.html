@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DB - pg-structure 2.0.3</title>
+  <title>DB - pg-structure 2.0.4</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.3</a>
+        <a href="../.." class="icon icon-home"> pg-structure 2.0.4</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -136,17 +136,15 @@
                 
                     <li><a class="toctree-l4" href="#dbfullcatalogname-string">dB.fullCatalogName : string</a></li>
                 
-                    <li><a class="toctree-l4" href="#dbschemas-arrayschema-null">dB.schemas : Array.&lt;Schema&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#dbschemas-arrayschema">dB.schemas : Array.&lt;Schema&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#dbschemasbyname-objectstring-schema-null">dB.schemasByName : Object.&lt;string, Schema&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#dbschemasbyname-objectstring-schema">dB.schemasByName : Object.&lt;string, Schema&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#dbgetschemakey-schema-undefined">dB.getSchema(key) ⇒ Schema &#124; undefined</a></li>
                 
                     <li><a class="toctree-l4" href="#dbschemaexistsname-boolean">dB.schemaExists(name) ⇒ boolean</a></li>
                 
                     <li><a class="toctree-l4" href="#dbgetpath-schema-table-column-undefined">dB.get(path) ⇒ Schema &#124; Table &#124; Column &#124; undefined</a></li>
-                
-                    <li><a class="toctree-l4" href="#dbgetschemascallback-arrayschema-undefined-null">dB.getSchemas([callback]) ⇒ Array.&lt;Schema&gt; &#124; undefined &#124; null</a></li>
                 
             
             </ul>
@@ -223,7 +221,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.3</a>
+        <a href="../..">pg-structure 2.0.4</a>
       </nav>
 
       
@@ -263,12 +261,11 @@
 <li><a href="#DB+name">.name</a> : <code>string</code></li>
 <li><a href="#DB+fullName">.fullName</a> : <code>string</code></li>
 <li><a href="#DB+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
-<li><a href="#DB+schemas">.schemas</a> : <code>Array.&lt;Schema&gt;</code> &#124; <code>null</code></li>
-<li><a href="#DB+schemasByName">.schemasByName</a> : <code>Object.&lt;string, Schema&gt;</code> &#124; <code>null</code></li>
+<li><a href="#DB+schemas">.schemas</a> : <code>Array.&lt;Schema&gt;</code></li>
+<li><a href="#DB+schemasByName">.schemasByName</a> : <code>Object.&lt;string, Schema&gt;</code></li>
 <li><a href="#DB+getSchema">.getSchema(key)</a> ⇒ <code>Schema</code> &#124; <code>undefined</code></li>
 <li><a href="#DB+schemaExists">.schemaExists(name)</a> ⇒ <code>boolean</code></li>
 <li><a href="#DB+get">.get(path)</a> ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></li>
-<li><a href="#DB+getSchemas">.getSchemas([callback])</a> ⇒ <code>Array.&lt;Schema&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
 </ul>
 <p><a name="new_DB_new"></a></p>
 <h3 id="new-dbargs">new DB(args)</h3>
@@ -314,7 +311,7 @@
 <p><strong>Kind</strong>: instance property of <code><a href="#DB">DB</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="DB+schemas"></a></p>
-<h3 id="dbschemas-arrayschema-null">dB.schemas : <code>Array.&lt;Schema&gt;</code> &#124; <code>null</code></h3>
+<h3 id="dbschemas-arrayschema">dB.schemas : <code>Array.&lt;Schema&gt;</code></h3>
 <p>All <a href="../Schema">Schema</a> instances in the database as an array. They are ordered by schema name.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#DB">DB</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -324,7 +321,7 @@ var name    = schemas[0].name;
 </code></pre>
 
 <p><a name="DB+schemasByName"></a></p>
-<h3 id="dbschemasbyname-objectstring-schema-null">dB.schemasByName : <code>Object.&lt;string, Schema&gt;</code> &#124; <code>null</code></h3>
+<h3 id="dbschemasbyname-objectstring-schema">dB.schemasByName : <code>Object.&lt;string, Schema&gt;</code></h3>
 <p>All <a href="../Schema">Schema</a> instances in the database as a simple object. Keys are schema names, values are <a href="../Schema">Schema</a> instances.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#DB">DB</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -409,34 +406,6 @@ var otherExists  = db.schemaExists('other');  // false
 <pre><code class="js">var schema = db.get('public'),              // Returns public schema.
     table  = db.get('public.contact'),      // Returns contact table in public schema.
     column = db.get('public.contact.name'); // Returns name column of the contact table in public schema.
-</code></pre>
-
-<p><a name="DB+getSchemas"></a></p>
-<h3 id="dbgetschemascallback-arrayschema-undefined-null">dB.getSchemas([callback]) ⇒ <code>Array.&lt;Schema&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves all schemas in the database and executes given callback (sync), if provided. Callback has a signature of
-(<a href="../Schema">Schema</a>, index, collection). If no callback is provided, returns an array of all <a href="../Schema">schemas</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#DB">DB</a></code>  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedSchemaCallback</code></td>
-<td>Callback to be executed for each schema.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">db.getSchemas(function(schema, i, collection) {
-    var name = schema.name;
-    var ord  = i;
-);
 </code></pre>
               
             </div>

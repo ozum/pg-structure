@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Schema - pg-structure 2.0.3</title>
+  <title>Schema - pg-structure 2.0.4</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.3</a>
+        <a href="../.." class="icon icon-home"> pg-structure 2.0.4</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -189,15 +189,13 @@
                 
                     <li><a class="toctree-l4" href="#schemaparent-db">schema.parent : DB</a></li>
                 
-                    <li><a class="toctree-l4" href="#schematables-arraytable-null">schema.tables : Array.&lt;Table&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#schematables-arraytable">schema.tables : Array.&lt;Table&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#schemagettablekey-table-undefined">schema.getTable(key) ⇒ Table &#124; undefined</a></li>
                 
                     <li><a class="toctree-l4" href="#schematableexistsname-boolean">schema.tableExists(name) ⇒ boolean</a></li>
                 
                     <li><a class="toctree-l4" href="#schemagetpath-table-column-undefined">schema.get(path) ⇒ Table &#124; Column &#124; undefined</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemagettablescallback-arraytable-undefined-null">schema.getTables([callback]) ⇒ Array.&lt;Table&gt; &#124; undefined &#124; null</a></li>
                 
             
             </ul>
@@ -225,7 +223,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.3</a>
+        <a href="../..">pg-structure 2.0.4</a>
       </nav>
 
       
@@ -267,11 +265,10 @@
 <li><a href="#Schema+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
 <li><a href="#Schema+db">.db</a> : <code>DB</code></li>
 <li><a href="#Schema+parent">.parent</a> : <code>DB</code></li>
-<li><a href="#Schema+tables">.tables</a> : <code>Array.&lt;Table&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Schema+tables">.tables</a> : <code>Array.&lt;Table&gt;</code></li>
 <li><a href="#Schema+getTable">.getTable(key)</a> ⇒ <code>Table</code> &#124; <code>undefined</code></li>
 <li><a href="#Schema+tableExists">.tableExists(name)</a> ⇒ <code>boolean</code></li>
 <li><a href="#Schema+get">.get(path)</a> ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></li>
-<li><a href="#Schema+getTables">.getTables([callback])</a> ⇒ <code>Array.&lt;Table&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
 </ul>
 <p><a name="new_Schema_new"></a></p>
 <h3 id="new-schemaargs">new Schema(args)</h3>
@@ -345,7 +342,7 @@
 </code></pre>
 
 <p><a name="Schema+tables"></a></p>
-<h3 id="schematables-arraytable-null">schema.tables : <code>Array.&lt;Table&gt;</code> &#124; <code>null</code></h3>
+<h3 id="schematables-arraytable">schema.tables : <code>Array.&lt;Table&gt;</code></h3>
 <p>All <a href="../Table">Table</a> instances in the database as an array. They are ordered by same order they are added.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -429,34 +426,6 @@ var cakeExists    = db.TableExists('cake');  // false
 <p><strong>Example</strong>  </p>
 <pre><code class="js">var table  = db.get('contact'),      // Returns contact table in public schema.
     column = db.get('contact.name'); // Returns name column of the contact table.
-</code></pre>
-
-<p><a name="Schema+getTables"></a></p>
-<h3 id="schemagettablescallback-arraytable-undefined-null">schema.getTables([callback]) ⇒ <code>Array.&lt;Table&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves all tables in the schema and executes given callback, if provided. Callback has a signature of
-(<a href="../Table">Table</a>, index, collection). If no callback is provided, returns an array of all <a href="../Table">tables</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Schema">Schema</a></code>  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedTableCallback</code></td>
-<td>Callback to be executed for each table.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">db.getTables(function(table, i, collection) {
-    var name = table.name;
-    var ord  = i;
-);
 </code></pre>
               
             </div>

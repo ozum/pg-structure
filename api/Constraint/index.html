@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Constraint - pg-structure 2.0.3</title>
+  <title>Constraint - pg-structure 2.0.4</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.3</a>
+        <a href="../.." class="icon icon-home"> pg-structure 2.0.4</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -149,9 +149,9 @@
                 
                     <li><a class="toctree-l4" href="#constraintparent-table-null">constraint.parent : Table &#124; null</a></li>
                 
-                    <li><a class="toctree-l4" href="#constraintcolumns-arraycolumn-null">constraint.columns : Array.&lt;Column&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#constraintcolumns-arraycolumn">constraint.columns : Array.&lt;Column&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#constraintcolumnsbyname-objectstring-column-null">constraint.columnsByName : Object.&lt;string, Column&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#constraintcolumnsbyname-objectstring-column">constraint.columnsByName : Object.&lt;string, Column&gt;</a></li>
                 
             
             </ul>
@@ -235,7 +235,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.3</a>
+        <a href="../..">pg-structure 2.0.4</a>
       </nav>
 
       
@@ -311,8 +311,8 @@ color and vendor tables would have many to many <code>through constraints</code>
 <li><a href="#Constraint+onDelete">.onDelete</a> : <code>constraintRule</code> &#124; <code>null</code></li>
 <li><a href="#Constraint+referencedTable">.referencedTable</a> : <code>Table</code> &#124; <code>null</code></li>
 <li><a href="#Constraint+parent">.parent</a> : <code>Table</code> &#124; <code>null</code></li>
-<li><a href="#Constraint+columns">.columns</a> : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Constraint+columnsByName">.columnsByName</a> : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Constraint+columns">.columns</a> : <code>Array.&lt;Column&gt;</code></li>
+<li><a href="#Constraint+columnsByName">.columnsByName</a> : <code>Object.&lt;string, Column&gt;</code></li>
 </ul>
 <p><a name="new_Constraint_new"></a></p>
 <h3 id="new-constraintargs">new Constraint(args)</h3>
@@ -435,13 +435,13 @@ foreign key constraints and for foreign key constraints parent means referenced 
 <li>To get <a href="../Table">Table</a> this constraint belongs to or defined in, use <a href="#Constraint+table">table</a>.</li>
 </ul>
 <p><a name="Constraint+columns"></a></p>
-<h3 id="constraintcolumns-arraycolumn-null">constraint.columns : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></h3>
+<h3 id="constraintcolumns-arraycolumn">constraint.columns : <code>Array.&lt;Column&gt;</code></h3>
 <p>List of <a href="../Column">columns</a> restricted by <a href="#Constraint">constraint</a>, in order their ordinal position
 within the constraint key. If <a href="#Constraint">constraint</a> does not have any <a href="../Column">columns</a> this is <code>null</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+columnsByName"></a></p>
-<h3 id="constraintcolumnsbyname-objectstring-column-null">constraint.columnsByName : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></h3>
+<h3 id="constraintcolumnsbyname-objectstring-column">constraint.columnsByName : <code>Object.&lt;string, Column&gt;</code></h3>
 <p>List of columns restricted by <a href="#Constraint">constraint</a>, in order their ordinal position within the constraint key.
 If <a href="#Constraint">constraint</a> does not have any columns this is <code>null</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />

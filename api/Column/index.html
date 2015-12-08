@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Column - pg-structure 2.0.3</title>
+  <title>Column - pg-structure 2.0.4</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.3</a>
+        <a href="../.." class="icon icon-home"> pg-structure 2.0.4</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -174,17 +174,11 @@
                 
                     <li><a class="toctree-l4" href="#columnuserdefinedtype-postgresqldatatype-null">column.userDefinedType : postgreSQLDataType &#124; null</a></li>
                 
-                    <li><a class="toctree-l4" href="#columnuniqueindexesnopk-arrayindex-null">column.uniqueIndexesNoPK : Array.&lt;Index&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#columnuniqueindexesnopk-arrayindex">column.uniqueIndexesNoPK : Array.&lt;Index&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#columnuniqueindexes-arrayindex-null">column.uniqueIndexes : Array.&lt;Index&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#columnuniqueindexes-arrayindex">column.uniqueIndexes : Array.&lt;Index&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#columnindexes-arrayindex-null">column.indexes : Array.&lt;Index&gt; &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#columngetuniqueindexesnopkcallback-arrayindex-undefined-null">column.getUniqueIndexesNoPK([callback]) ⇒ Array.&lt;Index&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#columngetuniqueindexescallback-arrayindex-undefined-null">column.getUniqueIndexes([callback]) ⇒ Array.&lt;Index&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#columngetindexescallback-arrayindex-undefined-null">column.getIndexes([callback]) ⇒ Array.&lt;Index&gt; &#124; undefined &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#columnindexes-arrayindex">column.indexes : Array.&lt;Index&gt;</a></li>
                 
             
             </ul>
@@ -275,7 +269,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.3</a>
+        <a href="../..">pg-structure 2.0.4</a>
       </nav>
 
       
@@ -341,12 +335,9 @@
 <li><a href="#Column+type">.type</a> : <code>postgreSQLDataType</code></li>
 <li><a href="#Column+table">.table</a> : <code>Table</code></li>
 <li><a href="#Column+userDefinedType">.userDefinedType</a> : <code>postgreSQLDataType</code> &#124; <code>null</code></li>
-<li><a href="#Column+uniqueIndexesNoPK">.uniqueIndexesNoPK</a> : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Column+uniqueIndexes">.uniqueIndexes</a> : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Column+indexes">.indexes</a> : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Column+getUniqueIndexesNoPK">.getUniqueIndexesNoPK([callback])</a> ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Column+getUniqueIndexes">.getUniqueIndexes([callback])</a> ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Column+getIndexes">.getIndexes([callback])</a> ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
+<li><a href="#Column+uniqueIndexesNoPK">.uniqueIndexesNoPK</a> : <code>Array.&lt;Index&gt;</code></li>
+<li><a href="#Column+uniqueIndexes">.uniqueIndexes</a> : <code>Array.&lt;Index&gt;</code></li>
+<li><a href="#Column+indexes">.indexes</a> : <code>Array.&lt;Index&gt;</code></li>
 </ul>
 <p><a name="new_Column_new"></a></p>
 <h3 id="new-columnargs">new Column(args)</h3>
@@ -612,94 +603,24 @@ of the data type of the array.</li>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Column+uniqueIndexesNoPK"></a></p>
-<h3 id="columnuniqueindexesnopk-arrayindex-null">column.uniqueIndexesNoPK : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></h3>
+<h3 id="columnuniqueindexesnopk-arrayindex">column.uniqueIndexesNoPK : <code>Array.&lt;Index&gt;</code></h3>
 <p>List of unique <a href="../Index">indexes</a>, which column is part of. Results are ordered by index name. Excludes primary key indexes. PostgreSQL already creates a unique index for unique
 <a href="../Constraint">constraints</a>. So there is no need to look for unique constraints which will result duplicates.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Column+uniqueIndexes">uniqueIndexes</a> for all unique indexes including primary key indexes.<br />
 <a name="Column+uniqueIndexes"></a></p>
-<h3 id="columnuniqueindexes-arrayindex-null">column.uniqueIndexes : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></h3>
+<h3 id="columnuniqueindexes-arrayindex">column.uniqueIndexes : <code>Array.&lt;Index&gt;</code></h3>
 <p>List of unique <a href="../Index">indexes</a>, which column is part of. Results are ordered by index name. PostgreSQL already creates a unique index for unique
 <a href="../Constraint">constraints</a>. So there is no need to look for unique constraints which will result duplicates.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Column+uniqueIndexesNoPK">uniqueIndexesNoPK</a> for unique indexes excluding primary key indexes.<br />
 <a name="Column+indexes"></a></p>
-<h3 id="columnindexes-arrayindex-null">column.indexes : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></h3>
+<h3 id="columnindexes-arrayindex">column.indexes : <code>Array.&lt;Index&gt;</code></h3>
 <p>List of <a href="../Index">indexes</a>, which column is part of. Results are ordered by index name.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
-<strong>Read only</strong>: true<br />
-<a name="Column+getUniqueIndexesNoPK"></a></p>
-<h3 id="columngetuniqueindexesnopkcallback-arrayindex-undefined-null">column.getUniqueIndexesNoPK([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Executes callback for every unique <a href="../Index">Index</a> or returns list of unique <a href="../Index">indexes</a>, which column is part of.
-Results are ordered by index name. Excludes primary key indexes. PostgreSQL already creates a unique index for unique
-<a href="../Constraint">constraints</a>. So there is no need to look for unique constraints which will result duplicates.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Column">Column</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - Unique <a href="../Index">indexes</a> this column is a part of.<br />
-<strong>See</strong>: <a href="#Column+getUniqueIndexes">getUniqueIndexes</a> for all unique indexes including primary key indexes.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedIndexCallback</code></td>
-<td>Callback to be executed for each unique <a href="../Index">Index</a>.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="Column+getUniqueIndexes"></a></p>
-<h3 id="columngetuniqueindexescallback-arrayindex-undefined-null">column.getUniqueIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Executes callback for every unique <a href="../Index">Index</a> or returns list of unique <a href="../Index">indexes</a>, which column is part of.
-Results are ordered by index name. PostgreSQL already creates a unique index for unique
-<a href="../Constraint">constraints</a>. So there is no need to look for unique constraints which will result duplicates.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Column">Column</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - Unique <a href="../Index">indexes</a> this column is a part of.<br />
-<strong>See</strong>: <a href="#Column+getUniqueIndexesNoPK">getUniqueIndexesNoPK</a> for all unique indexes excluding primary key indexes.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedIndexCallback</code></td>
-<td>Callback to be executed for each unique <a href="../Index">Index</a>.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="Column+getIndexes"></a></p>
-<h3 id="columngetindexescallback-arrayindex-undefined-null">column.getIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Executes callback for every <a href="../Index">Index</a> or returns list of <a href="../Index">indexes</a>, which column is part of.
-Results are ordered by index name.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Column">Column</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - <a href="../Index">indexes</a> this column is a part of.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedIndexCallback</code></td>
-<td>Callback to be executed for each <a href="../Index">Index</a>.</td>
-</tr>
-</tbody>
-</table>
+<strong>Read only</strong>: true  </p>
               
             </div>
           </div>

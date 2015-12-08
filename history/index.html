@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>History - pg-structure 2.0.3</title>
+  <title>History - pg-structure 2.0.4</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 2.0.3</a>
+        <a href=".." class="icon icon-home"> pg-structure 2.0.4</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -90,6 +90,8 @@
                 
             
                 <li class="toctree-l3"><a href="#history-release-notes">History &amp; Release Notes</a></li>
+                
+                    <li><a class="toctree-l4" href="#205-2015-12-08">2.0.5 / 2015-12-08</a></li>
                 
                     <li><a class="toctree-l4" href="#200-alpha9-2015-11-29">2.0.0-alpha.9 / 2015-11-29</a></li>
                 
@@ -252,7 +254,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 2.0.3</a>
+        <a href="..">pg-structure 2.0.4</a>
       </nav>
 
       
@@ -289,6 +291,12 @@
 <p>For example many to many relations are virtual relationships which do not actually exist in database. They are
 tables joined via a third join table.</p>
 <h1 id="history-release-notes">History &amp; Release Notes</h1>
+<h6 id="205-2015-12-08">2.0.5 / 2015-12-08</h6>
+<ul>
+<li>Changed: Code and API cleanup and simplification since alpha releases.</li>
+<li>Changed: Array and collection object returning attributes now return empty array or empty object if no result found. Previously they returned null. They are usually used in loops, and this change helps getting rid of null checks.</li>
+<li>Removed: All methods which are duplicate of attributes. They cause duplicated code and don't add any useful contribution. Same can be achieved using attributes with foreach and better can be achieved with for..of. </li>
+</ul>
 <h6 id="200-alpha9-2015-11-29">2.0.0-alpha.9 / 2015-11-29</h6>
 <ul>
 <li>Fixed: One to many and many to one relations duplicates.</li>
