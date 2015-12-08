@@ -1,4 +1,4 @@
-site_name: pg-structure 2.0.6
+site_name: pg-structure 2.0.7
 theme: readthedocs
 pages:
   - Home: index.md
