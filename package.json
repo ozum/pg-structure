@@ -21,7 +21,7 @@
     "doc:readme": "jsdoc2md --src \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
     "doc": "npm run doc:mkdocs && npm run doc:report && npm run doc:readme",
     "preversion": "npm run doc && eslint lib &&  npm test && git add -A site && git add README.md;",
-    "postversion": "git push && git push --tags && git subtree push --prefix site origin gh-pages;"
+    "postversion": "git push && git push --tags && git subtree push --prefix site origin gh-pages && npm publish;"
   },
   "repository": {
     "type": "git",
