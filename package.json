@@ -1,6 +1,6 @@
 {
   "name": "pg-structure",
-  "version": "2.0.2",
+  "version": "2.0.1",
   "description": "Get PostgreSQL database structure as a detailed JS Object.",
   "homepage": "http://www.pg-structure.com",
   "bugs": "https://github.com/ozum/pg-structure/issues",
@@ -20,7 +20,7 @@
     "doc:mkdocs": "node bin/js2md.js && mkdocs build --clean",
     "doc:readme": "jsdoc2md --src \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
     "doc": "npm run doc:mkdocs && npm run doc:report && npm run doc:readme",
-    "preversion": "npm run doc && eslint lib &&  npm test && git add -A site && git add README.md;",
+    "preversion": "npm run doc && eslint lib &&  npm test && git add -A site && git add README.md mkdocs.yml;",
     "postversion": "git push && git push --tags && git subtree push --prefix site origin gh-pages && npm publish;"
   },
   "repository": {
