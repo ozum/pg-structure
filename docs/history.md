@@ -14,6 +14,12 @@ tables joined via a third join table.
 
 # History & Release Notes
 
+###### 2.0.5 / 2015-12-08
+
+* Changed: Code and API cleanup and simplification since alpha releases.
+* Changed: Array and collection object returning attributes now return empty array or empty object if no result found. Previously they returned null. They are usually used in loops, and this change helps getting rid of null checks.
+* Removed: All methods which are duplicate of attributes. They cause duplicated code and don't add any useful contribution. Same can be achieved using attributes with foreach and better can be achieved with for..of. 
+
 ###### 2.0.0-alpha.9 / 2015-11-29
 * Fixed: One to many and many to one relations duplicates.
 

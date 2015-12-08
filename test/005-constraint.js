@@ -107,7 +107,7 @@ describe('Constraint attributes', function() {
     it('should have columns returning null for non column based constraints.', function(done) {
         let checkConstraint = db.get('public.account').constraints[0];
         expect(checkConstraint.name.includes('not_null'));
-        expect(checkConstraint.columns).to.equal(null);
+        expect(checkConstraint.columns).to.deep.equal([]);
         done();
     });
 

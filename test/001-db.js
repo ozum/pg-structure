@@ -78,16 +78,4 @@ describe('DB methods', function() {
         expect(db.get('public.account.id').name).to.equal('id');
         done();
     });
-
-    it('should have getSchemas().', function(done) {
-        var schemas = [];
-        db.getSchemas((schema) => {
-            schemas.push(schema);
-        });
-
-        expect(schemas[0].name).to.equal('other_schema');
-        expect(schemas[1].name).to.equal('public');
-
-        done();
-    });
 });

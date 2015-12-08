@@ -230,9 +230,9 @@ describe('Column attributes', function() {
 
         expect(collection[0].columns[0].name).to.equal('email');
 
-        expect(table.getColumn('id').uniqueIndexesNoPK).to.equal(null);    // Primary keys should be excluded.
+        expect(table.getColumn('id').uniqueIndexesNoPK).to.deep.equal([]);    // Primary keys should be excluded.
 
-        expect(table.getColumn('field12').uniqueIndexesNoPK).to.equal(null);
+        expect(table.getColumn('field12').uniqueIndexesNoPK).to.deep.equal([]);
         done();
     });
 
@@ -245,7 +245,7 @@ describe('Column attributes', function() {
 
         expect(table.getColumn('id').uniqueIndexes[0].name).to.equal('Key2');    // Primary keys should be excluded.
 
-        expect(table.getColumn('field12').uniqueIndexes).to.equal(null);
+        expect(table.getColumn('field12').uniqueIndexes).to.deep.equal([]);
         done();
     });
 
@@ -264,47 +264,6 @@ describe('Column attributes', function() {
         expect(typeTable.getColumn('person_tax').userDefinedType).to.equal(null);
         expect(typeTable.getColumn('company').userDefinedType).to.equal('composite_udt');
         expect(typeTable.getColumn('options').userDefinedType).to.equal('enumerated_udt');
-        done();
-    });
-});
-
-describe('Table methods', function() {
-    it('should have getUniqueIndexesNoPK.', function(done) {
-        let collection = [];
-        db.get('public.contact.email').getUniqueIndexesNoPK((value) => {
-            collection.push(value);
-        });
-
-        expect(collection[0].name).to.equal('email');
-        expect(collection[1].name).to.equal('IX_Unique_Mail_Surname');
-        expect(collection[2].name).to.equal('nameandemail');
-
-        done();
-    });
-
-    it('should have getUniqueIndexes.', function(done) {
-        let collection = [];
-        db.get('public.contact.email').getUniqueIndexes((value) => {
-            collection.push(value);
-        });
-
-        expect(collection[0].name).to.equal('email');
-        expect(collection[1].name).to.equal('IX_Unique_Mail_Surname');
-        expect(collection[2].name).to.equal('nameandemail');
-
-        done();
-    });
-
-    it('should have getIndexes.', function(done) {
-        let collection = [];
-        db.get('public.contact.email').getIndexes((value) => {
-            collection.push(value);
-        });
-
-        expect(collection[0].name).to.equal('email');
-        expect(collection[1].name).to.equal('IX_Unique_Mail_Surname');
-        expect(collection[2].name).to.equal('nameandemail');
-
         done();
     });
 });

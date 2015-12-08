@@ -87,16 +87,4 @@ describe('Schema methods', function() {
         expect(schema.get('account.id').name).to.equal('id');
         done();
     });
-
-    it('should have getSchemas().', function(done) {
-        var tables = [];
-        schema.getTables((table) => {
-            tables.push(table);
-        });
-
-        expect(tables[0].name).to.equal('account');
-        expect(tables[1].name).to.equal('cart');
-
-        done();
-    });
 });
