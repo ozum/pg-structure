@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Table - pg-structure 2.0.3</title>
+  <title>Table - pg-structure 2.0.4</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.3</a>
+        <a href="../.." class="icon icon-home"> pg-structure 2.0.4</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -196,91 +196,63 @@
                 
                     <li><a class="toctree-l4" href="#tableparent-schema">table.parent : Schema</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablecolumns-arraycolumn-null">table.columns : Array.&lt;Column&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablecolumns-arraycolumn">table.columns : Array.&lt;Column&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablecolumnsbyname-objectstring-column-null">table.columnsByName : Object.&lt;string, Column&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablecolumnsbyname-objectstring-column">table.columnsByName : Object.&lt;string, Column&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableconstraints-arrayconstraint-null">table.constraints : Array.&lt;Constraint&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tableconstraints-arrayconstraint">table.constraints : Array.&lt;Constraint&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableconstraintsbyname-objectstring-constraint-null">table.constraintsByName : Object.&lt;string, Constraint&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tableconstraintsbyname-objectstring-constraint">table.constraintsByName : Object.&lt;string, Constraint&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#tabledb-db">table.db : DB</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableforeignkeyconstraints-arrayconstraint-null">table.foreignKeyConstraints : Array.&lt;Constraint&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tableforeignkeyconstraints-arrayconstraint">table.foreignKeyConstraints : Array.&lt;Constraint&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableforeignkeyconstraintsbyname-objectstring-constraint-null">table.foreignKeyConstraintsByName : Object.&lt;string, Constraint&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tableforeignkeyconstraintsbyname-objectstring-constraint">table.foreignKeyConstraintsByName : Object.&lt;string, Constraint&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableforeignkeycolumns-arraycolumn-null">table.foreignKeyColumns : Array.&lt;Column&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tableforeignkeycolumns-arraycolumn">table.foreignKeyColumns : Array.&lt;Column&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableforeignkeycolumnsbyname-objectstring-column-null">table.foreignKeyColumnsByName : Object.&lt;string, Column&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tableforeignkeycolumnsbyname-objectstring-column">table.foreignKeyColumnsByName : Object.&lt;string, Column&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#tableprimarykeyconstraint-constraint-undefined">table.primaryKeyConstraint : Constraint &#124; undefined</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableprimarykeycolumns-arraycolumn-null">table.primaryKeyColumns : Array.&lt;Column&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tableprimarykeycolumns-arraycolumn">table.primaryKeyColumns : Array.&lt;Column&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableprimarykeycolumnsbyname-objectstring-column-null">table.primaryKeyColumnsByName : Object.&lt;string, Column&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tableprimarykeycolumnsbyname-objectstring-column">table.primaryKeyColumnsByName : Object.&lt;string, Column&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablehasmanytables-arraytable-null">table.hasManyTables : Array.&lt;Table&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablehasmanytables-arraytable">table.hasManyTables : Array.&lt;Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablehasmanytablesbyname-objectstring-table-null">table.hasManyTablesByName : Object.&lt;string, Table&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablehasmanytablesbyname-objectstring-table">table.hasManyTablesByName : Object.&lt;string, Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablehasmanytablesbyfullname-objectstring-table-null">table.hasManyTablesByFullName : Object.&lt;string, Table&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablehasmanytablesbyfullname-objectstring-table">table.hasManyTablesByFullName : Object.&lt;string, Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablebelongstotables-arraytable-null">table.belongsToTables : Array.&lt;Table&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablebelongstotables-arraytable">table.belongsToTables : Array.&lt;Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablebelongstotablesbyname-objectstring-table-null">table.belongsToTablesByName : Object.&lt;string, Table&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablebelongstotablesbyname-objectstring-table">table.belongsToTablesByName : Object.&lt;string, Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablebelongstotablesbyfullname-objectstring-table-null">table.belongsToTablesByFullName : Object.&lt;string, Table&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablebelongstotablesbyfullname-objectstring-table">table.belongsToTablesByFullName : Object.&lt;string, Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablebelongstomanytables-arraytable-null">table.belongsToManyTables : Array.&lt;Table&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablebelongstomanytables-arraytable">table.belongsToManyTables : Array.&lt;Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablebelongstomanytablesbyname-objectstring-table-null">table.belongsToManyTablesByName : Object.&lt;string, Table&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablebelongstomanytablesbyname-objectstring-table">table.belongsToManyTablesByName : Object.&lt;string, Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablebelongstomanytablesbyfullname-objectstring-table-null">table.belongsToManyTablesByFullName : Object.&lt;string, Table&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablebelongstomanytablesbyfullname-objectstring-table">table.belongsToManyTablesByFullName : Object.&lt;string, Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablem2mrelations-arraym2mrelation-null">table.m2mRelations : Array.&lt;M2MRelation&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablem2mrelations-arraym2mrelation">table.m2mRelations : Array.&lt;M2MRelation&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableo2mrelations-arrayo2mrelation-null">table.o2mRelations : Array.&lt;O2MRelation&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tableo2mrelations-arrayo2mrelation">table.o2mRelations : Array.&lt;O2MRelation&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablem2orelations-arraym2orelation-null">table.m2oRelations : Array.&lt;M2ORelation&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablem2orelations-arraym2orelation">table.m2oRelations : Array.&lt;M2ORelation&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablerelations-arrayo2mrelationm2orelationm2mrelation-null">table.relations : Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tablerelations-arrayo2mrelationm2orelationm2mrelation">table.relations : Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableindexes-arrayindex-null">table.indexes : Array.&lt;Index&gt; &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#tableindexes-arrayindex">table.indexes : Array.&lt;Index&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#tablegetcolumnkey-column-undefined">table.getColumn(key) ⇒ Column &#124; undefined</a></li>
                 
                     <li><a class="toctree-l4" href="#tablecolumnexistsname-boolean">table.columnExists(name) ⇒ boolean</a></li>
                 
                     <li><a class="toctree-l4" href="#tablegetpath-column-undefined">table.get(path) ⇒ Column &#124; undefined</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetcolumnscallback-arraycolumn-undefined-null">table.getColumns([callback]) ⇒ Array.&lt;Column&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetconstraintscallback-arrayconstraint-undefined-null">table.getConstraints([callback]) ⇒ Array.&lt;Constraint&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetforeignkeyconstraintscallback-arrayconstraint-undefined-null">table.getForeignKeyConstraints([callback]) ⇒ Array.&lt;Constraint&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetforeignkeycolumnscallback-arraycolumn-undefined-null">table.getForeignKeyColumns([callback]) ⇒ Array.&lt;Column&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetprimarykeycolumnscallback-arraycolumn-undefined-null">table.getPrimaryKeyColumns([callback]) ⇒ Array.&lt;Column&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetprimarykeyconstraintcallback-arrayconstraint-undefined-null">table.getPrimaryKeyConstraint([callback]) ⇒ Array.&lt;Constraint&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegethasmanytablescallback-arraycolumn-undefined-null">table.getHasManyTables([callback]) ⇒ Array.&lt;Column&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetbelongstotablescallback-arraycolumn-undefined-null">table.getBelongsToTables([callback]) ⇒ Array.&lt;Column&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetbelongstomanytablescallback-arraycolumn-undefined-null">table.getBelongsToManyTables([callback]) ⇒ Array.&lt;Column&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetm2mrelationscallback-arraym2mrelation-undefined-null">table.getM2MRelations([callback]) ⇒ Array.&lt;M2MRelation&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegeto2mrelationscallback-arrayo2mrelation-undefined-null">table.getO2MRelations([callback]) ⇒ Array.&lt;O2MRelation&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetm2orelationscallback-arraym2orelation-undefined-null">table.getM2ORelations([callback]) ⇒ Array.&lt;M2ORelation&gt; &#124; undefined &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetrelations-arrayo2mrelationm2orelationm2mrelation-null">table.getRelations() ⇒ Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt; &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetindexescallback-arrayindex-undefined-null">table.getIndexes([callback]) ⇒ Array.&lt;Index&gt; &#124; undefined &#124; null</a></li>
                 
             
             </ul>
@@ -301,7 +273,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.3</a>
+        <a href="../..">pg-structure 2.0.4</a>
       </nav>
 
       
@@ -360,49 +332,35 @@ name                 name                   name
 <li><a href="#Table+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
 <li><a href="#Table+schema">.schema</a> : <code>Schema</code></li>
 <li><a href="#Table+parent">.parent</a> : <code>Schema</code></li>
-<li><a href="#Table+columns">.columns</a> : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+columnsByName">.columnsByName</a> : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+constraints">.constraints</a> : <code>Array.&lt;Constraint&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+constraintsByName">.constraintsByName</a> : <code>Object.&lt;string, Constraint&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Table+columns">.columns</a> : <code>Array.&lt;Column&gt;</code></li>
+<li><a href="#Table+columnsByName">.columnsByName</a> : <code>Object.&lt;string, Column&gt;</code></li>
+<li><a href="#Table+constraints">.constraints</a> : <code>Array.&lt;Constraint&gt;</code></li>
+<li><a href="#Table+constraintsByName">.constraintsByName</a> : <code>Object.&lt;string, Constraint&gt;</code></li>
 <li><a href="#Table+db">.db</a> : <code>DB</code></li>
-<li><a href="#Table+foreignKeyConstraints">.foreignKeyConstraints</a> : <code>Array.&lt;Constraint&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+foreignKeyConstraintsByName">.foreignKeyConstraintsByName</a> : <code>Object.&lt;string, Constraint&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+foreignKeyColumns">.foreignKeyColumns</a> : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+foreignKeyColumnsByName">.foreignKeyColumnsByName</a> : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Table+foreignKeyConstraints">.foreignKeyConstraints</a> : <code>Array.&lt;Constraint&gt;</code></li>
+<li><a href="#Table+foreignKeyConstraintsByName">.foreignKeyConstraintsByName</a> : <code>Object.&lt;string, Constraint&gt;</code></li>
+<li><a href="#Table+foreignKeyColumns">.foreignKeyColumns</a> : <code>Array.&lt;Column&gt;</code></li>
+<li><a href="#Table+foreignKeyColumnsByName">.foreignKeyColumnsByName</a> : <code>Object.&lt;string, Column&gt;</code></li>
 <li><a href="#Table+primaryKeyConstraint">.primaryKeyConstraint</a> : <code>Constraint</code> &#124; <code>undefined</code></li>
-<li><a href="#Table+primaryKeyColumns">.primaryKeyColumns</a> : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+primaryKeyColumnsByName">.primaryKeyColumnsByName</a> : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+hasManyTables">.hasManyTables</a> : <code><a href="#Table">Array.&lt;Table&gt;</a></code> &#124; <code>null</code></li>
-<li><a href="#Table+hasManyTablesByName">.hasManyTablesByName</a> : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+hasManyTablesByFullName">.hasManyTablesByFullName</a> : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+belongsToTables">.belongsToTables</a> : <code><a href="#Table">Array.&lt;Table&gt;</a></code> &#124; <code>null</code></li>
-<li><a href="#Table+belongsToTablesByName">.belongsToTablesByName</a> : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+belongsToTablesByFullName">.belongsToTablesByFullName</a> : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+belongsToManyTables">.belongsToManyTables</a> : <code><a href="#Table">Array.&lt;Table&gt;</a></code> &#124; <code>null</code></li>
-<li><a href="#Table+belongsToManyTablesByName">.belongsToManyTablesByName</a> : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+belongsToManyTablesByFullName">.belongsToManyTablesByFullName</a> : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+m2mRelations">.m2mRelations</a> : <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+o2mRelations">.o2mRelations</a> : <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+m2oRelations">.m2oRelations</a> : <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+relations">.relations</a> : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+indexes">.indexes</a> : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></li>
+<li><a href="#Table+primaryKeyColumns">.primaryKeyColumns</a> : <code>Array.&lt;Column&gt;</code></li>
+<li><a href="#Table+primaryKeyColumnsByName">.primaryKeyColumnsByName</a> : <code>Object.&lt;string, Column&gt;</code></li>
+<li><a href="#Table+hasManyTables">.hasManyTables</a> : <code><a href="#Table">Array.&lt;Table&gt;</a></code></li>
+<li><a href="#Table+hasManyTablesByName">.hasManyTablesByName</a> : <code>Object.&lt;string, Table&gt;</code></li>
+<li><a href="#Table+hasManyTablesByFullName">.hasManyTablesByFullName</a> : <code>Object.&lt;string, Table&gt;</code></li>
+<li><a href="#Table+belongsToTables">.belongsToTables</a> : <code><a href="#Table">Array.&lt;Table&gt;</a></code></li>
+<li><a href="#Table+belongsToTablesByName">.belongsToTablesByName</a> : <code>Object.&lt;string, Table&gt;</code></li>
+<li><a href="#Table+belongsToTablesByFullName">.belongsToTablesByFullName</a> : <code>Object.&lt;string, Table&gt;</code></li>
+<li><a href="#Table+belongsToManyTables">.belongsToManyTables</a> : <code><a href="#Table">Array.&lt;Table&gt;</a></code></li>
+<li><a href="#Table+belongsToManyTablesByName">.belongsToManyTablesByName</a> : <code>Object.&lt;string, Table&gt;</code></li>
+<li><a href="#Table+belongsToManyTablesByFullName">.belongsToManyTablesByFullName</a> : <code>Object.&lt;string, Table&gt;</code></li>
+<li><a href="#Table+m2mRelations">.m2mRelations</a> : <code>Array.&lt;M2MRelation&gt;</code></li>
+<li><a href="#Table+o2mRelations">.o2mRelations</a> : <code>Array.&lt;O2MRelation&gt;</code></li>
+<li><a href="#Table+m2oRelations">.m2oRelations</a> : <code>Array.&lt;M2ORelation&gt;</code></li>
+<li><a href="#Table+relations">.relations</a> : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code></li>
+<li><a href="#Table+indexes">.indexes</a> : <code>Array.&lt;Index&gt;</code></li>
 <li><a href="#Table+getColumn">.getColumn(key)</a> ⇒ <code>Column</code> &#124; <code>undefined</code></li>
 <li><a href="#Table+columnExists">.columnExists(name)</a> ⇒ <code>boolean</code></li>
 <li><a href="#Table+get">.get(path)</a> ⇒ <code>Column</code> &#124; <code>undefined</code></li>
-<li><a href="#Table+getColumns">.getColumns([callback])</a> ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getConstraints">.getConstraints([callback])</a> ⇒ <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getForeignKeyConstraints">.getForeignKeyConstraints([callback])</a> ⇒ <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getForeignKeyColumns">.getForeignKeyColumns([callback])</a> ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getPrimaryKeyColumns">.getPrimaryKeyColumns([callback])</a> ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getPrimaryKeyConstraint">.getPrimaryKeyConstraint([callback])</a> ⇒ <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getHasManyTables">.getHasManyTables([callback])</a> ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getBelongsToTables">.getBelongsToTables([callback])</a> ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getBelongsToManyTables">.getBelongsToManyTables([callback])</a> ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getM2MRelations">.getM2MRelations([callback])</a> ⇒ <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getO2MRelations">.getO2MRelations([callback])</a> ⇒ <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getM2ORelations">.getM2ORelations([callback])</a> ⇒ <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
-<li><a href="#Table+getRelations">.getRelations()</a> ⇒ <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Table+getIndexes">.getIndexes([callback])</a> ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></li>
 </ul>
 <p><a name="new_Table_new"></a></p>
 <h3 id="new-tableargs">new Table(args)</h3>
@@ -476,7 +434,7 @@ name                 name                   name
 </code></pre>
 
 <p><a name="Table+columns"></a></p>
-<h3 id="tablecolumns-arraycolumn-null">table.columns : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablecolumns-arraycolumn">table.columns : <code>Array.&lt;Column&gt;</code></h3>
 <p>All <a href="../Column">Column</a> instances in the table as an array. They are ordered by same order they are added.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -486,7 +444,7 @@ var name    = columns[0].name;
 </code></pre>
 
 <p><a name="Table+columnsByName"></a></p>
-<h3 id="tablecolumnsbyname-objectstring-column-null">table.columnsByName : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablecolumnsbyname-objectstring-column">table.columnsByName : <code>Object.&lt;string, Column&gt;</code></h3>
 <p>All <a href="../Column">Column</a> instances in the table as a simple object. Keys are column names, values are <a href="../Column">Column</a> instances.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -496,12 +454,12 @@ var ageColumn = columns.age;
 </code></pre>
 
 <p><a name="Table+constraints"></a></p>
-<h3 id="tableconstraints-arrayconstraint-null">table.constraints : <code>Array.&lt;Constraint&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tableconstraints-arrayconstraint">table.constraints : <code>Array.&lt;Constraint&gt;</code></h3>
 <p>All <a href="../Constraint">Constraint</a> instances in the table as an array. They are ordered by same order they are added.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+constraintsByName"></a></p>
-<h3 id="tableconstraintsbyname-objectstring-constraint-null">table.constraintsByName : <code>Object.&lt;string, Constraint&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tableconstraintsbyname-objectstring-constraint">table.constraintsByName : <code>Object.&lt;string, Constraint&gt;</code></h3>
 <p>All <a href="../Constraint">Constraint</a> instances in the table as a simple object. Keys are constraint names, values are <a href="../Constraint">Constraint</a> instances.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -511,28 +469,28 @@ var ageColumn = columns.age;
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+foreignKeyConstraints"></a></p>
-<h3 id="tableforeignkeyconstraints-arrayconstraint-null">table.foreignKeyConstraints : <code>Array.&lt;Constraint&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tableforeignkeyconstraints-arrayconstraint">table.foreignKeyConstraints : <code>Array.&lt;Constraint&gt;</code></h3>
 <p>All <a href="../Constraint">Constraint</a> instances which are foreign key constraints in the table as an array.
 They are ordered by same order they are defined in database.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Table+o2mRelations">o2mRelations</a>, <a href="#Table+m2oRelations">m2oRelations</a>, <a href="#Table+m2mRelations">m2mRelations</a> to get more details about <a href="../Relation">relations</a>.<br />
 <a name="Table+foreignKeyConstraintsByName"></a></p>
-<h3 id="tableforeignkeyconstraintsbyname-objectstring-constraint-null">table.foreignKeyConstraintsByName : <code>Object.&lt;string, Constraint&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tableforeignkeyconstraintsbyname-objectstring-constraint">table.foreignKeyConstraintsByName : <code>Object.&lt;string, Constraint&gt;</code></h3>
 <p>All <a href="../Constraint">Constraint</a> instances which are foreign key constraints in the table as a simple object.
 Keys are constraint names, values are <a href="../Constraint">Constraint</a> instances.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Table+o2mRelations">o2mRelations</a>, <a href="#Table+m2oRelations">m2oRelations</a>, <a href="#Table+m2mRelations">m2mRelations</a> to get more details about <a href="../Relation">relations</a>.<br />
 <a name="Table+foreignKeyColumns"></a></p>
-<h3 id="tableforeignkeycolumns-arraycolumn-null">table.foreignKeyColumns : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tableforeignkeycolumns-arraycolumn">table.foreignKeyColumns : <code>Array.&lt;Column&gt;</code></h3>
 <p>All foreign key <a href="../Column">columns</a> of all <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a>.
 Foreign key <a href="../Constraint">constraints</a> may contain more than one column. To get foreign key columns of a specific foreign key constraint
 use <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a>.<a href="../Constraint#columns">columns</a></p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+foreignKeyColumnsByName"></a></p>
-<h3 id="tableforeignkeycolumnsbyname-objectstring-column-null">table.foreignKeyColumnsByName : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tableforeignkeycolumnsbyname-objectstring-column">table.foreignKeyColumnsByName : <code>Object.&lt;string, Column&gt;</code></h3>
 <p>Object containing foreign key <a href="../Column">columns</a> of this table. Keys are column names, values are
 <a href="../Column">columns</a> instances.
 Foreign key <a href="../Constraint">constraints</a> may contain more than one column. To get foreign key columns of a specific foreign key constraint
@@ -555,7 +513,7 @@ let pkColumns  = pkConstraint.columns;
 </code></pre>
 
 <p><a name="Table+primaryKeyColumns"></a></p>
-<h3 id="tableprimarykeycolumns-arraycolumn-null">table.primaryKeyColumns : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tableprimarykeycolumns-arraycolumn">table.primaryKeyColumns : <code>Array.&lt;Column&gt;</code></h3>
 <p>Primary key <a href="../Column">columns</a> of this table.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -565,7 +523,7 @@ let pkColumns  = pkConstraint.columns;
 </code></pre>
 
 <p><a name="Table+primaryKeyColumnsByName"></a></p>
-<h3 id="tableprimarykeycolumnsbyname-objectstring-column-null">table.primaryKeyColumnsByName : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tableprimarykeycolumnsbyname-objectstring-column">table.primaryKeyColumnsByName : <code>Object.&lt;string, Column&gt;</code></h3>
 <p>Object containing primary key <a href="../Column">columns</a> of this table. Keys are column names, values are
 <a href="../Column">columns</a> instances.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
@@ -576,7 +534,7 @@ let pkColumns  = pkConstraint.columns;
 </code></pre>
 
 <p><a name="Table+hasManyTables"></a></p>
-<h3 id="tablehasmanytables-arraytable-null">table.hasManyTables : <code><a href="#Table">Array.&lt;Table&gt;</a></code> &#124; <code>null</code></h3>
+<h3 id="tablehasmanytables-arraytable">table.hasManyTables : <code><a href="#Table">Array.&lt;Table&gt;</a></code></h3>
 <p><a href="#Table">Tables</a> which this table has relationship of type <code>one to many</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -587,7 +545,7 @@ let productTable = vendorTable.hasManyTables[0];
 </code></pre>
 
 <p><a name="Table+hasManyTablesByName"></a></p>
-<h3 id="tablehasmanytablesbyname-objectstring-table-null">table.hasManyTablesByName : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablehasmanytablesbyname-objectstring-table">table.hasManyTablesByName : <code>Object.&lt;string, Table&gt;</code></h3>
 <p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>one to many</code>. Object keys
 are table names, object values are <a href="#Table">Table</a> instances.
 <strong> CAVEAT: Two tables may have same name in different schemas</strong>, such as <code>public.account</code> and <code>other_schema.account</code>.
@@ -606,7 +564,7 @@ let productTable = vendorTable.hasManyTablesByName.product;
 </code></pre>
 
 <p><a name="Table+hasManyTablesByFullName"></a></p>
-<h3 id="tablehasmanytablesbyfullname-objectstring-table-null">table.hasManyTablesByFullName : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablehasmanytablesbyfullname-objectstring-table">table.hasManyTablesByFullName : <code>Object.&lt;string, Table&gt;</code></h3>
 <p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>one to many</code>. Object keys
 are table names including schema name (i.e. <code>public.account</code>), object values are <a href="#Table">Table</a> instances.
 <strong> CAVEAT: Full table name contains a dot (.). You should access them with bracket notation. See example below.</strong>
@@ -624,7 +582,7 @@ let productTable = vendorTable.hasManyTablesByFullName['public.product'];
 </code></pre>
 
 <p><a name="Table+belongsToTables"></a></p>
-<h3 id="tablebelongstotables-arraytable-null">table.belongsToTables : <code><a href="#Table">Array.&lt;Table&gt;</a></code> &#124; <code>null</code></h3>
+<h3 id="tablebelongstotables-arraytable">table.belongsToTables : <code><a href="#Table">Array.&lt;Table&gt;</a></code></h3>
 <p><a href="#Table">Tables</a> which this table has relationship of type <code>belongs to</code> which is reverse direction of <code>one to many</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -635,7 +593,7 @@ let vendorTable = productTable.belongsToTables[0];
 </code></pre>
 
 <p><a name="Table+belongsToTablesByName"></a></p>
-<h3 id="tablebelongstotablesbyname-objectstring-table-null">table.belongsToTablesByName : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablebelongstotablesbyname-objectstring-table">table.belongsToTablesByName : <code>Object.&lt;string, Table&gt;</code></h3>
 <p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>belongs to</code> which is reverse direction of <code>one to many</code>. Object keys
 are table names, object values are <a href="#Table">Table</a> instances.
 <strong> CAVEAT: Two tables may have same name in different schemas</strong>, such as <code>public.account</code> and <code>other_schema.account</code>.
@@ -654,7 +612,7 @@ let vendorTable = productTable.belongsToTablesByName.product;
 </code></pre>
 
 <p><a name="Table+belongsToTablesByFullName"></a></p>
-<h3 id="tablebelongstotablesbyfullname-objectstring-table-null">table.belongsToTablesByFullName : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablebelongstotablesbyfullname-objectstring-table">table.belongsToTablesByFullName : <code>Object.&lt;string, Table&gt;</code></h3>
 <p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>belongs to</code> which is reverse direction of <code>one to many</code>. Object keys
 are table names including schema name (i.e. <code>public.account</code>), object values are <a href="#Table">Table</a> instances.
 <strong> CAVEAT: Full table name contains a dot (.). You should access them with bracket notation. See example below.</strong>
@@ -672,7 +630,7 @@ let vendorTable = productTable.belongsToTablesByFullName['public.product'];
 </code></pre>
 
 <p><a name="Table+belongsToManyTables"></a></p>
-<h3 id="tablebelongstomanytables-arraytable-null">table.belongsToManyTables : <code><a href="#Table">Array.&lt;Table&gt;</a></code> &#124; <code>null</code></h3>
+<h3 id="tablebelongstomanytables-arraytable">table.belongsToManyTables : <code><a href="#Table">Array.&lt;Table&gt;</a></code></h3>
 <p><a href="#Table">Tables</a> which this table has relationship of type <code>many to many</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -683,7 +641,7 @@ let productTable = cartTable.belongsToManyTables[0];
 </code></pre>
 
 <p><a name="Table+belongsToManyTablesByName"></a></p>
-<h3 id="tablebelongstomanytablesbyname-objectstring-table-null">table.belongsToManyTablesByName : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablebelongstomanytablesbyname-objectstring-table">table.belongsToManyTablesByName : <code>Object.&lt;string, Table&gt;</code></h3>
 <p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>many to many</code>. Object keys
 are table names, object values are <a href="#Table">Table</a> instances.
 <strong> CAVEAT: Two tables may have same name in different schemas</strong>, such as <code>public.account</code> and <code>other_schema.account</code>.
@@ -702,7 +660,7 @@ let productTable = cartTable.belongsToManyTablesByName.product;
 </code></pre>
 
 <p><a name="Table+belongsToManyTablesByFullName"></a></p>
-<h3 id="tablebelongstomanytablesbyfullname-objectstring-table-null">table.belongsToManyTablesByFullName : <code>Object.&lt;string, Table&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablebelongstomanytablesbyfullname-objectstring-table">table.belongsToManyTablesByFullName : <code>Object.&lt;string, Table&gt;</code></h3>
 <p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>many to many</code>. Object keys
 are table names including schema name (i.e. <code>public.account</code>), object values are <a href="#Table">Table</a> instances.
 <strong> CAVEAT: Full table name contains a dot (.). You should access them with bracket notation. See example below.</strong>
@@ -720,30 +678,30 @@ let productTable = cartTable.belongsToManyTablesByName['public.product'];
 </code></pre>
 
 <p><a name="Table+m2mRelations"></a></p>
-<h3 id="tablem2mrelations-arraym2mrelation-null">table.m2mRelations : <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablem2mrelations-arraym2mrelation">table.m2mRelations : <code>Array.&lt;M2MRelation&gt;</code></h3>
 <p>List of <a href="../M2MRelation">many to many relationships</a> of the table. <a href="../M2MRelation">M2MRelation</a> resembles
 <code>has many through</code> and <code>belongs to many</code> relations in ORMs has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+o2mRelations"></a></p>
-<h3 id="tableo2mrelations-arrayo2mrelation-null">table.o2mRelations : <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tableo2mrelations-arrayo2mrelation">table.o2mRelations : <code>Array.&lt;O2MRelation&gt;</code></h3>
 <p>List of <a href="../O2MRelation">one to many relationships</a> of the table. <a href="../O2MRelation">O2MRelation</a> resembles
 <code>has many</code> relations in ORMs and has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+m2oRelations"></a></p>
-<h3 id="tablem2orelations-arraym2orelation-null">table.m2oRelations : <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablem2orelations-arraym2orelation">table.m2oRelations : <code>Array.&lt;M2ORelation&gt;</code></h3>
 <p>List of <a href="../M2ORelation">many to one relationships</a> of the table. <a href="../M2ORelation">M2ORelation</a> resembles
 <code>belongs to</code> relations in ORMs and has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+relations"></a></p>
-<h3 id="tablerelations-arrayo2mrelationm2orelationm2mrelation-null">table.relations : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tablerelations-arrayo2mrelationm2orelationm2mrelation">table.relations : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code></h3>
 <p>List of all <a href="../Relation">relationships</a> of the table.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+indexes"></a></p>
-<h3 id="tableindexes-arrayindex-null">table.indexes : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code></h3>
+<h3 id="tableindexes-arrayindex">table.indexes : <code>Array.&lt;Index&gt;</code></h3>
 <p>List of <a href="../Index">indexes</a>, which this table has. Results are ordered by index name.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
@@ -822,345 +780,6 @@ var jokeColumn = db.schemaExists('joke'); // false
 <p><strong>Example</strong>  </p>
 <pre><code class="js">var column = table.get('contact'),      // Returns contact column in public table.
 </code></pre>
-
-<p><a name="Table+getColumns"></a></p>
-<h3 id="tablegetcolumnscallback-arraycolumn-undefined-null">table.getColumns([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves all columns in the table, executes given callback and returns null, if provided. Callback has a signature of
-(<a href="../Column">Column</a>, index, collection). If no callback is provided, returns an array of all <a href="../Column">columns</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All <a href="../Column">columns</a> of the table.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedColumnCallback</code></td>
-<td>Callback to be executed for each column.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">schema.getColumns(function(column, i, collection) {
-    var name = column.name;
-    var ord  = i;
-);
-</code></pre>
-
-<p><a name="Table+getConstraints"></a></p>
-<h3 id="tablegetconstraintscallback-arrayconstraint-undefined-null">table.getConstraints([callback]) ⇒ <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves all constraints in the table, executes given callback and returns null, if provided. Callback has a signature of
-(<a href="../Constraint">Constraint</a>, index, collection). If no callback is provided, returns an array of all <a href="../Constraint">constraints</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All <a href="../Constraint">constraints</a> of the table.<br />
-<strong>See</strong>: <a href="#Table+getForeignKeyConstraints">getForeignKeyConstraints</a> to get only foreign key constraints.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedConstraintCallback</code></td>
-<td>Callback to be executed for each constraint.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">table.getConstraints(function(constraint, i, collection) {
-    var name = constraint.name;
-    var ord  = i;
-);
-</code></pre>
-
-<p><a name="Table+getForeignKeyConstraints"></a></p>
-<h3 id="tablegetforeignkeyconstraintscallback-arrayconstraint-undefined-null">table.getForeignKeyConstraints([callback]) ⇒ <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves all <a href="../Constraint">constraints</a> which are foreign key constraints in the table, executes given callback and returns null, if provided. Callback has a signature of
-(<a href="../Constraint">Constraint</a>, index, collection). If no callback is provided, returns an array of all foreign key <a href="../Constraint">constraints</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All foreign key <a href="../Constraint">constraints</a> of the table.<br />
-<strong>See</strong></p>
-<ul>
-<li><a href="#Table+getO2MRelations">getO2MRelations</a>, <a href="#Table+getM2MRelations">getM2MRelations</a> to get more details about <a href="../Relation">relations</a>.</li>
-<li><a href="#Table+getConstraints">getConstraints</a> to get all constraints.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedConstraintCallback</code></td>
-<td>Callback to be executed for each constraint.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">table.getConstraints(function(constraint, i, collection) {
-    var name = constraint.name;
-    var ord  = i;
-);
-</code></pre>
-
-<p><a name="Table+getForeignKeyColumns"></a></p>
-<h3 id="tablegetforeignkeycolumnscallback-arraycolumn-undefined-null">table.getForeignKeyColumns([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves all foreign key <a href="../Column">columns</a> of all foreign key <a href="../Constraint">constraints</a> in the table, executes given callback and returns null, if provided. Callback has a signature of
-(<a href="../Column">Column</a>, index, collection). If no callback is provided, returns an array of all foreign key <a href="../Column">columns</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All foreign key <a href="../Column">columns</a> of the table.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedColumnCallback</code></td>
-<td>Callback to be executed for each column.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">table.getForeignKeyColumns(function(column, i, collection) {
-    var name = column.name;
-    var ord  = i;
-);
-</code></pre>
-
-<p><a name="Table+getPrimaryKeyColumns"></a></p>
-<h3 id="tablegetprimarykeycolumnscallback-arraycolumn-undefined-null">table.getPrimaryKeyColumns([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves all primary key <a href="../Column">columns</a> in the table, executes given callback and returns null, if provided. Callback has a signature of
-(<a href="../Column">Column</a>, index, collection). If no callback is provided, returns an array of all primary key <a href="../Column">columns</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All primary key <a href="../Column">columns</a> of the table.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedColumnCallback</code></td>
-<td>Callback to be executed for each column.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">table.getPrimaryKeyColumns(function(column, i, collection) {
-    var name = column.name;
-    var ord  = i;
-);
-</code></pre>
-
-<p><a name="Table+getPrimaryKeyConstraint"></a></p>
-<h3 id="tablegetprimarykeyconstraintcallback-arrayconstraint-undefined-null">table.getPrimaryKeyConstraint([callback]) ⇒ <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves <a href="../Constraint">primary key constraint</a> of the table and executes given callback and returns null, if provided. Callback has a signature of
-(<a href="../Constraint">Constraint</a>, index, collection). If no callback is provided, returns single element array of primary key <a href="../Constraint">constraint</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Constraint&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - Primary key <a href="../Constraint">constraint</a> of the table.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedConstraintCallback</code></td>
-<td>Callback to be executed for single constraint.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">table.getPrimaryKeyConstraint(function(constraint, i, collection) {
-    var name = constraint.name;
-    var ord  = i;
-);
-</code></pre>
-
-<p><a name="Table+getHasManyTables"></a></p>
-<h3 id="tablegethasmanytablescallback-arraycolumn-undefined-null">table.getHasManyTables([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves all <a href="#Table">tables</a> which this table has relationship of type <code>one to many</code>, executes given callback and returns null if provided.
-Callback has a signature of (<a href="#Table">Table</a>, index, collection). If no callback is provided, returns an array of all <a href="#Table">tables</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All <a href="#Table">tables</a> which this table has relationship of type <code>one to many</code>.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedTableCallback</code></td>
-<td>Callback to be executed for each <a href="#Table">table</a>.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="Table+getBelongsToTables"></a></p>
-<h3 id="tablegetbelongstotablescallback-arraycolumn-undefined-null">table.getBelongsToTables([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves all <a href="#Table">tables</a> which this table has relationship of type <code>one to many</code> which is reverse direction of <code>one to many</code>, executes given callback and returns null if provided.
-Callback has a signature of (<a href="#Table">Table</a>, index, collection). If no callback is provided, returns an array of all <a href="#Table">tables</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All <a href="#Table">tables</a> which this table has relationship of type <code>one to many</code>.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedTableCallback</code></td>
-<td>Callback to be executed for each <a href="#Table">table</a>.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="Table+getBelongsToManyTables"></a></p>
-<h3 id="tablegetbelongstomanytablescallback-arraycolumn-undefined-null">table.getBelongsToManyTables([callback]) ⇒ <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Retrieves all <a href="#Table">tables</a> which this table has relationship of type <code>many to many</code>, executes given callback and returns null if provided.
-Callback has a signature of (<a href="#Table">Table</a>, index, collection). If no callback is provided, returns an array of all <a href="#Table">tables</a>.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Column&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - All <a href="#Table">tables</a> which this table has relationship of type <code>many to many</code>.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedTableCallback</code></td>
-<td>Callback to be executed for each <a href="#Table">table</a>.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="Table+getM2MRelations"></a></p>
-<h3 id="tablegetm2mrelationscallback-arraym2mrelation-undefined-null">table.getM2MRelations([callback]) ⇒ <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>List of <a href="../M2MRelation">many to many relationships</a> of the table. <a href="../M2MRelation">M2MRelation</a> resembles
-<code>has many through</code> and <code>belongs to many</code> relations in ORMs has some useful methods and information for generating ORM classes.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;M2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - <a href="../M2MRelation">M2M Relations</a> of the table.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedRelationCallback</code></td>
-<td>Callback to be executed for each <a href="../M2MRelation">many to many relation</a>.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="Table+getO2MRelations"></a></p>
-<h3 id="tablegeto2mrelationscallback-arrayo2mrelation-undefined-null">table.getO2MRelations([callback]) ⇒ <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>List of <a href="../O2MRelation">one to many relationships</a> of the table. <a href="../O2MRelation">O2MRelation</a> resembles
-<code>has many</code> relations in ORMs and has some useful methods and information for generating ORM classes.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;O2MRelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - <a href="../O2MRelation">O2M Relations</a> of the table.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedRelationCallback</code></td>
-<td>Callback to be executed for each <a href="../O2MRelation">one to many relation</a>.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="Table+getM2ORelations"></a></p>
-<h3 id="tablegetm2orelationscallback-arraym2orelation-undefined-null">table.getM2ORelations([callback]) ⇒ <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>List of <a href="../M2ORelation">many to one relationships</a> of the table. <a href="../M2ORelation">M2ORelation</a> resembles
-<code>belongs to</code> relations in ORMs and has some useful methods and information for generating ORM classes.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;M2ORelation&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - <a href="../M2ORelation">M2O Relations</a> of the table.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedRelationCallback</code></td>
-<td>Callback to be executed for each <a href="../M2ORelation">many to one relation</a>.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="Table+getRelations"></a></p>
-<h3 id="tablegetrelations-arrayo2mrelationm2orelationm2mrelation-null">table.getRelations() ⇒ <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code> &#124; <code>null</code></h3>
-<p>List of all <a href="../Relation">relationships</a> of the table.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<a name="Table+getIndexes"></a></p>
-<h3 id="tablegetindexescallback-arrayindex-undefined-null">table.getIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code></h3>
-<p>Executes callback for every <a href="../Index">Index</a> or returns list of <a href="../Index">indexes</a>, which this table has.
-Results are ordered by index name.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - <a href="../Index">indexes</a> this table has.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[callback]</td>
-<td><code>orderedIndexCallback</code></td>
-<td>Callback to be executed for each <a href="../Index">Index</a>.</td>
-</tr>
-</tbody>
-</table>
               
             </div>
           </div>
