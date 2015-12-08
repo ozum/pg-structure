@@ -11,11 +11,10 @@ Class which represent a PostgreSQL schema. Provides attributes and methods for d
   * [.fullCatalogName](#Schema+fullCatalogName) : <code>string</code>
   * [.db](#Schema+db) : <code>DB</code>
   * [.parent](#Schema+parent) : <code>DB</code>
-  * [.tables](#Schema+tables) : <code>Array.&lt;Table&gt;</code> &#124; <code>null</code>
+  * [.tables](#Schema+tables) : <code>Array.&lt;Table&gt;</code>
   * [.getTable(key)](#Schema+getTable) ⇒ <code>Table</code> &#124; <code>undefined</code>
   * [.tableExists(name)](#Schema+tableExists) ⇒ <code>boolean</code>
   * [.get(path)](#Schema+get) ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
-  * [.getTables([callback])](#Schema+getTables) ⇒ <code>Array.&lt;Table&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
 
 <a name="new_Schema_new"></a>
 ### new Schema(args)
@@ -75,7 +74,7 @@ var db = schema.db; // DB instance
 var db = schema.parent; // DB instance
 ```
 <a name="Schema+tables"></a>
-### schema.tables : <code>Array.&lt;Table&gt;</code> &#124; <code>null</code>
+### schema.tables : <code>Array.&lt;Table&gt;</code>
 All [Table](Table) instances in the database as an array. They are ordered by same order they are added.
 
 **Kind**: instance property of <code>[Schema](#Schema)</code>  
@@ -131,22 +130,4 @@ Returns [Table](Table) or [Column](Column) on given path relative to [Schema](#S
 ```js
 var table  = db.get('contact'),      // Returns contact table in public schema.
     column = db.get('contact.name'); // Returns name column of the contact table.
-```
-<a name="Schema+getTables"></a>
-### schema.getTables([callback]) ⇒ <code>Array.&lt;Table&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
-Retrieves all tables in the schema and executes given callback, if provided. Callback has a signature of
-([Table](Table), index, collection). If no callback is provided, returns an array of all [tables](Table).
-
-**Kind**: instance method of <code>[Schema](#Schema)</code>  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| [callback] | <code>orderedTableCallback</code> | Callback to be executed for each table. |
-
-**Example**  
-```js
-db.getTables(function(table, i, collection) {
-    var name = table.name;
-    var ord  = i;
-);
 ```

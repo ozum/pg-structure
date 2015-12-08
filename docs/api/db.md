@@ -9,12 +9,11 @@ Class which represent a database. Provides attributes and methods for details of
   * [.name](#DB+name) : <code>string</code>
   * [.fullName](#DB+fullName) : <code>string</code>
   * [.fullCatalogName](#DB+fullCatalogName) : <code>string</code>
-  * [.schemas](#DB+schemas) : <code>Array.&lt;Schema&gt;</code> &#124; <code>null</code>
-  * [.schemasByName](#DB+schemasByName) : <code>Object.&lt;string, Schema&gt;</code> &#124; <code>null</code>
+  * [.schemas](#DB+schemas) : <code>Array.&lt;Schema&gt;</code>
+  * [.schemasByName](#DB+schemasByName) : <code>Object.&lt;string, Schema&gt;</code>
   * [.getSchema(key)](#DB+getSchema) ⇒ <code>Schema</code> &#124; <code>undefined</code>
   * [.schemaExists(name)](#DB+schemaExists) ⇒ <code>boolean</code>
   * [.get(path)](#DB+get) ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
-  * [.getSchemas([callback])](#DB+getSchemas) ⇒ <code>Array.&lt;Schema&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
 
 <a name="new_DB_new"></a>
 ### new DB(args)
@@ -44,7 +43,7 @@ Full name of the [Database](Database) with (.) notation including catalog name. 
 **Kind**: instance property of <code>[DB](#DB)</code>  
 **Read only**: true  
 <a name="DB+schemas"></a>
-### dB.schemas : <code>Array.&lt;Schema&gt;</code> &#124; <code>null</code>
+### dB.schemas : <code>Array.&lt;Schema&gt;</code>
 All [Schema](Schema) instances in the database as an array. They are ordered by schema name.
 
 **Kind**: instance property of <code>[DB](#DB)</code>  
@@ -55,7 +54,7 @@ var schemas = db.schemas;
 var name    = schemas[0].name;
 ```
 <a name="DB+schemasByName"></a>
-### dB.schemasByName : <code>Object.&lt;string, Schema&gt;</code> &#124; <code>null</code>
+### dB.schemasByName : <code>Object.&lt;string, Schema&gt;</code>
 All [Schema](Schema) instances in the database as a simple object. Keys are schema names, values are [Schema](Schema) instances.
 
 **Kind**: instance property of <code>[DB](#DB)</code>  
@@ -112,22 +111,4 @@ Returns [Schema](Schema), [Table](Table) or [Column](Column) on given path relat
 var schema = db.get('public'),              // Returns public schema.
     table  = db.get('public.contact'),      // Returns contact table in public schema.
     column = db.get('public.contact.name'); // Returns name column of the contact table in public schema.
-```
-<a name="DB+getSchemas"></a>
-### dB.getSchemas([callback]) ⇒ <code>Array.&lt;Schema&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
-Retrieves all schemas in the database and executes given callback (sync), if provided. Callback has a signature of
-([Schema](Schema), index, collection). If no callback is provided, returns an array of all [schemas](Schema).
-
-**Kind**: instance method of <code>[DB](#DB)</code>  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| [callback] | <code>orderedSchemaCallback</code> | Callback to be executed for each schema. |
-
-**Example**  
-```js
-db.getSchemas(function(schema, i, collection) {
-    var name = schema.name;
-    var ord  = i;
-);
 ```

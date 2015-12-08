@@ -49,8 +49,8 @@ color and vendor tables would have many to many `through constraints`.
   * [.onDelete](#Constraint+onDelete) : <code>constraintRule</code> &#124; <code>null</code>
   * [.referencedTable](#Constraint+referencedTable) : <code>Table</code> &#124; <code>null</code>
   * [.parent](#Constraint+parent) : <code>Table</code> &#124; <code>null</code>
-  * [.columns](#Constraint+columns) : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code>
-  * [.columnsByName](#Constraint+columnsByName) : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code>
+  * [.columns](#Constraint+columns) : <code>Array.&lt;Column&gt;</code>
+  * [.columnsByName](#Constraint+columnsByName) : <code>Object.&lt;string, Column&gt;</code>
 
 <a name="new_Constraint_new"></a>
 ### new Constraint(args)
@@ -166,14 +166,14 @@ foreign key constraints and for foreign key constraints parent means referenced 
 - To get [Table](Table) this constraint belongs to or defined in, use [table](#Constraint+table).
 
 <a name="Constraint+columns"></a>
-### constraint.columns : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code>
+### constraint.columns : <code>Array.&lt;Column&gt;</code>
 List of [columns](Column) restricted by [constraint](#Constraint), in order their ordinal position
 within the constraint key. If [constraint](#Constraint) does not have any [columns](Column) this is `null`.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+columnsByName"></a>
-### constraint.columnsByName : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code>
+### constraint.columnsByName : <code>Object.&lt;string, Column&gt;</code>
 List of columns restricted by [constraint](#Constraint), in order their ordinal position within the constraint key.
 If [constraint](#Constraint) does not have any columns this is `null`.
 

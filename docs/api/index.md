@@ -15,8 +15,8 @@ Class which represent a database index. Provides attributes and methods for deta
   * [.parent](#Index+parent) : <code>Table</code>
   * [.db](#Index+db) : <code>DB</code>
   * [.schema](#Index+schema) : <code>Schema</code>
-  * [.columns](#Index+columns) : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code>
-  * [.columnsByName](#Index+columnsByName) : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code>
+  * [.columns](#Index+columns) : <code>Array.&lt;Column&gt;</code>
+  * [.columnsByName](#Index+columnsByName) : <code>Object.&lt;string, Column&gt;</code>
 
 <a name="new_Index_new"></a>
 ### new Index(args)
@@ -90,14 +90,14 @@ If true, this index represents the primary key of the table ([isUnique](#Index+i
 **Kind**: instance property of <code>[Index](#Index)</code>  
 **Read only**: true  
 <a name="Index+columns"></a>
-### index.columns : <code>Array.&lt;Column&gt;</code> &#124; <code>null</code>
+### index.columns : <code>Array.&lt;Column&gt;</code>
 List of [columns](Column) restricted by [index](#Index), in order their ordinal position
 within the index key. If [index](#Index) does not have any [columns](Column) this is `null`.
 
 **Kind**: instance property of <code>[Index](#Index)</code>  
 **Read only**: true  
 <a name="Index+columnsByName"></a>
-### index.columnsByName : <code>Object.&lt;string, Column&gt;</code> &#124; <code>null</code>
+### index.columnsByName : <code>Object.&lt;string, Column&gt;</code>
 List of columns restricted by [index](#Index), in order their ordinal position within the index key.
 If [index](#Index) does not have any columns this is `null`.
 

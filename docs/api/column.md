@@ -35,12 +35,9 @@ Class which represent a database column. Provides attributes and methods for det
   * [.type](#Column+type) : <code>postgreSQLDataType</code>
   * [.table](#Column+table) : <code>Table</code>
   * [.userDefinedType](#Column+userDefinedType) : <code>postgreSQLDataType</code> &#124; <code>null</code>
-  * [.uniqueIndexesNoPK](#Column+uniqueIndexesNoPK) : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code>
-  * [.uniqueIndexes](#Column+uniqueIndexes) : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code>
-  * [.indexes](#Column+indexes) : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code>
-  * [.getUniqueIndexesNoPK([callback])](#Column+getUniqueIndexesNoPK) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
-  * [.getUniqueIndexes([callback])](#Column+getUniqueIndexes) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
-  * [.getIndexes([callback])](#Column+getIndexes) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
+  * [.uniqueIndexesNoPK](#Column+uniqueIndexesNoPK) : <code>Array.&lt;Index&gt;</code>
+  * [.uniqueIndexes](#Column+uniqueIndexes) : <code>Array.&lt;Index&gt;</code>
+  * [.indexes](#Column+indexes) : <code>Array.&lt;Index&gt;</code>
 
 <a name="new_Column_new"></a>
 ### new Column(args)
@@ -312,7 +309,7 @@ If type of column is user defined such as composite, enumerated, this is the dat
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+uniqueIndexesNoPK"></a>
-### column.uniqueIndexesNoPK : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code>
+### column.uniqueIndexesNoPK : <code>Array.&lt;Index&gt;</code>
 List of unique [indexes](Index), which column is part of. Results are ordered by index name. Excludes primary key indexes. PostgreSQL already creates a unique index for unique
 [constraints](Constraint). So there is no need to look for unique constraints which will result duplicates.
 
@@ -320,7 +317,7 @@ List of unique [indexes](Index), which column is part of. Results are ordered by
 **Read only**: true  
 **See**: [uniqueIndexes](#Column+uniqueIndexes) for all unique indexes including primary key indexes.  
 <a name="Column+uniqueIndexes"></a>
-### column.uniqueIndexes : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code>
+### column.uniqueIndexes : <code>Array.&lt;Index&gt;</code>
 List of unique [indexes](Index), which column is part of. Results are ordered by index name. PostgreSQL already creates a unique index for unique
 [constraints](Constraint). So there is no need to look for unique constraints which will result duplicates.
 
@@ -328,48 +325,8 @@ List of unique [indexes](Index), which column is part of. Results are ordered by
 **Read only**: true  
 **See**: [uniqueIndexesNoPK](#Column+uniqueIndexesNoPK) for unique indexes excluding primary key indexes.  
 <a name="Column+indexes"></a>
-### column.indexes : <code>Array.&lt;Index&gt;</code> &#124; <code>null</code>
+### column.indexes : <code>Array.&lt;Index&gt;</code>
 List of [indexes](Index), which column is part of. Results are ordered by index name.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
-<a name="Column+getUniqueIndexesNoPK"></a>
-### column.getUniqueIndexesNoPK([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
-Executes callback for every unique [Index](Index) or returns list of unique [indexes](Index), which column is part of.
-Results are ordered by index name. Excludes primary key indexes. PostgreSQL already creates a unique index for unique
-[constraints](Constraint). So there is no need to look for unique constraints which will result duplicates.
-
-**Kind**: instance method of <code>[Column](#Column)</code>  
-**Returns**: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - Unique [indexes](Index) this column is a part of.  
-**See**: [getUniqueIndexes](#Column+getUniqueIndexes) for all unique indexes including primary key indexes.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| [callback] | <code>orderedIndexCallback</code> | Callback to be executed for each unique [Index](Index). |
-
-<a name="Column+getUniqueIndexes"></a>
-### column.getUniqueIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
-Executes callback for every unique [Index](Index) or returns list of unique [indexes](Index), which column is part of.
-Results are ordered by index name. PostgreSQL already creates a unique index for unique
-[constraints](Constraint). So there is no need to look for unique constraints which will result duplicates.
-
-**Kind**: instance method of <code>[Column](#Column)</code>  
-**Returns**: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - Unique [indexes](Index) this column is a part of.  
-**See**: [getUniqueIndexesNoPK](#Column+getUniqueIndexesNoPK) for all unique indexes excluding primary key indexes.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| [callback] | <code>orderedIndexCallback</code> | Callback to be executed for each unique [Index](Index). |
-
-<a name="Column+getIndexes"></a>
-### column.getIndexes([callback]) ⇒ <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code>
-Executes callback for every [Index](Index) or returns list of [indexes](Index), which column is part of.
-Results are ordered by index name.
-
-**Kind**: instance method of <code>[Column](#Column)</code>  
-**Returns**: <code>Array.&lt;Index&gt;</code> &#124; <code>undefined</code> &#124; <code>null</code> - - [indexes](Index) this column is a part of.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| [callback] | <code>orderedIndexCallback</code> | Callback to be executed for each [Index](Index). |
-
