@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>History - pg-structure 2.0.7</title>
+  <title>History - pg-structure 2.0.8</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 2.0.7</a>
+        <a href=".." class="icon icon-home"> pg-structure 2.0.8</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -90,6 +90,8 @@
                 
             
                 <li class="toctree-l3"><a href="#history-release-notes">History &amp; Release Notes</a></li>
+                
+                    <li><a class="toctree-l4" href="#208-2015-12-09">2.0.8 / 2015-12-09</a></li>
                 
                     <li><a class="toctree-l4" href="#205-2015-12-08">2.0.5 / 2015-12-08</a></li>
                 
@@ -254,7 +256,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 2.0.7</a>
+        <a href="..">pg-structure 2.0.8</a>
       </nav>
 
       
@@ -291,6 +293,11 @@
 <p>For example many to many relations are virtual relationships which do not actually exist in database. They are
 tables joined via a third join table.</p>
 <h1 id="history-release-notes">History &amp; Release Notes</h1>
+<h6 id="208-2015-12-09">2.0.8 / 2015-12-09</h6>
+<ul>
+<li>Added: <code>Table#description</code> and <code>Table#comment</code> attributes added to the table object.</li>
+<li>Fixed: Table sql was returning null for table descriptions. </li>
+</ul>
 <h6 id="205-2015-12-08">2.0.5 / 2015-12-08</h6>
 <ul>
 <li>Changed: Code and API cleanup and simplification since alpha releases.</li>
