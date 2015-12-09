@@ -1,6 +1,6 @@
 {
   "name": "pg-structure",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Get PostgreSQL database structure as a detailed JS Object.",
   "homepage": "http://www.pg-structure.com",
   "bugs": "https://github.com/ozum/pg-structure/issues",
