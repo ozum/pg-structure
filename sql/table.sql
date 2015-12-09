@@ -5,7 +5,7 @@ SELECT
     table_name                                                  AS "name",
     CONCAT(table_schema, '.', table_name)                       AS "fullName",
     CONCAT(table_catalog, '.', table_schema, '.', table_name)   AS "fullCatalogName",
-    pg_catalog.obj_description(c.oid, table_catalog)            AS "description"
+    pg_catalog.obj_description(c.oid, 'pg_class')               AS "description"
 
 FROM
     information_schema.tables

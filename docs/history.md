@@ -14,6 +14,11 @@ tables joined via a third join table.
 
 # History & Release Notes
 
+###### 2.0.8 / 2015-12-09
+
+* Added: `Table#description` and `Table#comment` attributes added to the table object.
+* Fixed: Table sql was returning null for table descriptions. 
+
 ###### 2.0.5 / 2015-12-08
 
 * Changed: Code and API cleanup and simplification since alpha releases.

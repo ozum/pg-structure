@@ -76,6 +76,11 @@ describe('Table attributes', function() {
         done();
     });
 
+    it('should have comment.', function(done) {
+        expect(table.comment).to.equal('Firma bilgilerinin tutulduğu tablo.');
+        done();
+    });
+
     it('should have constraints.', function(done) {
         expect(table.constraints[0].name.includes('not_null')).to.equal(true);
         done();
@@ -83,6 +88,11 @@ describe('Table attributes', function() {
 
     it('should have constraintsByName.', function(done) {
         expect(table.constraintsByName.contact_has_companies.name).to.equal('contact_has_companies');
+        done();
+    });
+
+    it('should have description.', function(done) {
+        expect(table.description).to.equal('Firma bilgilerinin tutulduğu tablo.');
         done();
     });
 
