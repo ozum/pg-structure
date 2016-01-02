@@ -41,20 +41,15 @@ Created object can be used to auto generate documentation or ORM models from dat
             // Basic
             var tables      = db.getSchema('public').tables;    // Array of Table objects.
             var tableName   = tables[0].name;                   // Name of first table.
-            
-            // Callback
-            db.getSchema('public').getTables(function(table, i, collection) {
-                var name = table.name;
-            });
-            
+          
             // Long chain example for:
             // public schema -> cart table -> contact_id columns -> foreign key constraint of contact_id
             // -> table of the constraint -> name of the referenced table
             var name     = db.get('public.cart.contact_id').foreignKeyConstraint.referencedTable.name;
             var sameName = db.getSchema('public').getTable('cart').getColumn('contact_id').foreignKeyConstraint.referencedTable.name;
             
-            // Many to many relation:
-            var joinTable = db.get('public.cart_line_item').m2mRelations[0].joinTable;
+            // Many to many relation. Returns cart_line_item for cart --< cart_line_item >-- product
+            var joinTable = db.get('public.cart').m2mRelations[0].joinTable;
         })
         .catch((err) => {
             console.log(err.stack);

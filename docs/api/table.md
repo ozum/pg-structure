@@ -29,6 +29,8 @@ Below is the same schema as image:
   * [.fullCatalogName](#Table+fullCatalogName) : <code>string</code>
   * [.schema](#Table+schema) : <code>Schema</code>
   * [.parent](#Table+parent) : <code>Schema</code>
+  * [.comment](#Table+comment) : <code>string</code>
+  * [.description](#Table+description) : <code>string</code>
   * [.columns](#Table+columns) : <code>Array.&lt;Column&gt;</code>
   * [.columnsByName](#Table+columnsByName) : <code>Object.&lt;string, Column&gt;</code>
   * [.constraints](#Table+constraints) : <code>Array.&lt;Constraint&gt;</code>
@@ -116,6 +118,20 @@ var schema = table.schema; // Schema instance
 ```js
 var schema = table.parent; // Schema instance
 ```
+<a name="Table+comment"></a>
+### table.comment : <code>string</code>
+Comment of the table.
+
+**Kind**: instance property of <code>[Table](#Table)</code>  
+**Read only**: true  
+**See**: Aliases [description](#Table+description)  
+<a name="Table+description"></a>
+### table.description : <code>string</code>
+Comment of the table.
+
+**Kind**: instance property of <code>[Table](#Table)</code>  
+**Read only**: true  
+**See**: Aliases [comment](#Table+comment)  
 <a name="Table+columns"></a>
 ### table.columns : <code>Array.&lt;Column&gt;</code>
 All [Column](Column) instances in the table as an array. They are ordered by same order they are added.
