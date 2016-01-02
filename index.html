@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pg-structure 2.0.8</title>
+  <title>pg-structure 2.0.9</title>
   
 
   <link rel="shortcut icon" href="./img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> pg-structure 2.0.8</a>
+        <a href="." class="icon icon-home"> pg-structure 2.0.9</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -213,7 +213,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">pg-structure 2.0.8</a>
+        <a href=".">pg-structure 2.0.9</a>
       </nav>
 
       
@@ -276,19 +276,14 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
         var tables      = db.getSchema('public').tables;    // Array of Table objects.
         var tableName   = tables[0].name;                   // Name of first table.
 
-        // Callback
-        db.getSchema('public').getTables(function(table, i, collection) {
-            var name = table.name;
-        });
-
         // Long chain example for:
         // public schema -&gt; cart table -&gt; contact_id columns -&gt; foreign key constraint of contact_id
         // -&gt; table of the constraint -&gt; name of the referenced table
         var name     = db.get('public.cart.contact_id').foreignKeyConstraint.referencedTable.name;
         var sameName = db.getSchema('public').getTable('cart').getColumn('contact_id').foreignKeyConstraint.referencedTable.name;
 
-        // Many to many relation:
-        var joinTable = db.get('public.cart_line_item').m2mRelations[0].joinTable;
+        // Many to many relation. Returns cart_line_item for cart --&lt; cart_line_item &gt;-- product
+        var joinTable = db.get('public.cart').m2mRelations[0].joinTable;
     })
     .catch((err) =&gt; {
         console.log(err.stack);
@@ -389,5 +384,5 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
 
 <!--
 MkDocs version : 0.14.0
-Build Date UTC : 2015-12-09 08:20:22.877801
+Build Date UTC : 2016-01-02 13:06:55.616160
 -->
