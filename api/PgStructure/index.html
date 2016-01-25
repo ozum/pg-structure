@@ -170,21 +170,7 @@
             
                 <li class="toctree-l3"><a href="#pgstructure">pgStructure</a></li>
                 
-                    <li><a class="toctree-l4" href="#pgstructuresavedb-file-promisestring">pgStructure.save(db, file) ⇒ Promise.&lt;string&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#pgstructureloadfile-promisedbundefined">pgStructure.load(file) ⇒ Promise.&lt;(DB\|undefined)&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#pgstructureserializedb-string">pgStructure.serialize(db) ⇒ string</a></li>
-                
-                    <li><a class="toctree-l4" href="#pgstructuretostringdb-string">pgStructure.toString(db) ⇒ string</a></li>
-                
-                    <li><a class="toctree-l4" href="#pgstructuredeserializeserializeddbjson-db-undefined">pgStructure.deserialize(serializedDBJSON) ⇒ DB &#124; undefined</a></li>
-                
-                    <li><a class="toctree-l4" href="#pgstructureparseserializeddb-db-undefined">pgStructure.parse(serializedDB) ⇒ DB &#124; undefined</a></li>
-                
-                    <li><a class="toctree-l4" href="#pgstructurepgstructure-promisedb">pgStructure~pgStructure ⇒ Promise.&lt;DB&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#pgstructurepgoptions-object">pgStructure~pgOptions : Object</a></li>
+                    <li><a class="toctree-l4" href="#moduleexportspgoptions-schemas-options-promisedb">module.exports(pgOptions, [schemas], options) ⇒ Promise.&lt;DB&gt; ⏏</a></li>
                 
             
             </ul>
@@ -253,197 +239,29 @@
 <h2 id="pgstructure">pgStructure</h2>
 <ul>
 <li><a href="#module_pgStructure">pgStructure</a><ul>
+<li><a href="#exp_module_pgStructure--module.exports">module.exports(pgOptions, [schemas], options)</a> ⇒ <code>Promise.&lt;DB&gt;</code> ⏏<ul>
 <li><em>static</em><ul>
-<li><a href="#module_pgStructure.save">.save(db, file)</a> ⇒ <code>Promise.&lt;string&gt;</code></li>
-<li><a href="#module_pgStructure.load">.load(file)</a> ⇒ <code>Promise.&lt;(DB\|undefined)&gt;</code></li>
-<li><a href="#module_pgStructure.serialize">.serialize(db)</a> ⇒ <code>string</code></li>
-<li><a href="#module_pgStructure.toString">.toString(db)</a> ⇒ <code>string</code></li>
-<li><a href="#module_pgStructure.deserialize">.deserialize(serializedDBJSON)</a> ⇒ <code>DB</code> &#124; <code>undefined</code></li>
-<li><a href="#module_pgStructure.parse">.parse(serializedDB)</a> ⇒ <code>DB</code> &#124; <code>undefined</code></li>
+<li><a href="#module_pgStructure--module.exports.save">.save(file, db)</a> ⇒ <code>Promise.&lt;string&gt;</code></li>
+<li><a href="#module_pgStructure--module.exports.load">.load(file)</a> ⇒ <code>Promise.&lt;(DB\|undefined)&gt;</code></li>
+<li><a href="#module_pgStructure--module.exports.serialize">.serialize(db)</a> ⇒ <code>string</code></li>
+<li><a href="#module_pgStructure--module.exports.toString">.toString(db)</a> ⇒ <code>string</code></li>
+<li><a href="#module_pgStructure--module.exports.deserialize">.deserialize(serializedDBJSON)</a> ⇒ <code>DB</code> &#124; <code>undefined</code></li>
+<li><a href="#module_pgStructure--module.exports.parse">.parse(serializedDB)</a> ⇒ <code>DB</code> &#124; <code>undefined</code></li>
 </ul>
 </li>
 <li><em>inner</em><ul>
-<li><a href="#module_pgStructure..pgStructure">~pgStructure</a> ⇒ <code>Promise.&lt;DB&gt;</code></li>
-<li><a href="#module_pgStructure..pgOptions">~pgOptions</a> : <code>Object</code></li>
+<li><a href="#module_pgStructure--module.exports..pgOptions">~pgOptions</a> : <code>Object</code></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p><a name="module_pgStructure.save"></a></p>
-<h3 id="pgstructuresavedb-file-promisestring">pgStructure.save(db, file) ⇒ <code>Promise.&lt;string&gt;</code></h3>
-<p>Saves given database structure to a disk file. If given file name ends with <code>.zip</code> extension, file will be saved as
-compressed zip file.</p>
-<p><strong>Kind</strong>: static method of <code><a href="#module_pgStructure">pgStructure</a></code><br />
-<strong>Returns</strong>: <code>Promise.&lt;string&gt;</code> - - Serialized string.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>db</td>
-<td><code>DB</code></td>
-<td><a href="../DB">DB</a> object to save.</td>
-</tr>
-<tr>
-<td>file</td>
-<td><code>string</code> &#124; <code>undefined</code></td>
-<td>File path to save database structure.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">var pgStructure = require('pg-structure');
-
-pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
-    .then(db =&gt; pgStructure.save('./db.json', db))
-    .catch(err =&gt; console.log(err.stack));
-</code></pre>
-
-<p><a name="module_pgStructure.load"></a></p>
-<h3 id="pgstructureloadfile-promisedbundefined">pgStructure.load(file) ⇒ <code>Promise.&lt;(DB\|undefined)&gt;</code></h3>
-<p>Loads database structure from previously saved file. Much faster than getting structure from database.
-If file is a zip file which contains a json file with same name as zip file, this function decompresses the file
-automatically.<br/>
-<img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
-load files saved by incompatible pg-structure module versions and returns <code>undefined</code>. In this case you should
-fetch structure from database and create a new save file.</p>
-<p><strong>Kind</strong>: static method of <code><a href="#module_pgStructure">pgStructure</a></code><br />
-<strong>Returns</strong>: <code>Promise.&lt;(DB\|undefined)&gt;</code> - - <a href="../DB">DB</a> instance or <code>undefined</code> if saved file is generated with incompatible module version.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>file</td>
-<td><code>string</code></td>
-<td>File path to load db structure from.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">var pgStructure = require('pg-structure');
-
-pgStructure.load('./db.json')
-    .then(db =&gt; console.log(db.schemas[0].name))
-    .catch(err =&gt; console.log(err.stack));
-</code></pre>
-
-<p><a name="module_pgStructure.serialize"></a></p>
-<h3 id="pgstructureserializedb-string">pgStructure.serialize(db) ⇒ <code>string</code></h3>
-<p>Serializes database structure to make it possible to store or transfer.</p>
-<p><strong>Kind</strong>: static method of <code><a href="#module_pgStructure">pgStructure</a></code><br />
-<strong>Returns</strong>: <code>string</code> - - Serialized database structure.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>db</td>
-<td><code>DB</code></td>
-<td><a href="../DB">DB</a> instance to serialize.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
-    .then(db =&gt; pgStructure.serialize(db))
-    .then(data =&gt; console.log(data))
-    .catch(err =&gt; console.log(err.stack));
-</code></pre>
-
-<p><a name="module_pgStructure.toString"></a></p>
-<h3 id="pgstructuretostringdb-string">pgStructure.toString(db) ⇒ <code>string</code></h3>
-<p>Alias of {@link module:pgStructure.serialize). Serializes database structure to make it possible to store or transfer.</p>
-<p><strong>Kind</strong>: static method of <code><a href="#module_pgStructure">pgStructure</a></code><br />
-<strong>Returns</strong>: <code>string</code> - - Serialized database structure.<br />
-<strong>See</strong>: {@link module:pgStructure.serialize)  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>db</td>
-<td><code>DB</code></td>
-<td><a href="../DB">DB</a> instance to serialize.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="module_pgStructure.deserialize"></a></p>
-<h3 id="pgstructuredeserializeserializeddbjson-db-undefined">pgStructure.deserialize(serializedDBJSON) ⇒ <code>DB</code> &#124; <code>undefined</code></h3>
-<p>Creates and returns <a href="../DB">DB</a> instance using previously serialized string. <br/>
-<img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
-deserialize incompatible pg-structure module versions and returns <code>undefined</code>. In this case you should fetch structure from database.</p>
-<p><strong>Kind</strong>: static method of <code><a href="#module_pgStructure">pgStructure</a></code><br />
-<strong>Returns</strong>: <code>DB</code> &#124; <code>undefined</code> - - <a href="../DB">DB</a> instance. If serialized string is from incompatible module version, this is <code>undefined</code>
-var pgStructure = require('pg-structure');</p>
-<p>pgStructure.deserialize('./db.json')
-    .then(db =&gt; console.log(db.schemas[0].name)
-    .catch(err =&gt; console.log(err.stack));  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>serializedDBJSON</td>
-<td><code>string</code></td>
-<td>Serialized database structure to create <a href="../DB">DB</a> instance from.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="module_pgStructure.parse"></a></p>
-<h3 id="pgstructureparseserializeddb-db-undefined">pgStructure.parse(serializedDB) ⇒ <code>DB</code> &#124; <code>undefined</code></h3>
-<p>Alias of <a href="#module_pgStructure.deserialize">deserialize</a>. Creates and returns <a href="../DB">DB</a> instance using previously serialized string. <br/>
-<img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
-deserialize incompatible pg-structure module versions and returns <code>undefined</code>. In this case you should fetch structure from database.</p>
-<p><strong>Kind</strong>: static method of <code><a href="#module_pgStructure">pgStructure</a></code><br />
-<strong>Returns</strong>: <code>DB</code> &#124; <code>undefined</code> - - <a href="../DB">DB</a> instance. If serialized string is from incompatible module version, this is <code>undefined</code><br />
-<strong>See</strong>: <a href="#module_pgStructure.deserialize">deserialize</a>  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>serializedDB</td>
-<td><code>string</code></td>
-<td>Serialized database structure to create <a href="../DB">DB</a> instance from.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="module_pgStructure..pgStructure"></a></p>
-<h3 id="pgstructurepgstructure-promisedb">pgStructure~pgStructure ⇒ <code>Promise.&lt;DB&gt;</code></h3>
+</li>
+</ul>
+<p><a name="exp_module_pgStructure--module.exports"></a></p>
+<h3 id="moduleexportspgoptions-schemas-options-promisedb">module.exports(pgOptions, [schemas], options) ⇒ <code>Promise.&lt;DB&gt;</code> ⏏</h3>
 <p>Creates and returns <a href="../DB">DB</a> instance by reverse engineering PostgreSQL database.</p>
-<p><strong>Kind</strong>: inner property of <code><a href="#module_pgStructure">pgStructure</a></code><br />
+<p><strong>Kind</strong>: Exported function<br />
 <strong>Returns</strong>: <code>Promise.&lt;DB&gt;</code> - - <a href="../DB">DB</a>.  </p>
 <table>
 <thead>
@@ -489,10 +307,180 @@ pgStructure({database: 'db', user: 'user', password: 'password'}, ['public', 'ot
     .catch(err =&gt; console.log(err.stack));
 </code></pre>
 
-<p><a name="module_pgStructure..pgOptions"></a></p>
-<h3 id="pgstructurepgoptions-object">pgStructure~pgOptions : <code>Object</code></h3>
+<p><a name="module_pgStructure--module.exports.save"></a></p>
+<h4 id="moduleexportssavefile-db-promisestring">module.exports.save(file, db) ⇒ <code>Promise.&lt;string&gt;</code></h4>
+<p>Saves given database structure to a disk file. If given file name ends with <code>.zip</code> extension, file will be saved as
+compressed zip file.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#exp_module_pgStructure--module.exports">module.exports</a></code><br />
+<strong>Returns</strong>: <code>Promise.&lt;string&gt;</code> - - Serialized string.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file</td>
+<td><code>string</code> &#124; <code>undefined</code></td>
+<td>File path to save database structure.</td>
+</tr>
+<tr>
+<td>db</td>
+<td><code>DB</code></td>
+<td><a href="../DB">DB</a> object to save.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="js">var pgStructure = require('pg-structure');
+
+pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
+    .then(db =&gt; pgStructure.save('./db.json', db))
+    .catch(err =&gt; console.log(err.stack));
+</code></pre>
+
+<p><a name="module_pgStructure--module.exports.load"></a></p>
+<h4 id="moduleexportsloadfile-promisedbundefined">module.exports.load(file) ⇒ <code>Promise.&lt;(DB\|undefined)&gt;</code></h4>
+<p>Loads database structure from previously saved file. Much faster than getting structure from database.
+If file is a zip file which contains a json file with same name as zip file, this function decompresses the file
+automatically.<br/>
+<img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
+load files saved by incompatible pg-structure module versions and returns <code>undefined</code>. In this case you should
+fetch structure from database and create a new save file.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#exp_module_pgStructure--module.exports">module.exports</a></code><br />
+<strong>Returns</strong>: <code>Promise.&lt;(DB\|undefined)&gt;</code> - - <a href="../DB">DB</a> instance or <code>undefined</code> if saved file is generated with incompatible module version.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file</td>
+<td><code>string</code></td>
+<td>File path to load db structure from.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="js">var pgStructure = require('pg-structure');
+
+pgStructure.load('./db.json')
+    .then(db =&gt; console.log(db.schemas[0].name))
+    .catch(err =&gt; console.log(err.stack));
+</code></pre>
+
+<p><a name="module_pgStructure--module.exports.serialize"></a></p>
+<h4 id="moduleexportsserializedb-string">module.exports.serialize(db) ⇒ <code>string</code></h4>
+<p>Serializes database structure to make it possible to store or transfer.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#exp_module_pgStructure--module.exports">module.exports</a></code><br />
+<strong>Returns</strong>: <code>string</code> - - Serialized database structure.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td><code>DB</code></td>
+<td><a href="../DB">DB</a> instance to serialize.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="js">pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
+    .then(db =&gt; pgStructure.serialize(db))
+    .then(data =&gt; console.log(data))
+    .catch(err =&gt; console.log(err.stack));
+</code></pre>
+
+<p><a name="module_pgStructure--module.exports.toString"></a></p>
+<h4 id="moduleexportstostringdb-string">module.exports.toString(db) ⇒ <code>string</code></h4>
+<p>Alias of {@link module:pgStructure.serialize). Serializes database structure to make it possible to store or transfer.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#exp_module_pgStructure--module.exports">module.exports</a></code><br />
+<strong>Returns</strong>: <code>string</code> - - Serialized database structure.<br />
+<strong>See</strong>: {@link module:pgStructure.serialize)  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td><code>DB</code></td>
+<td><a href="../DB">DB</a> instance to serialize.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="module_pgStructure--module.exports.deserialize"></a></p>
+<h4 id="moduleexportsdeserializeserializeddbjson-db-undefined">module.exports.deserialize(serializedDBJSON) ⇒ <code>DB</code> &#124; <code>undefined</code></h4>
+<p>Creates and returns <a href="../DB">DB</a> instance using previously serialized string. <br/>
+<img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
+deserialize incompatible pg-structure module versions and returns <code>undefined</code>. In this case you should fetch structure from database.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#exp_module_pgStructure--module.exports">module.exports</a></code><br />
+<strong>Returns</strong>: <code>DB</code> &#124; <code>undefined</code> - - <a href="../DB">DB</a> instance. If serialized string is from incompatible module version, this is <code>undefined</code>
+var pgStructure = require('pg-structure');</p>
+<p>pgStructure.deserialize('./db.json')
+    .then(db =&gt; console.log(db.schemas[0].name)
+    .catch(err =&gt; console.log(err.stack));  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>serializedDBJSON</td>
+<td><code>string</code></td>
+<td>Serialized database structure to create <a href="../DB">DB</a> instance from.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="module_pgStructure--module.exports.parse"></a></p>
+<h4 id="moduleexportsparseserializeddb-db-undefined">module.exports.parse(serializedDB) ⇒ <code>DB</code> &#124; <code>undefined</code></h4>
+<p>Alias of <a href="#module_pgStructure--module.exports.deserialize">deserialize</a>. Creates and returns <a href="../DB">DB</a> instance using previously serialized string. <br/>
+<img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
+deserialize incompatible pg-structure module versions and returns <code>undefined</code>. In this case you should fetch structure from database.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#exp_module_pgStructure--module.exports">module.exports</a></code><br />
+<strong>Returns</strong>: <code>DB</code> &#124; <code>undefined</code> - - <a href="../DB">DB</a> instance. If serialized string is from incompatible module version, this is <code>undefined</code><br />
+<strong>See</strong>: <a href="#module_pgStructure--module.exports.deserialize">deserialize</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>serializedDB</td>
+<td><code>string</code></td>
+<td>Serialized database structure to create <a href="../DB">DB</a> instance from.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="module_pgStructure--module.exports..pgOptions"></a></p>
+<h4 id="moduleexportspgoptions-object">module.exports~pgOptions : <code>Object</code></h4>
 <p>PostgreSQL connection options which are passed directly to node-postgres.</p>
-<p><strong>Kind</strong>: inner typedef of <code><a href="#module_pgStructure">pgStructure</a></code><br />
+<p><strong>Kind</strong>: inner typedef of <code><a href="#exp_module_pgStructure--module.exports">module.exports</a></code><br />
 <strong>Properties</strong></p>
 <table>
 <thead>
