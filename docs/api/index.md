@@ -5,27 +5,31 @@ Class which represent a database index. Provides attributes and methods for deta
 **Kind**: global class  
 
 * [Index](#Index)
-  * [new Index(args)](#new_Index_new)
-  * [.name](#Index+name) : <code>string</code>
-  * [.fullName](#Index+fullName) : <code>string</code>
-  * [.fullCatalogName](#Index+fullCatalogName) : <code>string</code>
-  * [.isUnique](#Index+isUnique) : <code>boolean</code>
-  * [.isPrimaryKey](#Index+isPrimaryKey) : <code>boolean</code>
-  * [.table](#Index+table) : <code>Table</code>
-  * [.parent](#Index+parent) : <code>Table</code>
-  * [.db](#Index+db) : <code>DB</code>
-  * [.schema](#Index+schema) : <code>Schema</code>
-  * [.columns](#Index+columns) : <code>Array.&lt;Column&gt;</code>
-  * [.columnsByName](#Index+columnsByName) : <code>Object.&lt;string, Column&gt;</code>
+    * [new Index(args)](#new_Index_new)
+    * [.name](#Index+name) : <code>string</code>
+    * [.fullName](#Index+fullName) : <code>string</code>
+    * [.fullCatalogName](#Index+fullCatalogName) : <code>string</code>
+    * [.isUnique](#Index+isUnique) : <code>boolean</code>
+    * [.isPrimaryKey](#Index+isPrimaryKey) : <code>boolean</code>
+    * [.table](#Index+table) : <code>Table</code>
+    * [.parent](#Index+parent) : <code>Table</code>
+    * [.db](#Index+db) : <code>DB</code>
+    * [.schema](#Index+schema) : <code>Schema</code>
+    * [.columns](#Index+columns) : <code>Array.&lt;Column&gt;</code>
+    * [.columnsByName](#Index+columnsByName) : <code>Object.&lt;string, Column&gt;</code>
 
 <a name="new_Index_new"></a>
 ### new Index(args)
+Constructor function. You don't need to call constructor manually. pg-structure handles this.
+
 
 | Param | Type | Description |
 | --- | --- | --- |
-| args | <code>Object</code> | Index arguments. |
-| args.registry | <code>Loki</code> | Loki.js database object. |
-| args.attributes | <code>Object</code> | Attributes of the [Index](#Index) instance. |
+| args | <code>Object</code> | Attributes of the [Index](#Index) instance to be created. |
+| args.name | <code>string</code> | Name of the Index. |
+| args.isUnique | <code>string</code> | Is it a unique index. |
+| args.isPrimaryKey | <code>string</code> | Is it a primary key index. |
+| args.parent | <code>Table</code> | Parent [Table](Table) of the Index. |
 
 <a name="Index+name"></a>
 ### index.name : <code>string</code>
@@ -61,7 +65,7 @@ If true, this is a unique index.
 **Read only**: true  
 <a name="Index+isPrimaryKey"></a>
 ### index.isPrimaryKey : <code>boolean</code>
-If true, this index represents the primary key of the table ([isUnique](#Index+isUnique) should always be true when this is true.)
+If true, this index represents the primary key of the table ([isUnique](#Index+isUnique) is always true for primary keys.)
 
 **Kind**: instance property of <code>[Index](#Index)</code>  
 **Read only**: true  

@@ -2,16 +2,16 @@
 -- schemaName, tableName, name, default, allowNull, type, special, length, precision, scale, arrayType, arrayDimension, position, description
 SELECT
   CONCAT(table_catalog, '.', table_schema, '.', table_name)          AS "parent",
-  table_catalog                                                      AS "catalog",
+  table_catalog                                                      AS "db",
   table_schema                                                       AS "schema",
   table_name                                                         AS "table",
+  pg_catalog.obj_description(c.oid, 'pg_class')                      AS "tableDescription",
   column_name                                                        AS "name",
   CONCAT(table_schema, '.', table_name, '.', column_name)            AS "fullName",
   CONCAT(table_catalog, '.', table_schema, '.', table_name, '.', column_name) AS "fullCatalogName",
   column_default                                                     AS "defaultWithTypeCast",
   CASE WHEN column_default ILIKE 'nextval%' THEN TRUE ELSE FALSE END AS "isAutoIncrement",
   CAST(is_nullable AS BOOLEAN)                                       AS "allowNull",
-  NOT CAST(is_nullable AS BOOLEAN)                                   AS "notNull",
   CASE WHEN udt_name = 'hstore' THEN udt_name
   ELSE LOWER(data_type) END                                          AS "type",
   t.typcategory                                                      AS "typeCategory", -- See http://www.postgresql.org/docs/current/static/catalog-pg-type.html
@@ -35,8 +35,6 @@ SELECT
   domain_catalog                                                     AS "domainCatalog",
   domain_schema                                                      AS "domainSchema",
   domain_name                                                        AS "domainName",
-  CASE WHEN domain_name IS NOT NULL THEN CONCAT(domain_schema, '.', domain_name)
-  ELSE NULL END                                                      AS "domainFullName",
   CASE WHEN t.typcategory IN ('E', 'C') THEN format_type(a.atttypid, NULL)
   ELSE NULL END                                                      AS "userDefinedType",
   udt_name                                                           AS "udtName",      -- User Defined Types such as composite, enumerated etc.
@@ -45,10 +43,10 @@ SELECT
 FROM information_schema.columns
   INNER JOIN pg_catalog.pg_attribute a ON a.attname = column_name
   INNER JOIN pg_catalog.pg_class c ON c.oid = a.attrelid AND c.relname = table_name
-  LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace AND pg_catalog.pg_table_is_visible(c.oid)
+  --LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace AND pg_catalog.pg_table_is_visible(c.oid)
   LEFT JOIN pg_catalog.pg_type arraytype ON arraytype.typname = RIGHT(udt_name, -1)
   INNER JOIN pg_type t ON a.atttypid = t.oid
-WHERE table_schema = ANY ($1)
+WHERE table_schema = ANY($1)
 --WHERE table_schema = 'public'
 ORDER BY table_schema, table_name, ordinal_position
 

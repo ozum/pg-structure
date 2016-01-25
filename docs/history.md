@@ -2,17 +2,26 @@
 
 **Note**: Version history for minimal documentation updates are not listed here to prevent cluttering.
 
-### Why v2 has incompatible changes?
-Version 2 is designed to be more elegant and more intuitive. Methods are changed to read only attributes and new methods
- are easily distinguished from attributes with verb based names such as `columns` vs `getColumns()`.
-
-Additionally new `Relation` classes are added. Some of the features are moved from `Constraint` to `Relation`,
- because some features are technically not available in DB Engine and those features misrepresent `Constraint`.
- 
-For example many to many relations are virtual relationships which do not actually exist in database. They are
-tables joined via a third join table.
-
 # History & Release Notes
+
+###### 3.0.0 / 2016-01-16
+Previous versions of pg-structure are designed to be a build time tool. v3 are designed to be a runtime tool. It is refactored to better performance compared to previous versions.
+Internal storage is completely rewritten. Loki DB is excellent product, but it is overkill for this project. pg-structure now uses direct object references for speed up things.
+DB interaction is reduced from 9 SQL queries to 3. Those 3 queries are same queries from previous version. So work of other 6 queries are done by Javascript now.
+
+* Breaking Change: Column#foreignKeyConstraint is changed to Column#foreignKeyConstraints, Column#referencedColumn is removed,
+because same column may be part of multiple different foreign key constraints which results in referencing different columns
+in different tables at the same time.
+* Breaking Change: All `...ByName` such as `Table#columnsByName` methods are removed, and collections such as `Table#columns` return Map instead of array or object.
+Maps return values in order like arrays and they can be queried with `.has` method like objects.
+* Breaking Change: Column#uniqueIndexesNoPK is renamed as Column#uniqueIndexesNoPk.
+* Added: Optional Lazy loading, cache of lazy loaded parts, invalidation logic of cache.
+* Added: pgStructure.serialize and pgStructure.deserialize methods.
+* Added: pgStructure.save and pgStructure.load methods. Load is 10 times faster than querying database. 
+* Added: Column#domainSchema
+* Added: Constraint#matchOption, Constraint#referencedColumnsBy
+* Added: Table#belongsToManyTablesPk, Table#m2mRelationsPk
+* Doc updates and changes.
 
 ###### 2.0.8 / 2015-12-09
 
@@ -55,6 +64,16 @@ tables joined via a third join table.
 * Constraint features that are technically not available in DB Engine moved from `Constraint` class to related `Relation` classes.
 * Documentation updated completely and added clearer examples.
 * Some method names and attributes are more intuitive than previous version.
+
+###### Why v2 has incompatible changes?
+Version 2 is designed to be more elegant and more intuitive. Methods are changed to read only attributes and new methods
+ are easily distinguished from attributes with verb based names such as `columns` vs `getColumns()`.
+
+Additionally new `Relation` classes are added. Some of the features are moved from `Constraint` to `Relation`,
+ because some features are technically not available in DB Engine and those features misrepresent `Constraint`.
+ 
+For example many to many relations are virtual relationships which do not actually exist in database. They are
+tables joined via a third join table.
 
 ###### 1.11.1 / 2015-06-16
 * Added: JSONB support. Contributed by: viniciuspinto (https://github.com/viniciuspinto)

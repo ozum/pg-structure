@@ -1,19 +1,18 @@
 <a name="M2MRelation"></a>
-## M2MRelation ⇐ <code>Relation</code>
+## M2MRelation
 **Kind**: global class  
-**Extends:** <code>Relation</code>  
 
-* [M2MRelation](#M2MRelation) ⇐ <code>Relation</code>
-  * [new M2MRelation()](#new_M2MRelation_new)
-  * [.type](#M2MRelation+type) : <code>relationType</code>
-  * [.sourceTable](#M2MRelation+sourceTable) : <code>Table</code>
-  * [.joinTable](#M2MRelation+joinTable) : <code>Table</code>
-  * [.targetTable](#M2MRelation+targetTable) : <code>Table</code>
-  * [.sourceConstraint](#M2MRelation+sourceConstraint) : <code>Table</code>
-  * [.targetConstraint](#M2MRelation+targetConstraint) : <code>Table</code>
+* [M2MRelation](#M2MRelation)
+    * [new M2MRelation(args)](#new_M2MRelation_new)
+    * [.type](#M2MRelation+type) : <code>relationType</code>
+    * [.sourceTable](#M2MRelation+sourceTable) : <code>Table</code>
+    * [.joinTable](#M2MRelation+joinTable) : <code>Table</code>
+    * [.targetTable](#M2MRelation+targetTable) : <code>Table</code>
+    * [.sourceConstraint](#M2MRelation+sourceConstraint) : <code>Table</code>
+    * [.targetConstraint](#M2MRelation+targetConstraint) : <code>Table</code>
 
 <a name="new_M2MRelation_new"></a>
-### new M2MRelation()
+### new M2MRelation(args)
 Class which represent a many to many relationship which resembles `belongsToMany` or `hasManyThrough` relations in ORMs (Object Relational Mappers).
 Provides attributes and methods for details of the relationship.
 
@@ -53,6 +52,16 @@ Product table has 3 foreign key constraints. Product table is not meant to be a 
 However product could have been join table for `size & vendor`, `color & vendor` and `size & color`. As a result size,
 color and vendor tables would have many to many relationships.
 
+
+| Param | Type | Description |
+| --- | --- | --- |
+| args | <code>Object</code> | Attributes of the [M2MRelation](#M2MRelation) instance to be created. |
+| args.sourceTable | <code>Table</code> | Source [Table](Table) which this relation belongs to. |
+| args.joinTable | <code>Table</code> | Join [Table](Table) of this relationship. |
+| args.targetTable | <code>Table</code> | Target [Table](Table) which this relation is referring to through a join table. |
+| args.sourceConstraint | <code>Constraint</code> | Foreign key constraint between source table and join table. |
+| args.targetConstraint | <code>Constraint</code> | Foreign key constraint between join table and target table. |
+
 **Example**  
 ```js
 // Example tables have single primary key and and examples first relation. So zero index ([0]) is used. Use all array elements if necessary.
@@ -71,7 +80,7 @@ let targetPKColumn       = relation.targetTable.primaryKeys[0];  // COLUMN:     
 ```
 <a name="M2MRelation+type"></a>
 ### m2MRelation.type : <code>relationType</code>
-Type of relation which is `ONE TO MANY`.
+Type of relation which is `MANY TO MANY`.
 
 **Kind**: instance property of <code>[M2MRelation](#M2MRelation)</code>  
 **Read only**: true  
@@ -88,7 +97,7 @@ let source   = relation.sourceTable;             // TABLE:       product
 ```
 <a name="M2MRelation+joinTable"></a>
 ### m2MRelation.joinTable : <code>Table</code>
-[Table](Table) of this relationship. This table contains foreign key columns referring both
+Join [Table](Table) of this relationship. This table contains foreign key columns referring both
 [sourceTable](#M2MRelation+sourceTable) and [targetTable](#M2MRelation+targetTable).
 
 **Kind**: instance property of <code>[M2MRelation](#M2MRelation)</code>  

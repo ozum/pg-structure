@@ -1,4 +1,4 @@
-site_name: pg-structure 2.0.10
+site_name: pg-structure 3.0.0
 theme: readthedocs
 pages:
   - Home: index.md
@@ -10,13 +10,13 @@ pages:
   - API:
       - Column: api/Column.md
       - Constraint: api/Constraint.md
-      - DB: api/DB.md
+      - Db: api/Db.md
       - Index: api/Index.md
       - M2M Relation: api/M2MRelation.md
       - M2O Relation: api/M2ORelation.md
+      - Map: api/Map.md
       - O2M Relation: api/O2MRelation.md
       - pgStructure: api/PgStructure.md
-      - Relation: api/Relation.md
       - Schema: api/Schema.md
       - Table: api/Table.md
 site_url: 'http://www.pg-structure.com'

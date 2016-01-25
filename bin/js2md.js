@@ -25,8 +25,7 @@ var conversion = {
     'm2m-relation': 'M2M Relation',
     'o2m-relation': 'O2M Relation',
     'm2o-relation': 'M2O Relation',
-    'pg-structure': 'pgStructure',
-    db: 'DB'
+    'pg-structure': 'pgStructure'
 };
 
 function getFiles(dir, callback) {
@@ -63,7 +62,7 @@ getFiles(__dirname + '/../lib', function(err, dir, file) {
     let title       = conversion[jsFileBase] || inflection.titleize(jsFileBase);    // Ex: M2O Relation, Column etc.
     let base        = inflection.classify(title.replace(/\s/g, ''));                // Ex: M2ORelation, Column etc.
 
-    if (dir.match(/util$/) || path.extname(file) !== '.js') return; // Only js files not located in util directory.
+    if (dir.match(/util$/) || path.extname(file) !== '.js') return; // Skip util directory and non js files.
 
     // Add page to YAML config.
     let configLine = {};

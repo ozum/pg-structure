@@ -25,13 +25,13 @@ try {
 var inflection          = require('inflection');
 var readSQLFiles        = require('./read-sql-files');
 var Loki                = require('lokijs');
-var DB                  = require('../lib/db');
-var Schema              = require('../lib/schema');
-var Table               = require('../lib/table');
-var Column              = require('../lib/column');
-var Constraint          = require('../lib/constraint');
+var DB                  = require('../../lib/db');
+var Schema              = require('../../lib/schema');
+var Table               = require('../../lib/table');
+var Column              = require('../../lib/column');
+var Constraint          = require('../../lib/constraint');
 var RelationFabricator  = require('../lib/util/relation-fabricator.js');
-var Index               = require('../lib/index.js');
+var Index               = require('../../lib/index.js');
 
 var config = {
     db: {

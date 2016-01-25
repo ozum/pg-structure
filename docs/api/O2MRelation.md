@@ -1,17 +1,16 @@
 <a name="O2MRelation"></a>
-## O2MRelation ⇐ <code>Relation</code>
+## O2MRelation
 **Kind**: global class  
-**Extends:** <code>Relation</code>  
 
-* [O2MRelation](#O2MRelation) ⇐ <code>Relation</code>
-  * [new O2MRelation()](#new_O2MRelation_new)
-  * [.type](#O2MRelation+type) : <code>relationType</code>
-  * [.sourceTable](#O2MRelation+sourceTable) : <code>Table</code>
-  * [.targetTable](#O2MRelation+targetTable) : <code>Table</code>
-  * [.constraint](#O2MRelation+constraint) : <code>Table</code>
+* [O2MRelation](#O2MRelation)
+    * [new O2MRelation(args)](#new_O2MRelation_new)
+    * [.type](#O2MRelation+type) : <code>relationType</code>
+    * [.sourceTable](#O2MRelation+sourceTable) : <code>Table</code>
+    * [.targetTable](#O2MRelation+targetTable) : <code>Table</code>
+    * [.constraint](#O2MRelation+constraint) : <code>Table</code>
 
 <a name="new_O2MRelation_new"></a>
-### new O2MRelation()
+### new O2MRelation(args)
 Class which represent many to one relationship which resembles `hasMany` relation in ORMs (Object Relational Mappers).
 Provides attributes and methods for details of the relationship.
 
@@ -37,6 +36,14 @@ Some definitions used in descriptions for [O2MRelation](#O2MRelation).
 * ** Source Table: ** Table which this relationship belongs to.
 * ** Target Table: ** Table that is related to base table.
 
+
+| Param | Type | Description |
+| --- | --- | --- |
+| args | <code>Object</code> | Attributes of the [O2MRelation](#O2MRelation) instance to be created. |
+| args.sourceTable | <code>Table</code> | Source [Table](Table) which this relation belongs to. |
+| args.targetTable | <code>Table</code> | Target [Table](Table) which this relation is referring to. |
+| args.constraint | <code>Constraint</code> | Foreign key constraint between source table and target table. |
+
 **Example**  
 ```js
 // Example tables have single primary key and examples first relation. So zero index ([0]) is used. Use all array elements if necessary.
@@ -52,7 +59,7 @@ let sourcePKColumn   = relation.sourceTable.primaryKeys[0];  // COLUMN:      id 
 ```
 <a name="O2MRelation+type"></a>
 ### o2MRelation.type : <code>relationType</code>
-Type of relation which is `MANY TO MANY`.
+Type of relation which is `ONE TO MANY`.
 
 **Kind**: instance property of <code>[O2MRelation](#O2MRelation)</code>  
 **Read only**: true  

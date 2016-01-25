@@ -29,36 +29,61 @@ Created object can be used to auto generate documentation or ORM models from dat
     var pgStructure = require('pg-structure');
            
     pgStructure({database: 'db', user: 'user', password: 'password'}, ['public', 'other_schema'])
-        .then((db) => { console.log( db.get('public.account').columns[0].name ); })
-        .catch((err) => { console.log(err.stack); });
+        .then((db) => { console.log( db.get('public.account').columns.get('is_active').type ); })
+        .catch(err => console.log(err.stack));
 
 ## Detailed Example
 
     var pgStructure = require('pg-structure');
 
-    pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
+    pgStructure({database: 'node_test', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
         .then((db) => {
             // Basic
-            var tables      = db.getSchema('public').tables;    // Array of Table objects.
-            var tableName   = tables[0].name;                   // Name of first table.
-          
+            var tables = db.schemas.get('public').tables;  // Map of Table objects.
+    
+            // List of table names
+            for (let table of tables.values()) {
+                console.log(table.name);
+            }
+    
             // Long chain example for:
-            // public schema -> cart table -> contact_id columns -> foreign key constraint of contact_id
-            // -> table of the constraint -> name of the referenced table
-            var name     = db.get('public.cart.contact_id').foreignKeyConstraint.referencedTable.name;
-            var sameName = db.getSchema('public').getTable('cart').getColumn('contact_id').foreignKeyConstraint.referencedTable.name;
-            
+            // public schema -> cart table -> contact_id column -> foreign key constraints of contact_id.
+            var constraints = db.get('public.cart.contact_id').foreignKeyConstraints;
+            var sameName = db.schemas.get('public').tables.get('cart').columns.get('contact_id').foreignKeyConstraints;
+    
             // Many to many relation. Returns cart_line_item for cart --< cart_line_item >-- product
-            var joinTable = db.get('public.cart').m2mRelations[0].joinTable;
+            var joinTable = [...db.get('public.cart').m2mRelations.values()][0].joinTable;    // See JS Map  on https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Map
         })
-        .catch((err) => {
-            console.log(err.stack);
-        });
+        .catch(err => console.log(err.stack));
+
+## Load & Save Example
+
+You can save reverse engineered database for later to load. If you use `.zip` extension, pg-structure automatically
+compresses file as zip file. 
+
+    var pgStructure = require('pg-structure');
+
+    pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
+        .then(db => pgStructure.save('./db.zip', db))
+        .catch(err => console.log(err.stack));
+    
+... Later, you can load pg-structure. Loading is 10 times faster than reverse engineering database.  
+
+    var pgStructure = require('pg-structure');
+    
+    pgStructure.load('./db.zip')
+        .then(db => console.log(db.schemas.get('public').name))
+        .catch(err => console.log(err.stack));
+
+<img src="http://www.pg-structure.com/images/warning-24.png" style="margin-left: -26px;">**Caveat**: pgStructure cannot
+load files saved by incompatible pg-structure module versions and returns `undefined`. In this case you should
+fetch structure from database and create a new save file.
 
 ## Features
 
 * Fully tested
 * Fully documented with JSDOC and HTML
+* Supports load, save, serialize, deserialize, toString, parse.
 * All PostgreSQL data types including array, JSON and HSTore
 * Support composite keys (Multiple field keys)
 * Schema support
@@ -84,6 +109,13 @@ Created object can be used to auto generate documentation or ORM models from dat
     * Constraint
     * Index
     * Relation
+
+## Where to Start?
+
+First have look at [concepts](http://localhost:63342/pg-structure3/site/concepts/) to understand a few key points.
+You may want to read [examples](http://localhost:63342/pg-structure3/site/examples/) to see how **pg-structure** can be used.
+To start coding read main [pg-structure](http://localhost:63342/pg-structure3/site/api/PgStructure/) module's documentation.
+During development API references helps you.
 
 ## Special Thanks
 **pg-structure** is developed under sponsorship of [Fortibase](http://www.fortibase.com) and released as open source. See [license](http://www.pg-structure.com/license/).

@@ -9,15 +9,15 @@ var it          = lab.it;
 var testDB      = require('./util/test-db.js');
 var expect      = Chai.expect;
 
+var dbs = {};
 var db;
 
 lab.before((done) => {
     testDB.createDB('1')
-        .then(() => {
-            return pgStructure(testDB.credentials, ['public', 'other_schema']);
-        })
+        .then(() => pgStructure(testDB.credentials, ['public', 'other_schema']))
         .then((result) => {
-            db = result;
+            dbs.fromDB      = result;
+            dbs.fromFile    = pgStructure.deserialize(pgStructure.serialize(result));
             done();
         })
         .catch((err) => {
@@ -31,51 +31,46 @@ lab.after((done) => {
     });
 });
 
-describe('DB attributes', function() {
-    it('should have name.', function(done) {
-        expect(db.name).to.equal('pg-test-util');
-        done();
-    });
+var tests = function(key) {
+    return function() {
+        lab.before((done) => {
+            db = dbs[key];
+            done();
+        });
 
-    it('should have fullName.', function(done) {
-        expect(db.fullName).to.equal('pg-test-util');
-        done();
-    });
+        it('should have name.', function(done) {
+            expect(db.name).to.equal('pg-test-util');
+            done();
+        });
 
-    it('should have fullCatalogName.', function(done) {
-        expect(db.fullCatalogName).to.equal('pg-test-util');
-        done();
-    });
+        it('should have fullName.', function(done) {
+            expect(db.fullName).to.equal('pg-test-util');
+            done();
+        });
 
-    it('should have schemas.', function(done) {
-        expect(db.schemas[0].name).to.equal('other_schema');
-        expect(db.schemas[1].name).to.equal('public');
-        done();
-    });
+        it('should have fullCatalogName.', function(done) {
+            expect(db.fullCatalogName).to.equal('pg-test-util');
+            done();
+        });
 
-    it('should have schemasByName.', function(done) {
-        let schema = 'other_schema';
-        expect(db.schemasByName[schema].name).to.equal('other_schema');
-        expect(db.schemasByName.public.name).to.equal('public');
-        done();
-    });
-});
+        it('should have schemas.get().', function(done) {
+            expect(db.schemas.get('other_schema').name).to.equal('other_schema');
+            expect(db.schemas.get('public').name).to.equal('public');
+            done();
+        });
 
-describe('DB methods', function() {
-    it('should have getSchema().', function(done) {
-        expect(db.getSchema('public').name).to.equal('public');
-        done();
-    });
+        it('should have schemas.has().', function(done) {
+            expect(db.schemas.has('other_schema')).to.equal(true);
+            done();
+        });
 
-    it('should have schemaExists().', function(done) {
-        expect(db.schemaExists('public')).to.equal(true);
-        expect(db.schemaExists('not_available')).to.equal(false);
-        done();
-    });
+        it('should have get().', function(done) {
+            expect(db.get('public').name).to.equal('public');
+            expect(db.get('public.account.id').name).to.equal('id');
+            done();
+        });
+    }
+};
 
-    it('should have get().', function(done) {
-        expect(db.get('public').name).to.equal('public');
-        expect(db.get('public.account.id').name).to.equal('id');
-        done();
-    });
-});
+describe('DB from Database', tests('fromDB'));
+describe('DB from File', tests('fromFile'));

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pg-structure 2.0.10</title>
+  <title>pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="./img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href="." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -71,7 +71,11 @@
                 
                     <li><a class="toctree-l4" href="#detailed-example">Detailed Example</a></li>
                 
+                    <li><a class="toctree-l4" href="#load-save-example">Load &amp; Save Example</a></li>
+                
                     <li><a class="toctree-l4" href="#features">Features</a></li>
+                
+                    <li><a class="toctree-l4" href="#where-to-start">Where to Start?</a></li>
                 
                     <li><a class="toctree-l4" href="#special-thanks">Special Thanks</a></li>
                 
@@ -139,7 +143,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="api/DB/">DB</a>
+        <a class="" href="api/Db/">Db</a>
         
     </li>
 
@@ -167,6 +171,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="api/Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="api/O2MRelation/">O2M Relation</a>
         
     </li>
@@ -175,13 +186,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="api/PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="api/Relation/">Relation</a>
         
     </li>
 
@@ -213,7 +217,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">pg-structure 2.0.10</a>
+        <a href=".">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -264,35 +268,56 @@
 <pre><code>var pgStructure = require('pg-structure');
 
 pgStructure({database: 'db', user: 'user', password: 'password'}, ['public', 'other_schema'])
-    .then((db) =&gt; { console.log( db.get('public.account').columns[0].name ); })
-    .catch((err) =&gt; { console.log(err.stack); });
+    .then((db) =&gt; { console.log( db.get('public.account').columns.get('is_active').type ); })
+    .catch(err =&gt; console.log(err.stack));
 </code></pre>
 <h2 id="detailed-example">Detailed Example</h2>
 <pre><code>var pgStructure = require('pg-structure');
 
-pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
+pgStructure({database: 'node_test', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
     .then((db) =&gt; {
         // Basic
-        var tables      = db.getSchema('public').tables;    // Array of Table objects.
-        var tableName   = tables[0].name;                   // Name of first table.
+        var tables = db.schemas.get('public').tables;  // Map of Table objects.
+
+        // List of table names
+        for (let table of tables.values()) {
+            console.log(table.name);
+        }
 
         // Long chain example for:
-        // public schema -&gt; cart table -&gt; contact_id columns -&gt; foreign key constraint of contact_id
-        // -&gt; table of the constraint -&gt; name of the referenced table
-        var name     = db.get('public.cart.contact_id').foreignKeyConstraint.referencedTable.name;
-        var sameName = db.getSchema('public').getTable('cart').getColumn('contact_id').foreignKeyConstraint.referencedTable.name;
+        // public schema -&gt; cart table -&gt; contact_id column -&gt; foreign key constraints of contact_id.
+        var constraints = db.get('public.cart.contact_id').foreignKeyConstraints;
+        var sameName = db.schemas.get('public').tables.get('cart').columns.get('contact_id').foreignKeyConstraints;
 
         // Many to many relation. Returns cart_line_item for cart --&lt; cart_line_item &gt;-- product
-        var joinTable = db.get('public.cart').m2mRelations[0].joinTable;
+        var joinTable = [...db.get('public.cart').m2mRelations.values()][0].joinTable;    // See JS Map  on https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Map
     })
-    .catch((err) =&gt; {
-        console.log(err.stack);
-    });
+    .catch(err =&gt; console.log(err.stack));
 </code></pre>
+<h2 id="load-save-example">Load &amp; Save Example</h2>
+<p>You can save reverse engineered database for later to load. If you use <code>.zip</code> extension, pg-structure automatically
+compresses file as zip file. </p>
+<pre><code>var pgStructure = require('pg-structure');
+
+pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
+    .then(db =&gt; pgStructure.save('./db.zip', db))
+    .catch(err =&gt; console.log(err.stack));
+</code></pre>
+<p>... Later, you can load pg-structure. Loading is 10 times faster than reverse engineering database.  </p>
+<pre><code>var pgStructure = require('pg-structure');
+
+pgStructure.load('./db.zip')
+    .then(db =&gt; console.log(db.schemas.get('public').name))
+    .catch(err =&gt; console.log(err.stack));
+</code></pre>
+<p><img src="http://www.pg-structure.com/images/warning-24.png" style="margin-left: -26px;"><strong>Caveat</strong>: pgStructure cannot
+load files saved by incompatible pg-structure module versions and returns <code>undefined</code>. In this case you should
+fetch structure from database and create a new save file.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Fully tested</li>
 <li>Fully documented with JSDOC and HTML</li>
+<li>Supports load, save, serialize, deserialize, toString, parse.</li>
 <li>All PostgreSQL data types including array, JSON and HSTore</li>
 <li>Support composite keys (Multiple field keys)</li>
 <li>Schema support</li>
@@ -323,6 +348,11 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
 </ul>
 </li>
 </ul>
+<h2 id="where-to-start">Where to Start?</h2>
+<p>First have look at <a href="http://localhost:63342/pg-structure3/site/concepts/">concepts</a> to understand a few key points.
+You may want to read <a href="http://localhost:63342/pg-structure3/site/examples/">examples</a> to see how <strong>pg-structure</strong> can be used.
+To start coding read main <a href="http://localhost:63342/pg-structure3/site/api/PgStructure/">pg-structure</a> module's documentation.
+During development API references helps you.</p>
 <h2 id="special-thanks">Special Thanks</h2>
 <p><strong>pg-structure</strong> is developed under sponsorship of <a href="http://www.fortibase.com">Fortibase</a> and released as open source. See <a href="http://www.pg-structure.com/license/">license</a>.</p>
 <p>Also documentation is auto generated thanks to:</p>
@@ -384,5 +414,5 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
 
 <!--
 MkDocs version : 0.14.0
-Build Date UTC : 2016-01-02 14:05:40.530025
+Build Date UTC : 2016-01-25 17:00:13.307639
 -->

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>O2M Relation - pg-structure 2.0.10</title>
+  <title>O2M Relation - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -122,7 +122,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../DB/">DB</a>
+        <a class="" href="../Db/">Db</a>
         
     </li>
 
@@ -149,14 +149,21 @@
 
         
             
+    <li class="toctree-l1 ">
+        <a class="" href="../Map/">Map</a>
+        
+    </li>
+
+        
+            
     <li class="toctree-l1 current">
         <a class="current" href="./">O2M Relation</a>
         
             <ul>
             
-                <li class="toctree-l3"><a href="#o2mrelation-relation">O2MRelation ⇐ Relation</a></li>
+                <li class="toctree-l3"><a href="#o2mrelation">O2MRelation</a></li>
                 
-                    <li><a class="toctree-l4" href="#new-o2mrelation">new O2MRelation()</a></li>
+                    <li><a class="toctree-l4" href="#new-o2mrelationargs">new O2MRelation(args)</a></li>
                 
                     <li><a class="toctree-l4" href="#o2mrelationtype-relationtype">o2MRelation.type : relationType</a></li>
                 
@@ -175,13 +182,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Relation/">Relation</a>
         
     </li>
 
@@ -213,7 +213,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.10</a>
+        <a href="../..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -244,19 +244,20 @@
             <div class="section">
               
                 <p><a name="O2MRelation"></a></p>
-<h2 id="o2mrelation-relation">O2MRelation ⇐ <code>Relation</code></h2>
-<p><strong>Kind</strong>: global class<br />
-<strong>Extends:</strong> <code>Relation</code>  </p>
+<h2 id="o2mrelation">O2MRelation</h2>
+<p><strong>Kind</strong>: global class  </p>
 <ul>
-<li><a href="#O2MRelation">O2MRelation</a> ⇐ <code>Relation</code></li>
-<li><a href="#new_O2MRelation_new">new O2MRelation()</a></li>
+<li><a href="#O2MRelation">O2MRelation</a><ul>
+<li><a href="#new_O2MRelation_new">new O2MRelation(args)</a></li>
 <li><a href="#O2MRelation+type">.type</a> : <code>relationType</code></li>
 <li><a href="#O2MRelation+sourceTable">.sourceTable</a> : <code>Table</code></li>
 <li><a href="#O2MRelation+targetTable">.targetTable</a> : <code>Table</code></li>
 <li><a href="#O2MRelation+constraint">.constraint</a> : <code>Table</code></li>
 </ul>
+</li>
+</ul>
 <p><a name="new_O2MRelation_new"></a></p>
-<h3 id="new-o2mrelation">new O2MRelation()</h3>
+<h3 id="new-o2mrelationargs">new O2MRelation(args)</h3>
 <p>Class which represent many to one relationship which resembles <code>hasMany</code> relation in ORMs (Object Relational Mappers).
 Provides attributes and methods for details of the relationship.</p>
 <p><span id="exampleSchema"></span>Below is a database schema as an example:</p>
@@ -279,6 +280,37 @@ name                 name                   name
 <p>Some definitions used in descriptions for <a href="#O2MRelation">O2MRelation</a>.
 <em> <strong> Source Table: </strong> Table which this relationship belongs to.
 </em> <strong> Target Table: </strong> Table that is related to base table.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>args</td>
+<td><code>Object</code></td>
+<td>Attributes of the <a href="#O2MRelation">O2MRelation</a> instance to be created.</td>
+</tr>
+<tr>
+<td>args.sourceTable</td>
+<td><code>Table</code></td>
+<td>Source <a href="../Table">Table</a> which this relation belongs to.</td>
+</tr>
+<tr>
+<td>args.targetTable</td>
+<td><code>Table</code></td>
+<td>Target <a href="../Table">Table</a> which this relation is referring to.</td>
+</tr>
+<tr>
+<td>args.constraint</td>
+<td><code>Constraint</code></td>
+<td>Foreign key constraint between source table and target table.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Example</strong>  </p>
 <pre><code class="js">// Example tables have single primary key and examples first relation. So zero index ([0]) is used. Use all array elements if necessary.
 // product ----&lt; line_item
@@ -294,7 +326,7 @@ let sourcePKColumn   = relation.sourceTable.primaryKeys[0];  // COLUMN:      id 
 
 <p><a name="O2MRelation+type"></a></p>
 <h3 id="o2mrelationtype-relationtype">o2MRelation.type : <code>relationType</code></h3>
-<p>Type of relation which is <code>MANY TO MANY</code>.</p>
+<p>Type of relation which is <code>ONE TO MANY</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#O2MRelation">O2MRelation</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="O2MRelation+sourceTable"></a></p>
@@ -337,7 +369,7 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
         <a href="../PgStructure/" class="btn btn-neutral float-right" title="pgStructure"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../M2ORelation/" class="btn btn-neutral" title="M2O Relation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Map/" class="btn btn-neutral" title="Map"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -367,7 +399,7 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../M2ORelation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Map/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../PgStructure/" style="color: #fcfcfc">Next &raquo;</a></span>

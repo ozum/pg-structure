@@ -1,17 +1,16 @@
 <a name="M2ORelation"></a>
-## M2ORelation ⇐ <code>Relation</code>
+## M2ORelation
 **Kind**: global class  
-**Extends:** <code>Relation</code>  
 
-* [M2ORelation](#M2ORelation) ⇐ <code>Relation</code>
-  * [new M2ORelation()](#new_M2ORelation_new)
-  * [.type](#M2ORelation+type) : <code>relationType</code>
-  * [.sourceTable](#M2ORelation+sourceTable) : <code>Table</code>
-  * [.targetTable](#M2ORelation+targetTable) : <code>Table</code>
-  * [.constraint](#M2ORelation+constraint) : <code>Table</code>
+* [M2ORelation](#M2ORelation)
+    * [new M2ORelation(args)](#new_M2ORelation_new)
+    * [.type](#M2ORelation+type) : <code>relationType</code>
+    * [.sourceTable](#M2ORelation+sourceTable) : <code>Table</code>
+    * [.targetTable](#M2ORelation+targetTable) : <code>Table</code>
+    * [.constraint](#M2ORelation+constraint) : <code>Table</code>
 
 <a name="new_M2ORelation_new"></a>
-### new M2ORelation()
+### new M2ORelation(args)
 Class which represent many to one relationship which resembles `belongsTo` relation in ORMs (Object Relational Mappers).
 Provides attributes and methods for details of the relationship.
 
@@ -38,6 +37,14 @@ Below is the same schema as image:
 Some definitions used in descriptions for [M2ORelation](#M2ORelation).
 * ** Source Table: ** Table which this relationship belongs to.
 * ** Target Table: ** Table that is related to base table.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| args | <code>Object</code> | Attributes of the [M2ORelation](#M2ORelation) instance to be created. |
+| args.sourceTable | <code>Table</code> | Source [Table](Table) which this relation belongs to. |
+| args.targetTable | <code>Table</code> | Target [Table](Table) which this relation is referring to. |
+| args.constraint | <code>Constraint</code> | Foreign key constraint between source table and target table. |
 
 **Example**  
 ```js

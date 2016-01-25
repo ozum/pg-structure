@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>History - pg-structure 2.0.10</title>
+  <title>History - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -86,10 +86,9 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#why-v2-has-incompatible-changes">Why v2 has incompatible changes?</a></li>
-                
-            
                 <li class="toctree-l3"><a href="#history-release-notes">History &amp; Release Notes</a></li>
+                
+                    <li><a class="toctree-l4" href="#300-2016-01-16">3.0.0 / 2016-01-16</a></li>
                 
                     <li><a class="toctree-l4" href="#208-2015-12-09">2.0.8 / 2015-12-09</a></li>
                 
@@ -106,6 +105,8 @@
                     <li><a class="toctree-l4" href="#200-alpha2-2015-11-17">2.0.0-alpha.2 / 2015-11-17</a></li>
                 
                     <li><a class="toctree-l4" href="#200-alpha1-2015-11-11">2.0.0-alpha.1 / 2015-11-11</a></li>
+                
+                    <li><a class="toctree-l4" href="#why-v2-has-incompatible-changes">Why v2 has incompatible changes?</a></li>
                 
                     <li><a class="toctree-l4" href="#1111-2015-06-16">1.11.1 / 2015-06-16</a></li>
                 
@@ -182,7 +183,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../api/DB/">DB</a>
+        <a class="" href="../api/Db/">Db</a>
         
     </li>
 
@@ -210,6 +211,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../api/Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../api/O2MRelation/">O2M Relation</a>
         
     </li>
@@ -218,13 +226,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../api/PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api/Relation/">Relation</a>
         
     </li>
 
@@ -256,7 +257,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 2.0.10</a>
+        <a href="..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -285,14 +286,26 @@
                 <div id="History"></div>
 
 <p><strong>Note</strong>: Version history for minimal documentation updates are not listed here to prevent cluttering.</p>
-<h3 id="why-v2-has-incompatible-changes">Why v2 has incompatible changes?</h3>
-<p>Version 2 is designed to be more elegant and more intuitive. Methods are changed to read only attributes and new methods
- are easily distinguished from attributes with verb based names such as <code>columns</code> vs <code>getColumns()</code>.</p>
-<p>Additionally new <code>Relation</code> classes are added. Some of the features are moved from <code>Constraint</code> to <code>Relation</code>,
- because some features are technically not available in DB Engine and those features misrepresent <code>Constraint</code>.</p>
-<p>For example many to many relations are virtual relationships which do not actually exist in database. They are
-tables joined via a third join table.</p>
 <h1 id="history-release-notes">History &amp; Release Notes</h1>
+<h6 id="300-2016-01-16">3.0.0 / 2016-01-16</h6>
+<p>Previous versions of pg-structure are designed to be a build time tool. v3 are designed to be a runtime tool. It is refactored to better performance compared to previous versions.
+Internal storage is completely rewritten. Loki DB is excellent product, but it is overkill for this project. pg-structure now uses direct object references for speed up things.
+DB interaction is reduced from 9 SQL queries to 3. Those 3 queries are same queries from previous version. So work of other 6 queries are done by Javascript now.</p>
+<ul>
+<li>Breaking Change: Column#foreignKeyConstraint is changed to Column#foreignKeyConstraints, Column#referencedColumn is removed,
+because same column may be part of multiple different foreign key constraints which results in referencing different columns
+in different tables at the same time.</li>
+<li>Breaking Change: All <code>...ByName</code> such as <code>Table#columnsByName</code> methods are removed, and collections such as <code>Table#columns</code> return Map instead of array or object.
+Maps return values in order like arrays and they can be queried with <code>.has</code> method like objects.</li>
+<li>Breaking Change: Column#uniqueIndexesNoPK is renamed as Column#uniqueIndexesNoPk.</li>
+<li>Added: Optional Lazy loading, cache of lazy loaded parts, invalidation logic of cache.</li>
+<li>Added: pgStructure.serialize and pgStructure.deserialize methods.</li>
+<li>Added: pgStructure.save and pgStructure.load methods. Load is 10 times faster than querying database. </li>
+<li>Added: Column#domainSchema</li>
+<li>Added: Constraint#matchOption, Constraint#referencedColumnsBy</li>
+<li>Added: Table#belongsToManyTablesPk, Table#m2mRelationsPk</li>
+<li>Doc updates and changes.</li>
+</ul>
 <h6 id="208-2015-12-09">2.0.8 / 2015-12-09</h6>
 <ul>
 <li>Added: <code>Table#description</code> and <code>Table#comment</code> attributes added to the table object.</li>
@@ -341,6 +354,13 @@ tables joined via a third join table.</p>
 <li>Documentation updated completely and added clearer examples.</li>
 <li>Some method names and attributes are more intuitive than previous version.</li>
 </ul>
+<h6 id="why-v2-has-incompatible-changes">Why v2 has incompatible changes?</h6>
+<p>Version 2 is designed to be more elegant and more intuitive. Methods are changed to read only attributes and new methods
+ are easily distinguished from attributes with verb based names such as <code>columns</code> vs <code>getColumns()</code>.</p>
+<p>Additionally new <code>Relation</code> classes are added. Some of the features are moved from <code>Constraint</code> to <code>Relation</code>,
+ because some features are technically not available in DB Engine and those features misrepresent <code>Constraint</code>.</p>
+<p>For example many to many relations are virtual relationships which do not actually exist in database. They are
+tables joined via a third join table.</p>
 <h6 id="1111-2015-06-16">1.11.1 / 2015-06-16</h6>
 <ul>
 <li>Added: JSONB support. Contributed by: viniciuspinto (https://github.com/viniciuspinto)</li>

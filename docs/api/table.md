@@ -23,52 +23,44 @@ Below is the same schema as image:
 **Kind**: global class  
 
 * [Table](#Table)
-  * [new Table(args)](#new_Table_new)
-  * [.name](#Table+name) : <code>string</code>
-  * [.fullName](#Table+fullName) : <code>string</code>
-  * [.fullCatalogName](#Table+fullCatalogName) : <code>string</code>
-  * [.schema](#Table+schema) : <code>Schema</code>
-  * [.parent](#Table+parent) : <code>Schema</code>
-  * [.comment](#Table+comment) : <code>string</code>
-  * [.description](#Table+description) : <code>string</code>
-  * [.columns](#Table+columns) : <code>Array.&lt;Column&gt;</code>
-  * [.columnsByName](#Table+columnsByName) : <code>Object.&lt;string, Column&gt;</code>
-  * [.constraints](#Table+constraints) : <code>Array.&lt;Constraint&gt;</code>
-  * [.constraintsByName](#Table+constraintsByName) : <code>Object.&lt;string, Constraint&gt;</code>
-  * [.db](#Table+db) : <code>DB</code>
-  * [.foreignKeyConstraints](#Table+foreignKeyConstraints) : <code>Array.&lt;Constraint&gt;</code>
-  * [.foreignKeyConstraintsByName](#Table+foreignKeyConstraintsByName) : <code>Object.&lt;string, Constraint&gt;</code>
-  * [.foreignKeyColumns](#Table+foreignKeyColumns) : <code>Array.&lt;Column&gt;</code>
-  * [.foreignKeyColumnsByName](#Table+foreignKeyColumnsByName) : <code>Object.&lt;string, Column&gt;</code>
-  * [.primaryKeyConstraint](#Table+primaryKeyConstraint) : <code>Constraint</code> &#124; <code>undefined</code>
-  * [.primaryKeyColumns](#Table+primaryKeyColumns) : <code>Array.&lt;Column&gt;</code>
-  * [.primaryKeyColumnsByName](#Table+primaryKeyColumnsByName) : <code>Object.&lt;string, Column&gt;</code>
-  * [.hasManyTables](#Table+hasManyTables) : <code>[Array.&lt;Table&gt;](#Table)</code>
-  * [.hasManyTablesByName](#Table+hasManyTablesByName) : <code>Object.&lt;string, Table&gt;</code>
-  * [.hasManyTablesByFullName](#Table+hasManyTablesByFullName) : <code>Object.&lt;string, Table&gt;</code>
-  * [.belongsToTables](#Table+belongsToTables) : <code>[Array.&lt;Table&gt;](#Table)</code>
-  * [.belongsToTablesByName](#Table+belongsToTablesByName) : <code>Object.&lt;string, Table&gt;</code>
-  * [.belongsToTablesByFullName](#Table+belongsToTablesByFullName) : <code>Object.&lt;string, Table&gt;</code>
-  * [.belongsToManyTables](#Table+belongsToManyTables) : <code>[Array.&lt;Table&gt;](#Table)</code>
-  * [.belongsToManyTablesByName](#Table+belongsToManyTablesByName) : <code>Object.&lt;string, Table&gt;</code>
-  * [.belongsToManyTablesByFullName](#Table+belongsToManyTablesByFullName) : <code>Object.&lt;string, Table&gt;</code>
-  * [.m2mRelations](#Table+m2mRelations) : <code>Array.&lt;M2MRelation&gt;</code>
-  * [.o2mRelations](#Table+o2mRelations) : <code>Array.&lt;O2MRelation&gt;</code>
-  * [.m2oRelations](#Table+m2oRelations) : <code>Array.&lt;M2ORelation&gt;</code>
-  * [.relations](#Table+relations) : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code>
-  * [.indexes](#Table+indexes) : <code>Array.&lt;Index&gt;</code>
-  * [.getColumn(key)](#Table+getColumn) ⇒ <code>Column</code> &#124; <code>undefined</code>
-  * [.columnExists(name)](#Table+columnExists) ⇒ <code>boolean</code>
-  * [.get(path)](#Table+get) ⇒ <code>Column</code> &#124; <code>undefined</code>
+    * [new Table(args)](#new_Table_new)
+    * [.name](#Table+name) : <code>string</code>
+    * [.fullName](#Table+fullName) : <code>string</code>
+    * [.fullCatalogName](#Table+fullCatalogName) : <code>string</code>
+    * [.schema](#Table+schema) : <code>Schema</code>
+    * [.parent](#Table+parent) : <code>Schema</code>
+    * [.comment](#Table+comment) : <code>string</code>
+    * [.description](#Table+description) : <code>string</code>
+    * [.columns](#Table+columns) : <code>Map.&lt;Column&gt;</code>
+    * [.constraints](#Table+constraints) : <code>Map.&lt;Constraint&gt;</code>
+    * [.db](#Table+db) : <code>DB</code>
+    * [.foreignKeyConstraints](#Table+foreignKeyConstraints) : <code>Map.&lt;Constraint&gt;</code>
+    * [.foreignKeyColumns](#Table+foreignKeyColumns) : <code>Map.&lt;Column&gt;</code>
+    * [.foreignKeyConstraintsToThis](#Table+foreignKeyConstraintsToThis) : <code>Map.&lt;Constraint&gt;</code>
+    * [.primaryKeyConstraint](#Table+primaryKeyConstraint) : <code>Constraint</code> &#124; <code>undefined</code>
+    * [.primaryKeyColumns](#Table+primaryKeyColumns) : <code>Map.&lt;Column&gt;</code>
+    * [.hasManyTables](#Table+hasManyTables) : <code>[Map.&lt;Table&gt;](#Table)</code>
+    * [.belongsToTables](#Table+belongsToTables) : <code>[Map.&lt;Table&gt;](#Table)</code>
+    * [.belongsToManyTables](#Table+belongsToManyTables) : <code>[Map.&lt;Table&gt;](#Table)</code>
+    * [.belongsToManyTablesPk](#Table+belongsToManyTablesPk) : <code>[Map.&lt;Table&gt;](#Table)</code>
+    * [.m2mRelations](#Table+m2mRelations) : <code>Set.&lt;M2MRelation&gt;</code>
+    * [.m2mRelationsPk](#Table+m2mRelationsPk) : <code>Set.&lt;M2MRelation&gt;</code>
+    * [.o2mRelations](#Table+o2mRelations) : <code>Set.&lt;O2MRelation&gt;</code>
+    * [.m2oRelations](#Table+m2oRelations) : <code>Set.&lt;M2ORelation&gt;</code>
+    * [.relations](#Table+relations) : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code>
+    * [.get(path)](#Table+get) ⇒ <code>Column</code> &#124; <code>undefined</code>
 
 <a name="new_Table_new"></a>
 ### new Table(args)
+Constructor function. You don't need to call constructor manually. pg-structure handles this.
+
 
 | Param | Type | Description |
 | --- | --- | --- |
-| args | <code>Object</code> | Database arguments. |
-| args.registry | <code>Loki</code> | Loki.js database object. |
-| args.attributes | <code>Object</code> | Attributes of the [Table](#Table) instance. |
+| args | <code>Object</code> | Attributes of the [Table](#Table) instance to be created. |
+| args.parent | <code>Schema</code> | Parent [Schema](Schema) of the Table. |
+| args.name | <code>string</code> | Name of the Table. |
+| args.description | <code>string</code> | Description of the Table. |
 
 <a name="Table+name"></a>
 ### table.name : <code>string</code>
@@ -133,36 +125,31 @@ Comment of the table.
 **Read only**: true  
 **See**: Aliases [comment](#Table+comment)  
 <a name="Table+columns"></a>
-### table.columns : <code>Array.&lt;Column&gt;</code>
-All [Column](Column) instances in the table as an array. They are ordered by same order they are added.
+### table.columns : <code>Map.&lt;Column&gt;</code>
+All [Column](Column) instances in the table as a [Map](Map). They are ordered same order as they are
+defined in database table.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
+**See**: [Map](Map)  
 **Example**  
 ```js
-var columns = table.columns;
-var name    = columns[0].name;
-```
-<a name="Table+columnsByName"></a>
-### table.columnsByName : <code>Object.&lt;string, Column&gt;</code>
-All [Column](Column) instances in the table as a simple object. Keys are column names, values are [Column](Column) instances.
+var isAvailable  = table.columns.has('id');
+var columnNames  = [...schema.columns.keys()];       // Use spread operator to get column names as an array.
+var column       = table.columns.get('user_id');
+var name         = column.name;
 
-**Kind**: instance property of <code>[Table](#Table)</code>  
-**Read only**: true  
-**Example**  
-```js
-var columns   = table.columnsByName;
-var ageColumn = columns.age;
+for (let column of table.columns.values()) {
+    console.log(column.name);
+}
+
+for (let [name, column] of table.columns) {
+    console.log(name, column.name);
+}
 ```
 <a name="Table+constraints"></a>
-### table.constraints : <code>Array.&lt;Constraint&gt;</code>
-All [Constraint](Constraint) instances in the table as an array. They are ordered by same order they are added.
-
-**Kind**: instance property of <code>[Table](#Table)</code>  
-**Read only**: true  
-<a name="Table+constraintsByName"></a>
-### table.constraintsByName : <code>Object.&lt;string, Constraint&gt;</code>
-All [Constraint](Constraint) instances in the table as a simple object. Keys are constraint names, values are [Constraint](Constraint) instances.
+### table.constraints : <code>Map.&lt;Constraint&gt;</code>
+All [Constraint](Constraint) instances in the table as a [Map](Map). They are ordered by name.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
@@ -173,42 +160,27 @@ All [Constraint](Constraint) instances in the table as a simple object. Keys are
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+foreignKeyConstraints"></a>
-### table.foreignKeyConstraints : <code>Array.&lt;Constraint&gt;</code>
-All [Constraint](Constraint) instances which are foreign key constraints in the table as an array.
-They are ordered by same order they are defined in database.
+### table.foreignKeyConstraints : <code>Map.&lt;Constraint&gt;</code>
+All [Constraint](Constraint) instances which are foreign key constraints in the table as a [Map](Map).
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
-**See**: [o2mRelations](#Table+o2mRelations), [m2oRelations](#Table+m2oRelations), [m2mRelations](#Table+m2mRelations) to get more details about [relations](Relation).  
-<a name="Table+foreignKeyConstraintsByName"></a>
-### table.foreignKeyConstraintsByName : <code>Object.&lt;string, Constraint&gt;</code>
-All [Constraint](Constraint) instances which are foreign key constraints in the table as a simple object.
-Keys are constraint names, values are [Constraint](Constraint) instances.
-
-**Kind**: instance property of <code>[Table](#Table)</code>  
-**Read only**: true  
-**See**: [o2mRelations](#Table+o2mRelations), [m2oRelations](#Table+m2oRelations), [m2mRelations](#Table+m2mRelations) to get more details about [relations](Relation).  
+**See**: [o2mRelations](#Table+o2mRelations), [m2oRelations](#Table+m2oRelations), [m2mRelations](#Table+m2mRelations) to get more details about relations.  
 <a name="Table+foreignKeyColumns"></a>
-### table.foreignKeyColumns : <code>Array.&lt;Column&gt;</code>
-All foreign key [columns](Column) of all [foreignKeyConstraints](#Table+foreignKeyConstraints).
+### table.foreignKeyColumns : <code>Map.&lt;Column&gt;</code>
+All foreign key [columns](Column) of all [foreignKeyConstraints](#Table+foreignKeyConstraints) as a [Map](Map).
 Foreign key [constraints](Constraint) may contain more than one column. To get foreign key columns of a specific foreign key constraint
 use [foreignKeyConstraints](#Table+foreignKeyConstraints).[columns](Constraint#columns)
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
-<a name="Table+foreignKeyColumnsByName"></a>
-### table.foreignKeyColumnsByName : <code>Object.&lt;string, Column&gt;</code>
-Object containing foreign key [columns](Column) of this table. Keys are column names, values are
-[columns](Column) instances.
-Foreign key [constraints](Constraint) may contain more than one column. To get foreign key columns of a specific foreign key constraint
-use [foreignKeyConstraints](#Table+foreignKeyConstraints).[columns](Constraint#columns)
+<a name="Table+foreignKeyConstraintsToThis"></a>
+### table.foreignKeyConstraintsToThis : <code>Map.&lt;Constraint&gt;</code>
+All foreign key [Constraint](Constraint) instances which are referring to this table as a [Map](Map).
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
-**Example**  
-```js
-let pkColumns  = table.foreignKeyColumnsByName;
-```
+**See**: [o2mRelations](#Table+o2mRelations), [m2oRelations](#Table+m2oRelations), [m2mRelations](#Table+m2mRelations) to get more details about relations.  
 <a name="Table+primaryKeyConstraint"></a>
 ### table.primaryKeyConstraint : <code>Constraint</code> &#124; <code>undefined</code>
 Primary key [constraint](Constraint) instance of this table.
@@ -219,248 +191,118 @@ Primary key [constraint](Constraint) instance of this table.
 **Example**  
 ```js
 let pkConstraint = table.primaryKeyConstraint;
-let pkColumns  = pkConstraint.columns;
+let pkColumns    = [...pkConstraint.columns.values()];   // As an array
+
+for (let [name, column] of pkConstraint.columns) {
+    console.log(column.name);
+}
 ```
 <a name="Table+primaryKeyColumns"></a>
-### table.primaryKeyColumns : <code>Array.&lt;Column&gt;</code>
-Primary key [columns](Column) of this table.
+### table.primaryKeyColumns : <code>Map.&lt;Column&gt;</code>
+Primary key [columns](Column) of this table as a [Map](Map).
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 **See**: [primaryKeyConstraint](#Table+primaryKeyConstraint) to get primary key constraint.  
 **Example**  
 ```js
-let pkColumns  = table.primaryKeyColumns;
-```
-<a name="Table+primaryKeyColumnsByName"></a>
-### table.primaryKeyColumnsByName : <code>Object.&lt;string, Column&gt;</code>
-Object containing primary key [columns](Column) of this table. Keys are column names, values are
-[columns](Column) instances.
-
-**Kind**: instance property of <code>[Table](#Table)</code>  
-**Read only**: true  
-**See**: [primaryKeyConstraint](#Table+primaryKeyConstraint) to get primary key constraint.  
-**Example**  
-```js
-let pkColumns  = table.primaryKeyColumnsByName;
+let pkColumns  = [...table.primaryKeyColumns.values()];  // As an array
+for (let [name, column] of pkConstraint.columns) {
+    console.log(column.name);
+}
 ```
 <a name="Table+hasManyTables"></a>
-### table.hasManyTables : <code>[Array.&lt;Table&gt;](#Table)</code>
-[Tables](#Table) which this table has relationship of type `one to many`.
+### table.hasManyTables : <code>[Map.&lt;Table&gt;](#Table)</code>
+[Tables](#Table) sorted by name, which this table has relationship of type `one to many`.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
-**See**: [Example schema](#exampleSchema)  
+**See**: [Example schema](#exampleSchema), [Map](Map)  
 **Example**  
 ```js
-// Vendor (id) has many products (vendor_id)
-let productTable = vendorTable.hasManyTables[0];
-```
-<a name="Table+hasManyTablesByName"></a>
-### table.hasManyTablesByName : <code>Object.&lt;string, Table&gt;</code>
-Object of [Tables](#Table) which this table has relationship of type `one to many`. Object keys
-are table names, object values are [Table](#Table) instances.
-** CAVEAT: Two tables may have same name in different schemas**, such as `public.account` and `other_schema.account`.
-This is not a problem if there is only one PostgreSQL schema i.e. public. Otherwise it is advised to be used
-[hasManyTablesByFullName](#Table+hasManyTablesByFullName).
-
-**Kind**: instance property of <code>[Table](#Table)</code>  
-**Read only**: true  
-**See**
-
-- [Example schema](#exampleSchema)
-- [hasManyTablesByFullName](#Table+hasManyTablesByFullName)
-
-**Example**  
-```js
-// Vendor (id) has many products (vendor_id)
-let productTable = vendorTable.hasManyTablesByName.product;
-```
-<a name="Table+hasManyTablesByFullName"></a>
-### table.hasManyTablesByFullName : <code>Object.&lt;string, Table&gt;</code>
-Object of [Tables](#Table) which this table has relationship of type `one to many`. Object keys
-are table names including schema name (i.e. `public.account`), object values are [Table](#Table) instances.
-** CAVEAT: Full table name contains a dot (.). You should access them with bracket notation. See example below.**
-[hasManyTablesByName](#Table+hasManyTablesByName).
-
-**Kind**: instance property of <code>[Table](#Table)</code>  
-**Read only**: true  
-**See**
-
-- [Example schema](#exampleSchema)
-- [hasManyTablesByName](#Table+hasManyTablesByName)
-
-**Example**  
-```js
-// Vendor (id) has many products (vendor_id)
-let productTable = vendorTable.hasManyTablesByFullName['public.product'];
+for (let [name, table] of vendorTable.hasManyTables) {
+    console.log(table.name);
+}
 ```
 <a name="Table+belongsToTables"></a>
-### table.belongsToTables : <code>[Array.&lt;Table&gt;](#Table)</code>
-[Tables](#Table) which this table has relationship of type `belongs to` which is reverse direction of `one to many`.
+### table.belongsToTables : <code>[Map.&lt;Table&gt;](#Table)</code>
+[Tables](#Table) sorted by name, which this table has relationship of type `belongs to` which is reverse direction of `one to many`.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
-**See**: [Example schema](#exampleSchema)  
+**See**: [Example schema](#exampleSchema), [Map](Map)  
 **Example**  
 ```js
-// Vendor (id) has many products (vendor_id)
-let vendorTable = productTable.belongsToTables[0];
-```
-<a name="Table+belongsToTablesByName"></a>
-### table.belongsToTablesByName : <code>Object.&lt;string, Table&gt;</code>
-Object of [Tables](#Table) which this table has relationship of type `belongs to` which is reverse direction of `one to many`. Object keys
-are table names, object values are [Table](#Table) instances.
-** CAVEAT: Two tables may have same name in different schemas**, such as `public.account` and `other_schema.account`.
-This is not a problem if there is only one PostgreSQL schema i.e. public. Otherwise it is advised to be used
-[belongsToTablesByFullName](#Table+belongsToTablesByFullName).
-
-**Kind**: instance property of <code>[Table](#Table)</code>  
-**Read only**: true  
-**See**
-
-- [Example schema](#exampleSchema)
-- [belongsToTablesByFullName](#Table+belongsToTablesByFullName)
-
-**Example**  
-```js
-// Vendor (id) has many products (vendor_id)
-let vendorTable = productTable.belongsToTablesByName.product;
-```
-<a name="Table+belongsToTablesByFullName"></a>
-### table.belongsToTablesByFullName : <code>Object.&lt;string, Table&gt;</code>
-Object of [Tables](#Table) which this table has relationship of type `belongs to` which is reverse direction of `one to many`. Object keys
-are table names including schema name (i.e. `public.account`), object values are [Table](#Table) instances.
-** CAVEAT: Full table name contains a dot (.). You should access them with bracket notation. See example below.**
-[belongsToTablesByName](#Table+belongsToTablesByName).
-
-**Kind**: instance property of <code>[Table](#Table)</code>  
-**Read only**: true  
-**See**
-
-- [Example schema](#exampleSchema)
-- [belongsToTablesByName](#Table+belongsToTablesByName)
-
-**Example**  
-```js
-// Vendor (id) has many products (vendor_id)
-let vendorTable = productTable.belongsToTablesByFullName['public.product'];
+for (let [name, table] of productTable.belongsToTables) {
+    console.log(table.name);
+}
 ```
 <a name="Table+belongsToManyTables"></a>
-### table.belongsToManyTables : <code>[Array.&lt;Table&gt;](#Table)</code>
-[Tables](#Table) which this table has relationship of type `many to many`.
+### table.belongsToManyTables : <code>[Map.&lt;Table&gt;](#Table)</code>
+[Tables](#Table) sorted by name, which this table has relationship of type `many to many`.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
-**See**: [Example schema](#exampleSchema)  
+**See**: [Example schema](#exampleSchema), [Map](Map)  
 **Example**  
 ```js
 // Cart (id) has many products (id) through line_item join table.
-let productTable = cartTable.belongsToManyTables[0];
+for (let [name, table] of cartTable.belongsToManyTables) {
+    console.log(table.name);
+}
 ```
-<a name="Table+belongsToManyTablesByName"></a>
-### table.belongsToManyTablesByName : <code>Object.&lt;string, Table&gt;</code>
-Object of [Tables](#Table) which this table has relationship of type `many to many`. Object keys
-are table names, object values are [Table](#Table) instances.
-** CAVEAT: Two tables may have same name in different schemas**, such as `public.account` and `other_schema.account`.
-This is not a problem if there is only one PostgreSQL schema i.e. public. Otherwise it is advised to be used
-[belongsToManyTablesByFullName](#Table+belongsToManyTablesByFullName).
+<a name="Table+belongsToManyTablesPk"></a>
+### table.belongsToManyTablesPk : <code>[Map.&lt;Table&gt;](#Table)</code>
+[Tables](#Table) sorted by name, which this table has relationship of type `many to many`. Includes
+only tables joined by primary keys in join table.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
-**See**
-
-- [Example schema](#exampleSchema)
-- [belongsToManyTablesByFullName](#Table+belongsToManyTablesByFullName)
-
+**See**: [Example schema](#exampleSchema), [Map](Map)  
 **Example**  
 ```js
 // Cart (id) has many products (id) through line_item join table.
-let productTable = cartTable.belongsToManyTablesByName.product;
-```
-<a name="Table+belongsToManyTablesByFullName"></a>
-### table.belongsToManyTablesByFullName : <code>Object.&lt;string, Table&gt;</code>
-Object of [Tables](#Table) which this table has relationship of type `many to many`. Object keys
-are table names including schema name (i.e. `public.account`), object values are [Table](#Table) instances.
-** CAVEAT: Full table name contains a dot (.). You should access them with bracket notation. See example below.**
-[belongsToManyTablesByName](#Table+belongsToManyTablesByName).
-
-**Kind**: instance property of <code>[Table](#Table)</code>  
-**Read only**: true  
-**See**
-
-- [Example schema](#exampleSchema)
-- [belongsToManyTablesByName](#Table+belongsToManyTablesByName)
-
-**Example**  
-```js
-// Cart (id) has many products (id) through line_item join table.
-let productTable = cartTable.belongsToManyTablesByName['public.product'];
+for (let [name, table] of cartTable.belongsToManyTables) {
+    console.log(table.name);
+}
 ```
 <a name="Table+m2mRelations"></a>
-### table.m2mRelations : <code>Array.&lt;M2MRelation&gt;</code>
-List of [many to many relationships](M2MRelation) of the table. [M2MRelation](M2MRelation) resembles
-`has many through` and `belongs to many` relations in ORMs has some useful methods and information for generating ORM classes.
+### table.m2mRelations : <code>Set.&lt;M2MRelation&gt;</code>
+Set of [many to many relationships](M2MRelation) of the table. [M2MRelation](M2MRelation) resembles
+`has many through` and `belongs to many` relations in ORMs. It has some useful methods and information for generating ORM classes.
+
+**Kind**: instance property of <code>[Table](#Table)</code>  
+**Read only**: true  
+<a name="Table+m2mRelationsPk"></a>
+### table.m2mRelationsPk : <code>Set.&lt;M2MRelation&gt;</code>
+Set of [many to many relationships](M2MRelation) of the table. Different from [m2mRelations](#Table+m2mRelations)
+this only includes relations joined by `Primary Foreign Keys` in join table. `Primary Foreign Keys` means
+foreign keys of join table which are also Primary Keys of join table at the same time.
+[M2MRelation](M2MRelation) resembles `has many through` and `belongs to many` relations in ORMs.
+It has some useful methods and information for generating ORM classes.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+o2mRelations"></a>
-### table.o2mRelations : <code>Array.&lt;O2MRelation&gt;</code>
-List of [one to many relationships](O2MRelation) of the table. [O2MRelation](O2MRelation) resembles
-`has many` relations in ORMs and has some useful methods and information for generating ORM classes.
+### table.o2mRelations : <code>Set.&lt;O2MRelation&gt;</code>
+Set of [one to many relationships](O2MRelation) of the table. [O2MRelation](O2MRelation) resembles
+`has many` relations in ORMs. It has some useful methods and information for generating ORM classes.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+m2oRelations"></a>
-### table.m2oRelations : <code>Array.&lt;M2ORelation&gt;</code>
-List of [many to one relationships](M2ORelation) of the table. [M2ORelation](M2ORelation) resembles
-`belongs to` relations in ORMs and has some useful methods and information for generating ORM classes.
+### table.m2oRelations : <code>Set.&lt;M2ORelation&gt;</code>
+Set of [many to one relationships](M2ORelation) of the table. [M2ORelation](M2ORelation) resembles
+`belongs to` relations in ORMs. It has some useful methods and information for generating ORM classes.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+relations"></a>
 ### table.relations : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code>
-List of all [relationships](Relation) of the table.
+List of all relationships of the table.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
-<a name="Table+indexes"></a>
-### table.indexes : <code>Array.&lt;Index&gt;</code>
-List of [indexes](Index), which this table has. Results are ordered by index name.
-
-**Kind**: instance property of <code>[Table](#Table)</code>  
-**Read only**: true  
-<a name="Table+getColumn"></a>
-### table.getColumn(key) ⇒ <code>Column</code> &#124; <code>undefined</code>
-Returns [Column](Column) instance with given name or order.
-
-**Kind**: instance method of <code>[Table](#Table)</code>  
-**Returns**: <code>Column</code> &#124; <code>undefined</code> - - Requested [Column](Column) instance.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| key | <code>string</code> &#124; <code>number</code> | Name or order number of the column. |
-
-**Example**  
-```js
-var column = table.getColumn('surname');
-```
-<a name="Table+columnExists"></a>
-### table.columnExists(name) ⇒ <code>boolean</code>
-Returns true if [Column](Column) instance with given name or order number exists.
-
-**Kind**: instance method of <code>[Table](#Table)</code>  
-**Returns**: <code>boolean</code> - - `true` if schema column in table, otherwise `false`.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| name | <code>string</code> &#124; <code>number</code> | Name or order number of the column. |
-
-**Example**  
-```js
-var ageColumn  = db.schemaExists('age');  // true
-var jokeColumn = db.schemaExists('joke'); // false
-```
 <a name="Table+get"></a>
 ### table.get(path) ⇒ <code>Column</code> &#124; <code>undefined</code>
 Returns [Column](Column) on given path relative to [Table](#Table).

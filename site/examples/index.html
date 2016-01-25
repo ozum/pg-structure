@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Examples - pg-structure 2.0.10</title>
+  <title>Examples - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -131,7 +131,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../api/DB/">DB</a>
+        <a class="" href="../api/Db/">Db</a>
         
     </li>
 
@@ -159,6 +159,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../api/Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../api/O2MRelation/">O2M Relation</a>
         
     </li>
@@ -167,13 +174,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../api/PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api/Relation/">Relation</a>
         
     </li>
 
@@ -205,7 +205,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 2.0.10</a>
+        <a href="..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -235,59 +235,58 @@
 <p><img alt="Database Schema" src="../../../images/schema-through.png" /></p>
 <p>Examples are based on a sample database schema above. </p>
 <h2 id="examples">Examples</h2>
-<h3 id="get-tables">Get Tables</h3>
-<pre><code class="js">var tablesArray  = db.get('public').tables;         // [ size {}, color {}, line_item {} ... ]
-var tablesObject = db.get('public').tablesByName;   // { size: {}, color: {}, line_item: {} ... }
+<h3 id="get-tables-as-a-link-map">Get Tables as a {@link Map}</h3>
+<pre><code class="js">var tablesArray  = db.get('public').tables;         // Map { size =&gt; Table {}, color =&gt; Table {}, line_item =&gt; Table {} ... }
 </code></pre>
 
 <h3 id="get-columns">Get Columns</h3>
-<pre><code class="js">var columnsArray  = db.get('public.product').columns;         // [ id {}, name {}, color_id {} ... ]
-var columnsObject = db.get('public.product').columnsByName;   // { id: {}, name: {}, color_id: {} ... }
+<pre><code class="js">var columnsArray  = [...db.get('public.product').columns.values()];  // [ id {}, name {}, color_id {} ... ]
+for (let column of db.get('public.product').columns.values()) {
+    console.log(column.name);
+}
 </code></pre>
 
 <h3 id="get-primary-keys">Get Primary Keys</h3>
-<pre><code class="js">var pkArray  = db.get('public.product').primaryKeyColumns;         // [ id {} ]
-var pkObject = db.get('public.product').primaryKeyColumnsByName;   // { id: {} }
+<pre><code class="js">var pkArray  = db.get('public.product').primaryKeyColumns; // Map { ... }
 </code></pre>
 
 <h3 id="get-foreign-key-columns">Get Foreign Key Columns</h3>
-<p>To get all foreign key columns of all foreign key constraint in a table:</p>
-<pre><code class="js">var fkArray  = db.get('public.product').foreignKeyColumns;         // [ color_id {}, vendor_id {}, size_id {} ]
-var fkObject = db.get('public.product').foreignKeyColumnsByName;   // { color_id: {}, vendor_id: {}, size_id: {} }
+<p>To get all foreign key columns of all foreign key constraints in a table:</p>
+<pre><code class="js">var fkMap  = db.get('public.product').foreignKeyColumns; // Map { color_id =&gt; Column {}, vendor_id =&gt; Column {}  }
 </code></pre>
 
 <p>To get foreign key columns of a specific constraint:</p>
-<pre><code class="js">var fkArray  = db.get('public.product').foreignKeyConstraintsByName.vendor_has_products.columns; // [ vendor_id {} ]
+<pre><code class="js">var fkMap  = db.get('public.product').foreignKeyConstraints.get('vendor_has_products').columns; // Map { vendor_id =&gt; Column {} }
 </code></pre>
 
 <h3 id="one-to-many-relation">One to Many Relation</h3>
-<pre><code class="js">var  relation         = product.o2mRelations[0];              // RELATION:    product ---&lt; line_item
-var  constraint       = relation.constraint;                  // CONSTRAINT:           ^-- product_has_carts
-var  sourceTable      = relation.sourceTable;                 // TABLE:       product
-var  targetTable      = relation.targetTable;                 // TABLE:       line_item
-var  FKColumn         = relation.constraint.columns[0];       // COLUMN:      product_id  (from line_item table)
-var  sourcePKColumn   = relation.sourceTable.primaryKeys[0];  // COLUMN:      id          (from product table)
+<pre><code class="js">var  relation         = [...product.o2mRelations.values()][0];              // RELATION:    product ---&lt; line_item
+var  constraint       = relation.constraint;                                // CONSTRAINT:           ^-- product_has_carts
+var  sourceTable      = relation.sourceTable;                               // TABLE:       product
+var  targetTable      = relation.targetTable;                               // TABLE:       line_item
+var  FKColumn         = [...relation.constraint.columns.values()][0];       // COLUMN:      product_id  (from line_item table)
+var  sourcePKColumn   = [...relation.sourceTable.primaryKeys.values()][0];  // COLUMN:      id          (from product table)
 </code></pre>
 
 <h3 id="many-to-many-relation">Many to Many Relation</h3>
-<pre><code class="js">var relation             = product.m2mRelations[0];              // RELATION:    product ---&lt; line_item &gt;--- cart
-var sourceConstraint     = relation.sourceConstraint;            // CONSTRAINT:           ^-- product_has_carts
-var targetConstraint     = relation.targetConstraint;            // CONSTRAINT:       cart_has_products --^
-var sourceTable          = relation.sourceTable;                 // TABLE:       product
-var targetTable          = relation.targetTable;                 // TABLE:       cart
-var sourceJoinFKColumn   = relation.sourceConstraint.columns[0]; // COLUMN:      product_id  (from line_item table)
-var targetJoinFKColumn   = relation.targetConstraint.columns[0]; // COLUMN:      cart_id     (from line_item table)
-var sourcePKColumn       = relation.sourceTable.primaryKeys[0];  // COLUMN:      id          (from product table)
-var targetPKColumn       = relation.targetTable.primaryKeys[0];  // COLUMN:      id          (from cart table)
+<pre><code class="js">var relation             = [...product.m2mRelations.values()][0];               // RELATION:    product ---&lt; line_item &gt;--- cart
+var sourceConstraint     = relation.sourceConstraint;                           // CONSTRAINT:           ^-- product_has_carts
+var targetConstraint     = relation.targetConstraint;                           // CONSTRAINT:       cart_has_products --^
+var sourceTable          = relation.sourceTable;                                // TABLE:       product
+var targetTable          = relation.targetTable;                                // TABLE:       cart
+var sourceJoinFKColumn   = [...relation.sourceConstraint.columns.values()][0];  // COLUMN:      product_id  (from line_item table)
+var targetJoinFKColumn   = [...relation.targetConstraint.columns.values()][0];  // COLUMN:      cart_id     (from line_item table)
+var sourcePKColumn       = [...relation.sourceTable.primaryKeys.values()][0];   // COLUMN:      id          (from product table)
+var targetPKColumn       = [...relation.targetTable.primaryKeys.values()][0];   // COLUMN:      id          (from cart table)
 </code></pre>
 
 <h3 id="many-to-one-relation">Many to One Relation</h3>
-<pre><code class="js">var  relation     = line_item.m2oRelations[0];            // RELATION:    line_item &gt;---- product
-var  constraint   = relation.constraint;                  // CONSTRAINT:               ^-- product_has_carts
-var  sourceTable  = relation.sourceTable;                 // TABLE:       line_item
-var  targetTable  = relation.targetTable;                 // TABLE:       product
-var  FKColumn     = relation.constraint.columns[0];       // COLUMN:      product_id  (from line_item table)
-var  PKColumn     = relation.targetTable.primaryKeys[0];  // COLUMN:      id          (from product table)
+<pre><code class="js">var  relation     = [...line_item.m2oRelations.values()][0];            // RELATION:    line_item &gt;---- product
+var  constraint   = relation.constraint;                                // CONSTRAINT:               ^-- product_has_carts
+var  sourceTable  = relation.sourceTable;                               // TABLE:       line_item
+var  targetTable  = relation.targetTable;                               // TABLE:       product
+var  FKColumn     = [...relation.constraint.columns.values()][0];       // COLUMN:      product_id  (from line_item table)
+var  PKColumn     = [...relation.targetTable.primaryKeys.values()][0];  // COLUMN:      id          (from product table)
 </code></pre>
               
             </div>

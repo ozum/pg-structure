@@ -17,7 +17,9 @@ pgStructure(connectionArgs, schemas).then((db) => {
 
 ## Attributes
 
-**pg-structure** objects have read only attributes to access various database objects' details. Attributes are **read only** and formed as **nouns**.
+**pg-structure** objects attributes are designed to be read only. They access various database objects' details. Attributes are **read only** and formed as **nouns**.
+
+Unlike previous versions of **pg-structure**, current version does not enforce read only behaviour for the sake of new performance oriented design.
 
 * Singular named attributes such as [table#name](api/Table.md#Table+name) contains single data which is a simple JavaScript type.
 * Plural named attributes such as [table#columns](api/Table.md#Table+columns) contains array of related objects.
@@ -27,22 +29,7 @@ pgStructure(connectionArgs, schemas).then((db) => {
 
 **pg-structure** also provides methods to access database details.
 
-Most of the methods which returns array of objects have equivalent attributes. For example [table#columns](api/Table.md#Table+columns) and [table#getColumns](api/Table.md#Table+getColumns). They are provided for convenience. They may be called with callbacks or for their return value. Even some methods executes callbacks, pg-structure methods are synchronous. 
-
-Methods are named as verbs like [Table#getPrimaryKeys](api/Table.md#Table+getPrimaryKeys) or as question like terms such as [Column#isSerial](api/Column.md#Column+isSerial) or [Table#columnExists](api/Table.md#Table+columnExists).
-
-## Callbacks
-
-As described in previous section, some methods may be called with a callback function. They are executed synchronously for each object resulted by method call. Those are object collection returning functions. Their callback signature are usually `function (object, index, collection)`.
-
-```js
-schema.getTables(function(table, i, collection) {
-//                          ↑    ↑        ^---- All tables of given schema.
-//                          |    ------ Position of the table in array.
-//                          ------ Individual table object.
-    var name = table.name;
-});
-```
+Methods are named as verbs like [Table#getPrimaryKeys](api/Table.md#Table+getPrimaryKeys) or [Table#columnExists](api/Table.md#Table+columnExists).
 
 ## `get` shortcut
 
@@ -54,9 +41,11 @@ For example all below are equal:
 var userColumn      = db.get('public.account.user_name');
 var sameColumn      = db.getSchema('public').getTable('account').getColumn('user_name');
 var againSameColumn = db.schemasByName.public.tablesByName.account.columnsByName.user_name;
+
+console.log(userColumn === sameColumn); // true 
 ```
 
-## [Relation](api/Relation.md) Classes vs. Foreign Key Constraint
+## Relation Classes vs. Foreign Key Constraint
 
 **pg-structure** Foreign Key Constraint objects represent directly PostgreSQL foreign key constraints.
 

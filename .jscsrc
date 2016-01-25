@@ -1,0 +1,11 @@
+{
+  "validateQuoteMarks": {
+    "mark": "'",
+    "escape": true
+  },
+  "disallowSpaceAfterObjectKeys": { "allExcept": ["aligned"] },
+  "validateIndentation": 4,
+  "requireTrailingComma": null,
+  "maximumLineLength": 320,
+  "requireCamelCaseOrUpperCaseIdentifiers": null
+}
