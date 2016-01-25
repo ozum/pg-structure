@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Concepts - pg-structure 2.0.10</title>
+  <title>Concepts - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -82,9 +82,6 @@
                 
             
                 <li class="toctree-l3"><a href="#methods">Methods</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#callbacks">Callbacks</a></li>
                 
             
                 <li class="toctree-l3"><a href="#get-shortcut">get shortcut</a></li>
@@ -147,7 +144,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../api/DB/">DB</a>
+        <a class="" href="../api/Db/">Db</a>
         
     </li>
 
@@ -175,6 +172,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../api/Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../api/O2MRelation/">O2M Relation</a>
         
     </li>
@@ -183,13 +187,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../api/PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api/Relation/">Relation</a>
         
     </li>
 
@@ -221,7 +218,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 2.0.10</a>
+        <a href="..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -258,7 +255,8 @@
 </code></pre>
 
 <h2 id="attributes">Attributes</h2>
-<p><strong>pg-structure</strong> objects have read only attributes to access various database objects' details. Attributes are <strong>read only</strong> and formed as <strong>nouns</strong>.</p>
+<p><strong>pg-structure</strong> objects attributes are designed to be read only. They access various database objects' details. Attributes are <strong>read only</strong> and formed as <strong>nouns</strong>.</p>
+<p>Unlike previous versions of <strong>pg-structure</strong>, current version does not enforce read only behaviour for the sake of new performance oriented design.</p>
 <ul>
 <li>Singular named attributes such as <a href="../api/Table/#Table+name">table#name</a> contains single data which is a simple JavaScript type.</li>
 <li>Plural named attributes such as <a href="../api/Table/#Table+columns">table#columns</a> contains array of related objects.</li>
@@ -266,27 +264,18 @@
 </ul>
 <h2 id="methods">Methods</h2>
 <p><strong>pg-structure</strong> also provides methods to access database details.</p>
-<p>Most of the methods which returns array of objects have equivalent attributes. For example <a href="../api/Table/#Table+columns">table#columns</a> and <a href="../api/Table/#Table+getColumns">table#getColumns</a>. They are provided for convenience. They may be called with callbacks or for their return value. Even some methods executes callbacks, pg-structure methods are synchronous. </p>
-<p>Methods are named as verbs like <a href="../api/Table/#Table+getPrimaryKeys">Table#getPrimaryKeys</a> or as question like terms such as <a href="../api/Column/#Column+isSerial">Column#isSerial</a> or <a href="../api/Table/#Table+columnExists">Table#columnExists</a>.</p>
-<h2 id="callbacks">Callbacks</h2>
-<p>As described in previous section, some methods may be called with a callback function. They are executed synchronously for each object resulted by method call. Those are object collection returning functions. Their callback signature are usually <code>function (object, index, collection)</code>.</p>
-<pre><code class="js">schema.getTables(function(table, i, collection) {
-//                          ↑    ↑        ^---- All tables of given schema.
-//                          |    ------ Position of the table in array.
-//                          ------ Individual table object.
-    var name = table.name;
-});
-</code></pre>
-
+<p>Methods are named as verbs like <a href="../api/Table/#Table+getPrimaryKeys">Table#getPrimaryKeys</a> or <a href="../api/Table/#Table+columnExists">Table#columnExists</a>.</p>
 <h2 id="get-shortcut"><code>get</code> shortcut</h2>
-<p><a href="../api/DB/">DB</a>, <a href="../api/Schema/">schema</a>, <a href="../api/Table/">table</a> classes provide <code>get</code> method for a shortcut. This method may be used to save a few key strokes.</p>
+<p><a href="api/DB.md">DB</a>, <a href="../api/Schema/">schema</a>, <a href="../api/Table/">table</a> classes provide <code>get</code> method for a shortcut. This method may be used to save a few key strokes.</p>
 <p>For example all below are equal:</p>
 <pre><code class="js">var userColumn      = db.get('public.account.user_name');
 var sameColumn      = db.getSchema('public').getTable('account').getColumn('user_name');
 var againSameColumn = db.schemasByName.public.tablesByName.account.columnsByName.user_name;
+
+console.log(userColumn === sameColumn); // true 
 </code></pre>
 
-<h2 id="relation-classes-vs-foreign-key-constraint"><a href="../api/Relation/">Relation</a> Classes vs. Foreign Key Constraint</h2>
+<h2 id="relation-classes-vs-foreign-key-constraint">Relation Classes vs. Foreign Key Constraint</h2>
 <p><strong>pg-structure</strong> Foreign Key Constraint objects represent directly PostgreSQL foreign key constraints.</p>
 <p>Developers and ORM users need to have more information about relations than present in foreign key constraints. For example many to many relationships and many to one relationships are not available in database engine. <strong>pg-structure</strong> provides <a href="../api/O2MRelation/">O2MRelation</a>, <a href="../api/M2MRelation/">M2MRelation</a> and <a href="../api/M2ORelation/">M2ORelation</a> classes to answer those needs.</p>
               

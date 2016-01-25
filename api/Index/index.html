@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index - pg-structure 2.0.10</title>
+  <title>Index - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -122,7 +122,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../DB/">DB</a>
+        <a class="" href="../Db/">Db</a>
         
     </li>
 
@@ -181,6 +181,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../O2MRelation/">O2M Relation</a>
         
     </li>
@@ -189,13 +196,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Relation/">Relation</a>
         
     </li>
 
@@ -227,7 +227,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.10</a>
+        <a href="../..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -262,7 +262,7 @@
 <p>Class which represent a database index. Provides attributes and methods for details of the index.</p>
 <p><strong>Kind</strong>: global class  </p>
 <ul>
-<li><a href="#Index">Index</a></li>
+<li><a href="#Index">Index</a><ul>
 <li><a href="#new_Index_new">new Index(args)</a></li>
 <li><a href="#Index+name">.name</a> : <code>string</code></li>
 <li><a href="#Index+fullName">.fullName</a> : <code>string</code></li>
@@ -276,8 +276,11 @@
 <li><a href="#Index+columns">.columns</a> : <code>Array.&lt;Column&gt;</code></li>
 <li><a href="#Index+columnsByName">.columnsByName</a> : <code>Object.&lt;string, Column&gt;</code></li>
 </ul>
+</li>
+</ul>
 <p><a name="new_Index_new"></a></p>
 <h3 id="new-indexargs">new Index(args)</h3>
+<p>Constructor function. You don't need to call constructor manually. pg-structure handles this.</p>
 <table>
 <thead>
 <tr>
@@ -290,17 +293,27 @@
 <tr>
 <td>args</td>
 <td><code>Object</code></td>
-<td>Index arguments.</td>
+<td>Attributes of the <a href="#Index">Index</a> instance to be created.</td>
 </tr>
 <tr>
-<td>args.registry</td>
-<td><code>Loki</code></td>
-<td>Loki.js database object.</td>
+<td>args.name</td>
+<td><code>string</code></td>
+<td>Name of the Index.</td>
 </tr>
 <tr>
-<td>args.attributes</td>
-<td><code>Object</code></td>
-<td>Attributes of the <a href="#Index">Index</a> instance.</td>
+<td>args.isUnique</td>
+<td><code>string</code></td>
+<td>Is it a unique index.</td>
+</tr>
+<tr>
+<td>args.isPrimaryKey</td>
+<td><code>string</code></td>
+<td>Is it a primary key index.</td>
+</tr>
+<tr>
+<td>args.parent</td>
+<td><code>Table</code></td>
+<td>Parent <a href="../Table">Table</a> of the Index.</td>
 </tr>
 </tbody>
 </table>
@@ -334,7 +347,7 @@
 <strong>Read only</strong>: true<br />
 <a name="Index+isPrimaryKey"></a></p>
 <h3 id="indexisprimarykey-boolean">index.isPrimaryKey : <code>boolean</code></h3>
-<p>If true, this index represents the primary key of the table (<a href="#Index+isUnique">isUnique</a> should always be true when this is true.)</p>
+<p>If true, this index represents the primary key of the table (<a href="#Index+isUnique">isUnique</a> is always true for primary keys.)</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Index+table"></a></p>
@@ -379,7 +392,7 @@ If <a href="#Index">index</a> does not have any columns this is <code>null</code
         <a href="../M2MRelation/" class="btn btn-neutral float-right" title="M2M Relation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../DB/" class="btn btn-neutral" title="DB"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Db/" class="btn btn-neutral" title="Db"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -409,7 +422,7 @@ If <a href="#Index">index</a> does not have any columns this is <code>null</code
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../DB/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Db/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../M2MRelation/" style="color: #fcfcfc">Next &raquo;</a></span>

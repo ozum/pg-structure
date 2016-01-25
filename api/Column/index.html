@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Column - pg-structure 2.0.10</title>
+  <title>Column - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -134,15 +134,21 @@
                 
                     <li><a class="toctree-l4" href="#columndomainfullname-string-null">column.domainFullName : string &#124; null</a></li>
                 
+                    <li><a class="toctree-l4" href="#columndomainfullcatalogname-string-null">column.domainFullCatalogName : string &#124; null</a></li>
+                
+                    <li><a class="toctree-l4" href="#columndomainschema-string-null">column.domainSchema : string &#124; null</a></li>
+                
                     <li><a class="toctree-l4" href="#columnenumlabels-arraystring-null">column.enumLabels : Array.&lt;string&gt; &#124; null</a></li>
                 
                     <li><a class="toctree-l4" href="#columnenumvalues-arraystring-null">column.enumValues : Array.&lt;string&gt; &#124; null</a></li>
                 
-                    <li><a class="toctree-l4" href="#columnforeignkeyconstraint-constraint-null">column.foreignKeyConstraint : Constraint &#124; null</a></li>
+                    <li><a class="toctree-l4" href="#columnforeignkeyconstraints-mapconstraint">column.foreignKeyConstraints : Map.&lt;Constraint&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#columnfullname-string">column.fullName : string</a></li>
                 
                     <li><a class="toctree-l4" href="#columnfullcatalogname-string">column.fullCatalogName : string</a></li>
+                
+                    <li><a class="toctree-l4" href="#columnindexes-mapindex">column.indexes : Map.&lt;Index&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#columnisautoincrement-boolean">column.isAutoIncrement : boolean</a></li>
                 
@@ -162,8 +168,6 @@
                 
                     <li><a class="toctree-l4" href="#columnprecision-number-null">column.precision : number &#124; null</a></li>
                 
-                    <li><a class="toctree-l4" href="#columnreferencedcolumn-column-null">column.referencedColumn : Column &#124; null</a></li>
-                
                     <li><a class="toctree-l4" href="#columnscale-number-null">column.scale : number &#124; null</a></li>
                 
                     <li><a class="toctree-l4" href="#columnschema-schema">column.schema : Schema</a></li>
@@ -174,11 +178,9 @@
                 
                     <li><a class="toctree-l4" href="#columnuserdefinedtype-postgresqldatatype-null">column.userDefinedType : postgreSQLDataType &#124; null</a></li>
                 
-                    <li><a class="toctree-l4" href="#columnuniqueindexesnopk-arrayindex">column.uniqueIndexesNoPK : Array.&lt;Index&gt;</a></li>
+                    <li><a class="toctree-l4" href="#columnuniqueindexesnopk-mapindex">column.uniqueIndexesNoPk : Map.&lt;Index&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#columnuniqueindexes-arrayindex">column.uniqueIndexes : Array.&lt;Index&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#columnindexes-arrayindex">column.indexes : Array.&lt;Index&gt;</a></li>
+                    <li><a class="toctree-l4" href="#columnuniqueindexes-mapindex">column.uniqueIndexes : Map.&lt;Index&gt;</a></li>
                 
             
             </ul>
@@ -195,7 +197,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../DB/">DB</a>
+        <a class="" href="../Db/">Db</a>
         
     </li>
 
@@ -223,6 +225,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../O2MRelation/">O2M Relation</a>
         
     </li>
@@ -231,13 +240,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Relation/">Relation</a>
         
     </li>
 
@@ -269,7 +271,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.10</a>
+        <a href="../..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -301,10 +303,9 @@
               
                 <p><a name="Column"></a></p>
 <h2 id="column">Column</h2>
-<p>Class which represent a database column. Provides attributes and methods for details of the column.</p>
 <p><strong>Kind</strong>: global class  </p>
 <ul>
-<li><a href="#Column">Column</a></li>
+<li><a href="#Column">Column</a><ul>
 <li><a href="#new_Column_new">new Column(args)</a></li>
 <li><a href="#Column+allowNull">.allowNull</a> : <code>boolean</code></li>
 <li><a href="#Column+arrayDimension">.arrayDimension</a> : <code>number</code></li>
@@ -315,11 +316,14 @@
 <li><a href="#Column+description">.description</a> : <code>string</code> &#124; <code>null</code></li>
 <li><a href="#Column+domainName">.domainName</a> : <code>string</code> &#124; <code>null</code></li>
 <li><a href="#Column+domainFullName">.domainFullName</a> : <code>string</code> &#124; <code>null</code></li>
+<li><a href="#Column+domainFullCatalogName">.domainFullCatalogName</a> : <code>string</code> &#124; <code>null</code></li>
+<li><a href="#Column+domainSchema">.domainSchema</a> : <code>string</code> &#124; <code>null</code></li>
 <li><a href="#Column+enumLabels">.enumLabels</a> : <code>Array.&lt;string&gt;</code> &#124; <code>null</code></li>
 <li><a href="#Column+enumValues">.enumValues</a> : <code>Array.&lt;string&gt;</code> &#124; <code>null</code></li>
-<li><a href="#Column+foreignKeyConstraint">.foreignKeyConstraint</a> : <code>Constraint</code> &#124; <code>null</code></li>
+<li><a href="#Column+foreignKeyConstraints">.foreignKeyConstraints</a> : <code>Map.&lt;Constraint&gt;</code></li>
 <li><a href="#Column+fullName">.fullName</a> : <code>string</code></li>
 <li><a href="#Column+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
+<li><a href="#Column+indexes">.indexes</a> : <code>Map.&lt;Index&gt;</code></li>
 <li><a href="#Column+isAutoIncrement">.isAutoIncrement</a> : <code>boolean</code></li>
 <li><a href="#Column+isSerial">.isSerial</a> : <code>boolean</code></li>
 <li><a href="#Column+isForeignKey">.isForeignKey</a> : <code>boolean</code></li>
@@ -329,18 +333,20 @@
 <li><a href="#Column+notNull">.notNull</a> : <code>boolean</code></li>
 <li><a href="#Column+parent">.parent</a> : <code>Table</code></li>
 <li><a href="#Column+precision">.precision</a> : <code>number</code> &#124; <code>null</code></li>
-<li><a href="#Column+referencedColumn">.referencedColumn</a> : <code><a href="#Column">Column</a></code> &#124; <code>null</code></li>
 <li><a href="#Column+scale">.scale</a> : <code>number</code> &#124; <code>null</code></li>
 <li><a href="#Column+schema">.schema</a> : <code>Schema</code></li>
 <li><a href="#Column+type">.type</a> : <code>postgreSQLDataType</code></li>
 <li><a href="#Column+table">.table</a> : <code>Table</code></li>
 <li><a href="#Column+userDefinedType">.userDefinedType</a> : <code>postgreSQLDataType</code> &#124; <code>null</code></li>
-<li><a href="#Column+uniqueIndexesNoPK">.uniqueIndexesNoPK</a> : <code>Array.&lt;Index&gt;</code></li>
-<li><a href="#Column+uniqueIndexes">.uniqueIndexes</a> : <code>Array.&lt;Index&gt;</code></li>
-<li><a href="#Column+indexes">.indexes</a> : <code>Array.&lt;Index&gt;</code></li>
+<li><a href="#Column+uniqueIndexesNoPk">.uniqueIndexesNoPk</a> : <code>Map.&lt;Index&gt;</code></li>
+<li><a href="#Column+uniqueIndexes">.uniqueIndexes</a> : <code>Map.&lt;Index&gt;</code></li>
+</ul>
+</li>
 </ul>
 <p><a name="new_Column_new"></a></p>
 <h3 id="new-columnargs">new Column(args)</h3>
+<p>Constructor function. You don't need to call constructor manually. pg-structure handles this.</p>
+<p><strong>Returns</strong>: <code><a href="#Column">Column</a></code> - - <a href="#Column">Column</a> instance.  </p>
 <table>
 <thead>
 <tr>
@@ -353,17 +359,7 @@
 <tr>
 <td>args</td>
 <td><code>Object</code></td>
-<td>Database arguments.</td>
-</tr>
-<tr>
-<td>args.registry</td>
-<td><code>Loki</code></td>
-<td>Loki.js database object.</td>
-</tr>
-<tr>
-<td>args.attributes</td>
-<td><code>Object</code></td>
-<td>Attributes of the <a href="#Column">Column</a> instance.</td>
+<td>Attributes of the <a href="#Column">Column</a> instance to be created.</td>
 </tr>
 </tbody>
 </table>
@@ -425,22 +421,42 @@ type = column.default;                   // &quot;'George'&quot;
 <strong>Read only</strong>: true<br />
 <a name="Column+domainName"></a></p>
 <h3 id="columndomainname-string-null">column.domainName : <code>string</code> &#124; <code>null</code></h3>
-<p>If column data type is is a domain, this equals domain name without domain schema. Otherwise null.</p>
+<p>If column data type is a domain, this equals domain name without domain schema. Otherwise null.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#Column+domainFullName">domainFullName</a>.<br />
+<strong>See</strong>: <a href="#Column+domainFullName">domainFullName</a> <a href="#Column+domainFullCatalogName">domainFullCatalogName</a>.<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var domainName = column.domainName; // i.e. 'phone_number'
 </code></pre>
 
 <p><a name="Column+domainFullName"></a></p>
 <h3 id="columndomainfullname-string-null">column.domainFullName : <code>string</code> &#124; <code>null</code></h3>
-<p>If column data type is is a domain, this equals domain name including domain schema. Otherwise null.</p>
+<p>If column data type is a domain, this equals domain name including domain schema. Otherwise null.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Column+domainName">domainName</a>.<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var domainName = column.domainFullName; // i.e. 'public.phone_number'
+</code></pre>
+
+<p><a name="Column+domainFullCatalogName"></a></p>
+<h3 id="columndomainfullcatalogname-string-null">column.domainFullCatalogName : <code>string</code> &#124; <code>null</code></h3>
+<p>If column data type is a domain, this equals domain name including domain schema. Otherwise null.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: <a href="#Column+domainName">domainName</a>.<br />
+<strong>Example</strong>  </p>
+<pre><code class="js">var domainName = column.domainFullName; // i.e. 'public.phone_number'
+</code></pre>
+
+<p><a name="Column+domainSchema"></a></p>
+<h3 id="columndomainschema-string-null">column.domainSchema : <code>string</code> &#124; <code>null</code></h3>
+<p>If column data type is a domain, this equals domain schema name. Otherwise null.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: <a href="#Column+domainFullName">domainFullName</a>.<br />
+<strong>Example</strong>  </p>
+<pre><code class="js">var domainName = column.domainSchema; // i.e. 'public'
 </code></pre>
 
 <p><a name="Column+enumLabels"></a></p>
@@ -457,9 +473,9 @@ equals <code>undefined</code></p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Column+enumLabels">enumLabels</a><br />
-<a name="Column+foreignKeyConstraint"></a></p>
-<h3 id="columnforeignkeyconstraint-constraint-null">column.foreignKeyConstraint : <code>Constraint</code> &#124; <code>null</code></h3>
-<p>Foreign key constraint of the column, if column is part of a foreign key constraint, null otherwise.</p>
+<a name="Column+foreignKeyConstraints"></a></p>
+<h3 id="columnforeignkeyconstraints-mapconstraint">column.foreignKeyConstraints : <code>Map.&lt;Constraint&gt;</code></h3>
+<p><a href="../Map">Map</a> of foreign key constraints of the column, if column is part of one or more foreign key constraint.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Column+fullName"></a></p>
@@ -477,10 +493,15 @@ equals <code>undefined</code></p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
-<pre><code class="js">var fullName = table.fullName; // crm.public.account.id
+<pre><code class="js">var fullName = table.fullCatalogName; // crm.public.account.id
 </code></pre>
 
-<p><a name="Column+isAutoIncrement"></a></p>
+<p><a name="Column+indexes"></a></p>
+<h3 id="columnindexes-mapindex">column.indexes : <code>Map.&lt;Index&gt;</code></h3>
+<p><a href="../Map">Map</a> of <a href="../Index">indexes</a>, which column is part of.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Column+isAutoIncrement"></a></p>
 <h3 id="columnisautoincrement-boolean">column.isAutoIncrement : <code>boolean</code></h3>
 <p><code>true</code> if this column has an auto incremented (<code>nextval()</code>) default value or defined one of <code>serial</code>
 types.</p>
@@ -552,11 +573,6 @@ of the data type of the array.</li>
 </ul>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="Column+referencedColumn"></a></p>
-<h3 id="columnreferencedcolumn-column-null">column.referencedColumn : <code><a href="#Column">Column</a></code> &#124; <code>null</code></h3>
-<p>Referenced column by this column. If this isn't foreign key then this is null.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
-<strong>Read only</strong>: true<br />
 <a name="Column+scale"></a></p>
 <h3 id="columnscale-number-null">column.scale : <code>number</code> &#124; <code>null</code></h3>
 <ul>
@@ -602,25 +618,20 @@ of the data type of the array.</li>
 <p>If type of column is user defined such as composite, enumerated, this is the data type of the underlying type.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="Column+uniqueIndexesNoPK"></a></p>
-<h3 id="columnuniqueindexesnopk-arrayindex">column.uniqueIndexesNoPK : <code>Array.&lt;Index&gt;</code></h3>
-<p>List of unique <a href="../Index">indexes</a>, which column is part of. Results are ordered by index name. Excludes primary key indexes. PostgreSQL already creates a unique index for unique
+<a name="Column+uniqueIndexesNoPk"></a></p>
+<h3 id="columnuniqueindexesnopk-mapindex">column.uniqueIndexesNoPk : <code>Map.&lt;Index&gt;</code></h3>
+<p><a href="../Map">Map</a> of unique <a href="../Index">indexes</a>, which column is part of. Excludes primary key indexes. PostgreSQL already creates a unique index for unique
 <a href="../Constraint">constraints</a>. So there is no need to look for unique constraints which will result duplicates.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Column+uniqueIndexes">uniqueIndexes</a> for all unique indexes including primary key indexes.<br />
 <a name="Column+uniqueIndexes"></a></p>
-<h3 id="columnuniqueindexes-arrayindex">column.uniqueIndexes : <code>Array.&lt;Index&gt;</code></h3>
-<p>List of unique <a href="../Index">indexes</a>, which column is part of. Results are ordered by index name. PostgreSQL already creates a unique index for unique
+<h3 id="columnuniqueindexes-mapindex">column.uniqueIndexes : <code>Map.&lt;Index&gt;</code></h3>
+<p><a href="../Map">Map</a> of unique <a href="../Index">indexes</a>, which column is part of. PostgreSQL already creates a unique index for unique
 <a href="../Constraint">constraints</a>. So there is no need to look for unique constraints which will result duplicates.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#Column+uniqueIndexesNoPK">uniqueIndexesNoPK</a> for unique indexes excluding primary key indexes.<br />
-<a name="Column+indexes"></a></p>
-<h3 id="columnindexes-arrayindex">column.indexes : <code>Array.&lt;Index&gt;</code></h3>
-<p>List of <a href="../Index">indexes</a>, which column is part of. Results are ordered by index name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
-<strong>Read only</strong>: true  </p>
+<strong>See</strong>: <a href="#Column+uniqueIndexesNoPk">uniqueIndexesNoPK</a> for unique indexes excluding primary key indexes.  </p>
               
             </div>
           </div>

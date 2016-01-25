@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Constraint - pg-structure 2.0.10</title>
+  <title>Constraint - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -141,6 +141,8 @@
                 
                     <li><a class="toctree-l4" href="#constraintschema-schema">constraint.schema : Schema</a></li>
                 
+                    <li><a class="toctree-l4" href="#constraintmatchoption-string">constraint.matchOption : string</a></li>
+                
                     <li><a class="toctree-l4" href="#constraintonupdate-constraintrule-null">constraint.onUpdate : constraintRule &#124; null</a></li>
                 
                     <li><a class="toctree-l4" href="#constraintondelete-constraintrule-null">constraint.onDelete : constraintRule &#124; null</a></li>
@@ -149,9 +151,9 @@
                 
                     <li><a class="toctree-l4" href="#constraintparent-table-null">constraint.parent : Table &#124; null</a></li>
                 
-                    <li><a class="toctree-l4" href="#constraintcolumns-arraycolumn">constraint.columns : Array.&lt;Column&gt;</a></li>
+                    <li><a class="toctree-l4" href="#constraintcolumns-mapcolumn">constraint.columns : Map.&lt;Column&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#constraintcolumnsbyname-objectstring-column">constraint.columnsByName : Object.&lt;string, Column&gt;</a></li>
+                    <li><a class="toctree-l4" href="#constraintreferencedcolumnsby-mapcolumn">constraint.referencedColumnsBy : Map.&lt;Column&gt;</a></li>
                 
             
             </ul>
@@ -161,7 +163,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../DB/">DB</a>
+        <a class="" href="../Db/">Db</a>
         
     </li>
 
@@ -189,6 +191,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../O2MRelation/">O2M Relation</a>
         
     </li>
@@ -197,13 +206,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Relation/">Relation</a>
         
     </li>
 
@@ -235,7 +237,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.10</a>
+        <a href="../..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -297,7 +299,7 @@ However product could have been join table for <code>size &amp; vendor</code>, <
 color and vendor tables would have many to many <code>through constraints</code>.</p>
 <p><strong>Kind</strong>: global class  </p>
 <ul>
-<li><a href="#Constraint">Constraint</a></li>
+<li><a href="#Constraint">Constraint</a><ul>
 <li><a href="#new_Constraint_new">new Constraint(args)</a></li>
 <li><a href="#Constraint+name">.name</a> : <code>string</code></li>
 <li><a href="#Constraint+fullName">.fullName</a> : <code>string</code></li>
@@ -307,15 +309,19 @@ color and vendor tables would have many to many <code>through constraints</code>
 <li><a href="#Constraint+table">.table</a> : <code>Table</code></li>
 <li><a href="#Constraint+db">.db</a> : <code>DB</code></li>
 <li><a href="#Constraint+schema">.schema</a> : <code>Schema</code></li>
+<li><a href="#Constraint+matchOption">.matchOption</a> : <code>string</code></li>
 <li><a href="#Constraint+onUpdate">.onUpdate</a> : <code>constraintRule</code> &#124; <code>null</code></li>
 <li><a href="#Constraint+onDelete">.onDelete</a> : <code>constraintRule</code> &#124; <code>null</code></li>
 <li><a href="#Constraint+referencedTable">.referencedTable</a> : <code>Table</code> &#124; <code>null</code></li>
 <li><a href="#Constraint+parent">.parent</a> : <code>Table</code> &#124; <code>null</code></li>
-<li><a href="#Constraint+columns">.columns</a> : <code>Array.&lt;Column&gt;</code></li>
-<li><a href="#Constraint+columnsByName">.columnsByName</a> : <code>Object.&lt;string, Column&gt;</code></li>
+<li><a href="#Constraint+columns">.columns</a> : <code>Map.&lt;Column&gt;</code></li>
+<li><a href="#Constraint+referencedColumnsBy">.referencedColumnsBy</a> : <code>Map.&lt;Column&gt;</code></li>
+</ul>
+</li>
 </ul>
 <p><a name="new_Constraint_new"></a></p>
 <h3 id="new-constraintargs">new Constraint(args)</h3>
+<p>Constructor function. You don't need to call constructor manually. pg-structure handles this.</p>
 <table>
 <thead>
 <tr>
@@ -328,17 +334,47 @@ color and vendor tables would have many to many <code>through constraints</code>
 <tr>
 <td>args</td>
 <td><code>Object</code></td>
-<td>Constraint arguments.</td>
+<td>Attributes of the <a href="#Constraint">Constraint</a> instance to be created.</td>
 </tr>
 <tr>
-<td>args.registry</td>
-<td><code>Loki</code></td>
-<td>Loki.js database object.</td>
+<td>args.parent</td>
+<td><code>Table</code></td>
+<td>For foreign key constraints this is <a href="../Table">Table</a> instance this <a href="#Constraint">constraint</a> refers to. If this is not a foreign key <a href="#Constraint">constraint</a> this is <code>null</code></td>
 </tr>
 <tr>
-<td>args.attributes</td>
-<td><code>Object</code></td>
-<td>Attributes of the <a href="#Constraint">Constraint</a> instance.</td>
+<td>args.table</td>
+<td><code>Table</code></td>
+<td><a href="../Table">Table</a> instance the Constraint is defined in.</td>
+</tr>
+<tr>
+<td>args.schemaName</td>
+<td><code>string</code></td>
+<td>Schema name of the Constraint.</td>
+</tr>
+<tr>
+<td>args.name</td>
+<td><code>string</code></td>
+<td>Name of the Constraint.</td>
+</tr>
+<tr>
+<td>args.type</td>
+<td><code>string</code></td>
+<td>Constraint type.</td>
+</tr>
+<tr>
+<td>args.onUpdate</td>
+<td><code>string</code></td>
+<td>Update rule of the constraint.</td>
+</tr>
+<tr>
+<td>args.onDelete</td>
+<td><code>string</code></td>
+<td>Delete rule of the constraint.</td>
+</tr>
+<tr>
+<td>args.matchOption</td>
+<td><code>string</code></td>
+<td>Match option of the constraint.</td>
 </tr>
 </tbody>
 </table>
@@ -402,6 +438,11 @@ where foreign key column is defined, so this is child table for foreign key cons
 <p><a href="../Schema">Schema</a> this <a href="#Constraint">constraint</a> belongs to.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
+<a name="Constraint+matchOption"></a></p>
+<h3 id="constraintmatchoption-string">constraint.matchOption : <code>string</code></h3>
+<p>Match option of <a href="#Constraint">Constraint</a>.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<strong>Read only</strong>: true<br />
 <a name="Constraint+onUpdate"></a></p>
 <h3 id="constraintonupdate-constraintrule-null">constraint.onUpdate : <code>constraintRule</code> &#124; <code>null</code></h3>
 <p>Update rule for foreign key <a href="#Constraint">constraints</a>. One of <code>CASCADE</code>, <code>SET NULL</code>, <code>SET DEFAULT</code>, <code>RESTRICT</code>, <code>NO ACTION</code>
@@ -435,15 +476,15 @@ foreign key constraints and for foreign key constraints parent means referenced 
 <li>To get <a href="../Table">Table</a> this constraint belongs to or defined in, use <a href="#Constraint+table">table</a>.</li>
 </ul>
 <p><a name="Constraint+columns"></a></p>
-<h3 id="constraintcolumns-arraycolumn">constraint.columns : <code>Array.&lt;Column&gt;</code></h3>
-<p>List of <a href="../Column">columns</a> restricted by <a href="#Constraint">constraint</a>, in order their ordinal position
-within the constraint key. If <a href="#Constraint">constraint</a> does not have any <a href="../Column">columns</a> this is <code>null</code>.</p>
+<h3 id="constraintcolumns-mapcolumn">constraint.columns : <code>Map.&lt;Column&gt;</code></h3>
+<p>For foreign key constraints, this is <a href="../Map">map</a> of <a href="../Column">columns</a> restricted by <a href="#Constraint">constraint</a>, in order their ordinal position
+within the constraint key.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="Constraint+columnsByName"></a></p>
-<h3 id="constraintcolumnsbyname-objectstring-column">constraint.columnsByName : <code>Object.&lt;string, Column&gt;</code></h3>
-<p>List of columns restricted by <a href="#Constraint">constraint</a>, in order their ordinal position within the constraint key.
-If <a href="#Constraint">constraint</a> does not have any columns this is <code>null</code>.</p>
+<a name="Constraint+referencedColumnsBy"></a></p>
+<h3 id="constraintreferencedcolumnsby-mapcolumn">constraint.referencedColumnsBy : <code>Map.&lt;Column&gt;</code></h3>
+<p>For foreign key constraints, this is <a href="../Map">map</a> of <a href="../Column">columns</a> referenced by this constraint's columns.
+Keys are referencing column's names, values are referenced columns.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true  </p>
               
@@ -453,7 +494,7 @@ If <a href="#Constraint">constraint</a> does not have any columns this is <code>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../DB/" class="btn btn-neutral float-right" title="DB"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Db/" class="btn btn-neutral float-right" title="Db"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../Column/" class="btn btn-neutral" title="Column"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -489,7 +530,7 @@ If <a href="#Constraint">constraint</a> does not have any columns this is <code>
         <span><a href="../Column/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../DB/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Db/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

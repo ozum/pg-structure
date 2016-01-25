@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>M2M Relation - pg-structure 2.0.10</title>
+  <title>M2M Relation - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -122,7 +122,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../DB/">DB</a>
+        <a class="" href="../Db/">Db</a>
         
     </li>
 
@@ -140,9 +140,9 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#m2mrelation-relation">M2MRelation ⇐ Relation</a></li>
+                <li class="toctree-l3"><a href="#m2mrelation">M2MRelation</a></li>
                 
-                    <li><a class="toctree-l4" href="#new-m2mrelation">new M2MRelation()</a></li>
+                    <li><a class="toctree-l4" href="#new-m2mrelationargs">new M2MRelation(args)</a></li>
                 
                     <li><a class="toctree-l4" href="#m2mrelationtype-relationtype">m2MRelation.type : relationType</a></li>
                 
@@ -171,6 +171,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../O2MRelation/">O2M Relation</a>
         
     </li>
@@ -179,13 +186,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Relation/">Relation</a>
         
     </li>
 
@@ -217,7 +217,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.10</a>
+        <a href="../..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -248,12 +248,11 @@
             <div class="section">
               
                 <p><a name="M2MRelation"></a></p>
-<h2 id="m2mrelation-relation">M2MRelation ⇐ <code>Relation</code></h2>
-<p><strong>Kind</strong>: global class<br />
-<strong>Extends:</strong> <code>Relation</code>  </p>
+<h2 id="m2mrelation">M2MRelation</h2>
+<p><strong>Kind</strong>: global class  </p>
 <ul>
-<li><a href="#M2MRelation">M2MRelation</a> ⇐ <code>Relation</code></li>
-<li><a href="#new_M2MRelation_new">new M2MRelation()</a></li>
+<li><a href="#M2MRelation">M2MRelation</a><ul>
+<li><a href="#new_M2MRelation_new">new M2MRelation(args)</a></li>
 <li><a href="#M2MRelation+type">.type</a> : <code>relationType</code></li>
 <li><a href="#M2MRelation+sourceTable">.sourceTable</a> : <code>Table</code></li>
 <li><a href="#M2MRelation+joinTable">.joinTable</a> : <code>Table</code></li>
@@ -261,8 +260,10 @@
 <li><a href="#M2MRelation+sourceConstraint">.sourceConstraint</a> : <code>Table</code></li>
 <li><a href="#M2MRelation+targetConstraint">.targetConstraint</a> : <code>Table</code></li>
 </ul>
+</li>
+</ul>
 <p><a name="new_M2MRelation_new"></a></p>
-<h3 id="new-m2mrelation">new M2MRelation()</h3>
+<h3 id="new-m2mrelationargs">new M2MRelation(args)</h3>
 <p>Class which represent a many to many relationship which resembles <code>belongsToMany</code> or <code>hasManyThrough</code> relations in ORMs (Object Relational Mappers).
 Provides attributes and methods for details of the relationship.</p>
 <p>Actually there isn't such a thing called <strong>many to many relationship</strong> or <strong>through constraint</strong> in the database engine.
@@ -297,6 +298,47 @@ name                 name                   name
 Product table has 3 foreign key constraints. Product table is not meant to be a many to many join table.
 However product could have been join table for <code>size &amp; vendor</code>, <code>color &amp; vendor</code> and <code>size &amp; color</code>. As a result size,
 color and vendor tables would have many to many relationships.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>args</td>
+<td><code>Object</code></td>
+<td>Attributes of the <a href="#M2MRelation">M2MRelation</a> instance to be created.</td>
+</tr>
+<tr>
+<td>args.sourceTable</td>
+<td><code>Table</code></td>
+<td>Source <a href="../Table">Table</a> which this relation belongs to.</td>
+</tr>
+<tr>
+<td>args.joinTable</td>
+<td><code>Table</code></td>
+<td>Join <a href="../Table">Table</a> of this relationship.</td>
+</tr>
+<tr>
+<td>args.targetTable</td>
+<td><code>Table</code></td>
+<td>Target <a href="../Table">Table</a> which this relation is referring to through a join table.</td>
+</tr>
+<tr>
+<td>args.sourceConstraint</td>
+<td><code>Constraint</code></td>
+<td>Foreign key constraint between source table and join table.</td>
+</tr>
+<tr>
+<td>args.targetConstraint</td>
+<td><code>Constraint</code></td>
+<td>Foreign key constraint between join table and target table.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Example</strong>  </p>
 <pre><code class="js">// Example tables have single primary key and and examples first relation. So zero index ([0]) is used. Use all array elements if necessary.
 // product ----&lt; line_item &gt;---- cart
@@ -315,7 +357,7 @@ let targetPKColumn       = relation.targetTable.primaryKeys[0];  // COLUMN:     
 
 <p><a name="M2MRelation+type"></a></p>
 <h3 id="m2mrelationtype-relationtype">m2MRelation.type : <code>relationType</code></h3>
-<p>Type of relation which is <code>ONE TO MANY</code>.</p>
+<p>Type of relation which is <code>MANY TO MANY</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#M2MRelation">M2MRelation</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="M2MRelation+sourceTable"></a></p>
@@ -330,7 +372,7 @@ let source   = relation.sourceTable;             // TABLE:       product
 
 <p><a name="M2MRelation+joinTable"></a></p>
 <h3 id="m2mrelationjointable-table">m2MRelation.joinTable : <code>Table</code></h3>
-<p><a href="../Table">Table</a> of this relationship. This table contains foreign key columns referring both
+<p>Join <a href="../Table">Table</a> of this relationship. This table contains foreign key columns referring both
 <a href="#M2MRelation+sourceTable">sourceTable</a> and <a href="#M2MRelation+targetTable">targetTable</a>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#M2MRelation">M2MRelation</a></code><br />
 <strong>Read only</strong>: true<br />

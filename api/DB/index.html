@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DB - pg-structure 2.0.10</title>
+  <title>Db - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "DB";
+    var mkdocs_page_name = "Db";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -122,29 +122,25 @@
         
             
     <li class="toctree-l1 current">
-        <a class="current" href="./">DB</a>
+        <a class="current" href="./">Db</a>
         
             <ul>
             
-                <li class="toctree-l3"><a href="#db">DB</a></li>
+                <li class="toctree-l3"><a href="#db">Db</a></li>
                 
-                    <li><a class="toctree-l4" href="#new-dbargs">new DB(args)</a></li>
+                    <li><a class="toctree-l4" href="#new-dbargs-options">new Db(args, options)</a></li>
                 
-                    <li><a class="toctree-l4" href="#dbname-string">dB.name : string</a></li>
+                    <li><a class="toctree-l4" href="#dbname-string">db.name : string</a></li>
                 
-                    <li><a class="toctree-l4" href="#dbfullname-string">dB.fullName : string</a></li>
+                    <li><a class="toctree-l4" href="#dbfullname-string">db.fullName : string</a></li>
                 
-                    <li><a class="toctree-l4" href="#dbfullcatalogname-string">dB.fullCatalogName : string</a></li>
+                    <li><a class="toctree-l4" href="#dbfullcatalogname-string">db.fullCatalogName : string</a></li>
                 
-                    <li><a class="toctree-l4" href="#dbschemas-arrayschema">dB.schemas : Array.&lt;Schema&gt;</a></li>
+                    <li><a class="toctree-l4" href="#dboptions-object">db.options : Object</a></li>
                 
-                    <li><a class="toctree-l4" href="#dbschemasbyname-objectstring-schema">dB.schemasByName : Object.&lt;string, Schema&gt;</a></li>
+                    <li><a class="toctree-l4" href="#dbschemas-mapschema">db.schemas : Map.&lt;Schema&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#dbgetschemakey-schema-undefined">dB.getSchema(key) ⇒ Schema &#124; undefined</a></li>
-                
-                    <li><a class="toctree-l4" href="#dbschemaexistsname-boolean">dB.schemaExists(name) ⇒ boolean</a></li>
-                
-                    <li><a class="toctree-l4" href="#dbgetpath-schema-table-column-undefined">dB.get(path) ⇒ Schema &#124; Table &#124; Column &#124; undefined</a></li>
+                    <li><a class="toctree-l4" href="#dbgetpath-schema-table-column-undefined">db.get(path) ⇒ Schema &#124; Table &#124; Column &#124; undefined</a></li>
                 
             
             </ul>
@@ -175,6 +171,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../O2MRelation/">O2M Relation</a>
         
     </li>
@@ -183,13 +186,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Relation/">Relation</a>
         
     </li>
 
@@ -221,7 +217,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.10</a>
+        <a href="../..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -237,7 +233,7 @@
         
       
     
-    <li>DB</li>
+    <li>Db</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -251,29 +247,31 @@
           <div role="main">
             <div class="section">
               
-                <p><a name="DB"></a></p>
-<h2 id="db">DB</h2>
+                <p><a name="Db"></a></p>
+<h2 id="db">Db</h2>
 <p>Class which represent a database. Provides attributes and methods for details of the database.</p>
 <p><strong>Kind</strong>: global class  </p>
 <ul>
-<li><a href="#DB">DB</a></li>
-<li><a href="#new_DB_new">new DB(args)</a></li>
-<li><a href="#DB+name">.name</a> : <code>string</code></li>
-<li><a href="#DB+fullName">.fullName</a> : <code>string</code></li>
-<li><a href="#DB+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
-<li><a href="#DB+schemas">.schemas</a> : <code>Array.&lt;Schema&gt;</code></li>
-<li><a href="#DB+schemasByName">.schemasByName</a> : <code>Object.&lt;string, Schema&gt;</code></li>
-<li><a href="#DB+getSchema">.getSchema(key)</a> ⇒ <code>Schema</code> &#124; <code>undefined</code></li>
-<li><a href="#DB+schemaExists">.schemaExists(name)</a> ⇒ <code>boolean</code></li>
-<li><a href="#DB+get">.get(path)</a> ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></li>
+<li><a href="#Db">Db</a><ul>
+<li><a href="#new_Db_new">new Db(args, options)</a></li>
+<li><a href="#Db+name">.name</a> : <code>string</code></li>
+<li><a href="#Db+fullName">.fullName</a> : <code>string</code></li>
+<li><a href="#Db+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
+<li><a href="#Db+options">.options</a> : <code>Object</code></li>
+<li><a href="#Db+schemas">.schemas</a> : <code>Map.&lt;Schema&gt;</code></li>
+<li><a href="#Db+get">.get(path)</a> ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></li>
 </ul>
-<p><a name="new_DB_new"></a></p>
-<h3 id="new-dbargs">new DB(args)</h3>
+</li>
+</ul>
+<p><a name="new_Db_new"></a></p>
+<h3 id="new-dbargs-options">new Db(args, options)</h3>
+<p>Constructor function. You don't need to call constructor manually. pg-structure handles this.</p>
 <table>
 <thead>
 <tr>
 <th>Param</th>
 <th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -281,110 +279,74 @@
 <tr>
 <td>args</td>
 <td><code>Object</code></td>
-<td>Database arguments.</td>
+<td></td>
+<td>Attributes of the <a href="../Database">Database</a> instance to be created.</td>
 </tr>
 <tr>
-<td>args.registry</td>
-<td><code>Loki</code></td>
-<td>Loki.js database object.</td>
-</tr>
-<tr>
-<td>args.attributes</td>
+<td>args.name</td>
 <td><code>Object</code></td>
-<td>Attributes of the <a href="#DB">DB</a> instance.</td>
+<td></td>
+<td>Name of the <a href="#Db">Db</a> instance.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+<td>Options to modify behaviour of classes.</td>
+</tr>
+<tr>
+<td>[options.cache]</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>Use cache to memoize calculated results.</td>
 </tr>
 </tbody>
 </table>
-<p><a name="DB+name"></a></p>
-<h3 id="dbname-string">dB.name : <code>string</code></h3>
+<p><a name="Db+name"></a></p>
+<h3 id="dbname-string">db.name : <code>string</code></h3>
 <p>Name of the <a href="../Database">Database</a>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#DB">DB</a></code><br />
+<p><strong>Kind</strong>: instance property of <code><a href="#Db">Db</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="DB+fullName"></a></p>
-<h3 id="dbfullname-string">dB.fullName : <code>string</code></h3>
+<a name="Db+fullName"></a></p>
+<h3 id="dbfullname-string">db.fullName : <code>string</code></h3>
 <p>Full name of the <a href="../Database">Database</a> with (.) notation. Since database does not have a parent this equals database name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#DB">DB</a></code><br />
+<p><strong>Kind</strong>: instance property of <code><a href="#Db">Db</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="DB+fullCatalogName"></a></p>
-<h3 id="dbfullcatalogname-string">dB.fullCatalogName : <code>string</code></h3>
+<a name="Db+fullCatalogName"></a></p>
+<h3 id="dbfullcatalogname-string">db.fullCatalogName : <code>string</code></h3>
 <p>Full name of the <a href="../Database">Database</a> with (.) notation including catalog name. Since database does not have a parent this equals database name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#DB">DB</a></code><br />
+<p><strong>Kind</strong>: instance property of <code><a href="#Db">Db</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="DB+schemas"></a></p>
-<h3 id="dbschemas-arrayschema">dB.schemas : <code>Array.&lt;Schema&gt;</code></h3>
-<p>All <a href="../Schema">Schema</a> instances in the database as an array. They are ordered by schema name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#DB">DB</a></code><br />
+<a name="Db+options"></a></p>
+<h3 id="dboptions-object">db.options : <code>Object</code></h3>
+<p>Options passed to during initialization.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Db">Db</a></code><br />
 <strong>Read only</strong>: true<br />
+<a name="Db+schemas"></a></p>
+<h3 id="dbschemas-mapschema">db.schemas : <code>Map.&lt;Schema&gt;</code></h3>
+<p>All <a href="../Schema">Schema</a> instances in the database as a <a href="../Map">Map</a>. Schemas are ordered by their name.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Db">Db</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: <a href="../Map">Map</a><br />
 <strong>Example</strong>  </p>
-<pre><code class="js">var schemas = db.schemas;
-var name    = schemas[0].name;
+<pre><code class="js">let isAvailable  = db.schemas.has('another_schema');
+let schemaNames  = [...db.schemas.keys()];           // Use spread operator to get schema names as an array.
+let public       = db.schemas.get('public');
+let name         = public.name;
+
+for (let schema of db.schemas.values()) {
+    console.log(schema.name);
+}
+
+for (let [name, schema] of db.schemas) {
+    console.log(name, schema.name);
+}
 </code></pre>
 
-<p><a name="DB+schemasByName"></a></p>
-<h3 id="dbschemasbyname-objectstring-schema">dB.schemasByName : <code>Object.&lt;string, Schema&gt;</code></h3>
-<p>All <a href="../Schema">Schema</a> instances in the database as a simple object. Keys are schema names, values are <a href="../Schema">Schema</a> instances.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#DB">DB</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>Example</strong>  </p>
-<pre><code class="js">var schemas = db.schemasByName;
-var public  = schemas.public;
-</code></pre>
-
-<p><a name="DB+getSchema"></a></p>
-<h3 id="dbgetschemakey-schema-undefined">dB.getSchema(key) ⇒ <code>Schema</code> &#124; <code>undefined</code></h3>
-<p>Returns <a href="../Schema">Schema</a> instance with given name or order.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#DB">DB</a></code><br />
-<strong>Returns</strong>: <code>Schema</code> &#124; <code>undefined</code> - - Requested <a href="../Schema">Schema</a> instance.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>key</td>
-<td><code>string</code> &#124; <code>number</code></td>
-<td>Name or order number of the schema.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">var schema = db.getSchema('public');
-</code></pre>
-
-<p><a name="DB+schemaExists"></a></p>
-<h3 id="dbschemaexistsname-boolean">dB.schemaExists(name) ⇒ <code>boolean</code></h3>
-<p>Returns true if <a href="../Schema">Schema</a> instance with given name or order number exists.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#DB">DB</a></code><br />
-<strong>Returns</strong>: <code>boolean</code> - - <code>true</code> if schema exists in database, otherwise <code>false</code>.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td><code>string</code> &#124; <code>number</code></td>
-<td>Name or order number of the schema.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">var publicExists = db.schemaExists('public'); // true
-var otherExists  = db.schemaExists('other');  // false
-</code></pre>
-
-<p><a name="DB+get"></a></p>
-<h3 id="dbgetpath-schema-table-column-undefined">dB.get(path) ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></h3>
-<p>Returns <a href="../Schema">Schema</a>, <a href="../Table">Table</a> or <a href="../Column">Column</a> on given path relative to <a href="#DB">DB</a>. Path should be in dot (.) notation.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#DB">DB</a></code><br />
+<p><a name="Db+get"></a></p>
+<h3 id="dbgetpath-schema-table-column-undefined">db.get(path) ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></h3>
+<p>Returns <a href="../Schema">Schema</a>, <a href="../Table">Table</a> or <a href="../Column">Column</a> on given path relative to <a href="#Db">Db</a>. Path should be in dot (.) notation.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Db">Db</a></code><br />
 <strong>Returns</strong>: <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code> - - Requested item.  </p>
 <table>
 <thead>

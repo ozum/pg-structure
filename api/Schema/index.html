@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Schema - pg-structure 2.0.10</title>
+  <title>Schema - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -122,7 +122,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../DB/">DB</a>
+        <a class="" href="../Db/">Db</a>
         
     </li>
 
@@ -150,6 +150,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../O2MRelation/">O2M Relation</a>
         
     </li>
@@ -158,13 +165,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Relation/">Relation</a>
         
     </li>
 
@@ -189,11 +189,7 @@
                 
                     <li><a class="toctree-l4" href="#schemaparent-db">schema.parent : DB</a></li>
                 
-                    <li><a class="toctree-l4" href="#schematables-arraytable">schema.tables : Array.&lt;Table&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemagettablekey-table-undefined">schema.getTable(key) ⇒ Table &#124; undefined</a></li>
-                
-                    <li><a class="toctree-l4" href="#schematableexistsname-boolean">schema.tableExists(name) ⇒ boolean</a></li>
+                    <li><a class="toctree-l4" href="#schematables-maptable">schema.tables : Map.&lt;Table&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#schemagetpath-table-column-undefined">schema.get(path) ⇒ Table &#124; Column &#124; undefined</a></li>
                 
@@ -223,7 +219,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.10</a>
+        <a href="../..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -258,20 +254,21 @@
 <p>Class which represent a PostgreSQL schema. Provides attributes and methods for details of the database.</p>
 <p><strong>Kind</strong>: global class  </p>
 <ul>
-<li><a href="#Schema">Schema</a></li>
+<li><a href="#Schema">Schema</a><ul>
 <li><a href="#new_Schema_new">new Schema(args)</a></li>
 <li><a href="#Schema+name">.name</a> : <code>string</code></li>
 <li><a href="#Schema+fullName">.fullName</a> : <code>string</code></li>
 <li><a href="#Schema+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
 <li><a href="#Schema+db">.db</a> : <code>DB</code></li>
 <li><a href="#Schema+parent">.parent</a> : <code>DB</code></li>
-<li><a href="#Schema+tables">.tables</a> : <code>Array.&lt;Table&gt;</code></li>
-<li><a href="#Schema+getTable">.getTable(key)</a> ⇒ <code>Table</code> &#124; <code>undefined</code></li>
-<li><a href="#Schema+tableExists">.tableExists(name)</a> ⇒ <code>boolean</code></li>
+<li><a href="#Schema+tables">.tables</a> : <code>Map.&lt;Table&gt;</code></li>
 <li><a href="#Schema+get">.get(path)</a> ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></li>
+</ul>
+</li>
 </ul>
 <p><a name="new_Schema_new"></a></p>
 <h3 id="new-schemaargs">new Schema(args)</h3>
+<p>Constructor function. You don't need to call constructor manually. pg-structure handles this.</p>
 <table>
 <thead>
 <tr>
@@ -284,17 +281,17 @@
 <tr>
 <td>args</td>
 <td><code>Object</code></td>
-<td>Database arguments.</td>
+<td>Attributes of the <a href="#Schema">Schema</a> instance to be created.</td>
 </tr>
 <tr>
-<td>args.registry</td>
-<td><code>Loki</code></td>
-<td>Loki.js object to get database details.</td>
+<td>args.parent</td>
+<td><code>DB</code></td>
+<td>Parent <a href="../DB">DB</a> of the Schema.</td>
 </tr>
 <tr>
-<td>args.attributes</td>
-<td><code>Object</code></td>
-<td>Attributes of the <a href="#Schema">Schema</a> instance.</td>
+<td>args.name</td>
+<td><code>string</code></td>
+<td>Name of the Schema.</td>
 </tr>
 </tbody>
 </table>
@@ -305,11 +302,11 @@
 <strong>Read only</strong>: true<br />
 <a name="Schema+fullName"></a></p>
 <h3 id="schemafullname-string">schema.fullName : <code>string</code></h3>
-<p>Full name of the <a href="#Schema">Schema</a> with (.) notation.</p>
+<p>Full name of the <a href="#Schema">Schema</a>. For schema it is equal to schema name.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
-<pre><code class="js">var fullName = schema.fullName; // crm.public
+<pre><code class="js">var fullName = schema.fullName; // public
 </code></pre>
 
 <p><a name="Schema+fullCatalogName"></a></p>
@@ -342,64 +339,24 @@
 </code></pre>
 
 <p><a name="Schema+tables"></a></p>
-<h3 id="schematables-arraytable">schema.tables : <code>Array.&lt;Table&gt;</code></h3>
-<p>All <a href="../Table">Table</a> instances in the database as an array. They are ordered by same order they are added.</p>
+<h3 id="schematables-maptable">schema.tables : <code>Map.&lt;Table&gt;</code></h3>
+<p>All <a href="../Table">Table</a> instances of the schema as a <a href="../Map">Map</a>. They are ordered by their name.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
 <strong>Read only</strong>: true<br />
+<strong>See</strong>: <a href="../Map">Map</a><br />
 <strong>Example</strong>  </p>
-<pre><code class="js">var tables = schema.tables;
-var name   = tables[0].name;
-</code></pre>
+<pre><code class="js">let isAvailable  = schema.tables.has('person');
+let tableNames   = [...schema.tables.keys()];        // Use spread operator to get table names as an array.
+let table        = schema.tables.get('account');
+let name         = table.name;
 
-<p><a name="Schema+getTable"></a></p>
-<h3 id="schemagettablekey-table-undefined">schema.getTable(key) ⇒ <code>Table</code> &#124; <code>undefined</code></h3>
-<p>Returns <a href="../Table">Table</a> instance with given name or order.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Schema">Schema</a></code><br />
-<strong>Returns</strong>: <code>Table</code> &#124; <code>undefined</code> - - Requested <a href="../Table">Table</a> instance.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>key</td>
-<td><code>string</code> &#124; <code>number</code></td>
-<td>Name or order number of the table.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">var table = schema.getTable('account');
-</code></pre>
+for (let table of schema.tables.values()) {
+    console.log(table.name);
+}
 
-<p><a name="Schema+tableExists"></a></p>
-<h3 id="schematableexistsname-boolean">schema.tableExists(name) ⇒ <code>boolean</code></h3>
-<p>Returns true if <a href="../Table">Table</a> instance with given name or order number exists.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Schema">Schema</a></code><br />
-<strong>Returns</strong>: <code>boolean</code> - - <code>true</code> if table exists in schema, otherwise <code>false</code>  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td><code>string</code> &#124; <code>number</code></td>
-<td>Name or order number of the table.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">var accountExists = db.TableExists('account'); // true
-var cakeExists    = db.TableExists('cake');  // false
+for (let [name, table] of schema.tables) {
+    console.log(name, table.name);
+}
 </code></pre>
 
 <p><a name="Schema+get"></a></p>
@@ -437,7 +394,7 @@ var cakeExists    = db.TableExists('cake');  // false
         <a href="../Table/" class="btn btn-neutral float-right" title="Table"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Relation/" class="btn btn-neutral" title="Relation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../PgStructure/" class="btn btn-neutral" title="pgStructure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -467,7 +424,7 @@ var cakeExists    = db.TableExists('cake');  // false
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../Relation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../PgStructure/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../Table/" style="color: #fcfcfc">Next &raquo;</a></span>

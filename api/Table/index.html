@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Table - pg-structure 2.0.10</title>
+  <title>Table - pg-structure 3.0.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 2.0.10</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -122,7 +122,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../DB/">DB</a>
+        <a class="" href="../Db/">Db</a>
         
     </li>
 
@@ -150,6 +150,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../O2MRelation/">O2M Relation</a>
         
     </li>
@@ -158,13 +165,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Relation/">Relation</a>
         
     </li>
 
@@ -200,61 +200,39 @@
                 
                     <li><a class="toctree-l4" href="#tabledescription-string">table.description : string</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablecolumns-arraycolumn">table.columns : Array.&lt;Column&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tablecolumns-mapcolumn">table.columns : Map.&lt;Column&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablecolumnsbyname-objectstring-column">table.columnsByName : Object.&lt;string, Column&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#tableconstraints-arrayconstraint">table.constraints : Array.&lt;Constraint&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#tableconstraintsbyname-objectstring-constraint">table.constraintsByName : Object.&lt;string, Constraint&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tableconstraints-mapconstraint">table.constraints : Map.&lt;Constraint&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#tabledb-db">table.db : DB</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableforeignkeyconstraints-arrayconstraint">table.foreignKeyConstraints : Array.&lt;Constraint&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tableforeignkeyconstraints-mapconstraint">table.foreignKeyConstraints : Map.&lt;Constraint&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableforeignkeyconstraintsbyname-objectstring-constraint">table.foreignKeyConstraintsByName : Object.&lt;string, Constraint&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tableforeignkeycolumns-mapcolumn">table.foreignKeyColumns : Map.&lt;Column&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableforeignkeycolumns-arraycolumn">table.foreignKeyColumns : Array.&lt;Column&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#tableforeignkeycolumnsbyname-objectstring-column">table.foreignKeyColumnsByName : Object.&lt;string, Column&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tableforeignkeyconstraintstothis-mapconstraint">table.foreignKeyConstraintsToThis : Map.&lt;Constraint&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#tableprimarykeyconstraint-constraint-undefined">table.primaryKeyConstraint : Constraint &#124; undefined</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableprimarykeycolumns-arraycolumn">table.primaryKeyColumns : Array.&lt;Column&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tableprimarykeycolumns-mapcolumn">table.primaryKeyColumns : Map.&lt;Column&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tableprimarykeycolumnsbyname-objectstring-column">table.primaryKeyColumnsByName : Object.&lt;string, Column&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tablehasmanytables-maptable">table.hasManyTables : Map.&lt;Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablehasmanytables-arraytable">table.hasManyTables : Array.&lt;Table&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tablebelongstotables-maptable">table.belongsToTables : Map.&lt;Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablehasmanytablesbyname-objectstring-table">table.hasManyTablesByName : Object.&lt;string, Table&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tablebelongstomanytables-maptable">table.belongsToManyTables : Map.&lt;Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablehasmanytablesbyfullname-objectstring-table">table.hasManyTablesByFullName : Object.&lt;string, Table&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tablebelongstomanytablespk-maptable">table.belongsToManyTablesPk : Map.&lt;Table&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablebelongstotables-arraytable">table.belongsToTables : Array.&lt;Table&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tablem2mrelations-setm2mrelation">table.m2mRelations : Set.&lt;M2MRelation&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablebelongstotablesbyname-objectstring-table">table.belongsToTablesByName : Object.&lt;string, Table&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tablem2mrelationspk-setm2mrelation">table.m2mRelationsPk : Set.&lt;M2MRelation&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablebelongstotablesbyfullname-objectstring-table">table.belongsToTablesByFullName : Object.&lt;string, Table&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tableo2mrelations-seto2mrelation">table.o2mRelations : Set.&lt;O2MRelation&gt;</a></li>
                 
-                    <li><a class="toctree-l4" href="#tablebelongstomanytables-arraytable">table.belongsToManyTables : Array.&lt;Table&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablebelongstomanytablesbyname-objectstring-table">table.belongsToManyTablesByName : Object.&lt;string, Table&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablebelongstomanytablesbyfullname-objectstring-table">table.belongsToManyTablesByFullName : Object.&lt;string, Table&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablem2mrelations-arraym2mrelation">table.m2mRelations : Array.&lt;M2MRelation&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#tableo2mrelations-arrayo2mrelation">table.o2mRelations : Array.&lt;O2MRelation&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablem2orelations-arraym2orelation">table.m2oRelations : Array.&lt;M2ORelation&gt;</a></li>
+                    <li><a class="toctree-l4" href="#tablem2orelations-setm2orelation">table.m2oRelations : Set.&lt;M2ORelation&gt;</a></li>
                 
                     <li><a class="toctree-l4" href="#tablerelations-arrayo2mrelationm2orelationm2mrelation">table.relations : Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#tableindexes-arrayindex">table.indexes : Array.&lt;Index&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablegetcolumnkey-column-undefined">table.getColumn(key) ⇒ Column &#124; undefined</a></li>
-                
-                    <li><a class="toctree-l4" href="#tablecolumnexistsname-boolean">table.columnExists(name) ⇒ boolean</a></li>
                 
                     <li><a class="toctree-l4" href="#tablegetpath-column-undefined">table.get(path) ⇒ Column &#124; undefined</a></li>
                 
@@ -277,7 +255,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 2.0.10</a>
+        <a href="../..">pg-structure 3.0.0</a>
       </nav>
 
       
@@ -329,7 +307,7 @@ name                 name                   name
 <img alt="Database Schema" src="../../../images/schema-through.png" /></p>
 <p><strong>Kind</strong>: global class  </p>
 <ul>
-<li><a href="#Table">Table</a></li>
+<li><a href="#Table">Table</a><ul>
 <li><a href="#new_Table_new">new Table(args)</a></li>
 <li><a href="#Table+name">.name</a> : <code>string</code></li>
 <li><a href="#Table+fullName">.fullName</a> : <code>string</code></li>
@@ -338,38 +316,30 @@ name                 name                   name
 <li><a href="#Table+parent">.parent</a> : <code>Schema</code></li>
 <li><a href="#Table+comment">.comment</a> : <code>string</code></li>
 <li><a href="#Table+description">.description</a> : <code>string</code></li>
-<li><a href="#Table+columns">.columns</a> : <code>Array.&lt;Column&gt;</code></li>
-<li><a href="#Table+columnsByName">.columnsByName</a> : <code>Object.&lt;string, Column&gt;</code></li>
-<li><a href="#Table+constraints">.constraints</a> : <code>Array.&lt;Constraint&gt;</code></li>
-<li><a href="#Table+constraintsByName">.constraintsByName</a> : <code>Object.&lt;string, Constraint&gt;</code></li>
+<li><a href="#Table+columns">.columns</a> : <code>Map.&lt;Column&gt;</code></li>
+<li><a href="#Table+constraints">.constraints</a> : <code>Map.&lt;Constraint&gt;</code></li>
 <li><a href="#Table+db">.db</a> : <code>DB</code></li>
-<li><a href="#Table+foreignKeyConstraints">.foreignKeyConstraints</a> : <code>Array.&lt;Constraint&gt;</code></li>
-<li><a href="#Table+foreignKeyConstraintsByName">.foreignKeyConstraintsByName</a> : <code>Object.&lt;string, Constraint&gt;</code></li>
-<li><a href="#Table+foreignKeyColumns">.foreignKeyColumns</a> : <code>Array.&lt;Column&gt;</code></li>
-<li><a href="#Table+foreignKeyColumnsByName">.foreignKeyColumnsByName</a> : <code>Object.&lt;string, Column&gt;</code></li>
+<li><a href="#Table+foreignKeyConstraints">.foreignKeyConstraints</a> : <code>Map.&lt;Constraint&gt;</code></li>
+<li><a href="#Table+foreignKeyColumns">.foreignKeyColumns</a> : <code>Map.&lt;Column&gt;</code></li>
+<li><a href="#Table+foreignKeyConstraintsToThis">.foreignKeyConstraintsToThis</a> : <code>Map.&lt;Constraint&gt;</code></li>
 <li><a href="#Table+primaryKeyConstraint">.primaryKeyConstraint</a> : <code>Constraint</code> &#124; <code>undefined</code></li>
-<li><a href="#Table+primaryKeyColumns">.primaryKeyColumns</a> : <code>Array.&lt;Column&gt;</code></li>
-<li><a href="#Table+primaryKeyColumnsByName">.primaryKeyColumnsByName</a> : <code>Object.&lt;string, Column&gt;</code></li>
-<li><a href="#Table+hasManyTables">.hasManyTables</a> : <code><a href="#Table">Array.&lt;Table&gt;</a></code></li>
-<li><a href="#Table+hasManyTablesByName">.hasManyTablesByName</a> : <code>Object.&lt;string, Table&gt;</code></li>
-<li><a href="#Table+hasManyTablesByFullName">.hasManyTablesByFullName</a> : <code>Object.&lt;string, Table&gt;</code></li>
-<li><a href="#Table+belongsToTables">.belongsToTables</a> : <code><a href="#Table">Array.&lt;Table&gt;</a></code></li>
-<li><a href="#Table+belongsToTablesByName">.belongsToTablesByName</a> : <code>Object.&lt;string, Table&gt;</code></li>
-<li><a href="#Table+belongsToTablesByFullName">.belongsToTablesByFullName</a> : <code>Object.&lt;string, Table&gt;</code></li>
-<li><a href="#Table+belongsToManyTables">.belongsToManyTables</a> : <code><a href="#Table">Array.&lt;Table&gt;</a></code></li>
-<li><a href="#Table+belongsToManyTablesByName">.belongsToManyTablesByName</a> : <code>Object.&lt;string, Table&gt;</code></li>
-<li><a href="#Table+belongsToManyTablesByFullName">.belongsToManyTablesByFullName</a> : <code>Object.&lt;string, Table&gt;</code></li>
-<li><a href="#Table+m2mRelations">.m2mRelations</a> : <code>Array.&lt;M2MRelation&gt;</code></li>
-<li><a href="#Table+o2mRelations">.o2mRelations</a> : <code>Array.&lt;O2MRelation&gt;</code></li>
-<li><a href="#Table+m2oRelations">.m2oRelations</a> : <code>Array.&lt;M2ORelation&gt;</code></li>
+<li><a href="#Table+primaryKeyColumns">.primaryKeyColumns</a> : <code>Map.&lt;Column&gt;</code></li>
+<li><a href="#Table+hasManyTables">.hasManyTables</a> : <code><a href="#Table">Map.&lt;Table&gt;</a></code></li>
+<li><a href="#Table+belongsToTables">.belongsToTables</a> : <code><a href="#Table">Map.&lt;Table&gt;</a></code></li>
+<li><a href="#Table+belongsToManyTables">.belongsToManyTables</a> : <code><a href="#Table">Map.&lt;Table&gt;</a></code></li>
+<li><a href="#Table+belongsToManyTablesPk">.belongsToManyTablesPk</a> : <code><a href="#Table">Map.&lt;Table&gt;</a></code></li>
+<li><a href="#Table+m2mRelations">.m2mRelations</a> : <code>Set.&lt;M2MRelation&gt;</code></li>
+<li><a href="#Table+m2mRelationsPk">.m2mRelationsPk</a> : <code>Set.&lt;M2MRelation&gt;</code></li>
+<li><a href="#Table+o2mRelations">.o2mRelations</a> : <code>Set.&lt;O2MRelation&gt;</code></li>
+<li><a href="#Table+m2oRelations">.m2oRelations</a> : <code>Set.&lt;M2ORelation&gt;</code></li>
 <li><a href="#Table+relations">.relations</a> : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code></li>
-<li><a href="#Table+indexes">.indexes</a> : <code>Array.&lt;Index&gt;</code></li>
-<li><a href="#Table+getColumn">.getColumn(key)</a> ⇒ <code>Column</code> &#124; <code>undefined</code></li>
-<li><a href="#Table+columnExists">.columnExists(name)</a> ⇒ <code>boolean</code></li>
 <li><a href="#Table+get">.get(path)</a> ⇒ <code>Column</code> &#124; <code>undefined</code></li>
+</ul>
+</li>
 </ul>
 <p><a name="new_Table_new"></a></p>
 <h3 id="new-tableargs">new Table(args)</h3>
+<p>Constructor function. You don't need to call constructor manually. pg-structure handles this.</p>
 <table>
 <thead>
 <tr>
@@ -382,17 +352,22 @@ name                 name                   name
 <tr>
 <td>args</td>
 <td><code>Object</code></td>
-<td>Database arguments.</td>
+<td>Attributes of the <a href="#Table">Table</a> instance to be created.</td>
 </tr>
 <tr>
-<td>args.registry</td>
-<td><code>Loki</code></td>
-<td>Loki.js database object.</td>
+<td>args.parent</td>
+<td><code>Schema</code></td>
+<td>Parent <a href="../Schema">Schema</a> of the Table.</td>
 </tr>
 <tr>
-<td>args.attributes</td>
-<td><code>Object</code></td>
-<td>Attributes of the <a href="#Table">Table</a> instance.</td>
+<td>args.name</td>
+<td><code>string</code></td>
+<td>Name of the Table.</td>
+</tr>
+<tr>
+<td>args.description</td>
+<td><code>string</code></td>
+<td>Description of the Table.</td>
 </tr>
 </tbody>
 </table>
@@ -452,33 +427,30 @@ name                 name                   name
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Table+comment">comment</a><br />
 <a name="Table+columns"></a></p>
-<h3 id="tablecolumns-arraycolumn">table.columns : <code>Array.&lt;Column&gt;</code></h3>
-<p>All <a href="../Column">Column</a> instances in the table as an array. They are ordered by same order they are added.</p>
+<h3 id="tablecolumns-mapcolumn">table.columns : <code>Map.&lt;Column&gt;</code></h3>
+<p>All <a href="../Column">Column</a> instances in the table as a <a href="../Map">Map</a>. They are ordered same order as they are
+defined in database table.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
+<strong>See</strong>: <a href="../Map">Map</a><br />
 <strong>Example</strong>  </p>
-<pre><code class="js">var columns = table.columns;
-var name    = columns[0].name;
-</code></pre>
+<pre><code class="js">var isAvailable  = table.columns.has('id');
+var columnNames  = [...schema.columns.keys()];       // Use spread operator to get column names as an array.
+var column       = table.columns.get('user_id');
+var name         = column.name;
 
-<p><a name="Table+columnsByName"></a></p>
-<h3 id="tablecolumnsbyname-objectstring-column">table.columnsByName : <code>Object.&lt;string, Column&gt;</code></h3>
-<p>All <a href="../Column">Column</a> instances in the table as a simple object. Keys are column names, values are <a href="../Column">Column</a> instances.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>Example</strong>  </p>
-<pre><code class="js">var columns   = table.columnsByName;
-var ageColumn = columns.age;
+for (let column of table.columns.values()) {
+    console.log(column.name);
+}
+
+for (let [name, column] of table.columns) {
+    console.log(name, column.name);
+}
 </code></pre>
 
 <p><a name="Table+constraints"></a></p>
-<h3 id="tableconstraints-arrayconstraint">table.constraints : <code>Array.&lt;Constraint&gt;</code></h3>
-<p>All <a href="../Constraint">Constraint</a> instances in the table as an array. They are ordered by same order they are added.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
-<strong>Read only</strong>: true<br />
-<a name="Table+constraintsByName"></a></p>
-<h3 id="tableconstraintsbyname-objectstring-constraint">table.constraintsByName : <code>Object.&lt;string, Constraint&gt;</code></h3>
-<p>All <a href="../Constraint">Constraint</a> instances in the table as a simple object. Keys are constraint names, values are <a href="../Constraint">Constraint</a> instances.</p>
+<h3 id="tableconstraints-mapconstraint">table.constraints : <code>Map.&lt;Constraint&gt;</code></h3>
+<p>All <a href="../Constraint">Constraint</a> instances in the table as a <a href="../Map">Map</a>. They are ordered by name.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+db"></a></p>
@@ -487,39 +459,25 @@ var ageColumn = columns.age;
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+foreignKeyConstraints"></a></p>
-<h3 id="tableforeignkeyconstraints-arrayconstraint">table.foreignKeyConstraints : <code>Array.&lt;Constraint&gt;</code></h3>
-<p>All <a href="../Constraint">Constraint</a> instances which are foreign key constraints in the table as an array.
-They are ordered by same order they are defined in database.</p>
+<h3 id="tableforeignkeyconstraints-mapconstraint">table.foreignKeyConstraints : <code>Map.&lt;Constraint&gt;</code></h3>
+<p>All <a href="../Constraint">Constraint</a> instances which are foreign key constraints in the table as a <a href="../Map">Map</a>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#Table+o2mRelations">o2mRelations</a>, <a href="#Table+m2oRelations">m2oRelations</a>, <a href="#Table+m2mRelations">m2mRelations</a> to get more details about <a href="../Relation">relations</a>.<br />
-<a name="Table+foreignKeyConstraintsByName"></a></p>
-<h3 id="tableforeignkeyconstraintsbyname-objectstring-constraint">table.foreignKeyConstraintsByName : <code>Object.&lt;string, Constraint&gt;</code></h3>
-<p>All <a href="../Constraint">Constraint</a> instances which are foreign key constraints in the table as a simple object.
-Keys are constraint names, values are <a href="../Constraint">Constraint</a> instances.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#Table+o2mRelations">o2mRelations</a>, <a href="#Table+m2oRelations">m2oRelations</a>, <a href="#Table+m2mRelations">m2mRelations</a> to get more details about <a href="../Relation">relations</a>.<br />
+<strong>See</strong>: <a href="#Table+o2mRelations">o2mRelations</a>, <a href="#Table+m2oRelations">m2oRelations</a>, <a href="#Table+m2mRelations">m2mRelations</a> to get more details about relations.<br />
 <a name="Table+foreignKeyColumns"></a></p>
-<h3 id="tableforeignkeycolumns-arraycolumn">table.foreignKeyColumns : <code>Array.&lt;Column&gt;</code></h3>
-<p>All foreign key <a href="../Column">columns</a> of all <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a>.
+<h3 id="tableforeignkeycolumns-mapcolumn">table.foreignKeyColumns : <code>Map.&lt;Column&gt;</code></h3>
+<p>All foreign key <a href="../Column">columns</a> of all <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a> as a <a href="../Map">Map</a>.
 Foreign key <a href="../Constraint">constraints</a> may contain more than one column. To get foreign key columns of a specific foreign key constraint
 use <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a>.<a href="../Constraint#columns">columns</a></p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="Table+foreignKeyColumnsByName"></a></p>
-<h3 id="tableforeignkeycolumnsbyname-objectstring-column">table.foreignKeyColumnsByName : <code>Object.&lt;string, Column&gt;</code></h3>
-<p>Object containing foreign key <a href="../Column">columns</a> of this table. Keys are column names, values are
-<a href="../Column">columns</a> instances.
-Foreign key <a href="../Constraint">constraints</a> may contain more than one column. To get foreign key columns of a specific foreign key constraint
-use <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a>.<a href="../Constraint#columns">columns</a></p>
+<a name="Table+foreignKeyConstraintsToThis"></a></p>
+<h3 id="tableforeignkeyconstraintstothis-mapconstraint">table.foreignKeyConstraintsToThis : <code>Map.&lt;Constraint&gt;</code></h3>
+<p>All foreign key <a href="../Constraint">Constraint</a> instances which are referring to this table as a <a href="../Map">Map</a>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>Example</strong>  </p>
-<pre><code class="js">let pkColumns  = table.foreignKeyColumnsByName;
-</code></pre>
-
-<p><a name="Table+primaryKeyConstraint"></a></p>
+<strong>See</strong>: <a href="#Table+o2mRelations">o2mRelations</a>, <a href="#Table+m2oRelations">m2oRelations</a>, <a href="#Table+m2mRelations">m2mRelations</a> to get more details about relations.<br />
+<a name="Table+primaryKeyConstraint"></a></p>
 <h3 id="tableprimarykeyconstraint-constraint-undefined">table.primaryKeyConstraint : <code>Constraint</code> &#124; <code>undefined</code></h3>
 <p>Primary key <a href="../Constraint">constraint</a> instance of this table.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
@@ -527,254 +485,110 @@ use <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a>.<a href="..
 <strong>See</strong>: <a href="#Table+primaryKeyColumns">primaryKeyColumns</a> to get primary key columns directly.<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">let pkConstraint = table.primaryKeyConstraint;
-let pkColumns  = pkConstraint.columns;
+let pkColumns    = [...pkConstraint.columns.values()];   // As an array
+
+for (let [name, column] of pkConstraint.columns) {
+    console.log(column.name);
+}
 </code></pre>
 
 <p><a name="Table+primaryKeyColumns"></a></p>
-<h3 id="tableprimarykeycolumns-arraycolumn">table.primaryKeyColumns : <code>Array.&lt;Column&gt;</code></h3>
-<p>Primary key <a href="../Column">columns</a> of this table.</p>
+<h3 id="tableprimarykeycolumns-mapcolumn">table.primaryKeyColumns : <code>Map.&lt;Column&gt;</code></h3>
+<p>Primary key <a href="../Column">columns</a> of this table as a <a href="../Map">Map</a>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Table+primaryKeyConstraint">primaryKeyConstraint</a> to get primary key constraint.<br />
 <strong>Example</strong>  </p>
-<pre><code class="js">let pkColumns  = table.primaryKeyColumns;
-</code></pre>
-
-<p><a name="Table+primaryKeyColumnsByName"></a></p>
-<h3 id="tableprimarykeycolumnsbyname-objectstring-column">table.primaryKeyColumnsByName : <code>Object.&lt;string, Column&gt;</code></h3>
-<p>Object containing primary key <a href="../Column">columns</a> of this table. Keys are column names, values are
-<a href="../Column">columns</a> instances.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#Table+primaryKeyConstraint">primaryKeyConstraint</a> to get primary key constraint.<br />
-<strong>Example</strong>  </p>
-<pre><code class="js">let pkColumns  = table.primaryKeyColumnsByName;
+<pre><code class="js">let pkColumns  = [...table.primaryKeyColumns.values()];  // As an array
+for (let [name, column] of pkConstraint.columns) {
+    console.log(column.name);
+}
 </code></pre>
 
 <p><a name="Table+hasManyTables"></a></p>
-<h3 id="tablehasmanytables-arraytable">table.hasManyTables : <code><a href="#Table">Array.&lt;Table&gt;</a></code></h3>
-<p><a href="#Table">Tables</a> which this table has relationship of type <code>one to many</code>.</p>
+<h3 id="tablehasmanytables-maptable">table.hasManyTables : <code><a href="#Table">Map.&lt;Table&gt;</a></code></h3>
+<p><a href="#Table">Tables</a> sorted by name, which this table has relationship of type <code>one to many</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#exampleSchema">Example schema</a><br />
+<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="../Map">Map</a><br />
 <strong>Example</strong>  </p>
-<pre><code class="js">// Vendor (id) has many products (vendor_id)
-let productTable = vendorTable.hasManyTables[0];
-</code></pre>
-
-<p><a name="Table+hasManyTablesByName"></a></p>
-<h3 id="tablehasmanytablesbyname-objectstring-table">table.hasManyTablesByName : <code>Object.&lt;string, Table&gt;</code></h3>
-<p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>one to many</code>. Object keys
-are table names, object values are <a href="#Table">Table</a> instances.
-<strong> CAVEAT: Two tables may have same name in different schemas</strong>, such as <code>public.account</code> and <code>other_schema.account</code>.
-This is not a problem if there is only one PostgreSQL schema i.e. public. Otherwise it is advised to be used
-<a href="#Table+hasManyTablesByFullName">hasManyTablesByFullName</a>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>See</strong></p>
-<ul>
-<li><a href="#exampleSchema">Example schema</a></li>
-<li><a href="#Table+hasManyTablesByFullName">hasManyTablesByFullName</a></li>
-</ul>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">// Vendor (id) has many products (vendor_id)
-let productTable = vendorTable.hasManyTablesByName.product;
-</code></pre>
-
-<p><a name="Table+hasManyTablesByFullName"></a></p>
-<h3 id="tablehasmanytablesbyfullname-objectstring-table">table.hasManyTablesByFullName : <code>Object.&lt;string, Table&gt;</code></h3>
-<p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>one to many</code>. Object keys
-are table names including schema name (i.e. <code>public.account</code>), object values are <a href="#Table">Table</a> instances.
-<strong> CAVEAT: Full table name contains a dot (.). You should access them with bracket notation. See example below.</strong>
-<a href="#Table+hasManyTablesByName">hasManyTablesByName</a>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>See</strong></p>
-<ul>
-<li><a href="#exampleSchema">Example schema</a></li>
-<li><a href="#Table+hasManyTablesByName">hasManyTablesByName</a></li>
-</ul>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">// Vendor (id) has many products (vendor_id)
-let productTable = vendorTable.hasManyTablesByFullName['public.product'];
+<pre><code class="js">for (let [name, table] of vendorTable.hasManyTables) {
+    console.log(table.name);
+}
 </code></pre>
 
 <p><a name="Table+belongsToTables"></a></p>
-<h3 id="tablebelongstotables-arraytable">table.belongsToTables : <code><a href="#Table">Array.&lt;Table&gt;</a></code></h3>
-<p><a href="#Table">Tables</a> which this table has relationship of type <code>belongs to</code> which is reverse direction of <code>one to many</code>.</p>
+<h3 id="tablebelongstotables-maptable">table.belongsToTables : <code><a href="#Table">Map.&lt;Table&gt;</a></code></h3>
+<p><a href="#Table">Tables</a> sorted by name, which this table has relationship of type <code>belongs to</code> which is reverse direction of <code>one to many</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#exampleSchema">Example schema</a><br />
+<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="../Map">Map</a><br />
 <strong>Example</strong>  </p>
-<pre><code class="js">// Vendor (id) has many products (vendor_id)
-let vendorTable = productTable.belongsToTables[0];
-</code></pre>
-
-<p><a name="Table+belongsToTablesByName"></a></p>
-<h3 id="tablebelongstotablesbyname-objectstring-table">table.belongsToTablesByName : <code>Object.&lt;string, Table&gt;</code></h3>
-<p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>belongs to</code> which is reverse direction of <code>one to many</code>. Object keys
-are table names, object values are <a href="#Table">Table</a> instances.
-<strong> CAVEAT: Two tables may have same name in different schemas</strong>, such as <code>public.account</code> and <code>other_schema.account</code>.
-This is not a problem if there is only one PostgreSQL schema i.e. public. Otherwise it is advised to be used
-<a href="#Table+belongsToTablesByFullName">belongsToTablesByFullName</a>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>See</strong></p>
-<ul>
-<li><a href="#exampleSchema">Example schema</a></li>
-<li><a href="#Table+belongsToTablesByFullName">belongsToTablesByFullName</a></li>
-</ul>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">// Vendor (id) has many products (vendor_id)
-let vendorTable = productTable.belongsToTablesByName.product;
-</code></pre>
-
-<p><a name="Table+belongsToTablesByFullName"></a></p>
-<h3 id="tablebelongstotablesbyfullname-objectstring-table">table.belongsToTablesByFullName : <code>Object.&lt;string, Table&gt;</code></h3>
-<p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>belongs to</code> which is reverse direction of <code>one to many</code>. Object keys
-are table names including schema name (i.e. <code>public.account</code>), object values are <a href="#Table">Table</a> instances.
-<strong> CAVEAT: Full table name contains a dot (.). You should access them with bracket notation. See example below.</strong>
-<a href="#Table+belongsToTablesByName">belongsToTablesByName</a>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>See</strong></p>
-<ul>
-<li><a href="#exampleSchema">Example schema</a></li>
-<li><a href="#Table+belongsToTablesByName">belongsToTablesByName</a></li>
-</ul>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">// Vendor (id) has many products (vendor_id)
-let vendorTable = productTable.belongsToTablesByFullName['public.product'];
+<pre><code class="js">for (let [name, table] of productTable.belongsToTables) {
+    console.log(table.name);
+}
 </code></pre>
 
 <p><a name="Table+belongsToManyTables"></a></p>
-<h3 id="tablebelongstomanytables-arraytable">table.belongsToManyTables : <code><a href="#Table">Array.&lt;Table&gt;</a></code></h3>
-<p><a href="#Table">Tables</a> which this table has relationship of type <code>many to many</code>.</p>
+<h3 id="tablebelongstomanytables-maptable">table.belongsToManyTables : <code><a href="#Table">Map.&lt;Table&gt;</a></code></h3>
+<p><a href="#Table">Tables</a> sorted by name, which this table has relationship of type <code>many to many</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#exampleSchema">Example schema</a><br />
+<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="../Map">Map</a><br />
 <strong>Example</strong>  </p>
 <pre><code class="js">// Cart (id) has many products (id) through line_item join table.
-let productTable = cartTable.belongsToManyTables[0];
+for (let [name, table] of cartTable.belongsToManyTables) {
+    console.log(table.name);
+}
 </code></pre>
 
-<p><a name="Table+belongsToManyTablesByName"></a></p>
-<h3 id="tablebelongstomanytablesbyname-objectstring-table">table.belongsToManyTablesByName : <code>Object.&lt;string, Table&gt;</code></h3>
-<p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>many to many</code>. Object keys
-are table names, object values are <a href="#Table">Table</a> instances.
-<strong> CAVEAT: Two tables may have same name in different schemas</strong>, such as <code>public.account</code> and <code>other_schema.account</code>.
-This is not a problem if there is only one PostgreSQL schema i.e. public. Otherwise it is advised to be used
-<a href="#Table+belongsToManyTablesByFullName">belongsToManyTablesByFullName</a>.</p>
+<p><a name="Table+belongsToManyTablesPk"></a></p>
+<h3 id="tablebelongstomanytablespk-maptable">table.belongsToManyTablesPk : <code><a href="#Table">Map.&lt;Table&gt;</a></code></h3>
+<p><a href="#Table">Tables</a> sorted by name, which this table has relationship of type <code>many to many</code>. Includes
+only tables joined by primary keys in join table.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong></p>
-<ul>
-<li><a href="#exampleSchema">Example schema</a></li>
-<li><a href="#Table+belongsToManyTablesByFullName">belongsToManyTablesByFullName</a></li>
-</ul>
-<p><strong>Example</strong>  </p>
+<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="../Map">Map</a><br />
+<strong>Example</strong>  </p>
 <pre><code class="js">// Cart (id) has many products (id) through line_item join table.
-let productTable = cartTable.belongsToManyTablesByName.product;
-</code></pre>
-
-<p><a name="Table+belongsToManyTablesByFullName"></a></p>
-<h3 id="tablebelongstomanytablesbyfullname-objectstring-table">table.belongsToManyTablesByFullName : <code>Object.&lt;string, Table&gt;</code></h3>
-<p>Object of <a href="#Table">Tables</a> which this table has relationship of type <code>many to many</code>. Object keys
-are table names including schema name (i.e. <code>public.account</code>), object values are <a href="#Table">Table</a> instances.
-<strong> CAVEAT: Full table name contains a dot (.). You should access them with bracket notation. See example below.</strong>
-<a href="#Table+belongsToManyTablesByName">belongsToManyTablesByName</a>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>See</strong></p>
-<ul>
-<li><a href="#exampleSchema">Example schema</a></li>
-<li><a href="#Table+belongsToManyTablesByName">belongsToManyTablesByName</a></li>
-</ul>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">// Cart (id) has many products (id) through line_item join table.
-let productTable = cartTable.belongsToManyTablesByName['public.product'];
+for (let [name, table] of cartTable.belongsToManyTables) {
+    console.log(table.name);
+}
 </code></pre>
 
 <p><a name="Table+m2mRelations"></a></p>
-<h3 id="tablem2mrelations-arraym2mrelation">table.m2mRelations : <code>Array.&lt;M2MRelation&gt;</code></h3>
-<p>List of <a href="../M2MRelation">many to many relationships</a> of the table. <a href="../M2MRelation">M2MRelation</a> resembles
-<code>has many through</code> and <code>belongs to many</code> relations in ORMs has some useful methods and information for generating ORM classes.</p>
+<h3 id="tablem2mrelations-setm2mrelation">table.m2mRelations : <code>Set.&lt;M2MRelation&gt;</code></h3>
+<p>Set of <a href="../M2MRelation">many to many relationships</a> of the table. <a href="../M2MRelation">M2MRelation</a> resembles
+<code>has many through</code> and <code>belongs to many</code> relations in ORMs. It has some useful methods and information for generating ORM classes.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Table+m2mRelationsPk"></a></p>
+<h3 id="tablem2mrelationspk-setm2mrelation">table.m2mRelationsPk : <code>Set.&lt;M2MRelation&gt;</code></h3>
+<p>Set of <a href="../M2MRelation">many to many relationships</a> of the table. Different from <a href="#Table+m2mRelations">m2mRelations</a>
+this only includes relations joined by <code>Primary Foreign Keys</code> in join table. <code>Primary Foreign Keys</code> means
+foreign keys of join table which are also Primary Keys of join table at the same time.
+<a href="../M2MRelation">M2MRelation</a> resembles <code>has many through</code> and <code>belongs to many</code> relations in ORMs.
+It has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+o2mRelations"></a></p>
-<h3 id="tableo2mrelations-arrayo2mrelation">table.o2mRelations : <code>Array.&lt;O2MRelation&gt;</code></h3>
-<p>List of <a href="../O2MRelation">one to many relationships</a> of the table. <a href="../O2MRelation">O2MRelation</a> resembles
-<code>has many</code> relations in ORMs and has some useful methods and information for generating ORM classes.</p>
+<h3 id="tableo2mrelations-seto2mrelation">table.o2mRelations : <code>Set.&lt;O2MRelation&gt;</code></h3>
+<p>Set of <a href="../O2MRelation">one to many relationships</a> of the table. <a href="../O2MRelation">O2MRelation</a> resembles
+<code>has many</code> relations in ORMs. It has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+m2oRelations"></a></p>
-<h3 id="tablem2orelations-arraym2orelation">table.m2oRelations : <code>Array.&lt;M2ORelation&gt;</code></h3>
-<p>List of <a href="../M2ORelation">many to one relationships</a> of the table. <a href="../M2ORelation">M2ORelation</a> resembles
-<code>belongs to</code> relations in ORMs and has some useful methods and information for generating ORM classes.</p>
+<h3 id="tablem2orelations-setm2orelation">table.m2oRelations : <code>Set.&lt;M2ORelation&gt;</code></h3>
+<p>Set of <a href="../M2ORelation">many to one relationships</a> of the table. <a href="../M2ORelation">M2ORelation</a> resembles
+<code>belongs to</code> relations in ORMs. It has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+relations"></a></p>
 <h3 id="tablerelations-arrayo2mrelationm2orelationm2mrelation">table.relations : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code></h3>
-<p>List of all <a href="../Relation">relationships</a> of the table.</p>
+<p>List of all relationships of the table.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="Table+indexes"></a></p>
-<h3 id="tableindexes-arrayindex">table.indexes : <code>Array.&lt;Index&gt;</code></h3>
-<p>List of <a href="../Index">indexes</a>, which this table has. Results are ordered by index name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
-<strong>Read only</strong>: true<br />
-<a name="Table+getColumn"></a></p>
-<h3 id="tablegetcolumnkey-column-undefined">table.getColumn(key) ⇒ <code>Column</code> &#124; <code>undefined</code></h3>
-<p>Returns <a href="../Column">Column</a> instance with given name or order.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>Column</code> &#124; <code>undefined</code> - - Requested <a href="../Column">Column</a> instance.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>key</td>
-<td><code>string</code> &#124; <code>number</code></td>
-<td>Name or order number of the column.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">var column = table.getColumn('surname');
-</code></pre>
-
-<p><a name="Table+columnExists"></a></p>
-<h3 id="tablecolumnexistsname-boolean">table.columnExists(name) ⇒ <code>boolean</code></h3>
-<p>Returns true if <a href="../Column">Column</a> instance with given name or order number exists.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
-<strong>Returns</strong>: <code>boolean</code> - - <code>true</code> if schema column in table, otherwise <code>false</code>.  </p>
-<table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td><code>string</code> &#124; <code>number</code></td>
-<td>Name or order number of the column.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>  </p>
-<pre><code class="js">var ageColumn  = db.schemaExists('age');  // true
-var jokeColumn = db.schemaExists('joke'); // false
-</code></pre>
-
-<p><a name="Table+get"></a></p>
+<a name="Table+get"></a></p>
 <h3 id="tablegetpath-column-undefined">table.get(path) ⇒ <code>Column</code> &#124; <code>undefined</code></h3>
 <p>Returns <a href="../Column">Column</a> on given path relative to <a href="#Table">Table</a>.</p>
 <p><strong>Kind</strong>: instance method of <code><a href="#Table">Table</a></code><br />
