@@ -16,7 +16,7 @@
     "doc:readme": "jsdoc2md --src \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
     "doc": "npm run doc:mkdocs && npm run doc:report && npm run doc:readme",
     "preversion": "eslint lib &&  npm test;",
-    "postversion": "npm run doc && git add -A site && git add README.md mkdocs.yml && git commit && git push && git push --tags && git subtree push --prefix site origin gh-pages && npmrc ozum && npm publish;"
+    "postversion": "npm run doc && git add -A site && git add README.md mkdocs.yml && git commit -m 'Doc update.' && git push && git push --tags && git subtree push --prefix site origin gh-pages && npmrc ozum && npm publish;"
   },
   "repository": {
     "type": "git",
