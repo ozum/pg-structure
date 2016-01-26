@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Map - pg-structure 3.0.0</title>
+  <title>Map - pg-structure 3.1.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.0.0</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.1.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -158,6 +158,8 @@
                 
                     <li><a class="toctree-l4" href="#mapsize-number">map.size : number</a></li>
                 
+                    <li><a class="toctree-l4" href="#maparray-array">map.array : Array</a></li>
+                
                     <li><a class="toctree-l4" href="#mapentries-iterator">map.entries() ⇒ Iterator</a></li>
                 
                     <li><a class="toctree-l4" href="#mapforeachcallbackfn-this">map.forEach(callbackFn, this)</a></li>
@@ -217,7 +219,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.0.0</a>
+        <a href="../..">pg-structure 3.1.0</a>
       </nav>
 
       
@@ -256,6 +258,7 @@ or a value.</p>
 <ul>
 <li><a href="#Map">Map</a><ul>
 <li><a href="#Map+size">.size</a> : <code>number</code></li>
+<li><a href="#Map+array">.array</a> : <code>Array</code></li>
 <li><a href="#Map+entries">.entries()</a> ⇒ <code>Iterator</code></li>
 <li><a href="#Map+forEach">.forEach(callbackFn, this)</a></li>
 <li><a href="#Map+get">.get(name)</a> ⇒ <code>*</code></li>
@@ -271,6 +274,15 @@ or a value.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Map">Map</a></code><br />
 <strong>Example</strong>  </p>
 <pre><code class="js">let size = db.get('public.account').columns.size;
+</code></pre>
+
+<p><a name="Map+array"></a></p>
+<h3 id="maparray-array">map.array : <code>Array</code></h3>
+<p><img src="http://www.pg-structure.com/images/warning-24.png" style="margin-left: -26px;">Not part of Map standard.
+Values of Map as an array.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Map">Map</a></code><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let schemasArray = db.schemas.array;
 </code></pre>
 
 <p><a name="Map+entries"></a></p>
