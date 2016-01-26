@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Map - pg-structure 3.1.0</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Map";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-45732546-4', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> pg-structure 3.1.0</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../concepts/">Concepts</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../history/">History</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../license/">License</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../report/">Test & Coverage Report</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Column/">Column</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Constraint/">Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Db/">Db</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Index/">Index</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../M2MRelation/">M2M Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../M2ORelation/">M2O Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Map</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#map">Map</a></li>
+                
+                    <li><a class="toctree-l4" href="#mapsize-number">map.size : number</a></li>
+                
+                    <li><a class="toctree-l4" href="#maparray-array">map.array : Array</a></li>
+                
+                    <li><a class="toctree-l4" href="#mapentries-iterator">map.entries() ⇒ Iterator</a></li>
+                
+                    <li><a class="toctree-l4" href="#mapforeachcallbackfn-this">map.forEach(callbackFn, this)</a></li>
+                
+                    <li><a class="toctree-l4" href="#mapgetname-42">map.get(name) ⇒ *</a></li>
+                
+                    <li><a class="toctree-l4" href="#maphasname-boolean">map.has(name) ⇒ boolean</a></li>
+                
+                    <li><a class="toctree-l4" href="#mapkeys-iterator">map.keys() ⇒ Iterator</a></li>
+                
+                    <li><a class="toctree-l4" href="#mapvalues-iterator">map.values() ⇒ Iterator</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../O2MRelation/">O2M Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../PgStructure/">pgStructure</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Table/">Table</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">pg-structure 3.1.0</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API &raquo;</li>
+        
+      
+    
+    <li>Map</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ozum/pg-structure.git" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><a name="Map"></a></p>
+<h2 id="map">Map</h2>
+<p>The Map object is a simple key/value map. Any value (both objects and primitive values) may be used as either a key
+or a value.</p>
+<p><strong>Kind</strong>: global class<br />
+<strong>See</strong>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Map">Mozilla Map Documentation</a>  </p>
+<ul>
+<li><a href="#Map">Map</a><ul>
+<li><a href="#Map+size">.size</a> : <code>number</code></li>
+<li><a href="#Map+array">.array</a> : <code>Array</code></li>
+<li><a href="#Map+entries">.entries()</a> ⇒ <code>Iterator</code></li>
+<li><a href="#Map+forEach">.forEach(callbackFn, this)</a></li>
+<li><a href="#Map+get">.get(name)</a> ⇒ <code>*</code></li>
+<li><a href="#Map+has">.has(name)</a> ⇒ <code>boolean</code></li>
+<li><a href="#Map+keys">.keys()</a> ⇒ <code>Iterator</code></li>
+<li><a href="#Map+values">.values()</a> ⇒ <code>Iterator</code></li>
+</ul>
+</li>
+</ul>
+<p><a name="Map+size"></a></p>
+<h3 id="mapsize-number">map.size : <code>number</code></h3>
+<p>The number of key/value pairs in the Map object.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Map">Map</a></code><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let size = db.get('public.account').columns.size;
+</code></pre>
+
+<p><a name="Map+array"></a></p>
+<h3 id="maparray-array">map.array : <code>Array</code></h3>
+<p><img src="http://www.pg-structure.com/images/warning-24.png" style="margin-left: -26px;">Not part of Map standard.
+Values of Map as an array.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Map">Map</a></code><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let schemasArray = db.schemas.array;
+</code></pre>
+
+<p><a name="Map+entries"></a></p>
+<h3 id="mapentries-iterator">map.entries() ⇒ <code>Iterator</code></h3>
+<p>Returns a new Iterator object that contains an array of [key, value] for each element in the Map object in insertion order.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Map">Map</a></code><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let column = db.get('public.account').columns.get('name');
+</code></pre>
+
+<p><a name="Map+forEach"></a></p>
+<h3 id="mapforeachcallbackfn-this">map.forEach(callbackFn, this)</h3>
+<p>Calls callbackFn once for each key-value pair present in the Map object, in insertion order.
+If a thisArg parameter is provided to forEach, it will be used as the this value for each callback.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Map">Map</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>callbackFn</td>
+<td><code>function</code></td>
+<td>Function to call for each pair.</td>
+</tr>
+<tr>
+<td>this</td>
+<td><code>Object</code></td>
+<td>Context.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Map+get"></a></p>
+<h3 id="mapgetname-42">map.get(name) ⇒ <code>*</code></h3>
+<p>Returns the value associated to the key, or undefined if there is none.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Map">Map</a></code><br />
+<strong>Returns</strong>: <code>*</code> - - Value associated to key.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>Name of the item to get.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="js">let column = db.get('public.account').columns.get('name');
+</code></pre>
+
+<p><a name="Map+has"></a></p>
+<h3 id="maphasname-boolean">map.has(name) ⇒ <code>boolean</code></h3>
+<p>Returns a boolean asserting whether a value has been associated to the key in the Map object or not.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Map">Map</a></code><br />
+<strong>Returns</strong>: <code>boolean</code> - - <code>true</code> if key exists.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>Name of the item to test.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="js">let exists = db.schemas.has('public'); // true
+</code></pre>
+
+<p><a name="Map+keys"></a></p>
+<h3 id="mapkeys-iterator">map.keys() ⇒ <code>Iterator</code></h3>
+<p>Returns a new Iterator object that contains the keys for each element in the Map object in insertion order.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Map">Map</a></code><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">for (let tableName of db.schemas.get('public').tables.keys()) {
+    console.log(tableName);
+}
+
+let tableNames = [...db.schemas.get('public').tables.keys()]; // Table names as an array.
+</code></pre>
+
+<p><a name="Map+values"></a></p>
+<h3 id="mapvalues-iterator">map.values() ⇒ <code>Iterator</code></h3>
+<p>Returns a new Iterator object that contains the values for each element in the Map object in insertion order.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Map">Map</a></code><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">for (let table of db.schemas.get('public').tables.values()) {
+    console.log(table.name);
+}
+
+let tables = [...db.schemas.get('public').tables.values()]; // Table objects as an array.
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../O2MRelation/" class="btn btn-neutral float-right" title="O2M Relation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../M2ORelation/" class="btn btn-neutral" title="M2O Relation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© Özüm Eldoğan</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../M2ORelation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../O2MRelation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

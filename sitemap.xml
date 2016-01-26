@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>http://www.pg-structure.com/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://www.pg-structure.com/concepts/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://www.pg-structure.com/examples/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://www.pg-structure.com/history/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://www.pg-structure.com/license/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://www.pg-structure.com/report/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/Column/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/Constraint/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/Db/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/Index/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/M2MRelation/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/M2ORelation/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/Map/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/O2MRelation/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/PgStructure/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/Schema/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.pg-structure.com/api/Table/</loc>
+     <lastmod>2016-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>

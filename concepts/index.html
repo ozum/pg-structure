@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Concepts - pg-structure 3.1.0</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Concepts";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-45732546-4', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> pg-structure 3.1.0</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Concepts</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#database-objects-vs-pg-structure-objects">Database Objects vs. pg-structure Objects</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#objects-instances">Objects (Instances)</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#attributes">Attributes</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#methods">Methods</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#get-shortcut">get shortcut</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#relation-classes-vs-foreign-key-constraint">Relation Classes vs. Foreign Key Constraint</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../history/">History</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../license/">License</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../report/">Test & Coverage Report</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/Column/">Column</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/Constraint/">Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/Db/">Db</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/Index/">Index</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/M2MRelation/">M2M Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/M2ORelation/">M2O Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/Map/">Map</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/O2MRelation/">O2M Relation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/PgStructure/">pgStructure</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/Schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/Table/">Table</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">pg-structure 3.1.0</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Concepts</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ozum/pg-structure.git" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="database-objects-vs-pg-structure-objects">Database Objects vs. pg-structure Objects</h2>
+<p>In this documentation <strong><em>database objects</em></strong> means database parts provided by PostgreSQL such as table, column, constraint etc. Sometimes those objects are simply refereed as <em>database</em> as a general term in this documentation.</p>
+<p><strong><em>pg-structure objects</em></strong> means object instances provided by pg-structure classes.</p>
+<h2 id="objects-instances">Objects (Instances)</h2>
+<p>In <strong>pg-structure</strong> database objects such as Schema, Column etc. are represented by JavaScript objects such as <a href="../api/Schema/">Schema</a>, <a href="../api/Column/">Column</a> etc.</p>
+<pre><code class="js">pgStructure(connectionArgs, schemas).then((db) =&gt; {
+    // db is an DB object.
+});
+</code></pre>
+
+<h2 id="attributes">Attributes</h2>
+<p><strong>pg-structure</strong> objects attributes are designed to be read only. They access various database objects' details. Attributes are <strong>read only</strong> and formed as <strong>nouns</strong>.</p>
+<p>Unlike previous versions of <strong>pg-structure</strong>, current version does not enforce read only behaviour for the sake of new performance oriented design.</p>
+<ul>
+<li>Singular named attributes such as <a href="../api/Table/#Table+name">table#name</a> contains single data which is a simple JavaScript type.</li>
+<li>Plural named attributes such as <a href="../api/Table/#Table+columns">table#columns</a> contains array of related objects.</li>
+<li>Plural named attributes with suffix <code>ByName</code> such as <a href="../api/Table/#Table+columnsByName">table#columnsByName</a> contains a simple object as key/value pairs. Keys are object's names, values are related objects.</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<p><strong>pg-structure</strong> also provides methods to access database details.</p>
+<p>Methods are named as verbs like <a href="../api/Table/#Table+getPrimaryKeys">Table#getPrimaryKeys</a> or <a href="../api/Table/#Table+columnExists">Table#columnExists</a>.</p>
+<h2 id="get-shortcut"><code>get</code> shortcut</h2>
+<p><a href="../api/Db/">DB</a>, <a href="../api/Schema/">schema</a>, <a href="../api/Table/">table</a> classes provide <code>get</code> method for a shortcut. This method may be used to save a few key strokes.</p>
+<p>For example all below are equal:</p>
+<pre><code class="js">var userColumn      = db.get('public.account.user_name');
+var sameColumn      = db.getSchema('public').getTable('account').getColumn('user_name');
+var againSameColumn = db.schemasByName.public.tablesByName.account.columnsByName.user_name;
+
+console.log(userColumn === sameColumn); // true 
+</code></pre>
+
+<h2 id="relation-classes-vs-foreign-key-constraint">Relation Classes vs. Foreign Key Constraint</h2>
+<p><strong>pg-structure</strong> Foreign Key Constraint objects represent directly PostgreSQL foreign key constraints.</p>
+<p>Developers and ORM users need to have more information about relations than present in foreign key constraints. For example many to many relationships and many to one relationships are not available in database engine. <strong>pg-structure</strong> provides <a href="../api/O2MRelation/">O2MRelation</a>, <a href="../api/M2MRelation/">M2MRelation</a> and <a href="../api/M2ORelation/">M2ORelation</a> classes to answer those needs.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../examples/" class="btn btn-neutral float-right" title="Examples"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© Özüm Eldoğan</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../examples/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
