@@ -8,6 +8,7 @@ or a value.
 
 * [Map](#Map)
     * [.size](#Map+size) : <code>number</code>
+    * [.array](#Map+array) : <code>Array</code>
     * [.entries()](#Map+entries) ⇒ <code>Iterator</code>
     * [.forEach(callbackFn, this)](#Map+forEach)
     * [.get(name)](#Map+get) ⇒ <code>\*</code>
@@ -23,6 +24,16 @@ The number of key/value pairs in the Map object.
 **Example**  
 ```js
 let size = db.get('public.account').columns.size;
+```
+<a name="Map+array"></a>
+### map.array : <code>Array</code>
+<img src="http://www.pg-structure.com/images/warning-24.png" style="margin-left: -26px;">Not part of Map standard.
+Values of Map as an array.
+
+**Kind**: instance property of <code>[Map](#Map)</code>  
+**Example**  
+```js
+let schemasArray = db.schemas.array;
 ```
 <a name="Map+entries"></a>
 ### map.entries() ⇒ <code>Iterator</code>

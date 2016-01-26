@@ -33,7 +33,7 @@ Methods are named as verbs like [Table#getPrimaryKeys](api/Table.md#Table+getPri
 
 ## `get` shortcut
 
-[DB](api/DB.md), [schema](api/Schema.md), [table](api/Table.md) classes provide `get` method for a shortcut. This method may be used to save a few key strokes.
+[DB](api/Db.md), [schema](api/Schema.md), [table](api/Table.md) classes provide `get` method for a shortcut. This method may be used to save a few key strokes.
 
 For example all below are equal:
 

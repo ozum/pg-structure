@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Concepts - pg-structure 3.0.0</title>
+  <title>Concepts - pg-structure 3.1.0</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 3.0.0</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.1.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -218,7 +218,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 3.0.0</a>
+        <a href="..">pg-structure 3.1.0</a>
       </nav>
 
       
@@ -266,7 +266,7 @@
 <p><strong>pg-structure</strong> also provides methods to access database details.</p>
 <p>Methods are named as verbs like <a href="../api/Table/#Table+getPrimaryKeys">Table#getPrimaryKeys</a> or <a href="../api/Table/#Table+columnExists">Table#columnExists</a>.</p>
 <h2 id="get-shortcut"><code>get</code> shortcut</h2>
-<p><a href="api/DB.md">DB</a>, <a href="../api/Schema/">schema</a>, <a href="../api/Table/">table</a> classes provide <code>get</code> method for a shortcut. This method may be used to save a few key strokes.</p>
+<p><a href="../api/Db/">DB</a>, <a href="../api/Schema/">schema</a>, <a href="../api/Table/">table</a> classes provide <code>get</code> method for a shortcut. This method may be used to save a few key strokes.</p>
 <p>For example all below are equal:</p>
 <pre><code class="js">var userColumn      = db.get('public.account.user_name');
 var sameColumn      = db.getSchema('public').getTable('account').getColumn('user_name');
