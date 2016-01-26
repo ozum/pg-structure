@@ -4,6 +4,9 @@
 
 # History & Release Notes
 
+###### 3.1.0 / 2016-01-26
+* Added: #array method is added all Map types to help building arrays in non supporting environments such as nunjucks.
+
 ###### 3.0.0 / 2016-01-16
 Previous versions of pg-structure are designed to be a build time tool. v3 are designed to be a runtime tool. It is refactored to better performance compared to previous versions.
 Internal storage is completely rewritten. Loki DB is excellent product, but it is overkill for this project. pg-structure now uses direct object references for speed up things.
