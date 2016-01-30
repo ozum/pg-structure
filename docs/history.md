@@ -4,6 +4,9 @@
 
 # History & Release Notes
 
+###### 3.1.1 / 2016-01-30
+* Added: column#referencedColumns.
+
 ###### 3.1.0 / 2016-01-26
 * Added: #array method is added all Map types to help building arrays in non supporting environments such as nunjucks.
 

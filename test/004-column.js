@@ -212,6 +212,11 @@ var tests = function(key) {
             done();
         });
 
+        it('should have referencedColumns.', function(done) {
+            expect([...table.columns.get('owner_id').referencedColumns.values()][0].name).to.equal('id');
+            done();
+        });
+
         it('should have scale.', function(done) {
             expect(table.columns.get('id').scale).to.equal(0);            // Serial / integer
             expect(table.columns.get('field2').scale).to.equal(2);        // Numeric
