@@ -42,7 +42,7 @@ Created object can be used to auto generate documentation or ORM models from dat
 
     var pgStructure = require('pg-structure');
 
-    pgStructure({database: 'node_test', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
+    pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhost', port: 5432}, ['public', 'other_schema'])
         .then((db) => {
             // Basic
             var tables = db.schemas.get('public').tables;  // Map of Table objects.

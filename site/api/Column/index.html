@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Column - pg-structure 3.1.1</title>
+  <title>Column - pg-structure 3.1.2</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.1.1</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.1.2</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -168,6 +168,8 @@
                 
                     <li><a class="toctree-l4" href="#columnprecision-number-null">column.precision : number &#124; null</a></li>
                 
+                    <li><a class="toctree-l4" href="#columnreferencedcolumns-setcolumn">column.referencedColumns : Set.&lt;Column&gt;</a></li>
+                
                     <li><a class="toctree-l4" href="#columnscale-number-null">column.scale : number &#124; null</a></li>
                 
                     <li><a class="toctree-l4" href="#columnschema-schema">column.schema : Schema</a></li>
@@ -271,7 +273,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.1.1</a>
+        <a href="../..">pg-structure 3.1.2</a>
       </nav>
 
       
@@ -333,6 +335,7 @@
 <li><a href="#Column+notNull">.notNull</a> : <code>boolean</code></li>
 <li><a href="#Column+parent">.parent</a> : <code>Table</code></li>
 <li><a href="#Column+precision">.precision</a> : <code>number</code> &#124; <code>null</code></li>
+<li><a href="#Column+referencedColumns">.referencedColumns</a> : <code><a href="#Column">Set.&lt;Column&gt;</a></code></li>
 <li><a href="#Column+scale">.scale</a> : <code>number</code> &#124; <code>null</code></li>
 <li><a href="#Column+schema">.schema</a> : <code>Schema</code></li>
 <li><a href="#Column+type">.type</a> : <code>postgreSQLDataType</code></li>
@@ -571,6 +574,11 @@ following the decimal point in the seconds value.</li>
 of the data type of the array.</li>
 <li>For all other data types, this is <code>undefined</code>.</li>
 </ul>
+<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
+<strong>Read only</strong>: true<br />
+<a name="Column+referencedColumns"></a></p>
+<h3 id="columnreferencedcolumns-setcolumn">column.referencedColumns : <code><a href="#Column">Set.&lt;Column&gt;</a></code></h3>
+<p>All referenced columns in all foreign key constraints by this column.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
 <a name="Column+scale"></a></p>

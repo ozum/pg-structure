@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Schema - pg-structure 3.1.2</title>
+  <title>Db - pg-structure 3.1.2</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Schema";
+    var mkdocs_page_name = "Db";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -121,8 +121,29 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../Db/">Db</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Db</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#db">Db</a></li>
+                
+                    <li><a class="toctree-l4" href="#new-dbargs-options">new Db(args, options)</a></li>
+                
+                    <li><a class="toctree-l4" href="#dbname-string">db.name : string</a></li>
+                
+                    <li><a class="toctree-l4" href="#dbfullname-string">db.fullName : string</a></li>
+                
+                    <li><a class="toctree-l4" href="#dbfullcatalogname-string">db.fullCatalogName : string</a></li>
+                
+                    <li><a class="toctree-l4" href="#dboptions-object">db.options : Object</a></li>
+                
+                    <li><a class="toctree-l4" href="#dbschemas-mapschema">db.schemas : Map.&lt;Schema&gt;</a></li>
+                
+                    <li><a class="toctree-l4" href="#dbgetpath-schema-table-column-undefined">db.get(path) ⇒ Schema &#124; Table &#124; Column &#124; undefined</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -170,31 +191,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Schema</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#schema">Schema</a></li>
-                
-                    <li><a class="toctree-l4" href="#new-schemaargs">new Schema(args)</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemaname-string">schema.name : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemafullname-string">schema.fullName : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemafullcatalogname-string">schema.fullCatalogName : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemadb-db">schema.db : DB</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemaparent-db">schema.parent : DB</a></li>
-                
-                    <li><a class="toctree-l4" href="#schematables-maptable">schema.tables : Map.&lt;Table&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemagetpath-table-column-undefined">schema.get(path) ⇒ Table &#124; Column &#124; undefined</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../Schema/">Schema</a>
         
     </li>
 
@@ -235,7 +233,7 @@
         
       
     
-    <li>Schema</li>
+    <li>Db</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -249,31 +247,31 @@
           <div role="main">
             <div class="section">
               
-                <p><a name="Schema"></a></p>
-<h2 id="schema">Schema</h2>
-<p>Class which represent a PostgreSQL schema. Provides attributes and methods for details of the database.</p>
+                <p><a name="Db"></a></p>
+<h2 id="db">Db</h2>
+<p>Class which represent a database. Provides attributes and methods for details of the database.</p>
 <p><strong>Kind</strong>: global class  </p>
 <ul>
-<li><a href="#Schema">Schema</a><ul>
-<li><a href="#new_Schema_new">new Schema(args)</a></li>
-<li><a href="#Schema+name">.name</a> : <code>string</code></li>
-<li><a href="#Schema+fullName">.fullName</a> : <code>string</code></li>
-<li><a href="#Schema+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
-<li><a href="#Schema+db">.db</a> : <code>DB</code></li>
-<li><a href="#Schema+parent">.parent</a> : <code>DB</code></li>
-<li><a href="#Schema+tables">.tables</a> : <code>Map.&lt;Table&gt;</code></li>
-<li><a href="#Schema+get">.get(path)</a> ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></li>
+<li><a href="#Db">Db</a><ul>
+<li><a href="#new_Db_new">new Db(args, options)</a></li>
+<li><a href="#Db+name">.name</a> : <code>string</code></li>
+<li><a href="#Db+fullName">.fullName</a> : <code>string</code></li>
+<li><a href="#Db+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
+<li><a href="#Db+options">.options</a> : <code>Object</code></li>
+<li><a href="#Db+schemas">.schemas</a> : <code>Map.&lt;Schema&gt;</code></li>
+<li><a href="#Db+get">.get(path)</a> ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></li>
 </ul>
 </li>
 </ul>
-<p><a name="new_Schema_new"></a></p>
-<h3 id="new-schemaargs">new Schema(args)</h3>
+<p><a name="new_Db_new"></a></p>
+<h3 id="new-dbargs-options">new Db(args, options)</h3>
 <p>Constructor function. You don't need to call constructor manually. pg-structure handles this.</p>
 <table>
 <thead>
 <tr>
 <th>Param</th>
 <th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -281,89 +279,75 @@
 <tr>
 <td>args</td>
 <td><code>Object</code></td>
-<td>Attributes of the <a href="#Schema">Schema</a> instance to be created.</td>
-</tr>
-<tr>
-<td>args.parent</td>
-<td><code>DB</code></td>
-<td>Parent <a href="../DB">DB</a> of the Schema.</td>
+<td></td>
+<td>Attributes of the <a href="../Database">Database</a> instance to be created.</td>
 </tr>
 <tr>
 <td>args.name</td>
-<td><code>string</code></td>
-<td>Name of the Schema.</td>
+<td><code>Object</code></td>
+<td></td>
+<td>Name of the <a href="#Db">Db</a> instance.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+<td>Options to modify behaviour of classes.</td>
+</tr>
+<tr>
+<td>[options.cache]</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>Use cache to memoize calculated results.</td>
 </tr>
 </tbody>
 </table>
-<p><a name="Schema+name"></a></p>
-<h3 id="schemaname-string">schema.name : <code>string</code></h3>
-<p>Name of the schema.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<p><a name="Db+name"></a></p>
+<h3 id="dbname-string">db.name : <code>string</code></h3>
+<p>Name of the <a href="../Database">Database</a>.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Db">Db</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="Schema+fullName"></a></p>
-<h3 id="schemafullname-string">schema.fullName : <code>string</code></h3>
-<p>Full name of the <a href="#Schema">Schema</a>. For schema it is equal to schema name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<a name="Db+fullName"></a></p>
+<h3 id="dbfullname-string">db.fullName : <code>string</code></h3>
+<p>Full name of the <a href="../Database">Database</a> with (.) notation. Since database does not have a parent this equals database name.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Db">Db</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>Example</strong>  </p>
-<pre><code class="js">var fullName = schema.fullName; // public
-</code></pre>
-
-<p><a name="Schema+fullCatalogName"></a></p>
-<h3 id="schemafullcatalogname-string">schema.fullCatalogName : <code>string</code></h3>
-<p>Full name of the <a href="#Schema">Schema</a> with (.) notation including catalog name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<a name="Db+fullCatalogName"></a></p>
+<h3 id="dbfullcatalogname-string">db.fullCatalogName : <code>string</code></h3>
+<p>Full name of the <a href="../Database">Database</a> with (.) notation including catalog name. Since database does not have a parent this equals database name.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Db">Db</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>Example</strong>  </p>
-<pre><code class="js">var fullCatalogName = schema.fullCatalogName; // crm.public
-</code></pre>
-
-<p><a name="Schema+db"></a></p>
-<h3 id="schemadb-db">schema.db : <code>DB</code></h3>
-<p><a href="../DB">DB</a> this schema belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<a name="Db+options"></a></p>
+<h3 id="dboptions-object">db.options : <code>Object</code></h3>
+<p>Options passed to during initialization.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Db">Db</a></code><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: Aliases <a href="#Schema+parent">parent</a><br />
-<strong>Example</strong>  </p>
-<pre><code class="js">var db = schema.db; // DB instance
-</code></pre>
-
-<p><a name="Schema+parent"></a></p>
-<h3 id="schemaparent-db">schema.parent : <code>DB</code></h3>
-<p><a href="../DB">DB</a> this schema belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>See</strong>: Aliases <a href="#Schema+db">db</a><br />
-<strong>Example</strong>  </p>
-<pre><code class="js">var db = schema.parent; // DB instance
-</code></pre>
-
-<p><a name="Schema+tables"></a></p>
-<h3 id="schematables-maptable">schema.tables : <code>Map.&lt;Table&gt;</code></h3>
-<p>All <a href="../Table">Table</a> instances of the schema as a <a href="../Map">Map</a>. They are ordered by their name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<a name="Db+schemas"></a></p>
+<h3 id="dbschemas-mapschema">db.schemas : <code>Map.&lt;Schema&gt;</code></h3>
+<p>All <a href="../Schema">Schema</a> instances in the database as a <a href="../Map">Map</a>. Schemas are ordered by their name.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Db">Db</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="../Map">Map</a><br />
 <strong>Example</strong>  </p>
-<pre><code class="js">let isAvailable  = schema.tables.has('person');
-let tableNames   = [...schema.tables.keys()];        // Use spread operator to get table names as an array.
-let table        = schema.tables.get('account');
-let name         = table.name;
+<pre><code class="js">let isAvailable  = db.schemas.has('another_schema');
+let schemaNames  = [...db.schemas.keys()];           // Use spread operator to get schema names as an array.
+let public       = db.schemas.get('public');
+let name         = public.name;
 
-for (let table of schema.tables.values()) {
-    console.log(table.name);
+for (let schema of db.schemas.values()) {
+    console.log(schema.name);
 }
 
-for (let [name, table] of schema.tables) {
-    console.log(name, table.name);
+for (let [name, schema] of db.schemas) {
+    console.log(name, schema.name);
 }
 </code></pre>
 
-<p><a name="Schema+get"></a></p>
-<h3 id="schemagetpath-table-column-undefined">schema.get(path) ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></h3>
-<p>Returns <a href="../Table">Table</a> or <a href="../Column">Column</a> on given path relative to <a href="#Schema">Schema</a>. Path should be in dot (.) notation.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Schema">Schema</a></code><br />
-<strong>Returns</strong>: <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code> - - Requested item.  </p>
+<p><a name="Db+get"></a></p>
+<h3 id="dbgetpath-schema-table-column-undefined">db.get(path) ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></h3>
+<p>Returns <a href="../Schema">Schema</a>, <a href="../Table">Table</a> or <a href="../Column">Column</a> on given path relative to <a href="#Db">Db</a>. Path should be in dot (.) notation.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Db">Db</a></code><br />
+<strong>Returns</strong>: <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code> - - Requested item.  </p>
 <table>
 <thead>
 <tr>
@@ -381,8 +365,9 @@ for (let [name, table] of schema.tables) {
 </tbody>
 </table>
 <p><strong>Example</strong>  </p>
-<pre><code class="js">var table  = db.get('contact'),      // Returns contact table in public schema.
-    column = db.get('contact.name'); // Returns name column of the contact table.
+<pre><code class="js">var schema = db.get('public'),              // Returns public schema.
+    table  = db.get('public.contact'),      // Returns contact table in public schema.
+    column = db.get('public.contact.name'); // Returns name column of the contact table in public schema.
 </code></pre>
               
             </div>
@@ -391,10 +376,10 @@ for (let [name, table] of schema.tables) {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Table/" class="btn btn-neutral float-right" title="Table"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Index/" class="btn btn-neutral float-right" title="Index"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../PgStructure/" class="btn btn-neutral" title="pgStructure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Constraint/" class="btn btn-neutral" title="Constraint"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -424,10 +409,10 @@ for (let [name, table] of schema.tables) {
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../PgStructure/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Constraint/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Table/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Index/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

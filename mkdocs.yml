@@ -1,4 +1,4 @@
-site_name: pg-structure 3.1.1
+site_name: pg-structure 3.1.2
 theme: readthedocs
 pages:
   - Home: index.md
