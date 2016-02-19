@@ -30,6 +30,7 @@
     * [.notNull](#Column+notNull) : <code>boolean</code>
     * [.parent](#Column+parent) : <code>Table</code>
     * [.precision](#Column+precision) : <code>number</code> &#124; <code>null</code>
+    * [.referencedColumns](#Column+referencedColumns) : <code>[Set.&lt;Column&gt;](#Column)</code>
     * [.scale](#Column+scale) : <code>number</code> &#124; <code>null</code>
     * [.schema](#Column+schema) : <code>Schema</code>
     * [.type](#Column+type) : <code>postgreSQLDataType</code>
@@ -279,6 +280,12 @@ following the decimal point in the seconds value.
 * If data type is an array. Same rules apply for the data type of the array, and this value would become precision
 of the data type of the array.
 * For all other data types, this is `undefined`.
+
+**Kind**: instance property of <code>[Column](#Column)</code>  
+**Read only**: true  
+<a name="Column+referencedColumns"></a>
+### column.referencedColumns : <code>[Set.&lt;Column&gt;](#Column)</code>
+All referenced columns in all foreign key constraints by this column.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
