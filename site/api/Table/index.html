@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Table - pg-structure 3.1.2</title>
+  <title>Table - pg-structure 3.1.3</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.1.2</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.1.3</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -255,7 +255,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.1.2</a>
+        <a href="../..">pg-structure 3.1.3</a>
       </nav>
 
       
@@ -435,7 +435,7 @@ defined in database table.</p>
 <strong>See</strong>: <a href="../Map">Map</a><br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var isAvailable  = table.columns.has('id');
-var columnNames  = [...schema.columns.keys()];       // Use spread operator to get column names as an array.
+var columnNames  = Array.from(schema.columns.keys());       // Use spread operator to get column names as an array.
 var column       = table.columns.get('user_id');
 var name         = column.name;
 
@@ -485,7 +485,7 @@ use <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a>.<a href="..
 <strong>See</strong>: <a href="#Table+primaryKeyColumns">primaryKeyColumns</a> to get primary key columns directly.<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">let pkConstraint = table.primaryKeyConstraint;
-let pkColumns    = [...pkConstraint.columns.values()];   // As an array
+let pkColumns    = Array.from(pkConstraint.columns.values());   // As an array
 
 for (let [name, column] of pkConstraint.columns) {
     console.log(column.name);
@@ -499,7 +499,7 @@ for (let [name, column] of pkConstraint.columns) {
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Table+primaryKeyConstraint">primaryKeyConstraint</a> to get primary key constraint.<br />
 <strong>Example</strong>  </p>
-<pre><code class="js">let pkColumns  = [...table.primaryKeyColumns.values()];  // As an array
+<pre><code class="js">let pkColumns  = Array.from(table.primaryKeyColumns.values());  // As an array
 for (let [name, column] of pkConstraint.columns) {
     console.log(column.name);
 }
