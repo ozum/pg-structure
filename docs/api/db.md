@@ -59,7 +59,7 @@ All [Schema](Schema) instances in the database as a [Map](Map). Schemas are orde
 **Example**  
 ```js
 let isAvailable  = db.schemas.has('another_schema');
-let schemaNames  = [...db.schemas.keys()];           // Use spread operator to get schema names as an array.
+let schemaNames  = Array.from(db.schemas.keys());           // Use spread operator to get schema names as an array.
 let public       = db.schemas.get('public');
 let name         = public.name;
 

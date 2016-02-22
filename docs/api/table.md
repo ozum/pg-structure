@@ -135,7 +135,7 @@ defined in database table.
 **Example**  
 ```js
 var isAvailable  = table.columns.has('id');
-var columnNames  = [...schema.columns.keys()];       // Use spread operator to get column names as an array.
+var columnNames  = Array.from(schema.columns.keys());       // Use spread operator to get column names as an array.
 var column       = table.columns.get('user_id');
 var name         = column.name;
 
@@ -191,7 +191,7 @@ Primary key [constraint](Constraint) instance of this table.
 **Example**  
 ```js
 let pkConstraint = table.primaryKeyConstraint;
-let pkColumns    = [...pkConstraint.columns.values()];   // As an array
+let pkColumns    = Array.from(pkConstraint.columns.values());   // As an array
 
 for (let [name, column] of pkConstraint.columns) {
     console.log(column.name);
@@ -206,7 +206,7 @@ Primary key [columns](Column) of this table as a [Map](Map).
 **See**: [primaryKeyConstraint](#Table+primaryKeyConstraint) to get primary key constraint.  
 **Example**  
 ```js
-let pkColumns  = [...table.primaryKeyColumns.values()];  // As an array
+let pkColumns  = Array.from(table.primaryKeyColumns.values());  // As an array
 for (let [name, column] of pkConstraint.columns) {
     console.log(column.name);
 }

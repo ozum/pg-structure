@@ -83,7 +83,7 @@ All [Table](Table) instances of the schema as a [Map](Map). They are ordered by 
 **Example**  
 ```js
 let isAvailable  = schema.tables.has('person');
-let tableNames   = [...schema.tables.keys()];        // Use spread operator to get table names as an array.
+let tableNames   = Array.from(schema.tables.keys());        // Use spread operator to get table names as an array.
 let table        = schema.tables.get('account');
 let name         = table.name;
 

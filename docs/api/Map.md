@@ -97,7 +97,7 @@ for (let tableName of db.schemas.get('public').tables.keys()) {
     console.log(tableName);
 }
 
-let tableNames = [...db.schemas.get('public').tables.keys()]; // Table names as an array.
+let tableNames = Array.from(db.schemas.get('public').tables.keys()); // Table names as an array.
 ```
 <a name="Map+values"></a>
 ### map.values() ⇒ <code>Iterator</code>
@@ -110,5 +110,5 @@ for (let table of db.schemas.get('public').tables.values()) {
     console.log(table.name);
 }
 
-let tables = [...db.schemas.get('public').tables.values()]; // Table objects as an array.
+let tables = Array.from(db.schemas.get('public').tables.values()); // Table objects as an array.
 ```
