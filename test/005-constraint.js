@@ -61,12 +61,12 @@ let tests = function(key) {
         });
 
         it('should have description.', function(done) {
-            expect(constraint.description).to.equal('Constraint description. [PGEN]{ "o2mName": "carts", "name": "O\'Reilly" }[/PGEN]');
+            expect(constraint.description).to.equal('Constraint description. [JSON]{ "o2mName": "carts", "name": "O\'Reilly" }[/JSON]');
             done();
         });
 
         it('should have comment.', function(done) {
-            expect(constraint.comment).to.equal('Constraint description. [PGEN]{ "o2mName": "carts", "name": "O\'Reilly" }[/PGEN]');
+            expect(constraint.comment).to.equal('Constraint description. [JSON]{ "o2mName": "carts", "name": "O\'Reilly" }[/JSON]');
             done();
         });
 
@@ -149,6 +149,15 @@ let tests = function(key) {
             done();
         });
 
+        it('should have commentData.', function(done) {
+            expect(constraint.commentData).to.deep.equal({ o2mName: 'carts', name: "O'Reilly" });
+            done();
+        });
+
+        it('should have descriptionData.', function(done) {
+            expect(constraint.descriptionData).to.deep.equal({ o2mName: 'carts', name: "O'Reilly" });
+            done();
+        });
     };
 };
 

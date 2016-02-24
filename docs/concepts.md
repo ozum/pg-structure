@@ -50,3 +50,16 @@ console.log(userColumn === sameColumn); // true
 **pg-structure** Foreign Key Constraint objects represent directly PostgreSQL foreign key constraints.
 
 Developers and ORM users need to have more information about relations than present in foreign key constraints. For example many to many relationships and many to one relationships are not available in database engine. **pg-structure** provides [O2MRelation](api/O2MRelation.md), [M2MRelation](api/M2MRelation.md) and [M2ORelation](api/M2ORelation.md) classes to answer those needs.
+
+## Description Data
+
+PostgreSQL objects holds free form text in their description. `pg-structure` offers some help to store extra data in database objects' description as JSON. `pg-structure` automatically parses JSON data between `[JSON]`and `[/JSON]` tags. Tags are case-insensitive. Only one JSON object is allowed per description.
+
+```js
+// For example: 'This constraint connects account table to contact
+// table. [PGEN]{ "hasMany": "primaryContacts", "belongsTo": "primaryAccount", "free": 3 }[/PGEN]'
+
+let description = constraint.description;
+let data = constraint.descriptionData;              // -> { hasMany: 'primaryContacts', belongsTo: 'primaryAccount', free: 3 }
+console.log(constraint.descriptionData.hasMany);    // -> primaryContacts
+```

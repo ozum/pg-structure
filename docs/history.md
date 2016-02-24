@@ -4,6 +4,9 @@
 
 # History & Release Notes
 
+###### 3.3.0 / 2016-02-24
+* Added: table#descriptionData, table#commentData, column#descriptionData, column#commentData, constraint#descriptionData, constraint#commentData. It is possible to store and access JSON in objects' description.
+
 ###### 3.2.0 / 2016-02-24
 * Added: constraint#description, constraint#comment.
 * Updated: Test ERD corrected.

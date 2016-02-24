@@ -105,9 +105,9 @@ CREATE TABLE "public"."account"(
 )
 ;
 
-COMMENT ON TABLE "public"."account" IS 'Firma bilgilerinin tutulduğu tablo. [PGEN]{ "jsonkey": "jsonvalue" }[/PGEN]'
+COMMENT ON TABLE "public"."account" IS 'Firma bilgilerinin tutulduğu tablo. [JSON]{ "jsonkey": "jsonvalue" }[/JSON]'
 ;
-COMMENT ON COLUMN "public"."account"."id" IS 'Kayıt no.'
+COMMENT ON COLUMN "public"."account"."id" IS 'Kayıt no. [json]{ "columnExtra": 2 }[/json]'
 ;
 COMMENT ON COLUMN "public"."account"."created_at" IS 'Kaydın oluşturulduğu zaman.'
 ;
@@ -589,7 +589,7 @@ ALTER TABLE "public"."account" ADD CONSTRAINT "contact_has_companies" FOREIGN KE
 ALTER TABLE "public"."cart" ADD CONSTRAINT "contact_has_carts" FOREIGN KEY ("contact_id") REFERENCES "public"."contact" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 ;
 
-COMMENT ON CONSTRAINT "contact_has_carts" ON "public"."cart" IS 'Constraint description. [PGEN]{ "o2mName": "carts", "name": "O''Reilly" }[/PGEN]'
+COMMENT ON CONSTRAINT "contact_has_carts" ON "public"."cart" IS 'Constraint description. [JSON]{ "o2mName": "carts", "name": "O''Reilly" }[/JSON]'
 ;
 
 ALTER TABLE "public"."product" ADD CONSTRAINT "Relationship4" FOREIGN KEY ("product_category_id") REFERENCES "public"."product_category" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION

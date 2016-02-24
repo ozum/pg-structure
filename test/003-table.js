@@ -76,7 +76,7 @@ var tests = function(key) {
         });
 
         it('should have comment.', function(done) {
-            expect(table.comment).to.equal('Firma bilgilerinin tutulduğu tablo. [PGEN]{ "jsonkey": "jsonvalue" }[/PGEN]');
+            expect(table.comment).to.equal('Firma bilgilerinin tutulduğu tablo. [JSON]{ "jsonkey": "jsonvalue" }[/JSON]');
             done();
         });
 
@@ -91,7 +91,7 @@ var tests = function(key) {
         });
 
         it('should have description.', function(done) {
-            expect(table.description).to.equal('Firma bilgilerinin tutulduğu tablo. [PGEN]{ "jsonkey": "jsonvalue" }[/PGEN]');
+            expect(table.description).to.equal('Firma bilgilerinin tutulduğu tablo. [JSON]{ "jsonkey": "jsonvalue" }[/JSON]');
             done();
         });
 
@@ -247,6 +247,16 @@ var tests = function(key) {
 
         it('should have get().', function(done) {
             expect(table.get('field3').name).to.equal('field3');
+            done();
+        });
+
+        it('should have commentData.', function(done) {
+            expect(table.commentData).to.deep.equal({ jsonkey: 'jsonvalue' });
+            done();
+        });
+
+        it('should have descriptionData.', function(done) {
+            expect(table.descriptionData).to.deep.equal({ jsonkey: 'jsonvalue' });
             done();
         });
     };
