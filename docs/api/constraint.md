@@ -41,6 +41,8 @@ color and vendor tables would have many to many `through constraints`.
     * [.fullName](#Constraint+fullName) : <code>string</code>
     * [.fullCatalogName](#Constraint+fullCatalogName) : <code>string</code>
     * [.type](#Constraint+type) : <code>contsraintType</code>
+    * [.description](#Constraint+description) : <code>string</code>
+    * [.comment](#Constraint+comment) : <code>string</code>
     * [.child](#Constraint+child) : <code>Table</code>
     * [.table](#Constraint+table) : <code>Table</code>
     * [.db](#Constraint+db) : <code>DB</code>
@@ -66,6 +68,7 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 | args.schemaName | <code>string</code> | Schema name of the Constraint. |
 | args.name | <code>string</code> | Name of the Constraint. |
 | args.type | <code>string</code> | Constraint type. |
+| args.description | <code>string</code> | Description of the constraint. |
 | args.onUpdate | <code>string</code> | Update rule of the constraint. |
 | args.onDelete | <code>string</code> | Delete rule of the constraint. |
 | args.matchOption | <code>string</code> | Match option of the constraint. |
@@ -102,6 +105,20 @@ Constraint type. One of `PRIMARY KEY`, `FOREIGN KEY` or `CHECK`
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
+<a name="Constraint+description"></a>
+### constraint.description : <code>string</code>
+Comment of the Constraint.
+
+**Kind**: instance property of <code>[Constraint](#Constraint)</code>  
+**Read only**: true  
+**See**: Aliases [comment](#Constraint+comment)  
+<a name="Constraint+comment"></a>
+### constraint.comment : <code>string</code>
+Comment of the Constraint.
+
+**Kind**: instance property of <code>[Constraint](#Constraint)</code>  
+**Read only**: true  
+**See**: Aliases [description](#Constraint+description)  
 <a name="Constraint+child"></a>
 ### constraint.child : <code>Table</code>
 Child [table](Table) of this [constraint](#Constraint).
