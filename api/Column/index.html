@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Column - pg-structure 3.2.0</title>
+  <title>Column - pg-structure 3.3.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.2.0</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.3.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -122,6 +122,10 @@
                 
                     <li><a class="toctree-l4" href="#columnarraytype-string-null">column.arrayType : string &#124; null</a></li>
                 
+                    <li><a class="toctree-l4" href="#columncomment-string-null">column.comment : string &#124; null</a></li>
+                
+                    <li><a class="toctree-l4" href="#columncommentdata-object">column.commentData : Object</a></li>
+                
                     <li><a class="toctree-l4" href="#columndb-db">column.db : DB</a></li>
                 
                     <li><a class="toctree-l4" href="#columndefault-string-null">column.default : string &#124; null</a></li>
@@ -129,6 +133,8 @@
                     <li><a class="toctree-l4" href="#columndefaultwithtypecast-string-null">column.defaultWithTypeCast : string &#124; null</a></li>
                 
                     <li><a class="toctree-l4" href="#columndescription-string-null">column.description : string &#124; null</a></li>
+                
+                    <li><a class="toctree-l4" href="#columndescriptiondata-object">column.descriptionData : Object</a></li>
                 
                     <li><a class="toctree-l4" href="#columndomainname-string-null">column.domainName : string &#124; null</a></li>
                 
@@ -273,7 +279,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.2.0</a>
+        <a href="../..">pg-structure 3.3.0</a>
       </nav>
 
       
@@ -312,10 +318,13 @@
 <li><a href="#Column+allowNull">.allowNull</a> : <code>boolean</code></li>
 <li><a href="#Column+arrayDimension">.arrayDimension</a> : <code>number</code></li>
 <li><a href="#Column+arrayType">.arrayType</a> : <code>string</code> &#124; <code>null</code></li>
+<li><a href="#Column+comment">.comment</a> : <code>string</code> &#124; <code>null</code></li>
+<li><a href="#Column+commentData">.commentData</a> : <code>Object</code></li>
 <li><a href="#Column+db">.db</a> : <code>DB</code></li>
 <li><a href="#Column+default">.default</a> : <code>string</code> &#124; <code>null</code></li>
 <li><a href="#Column+defaultWithTypeCast">.defaultWithTypeCast</a> : <code>string</code> &#124; <code>null</code></li>
 <li><a href="#Column+description">.description</a> : <code>string</code> &#124; <code>null</code></li>
+<li><a href="#Column+descriptionData">.descriptionData</a> : <code>Object</code></li>
 <li><a href="#Column+domainName">.domainName</a> : <code>string</code> &#124; <code>null</code></li>
 <li><a href="#Column+domainFullName">.domainFullName</a> : <code>string</code> &#124; <code>null</code></li>
 <li><a href="#Column+domainFullCatalogName">.domainFullCatalogName</a> : <code>string</code> &#124; <code>null</code></li>
@@ -382,7 +391,26 @@
 <p>If this column is an array, data type of the array. If column is not an array equals <code>null</code>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="Column+db"></a></p>
+<a name="Column+comment"></a></p>
+<h3 id="columncomment-string-null">column.comment : <code>string</code> &#124; <code>null</code></h3>
+<p>Comment about column.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: Aliases <a href="#Column+description">description</a><br />
+<a name="Column+commentData"></a></p>
+<h3 id="columncommentdata-object">column.commentData : <code>Object</code></h3>
+<p>JS Object extracted from column description. Object is expected as JSON data between <code>[JSON]</code> and <code>[/JSON]</code>
+tags in description. Tags are case-insensitive.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: Aliases <a href="#Column+descriptionData">descriptionData</a><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let description = column.comment;            // -&gt; 'This column holds name of account. [JSON]{ &quot;extraData&quot;: 2 }[/PGEN]'
+let extra = column.commentData;              // -&gt; { extraData: 2 }
+console.log(column.commentData.extraData);   // -&gt; 2
+</code></pre>
+
+<p><a name="Column+db"></a></p>
 <h3 id="columndb-db">column.db : <code>DB</code></h3>
 <p><a href="../DB">DB</a> this table belongs to.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
@@ -422,7 +450,21 @@ type = column.default;                   // &quot;'George'&quot;
 <p>Comment about column.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="Column+domainName"></a></p>
+<strong>See</strong>: Aliases <a href="#Column+comment">comment</a><br />
+<a name="Column+descriptionData"></a></p>
+<h3 id="columndescriptiondata-object">column.descriptionData : <code>Object</code></h3>
+<p>JS Object extracted from column description. Object is expected as JSON data between <code>[JSON]</code> and <code>[/JSON]</code>
+tags in description. Tags are case-insensitive.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: Aliases <a href="#Column+commentData">commentData</a><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let description = column.description;            // -&gt; 'This column holds name of account. [JSON]{ &quot;extraData&quot;: 2 }[/PGEN]'
+let extra = column.descriptionData;              // -&gt; { extraData: 2 }
+console.log(column.descriptionData.extraData);   // -&gt; 2
+</code></pre>
+
+<p><a name="Column+domainName"></a></p>
 <h3 id="columndomainname-string-null">column.domainName : <code>string</code> &#124; <code>null</code></h3>
 <p>If column data type is a domain, this equals domain name without domain schema. Otherwise null.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Column">Column</a></code><br />
