@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Constraint - pg-structure 3.2.0</title>
+  <title>Constraint - pg-structure 3.3.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.2.0</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.3.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -133,9 +133,13 @@
                 
                     <li><a class="toctree-l4" href="#constrainttype-contsrainttype">constraint.type : contsraintType</a></li>
                 
+                    <li><a class="toctree-l4" href="#constraintcomment-string">constraint.comment : string</a></li>
+                
+                    <li><a class="toctree-l4" href="#constraintcommentdata-object">constraint.commentData : Object</a></li>
+                
                     <li><a class="toctree-l4" href="#constraintdescription-string">constraint.description : string</a></li>
                 
-                    <li><a class="toctree-l4" href="#constraintcomment-string">constraint.comment : string</a></li>
+                    <li><a class="toctree-l4" href="#constraintdescriptiondata-object">constraint.descriptionData : Object</a></li>
                 
                     <li><a class="toctree-l4" href="#constraintchild-table">constraint.child : Table</a></li>
                 
@@ -241,7 +245,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.2.0</a>
+        <a href="../..">pg-structure 3.3.0</a>
       </nav>
 
       
@@ -309,8 +313,10 @@ color and vendor tables would have many to many <code>through constraints</code>
 <li><a href="#Constraint+fullName">.fullName</a> : <code>string</code></li>
 <li><a href="#Constraint+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
 <li><a href="#Constraint+type">.type</a> : <code>contsraintType</code></li>
-<li><a href="#Constraint+description">.description</a> : <code>string</code></li>
 <li><a href="#Constraint+comment">.comment</a> : <code>string</code></li>
+<li><a href="#Constraint+commentData">.commentData</a> : <code>Object</code></li>
+<li><a href="#Constraint+description">.description</a> : <code>string</code></li>
+<li><a href="#Constraint+descriptionData">.descriptionData</a> : <code>Object</code></li>
 <li><a href="#Constraint+child">.child</a> : <code>Table</code></li>
 <li><a href="#Constraint+table">.table</a> : <code>Table</code></li>
 <li><a href="#Constraint+db">.db</a> : <code>DB</code></li>
@@ -417,19 +423,45 @@ color and vendor tables would have many to many <code>through constraints</code>
 <p>Constraint type. One of <code>PRIMARY KEY</code>, <code>FOREIGN KEY</code> or <code>CHECK</code></p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
-<a name="Constraint+description"></a></p>
-<h3 id="constraintdescription-string">constraint.description : <code>string</code></h3>
-<p>Comment of the Constraint.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
-<strong>Read only</strong>: true<br />
-<strong>See</strong>: Aliases <a href="#Constraint+comment">comment</a><br />
 <a name="Constraint+comment"></a></p>
 <h3 id="constraintcomment-string">constraint.comment : <code>string</code></h3>
 <p>Comment of the Constraint.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Constraint+description">description</a><br />
-<a name="Constraint+child"></a></p>
+<a name="Constraint+commentData"></a></p>
+<h3 id="constraintcommentdata-object">constraint.commentData : <code>Object</code></h3>
+<p>JS Object extracted from constraint description. Object is expected as JSON data between <code>[JSON]</code> and <code>[/JSON]</code>
+tags in description. Tags are case-insensitive.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: Aliases <a href="#Constraint+descriptionData">descriptionData</a><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let description = constraint.comment;            // -&gt; 'This contraint refers contacts. [JSON]{ &quot;extraData&quot;: 2 }[/PGEN]'
+let extra = constraint.commentData;              // -&gt; { extraData: 2 }
+console.log(constraint.commentData.extraData);   // -&gt; 2
+</code></pre>
+
+<p><a name="Constraint+description"></a></p>
+<h3 id="constraintdescription-string">constraint.description : <code>string</code></h3>
+<p>Comment of the Constraint.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: Aliases <a href="#Constraint+comment">comment</a><br />
+<a name="Constraint+descriptionData"></a></p>
+<h3 id="constraintdescriptiondata-object">constraint.descriptionData : <code>Object</code></h3>
+<p>JS Object extracted from constraint description. Object is expected as JSON data between <code>[JSON]</code> and <code>[/JSON]</code>
+tags in description. Tags are case-insensitive.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: Aliases <a href="#Constraint+commentData">commentData</a><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let description = constraint.description;            // -&gt; 'This contraint refers contacts. [JSON]{ &quot;extraData&quot;: 2 }[/PGEN]'
+let extra = constraint.descriptionData;              // -&gt; { extraData: 2 }
+console.log(constraint.descriptionData.extraData);   // -&gt; 2
+</code></pre>
+
+<p><a name="Constraint+child"></a></p>
 <h3 id="constraintchild-table">constraint.child : <code>Table</code></h3>
 <p>Child <a href="../Table">table</a> of this <a href="#Constraint">constraint</a>.
 <strong>Note for foreign key constraints:</strong> Child table is the table which contains foreign key.

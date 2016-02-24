@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Table - pg-structure 3.2.0</title>
+  <title>Table - pg-structure 3.3.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.2.0</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.3.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -198,7 +198,11 @@
                 
                     <li><a class="toctree-l4" href="#tablecomment-string">table.comment : string</a></li>
                 
+                    <li><a class="toctree-l4" href="#tablecommentdata-object">table.commentData : Object</a></li>
+                
                     <li><a class="toctree-l4" href="#tabledescription-string">table.description : string</a></li>
+                
+                    <li><a class="toctree-l4" href="#tabledescriptiondata-object">table.descriptionData : Object</a></li>
                 
                     <li><a class="toctree-l4" href="#tablecolumns-mapcolumn">table.columns : Map.&lt;Column&gt;</a></li>
                 
@@ -255,7 +259,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.2.0</a>
+        <a href="../..">pg-structure 3.3.0</a>
       </nav>
 
       
@@ -315,7 +319,9 @@ name                 name                   name
 <li><a href="#Table+schema">.schema</a> : <code>Schema</code></li>
 <li><a href="#Table+parent">.parent</a> : <code>Schema</code></li>
 <li><a href="#Table+comment">.comment</a> : <code>string</code></li>
+<li><a href="#Table+commentData">.commentData</a> : <code>Object</code></li>
 <li><a href="#Table+description">.description</a> : <code>string</code></li>
+<li><a href="#Table+descriptionData">.descriptionData</a> : <code>Object</code></li>
 <li><a href="#Table+columns">.columns</a> : <code>Map.&lt;Column&gt;</code></li>
 <li><a href="#Table+constraints">.constraints</a> : <code>Map.&lt;Constraint&gt;</code></li>
 <li><a href="#Table+db">.db</a> : <code>DB</code></li>
@@ -420,13 +426,39 @@ name                 name                   name
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Table+description">description</a><br />
-<a name="Table+description"></a></p>
+<a name="Table+commentData"></a></p>
+<h3 id="tablecommentdata-object">table.commentData : <code>Object</code></h3>
+<p>JS Object extracted from table description. Object is expected as JSON data between <code>[JSON]</code> and <code>[/JSON]</code>
+tags in description. Tags are case-insensitive.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: Aliases <a href="#Table+descriptionData">descriptionData</a><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let description = table.comment;             // -&gt; 'This table holds account details. [JSON]{ &quot;extraData&quot;: 2 }[/PGEN]'
+let extra = table.commentData;               // -&gt; { extraData: 2 }
+console.log(table.commentData.extraData);    // -&gt; 2
+</code></pre>
+
+<p><a name="Table+description"></a></p>
 <h3 id="tabledescription-string">table.description : <code>string</code></h3>
 <p>Comment of the table.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Table+comment">comment</a><br />
-<a name="Table+columns"></a></p>
+<a name="Table+descriptionData"></a></p>
+<h3 id="tabledescriptiondata-object">table.descriptionData : <code>Object</code></h3>
+<p>JS Object extracted from table description. Object is expected as JSON data between <code>[JSON]</code> and <code>[/JSON]</code>
+tags in description. Tags are case-insensitive.</p>
+<p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: Aliases <a href="#Table+commentData">commentData</a><br />
+<strong>Example</strong>  </p>
+<pre><code class="js">let description = table.description;             // -&gt; 'This table holds account details. [JSON]{ &quot;extraData&quot;: 2 }[/PGEN]'
+let extra = table.descriptionData;               // -&gt; { extraData: 2 }
+console.log(table.descriptionData.extraData);    // -&gt; 2
+</code></pre>
+
+<p><a name="Table+columns"></a></p>
 <h3 id="tablecolumns-mapcolumn">table.columns : <code>Map.&lt;Column&gt;</code></h3>
 <p>All <a href="../Column">Column</a> instances in the table as a <a href="../Map">Map</a>. They are ordered same order as they are
 defined in database table.</p>

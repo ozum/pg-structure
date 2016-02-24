@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Concepts - pg-structure 3.2.0</title>
+  <title>Concepts - pg-structure 3.3.0</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 3.2.0</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.3.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -88,6 +88,9 @@
                 
             
                 <li class="toctree-l3"><a href="#relation-classes-vs-foreign-key-constraint">Relation Classes vs. Foreign Key Constraint</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#description-data">Description Data</a></li>
                 
             
             </ul>
@@ -218,7 +221,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 3.2.0</a>
+        <a href="..">pg-structure 3.3.0</a>
       </nav>
 
       
@@ -278,6 +281,15 @@ console.log(userColumn === sameColumn); // true
 <h2 id="relation-classes-vs-foreign-key-constraint">Relation Classes vs. Foreign Key Constraint</h2>
 <p><strong>pg-structure</strong> Foreign Key Constraint objects represent directly PostgreSQL foreign key constraints.</p>
 <p>Developers and ORM users need to have more information about relations than present in foreign key constraints. For example many to many relationships and many to one relationships are not available in database engine. <strong>pg-structure</strong> provides <a href="../api/O2MRelation/">O2MRelation</a>, <a href="../api/M2MRelation/">M2MRelation</a> and <a href="../api/M2ORelation/">M2ORelation</a> classes to answer those needs.</p>
+<h2 id="description-data">Description Data</h2>
+<p>PostgreSQL objects holds free form text in their description. <code>pg-structure</code> offers some help to store extra data in database objects' description as JSON. <code>pg-structure</code> automatically parses JSON data between <code>[JSON]</code>and <code>[/JSON]</code> tags. Tags are case-insensitive. Only one JSON object is allowed per description.</p>
+<pre><code class="js">// For example: 'This constraint connects account table to contact
+// table. [PGEN]{ &quot;hasMany&quot;: &quot;primaryContacts&quot;, &quot;belongsTo&quot;: &quot;primaryAccount&quot;, &quot;free&quot;: 3 }[/PGEN]'
+
+let description = constraint.description;
+let data = constraint.descriptionData;              // -&gt; { hasMany: 'primaryContacts', belongsTo: 'primaryAccount', free: 3 }
+console.log(constraint.descriptionData.hasMany);    // -&gt; primaryContacts
+</code></pre>
               
             </div>
           </div>

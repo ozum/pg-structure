@@ -21,7 +21,7 @@ See full documentation at [http://www.pg-structure.com](http://www.pg-structure.
         </td>
         <td style="width:28%; padding:10px 10px 10px 10px; border:1px solid #CCCCCC; background:#EEEEEE;">
             <strong>Utilitarian</strong><br>
-            Beyond database objects (i.e. <a href="http://www.pg-structure.com/api/M2MRelation/">many to many relation</a>).
+            Beyond database objects (i.e. <a href="http://www.pg-structure.com/api/M2MRelation/">many to many relation</a>, <a href="http://www.pg-structure.com/concepts/">description data</a>).
         </td>
     </tr>
 </table>
@@ -98,8 +98,9 @@ fetch structure from database and create a new save file.
 * Identifies one to many (hasMany) relationships.
 * Identifies reverse of one to many (belongsTo) relationships
 * Identifies all possible many to many (belongs to many & has many through) relationships
-* Objects can be accessed by name or by order. (Contains object and array referencing to this objects fields)
+* Objects can be accessed by name or by order. (Uses Map to save order and allow named access.)
 * Objects can be iterated via callbacks.
+* Allows to store and extract JSON data from Database objects. (See Description Data in <a href="http://www.pg-structure.com/concepts/">concepts</a>.)
 * Very detailed column meta data:
     * Allow null
     * Description
