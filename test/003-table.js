@@ -76,7 +76,7 @@ var tests = function(key) {
         });
 
         it('should have comment.', function(done) {
-            expect(table.comment).to.equal('Firma bilgilerinin tutulduğu tablo.');
+            expect(table.comment).to.equal('Firma bilgilerinin tutulduğu tablo. [PGEN]{ "jsonkey": "jsonvalue" }[/PGEN]');
             done();
         });
 
@@ -91,7 +91,7 @@ var tests = function(key) {
         });
 
         it('should have description.', function(done) {
-            expect(table.description).to.equal('Firma bilgilerinin tutulduğu tablo.');
+            expect(table.description).to.equal('Firma bilgilerinin tutulduğu tablo. [PGEN]{ "jsonkey": "jsonvalue" }[/PGEN]');
             done();
         });
 

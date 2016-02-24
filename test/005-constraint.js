@@ -60,6 +60,16 @@ let tests = function(key) {
             done();
         });
 
+        it('should have description.', function(done) {
+            expect(constraint.description).to.equal('Constraint description. [PGEN]{ "o2mName": "carts", "name": "O\'Reilly" }[/PGEN]');
+            done();
+        });
+
+        it('should have comment.', function(done) {
+            expect(constraint.comment).to.equal('Constraint description. [PGEN]{ "o2mName": "carts", "name": "O\'Reilly" }[/PGEN]');
+            done();
+        });
+
         it('should have table.', function(done) {
             expect(constraint.table.name).to.equal('cart');
             done();

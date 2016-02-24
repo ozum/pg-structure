@@ -4,6 +4,10 @@
 
 # History & Release Notes
 
+###### 3.2.0 / 2016-02-24
+* Added: constraint#description, constraint#comment.
+* Updated: Test ERD corrected.
+
 ###### 3.1.1 / 2016-01-30
 * Added: column#referencedColumns.
 
