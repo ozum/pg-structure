@@ -30,7 +30,9 @@ Below is the same schema as image:
     * [.schema](#Table+schema) : <code>Schema</code>
     * [.parent](#Table+parent) : <code>Schema</code>
     * [.comment](#Table+comment) : <code>string</code>
+    * [.commentData](#Table+commentData) : <code>Object</code>
     * [.description](#Table+description) : <code>string</code>
+    * [.descriptionData](#Table+descriptionData) : <code>Object</code>
     * [.columns](#Table+columns) : <code>Map.&lt;Column&gt;</code>
     * [.constraints](#Table+constraints) : <code>Map.&lt;Constraint&gt;</code>
     * [.db](#Table+db) : <code>DB</code>
@@ -117,6 +119,20 @@ Comment of the table.
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 **See**: Aliases [description](#Table+description)  
+<a name="Table+commentData"></a>
+### table.commentData : <code>Object</code>
+JS Object extracted from table description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
+tags in description. Tags are case-insensitive.
+
+**Kind**: instance property of <code>[Table](#Table)</code>  
+**Read only**: true  
+**See**: Aliases [descriptionData](#Table+descriptionData)  
+**Example**  
+```js
+let description = table.comment;             // -> 'This table holds account details. [JSON]{ "extraData": 2 }[/PGEN]'
+let extra = table.commentData;               // -> { extraData: 2 }
+console.log(table.commentData.extraData);    // -> 2
+```
 <a name="Table+description"></a>
 ### table.description : <code>string</code>
 Comment of the table.
@@ -124,6 +140,20 @@ Comment of the table.
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 **See**: Aliases [comment](#Table+comment)  
+<a name="Table+descriptionData"></a>
+### table.descriptionData : <code>Object</code>
+JS Object extracted from table description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
+tags in description. Tags are case-insensitive.
+
+**Kind**: instance property of <code>[Table](#Table)</code>  
+**Read only**: true  
+**See**: Aliases [commentData](#Table+commentData)  
+**Example**  
+```js
+let description = table.description;             // -> 'This table holds account details. [JSON]{ "extraData": 2 }[/PGEN]'
+let extra = table.descriptionData;               // -> { extraData: 2 }
+console.log(table.descriptionData.extraData);    // -> 2
+```
 <a name="Table+columns"></a>
 ### table.columns : <code>Map.&lt;Column&gt;</code>
 All [Column](Column) instances in the table as a [Map](Map). They are ordered same order as they are

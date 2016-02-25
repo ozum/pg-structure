@@ -61,12 +61,12 @@ let tests = function(key) {
         });
 
         it('should have description.', function(done) {
-            expect(constraint.description).to.equal('Constraint description. [JSON]{ "o2mName": "carts", "name": "O\'Reilly" }[/JSON]');
+            expect(constraint.description).to.equal('Constraint description.');
             done();
         });
 
         it('should have comment.', function(done) {
-            expect(constraint.comment).to.equal('Constraint description. [JSON]{ "o2mName": "carts", "name": "O\'Reilly" }[/JSON]');
+            expect(constraint.comment).to.equal('Constraint description.');
             done();
         });
 

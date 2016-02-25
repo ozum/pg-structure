@@ -82,13 +82,13 @@ var tests = function(key) {
         });
 
         it('should have comment.', function(done) {
-            expect(table.columns.get('id').comment).to.equal('Kayıt no. [json]{ "columnExtra": 2 }[/json]');
+            expect(table.columns.get('id').comment).to.equal('Kayıt no.');
             expect(table.columns.get('field1').comment).to.equal(null);
             done();
         });
 
         it('should have description.', function(done) {
-            expect(table.columns.get('id').description).to.equal('Kayıt no. [json]{ "columnExtra": 2 }[/json]');
+            expect(table.columns.get('id').description).to.equal('Kayıt no.');
             expect(table.columns.get('field1').description).to.equal(null);
             done();
         });

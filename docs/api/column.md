@@ -7,10 +7,13 @@
     * [.allowNull](#Column+allowNull) : <code>boolean</code>
     * [.arrayDimension](#Column+arrayDimension) : <code>number</code>
     * [.arrayType](#Column+arrayType) : <code>string</code> &#124; <code>null</code>
+    * [.comment](#Column+comment) : <code>string</code> &#124; <code>null</code>
+    * [.commentData](#Column+commentData) : <code>Object</code>
     * [.db](#Column+db) : <code>DB</code>
     * [.default](#Column+default) : <code>string</code> &#124; <code>null</code>
     * [.defaultWithTypeCast](#Column+defaultWithTypeCast) : <code>string</code> &#124; <code>null</code>
     * [.description](#Column+description) : <code>string</code> &#124; <code>null</code>
+    * [.descriptionData](#Column+descriptionData) : <code>Object</code>
     * [.domainName](#Column+domainName) : <code>string</code> &#124; <code>null</code>
     * [.domainFullName](#Column+domainFullName) : <code>string</code> &#124; <code>null</code>
     * [.domainFullCatalogName](#Column+domainFullCatalogName) : <code>string</code> &#124; <code>null</code>
@@ -68,6 +71,27 @@ If this column is an array, data type of the array. If column is not an array eq
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
+<a name="Column+comment"></a>
+### column.comment : <code>string</code> &#124; <code>null</code>
+Comment about column.
+
+**Kind**: instance property of <code>[Column](#Column)</code>  
+**Read only**: true  
+**See**: Aliases [description](#Column+description)  
+<a name="Column+commentData"></a>
+### column.commentData : <code>Object</code>
+JS Object extracted from column description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
+tags in description. Tags are case-insensitive.
+
+**Kind**: instance property of <code>[Column](#Column)</code>  
+**Read only**: true  
+**See**: Aliases [descriptionData](#Column+descriptionData)  
+**Example**  
+```js
+let description = column.comment;            // -> 'This column holds name of account. [JSON]{ "extraData": 2 }[/PGEN]'
+let extra = column.commentData;              // -> { extraData: 2 }
+console.log(column.commentData.extraData);   // -> 2
+```
 <a name="Column+db"></a>
 ### column.db : <code>DB</code>
 [DB](DB) this table belongs to.
@@ -112,6 +136,21 @@ Comment about column.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
+**See**: Aliases [comment](#Column+comment)  
+<a name="Column+descriptionData"></a>
+### column.descriptionData : <code>Object</code>
+JS Object extracted from column description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
+tags in description. Tags are case-insensitive.
+
+**Kind**: instance property of <code>[Column](#Column)</code>  
+**Read only**: true  
+**See**: Aliases [commentData](#Column+commentData)  
+**Example**  
+```js
+let description = column.description;            // -> 'This column holds name of account. [JSON]{ "extraData": 2 }[/PGEN]'
+let extra = column.descriptionData;              // -> { extraData: 2 }
+console.log(column.descriptionData.extraData);   // -> 2
+```
 <a name="Column+domainName"></a>
 ### column.domainName : <code>string</code> &#124; <code>null</code>
 If column data type is a domain, this equals domain name without domain schema. Otherwise null.

@@ -41,8 +41,10 @@ color and vendor tables would have many to many `through constraints`.
     * [.fullName](#Constraint+fullName) : <code>string</code>
     * [.fullCatalogName](#Constraint+fullCatalogName) : <code>string</code>
     * [.type](#Constraint+type) : <code>contsraintType</code>
-    * [.description](#Constraint+description) : <code>string</code>
     * [.comment](#Constraint+comment) : <code>string</code>
+    * [.commentData](#Constraint+commentData) : <code>Object</code>
+    * [.description](#Constraint+description) : <code>string</code>
+    * [.descriptionData](#Constraint+descriptionData) : <code>Object</code>
     * [.child](#Constraint+child) : <code>Table</code>
     * [.table](#Constraint+table) : <code>Table</code>
     * [.db](#Constraint+db) : <code>DB</code>
@@ -105,13 +107,6 @@ Constraint type. One of `PRIMARY KEY`, `FOREIGN KEY` or `CHECK`
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
-<a name="Constraint+description"></a>
-### constraint.description : <code>string</code>
-Comment of the Constraint.
-
-**Kind**: instance property of <code>[Constraint](#Constraint)</code>  
-**Read only**: true  
-**See**: Aliases [comment](#Constraint+comment)  
 <a name="Constraint+comment"></a>
 ### constraint.comment : <code>string</code>
 Comment of the Constraint.
@@ -119,6 +114,41 @@ Comment of the Constraint.
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 **See**: Aliases [description](#Constraint+description)  
+<a name="Constraint+commentData"></a>
+### constraint.commentData : <code>Object</code>
+JS Object extracted from constraint description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
+tags in description. Tags are case-insensitive.
+
+**Kind**: instance property of <code>[Constraint](#Constraint)</code>  
+**Read only**: true  
+**See**: Aliases [descriptionData](#Constraint+descriptionData)  
+**Example**  
+```js
+let description = constraint.comment;            // -> 'This contraint refers contacts. [JSON]{ "extraData": 2 }[/PGEN]'
+let extra = constraint.commentData;              // -> { extraData: 2 }
+console.log(constraint.commentData.extraData);   // -> 2
+```
+<a name="Constraint+description"></a>
+### constraint.description : <code>string</code>
+Comment of the Constraint.
+
+**Kind**: instance property of <code>[Constraint](#Constraint)</code>  
+**Read only**: true  
+**See**: Aliases [comment](#Constraint+comment)  
+<a name="Constraint+descriptionData"></a>
+### constraint.descriptionData : <code>Object</code>
+JS Object extracted from constraint description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
+tags in description. Tags are case-insensitive.
+
+**Kind**: instance property of <code>[Constraint](#Constraint)</code>  
+**Read only**: true  
+**See**: Aliases [commentData](#Constraint+commentData)  
+**Example**  
+```js
+let description = constraint.description;            // -> 'This contraint refers contacts. [JSON]{ "extraData": 2 }[/PGEN]'
+let extra = constraint.descriptionData;              // -> { extraData: 2 }
+console.log(constraint.descriptionData.extraData);   // -> 2
+```
 <a name="Constraint+child"></a>
 ### constraint.child : <code>Table</code>
 Child [table](Table) of this [constraint](#Constraint).

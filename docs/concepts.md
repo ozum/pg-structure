@@ -59,7 +59,7 @@ PostgreSQL objects holds free form text in their description. `pg-structure` off
 // For example: 'This constraint connects account table to contact
 // table. [PGEN]{ "hasMany": "primaryContacts", "belongsTo": "primaryAccount", "free": 3 }[/PGEN]'
 
-let description = constraint.description;
+let description = constraint.description;           // -> 'This constraint connects account table to contact table.' (Tags and JSON data are replaced from description.)  
 let data = constraint.descriptionData;              // -> { hasMany: 'primaryContacts', belongsTo: 'primaryAccount', free: 3 }
 console.log(constraint.descriptionData.hasMany);    // -> primaryContacts
 ```
