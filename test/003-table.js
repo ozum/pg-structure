@@ -135,6 +135,11 @@ var tests = function(key) {
             done();
         });
 
+        it('without primary key should return empty set for primaryKeyColumns.', function(done) {
+            expect([...db.get('public.v_contacts_with_account').primaryKeyColumns.values()]).to.deep.equal([]);
+            done();
+        });
+
         it('should have primaryKeyColumns.get().', function(done) {
             expect(table.primaryKeyColumns.get('id').name).to.equal('id');
             done();
@@ -148,6 +153,11 @@ var tests = function(key) {
 
         it('should have hasManyTables.get().', function(done) {
             expect(table.hasManyTables.get('contact').name).to.equal('contact');
+            done();
+        });
+
+        it('without hasMany relation should return empty set for hasManyTables.', function(done) {
+            expect([...db.get('public.v_contacts_with_account').hasManyTables.values()]).to.deep.equal([]);
             done();
         });
 

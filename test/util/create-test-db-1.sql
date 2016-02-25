@@ -1,6 +1,6 @@
 /*
 Created: 24.02.2016
-Modified: 24.02.2016
+Modified: 25.02.2016
 Project: Node Test
 Model: Node Test
 Company: Fortibase
@@ -573,6 +573,14 @@ COMMENT ON COLUMN "public"."type_table"."options" IS 'Options of person'
 -- Add keys for table public.type_table
 
 ALTER TABLE "public"."type_table" ADD CONSTRAINT "type_table_key" PRIMARY KEY ("id")
+;
+
+-- Create views section -------------------------------------------------
+
+CREATE VIEW "public"."v_contacts_with_account" AS
+SELECT "public"."account"."id" AS "account_id", "public"."account"."name" AS "account_name", "public"."contact"."name" AS "contact_name"
+FROM "public"."account", "public"."contact"
+WHERE contact.company_id = account.id
 ;
 
 -- Create relationships section -------------------------------------------------
