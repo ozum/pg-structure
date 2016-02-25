@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>History - pg-structure 3.3.1</title>
+  <title>History - pg-structure 3.3.2</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 3.3.1</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.3.2</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -87,6 +87,8 @@
             <ul>
             
                 <li class="toctree-l3"><a href="#history-release-notes">History &amp; Release Notes</a></li>
+                
+                    <li><a class="toctree-l4" href="#332-2016-02-25">3.3.2 / 2016-02-25</a></li>
                 
                     <li><a class="toctree-l4" href="#330-2016-02-24">3.3.0 / 2016-02-24</a></li>
                 
@@ -265,7 +267,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 3.3.1</a>
+        <a href="..">pg-structure 3.3.2</a>
       </nav>
 
       
@@ -295,40 +297,45 @@
 
 <p><strong>Note</strong>: Version history for minimal documentation updates are not listed here to prevent cluttering.</p>
 <h1 id="history-release-notes">History &amp; Release Notes</h1>
+<h6 id="332-2016-02-25">3.3.2 / 2016-02-25</h6>
+<ul>
+<li>Fixed: Tables without primary key was throwing exception for <code>table#primaryKeyColumns</code>.</li>
+<li>Fixed: <code>table#hasManyTables</code> and <code>table#belongsToTables</code> were returning array instead of Set.</li>
+</ul>
 <h6 id="330-2016-02-24">3.3.0 / 2016-02-24</h6>
 <ul>
-<li>Added: table#descriptionData, table#commentData, column#descriptionData, column#commentData, constraint#descriptionData, constraint#commentData. It is possible to store and access JSON in objects' description.</li>
+<li>Added: <code>table#descriptionData</code>, <code>table#commentData</code>, <code>column#descriptionData</code>, <code>column#commentData</code>, <code>constraint#descriptionData</code>, <code>constraint#commentData</code>. It is possible to store and access JSON in objects' description.</li>
 </ul>
 <h6 id="320-2016-02-24">3.2.0 / 2016-02-24</h6>
 <ul>
-<li>Added: constraint#description, constraint#comment.</li>
+<li>Added:<code>constraint#description</code>, <code>constraint#comment</code>.</li>
 <li>Updated: Test ERD corrected.</li>
 </ul>
 <h6 id="311-2016-01-30">3.1.1 / 2016-01-30</h6>
 <ul>
-<li>Added: column#referencedColumns.</li>
+<li>Added: <code>column#referencedColumns</code>.</li>
 </ul>
 <h6 id="310-2016-01-26">3.1.0 / 2016-01-26</h6>
 <ul>
-<li>Added: #array method is added all Map types to help building arrays in non supporting environments such as nunjucks.</li>
+<li>Added: <code>#array</code> method is added all Map types to help building arrays in non supporting environments such as nunjucks.</li>
 </ul>
 <h6 id="300-2016-01-16">3.0.0 / 2016-01-16</h6>
 <p>Previous versions of pg-structure are designed to be a build time tool. v3 are designed to be a runtime tool. It is refactored to better performance compared to previous versions.
 Internal storage is completely rewritten. Loki DB is excellent product, but it is overkill for this project. pg-structure now uses direct object references for speed up things.
 DB interaction is reduced from 9 SQL queries to 3. Those 3 queries are same queries from previous version. So work of other 6 queries are done by Javascript now.</p>
 <ul>
-<li>Breaking Change: Column#foreignKeyConstraint is changed to Column#foreignKeyConstraints, Column#referencedColumn is removed,
+<li>Breaking Change: <code>Column#foreignKeyConstraint</code> is changed to <code>Column#foreignKeyConstraints</code>, <code>Column#referencedColumn</code> is removed,
 because same column may be part of multiple different foreign key constraints which results in referencing different columns
 in different tables at the same time.</li>
 <li>Breaking Change: All <code>...ByName</code> such as <code>Table#columnsByName</code> methods are removed, and collections such as <code>Table#columns</code> return Map instead of array or object.
 Maps return values in order like arrays and they can be queried with <code>.has</code> method like objects.</li>
-<li>Breaking Change: Column#uniqueIndexesNoPK is renamed as Column#uniqueIndexesNoPk.</li>
+<li>Breaking Change: <code>Column#uniqueIndexesNoPK</code> is renamed as <code>Column#uniqueIndexesNoPk</code>.</li>
 <li>Added: Optional Lazy loading, cache of lazy loaded parts, invalidation logic of cache.</li>
-<li>Added: pgStructure.serialize and pgStructure.deserialize methods.</li>
-<li>Added: pgStructure.save and pgStructure.load methods. Load is 10 times faster than querying database. </li>
-<li>Added: Column#domainSchema</li>
-<li>Added: Constraint#matchOption, Constraint#referencedColumnsBy</li>
-<li>Added: Table#belongsToManyTablesPk, Table#m2mRelationsPk</li>
+<li>Added: <code>pgStructure.serialize</code> and <code>pgStructure.deserialize</code> methods.</li>
+<li>Added: <code>pgStructure.save</code> and <code>pgStructure.load</code> methods. Load is 10 times faster than querying database. </li>
+<li>Added: <code>Column#domainSchema</code></li>
+<li>Added: <code>Constraint#matchOption</code>, <code>Constraint#referencedColumnsBy</code></li>
+<li>Added: <code>Table#belongsToManyTablesPk</code>, <code>Table#m2mRelationsPk</code></li>
 <li>Doc updates and changes.</li>
 </ul>
 <h6 id="208-2015-12-09">2.0.8 / 2015-12-09</h6>
