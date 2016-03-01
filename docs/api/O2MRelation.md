@@ -1,28 +1,3 @@
-## Classes
-
-<dl>
-<dt><a href="#O2MRelation">O2MRelation</a></dt>
-<dd></dd>
-</dl>
-
-## Functions
-
-<dl>
-<dt><a href="#getNameSimple">getNameSimple()</a> ⇒ <code>string</code></dt>
-<dd><p>Generates a simple name for relation.</p>
-</dd>
-<dt><a href="#getNameComplex">getNameComplex()</a> ⇒ <code>string</code></dt>
-<dd><p>Generates a complex name for relation.</p>
-</dd>
-<dt><a href="#getNameFromConstraintName">getNameFromConstraintName()</a> ⇒ <code>string</code> | <code>undefined</code></dt>
-<dd><p>Returns relation name extracted from constraint name if constraint name is CSV (comma separated value). Name is
-first element.</p>
-</dd>
-<dt><a href="#getNameFromDescriptionData">getNameFromDescriptionData()</a> ⇒ <code>string</code> | <code>undefined</code></dt>
-<dd><p>Returns relation name extracted from <a href="Table#descriptionData">Table#descriptionData</a> by looking keys <code>name.hasMany</code> or <code>name.o2m</code>.</p>
-</dd>
-</dl>
-
 <a name="O2MRelation"></a>
 ## O2MRelation
 **Kind**: global class  
@@ -134,28 +109,3 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
 | --- | --- | --- |
 | [strategy] | <code>string</code> | Naming strategy to use. |
 
-<a name="getNameSimple"></a>
-## getNameSimple() ⇒ <code>string</code>
-Generates a simple name for relation.
-
-**Kind**: global function  
-**Returns**: <code>string</code> - - Simple name.  
-<a name="getNameComplex"></a>
-## getNameComplex() ⇒ <code>string</code>
-Generates a complex name for relation.
-
-**Kind**: global function  
-**Returns**: <code>string</code> - - Complex name.  
-<a name="getNameFromConstraintName"></a>
-## getNameFromConstraintName() ⇒ <code>string</code> &#124; <code>undefined</code>
-Returns relation name extracted from constraint name if constraint name is CSV (comma separated value). Name is
-first element.
-
-**Kind**: global function  
-**Returns**: <code>string</code> &#124; <code>undefined</code> - - First element of CSV constraint name.  
-<a name="getNameFromDescriptionData"></a>
-## getNameFromDescriptionData() ⇒ <code>string</code> &#124; <code>undefined</code>
-Returns relation name extracted from [Table#descriptionData](Table#descriptionData) by looking keys `name.hasMany` or `name.o2m`.
-
-**Kind**: global function  
-**Returns**: <code>string</code> &#124; <code>undefined</code> - - Name for relation  
