@@ -60,6 +60,32 @@ var tests = function(key) {
             expect([...o2m.constraint.columns.values()][0].name).to.equal('cart_id');
             done();
         });
+
+        it('should have generateName().', function(done) {
+            let rel = [...db.get('public.account').o2mRelations.values()];
+            expect(rel[0].generateName('simple')).to.equal('other_schema_tables');              // Simple name
+            expect(rel[0].generateName('complex')).to.equal('has_other_schema_tables');         // Complex name
+            expect(rel[0].generateName()).to.equal('other_schema_tables');                      // No multiple relation. Result is simple name
+
+            expect(rel[1].generateName('simple')).to.equal('contacts');                         // Simple name
+            expect(rel[1].generateName('complex')).to.equal('contacts');                        // Complex name
+            expect(rel[1].generateName()).to.equal('contacts');                                 // There are 2 relations between account and contact. Result is complex name.
+
+            expect(rel[2].generateName('simple')).to.equal('contacts');
+            expect(rel[2].generateName('complex')).to.equal('second_contacts');
+            expect(rel[2].generateName()).to.equal('second_contacts');
+
+            let relCart = [...db.get('public.cart').o2mRelations.values()];
+            expect(relCart[0].generateName('simple')).to.equal('cart_line_items');              // Simple name
+            expect(relCart[0].generateName('complex')).to.equal('has_products');                // Complex name
+            expect(relCart[0].generateName()).to.equal('json_cart_line_items');                 // Result is from descriptionData
+
+            let relProduct = [...db.get('public.product').o2mRelations.values()];
+            expect(relProduct[0].generateName('simple')).to.equal('cart_line_items');           // Simple name
+            expect(relProduct[0].generateName()).to.equal('cst_cart_line_items');               // Result is from constraint name parsed.
+
+            done();
+        });
     };
 };
 

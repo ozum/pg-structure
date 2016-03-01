@@ -53,11 +53,22 @@ Developers and ORM users need to have more information about relations than pres
 
 ## Description Data
 
-PostgreSQL objects holds free form text in their description. `pg-structure` offers some help to store extra data in database objects' description as JSON. `pg-structure` automatically parses JSON data between `[JSON]`and `[/JSON]` tags. Tags are case-insensitive. Only one JSON object is allowed per description.
+PostgreSQL objects holds free form text in their description. `pg-structure` offers some help to store extra data in database objects' description as JSON. `pg-structure` automatically parses JSON data between `[pg-structure]`and `[/pg-structure]` tags. Tags are case-insensitive. Only one `pg-structure` object is processed per description.
+
+For maximum comfort JSON parsing is made by [jsonic](https://www.npmjs.com/package/jsonic). It is a non-strict JSON parser. 
+
+* You don't need to quote property names: { foo:"bar baz", red:255 }
+* You don't need the top level braces: foo:"bar baz", red:255
+* You don't need to quote strings with spaces: foo:bar baz, red:255
+* You do need to quote strings if they contain a comma or closing brace or square bracket: icky:",}]"
+* You can use single quotes for strings: Jules:'Cry "Havoc," and let slip the dogs of war!'
+* You can have trailing commas: foo:bar, red:255,
+
+For details, please see [jsonic](https://www.npmjs.com/package/jsonic).
 
 ```js
 // For example: 'This constraint connects account table to contact
-// table. [PGEN]{ "hasMany": "primaryContacts", "belongsTo": "primaryAccount", "free": 3 }[/PGEN]'
+// table. [pg-structure]{ hasMany: primaryContacts, belongsTo: primaryAccount, free: 3 }[/pg-structure]'
 
 let description = constraint.description;           // -> 'This constraint connects account table to contact table.' (Tags and JSON data are replaced from description.)  
 let data = constraint.descriptionData;              // -> { hasMany: 'primaryContacts', belongsTo: 'primaryAccount', free: 3 }

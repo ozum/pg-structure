@@ -4,6 +4,10 @@
 
 # History & Release Notes
 
+###### 3.4.0
+* Changed: `table#descriptionData` tag is changed from `[JSON]` to `[pg-structure]`
+* (EXPERIMENTAL) Added: `o2mRelation#generateName()`, `m2oRelation#generateName()`, `m2mRelation#generateName()`. Those methods are highly experimental and may be changed or deleted.
+
 ###### 3.3.2 / 2016-02-25
 * Fixed: Tables without primary key was throwing exception for `table#primaryKeyColumns`.
 * Fixed: `table#hasManyTables` and `table#belongsToTables` were returning array instead of Set.

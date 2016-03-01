@@ -63,6 +63,7 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 | args.parent | <code>Schema</code> | Parent [Schema](Schema) of the Table. |
 | args.name | <code>string</code> | Name of the Table. |
 | args.description | <code>string</code> | Description of the Table. |
+| args.descriptionData | <code>Object</code> | Extra data to store in object. |
 
 <a name="Table+name"></a>
 ### table.name : <code>string</code>

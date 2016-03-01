@@ -43,6 +43,8 @@
   },
   "license": "MIT",
   "dependencies": {
+    "inflection": "^1.8.0",
+    "jsonic": "^0.2.2",
     "jszip": "^2.5.0",
     "lodash": "^4.0.0",
     "pg": "^4.4.3",
@@ -54,7 +56,6 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "fs-extra": "^0.26.4",
-    "inflection": "^1.8.0",
     "js-yaml": "^3.4.6",
     "lab": "^8.2.0",
     "pg-test-util": "^1.2.3"

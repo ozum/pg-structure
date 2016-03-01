@@ -71,6 +71,7 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 | args.name | <code>string</code> | Name of the Constraint. |
 | args.type | <code>string</code> | Constraint type. |
 | args.description | <code>string</code> | Description of the constraint. |
+| args.descriptionData | <code>Object</code> | Extra data to store in object. |
 | args.onUpdate | <code>string</code> | Update rule of the constraint. |
 | args.onDelete | <code>string</code> | Delete rule of the constraint. |
 | args.matchOption | <code>string</code> | Match option of the constraint. |

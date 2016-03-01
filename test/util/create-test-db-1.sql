@@ -1,6 +1,6 @@
 /*
 Created: 24.02.2016
-Modified: 25.02.2016
+Modified: 01.03.2016
 Project: Node Test
 Model: Node Test
 Company: Fortibase
@@ -105,9 +105,9 @@ CREATE TABLE "public"."account"(
 )
 ;
 
-COMMENT ON TABLE "public"."account" IS 'Firma bilgilerinin tutulduğu tablo. [JSON]{ "jsonkey": "jsonvalue" }[/JSON]'
+COMMENT ON TABLE "public"."account" IS 'Firma bilgilerinin tutulduğu tablo. [pg-structure]{ "jsonkey": "jsonvalue" }[/pg-structure]'
 ;
-COMMENT ON COLUMN "public"."account"."id" IS 'Kayıt no. [json]{ "columnExtra": 2 }[/json]'
+COMMENT ON COLUMN "public"."account"."id" IS 'Kayıt no. [pg-structure]{ "columnExtra": 2 }[/pg-structure]'
 ;
 COMMENT ON COLUMN "public"."account"."created_at" IS 'Kaydın oluşturulduğu zaman.'
 ;
@@ -585,10 +585,10 @@ WHERE contact.company_id = account.id
 
 -- Create relationships section -------------------------------------------------
 
-ALTER TABLE "public"."contact" ADD CONSTRAINT "account_has_contacts" FOREIGN KEY ("company_id") REFERENCES "public"."account" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE "public"."contact" ADD CONSTRAINT "account_contacts" FOREIGN KEY ("company_id") REFERENCES "public"."account" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
-ALTER TABLE "public"."contact" ADD CONSTRAINT "account_has_second_contacts" FOREIGN KEY ("second_company_id") REFERENCES "public"."account" ("id") ON DELETE SET NULL ON UPDATE CASCADE
+ALTER TABLE "public"."contact" ADD CONSTRAINT "account_second_contacts" FOREIGN KEY ("second_company_id") REFERENCES "public"."account" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 ;
 
 ALTER TABLE "public"."account" ADD CONSTRAINT "contact_has_companies" FOREIGN KEY ("owner_id") REFERENCES "public"."contact" ("id") ON DELETE SET NULL ON UPDATE CASCADE
@@ -597,7 +597,7 @@ ALTER TABLE "public"."account" ADD CONSTRAINT "contact_has_companies" FOREIGN KE
 ALTER TABLE "public"."cart" ADD CONSTRAINT "contact_has_carts" FOREIGN KEY ("contact_id") REFERENCES "public"."contact" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 ;
 
-COMMENT ON CONSTRAINT "contact_has_carts" ON "public"."cart" IS 'Constraint description. [JSON]{ "o2mName": "carts", "name": "O''Reilly" }[/JSON]'
+COMMENT ON CONSTRAINT "contact_has_carts" ON "public"."cart" IS 'Constraint description. [pg-structure]{ "o2mName": "carts", "name": "O''Reilly" }[/pg-structure]'
 ;
 
 ALTER TABLE "public"."product" ADD CONSTRAINT "Relationship4" FOREIGN KEY ("product_category_id") REFERENCES "public"."product_category" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -606,7 +606,17 @@ ALTER TABLE "public"."product" ADD CONSTRAINT "Relationship4" FOREIGN KEY ("prod
 ALTER TABLE "public"."cart_line_item" ADD CONSTRAINT "cart_has_products" FOREIGN KEY ("cart_id") REFERENCES "public"."cart" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 ;
 
-ALTER TABLE "public"."cart_line_item" ADD CONSTRAINT "product_has_carts" FOREIGN KEY ("product_id") REFERENCES "public"."product" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+COMMENT ON CONSTRAINT "cart_has_products" ON "public"."cart_line_item" IS '[pg-structure]
+{
+    name: {
+        o2m: json_cart_line_items,
+        m2o: json_cart
+    }
+}
+[/pg-structure]'
+;
+
+ALTER TABLE "public"."cart_line_item" ADD CONSTRAINT "cst_cart_line_items, cst_product, cst_product" FOREIGN KEY ("product_id") REFERENCES "public"."product" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 ;
 
 ALTER TABLE "public"."product_category" ADD CONSTRAINT "product_category_has_parent_category" FOREIGN KEY ("parent_category_id") REFERENCES "public"."product_category" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
@@ -628,6 +638,15 @@ ALTER TABLE "public"."class_register" ADD CONSTRAINT "class_has_many_students" F
 ;
 
 ALTER TABLE "public"."message" ADD CONSTRAINT "student_has_many_messages_received" FOREIGN KEY ("receiver_first_name", "receiver_middle_name", "receiver_last_name") REFERENCES "public"."student" ("first_name", "middle_name", "last_name") ON DELETE CASCADE ON UPDATE CASCADE
+;
+
+COMMENT ON CONSTRAINT "student_has_many_messages_received" ON "public"."message" IS '[pg-structure]
+{
+    name: {
+        m2m: json_sender
+    }
+}
+[/pg-structure]'
 ;
 
 ALTER TABLE "public"."message" ADD CONSTRAINT "student_has_many_messages_sent" FOREIGN KEY ("sender_first_name", "sender_middle_name", "sender_last_name") REFERENCES "public"."student" ("first_name", "middle_name", "last_name") ON DELETE CASCADE ON UPDATE CASCADE

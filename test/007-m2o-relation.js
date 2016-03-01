@@ -60,6 +60,29 @@ var tests = function(key) {
             expect([...m2o.constraint.columns.values()][0].name).to.equal('cart_id');
             done();
         });
+
+        it('should have generateName().', function(done) {
+            let relAcc = [...db.get('public.account').m2oRelations.values()];
+            expect(relAcc[0].generateName('simple')).to.equal('contact');                       // Simple name
+            expect(relAcc[0].generateName('complex')).to.equal('owner');                        // Complex name
+            expect(relAcc[0].generateName()).to.equal('contact');                               // No multiple relation. Result is simple name
+
+            let rel = [...db.get('public.contact').m2oRelations.values()];
+            expect(rel[0].generateName('simple')).to.equal('account');                          // Simple name
+            expect(rel[0].generateName('complex')).to.equal('company');                         // Complex name
+            expect(rel[0].generateName()).to.equal('company');                                  // There are 2 relations between account and contact. Result is complex name.
+
+            let relCLI = [...db.get('public.cart_line_item').m2oRelations.values()];
+            expect(relCLI[0].generateName('simple')).to.equal('cart');                          // Simple name
+            expect(relCLI[0].generateName('complex')).to.equal('cart');                         // Complex name
+            expect(relCLI[0].generateName()).to.equal('json_cart');                             // Result is from descriptionData
+
+            expect(relCLI[1].generateName('simple')).to.equal('product');                       // Simple name
+            expect(relCLI[1].generateName('complex')).to.equal('product');                      // Complex name
+            expect(relCLI[1].generateName()).to.equal('cst_product');                             // Result is from constraint name parsed.
+
+            done();
+        });
     };
 };
 

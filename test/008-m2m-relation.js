@@ -67,8 +67,30 @@ var tests = function(key) {
         });
 
         it('should have targetConstraint.', function(done) {
-            expect(m2m.targetConstraint.name).to.equal('product_has_carts');
+            expect(m2m.targetConstraint.name).to.equal('cst_cart_line_items, cst_product, cst_product');
             expect([...m2m.targetConstraint.columns.values()][0].name).to.equal('product_id');
+            done();
+        });
+
+        it('should have generateName().', function(done) {
+            let rel = [...db.get('public.cart').m2mRelations.values()];
+            expect(rel[0].generateName('simple')).to.equal('products');                             // Simple name
+            expect(rel[0].generateName('complex')).to.equal('cart_line_item_products');             // Complex name
+            expect(rel[0].generateName()).to.equal('products');                                     // No multiple relation to same table. Result is simple name.
+
+            let relStudent = [...db.get('public.student').m2mRelations.values()];
+            expect(relStudent[1].generateName('simple')).to.equal('students');                              // Simple name
+            expect(relStudent[1].generateName('complex')).to.equal('message_related_sender_first_names');   // Complex name
+            expect(relStudent[1].generateName()).to.equal('json_sender_students');                          // Result is from descriptionData.
+
+            expect(relStudent[2].generateName('simple')).to.equal('students');                              // Simple name
+            expect(relStudent[2].generateName('complex')).to.equal('message_related_receiver_first_names'); // Complex name
+            expect(relStudent[2].generateName()).to.equal('message_related_receiver_first_names');          // Multiple relation to same table. Result is complex name.
+
+            let relProduct = [...db.get('public.product').m2mRelations.values()];
+            expect(relProduct[0].generateName('simple')).to.equal('carts');                     // Simple name
+            expect(relProduct[0].generateName()).to.equal('cst_product_carts');                 // Result is from constraint name parsed.
+
             done();
         });
     };
