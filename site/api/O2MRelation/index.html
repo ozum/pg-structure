@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>O2M Relation - pg-structure 3.4.0</title>
+  <title>O2M Relation - pg-structure 3.4.1</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.4.0</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.4.1</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -161,12 +161,6 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#classes">Classes</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#functions">Functions</a></li>
-                
-            
                 <li class="toctree-l3"><a href="#o2mrelation">O2MRelation</a></li>
                 
                     <li><a class="toctree-l4" href="#new-o2mrelationargs">new O2MRelation(args)</a></li>
@@ -180,18 +174,6 @@
                     <li><a class="toctree-l4" href="#o2mrelationconstraint-table">o2MRelation.constraint : Table</a></li>
                 
                     <li><a class="toctree-l4" href="#o2mrelationgeneratenamestrategy-string">o2MRelation.generateName([strategy]) ⇒ string</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#getnamesimple-string">getNameSimple() ⇒ string</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#getnamecomplex-string">getNameComplex() ⇒ string</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#getnamefromconstraintname-string-undefined">getNameFromConstraintName() ⇒ string &#124; undefined</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#getnamefromdescriptiondata-string-undefined">getNameFromDescriptionData() ⇒ string &#124; undefined</a></li>
                 
             
             </ul>
@@ -233,7 +215,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.4.0</a>
+        <a href="../..">pg-structure 3.4.1</a>
       </nav>
 
       
@@ -263,30 +245,7 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="classes">Classes</h2>
-<dl>
-<dt><a href="#O2MRelation">O2MRelation</a></dt>
-<dd></dd>
-</dl>
-
-<h2 id="functions">Functions</h2>
-<dl>
-<dt><a href="#getNameSimple">getNameSimple()</a> ⇒ <code>string</code></dt>
-<dd><p>Generates a simple name for relation.</p>
-</dd>
-<dt><a href="#getNameComplex">getNameComplex()</a> ⇒ <code>string</code></dt>
-<dd><p>Generates a complex name for relation.</p>
-</dd>
-<dt><a href="#getNameFromConstraintName">getNameFromConstraintName()</a> ⇒ <code>string</code> | <code>undefined</code></dt>
-<dd><p>Returns relation name extracted from constraint name if constraint name is CSV (comma separated value). Name is
-first element.</p>
-</dd>
-<dt><a href="#getNameFromDescriptionData">getNameFromDescriptionData()</a> ⇒ <code>string</code> | <code>undefined</code></dt>
-<dd><p>Returns relation name extracted from <a href="Table#descriptionData">Table#descriptionData</a> by looking keys <code>name.hasMany</code> or <code>name.o2m</code>.</p>
-</dd>
-</dl>
-
-<p><a name="O2MRelation"></a></p>
+                <p><a name="O2MRelation"></a></p>
 <h2 id="o2mrelation">O2MRelation</h2>
 <p><strong>Kind</strong>: global class  </p>
 <ul>
@@ -425,27 +384,6 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
 </tr>
 </tbody>
 </table>
-<p><a name="getNameSimple"></a></p>
-<h2 id="getnamesimple-string">getNameSimple() ⇒ <code>string</code></h2>
-<p>Generates a simple name for relation.</p>
-<p><strong>Kind</strong>: global function<br />
-<strong>Returns</strong>: <code>string</code> - - Simple name.<br />
-<a name="getNameComplex"></a></p>
-<h2 id="getnamecomplex-string">getNameComplex() ⇒ <code>string</code></h2>
-<p>Generates a complex name for relation.</p>
-<p><strong>Kind</strong>: global function<br />
-<strong>Returns</strong>: <code>string</code> - - Complex name.<br />
-<a name="getNameFromConstraintName"></a></p>
-<h2 id="getnamefromconstraintname-string-undefined">getNameFromConstraintName() ⇒ <code>string</code> &#124; <code>undefined</code></h2>
-<p>Returns relation name extracted from constraint name if constraint name is CSV (comma separated value). Name is
-first element.</p>
-<p><strong>Kind</strong>: global function<br />
-<strong>Returns</strong>: <code>string</code> &#124; <code>undefined</code> - - First element of CSV constraint name.<br />
-<a name="getNameFromDescriptionData"></a></p>
-<h2 id="getnamefromdescriptiondata-string-undefined">getNameFromDescriptionData() ⇒ <code>string</code> &#124; <code>undefined</code></h2>
-<p>Returns relation name extracted from <a href="../Table#descriptionData">Table#descriptionData</a> by looking keys <code>name.hasMany</code> or <code>name.o2m</code>.</p>
-<p><strong>Kind</strong>: global function<br />
-<strong>Returns</strong>: <code>string</code> &#124; <code>undefined</code> - - Name for relation  </p>
               
             </div>
           </div>
