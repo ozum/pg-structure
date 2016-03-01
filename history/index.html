@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>History - pg-structure 3.3.3</title>
+  <title>History - pg-structure 3.4.0</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 3.3.3</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.4.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -87,6 +87,8 @@
             <ul>
             
                 <li class="toctree-l3"><a href="#history-release-notes">History &amp; Release Notes</a></li>
+                
+                    <li><a class="toctree-l4" href="#340">3.4.0</a></li>
                 
                     <li><a class="toctree-l4" href="#332-2016-02-25">3.3.2 / 2016-02-25</a></li>
                 
@@ -267,7 +269,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 3.3.3</a>
+        <a href="..">pg-structure 3.4.0</a>
       </nav>
 
       
@@ -297,6 +299,11 @@
 
 <p><strong>Note</strong>: Version history for minimal documentation updates are not listed here to prevent cluttering.</p>
 <h1 id="history-release-notes">History &amp; Release Notes</h1>
+<h6 id="340">3.4.0</h6>
+<ul>
+<li>Changed: <code>table#descriptionData</code> tag is changed from <code>[JSON]</code> to <code>[pg-structure]</code></li>
+<li>(EXPERIMENTAL) Added: <code>o2mRelation#generateName()</code>, <code>m2oRelation#generateName()</code>, <code>m2mRelation#generateName()</code>. Those methods are highly experimental and may be changed or deleted.</li>
+</ul>
 <h6 id="332-2016-02-25">3.3.2 / 2016-02-25</h6>
 <ul>
 <li>Fixed: Tables without primary key was throwing exception for <code>table#primaryKeyColumns</code>.</li>

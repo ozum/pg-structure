@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Concepts - pg-structure 3.3.3</title>
+  <title>Concepts - pg-structure 3.4.0</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 3.3.3</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.4.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -221,7 +221,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 3.3.3</a>
+        <a href="..">pg-structure 3.4.0</a>
       </nav>
 
       
@@ -282,9 +282,19 @@ console.log(userColumn === sameColumn); // true
 <p><strong>pg-structure</strong> Foreign Key Constraint objects represent directly PostgreSQL foreign key constraints.</p>
 <p>Developers and ORM users need to have more information about relations than present in foreign key constraints. For example many to many relationships and many to one relationships are not available in database engine. <strong>pg-structure</strong> provides <a href="../api/O2MRelation/">O2MRelation</a>, <a href="../api/M2MRelation/">M2MRelation</a> and <a href="../api/M2ORelation/">M2ORelation</a> classes to answer those needs.</p>
 <h2 id="description-data">Description Data</h2>
-<p>PostgreSQL objects holds free form text in their description. <code>pg-structure</code> offers some help to store extra data in database objects' description as JSON. <code>pg-structure</code> automatically parses JSON data between <code>[JSON]</code>and <code>[/JSON]</code> tags. Tags are case-insensitive. Only one JSON object is allowed per description.</p>
+<p>PostgreSQL objects holds free form text in their description. <code>pg-structure</code> offers some help to store extra data in database objects' description as JSON. <code>pg-structure</code> automatically parses JSON data between <code>[pg-structure]</code>and <code>[/pg-structure]</code> tags. Tags are case-insensitive. Only one <code>pg-structure</code> object is processed per description.</p>
+<p>For maximum comfort JSON parsing is made by <a href="https://www.npmjs.com/package/jsonic">jsonic</a>. It is a non-strict JSON parser. </p>
+<ul>
+<li>You don't need to quote property names: { foo:"bar baz", red:255 }</li>
+<li>You don't need the top level braces: foo:"bar baz", red:255</li>
+<li>You don't need to quote strings with spaces: foo:bar baz, red:255</li>
+<li>You do need to quote strings if they contain a comma or closing brace or square bracket: icky:",}]"</li>
+<li>You can use single quotes for strings: Jules:'Cry "Havoc," and let slip the dogs of war!'</li>
+<li>You can have trailing commas: foo:bar, red:255,</li>
+</ul>
+<p>For details, please see <a href="https://www.npmjs.com/package/jsonic">jsonic</a>.</p>
 <pre><code class="js">// For example: 'This constraint connects account table to contact
-// table. [PGEN]{ &quot;hasMany&quot;: &quot;primaryContacts&quot;, &quot;belongsTo&quot;: &quot;primaryAccount&quot;, &quot;free&quot;: 3 }[/PGEN]'
+// table. [pg-structure]{ hasMany: primaryContacts, belongsTo: primaryAccount, free: 3 }[/pg-structure]'
 
 let description = constraint.description;           // -&gt; 'This constraint connects account table to contact table.' (Tags and JSON data are replaced from description.)  
 let data = constraint.descriptionData;              // -&gt; { hasMany: 'primaryContacts', belongsTo: 'primaryAccount', free: 3 }

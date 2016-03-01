@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Table - pg-structure 3.3.3</title>
+  <title>Table - pg-structure 3.4.0</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.3.3</a>
+        <a href="../.." class="icon icon-home"> pg-structure 3.4.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -259,7 +259,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.3.3</a>
+        <a href="../..">pg-structure 3.4.0</a>
       </nav>
 
       
@@ -433,13 +433,15 @@ name                 name                   name
 <strong>See</strong>: Aliases <a href="#Table+description">description</a><br />
 <a name="Table+commentData"></a></p>
 <h3 id="tablecommentdata-object">table.commentData : <code>Object</code></h3>
-<p>JS Object extracted from table description. Object is expected as JSON data between <code>[JSON]</code> and <code>[/JSON]</code>
-tags in description. Tags are case-insensitive.</p>
+<p>JS Object extracted from table description. Object is expected as JSON data between <code>[PG-STRUCTURE]</code> and <code>[/PG-STRUCTURE]</code>
+tags in description. Tags are case-insensitive.
+For maximum comfort JSON parsing is made by <a href="https://www.npmjs.com/package/jsonic">jsonic</a>. It is a non-strict JSON parser. It is possible
+to ommit quotes etc. Please see <a href="https://www.npmjs.com/package/jsonic">jsonic</a> for details.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Table+descriptionData">descriptionData</a><br />
 <strong>Example</strong>  </p>
-<pre><code class="js">let description = table.comment;             // -&gt; 'This table holds account details. [JSON]{ &quot;extraData&quot;: 2 }[/PGEN]'
+<pre><code class="js">let description = table.comment;             // -&gt; 'This table holds account details. [PG-STRUCTURE]{ extraData: 2 }[/PGEN]'
 let extra = table.commentData;               // -&gt; { extraData: 2 }
 console.log(table.commentData.extraData);    // -&gt; 2
 </code></pre>
@@ -452,13 +454,22 @@ console.log(table.commentData.extraData);    // -&gt; 2
 <strong>See</strong>: Aliases <a href="#Table+comment">comment</a><br />
 <a name="Table+descriptionData"></a></p>
 <h3 id="tabledescriptiondata-object">table.descriptionData : <code>Object</code></h3>
-<p>JS Object extracted from table description. Object is expected as JSON data between <code>[JSON]</code> and <code>[/JSON]</code>
-tags in description. Tags are case-insensitive.</p>
+<p>JS Object extracted from table description. Object is expected as JSON data between <code>[PG-STRUCTURE]</code> and <code>[/PG-STRUCTURE]</code>
+tags in description. Tags are case-insensitive.
+For maximum comfort JSON parsing is made by <a href="https://www.npmjs.com/package/jsonic">jsonic</a>. It is a non-strict JSON parser. It is possible
+to ommit quotes etc.
+<em> You don't need to quote property names: { foo:"bar baz", red:255 }
+</em> You don't need the top level braces: foo:"bar baz", red:255
+<em> You don't need to quote strings with spaces: foo:bar baz, red:255
+</em> You do need to quote strings if they contain a comma or closing brace or square bracket: icky:",}]"
+<em> You can use single quotes for strings: Jules:'Cry "Havoc," and let slip the dogs of war!'
+</em> You can have trailing commas: foo:bar, red:255,
+For details, please see <a href="https://www.npmjs.com/package/jsonic">jsonic</a>.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Table">Table</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Table+commentData">commentData</a><br />
 <strong>Example</strong>  </p>
-<pre><code class="js">let description = table.description;             // -&gt; 'This table holds account details. [JSON]{ &quot;extraData&quot;: 2 }[/PGEN]'
+<pre><code class="js">let description = table.description;             // -&gt; 'This table holds account details. [PG-STRUCTURE]{ &quot;extraData&quot;: 2 }[/PGEN]'
 let extra = table.descriptionData;               // -&gt; { extraData: 2 }
 console.log(table.descriptionData.extraData);    // -&gt; 2
 </code></pre>
