@@ -1,3 +1,28 @@
+## Classes
+
+<dl>
+<dt><a href="#M2ORelation">M2ORelation</a></dt>
+<dd></dd>
+</dl>
+
+## Functions
+
+<dl>
+<dt><a href="#getNameSimple">getNameSimple()</a> ⇒ <code>string</code></dt>
+<dd><p>Generates a simple name for relation.</p>
+</dd>
+<dt><a href="#getNameComplex">getNameComplex()</a> ⇒ <code>string</code></dt>
+<dd><p>Generates a complex name for relation.</p>
+</dd>
+<dt><a href="#getNameFromConstraintName">getNameFromConstraintName()</a> ⇒ <code>string</code> | <code>undefined</code></dt>
+<dd><p>Returns relation name extracted from constraint name if constraint name is CSV (comma separated value). Name is
+second element.</p>
+</dd>
+<dt><a href="#getNameFromDescriptionData">getNameFromDescriptionData()</a> ⇒ <code>string</code> | <code>undefined</code></dt>
+<dd><p>Returns relation name extracted from <a href="Table#descriptionData">Table#descriptionData</a> by looking keys <code>name.belongsTo</code> or <code>name.m2oName</code>.</p>
+</dd>
+</dl>
+
 <a name="M2ORelation"></a>
 ## M2ORelation
 **Kind**: global class  
@@ -8,6 +33,7 @@
     * [.sourceTable](#M2ORelation+sourceTable) : <code>Table</code>
     * [.targetTable](#M2ORelation+targetTable) : <code>Table</code>
     * [.constraint](#M2ORelation+constraint) : <code>Table</code>
+    * [.generateName([strategy])](#M2ORelation+generateName) ⇒ <code>string</code>
 
 <a name="new_M2ORelation_new"></a>
 ### new M2ORelation(args)
@@ -45,6 +71,7 @@ Some definitions used in descriptions for [M2ORelation](#M2ORelation).
 | args.sourceTable | <code>Table</code> | Source [Table](Table) which this relation belongs to. |
 | args.targetTable | <code>Table</code> | Target [Table](Table) which this relation is referring to. |
 | args.constraint | <code>Constraint</code> | Foreign key constraint between source table and target table. |
+| args.namingStrategy | <code>string</code> | Naming strategy to be used. |
 
 **Example**  
 ```js
@@ -99,3 +126,39 @@ let relation     = product.M2ORelationRelations[0];  // RELATION:    line_item >
 let constraint   = relation.constraint;              // CONSTRAINT:               ^-- product_has_carts
 let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id (from line_item table)
 ```
+<a name="M2ORelation+generateName"></a>
+### m2ORelation.generateName([strategy]) ⇒ <code>string</code>
+(! EXPERIMENTAL) Returns name for relation using given strategy.
+
+**Kind**: instance method of <code>[M2ORelation](#M2ORelation)</code>  
+**Returns**: <code>string</code> - - Relation name.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [strategy] | <code>string</code> | Naming strategy to use. |
+
+<a name="getNameSimple"></a>
+## getNameSimple() ⇒ <code>string</code>
+Generates a simple name for relation.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - - Simple name.  
+<a name="getNameComplex"></a>
+## getNameComplex() ⇒ <code>string</code>
+Generates a complex name for relation.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - - Complex name.  
+<a name="getNameFromConstraintName"></a>
+## getNameFromConstraintName() ⇒ <code>string</code> &#124; <code>undefined</code>
+Returns relation name extracted from constraint name if constraint name is CSV (comma separated value). Name is
+second element.
+
+**Kind**: global function  
+**Returns**: <code>string</code> &#124; <code>undefined</code> - - Second element of CSV constraint name.  
+<a name="getNameFromDescriptionData"></a>
+## getNameFromDescriptionData() ⇒ <code>string</code> &#124; <code>undefined</code>
+Returns relation name extracted from [Table#descriptionData](Table#descriptionData) by looking keys `name.belongsTo` or `name.m2oName`.
+
+**Kind**: global function  
+**Returns**: <code>string</code> &#124; <code>undefined</code> - - Name for relation  

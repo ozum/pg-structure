@@ -1,3 +1,28 @@
+## Classes
+
+<dl>
+<dt><a href="#O2MRelation">O2MRelation</a></dt>
+<dd></dd>
+</dl>
+
+## Functions
+
+<dl>
+<dt><a href="#getNameSimple">getNameSimple()</a> ⇒ <code>string</code></dt>
+<dd><p>Generates a simple name for relation.</p>
+</dd>
+<dt><a href="#getNameComplex">getNameComplex()</a> ⇒ <code>string</code></dt>
+<dd><p>Generates a complex name for relation.</p>
+</dd>
+<dt><a href="#getNameFromConstraintName">getNameFromConstraintName()</a> ⇒ <code>string</code> | <code>undefined</code></dt>
+<dd><p>Returns relation name extracted from constraint name if constraint name is CSV (comma separated value). Name is
+first element.</p>
+</dd>
+<dt><a href="#getNameFromDescriptionData">getNameFromDescriptionData()</a> ⇒ <code>string</code> | <code>undefined</code></dt>
+<dd><p>Returns relation name extracted from <a href="Table#descriptionData">Table#descriptionData</a> by looking keys <code>name.hasMany</code> or <code>name.o2m</code>.</p>
+</dd>
+</dl>
+
 <a name="O2MRelation"></a>
 ## O2MRelation
 **Kind**: global class  
@@ -8,10 +33,11 @@
     * [.sourceTable](#O2MRelation+sourceTable) : <code>Table</code>
     * [.targetTable](#O2MRelation+targetTable) : <code>Table</code>
     * [.constraint](#O2MRelation+constraint) : <code>Table</code>
+    * [.generateName([strategy])](#O2MRelation+generateName) ⇒ <code>string</code>
 
 <a name="new_O2MRelation_new"></a>
 ### new O2MRelation(args)
-Class which represent many to one relationship which resembles `hasMany` relation in ORMs (Object Relational Mappers).
+Class which represent one to many relationship which resembles `hasMany` relation in ORMs (Object Relational Mappers).
 Provides attributes and methods for details of the relationship.
 
 <span id="exampleSchema"></span>Below is a database schema as an example:
@@ -97,3 +123,39 @@ let relation     = product.O2MRelationRelations[0];  // RELATION:    product ---
 let constraint   = relation.constraint;              // CONSTRAINT:           ^-- product_has_carts
 let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id (from line_item table)
 ```
+<a name="O2MRelation+generateName"></a>
+### o2MRelation.generateName([strategy]) ⇒ <code>string</code>
+(! EXPERIMENTAL) Returns name for relation using given strategy.
+
+**Kind**: instance method of <code>[O2MRelation](#O2MRelation)</code>  
+**Returns**: <code>string</code> - - Relation name.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [strategy] | <code>string</code> | Naming strategy to use. |
+
+<a name="getNameSimple"></a>
+## getNameSimple() ⇒ <code>string</code>
+Generates a simple name for relation.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - - Simple name.  
+<a name="getNameComplex"></a>
+## getNameComplex() ⇒ <code>string</code>
+Generates a complex name for relation.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - - Complex name.  
+<a name="getNameFromConstraintName"></a>
+## getNameFromConstraintName() ⇒ <code>string</code> &#124; <code>undefined</code>
+Returns relation name extracted from constraint name if constraint name is CSV (comma separated value). Name is
+first element.
+
+**Kind**: global function  
+**Returns**: <code>string</code> &#124; <code>undefined</code> - - First element of CSV constraint name.  
+<a name="getNameFromDescriptionData"></a>
+## getNameFromDescriptionData() ⇒ <code>string</code> &#124; <code>undefined</code>
+Returns relation name extracted from [Table#descriptionData](Table#descriptionData) by looking keys `name.hasMany` or `name.o2m`.
+
+**Kind**: global function  
+**Returns**: <code>string</code> &#124; <code>undefined</code> - - Name for relation  

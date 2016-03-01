@@ -122,15 +122,17 @@ Comment of the table.
 **See**: Aliases [description](#Table+description)  
 <a name="Table+commentData"></a>
 ### table.commentData : <code>Object</code>
-JS Object extracted from table description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
+JS Object extracted from table description. Object is expected as JSON data between `[PG-STRUCTURE]` and `[/PG-STRUCTURE]`
 tags in description. Tags are case-insensitive.
+For maximum comfort JSON parsing is made by [jsonic](https://www.npmjs.com/package/jsonic). It is a non-strict JSON parser. It is possible
+to ommit quotes etc. Please see [jsonic](https://www.npmjs.com/package/jsonic) for details.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 **See**: Aliases [descriptionData](#Table+descriptionData)  
 **Example**  
 ```js
-let description = table.comment;             // -> 'This table holds account details. [JSON]{ "extraData": 2 }[/PGEN]'
+let description = table.comment;             // -> 'This table holds account details. [PG-STRUCTURE]{ extraData: 2 }[/PGEN]'
 let extra = table.commentData;               // -> { extraData: 2 }
 console.log(table.commentData.extraData);    // -> 2
 ```
@@ -143,15 +145,24 @@ Comment of the table.
 **See**: Aliases [comment](#Table+comment)  
 <a name="Table+descriptionData"></a>
 ### table.descriptionData : <code>Object</code>
-JS Object extracted from table description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
+JS Object extracted from table description. Object is expected as JSON data between `[PG-STRUCTURE]` and `[/PG-STRUCTURE]`
 tags in description. Tags are case-insensitive.
+For maximum comfort JSON parsing is made by [jsonic](https://www.npmjs.com/package/jsonic). It is a non-strict JSON parser. It is possible
+to ommit quotes etc.
+* You don't need to quote property names: { foo:"bar baz", red:255 }
+* You don't need the top level braces: foo:"bar baz", red:255
+* You don't need to quote strings with spaces: foo:bar baz, red:255
+* You do need to quote strings if they contain a comma or closing brace or square bracket: icky:",}]"
+* You can use single quotes for strings: Jules:'Cry "Havoc," and let slip the dogs of war!'
+* You can have trailing commas: foo:bar, red:255,
+For details, please see [jsonic](https://www.npmjs.com/package/jsonic).
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 **See**: Aliases [commentData](#Table+commentData)  
 **Example**  
 ```js
-let description = table.description;             // -> 'This table holds account details. [JSON]{ "extraData": 2 }[/PGEN]'
+let description = table.description;             // -> 'This table holds account details. [PG-STRUCTURE]{ "extraData": 2 }[/PGEN]'
 let extra = table.descriptionData;               // -> { extraData: 2 }
 console.log(table.descriptionData.extraData);    // -> 2
 ```
