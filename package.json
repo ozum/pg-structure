@@ -50,9 +50,6 @@
     "pg": "^4.4.3",
     "semver": "^5.1.0"
   },
-  "optionalDependencies": {
-    "pg-native": "^1.10.0"
-  },
   "devDependencies": {
     "chai": "^3.4.1",
     "fs-extra": "^0.30.0",
