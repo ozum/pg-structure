@@ -1,4 +1,4 @@
-site_name: pg-structure 3.4.2
+site_name: pg-structure 3.4.3
 theme: readthedocs
 pages:
   - Home: index.md
@@ -6,7 +6,7 @@ pages:
   - Examples: examples.md
   - History: history.md
   - License: license.md
-  - 'Test & Coverage Report': report.md
+  - Test & Coverage Report: report.md
   - API:
       - Column: api/Column.md
       - Constraint: api/Constraint.md
