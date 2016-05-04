@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Relation Names - pg-structure 3.4.4</title>
+  <title>Relation Names - pg-structure 3.5.0</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 3.4.4</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.5.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -214,7 +214,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 3.4.4</a>
+        <a href="..">pg-structure 3.5.0</a>
       </nav>
 
       
@@ -328,7 +328,8 @@
 <p>Even using complex strategy, it is sometimes impossible to generate unique names. In that case it is possible to override generated names by providing clues to <strong>pg-structure</strong> in database.</p>
 <h4 id="using-description-data-experimental">Using Description Data (!EXPERIMENTAL)</h4>
 <p>You can use description data (<a href="../concepts/">See Description Data in Concepts</a>). It is a non-strict JSON data. <strong>pg-structure</strong> uses given names in description data.</p>
-<pre><code class="js">[pg-structure]
+<p>Example:</p>
+<pre><code>[pg-structure]
 {
     name: {
         m2m: my_custom_name
@@ -364,6 +365,7 @@
 </tbody>
 </table>
 <h4 id="using-constraint-name-experimental">Using Constraint Name (!EXPERIMENTAL)</h4>
+<p><strong>This ultimately solve conflict problem.</strong></p>
 <p>Even description data cannot prevent conflicts in complex database designs, if there are multiple relations between same tables especially considering many to many relations. In those cases you can name your constraints in database as a CSV. If constraint name includes comma, <strong>pg-structure</strong> assumes it is CSV value to provide clue for relation names.</p>
 <table>
 <thead>
@@ -392,8 +394,8 @@
 </tbody>
 </table>
 <p>Example:</p>
-<pre><code>         sold_items, item, sku               cart_goods, basket, bag
-product ------------------------&lt; line_item &gt;---------------------------- cart
+<pre><code>         sold_items, item, sku                cart_goods, basket, bag
+product ------------------------&lt; line_item &gt;------------------------- cart
 
 </code></pre>
 
