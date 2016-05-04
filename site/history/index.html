@@ -88,6 +88,8 @@
             
                 <li class="toctree-l3"><a href="#history-release-notes">History &amp; Release Notes</a></li>
                 
+                    <li><a class="toctree-l4" href="#350">3.5.0</a></li>
+                
                     <li><a class="toctree-l4" href="#340">3.4.0</a></li>
                 
                     <li><a class="toctree-l4" href="#332-2016-02-25">3.3.2 / 2016-02-25</a></li>
@@ -170,6 +172,13 @@
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../report/">Test & Coverage Report</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../relation-names/">Relation Names</a>
         
     </li>
 <li>
@@ -299,6 +308,13 @@
 
 <p><strong>Note</strong>: Version history for minimal documentation updates are not listed here to prevent cluttering.</p>
 <h1 id="history-release-notes">History &amp; Release Notes</h1>
+<h6 id="350">3.5.0</h6>
+<ul>
+<li>Added: Relation naming support for CamelCase tables.</li>
+<li>Fixed: Default strategy for Many to Many (<code>m2m</code>) and Many to One (<code>m2o</code>) relations are selected as 'simple' even 'simple' strategy causes conflict. Now complex is selected when there are conflicts between cross types of <code>o2m</code> and <code>m2m</code>.</li>
+<li>Added: Relation naming documentation.</li>
+<li>Added: Naming strategy test.</li>
+</ul>
 <h6 id="340">3.4.0</h6>
 <ul>
 <li>Changed: <code>table#descriptionData</code> tag is changed from <code>[JSON]</code> to <code>[pg-structure]</code></li>

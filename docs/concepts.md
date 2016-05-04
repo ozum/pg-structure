@@ -51,7 +51,7 @@ console.log(userColumn === sameColumn); // true
 
 Developers and ORM users need to have more information about relations than present in foreign key constraints. For example many to many relationships and many to one relationships are not available in database engine. **pg-structure** provides [O2MRelation](api/O2MRelation.md), [M2MRelation](api/M2MRelation.md) and [M2ORelation](api/M2ORelation.md) classes to answer those needs.
 
-## Description Data
+## Description Data / Comment Data
 
 PostgreSQL objects holds free form text in their description. `pg-structure` offers some help to store extra data in database objects' description as JSON. `pg-structure` automatically parses JSON data between `[pg-structure]`and `[/pg-structure]` tags. Tags are case-insensitive. Only one `pg-structure` object is processed per description.
 

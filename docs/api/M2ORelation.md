@@ -103,10 +103,11 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
 ```
 <a name="M2ORelation+generateName"></a>
 ### m2ORelation.generateName([strategy]) ⇒ <code>string</code>
-(! EXPERIMENTAL) Returns name for relation using given strategy.
+(! EXPERIMENTAL) Returns name for relation using given strategy. Please see [Relation Names](../relation-names.md) for details.
 
 **Kind**: instance method of <code>[M2ORelation](#M2ORelation)</code>  
 **Returns**: <code>string</code> - - Relation name.  
+**See**: [Relation Names](../relation-names.md)  
 
 | Param | Type | Description |
 | --- | --- | --- |

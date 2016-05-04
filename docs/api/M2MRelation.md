@@ -145,12 +145,13 @@ let targetJoinFKColumn   = relation.targetConstraint.columns[0]; // COLUMN:     
 ```
 <a name="M2MRelation+generateName"></a>
 ### m2MRelation.generateName([strategy]) ⇒ <code>string</code>
-(! EXPERIMENTAL) Returns name for relation using given strategy.
+(! EXPERIMENTAL) Returns name for relation using given strategy. Please see [Relation Names](../relation-names.md) for details.
 
 **Kind**: instance method of <code>[M2MRelation](#M2MRelation)</code>  
 **Returns**: <code>string</code> - - Relation name.  
+**See**: [Relation Names](../relation-names.md)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| [strategy] | <code>string</code> | Naming strategy to use. |
+| [strategy] | <code>string</code> | (simple|complex) Naming strategy to use. |
 

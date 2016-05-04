@@ -7,6 +7,7 @@ pages:
   - History: history.md
   - License: license.md
   - Test & Coverage Report: report.md
+  - Relation Names: relation-names.md
   - API:
       - Column: api/Column.md
       - Constraint: api/Constraint.md

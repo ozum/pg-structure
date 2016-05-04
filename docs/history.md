@@ -4,6 +4,12 @@
 
 # History & Release Notes
 
+###### 3.5.0
+* Added: Relation naming support for CamelCase tables.
+* Fixed: Default strategy for Many to Many (`m2m`) and Many to One (`m2o`) relations are selected as 'simple' even 'simple' strategy causes conflict. Now complex is selected when there are conflicts between cross types of `o2m` and `m2m`.
+* Added: Relation naming documentation.
+* Added: Naming strategy test.
+
 ###### 3.4.0
 * Changed: `table#descriptionData` tag is changed from `[JSON]` to `[pg-structure]`
 * (EXPERIMENTAL) Added: `o2mRelation#generateName()`, `m2oRelation#generateName()`, `m2mRelation#generateName()`. Those methods are highly experimental and may be changed or deleted.
