@@ -81,7 +81,7 @@ Example:
 
 #### Using Constraint Name (!EXPERIMENTAL)
 
-**This ultimately solve conflict problem.**
+**This ultimately solves conflict problem.**
 
 Even description data cannot prevent conflicts in complex database designs, if there are multiple relations between same tables especially considering many to many relations. In those cases you can name your constraints in database as a CSV. If constraint name includes comma, **pg-structure** assumes it is CSV value to provide clue for relation names.
 
