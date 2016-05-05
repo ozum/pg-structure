@@ -153,5 +153,5 @@ let targetJoinFKColumn   = relation.targetConstraint.columns[0]; // COLUMN:     
 
 | Param | Type | Description |
 | --- | --- | --- |
-| [strategy] | <code>string</code> | (simple|complex) Naming strategy to use. |
+| [strategy] | <code>string</code> | (simple, complex) Naming strategy to use. |
 

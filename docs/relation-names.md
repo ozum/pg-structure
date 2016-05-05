@@ -29,7 +29,7 @@ When `generateName()` method is called without any strategies, **pg-structure** 
 ```
  
  Below is the same schema as image:
- ![Database Schema](../images/schema-through.png)
+ ![Database Schema](../images/schema-through-relation-names.png)
 
 
 O2M examples are given for:

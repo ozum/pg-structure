@@ -108,5 +108,5 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| [strategy] | <code>string</code> | Naming strategy to use. |
+| [strategy] | <code>string</code> | (simple, complex) Naming strategy to use. |
 
