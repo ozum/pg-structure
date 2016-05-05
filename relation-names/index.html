@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Relation Names - pg-structure 3.5.3</title>
+  <title>Relation Names - pg-structure 3.5.4</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -48,7 +48,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 3.5.3</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.5.4</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -112,6 +112,8 @@
                     <li><a class="toctree-l4" href="#strategies">Strategies</a></li>
                 
                     <li><a class="toctree-l4" href="#overriding">Overriding</a></li>
+                
+                    <li><a class="toctree-l4" href="#priority">Priority</a></li>
                 
             
             </ul>
@@ -214,7 +216,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 3.5.3</a>
+        <a href="..">pg-structure 3.5.4</a>
       </nav>
 
       
@@ -326,8 +328,9 @@
 </table>
 <h3 id="overriding">Overriding</h3>
 <p>Even using complex strategy, it is sometimes impossible to generate unique names. In that case it is possible to override generated names by providing clues to <strong>pg-structure</strong> in database.</p>
-<h4 id="using-description-data-experimental">Using Description Data (!EXPERIMENTAL)</h4>
-<p>You can use description data (<a href="../concepts/">See Description Data in Concepts</a>). It is a non-strict JSON data. <strong>pg-structure</strong> uses given names in description data.</p>
+<h4 id="using-constraint-description-data-experimental">Using Constraint Description Data (!EXPERIMENTAL)</h4>
+<p>You can use constraint's description in PostgreSQL. Description data is fetched from constraint description. In short, you can put JSON data between <code>[pg-structure]</code> and <code>[/pg-structure]</code> tags in constraint description.</p>
+<p>(<a href="../concepts/">See Description Data in Concepts</a>). It is a non-strict JSON data. <strong>pg-structure</strong> uses given names in description data.</p>
 <p>Example:</p>
 <pre><code>[pg-structure]
 {
@@ -364,9 +367,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="using-constraint-name-experimental">Using Constraint Name (!EXPERIMENTAL)</h4>
-<p><strong>This ultimately solves conflict problem.</strong></p>
-<p>Even description data cannot prevent conflicts in complex database designs, if there are multiple relations between same tables especially considering many to many relations. In those cases you can name your constraints in database as a CSV. If constraint name includes comma, <strong>pg-structure</strong> assumes it is CSV value to provide clue for relation names.</p>
+<h4 id="using-constraint-name-as-csv-experimental">Using Constraint Name as CSV (!EXPERIMENTAL)</h4>
+<p>You can also name your constraints in database as a CSV. If constraint name includes comma, <strong>pg-structure</strong> assumes it is CSV value to provide clue for relation names.</p>
 <table>
 <thead>
 <tr>
@@ -454,6 +456,47 @@ product ------------------------&lt; line_item &gt;------------------------- car
 </tr>
 </tbody>
 </table>
+<h3 id="priority">Priority</h3>
+<p>Relation naming function prioritizes different methods as follows:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Method</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Strategy from function parameter</td>
+<td>If parameter is given such as <code>rel.generateName('simple')</code> uses given strategy.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Constraint Name CSV</td>
+<td><strong>PRO:</strong> May easy to use in ERD tools. <strong>CON:</strong> Invasive, seen in DB error messages.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Constraint Description Data</td>
+<td><strong>PRO:</strong> Non invasive. <strong>CON:</strong> One more step in ERD tools.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Simple Stratgey</td>
+<td>If there is no previous relation between same tables.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Complex Strategy</td>
+<td>Last resort.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="modules-authors-practices">Module's Author's Practices</h4>
+<p>Use <code>generateName()</code> without parameters, and if you don't like generated names for a specific relation, use description data in that constraint's description.</p>
+<p>The reason of preferring description data over constraint name is that when foreign key violation occurs, PostgreSQL error messages contains constraint names and long CSV names may be confusing.</p>
               
             </div>
           </div>
