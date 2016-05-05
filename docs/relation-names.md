@@ -57,9 +57,11 @@ M2M examples are given for:
 
 Even using complex strategy, it is sometimes impossible to generate unique names. In that case it is possible to override generated names by providing clues to **pg-structure** in database.
 
-#### Using Description Data (!EXPERIMENTAL)
+#### Using Constraint Description Data (!EXPERIMENTAL)
 
-You can use description data ([See Description Data in Concepts](concepts.md)). It is a non-strict JSON data. **pg-structure** uses given names in description data.
+You can use constraint's description in PostgreSQL. Description data is fetched from constraint description. In short, you can put JSON data between `[pg-structure]` and `[/pg-structure]` tags in constraint description.
+
+([See Description Data in Concepts](concepts.md)). It is a non-strict JSON data. **pg-structure** uses given names in description data.
 
 Example:
 
@@ -79,11 +81,9 @@ Example:
 | M2O | `name.belongsTo` or `name.m2o` | Used as it is |
 | M2M | `name.belongsToMany` or `name.m2m` | Used as: Given String + Target Table Name |
 
-#### Using Constraint Name (!EXPERIMENTAL)
+#### Using Constraint Name as CSV (!EXPERIMENTAL)
 
-**This ultimately solves conflict problem.**
-
-Even description data cannot prevent conflicts in complex database designs, if there are multiple relations between same tables especially considering many to many relations. In those cases you can name your constraints in database as a CSV. If constraint name includes comma, **pg-structure** assumes it is CSV value to provide clue for relation names.
+You can also name your constraints in database as a CSV. If constraint name includes comma, **pg-structure** assumes it is CSV value to provide clue for relation names.
 
 | CSV | Description | Notes |
 | --- | --- |--- |
@@ -107,3 +107,21 @@ product ------------------------< line_item >------------------------- cart
 | 1 | cart | line_item | O2M | cart_goods |
 | 2 | line_item | cart | M2O | basket |
 | 3 | cart | product | M2M | bag_products |
+
+### Priority
+
+Relation naming function prioritizes different methods as follows:
+
+| # | Method | Notes |
+| --- | --- | --- |
+| 1 | Strategy from function parameter | If parameter is given such as `rel.generateName('simple')`, uses given strategy. |
+| 2 | Constraint Name CSV | **PRO:** May easy to use in ERD tools. **CON:** Invasive, seen in DB error messages. |
+| 3 | Constraint Description Data | **PRO:** Non invasive. **CON:** One more step in ERD tools. |
+| 4 | Simple Stratgey | If there is no previous relation between same tables. |
+| 5 | Complex Strategy | Last resort. |
+
+#### Module's Author's Practices
+
+Use `generateName()` without parameters, and if you don't like generated names for a specific relation, use description data in that constraint's description.
+
+The reason of preferring description data over constraint name is that when foreign key violation occurs, PostgreSQL error messages contains constraint names and long CSV names may be confusing.
