@@ -12,9 +12,23 @@ SELECT
   column_default                                                     AS "defaultWithTypeCast",
   CASE WHEN column_default ILIKE 'nextval%' THEN TRUE ELSE FALSE END AS "isAutoIncrement",
   CAST(is_nullable AS BOOLEAN)                                       AS "allowNull",
-  CASE WHEN udt_name = 'hstore' THEN udt_name
+  CASE WHEN udt_name = ANY(array['hstore', 'geometry', 'geography']) THEN udt_name
   ELSE LOWER(data_type) END                                          AS "type",
   t.typcategory                                                      AS "typeCategory", -- See http://www.postgresql.org/docs/current/static/catalog-pg-type.html
+  CASE udt_name
+    WHEN 'geometry' THEN
+      (select geom.type from geometry_columns geom
+      WHERE geom.f_table_catalog = table_catalog
+      AND geom.f_table_schema = table_schema
+      AND geom.f_table_name = table_name
+      AND geom.f_geometry_column = column_name)
+    WHEN 'geography' THEN
+     (select geo.type from geography_columns geo
+      WHERE geo.f_table_catalog = table_catalog
+      AND geo.f_table_schema = table_schema
+      AND geo.f_table_name = table_name
+      AND geo.f_geography_column = column_name)
+  ELSE NULL END                                                      AS "geoType",
   CASE WHEN t.typcategory = 'E' THEN
       (SELECT Array_agg(e.enumlabel)
        FROM pg_catalog.pg_type t JOIN pg_catalog.pg_enum e ON t.oid = e.enumtypid
