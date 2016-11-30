@@ -119,9 +119,9 @@ fetch structure from database and create a new save file.
 
 ## Where to Start?
 
-First have look at [concepts](http://localhost:63342/pg-structure3/site/concepts/) to understand a few key points.
-You may want to read [examples](http://localhost:63342/pg-structure3/site/examples/) to see how **pg-structure** can be used.
-To start coding read main [pg-structure](http://localhost:63342/pg-structure3/site/api/PgStructure/) module's documentation.
+First have look at [concepts](http://www.pg-structure.com/concepts/) to understand a few key points.
+You may want to read [examples](http://www.pg-structure.com/examples/) to see how **pg-structure** can be used.
+To start coding read main [pg-structure](http://www.pg-structure.com/api/PgStructure/) module's documentation.
 During development API references helps you.
 
 ## Special Thanks
