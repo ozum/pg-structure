@@ -1,4 +1,5 @@
 <a name="module_pgStructure"></a>
+
 ## pgStructure
 
 * [pgStructure](#module_pgStructure)
@@ -14,6 +15,7 @@
             * [~pgOptions](#module_pgStructure--module.exports..pgOptions) : <code>Object</code>
 
 <a name="exp_module_pgStructure--module.exports"></a>
+
 ### module.exports(pgOptions, [schemas], options) ⇒ <code>Promise.&lt;DB&gt;</code> ⏏
 Creates and returns [DB](DB) instance by reverse engineering PostgreSQL database.
 
@@ -36,6 +38,7 @@ pgStructure({database: 'db', user: 'user', password: 'password'}, ['public', 'ot
     .catch(err => console.log(err.stack));
 ```
 <a name="module_pgStructure--module.exports.save"></a>
+
 #### module.exports.save(file, db) ⇒ <code>Promise.&lt;string&gt;</code>
 Saves given database structure to a disk file. If given file name ends with `.zip` extension, file will be saved as
 compressed zip file.
@@ -57,6 +60,7 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
     .catch(err => console.log(err.stack));
 ```
 <a name="module_pgStructure--module.exports.load"></a>
+
 #### module.exports.load(file) ⇒ <code>Promise.&lt;(DB\|undefined)&gt;</code>
 Loads database structure from previously saved file. Much faster than getting structure from database.
 If file is a zip file which contains a json file with same name as zip file, this function decompresses the file
@@ -81,6 +85,7 @@ pgStructure.load('./db.json')
     .catch(err => console.log(err.stack));
 ```
 <a name="module_pgStructure--module.exports.serialize"></a>
+
 #### module.exports.serialize(db) ⇒ <code>string</code>
 Serializes database structure to make it possible to store or transfer.
 
@@ -99,6 +104,7 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
     .catch(err => console.log(err.stack));
 ```
 <a name="module_pgStructure--module.exports.toString"></a>
+
 #### module.exports.toString(db) ⇒ <code>string</code>
 Alias of {@link module:pgStructure.serialize). Serializes database structure to make it possible to store or transfer.
 
@@ -111,6 +117,7 @@ Alias of {@link module:pgStructure.serialize). Serializes database structure to 
 | db | <code>DB</code> | [DB](DB) instance to serialize. |
 
 <a name="module_pgStructure--module.exports.deserialize"></a>
+
 #### module.exports.deserialize(serializedDBJSON) ⇒ <code>DB</code> &#124; <code>undefined</code>
 Creates and returns [DB](DB) instance using previously serialized string. <br/>
 <img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
@@ -129,6 +136,7 @@ pgStructure.deserialize('./db.json')
 | serializedDBJSON | <code>string</code> | Serialized database structure to create [DB](DB) instance from. |
 
 <a name="module_pgStructure--module.exports.parse"></a>
+
 #### module.exports.parse(serializedDB) ⇒ <code>DB</code> &#124; <code>undefined</code>
 Alias of [deserialize](#module_pgStructure--module.exports.deserialize). Creates and returns [DB](DB) instance using previously serialized string. <br/>
 <img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
@@ -143,6 +151,7 @@ deserialize incompatible pg-structure module versions and returns `undefined`. I
 | serializedDB | <code>string</code> | Serialized database structure to create [DB](DB) instance from. |
 
 <a name="module_pgStructure--module.exports..pgOptions"></a>
+
 #### module.exports~pgOptions : <code>Object</code>
 PostgreSQL connection options which are passed directly to node-postgres.
 

@@ -1,4 +1,5 @@
 <a name="Schema"></a>
+
 ## Schema
 Class which represent a PostgreSQL schema. Provides attributes and methods for details of the database.
 
@@ -15,6 +16,7 @@ Class which represent a PostgreSQL schema. Provides attributes and methods for d
     * [.get(path)](#Schema+get) ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
 
 <a name="new_Schema_new"></a>
+
 ### new Schema(args)
 Constructor function. You don't need to call constructor manually. pg-structure handles this.
 
@@ -26,12 +28,14 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 | args.name | <code>string</code> | Name of the Schema. |
 
 <a name="Schema+name"></a>
+
 ### schema.name : <code>string</code>
 Name of the schema.
 
 **Kind**: instance property of <code>[Schema](#Schema)</code>  
 **Read only**: true  
 <a name="Schema+fullName"></a>
+
 ### schema.fullName : <code>string</code>
 Full name of the [Schema](#Schema). For schema it is equal to schema name.
 
@@ -42,6 +46,7 @@ Full name of the [Schema](#Schema). For schema it is equal to schema name.
 var fullName = schema.fullName; // public
 ```
 <a name="Schema+fullCatalogName"></a>
+
 ### schema.fullCatalogName : <code>string</code>
 Full name of the [Schema](#Schema) with (.) notation including catalog name.
 
@@ -52,6 +57,7 @@ Full name of the [Schema](#Schema) with (.) notation including catalog name.
 var fullCatalogName = schema.fullCatalogName; // crm.public
 ```
 <a name="Schema+db"></a>
+
 ### schema.db : <code>DB</code>
 [DB](DB) this schema belongs to.
 
@@ -63,6 +69,7 @@ var fullCatalogName = schema.fullCatalogName; // crm.public
 var db = schema.db; // DB instance
 ```
 <a name="Schema+parent"></a>
+
 ### schema.parent : <code>DB</code>
 [DB](DB) this schema belongs to.
 
@@ -74,6 +81,7 @@ var db = schema.db; // DB instance
 var db = schema.parent; // DB instance
 ```
 <a name="Schema+tables"></a>
+
 ### schema.tables : <code>Map.&lt;Table&gt;</code>
 All [Table](Table) instances of the schema as a [Map](Map). They are ordered by their name.
 
@@ -96,6 +104,7 @@ for (let [name, table] of schema.tables) {
 }
 ```
 <a name="Schema+get"></a>
+
 ### schema.get(path) ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
 Returns [Table](Table) or [Column](Column) on given path relative to [Schema](#Schema). Path should be in dot (.) notation.
 

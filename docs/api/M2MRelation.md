@@ -1,4 +1,5 @@
 <a name="M2MRelation"></a>
+
 ## M2MRelation
 **Kind**: global class  
 
@@ -13,6 +14,7 @@
     * [.generateName([strategy])](#M2MRelation+generateName) ⇒ <code>string</code>
 
 <a name="new_M2MRelation_new"></a>
+
 ### new M2MRelation(args)
 Class which represent a many to many relationship which resembles `belongsToMany` or `hasManyThrough` relations in ORMs (Object Relational Mappers).
 Provides attributes and methods for details of the relationship.
@@ -80,12 +82,14 @@ let sourcePKColumn       = relation.sourceTable.primaryKeys[0];  // COLUMN:     
 let targetPKColumn       = relation.targetTable.primaryKeys[0];  // COLUMN:      id          (from cart table)
 ```
 <a name="M2MRelation+type"></a>
+
 ### m2MRelation.type : <code>relationType</code>
 Type of relation which is `MANY TO MANY`.
 
 **Kind**: instance property of <code>[M2MRelation](#M2MRelation)</code>  
 **Read only**: true  
 <a name="M2MRelation+sourceTable"></a>
+
 ### m2MRelation.sourceTable : <code>Table</code>
 [Table](Table) which this relation belongs to.
 
@@ -97,6 +101,7 @@ let relation = product.M2MRelationRelations[0];  // RELATION:    product ---< li
 let source   = relation.sourceTable;             // TABLE:       product
 ```
 <a name="M2MRelation+joinTable"></a>
+
 ### m2MRelation.joinTable : <code>Table</code>
 Join [Table](Table) of this relationship. This table contains foreign key columns referring both
 [sourceTable](#M2MRelation+sourceTable) and [targetTable](#M2MRelation+targetTable).
@@ -109,6 +114,7 @@ let relation  = product.M2MRelationRelations[0]; // RELATION:    product ---< li
 let joinTable = relation.joinTable;              // TABLE:       line_item
 ```
 <a name="M2MRelation+targetTable"></a>
+
 ### m2MRelation.targetTable : <code>Table</code>
 [Table](Table) which this relation is referring to (Through a join table).
 
@@ -120,6 +126,7 @@ let relation = product.M2MRelationRelations[0];  // RELATION:    product ---< li
 let target   = relation.targetTable;             // TABLE:       cart
 ```
 <a name="M2MRelation+sourceConstraint"></a>
+
 ### m2MRelation.sourceConstraint : <code>Table</code>
 Foreign key [constraint](Constraint) between [source table](#M2MRelation+sourceTable) and [join table](#M2MRelation+joinTable).
 
@@ -132,6 +139,7 @@ let sourceConstraint     = relation.sourceConstraint;            // CONSTRAINT: 
 let sourceJoinFKColumn   = relation.sourceConstraint.columns[0]; // COLUMN:      product_id (from line_item table)
 ```
 <a name="M2MRelation+targetConstraint"></a>
+
 ### m2MRelation.targetConstraint : <code>Table</code>
 Foreign key [constraint](Constraint) between [join table](#M2MRelation+joinTable) and [target table](#M2MRelation+targetTable).
 
@@ -144,6 +152,7 @@ let targetConstraint     = relation.targetConstraint;            // CONSTRAINT: 
 let targetJoinFKColumn   = relation.targetConstraint.columns[0]; // COLUMN:      cart_id (from line_item table)
 ```
 <a name="M2MRelation+generateName"></a>
+
 ### m2MRelation.generateName([strategy]) ⇒ <code>string</code>
 (! EXPERIMENTAL) Returns name for relation using given strategy. Please see [Relation Names](../relation-names.md) for details.
 

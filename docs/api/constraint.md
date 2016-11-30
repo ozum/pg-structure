@@ -1,4 +1,5 @@
 <a name="Constraint"></a>
+
 ## Constraint
 Class which represent a constraint. Provides attributes and methods for details of the constraint.
 
@@ -58,6 +59,7 @@ color and vendor tables would have many to many `through constraints`.
     * [.referencedColumnsBy](#Constraint+referencedColumnsBy) : <code>Map.&lt;Column&gt;</code>
 
 <a name="new_Constraint_new"></a>
+
 ### new Constraint(args)
 Constructor function. You don't need to call constructor manually. pg-structure handles this.
 
@@ -77,12 +79,14 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 | args.matchOption | <code>string</code> | Match option of the constraint. |
 
 <a name="Constraint+name"></a>
+
 ### constraint.name : <code>string</code>
 Name of the constraint.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+fullName"></a>
+
 ### constraint.fullName : <code>string</code>
 Full name of the [constraint](#Constraint) with (.) notation.
 
@@ -93,6 +97,7 @@ Full name of the [constraint](#Constraint) with (.) notation.
 var fullName = constraint.fullName; // crm.public
 ```
 <a name="Constraint+fullCatalogName"></a>
+
 ### constraint.fullCatalogName : <code>string</code>
 Full name of the [constraint](#Constraint) with (.) notation including catalog name.
 
@@ -103,12 +108,14 @@ Full name of the [constraint](#Constraint) with (.) notation including catalog n
 var fullCatalogName = constraint.fullCatalogName; // crm.public
 ```
 <a name="Constraint+type"></a>
+
 ### constraint.type : <code>contsraintType</code>
 Constraint type. One of `PRIMARY KEY`, `FOREIGN KEY` or `CHECK`
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+comment"></a>
+
 ### constraint.comment : <code>string</code>
 Comment of the Constraint.
 
@@ -116,6 +123,7 @@ Comment of the Constraint.
 **Read only**: true  
 **See**: Aliases [description](#Constraint+description)  
 <a name="Constraint+commentData"></a>
+
 ### constraint.commentData : <code>Object</code>
 JS Object extracted from constraint description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
 tags in description. Tags are case-insensitive.
@@ -130,6 +138,7 @@ let extra = constraint.commentData;              // -> { extraData: 2 }
 console.log(constraint.commentData.extraData);   // -> 2
 ```
 <a name="Constraint+description"></a>
+
 ### constraint.description : <code>string</code>
 Comment of the Constraint.
 
@@ -137,6 +146,7 @@ Comment of the Constraint.
 **Read only**: true  
 **See**: Aliases [comment](#Constraint+comment)  
 <a name="Constraint+descriptionData"></a>
+
 ### constraint.descriptionData : <code>Object</code>
 JS Object extracted from constraint description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
 tags in description. Tags are case-insensitive.
@@ -151,6 +161,7 @@ let extra = constraint.descriptionData;              // -> { extraData: 2 }
 console.log(constraint.descriptionData.extraData);   // -> 2
 ```
 <a name="Constraint+child"></a>
+
 ### constraint.child : <code>Table</code>
 Child [table](Table) of this [constraint](#Constraint).
 **Note for foreign key constraints:** Child table is the table which contains foreign key.
@@ -163,6 +174,7 @@ In [example schema](#exampleSchema) product is a child table (vendor_id FK) of v
 var table = constraint.child;
 ```
 <a name="Constraint+table"></a>
+
 ### constraint.table : <code>Table</code>
 [Table](Table) which this [constraint](#Constraint) belongs to or defined in. <br>
 **Note for foreign key constraints:** As usual PostgreSQL defines foreign key constraints in child tables,
@@ -175,24 +187,28 @@ where foreign key column is defined, so this is child table for foreign key cons
 var table = constraint.table;
 ```
 <a name="Constraint+db"></a>
+
 ### constraint.db : <code>DB</code>
 [DB](DB) this [constraint](#Constraint) belongs to.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+schema"></a>
+
 ### constraint.schema : <code>Schema</code>
 [Schema](Schema) this [constraint](#Constraint) belongs to.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+matchOption"></a>
+
 ### constraint.matchOption : <code>string</code>
 Match option of [Constraint](#Constraint).
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+onUpdate"></a>
+
 ### constraint.onUpdate : <code>constraintRule</code> &#124; <code>null</code>
 Update rule for foreign key [constraints](#Constraint). One of `CASCADE`, `SET NULL`, `SET DEFAULT`, `RESTRICT`, `NO ACTION`
 If this is not a foreign key [constraint](#Constraint) this is `null`.
@@ -200,6 +216,7 @@ If this is not a foreign key [constraint](#Constraint) this is `null`.
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+onDelete"></a>
+
 ### constraint.onDelete : <code>constraintRule</code> &#124; <code>null</code>
 Update rule for foreign key [constraints](#Constraint). One of `CASCADE`, `SET NULL`, `SET DEFAULT`, `RESTRICT`, `NO ACTION`
 If this is not a foreign key [constraint](#Constraint) this is `null`.
@@ -207,6 +224,7 @@ If this is not a foreign key [constraint](#Constraint) this is `null`.
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+referencedTable"></a>
+
 ### constraint.referencedTable : <code>Table</code> &#124; <code>null</code>
 For foreign key [constraints](#Constraint) this is [Table](Table) instance this [constraint](#Constraint) refers to.
 If this is not a foreign key [constraint](#Constraint) this is `null`.
@@ -215,6 +233,7 @@ If this is not a foreign key [constraint](#Constraint) this is `null`.
 **Read only**: true  
 **See**: Aliases [parent](#Constraint+parent)  
 <a name="Constraint+parent"></a>
+
 ### constraint.parent : <code>Table</code> &#124; <code>null</code>
 For foreign key [constraints](#Constraint) this is [Table](Table) instance this [constraint](#Constraint) refers to.
 If this is not a foreign key [constraint](#Constraint) this is `null`. <br>
@@ -229,6 +248,7 @@ foreign key constraints and for foreign key constraints parent means referenced 
 - To get [Table](Table) this constraint belongs to or defined in, use [table](#Constraint+table).
 
 <a name="Constraint+columns"></a>
+
 ### constraint.columns : <code>Map.&lt;Column&gt;</code>
 For foreign key constraints, this is [map](Map) of [columns](Column) restricted by [constraint](#Constraint), in order their ordinal position
 within the constraint key.
@@ -236,6 +256,7 @@ within the constraint key.
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  
 <a name="Constraint+referencedColumnsBy"></a>
+
 ### constraint.referencedColumnsBy : <code>Map.&lt;Column&gt;</code>
 For foreign key constraints, this is [map](Map) of [columns](Column) referenced by this constraint's columns.
 Keys are referencing column's names, values are referenced columns.

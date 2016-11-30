@@ -1,4 +1,5 @@
 <a name="O2MRelation"></a>
+
 ## O2MRelation
 **Kind**: global class  
 
@@ -11,6 +12,7 @@
     * [.generateName([strategy])](#O2MRelation+generateName) ⇒ <code>string</code>
 
 <a name="new_O2MRelation_new"></a>
+
 ### new O2MRelation(args)
 Class which represent one to many relationship which resembles `hasMany` relation in ORMs (Object Relational Mappers).
 Provides attributes and methods for details of the relationship.
@@ -59,12 +61,14 @@ let FKColumn         = relation.constraint.columns[0];       // COLUMN:      pro
 let sourcePKColumn   = relation.sourceTable.primaryKeys[0];  // COLUMN:      id          (from product table)
 ```
 <a name="O2MRelation+type"></a>
+
 ### o2MRelation.type : <code>relationType</code>
 Type of relation which is `ONE TO MANY`.
 
 **Kind**: instance property of <code>[O2MRelation](#O2MRelation)</code>  
 **Read only**: true  
 <a name="O2MRelation+sourceTable"></a>
+
 ### o2MRelation.sourceTable : <code>Table</code>
 [Table](Table) which this relation belongs to.
 
@@ -76,6 +80,7 @@ let relation     = product.O2MRelationRelations[0];  // RELATION:    product ---
 let sourceTable  = relation.sourceTable;             // TABLE:       product
 ```
 <a name="O2MRelation+targetTable"></a>
+
 ### o2MRelation.targetTable : <code>Table</code>
 [Table](Table) which this relation is referring to.
 
@@ -87,6 +92,7 @@ let relation     = product.O2MRelationRelations[0];  // RELATION:    product ---
 let targetTable  = relation.targetTable;             // TABLE:       line_item
 ```
 <a name="O2MRelation+constraint"></a>
+
 ### o2MRelation.constraint : <code>Table</code>
 Foreign key [constraint](Constraint) between [source table](#O2MRelation+sourceTable) and [target table](#O2MRelation+targetTable).
 
@@ -99,6 +105,7 @@ let constraint   = relation.constraint;              // CONSTRAINT:           ^-
 let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id (from line_item table)
 ```
 <a name="O2MRelation+generateName"></a>
+
 ### o2MRelation.generateName([strategy]) ⇒ <code>string</code>
 (! EXPERIMENTAL) Returns name for relation using given strategy. Please see [Relation Names](../relation-names.md) for details.
 

@@ -1,4 +1,5 @@
 <a name="Table"></a>
+
 ## Table
 Class which represent a table. Provides attributes and methods for details of the table. Tables have relationships
 with other tables.
@@ -53,6 +54,7 @@ Below is the same schema as image:
     * [.get(path)](#Table+get) ⇒ <code>Column</code> &#124; <code>undefined</code>
 
 <a name="new_Table_new"></a>
+
 ### new Table(args)
 Constructor function. You don't need to call constructor manually. pg-structure handles this.
 
@@ -66,12 +68,14 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 | args.descriptionData | <code>Object</code> | Extra data to store in object. |
 
 <a name="Table+name"></a>
+
 ### table.name : <code>string</code>
 Name of the table.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+fullName"></a>
+
 ### table.fullName : <code>string</code>
 Full name of the [Table](#Table) with (.) notation.
 
@@ -82,6 +86,7 @@ Full name of the [Table](#Table) with (.) notation.
 var fullName = table.fullName; // public.account
 ```
 <a name="Table+fullCatalogName"></a>
+
 ### table.fullCatalogName : <code>string</code>
 Full name of the [Table](#Table) with (.) notation including catalog name.
 
@@ -92,6 +97,7 @@ Full name of the [Table](#Table) with (.) notation including catalog name.
 var fullName = table.fullName; // crm.public.account
 ```
 <a name="Table+schema"></a>
+
 ### table.schema : <code>Schema</code>
 [Schema](Schema) this table belongs to.
 
@@ -103,6 +109,7 @@ var fullName = table.fullName; // crm.public.account
 var schema = table.schema; // Schema instance
 ```
 <a name="Table+parent"></a>
+
 ### table.parent : <code>Schema</code>
 [Schema](Schema) this table belongs to.
 
@@ -114,6 +121,7 @@ var schema = table.schema; // Schema instance
 var schema = table.parent; // Schema instance
 ```
 <a name="Table+comment"></a>
+
 ### table.comment : <code>string</code>
 Comment of the table.
 
@@ -121,6 +129,7 @@ Comment of the table.
 **Read only**: true  
 **See**: Aliases [description](#Table+description)  
 <a name="Table+commentData"></a>
+
 ### table.commentData : <code>Object</code>
 JS Object extracted from table description. Object is expected as JSON data between `[PG-STRUCTURE]` and `[/PG-STRUCTURE]`
 tags in description. Tags are case-insensitive.
@@ -137,6 +146,7 @@ let extra = table.commentData;               // -> { extraData: 2 }
 console.log(table.commentData.extraData);    // -> 2
 ```
 <a name="Table+description"></a>
+
 ### table.description : <code>string</code>
 Comment of the table.
 
@@ -144,6 +154,7 @@ Comment of the table.
 **Read only**: true  
 **See**: Aliases [comment](#Table+comment)  
 <a name="Table+descriptionData"></a>
+
 ### table.descriptionData : <code>Object</code>
 JS Object extracted from table description. Object is expected as JSON data between `[PG-STRUCTURE]` and `[/PG-STRUCTURE]`
 tags in description. Tags are case-insensitive.
@@ -167,6 +178,7 @@ let extra = table.descriptionData;               // -> { extraData: 2 }
 console.log(table.descriptionData.extraData);    // -> 2
 ```
 <a name="Table+columns"></a>
+
 ### table.columns : <code>Map.&lt;Column&gt;</code>
 All [Column](Column) instances in the table as a [Map](Map). They are ordered same order as they are
 defined in database table.
@@ -190,18 +202,21 @@ for (let [name, column] of table.columns) {
 }
 ```
 <a name="Table+constraints"></a>
+
 ### table.constraints : <code>Map.&lt;Constraint&gt;</code>
 All [Constraint](Constraint) instances in the table as a [Map](Map). They are ordered by name.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+db"></a>
+
 ### table.db : <code>DB</code>
 [DB](DB) this table belongs to.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+foreignKeyConstraints"></a>
+
 ### table.foreignKeyConstraints : <code>Map.&lt;Constraint&gt;</code>
 All [Constraint](Constraint) instances which are foreign key constraints in the table as a [Map](Map).
 
@@ -209,6 +224,7 @@ All [Constraint](Constraint) instances which are foreign key constraints in the 
 **Read only**: true  
 **See**: [o2mRelations](#Table+o2mRelations), [m2oRelations](#Table+m2oRelations), [m2mRelations](#Table+m2mRelations) to get more details about relations.  
 <a name="Table+foreignKeyColumns"></a>
+
 ### table.foreignKeyColumns : <code>Map.&lt;Column&gt;</code>
 All foreign key [columns](Column) of all [foreignKeyConstraints](#Table+foreignKeyConstraints) as a [Map](Map).
 Foreign key [constraints](Constraint) may contain more than one column. To get foreign key columns of a specific foreign key constraint
@@ -217,6 +233,7 @@ use [foreignKeyConstraints](#Table+foreignKeyConstraints).[columns](Constraint#c
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+foreignKeyConstraintsToThis"></a>
+
 ### table.foreignKeyConstraintsToThis : <code>Map.&lt;Constraint&gt;</code>
 All foreign key [Constraint](Constraint) instances which are referring to this table as a [Map](Map).
 
@@ -224,6 +241,7 @@ All foreign key [Constraint](Constraint) instances which are referring to this t
 **Read only**: true  
 **See**: [o2mRelations](#Table+o2mRelations), [m2oRelations](#Table+m2oRelations), [m2mRelations](#Table+m2mRelations) to get more details about relations.  
 <a name="Table+primaryKeyConstraint"></a>
+
 ### table.primaryKeyConstraint : <code>Constraint</code> &#124; <code>undefined</code>
 Primary key [constraint](Constraint) instance of this table.
 
@@ -240,6 +258,7 @@ for (let [name, column] of pkConstraint.columns) {
 }
 ```
 <a name="Table+primaryKeyColumns"></a>
+
 ### table.primaryKeyColumns : <code>Map.&lt;Column&gt;</code>
 Primary key [columns](Column) of this table as a [Map](Map).
 
@@ -254,6 +273,7 @@ for (let [name, column] of pkConstraint.columns) {
 }
 ```
 <a name="Table+hasManyTables"></a>
+
 ### table.hasManyTables : <code>[Map.&lt;Table&gt;](#Table)</code>
 [Tables](#Table) sorted by name, which this table has relationship of type `one to many`.
 
@@ -267,6 +287,7 @@ for (let [name, table] of vendorTable.hasManyTables) {
 }
 ```
 <a name="Table+belongsToTables"></a>
+
 ### table.belongsToTables : <code>[Map.&lt;Table&gt;](#Table)</code>
 [Tables](#Table) sorted by name, which this table has relationship of type `belongs to` which is reverse direction of `one to many`.
 
@@ -280,6 +301,7 @@ for (let [name, table] of productTable.belongsToTables) {
 }
 ```
 <a name="Table+belongsToManyTables"></a>
+
 ### table.belongsToManyTables : <code>[Map.&lt;Table&gt;](#Table)</code>
 [Tables](#Table) sorted by name, which this table has relationship of type `many to many`.
 
@@ -294,6 +316,7 @@ for (let [name, table] of cartTable.belongsToManyTables) {
 }
 ```
 <a name="Table+belongsToManyTablesPk"></a>
+
 ### table.belongsToManyTablesPk : <code>[Map.&lt;Table&gt;](#Table)</code>
 [Tables](#Table) sorted by name, which this table has relationship of type `many to many`. Includes
 only tables joined by primary keys in join table.
@@ -309,6 +332,7 @@ for (let [name, table] of cartTable.belongsToManyTables) {
 }
 ```
 <a name="Table+m2mRelations"></a>
+
 ### table.m2mRelations : <code>Set.&lt;M2MRelation&gt;</code>
 Set of [many to many relationships](M2MRelation) of the table. [M2MRelation](M2MRelation) resembles
 `has many through` and `belongs to many` relations in ORMs. It has some useful methods and information for generating ORM classes.
@@ -316,6 +340,7 @@ Set of [many to many relationships](M2MRelation) of the table. [M2MRelation](M2M
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+m2mRelationsPk"></a>
+
 ### table.m2mRelationsPk : <code>Set.&lt;M2MRelation&gt;</code>
 Set of [many to many relationships](M2MRelation) of the table. Different from [m2mRelations](#Table+m2mRelations)
 this only includes relations joined by `Primary Foreign Keys` in join table. `Primary Foreign Keys` means
@@ -326,6 +351,7 @@ It has some useful methods and information for generating ORM classes.
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+o2mRelations"></a>
+
 ### table.o2mRelations : <code>Set.&lt;O2MRelation&gt;</code>
 Set of [one to many relationships](O2MRelation) of the table. [O2MRelation](O2MRelation) resembles
 `has many` relations in ORMs. It has some useful methods and information for generating ORM classes.
@@ -333,6 +359,7 @@ Set of [one to many relationships](O2MRelation) of the table. [O2MRelation](O2MR
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+m2oRelations"></a>
+
 ### table.m2oRelations : <code>Set.&lt;M2ORelation&gt;</code>
 Set of [many to one relationships](M2ORelation) of the table. [M2ORelation](M2ORelation) resembles
 `belongs to` relations in ORMs. It has some useful methods and information for generating ORM classes.
@@ -340,12 +367,14 @@ Set of [many to one relationships](M2ORelation) of the table. [M2ORelation](M2OR
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+relations"></a>
+
 ### table.relations : <code>Array.&lt;(O2MRelation\|M2ORelation\|M2MRelation)&gt;</code>
 List of all relationships of the table.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
 <a name="Table+get"></a>
+
 ### table.get(path) ⇒ <code>Column</code> &#124; <code>undefined</code>
 Returns [Column](Column) on given path relative to [Table](#Table).
 

@@ -1,4 +1,5 @@
 <a name="Db"></a>
+
 ## Db
 Class which represent a database. Provides attributes and methods for details of the database.
 
@@ -14,6 +15,7 @@ Class which represent a database. Provides attributes and methods for details of
     * [.get(path)](#Db+get) ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
 
 <a name="new_Db_new"></a>
+
 ### new Db(args, options)
 Constructor function. You don't need to call constructor manually. pg-structure handles this.
 
@@ -26,30 +28,35 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 | [options.cache] | <code>boolean</code> | <code>true</code> | Use cache to memoize calculated results. |
 
 <a name="Db+name"></a>
+
 ### db.name : <code>string</code>
 Name of the [Database](Database).
 
 **Kind**: instance property of <code>[Db](#Db)</code>  
 **Read only**: true  
 <a name="Db+fullName"></a>
+
 ### db.fullName : <code>string</code>
 Full name of the [Database](Database) with (.) notation. Since database does not have a parent this equals database name.
 
 **Kind**: instance property of <code>[Db](#Db)</code>  
 **Read only**: true  
 <a name="Db+fullCatalogName"></a>
+
 ### db.fullCatalogName : <code>string</code>
 Full name of the [Database](Database) with (.) notation including catalog name. Since database does not have a parent this equals database name.
 
 **Kind**: instance property of <code>[Db](#Db)</code>  
 **Read only**: true  
 <a name="Db+options"></a>
+
 ### db.options : <code>Object</code>
 Options passed to during initialization.
 
 **Kind**: instance property of <code>[Db](#Db)</code>  
 **Read only**: true  
 <a name="Db+schemas"></a>
+
 ### db.schemas : <code>Map.&lt;Schema&gt;</code>
 All [Schema](Schema) instances in the database as a [Map](Map). Schemas are ordered by their name.
 
@@ -72,6 +79,7 @@ for (let [name, schema] of db.schemas) {
 }
 ```
 <a name="Db+get"></a>
+
 ### db.get(path) ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
 Returns [Schema](Schema), [Table](Table) or [Column](Column) on given path relative to [Db](#Db). Path should be in dot (.) notation.
 

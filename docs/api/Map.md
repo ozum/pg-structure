@@ -1,4 +1,5 @@
 <a name="Map"></a>
+
 ## Map
 The Map object is a simple key/value map. Any value (both objects and primitive values) may be used as either a key
 or a value.
@@ -17,6 +18,7 @@ or a value.
     * [.values()](#Map+values) ⇒ <code>Iterator</code>
 
 <a name="Map+size"></a>
+
 ### map.size : <code>number</code>
 The number of key/value pairs in the Map object.
 
@@ -26,6 +28,7 @@ The number of key/value pairs in the Map object.
 let size = db.get('public.account').columns.size;
 ```
 <a name="Map+array"></a>
+
 ### map.array : <code>Array</code>
 <img src="http://www.pg-structure.com/images/warning-24.png" style="margin-left: -26px;">Not part of Map standard.
 Values of Map as an array.
@@ -36,6 +39,7 @@ Values of Map as an array.
 let schemasArray = db.schemas.array;
 ```
 <a name="Map+entries"></a>
+
 ### map.entries() ⇒ <code>Iterator</code>
 Returns a new Iterator object that contains an array of [key, value] for each element in the Map object in insertion order.
 
@@ -45,6 +49,7 @@ Returns a new Iterator object that contains an array of [key, value] for each el
 let column = db.get('public.account').columns.get('name');
 ```
 <a name="Map+forEach"></a>
+
 ### map.forEach(callbackFn, this)
 Calls callbackFn once for each key-value pair present in the Map object, in insertion order.
 If a thisArg parameter is provided to forEach, it will be used as the this value for each callback.
@@ -57,6 +62,7 @@ If a thisArg parameter is provided to forEach, it will be used as the this value
 | this | <code>Object</code> | Context. |
 
 <a name="Map+get"></a>
+
 ### map.get(name) ⇒ <code>\*</code>
 Returns the value associated to the key, or undefined if there is none.
 
@@ -72,6 +78,7 @@ Returns the value associated to the key, or undefined if there is none.
 let column = db.get('public.account').columns.get('name');
 ```
 <a name="Map+has"></a>
+
 ### map.has(name) ⇒ <code>boolean</code>
 Returns a boolean asserting whether a value has been associated to the key in the Map object or not.
 
@@ -87,6 +94,7 @@ Returns a boolean asserting whether a value has been associated to the key in th
 let exists = db.schemas.has('public'); // true
 ```
 <a name="Map+keys"></a>
+
 ### map.keys() ⇒ <code>Iterator</code>
 Returns a new Iterator object that contains the keys for each element in the Map object in insertion order.
 
@@ -100,6 +108,7 @@ for (let tableName of db.schemas.get('public').tables.keys()) {
 let tableNames = Array.from(db.schemas.get('public').tables.keys()); // Table names as an array.
 ```
 <a name="Map+values"></a>
+
 ### map.values() ⇒ <code>Iterator</code>
 Returns a new Iterator object that contains the values for each element in the Map object in insertion order.
 

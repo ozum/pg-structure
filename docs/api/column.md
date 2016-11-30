@@ -1,4 +1,5 @@
 <a name="Column"></a>
+
 ## Column
 **Kind**: global class  
 
@@ -43,6 +44,7 @@
     * [.uniqueIndexes](#Column+uniqueIndexes) : <code>Map.&lt;Index&gt;</code>
 
 <a name="new_Column_new"></a>
+
 ### new Column(args)
 Constructor function. You don't need to call constructor manually. pg-structure handles this.
 
@@ -53,6 +55,7 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 | args | <code>Object</code> | Attributes of the [Column](#Column) instance to be created. |
 
 <a name="Column+allowNull"></a>
+
 ### column.allowNull : <code>boolean</code>
 `true` if column is allowed to contain null values; otherwise `false`.
 
@@ -60,18 +63,21 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 **Read only**: true  
 **See**: [notNull](#Column+notNull).  
 <a name="Column+arrayDimension"></a>
+
 ### column.arrayDimension : <code>number</code>
 Number of dimensions, if the column is an array type; otherwise 0.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+arrayType"></a>
+
 ### column.arrayType : <code>string</code> &#124; <code>null</code>
 If this column is an array, data type of the array. If column is not an array equals `null`.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+comment"></a>
+
 ### column.comment : <code>string</code> &#124; <code>null</code>
 Comment about column.
 
@@ -79,6 +85,7 @@ Comment about column.
 **Read only**: true  
 **See**: Aliases [description](#Column+description)  
 <a name="Column+commentData"></a>
+
 ### column.commentData : <code>Object</code>
 JS Object extracted from column description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
 tags in description. Tags are case-insensitive.
@@ -93,12 +100,14 @@ let extra = column.commentData;              // -> { extraData: 2 }
 console.log(column.commentData.extraData);   // -> 2
 ```
 <a name="Column+db"></a>
+
 ### column.db : <code>DB</code>
 [DB](DB) this table belongs to.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+default"></a>
+
 ### column.default : <code>string</code> &#124; <code>null</code>
 Default value of the column without typecast. Default values includes single quotes except sql functions and numeric values.
 
@@ -114,6 +123,7 @@ type = created_at.default;           // "now()"
 type = column.defaultWithTypeCast;   // "'George'::character varying"
 ```
 <a name="Column+defaultWithTypeCast"></a>
+
 ### column.defaultWithTypeCast : <code>string</code> &#124; <code>null</code>
 Default expression of the column with typecast. PostgreSQL returns default values with typecast.
 Default values includes single quotes except sql functions and numeric values. Also sql functions and numeric values
@@ -131,6 +141,7 @@ type = created_at.defaultWithTypeCast;   // "now()"
 type = column.default;                   // "'George'"
 ```
 <a name="Column+description"></a>
+
 ### column.description : <code>string</code> &#124; <code>null</code>
 Comment about column.
 
@@ -138,6 +149,7 @@ Comment about column.
 **Read only**: true  
 **See**: Aliases [comment](#Column+comment)  
 <a name="Column+descriptionData"></a>
+
 ### column.descriptionData : <code>Object</code>
 JS Object extracted from column description. Object is expected as JSON data between `[JSON]` and `[/JSON]`
 tags in description. Tags are case-insensitive.
@@ -152,6 +164,7 @@ let extra = column.descriptionData;              // -> { extraData: 2 }
 console.log(column.descriptionData.extraData);   // -> 2
 ```
 <a name="Column+domainName"></a>
+
 ### column.domainName : <code>string</code> &#124; <code>null</code>
 If column data type is a domain, this equals domain name without domain schema. Otherwise null.
 
@@ -163,6 +176,7 @@ If column data type is a domain, this equals domain name without domain schema. 
 var domainName = column.domainName; // i.e. 'phone_number'
 ```
 <a name="Column+domainFullName"></a>
+
 ### column.domainFullName : <code>string</code> &#124; <code>null</code>
 If column data type is a domain, this equals domain name including domain schema. Otherwise null.
 
@@ -174,6 +188,7 @@ If column data type is a domain, this equals domain name including domain schema
 var domainName = column.domainFullName; // i.e. 'public.phone_number'
 ```
 <a name="Column+domainFullCatalogName"></a>
+
 ### column.domainFullCatalogName : <code>string</code> &#124; <code>null</code>
 If column data type is a domain, this equals domain name including domain schema. Otherwise null.
 
@@ -185,6 +200,7 @@ If column data type is a domain, this equals domain name including domain schema
 var domainName = column.domainFullName; // i.e. 'public.phone_number'
 ```
 <a name="Column+domainSchema"></a>
+
 ### column.domainSchema : <code>string</code> &#124; <code>null</code>
 If column data type is a domain, this equals domain schema name. Otherwise null.
 
@@ -196,6 +212,7 @@ If column data type is a domain, this equals domain schema name. Otherwise null.
 var domainName = column.domainSchema; // i.e. 'public'
 ```
 <a name="Column+enumLabels"></a>
+
 ### column.enumLabels : <code>Array.&lt;string&gt;</code> &#124; <code>null</code>
 Array of the textual labels for enum values column may contain. If column is not an enum, then this
 equals `undefined`
@@ -204,6 +221,7 @@ equals `undefined`
 **Read only**: true  
 **See**: Aliases [enumValues](#Column+enumValues)  
 <a name="Column+enumValues"></a>
+
 ### column.enumValues : <code>Array.&lt;string&gt;</code> &#124; <code>null</code>
 Array of the textual labels for enum values column may contain. If column is not an enum, then this
 equals `undefined`
@@ -212,12 +230,14 @@ equals `undefined`
 **Read only**: true  
 **See**: Aliases [enumLabels](#Column+enumLabels)  
 <a name="Column+foreignKeyConstraints"></a>
+
 ### column.foreignKeyConstraints : <code>Map.&lt;Constraint&gt;</code>
 [Map](Map) of foreign key constraints of the column, if column is part of one or more foreign key constraint.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+fullName"></a>
+
 ### column.fullName : <code>string</code>
 Full name of the [Column](#Column) with (.) notation.
 
@@ -228,6 +248,7 @@ Full name of the [Column](#Column) with (.) notation.
 var fullName = column.fullName; // public.account.id
 ```
 <a name="Column+fullCatalogName"></a>
+
 ### column.fullCatalogName : <code>string</code>
 Full name of the [Column](#Column) with (.) notation including catalog name.
 
@@ -238,12 +259,14 @@ Full name of the [Column](#Column) with (.) notation including catalog name.
 var fullName = table.fullCatalogName; // crm.public.account.id
 ```
 <a name="Column+indexes"></a>
+
 ### column.indexes : <code>Map.&lt;Index&gt;</code>
 [Map](Map) of [indexes](Index), which column is part of.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+isAutoIncrement"></a>
+
 ### column.isAutoIncrement : <code>boolean</code>
 `true` if this column has an auto incremented (`nextval()`) default value or defined one of `serial`
 types.
@@ -252,6 +275,7 @@ types.
 **Read only**: true  
 **See**: Aliases [isSerial](#Column+isSerial)  
 <a name="Column+isSerial"></a>
+
 ### column.isSerial : <code>boolean</code>
 `true` if this column has an auto incremented (`nextval()`) default value or defined one of `serial`
 types.
@@ -260,6 +284,7 @@ types.
 **Read only**: true  
 **See**: Aliases [isAutoIncrement](#Column+isAutoIncrement)  
 <a name="Column+isForeignKey"></a>
+
 ### column.isForeignKey : <code>boolean</code>
 `true` if this column is a foreign key or part of a foreign key constraint; otherwise `false`.
 Please note that a foreign key may contain more than one column.
@@ -267,6 +292,7 @@ Please note that a foreign key may contain more than one column.
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+isPrimaryKey"></a>
+
 ### column.isPrimaryKey : <code>boolean</code>
 `true` if this column is a primary key or part of a primary key constraint; otherwise `false`.
 Please note that a primary key may contain more than one column.
@@ -274,6 +300,7 @@ Please note that a primary key may contain more than one column.
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+length"></a>
+
 ### column.length : <code>number</code> &#124; <code>null</code>
 Length of the column.
 * For data type identified as a character or bit string type, this is the declared
@@ -286,12 +313,14 @@ of a varchar column). It is passed to type-specific input functions and length c
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+name"></a>
+
 ### column.name : <code>string</code>
 Name of the column.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+notNull"></a>
+
 ### column.notNull : <code>boolean</code>
 `true` if column is **not allowed** to contain null values; otherwise `false`.
 
@@ -299,6 +328,7 @@ Name of the column.
 **Read only**: true  
 **See**: [allowNull](#Column+allowNull)  
 <a name="Column+parent"></a>
+
 ### column.parent : <code>Table</code>
 [Table](Table) this column belongs to.
 
@@ -310,6 +340,7 @@ Name of the column.
 var table = column.parent; // Table instance
 ```
 <a name="Column+precision"></a>
+
 ### column.precision : <code>number</code> &#124; <code>null</code>
 * If data type identifies a numeric type, this contains the (declared or implicit) precision of
 the type for this column. The precision indicates the number of significant digits.
@@ -323,12 +354,14 @@ of the data type of the array.
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+referencedColumns"></a>
+
 ### column.referencedColumns : <code>[Set.&lt;Column&gt;](#Column)</code>
 All referenced columns in all foreign key constraints by this column.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+scale"></a>
+
 ### column.scale : <code>number</code> &#124; <code>null</code>
 * If data type identifies an exact numeric type, this contains the (declared or implicit) scale
 of the type for this attribute. The scale indicates the number of significant digits to the right of the decimal point.
@@ -339,12 +372,14 @@ of the data type of the array.
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+schema"></a>
+
 ### column.schema : <code>Schema</code>
 [Schema](Schema) this column belongs to.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+type"></a>
+
 ### column.type : <code>postgreSQLDataType</code>
 Data type of the column.
 * For built-in types this is name of type.
@@ -360,6 +395,7 @@ Data type of the column.
 - [domainName](#Column+domainName) and [domainFullName](#Column+domainFullName)
 
 <a name="Column+table"></a>
+
 ### column.table : <code>Table</code>
 [Table](Table) this column belongs to.
 
@@ -371,12 +407,14 @@ Data type of the column.
 var table = column.table; // Table instance
 ```
 <a name="Column+userDefinedType"></a>
+
 ### column.userDefinedType : <code>postgreSQLDataType</code> &#124; <code>null</code>
 If type of column is user defined such as composite, enumerated, this is the data type of the underlying type.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  
 <a name="Column+uniqueIndexesNoPk"></a>
+
 ### column.uniqueIndexesNoPk : <code>Map.&lt;Index&gt;</code>
 [Map](Map) of unique [indexes](Index), which column is part of. Excludes primary key indexes. PostgreSQL already creates a unique index for unique
 [constraints](Constraint). So there is no need to look for unique constraints which will result duplicates.
@@ -385,6 +423,7 @@ If type of column is user defined such as composite, enumerated, this is the dat
 **Read only**: true  
 **See**: [uniqueIndexes](#Column+uniqueIndexes) for all unique indexes including primary key indexes.  
 <a name="Column+uniqueIndexes"></a>
+
 ### column.uniqueIndexes : <code>Map.&lt;Index&gt;</code>
 [Map](Map) of unique [indexes](Index), which column is part of. PostgreSQL already creates a unique index for unique
 [constraints](Constraint). So there is no need to look for unique constraints which will result duplicates.
