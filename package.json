@@ -52,9 +52,9 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "fs-extra": "^0.30.0",
+    "fs-extra": "^1.x",
     "js-yaml": "^3.4.6",
-    "lab": "^10.3.2",
-    "pg-test-util": "^1.2.3"
+    "lab": "^11.x",
+    "pg-test-util": "^1.x"
   }
 }
