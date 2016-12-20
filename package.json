@@ -47,7 +47,7 @@
     "jsonic": "^0.2.2",
     "jszip": "^3.0.0",
     "lodash": "^4.0.0",
-    "pg": "^4.4.3",
+    "pg": "^6.x",
     "semver": "^5.1.0"
   },
   "devDependencies": {
