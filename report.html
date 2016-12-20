@@ -615,30 +615,50 @@
           <div class="failures">0</div>
           <div class="skipped">0</div>
           <div class="test-count">284</div>
-          <div class="duration">7182</div>
+          <div class="duration">7287</div>
       </div>
       <div id="filters">
-          <input type="checkbox" checked="" onchange="filter(this)" value="success" id="show-success"><label for="show-success">Show Success</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="failure" id="show-failure"><label for="show-failure">Show Failure</label></input>
+          <input type="checkbox" checked="" onchange="filter(this)" value="success" id="show-success">
+          <label for="show-success">Show Success</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="failure" id="show-failure">
+          <label for="show-failure">Show Failure</label>
           <br>
-          <input type="checkbox" checked="" onchange="filter(this)" value="DB_from_Database" id="show-DB_from_Database"><label for="show-DB_from_Database">DB from Database</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="DB_from_File" id="show-DB_from_File"><label for="show-DB_from_File">DB from File</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="Schema_from_Database" id="show-Schema_from_Database"><label for="show-Schema_from_Database">Schema from Database</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="Schema_from_File" id="show-Schema_from_File"><label for="show-Schema_from_File">Schema from File</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="Table_from_Database" id="show-Table_from_Database"><label for="show-Table_from_Database">Table from Database</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="Table_from_File" id="show-Table_from_File"><label for="show-Table_from_File">Table from File</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="Column_from_Database" id="show-Column_from_Database"><label for="show-Column_from_Database">Column from Database</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="Column_from_File" id="show-Column_from_File"><label for="show-Column_from_File">Column from File</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="Constraint_from_Database" id="show-Constraint_from_Database"><label for="show-Constraint_from_Database">Constraint from Database</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="Constraint_from_File" id="show-Constraint_from_File"><label for="show-Constraint_from_File">Constraint from File</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="O2MConstraint_from_Database" id="show-O2MConstraint_from_Database"><label for="show-O2MConstraint_from_Database">O2MConstraint from Database</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="O2MConstraint_from_File" id="show-O2MConstraint_from_File"><label for="show-O2MConstraint_from_File">O2MConstraint from File</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="M2OConstraint_from_Database" id="show-M2OConstraint_from_Database"><label for="show-M2OConstraint_from_Database">M2OConstraint from Database</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="M2OConstraint_from_File" id="show-M2OConstraint_from_File"><label for="show-M2OConstraint_from_File">M2OConstraint from File</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="M2MConstraint_from_Database" id="show-M2MConstraint_from_Database"><label for="show-M2MConstraint_from_Database">M2MConstraint from Database</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="M2MConstraint_from_File" id="show-M2MConstraint_from_File"><label for="show-M2MConstraint_from_File">M2MConstraint from File</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="Index_from_Database" id="show-Index_from_Database"><label for="show-Index_from_Database">Index from Database</label></input>
-          <input type="checkbox" checked="" onchange="filter(this)" value="Index_from_File" id="show-Index_from_File"><label for="show-Index_from_File">Index from File</label></input>
+          <input type="checkbox" checked="" onchange="filter(this)" value="DB_from_Database" id="show-DB_from_Database">
+          <label for="show-DB_from_Database">DB from Database</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="DB_from_File" id="show-DB_from_File">
+          <label for="show-DB_from_File">DB from File</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Schema_from_Database" id="show-Schema_from_Database">
+          <label for="show-Schema_from_Database">Schema from Database</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Schema_from_File" id="show-Schema_from_File">
+          <label for="show-Schema_from_File">Schema from File</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Table_from_Database" id="show-Table_from_Database">
+          <label for="show-Table_from_Database">Table from Database</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Table_from_File" id="show-Table_from_File">
+          <label for="show-Table_from_File">Table from File</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Column_from_Database" id="show-Column_from_Database">
+          <label for="show-Column_from_Database">Column from Database</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Column_from_File" id="show-Column_from_File">
+          <label for="show-Column_from_File">Column from File</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Constraint_from_Database" id="show-Constraint_from_Database">
+          <label for="show-Constraint_from_Database">Constraint from Database</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Constraint_from_File" id="show-Constraint_from_File">
+          <label for="show-Constraint_from_File">Constraint from File</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="O2MConstraint_from_Database" id="show-O2MConstraint_from_Database">
+          <label for="show-O2MConstraint_from_Database">O2MConstraint from Database</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="O2MConstraint_from_File" id="show-O2MConstraint_from_File">
+          <label for="show-O2MConstraint_from_File">O2MConstraint from File</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="M2OConstraint_from_Database" id="show-M2OConstraint_from_Database">
+          <label for="show-M2OConstraint_from_Database">M2OConstraint from Database</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="M2OConstraint_from_File" id="show-M2OConstraint_from_File">
+          <label for="show-M2OConstraint_from_File">M2OConstraint from File</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="M2MConstraint_from_Database" id="show-M2MConstraint_from_Database">
+          <label for="show-M2MConstraint_from_Database">M2MConstraint from Database</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="M2MConstraint_from_File" id="show-M2MConstraint_from_File">
+          <label for="show-M2MConstraint_from_File">M2MConstraint from File</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Index_from_Database" id="show-Index_from_Database">
+          <label for="show-Index_from_Database">Index from Database</label>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Index_from_File" id="show-Index_from_File">
+          <label for="show-Index_from_File">Index from File</label>
       </div>
       <table>
           <thead>
@@ -675,7 +695,7 @@
               <td class="test-title">DB from Database should have schemas.get().
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show DB_from_Database success">
               <td class="test-id">5</td>
@@ -696,7 +716,7 @@
               <td class="test-title">DB from File should have name.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show DB_from_File success">
               <td class="test-id">8</td>
@@ -717,7 +737,7 @@
               <td class="test-title">DB from File should have schemas.get().
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show DB_from_File success">
               <td class="test-id">11</td>
@@ -759,7 +779,7 @@
               <td class="test-title">Schema from Database should have parent.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Schema_from_Database success">
               <td class="test-id">17</td>
@@ -864,14 +884,14 @@
               <td class="test-title">Table from Database should have parent.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_from_Database success">
               <td class="test-id">32</td>
               <td class="test-title">Table from Database should have schema.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_from_Database success">
               <td class="test-id">33</td>
@@ -927,7 +947,7 @@
               <td class="test-title">Table from Database should have foreignKeyColumns.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">2</td>
           </tr>
           <tr class="show Table_from_Database success">
               <td class="test-id">41</td>
@@ -941,7 +961,7 @@
               <td class="test-title">Table from Database should have primaryKeyConstraint.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_from_Database success">
               <td class="test-id">43</td>
@@ -955,7 +975,7 @@
               <td class="test-title">Table from Database without primary key should return empty set for primaryKeyColumns.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_from_Database success">
               <td class="test-id">45</td>
@@ -969,7 +989,7 @@
               <td class="test-title">Table from Database should have hasManyTables.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_from_Database success">
               <td class="test-id">47</td>
@@ -990,7 +1010,7 @@
               <td class="test-title">Table from Database should have belongsToTables.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_from_Database success">
               <td class="test-id">50</td>
@@ -1025,21 +1045,21 @@
               <td class="test-title">Table from Database should have m2mRelations.
                   
               </td>
-              <td class="test-duration">2</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_from_Database success">
               <td class="test-id">55</td>
               <td class="test-title">Table from Database should have m2mRelationsPk.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_from_Database success">
               <td class="test-id">56</td>
               <td class="test-title">Table from Database should have o2mRelations.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_from_Database success">
               <td class="test-id">57</td>
@@ -1151,7 +1171,7 @@
               <td class="test-title">Table from File should have constraintsByName.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_from_File success">
               <td class="test-id">73</td>
@@ -1165,7 +1185,7 @@
               <td class="test-title">Table from File should have foreignKeyConstraints.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_from_File success">
               <td class="test-id">75</td>
@@ -1242,7 +1262,7 @@
               <td class="test-title">Table from File should have belongsToTables.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_from_File success">
               <td class="test-id">86</td>
@@ -1256,14 +1276,14 @@
               <td class="test-title">Table from File should have belongsToManyTables.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Table_from_File success">
               <td class="test-id">88</td>
               <td class="test-title">Table from File should have belongsToManyTablesPk.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_from_File success">
               <td class="test-id">89</td>
@@ -1305,7 +1325,7 @@
               <td class="test-title">Table from File should have relations.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Table_from_File success">
               <td class="test-id">95</td>
@@ -1347,7 +1367,7 @@
               <td class="test-title">Column from Database should have arrayDimension.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_from_Database success">
               <td class="test-id">101</td>
@@ -1368,7 +1388,7 @@
               <td class="test-title">Column from Database should have default.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Column_from_Database success">
               <td class="test-id">104</td>
@@ -1396,7 +1416,7 @@
               <td class="test-title">Column from Database should have commentData.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_from_Database success">
               <td class="test-id">108</td>
@@ -1417,7 +1437,7 @@
               <td class="test-title">Column from Database should have domainSchema.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Column_from_Database success">
               <td class="test-id">111</td>
@@ -1466,14 +1486,14 @@
               <td class="test-title">Column from Database should have isAutoIncrement.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_from_Database success">
               <td class="test-id">118</td>
               <td class="test-title">Column from Database should have isSerial.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">2</td>
           </tr>
           <tr class="show Column_from_Database success">
               <td class="test-id">119</td>
@@ -1487,7 +1507,7 @@
               <td class="test-title">Column from Database should have isForeignKey.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_from_Database success">
               <td class="test-id">121</td>
@@ -1508,7 +1528,7 @@
               <td class="test-title">Column from Database should have matchOption.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Column_from_Database success">
               <td class="test-id">124</td>
@@ -1550,7 +1570,7 @@
               <td class="test-title">Column from Database should have referencedColumns.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_from_Database success">
               <td class="test-id">130</td>
@@ -1655,7 +1675,7 @@
               <td class="test-title">Column from File should have default.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_from_File success">
               <td class="test-id">145</td>
@@ -1711,7 +1731,7 @@
               <td class="test-title">Column from File should have domainFullName.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Column_from_File success">
               <td class="test-id">153</td>
@@ -1774,7 +1794,7 @@
               <td class="test-title">Column from File should have isForeignKey.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_from_File success">
               <td class="test-id">162</td>
@@ -1830,7 +1850,7 @@
               <td class="test-title">Column from File should have precision.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Column_from_File success">
               <td class="test-id">170</td>
@@ -1872,7 +1892,7 @@
               <td class="test-title">Column from File should have uniqueIndexesNoPk.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Column_from_File success">
               <td class="test-id">176</td>
@@ -1900,7 +1920,7 @@
               <td class="test-title">Column from File should have indexes.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Column_from_File success">
               <td class="test-id">180</td>
@@ -1935,14 +1955,14 @@
               <td class="test-title">Constraint from Database should have type.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Constraint_from_Database success">
               <td class="test-id">185</td>
               <td class="test-title">Constraint from Database should have description.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Constraint_from_Database success">
               <td class="test-id">186</td>
@@ -2005,7 +2025,7 @@
               <td class="test-title">Constraint from Database should have referencedTable.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Constraint_from_Database success">
               <td class="test-id">195</td>
@@ -2026,7 +2046,7 @@
               <td class="test-title">Constraint from Database should have columns returning null for non column based constraints.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Constraint_from_Database success">
               <td class="test-id">198</td>
@@ -2075,7 +2095,7 @@
               <td class="test-title">Constraint from File should have fullCatalogName.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Constraint_from_File success">
               <td class="test-id">205</td>
@@ -2236,7 +2256,7 @@
               <td class="test-title">O2MConstraint from Database should have generateName().
                   
               </td>
-              <td class="test-duration">2</td>
+              <td class="test-duration">3</td>
           </tr>
           <tr class="show O2MConstraint_from_File success">
               <td class="test-id">228</td>
@@ -2285,7 +2305,7 @@
               <td class="test-title">M2OConstraint from Database should have sourceTable.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show M2OConstraint_from_Database success">
               <td class="test-id">235</td>
@@ -2334,7 +2354,7 @@
               <td class="test-title">M2OConstraint from File should have constraint.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show M2OConstraint_from_File success">
               <td class="test-id">242</td>
@@ -2348,7 +2368,7 @@
               <td class="test-title">M2MConstraint from Database should have type.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show M2MConstraint_from_Database success">
               <td class="test-id">244</td>
@@ -2383,14 +2403,14 @@
               <td class="test-title">M2MConstraint from Database should have targetConstraint.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show M2MConstraint_from_Database success">
               <td class="test-id">249</td>
               <td class="test-title">M2MConstraint from Database should have generateName().
                   
               </td>
-              <td class="test-duration">2</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show M2MConstraint_from_File success">
               <td class="test-id">250</td>
@@ -2453,14 +2473,14 @@
               <td class="test-title">Index from Database should have fullName.
                   
               </td>
-              <td class="test-duration">0</td>
+              <td class="test-duration">1</td>
           </tr>
           <tr class="show Index_from_Database success">
               <td class="test-id">259</td>
               <td class="test-title">Index from Database should have fullCatalogName.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           <tr class="show Index_from_Database success">
               <td class="test-id">260</td>
@@ -2635,7 +2655,7 @@
               <td class="test-title">M2MConstraint from File should have unique relation names.
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">0</td>
           </tr>
           </tbody>
       </table>
