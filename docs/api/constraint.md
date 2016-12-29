@@ -48,7 +48,7 @@ color and vendor tables would have many to many `through constraints`.
     * [.descriptionData](#Constraint+descriptionData) : <code>Object</code>
     * [.child](#Constraint+child) : <code>Table</code>
     * [.table](#Constraint+table) : <code>Table</code>
-    * [.db](#Constraint+db) : <code>DB</code>
+    * [.db](#Constraint+db) : <code>Db</code>
     * [.schema](#Constraint+schema) : <code>Schema</code>
     * [.matchOption](#Constraint+matchOption) : <code>string</code>
     * [.onUpdate](#Constraint+onUpdate) : <code>constraintRule</code> &#124; <code>null</code>
@@ -188,8 +188,8 @@ var table = constraint.table;
 ```
 <a name="Constraint+db"></a>
 
-### constraint.db : <code>DB</code>
-[DB](DB) this [constraint](#Constraint) belongs to.
+### constraint.db : <code>Db</code>
+[Db](Db) this [constraint](#Constraint) belongs to.
 
 **Kind**: instance property of <code>[Constraint](#Constraint)</code>  
 **Read only**: true  

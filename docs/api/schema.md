@@ -10,8 +10,8 @@ Class which represent a PostgreSQL schema. Provides attributes and methods for d
     * [.name](#Schema+name) : <code>string</code>
     * [.fullName](#Schema+fullName) : <code>string</code>
     * [.fullCatalogName](#Schema+fullCatalogName) : <code>string</code>
-    * [.db](#Schema+db) : <code>DB</code>
-    * [.parent](#Schema+parent) : <code>DB</code>
+    * [.db](#Schema+db) : <code>Db</code>
+    * [.parent](#Schema+parent) : <code>Db</code>
     * [.tables](#Schema+tables) : <code>Map.&lt;Table&gt;</code>
     * [.get(path)](#Schema+get) ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
 
@@ -24,7 +24,7 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 | Param | Type | Description |
 | --- | --- | --- |
 | args | <code>Object</code> | Attributes of the [Schema](#Schema) instance to be created. |
-| args.parent | <code>DB</code> | Parent [DB](DB) of the Schema. |
+| args.parent | <code>Db</code> | Parent [Db](Db) of the Schema. |
 | args.name | <code>string</code> | Name of the Schema. |
 
 <a name="Schema+name"></a>
@@ -58,27 +58,27 @@ var fullCatalogName = schema.fullCatalogName; // crm.public
 ```
 <a name="Schema+db"></a>
 
-### schema.db : <code>DB</code>
-[DB](DB) this schema belongs to.
+### schema.db : <code>Db</code>
+[Db](Db) this schema belongs to.
 
 **Kind**: instance property of <code>[Schema](#Schema)</code>  
 **Read only**: true  
 **See**: Aliases [parent](#Schema+parent)  
 **Example**  
 ```js
-var db = schema.db; // DB instance
+var db = schema.db; // Db instance
 ```
 <a name="Schema+parent"></a>
 
-### schema.parent : <code>DB</code>
-[DB](DB) this schema belongs to.
+### schema.parent : <code>Db</code>
+[Db](Db) this schema belongs to.
 
 **Kind**: instance property of <code>[Schema](#Schema)</code>  
 **Read only**: true  
 **See**: Aliases [db](#Schema+db)  
 **Example**  
 ```js
-var db = schema.parent; // DB instance
+var db = schema.parent; // Db instance
 ```
 <a name="Schema+tables"></a>
 

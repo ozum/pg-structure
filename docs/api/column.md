@@ -10,7 +10,7 @@
     * [.arrayType](#Column+arrayType) : <code>string</code> &#124; <code>null</code>
     * [.comment](#Column+comment) : <code>string</code> &#124; <code>null</code>
     * [.commentData](#Column+commentData) : <code>Object</code>
-    * [.db](#Column+db) : <code>DB</code>
+    * [.db](#Column+db) : <code>Db</code>
     * [.default](#Column+default) : <code>string</code> &#124; <code>null</code>
     * [.defaultWithTypeCast](#Column+defaultWithTypeCast) : <code>string</code> &#124; <code>null</code>
     * [.description](#Column+description) : <code>string</code> &#124; <code>null</code>
@@ -101,8 +101,8 @@ console.log(column.commentData.extraData);   // -> 2
 ```
 <a name="Column+db"></a>
 
-### column.db : <code>DB</code>
-[DB](DB) this table belongs to.
+### column.db : <code>Db</code>
+[Db](Db) this table belongs to.
 
 **Kind**: instance property of <code>[Column](#Column)</code>  
 **Read only**: true  

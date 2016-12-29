@@ -174,7 +174,7 @@
             
                 <li class="toctree-l3"><a href="#pgstructure">pgStructure</a></li>
                 
-                    <li><a class="toctree-l4" href="#moduleexportspgoptions-schemas-options-promisedb">module.exports(pgOptions, [schemas], options) ⇒ Promise.&lt;DB&gt; ⏏</a></li>
+                    <li><a class="toctree-l4" href="#moduleexportspgoptions-schemas-options-promisedb">module.exports(pgOptions, [schemas], options) ⇒ Promise.&lt;Db&gt; ⏏</a></li>
                 
             
             </ul>
@@ -242,14 +242,14 @@
 <h2 id="pgstructure">pgStructure</h2>
 <ul>
 <li><a href="#module_pgStructure">pgStructure</a><ul>
-<li><a href="#exp_module_pgStructure--module.exports">module.exports(pgOptions, [schemas], options)</a> ⇒ <code>Promise.&lt;DB&gt;</code> ⏏<ul>
+<li><a href="#exp_module_pgStructure--module.exports">module.exports(pgOptions, [schemas], options)</a> ⇒ <code>Promise.&lt;Db&gt;</code> ⏏<ul>
 <li><em>static</em><ul>
 <li><a href="#module_pgStructure--module.exports.save">.save(file, db)</a> ⇒ <code>Promise.&lt;string&gt;</code></li>
-<li><a href="#module_pgStructure--module.exports.load">.load(file)</a> ⇒ <code>Promise.&lt;(DB\|undefined)&gt;</code></li>
+<li><a href="#module_pgStructure--module.exports.load">.load(file)</a> ⇒ <code>Promise.&lt;(Db\|undefined)&gt;</code></li>
 <li><a href="#module_pgStructure--module.exports.serialize">.serialize(db)</a> ⇒ <code>string</code></li>
 <li><a href="#module_pgStructure--module.exports.toString">.toString(db)</a> ⇒ <code>string</code></li>
-<li><a href="#module_pgStructure--module.exports.deserialize">.deserialize(serializedDBJSON)</a> ⇒ <code>DB</code> &#124; <code>undefined</code></li>
-<li><a href="#module_pgStructure--module.exports.parse">.parse(serializedDB)</a> ⇒ <code>DB</code> &#124; <code>undefined</code></li>
+<li><a href="#module_pgStructure--module.exports.deserialize">.deserialize(serializedDbJSON)</a> ⇒ <code>Db</code> &#124; <code>undefined</code></li>
+<li><a href="#module_pgStructure--module.exports.parse">.parse(serializedDb)</a> ⇒ <code>Db</code> &#124; <code>undefined</code></li>
 </ul>
 </li>
 <li><em>inner</em><ul>
@@ -262,10 +262,10 @@
 </li>
 </ul>
 <p><a name="exp_module_pgStructure--module.exports"></a></p>
-<h3 id="moduleexportspgoptions-schemas-options-promisedb">module.exports(pgOptions, [schemas], options) ⇒ <code>Promise.&lt;DB&gt;</code> ⏏</h3>
-<p>Creates and returns <a href="../DB">DB</a> instance by reverse engineering PostgreSQL database.</p>
+<h3 id="moduleexportspgoptions-schemas-options-promisedb">module.exports(pgOptions, [schemas], options) ⇒ <code>Promise.&lt;Db&gt;</code> ⏏</h3>
+<p>Creates and returns <a href="../Db">Db</a> instance by reverse engineering PostgreSQL database.</p>
 <p><strong>Kind</strong>: Exported function<br />
-<strong>Returns</strong>: <code>Promise.&lt;DB&gt;</code> - - <a href="../DB">DB</a>.  </p>
+<strong>Returns</strong>: <code>Promise.&lt;Db&gt;</code> - - <a href="../Db">Db</a>.  </p>
 <table>
 <thead>
 <tr>
@@ -332,8 +332,8 @@ compressed zip file.</p>
 </tr>
 <tr>
 <td>db</td>
-<td><code>DB</code></td>
-<td><a href="../DB">DB</a> object to save.</td>
+<td><code>Db</code></td>
+<td><a href="../Db">Db</a> object to save.</td>
 </tr>
 </tbody>
 </table>
@@ -346,7 +346,7 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
 </code></pre>
 
 <p><a name="module_pgStructure--module.exports.load"></a></p>
-<h4 id="moduleexportsloadfile-promisedbundefined">module.exports.load(file) ⇒ <code>Promise.&lt;(DB\|undefined)&gt;</code></h4>
+<h4 id="moduleexportsloadfile-promisedbundefined">module.exports.load(file) ⇒ <code>Promise.&lt;(Db\|undefined)&gt;</code></h4>
 <p>Loads database structure from previously saved file. Much faster than getting structure from database.
 If file is a zip file which contains a json file with same name as zip file, this function decompresses the file
 automatically.<br/>
@@ -354,7 +354,7 @@ automatically.<br/>
 load files saved by incompatible pg-structure module versions and returns <code>undefined</code>. In this case you should
 fetch structure from database and create a new save file.</p>
 <p><strong>Kind</strong>: static method of <code><a href="#exp_module_pgStructure--module.exports">module.exports</a></code><br />
-<strong>Returns</strong>: <code>Promise.&lt;(DB\|undefined)&gt;</code> - - <a href="../DB">DB</a> instance or <code>undefined</code> if saved file is generated with incompatible module version.  </p>
+<strong>Returns</strong>: <code>Promise.&lt;(Db\|undefined)&gt;</code> - - <a href="../Db">Db</a> instance or <code>undefined</code> if saved file is generated with incompatible module version.  </p>
 <table>
 <thead>
 <tr>
@@ -395,8 +395,8 @@ pgStructure.load('./db.json')
 <tbody>
 <tr>
 <td>db</td>
-<td><code>DB</code></td>
-<td><a href="../DB">DB</a> instance to serialize.</td>
+<td><code>Db</code></td>
+<td><a href="../Db">Db</a> instance to serialize.</td>
 </tr>
 </tbody>
 </table>
@@ -424,18 +424,18 @@ pgStructure.load('./db.json')
 <tbody>
 <tr>
 <td>db</td>
-<td><code>DB</code></td>
-<td><a href="../DB">DB</a> instance to serialize.</td>
+<td><code>Db</code></td>
+<td><a href="../Db">Db</a> instance to serialize.</td>
 </tr>
 </tbody>
 </table>
 <p><a name="module_pgStructure--module.exports.deserialize"></a></p>
-<h4 id="moduleexportsdeserializeserializeddbjson-db-undefined">module.exports.deserialize(serializedDBJSON) ⇒ <code>DB</code> &#124; <code>undefined</code></h4>
-<p>Creates and returns <a href="../DB">DB</a> instance using previously serialized string. <br/>
+<h4 id="moduleexportsdeserializeserializeddbjson-db-undefined">module.exports.deserialize(serializedDbJSON) ⇒ <code>Db</code> &#124; <code>undefined</code></h4>
+<p>Creates and returns <a href="../Db">Db</a> instance using previously serialized string. <br/>
 <img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
 deserialize incompatible pg-structure module versions and returns <code>undefined</code>. In this case you should fetch structure from database.</p>
 <p><strong>Kind</strong>: static method of <code><a href="#exp_module_pgStructure--module.exports">module.exports</a></code><br />
-<strong>Returns</strong>: <code>DB</code> &#124; <code>undefined</code> - - <a href="../DB">DB</a> instance. If serialized string is from incompatible module version, this is <code>undefined</code>
+<strong>Returns</strong>: <code>Db</code> &#124; <code>undefined</code> - - <a href="../Db">Db</a> instance. If serialized string is from incompatible module version, this is <code>undefined</code>
 var pgStructure = require('pg-structure');</p>
 <p>pgStructure.deserialize('./db.json')
     .then(db =&gt; console.log(db.schemas[0].name)
@@ -450,19 +450,19 @@ var pgStructure = require('pg-structure');</p>
 </thead>
 <tbody>
 <tr>
-<td>serializedDBJSON</td>
+<td>serializedDbJSON</td>
 <td><code>string</code></td>
-<td>Serialized database structure to create <a href="../DB">DB</a> instance from.</td>
+<td>Serialized database structure to create <a href="../Db">Db</a> instance from.</td>
 </tr>
 </tbody>
 </table>
 <p><a name="module_pgStructure--module.exports.parse"></a></p>
-<h4 id="moduleexportsparseserializeddb-db-undefined">module.exports.parse(serializedDB) ⇒ <code>DB</code> &#124; <code>undefined</code></h4>
-<p>Alias of <a href="#module_pgStructure--module.exports.deserialize">deserialize</a>. Creates and returns <a href="../DB">DB</a> instance using previously serialized string. <br/>
+<h4 id="moduleexportsparseserializeddb-db-undefined">module.exports.parse(serializedDb) ⇒ <code>Db</code> &#124; <code>undefined</code></h4>
+<p>Alias of <a href="#module_pgStructure--module.exports.deserialize">deserialize</a>. Creates and returns <a href="../Db">Db</a> instance using previously serialized string. <br/>
 <img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
 deserialize incompatible pg-structure module versions and returns <code>undefined</code>. In this case you should fetch structure from database.</p>
 <p><strong>Kind</strong>: static method of <code><a href="#exp_module_pgStructure--module.exports">module.exports</a></code><br />
-<strong>Returns</strong>: <code>DB</code> &#124; <code>undefined</code> - - <a href="../DB">DB</a> instance. If serialized string is from incompatible module version, this is <code>undefined</code><br />
+<strong>Returns</strong>: <code>Db</code> &#124; <code>undefined</code> - - <a href="../Db">Db</a> instance. If serialized string is from incompatible module version, this is <code>undefined</code><br />
 <strong>See</strong>: <a href="#module_pgStructure--module.exports.deserialize">deserialize</a>  </p>
 <table>
 <thead>
@@ -474,9 +474,9 @@ deserialize incompatible pg-structure module versions and returns <code>undefine
 </thead>
 <tbody>
 <tr>
-<td>serializedDB</td>
+<td>serializedDb</td>
 <td><code>string</code></td>
-<td>Serialized database structure to create <a href="../DB">DB</a> instance from.</td>
+<td>Serialized database structure to create <a href="../Db">Db</a> instance from.</td>
 </tr>
 </tbody>
 </table>

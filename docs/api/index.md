@@ -14,7 +14,7 @@ Class which represent a database index. Provides attributes and methods for deta
     * [.isPrimaryKey](#Index+isPrimaryKey) : <code>boolean</code>
     * [.table](#Index+table) : <code>Table</code>
     * [.parent](#Index+parent) : <code>Table</code>
-    * [.db](#Index+db) : <code>DB</code>
+    * [.db](#Index+db) : <code>Db</code>
     * [.schema](#Index+schema) : <code>Schema</code>
     * [.columns](#Index+columns) : <code>Array.&lt;Column&gt;</code>
     * [.columnsByName](#Index+columnsByName) : <code>Object.&lt;string, Column&gt;</code>
@@ -92,8 +92,8 @@ If true, this index represents the primary key of the table ([isUnique](#Index+i
 **Read only**: true  
 <a name="Index+db"></a>
 
-### index.db : <code>DB</code>
-[DB](DB) this [index](#Index) belongs to.
+### index.db : <code>Db</code>
+[Db](Db) this [index](#Index) belongs to.
 
 **Kind**: instance property of <code>[Index](#Index)</code>  
 **Read only**: true  

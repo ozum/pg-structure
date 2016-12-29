@@ -36,7 +36,7 @@ Below is the same schema as image:
     * [.descriptionData](#Table+descriptionData) : <code>Object</code>
     * [.columns](#Table+columns) : <code>Map.&lt;Column&gt;</code>
     * [.constraints](#Table+constraints) : <code>Map.&lt;Constraint&gt;</code>
-    * [.db](#Table+db) : <code>DB</code>
+    * [.db](#Table+db) : <code>Db</code>
     * [.foreignKeyConstraints](#Table+foreignKeyConstraints) : <code>Map.&lt;Constraint&gt;</code>
     * [.foreignKeyColumns](#Table+foreignKeyColumns) : <code>Map.&lt;Column&gt;</code>
     * [.foreignKeyConstraintsToThis](#Table+foreignKeyConstraintsToThis) : <code>Map.&lt;Constraint&gt;</code>
@@ -210,8 +210,8 @@ All [Constraint](Constraint) instances in the table as a [Map](Map). They are or
 **Read only**: true  
 <a name="Table+db"></a>
 
-### table.db : <code>DB</code>
-[DB](DB) this table belongs to.
+### table.db : <code>Db</code>
+[Db](Db) this table belongs to.
 
 **Kind**: instance property of <code>[Table](#Table)</code>  
 **Read only**: true  
