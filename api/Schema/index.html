@@ -189,9 +189,9 @@
                 
                     <li><a class="toctree-l4" href="#schemafullcatalogname-string">schema.fullCatalogName : string</a></li>
                 
-                    <li><a class="toctree-l4" href="#schemadb-db">schema.db : DB</a></li>
+                    <li><a class="toctree-l4" href="#schemadb-db">schema.db : Db</a></li>
                 
-                    <li><a class="toctree-l4" href="#schemaparent-db">schema.parent : DB</a></li>
+                    <li><a class="toctree-l4" href="#schemaparent-db">schema.parent : Db</a></li>
                 
                     <li><a class="toctree-l4" href="#schematables-maptable">schema.tables : Map.&lt;Table&gt;</a></li>
                 
@@ -262,8 +262,8 @@
 <li><a href="#Schema+name">.name</a> : <code>string</code></li>
 <li><a href="#Schema+fullName">.fullName</a> : <code>string</code></li>
 <li><a href="#Schema+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
-<li><a href="#Schema+db">.db</a> : <code>DB</code></li>
-<li><a href="#Schema+parent">.parent</a> : <code>DB</code></li>
+<li><a href="#Schema+db">.db</a> : <code>Db</code></li>
+<li><a href="#Schema+parent">.parent</a> : <code>Db</code></li>
 <li><a href="#Schema+tables">.tables</a> : <code>Map.&lt;Table&gt;</code></li>
 <li><a href="#Schema+get">.get(path)</a> ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></li>
 </ul>
@@ -288,8 +288,8 @@
 </tr>
 <tr>
 <td>args.parent</td>
-<td><code>DB</code></td>
-<td>Parent <a href="../DB">DB</a> of the Schema.</td>
+<td><code>Db</code></td>
+<td>Parent <a href="../Db">Db</a> of the Schema.</td>
 </tr>
 <tr>
 <td>args.name</td>
@@ -322,23 +322,23 @@
 </code></pre>
 
 <p><a name="Schema+db"></a></p>
-<h3 id="schemadb-db">schema.db : <code>DB</code></h3>
-<p><a href="../DB">DB</a> this schema belongs to.</p>
+<h3 id="schemadb-db">schema.db : <code>Db</code></h3>
+<p><a href="../Db">Db</a> this schema belongs to.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Schema+parent">parent</a><br />
 <strong>Example</strong>  </p>
-<pre><code class="js">var db = schema.db; // DB instance
+<pre><code class="js">var db = schema.db; // Db instance
 </code></pre>
 
 <p><a name="Schema+parent"></a></p>
-<h3 id="schemaparent-db">schema.parent : <code>DB</code></h3>
-<p><a href="../DB">DB</a> this schema belongs to.</p>
+<h3 id="schemaparent-db">schema.parent : <code>Db</code></h3>
+<p><a href="../Db">Db</a> this schema belongs to.</p>
 <p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Schema+db">db</a><br />
 <strong>Example</strong>  </p>
-<pre><code class="js">var db = schema.parent; // DB instance
+<pre><code class="js">var db = schema.parent; // Db instance
 </code></pre>
 
 <p><a name="Schema+tables"></a></p>
