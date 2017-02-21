@@ -1,6 +1,6 @@
 /*
 Created: 24.02.2016
-Modified: 01.03.2016
+Modified: 21.02.2017
 Project: Node Test
 Model: Node Test
 Company: Fortibase
@@ -84,6 +84,7 @@ ALTER TABLE "other_schema"."other_schema_table" ADD CONSTRAINT "Key13" PRIMARY K
 -- Table public.account
 
 CREATE TABLE "public"."account"(
+ "field_default_empty" Text DEFAULT '',
  "id" Serial NOT NULL,
  "created_at" Timestamp(0) DEFAULT now() NOT NULL,
  "updated_at" Timestamp(0) DEFAULT now() NOT NULL,
@@ -654,6 +655,7 @@ ALTER TABLE "public"."message" ADD CONSTRAINT "student_has_many_messages_sent" F
 
 ALTER TABLE "other_schema"."other_schema_table" ADD CONSTRAINT "account_has_other_schema_tables" FOREIGN KEY ("account_id") REFERENCES "public"."account" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 ;
+
 
 
 

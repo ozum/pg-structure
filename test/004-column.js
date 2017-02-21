@@ -70,13 +70,16 @@ var tests = function(key) {
         it('should have default.', function(done) {
             expect(table.columns.get('id').default).to.equal("nextval('account_id_seq'::regclass)");
             expect(table.columns.get('created_at').default).to.equal('now()');
+            expect(table.columns.get('field_default_empty').default).to.equal("''");
             expect(typeTable.columns.get('name').default).to.equal("'oz'");
+
             done();
         });
 
         it('should have defaultWithTypeCast.', function(done) {
             expect(table.columns.get('id').defaultWithTypeCast).to.equal("nextval('account_id_seq'::regclass)");
             expect(table.columns.get('created_at').defaultWithTypeCast).to.equal('now()');
+            expect(table.columns.get('field_default_empty').defaultWithTypeCast).to.equal("''::text");
             expect(typeTable.columns.get('name').defaultWithTypeCast).to.equal("'oz'::character varying");
             done();
         });
