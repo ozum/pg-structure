@@ -4,6 +4,9 @@
 
 # History & Release Notes
 
+###### 3.5.11 / 2017-02-21
+* Fixed: Column.default() was returning typecast if default value is ''. 
+
 ###### 3.5.0 / 2016-05-04
 * Added: Relation naming support for CamelCase tables.
 * Fixed: Default strategy for Many to Many (`m2m`) and Many to One (`m2o`) relations are selected as 'simple' even 'simple' strategy causes conflict. Now complex is selected when there are conflicts between cross types of `o2m` and `m2m`.
