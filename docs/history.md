@@ -4,6 +4,9 @@
 
 # History & Release Notes
 
+###### 3.5.14 / 2017-03-06
+* Fixed: If same constraint name is used more than once in same schema (non-unique constraint name), pg-structure was failing.
+
 ###### 3.5.11 / 2017-02-21
 * Fixed: Column.default() was returning typecast if default value is ''. 
 
