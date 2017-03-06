@@ -8,7 +8,7 @@
   
   <meta name="author" content="Özüm Eldoğan">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>History - pg-structure 3.5.13</title>
+  <title>History - pg-structure 3.5.14</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -45,7 +45,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> pg-structure 3.5.13</a>
+        <a href=".." class="icon icon-home"> pg-structure 3.5.14</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -84,6 +84,8 @@
             <ul>
             
                 <li class="toctree-l3"><a href="#history-release-notes">History &amp; Release Notes</a></li>
+                
+                    <li><a class="toctree-l4" href="#3514-2017-03-06">3.5.14 / 2017-03-06</a></li>
                 
                     <li><a class="toctree-l4" href="#3511-2017-02-21">3.5.11 / 2017-02-21</a></li>
                 
@@ -277,7 +279,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">pg-structure 3.5.13</a>
+        <a href="..">pg-structure 3.5.14</a>
       </nav>
 
       
@@ -306,6 +308,10 @@
 
 <p><strong>Note</strong>: Version history for minimal documentation updates are not listed here to prevent cluttering.</p>
 <h1 id="history-release-notes">History &amp; Release Notes</h1>
+<h6 id="3514-2017-03-06">3.5.14 / 2017-03-06</h6>
+<ul>
+<li>Fixed: If same constraint name is used more than once in same schema (non-unique constraint name), pg-structure was failing.</li>
+</ul>
 <h6 id="3511-2017-02-21">3.5.11 / 2017-02-21</h6>
 <ul>
 <li>Fixed: Column.default() was returning typecast if default value is ''. </li>
