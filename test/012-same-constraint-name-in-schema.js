@@ -27,7 +27,9 @@ lab.before((done) => {
 });
 
 lab.after((done) => {
-    return done();
+    testDB.dropDB().then(() => {
+        done();
+    });
 });
 
 let tests = function(key) {
