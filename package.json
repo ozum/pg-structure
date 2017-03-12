@@ -4,7 +4,7 @@
   "description": "Get PostgreSQL database structure as a detailed JS Object.",
   "homepage": "http://www.pg-structure.com",
   "bugs": "https://github.com/ozum/pg-structure/issues",
-  "main": "lib/pg-structure.js",
+  "main": "index.js",
   "directories": {
     "bin": "bin",
     "doc": "docs"

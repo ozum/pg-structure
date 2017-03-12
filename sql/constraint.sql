@@ -67,7 +67,7 @@ table_constraints AS (
             ELSE 'NO'::text
         END::information_schema.yes_or_no                                                       AS is_deferrable,
         CASE
-            WHEN c_condeferred THEN 'infor-key-colum-usage.sqlYES'::text
+            WHEN c_condeferred THEN 'YES'::text
             ELSE 'NO'::text
         END::information_schema.yes_or_no                                                       AS initially_deferred
     FROM
