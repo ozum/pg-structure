@@ -1,27 +1,20 @@
 {
-  "rules": {
-    "indent": [
-      2,
-      4
-    ],
-    "linebreak-style": [
-      2,
-      "unix"
-    ],
-    "semi": [
-      2,
-      "always"
-    ],
-    "valid-jsdoc": [
-      2
-    ],
-    "no-console": [
-      0
-    ]
-  },
+  "parser":  "babel-eslint",
+  "extends": ["airbnb"],
   "env": {
-    "es6": true,
-    "node": true
+    "es6":   true,
+    "node":  true,
+    "mocha": true
   },
-  "extends": "eslint:recommended"
+  "rules": {
+    "no-cond-assign":    ["error", "except-parens"],
+    "linebreak-style":   ["error", "unix"],
+    "no-multi-spaces":   ["off", { "exceptions": { "Property": true, "VariableDeclarator": true, "ImportDeclaration": true } } ],
+    "key-spacing":       ["error", { "align": "value" }],
+    "require-jsdoc":     ["error", { "require": { "FunctionDeclaration": true, "MethodDefinition": true, "ClassDeclaration": true } }],
+    "valid-jsdoc":       ["error"],
+    "max-len":           ["error", 160, { "ignoreComments": true }],
+    "new-cap":           ["error", { "capIsNewExceptions": ["List", "Map", "Set"] }],
+    "react/jsx-no-bind": ["error", { "ignoreRefs": false, "allowArrowFunctions": false, "allowBind": false }]
+  }
 }

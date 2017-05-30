@@ -1,6 +1,6 @@
 /*
 Created: 24.02.2016
-Modified: 21.02.2017
+Modified: 30.05.2017
 Project: Node Test
 Model: Node Test
 Company: Fortibase
@@ -19,6 +19,9 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;           -- HStore
 -- Create schemas section -------------------------------------------------
 
 CREATE SCHEMA "other_schema"
+;
+
+COMMENT ON SCHEMA "other_schema" IS 'Other Schema Comment'
 ;
 
 -- Create functions section -------------------------------------------------
@@ -84,13 +87,13 @@ ALTER TABLE "other_schema"."other_schema_table" ADD CONSTRAINT "Key13" PRIMARY K
 -- Table public.account
 
 CREATE TABLE "public"."account"(
- "field_default_empty" Text DEFAULT '',
  "id" Serial NOT NULL,
  "created_at" Timestamp(0) DEFAULT now() NOT NULL,
  "updated_at" Timestamp(0) DEFAULT now() NOT NULL,
  "owner_id" Integer,
  "is_active" Boolean DEFAULT true NOT NULL,
  "name" Character varying(50) NOT NULL,
+ "field_default_empty" Text DEFAULT '',
  "field1" Character varying(2)[],
  "field2" Numeric(3,2)[][][],
  "field3" Character(7)[][],
@@ -660,4 +663,5 @@ ALTER TABLE "other_schema"."other_schema_table" ADD CONSTRAINT "account_has_othe
 
 
 
-
+COMMENT ON SCHEMA public
+IS 'public schema comment';

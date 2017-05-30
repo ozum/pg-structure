@@ -4,6 +4,7 @@ SELECT
   CONCAT(table_catalog, '.', table_schema, '.', table_name)          AS "parent",
   table_catalog                                                      AS "db",
   table_schema                                                       AS "schema",
+  pg_catalog.obj_description(c.relnamespace, 'pg_namespace')         AS "schemaComment",
   table_name                                                         AS "table",
   pg_catalog.obj_description(c.oid, 'pg_class')                      AS "tableDescription",
   column_name                                                        AS "name",

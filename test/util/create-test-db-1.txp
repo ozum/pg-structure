@@ -1596,7 +1596,7 @@
 			<Company>Fortibase</Company>
 			<Version>1.0</Version>
 			<CreatedDate>2016-02-24T15:33:32.000+02:00</CreatedDate>
-			<ModifiedDate>2017-02-21T16:12:00.061+03:00</ModifiedDate>
+			<ModifiedDate>2017-05-30T11:47:39.554+03:00</ModifiedDate>
 			<Project>Node Test</Project>
 			<Description></Description>
 		</ModelTitlePG94>
@@ -2033,7 +2033,8 @@ UserName=user
     DROP FUNCTION temp_create_schema_if_not_exists (schema_array text[]);
 
 CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;           -- HStore</BeforeScript>
-	<AfterScript></AfterScript>
+	<AfterScript>COMMENT ON SCHEMA public
+IS 'public schema comment';</AfterScript>
 	<Entities>
 		<PEREntityPG94 ObjectType="2002" CSAOName="PEREntityPG94" CSAOCaption="Entity">
 			<Id>{3000E3AE-BDFF-46D7-94D9-1D828FBF9CFC}</Id>
@@ -10239,7 +10240,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;           -- HStore<
 				<Id>{3000E3AE-BDFF-46D7-94D9-1D828FBF9CFC}</Id>
 			</Objects>
 			<DbUserGroupAuthorization/>
-			<Comments></Comments>
+			<Comments>Other Schema Comment</Comments>
 			<IfNotExists>0</IfNotExists>
 		</PERSchemaPG94>
 		<PERSchemaPG94 ObjectType="2024" CSAOName="PERSchemaPG94" CSAOCaption="Schema">

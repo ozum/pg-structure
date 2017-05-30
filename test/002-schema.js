@@ -55,6 +55,16 @@ var tests = function(key) {
             done();
         });
 
+        it('should have comment.', function(done) {
+            expect(schema.comment).to.equal('public schema comment');
+            done();
+        });
+
+        it('should have description.', function(done) {
+            expect(schema.description).to.equal('public schema comment');
+            done();
+        });
+
         it('should have parent.', function(done) {
             expect(schema.parent.name).to.equal('pg-test-util');
             done();
