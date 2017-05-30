@@ -89,3 +89,18 @@ var tests = function(key) {
 
 describe('Schema from Database', tests('fromDB'));
 describe('Schema from File', tests('fromFile'));
+
+
+describe('Non existing schema', () => {
+  it('should throw exception', (done) => {
+
+    pgStructure(testDB.credentials, ['non_existing_schema'])
+      .catch(err => {
+        if (err.message === 'non_existing_schema does not exists on database.') {
+          done();
+        } else {
+          throw new Error();
+        }
+      });
+  });
+});
