@@ -8,7 +8,7 @@
   
   <meta name="author" content="Özüm Eldoğan">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>O2M Relation - pg-structure 3.5.15</title>
+  <title>O2M Relation - pg-structure 4.0.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -45,7 +45,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.5.15</a>
+        <a href="../.." class="icon icon-home"> pg-structure 4.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -55,159 +55,115 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../concepts/">Concepts</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../concepts/">Concepts</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../examples/">Examples</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../examples/">Examples</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../history/">History</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../history/">History</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../license/">License</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../license/">License</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../report/">Test & Coverage Report</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../report/">Test & Coverage Report</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../relation-names/">Relation Names</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../relation-names/">Relation Names</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API</span>
     <ul class="subnav">
-    <li><span>API</span></li>
+                <li class="">
+                    
+    <a class="" href="../Column/">Column</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Constraint/">Constraint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Db/">Db</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Index/">Index</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../M2MRelation/">M2M Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../M2ORelation/">M2O Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Map/">Map</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">O2M Relation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#o2mrelation">O2MRelation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#new-o2mrelationargs">new O2MRelation(args)</a></li>
+        
+            <li><a class="toctree-l4" href="#o2mrelationtype-relationtype">o2MRelation.type : relationType</a></li>
+        
+            <li><a class="toctree-l4" href="#o2mrelationsourcetable-table">o2MRelation.sourceTable : Table</a></li>
+        
+            <li><a class="toctree-l4" href="#o2mrelationtargettable-table">o2MRelation.targetTable : Table</a></li>
+        
+            <li><a class="toctree-l4" href="#o2mrelationconstraint-table">o2MRelation.constraint : Table</a></li>
+        
+            <li><a class="toctree-l4" href="#o2mrelationgeneratenamestrategy-string">o2MRelation.generateName([strategy]) ⇒ string</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Column/">Column</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Constraint/">Constraint</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Db/">Db</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Index/">Index</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../M2MRelation/">M2M Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../M2ORelation/">M2O Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Map/">Map</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">O2M Relation</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#o2mrelation">O2MRelation</a></li>
-                
-                    <li><a class="toctree-l4" href="#new-o2mrelationargs">new O2MRelation(args)</a></li>
-                
-                    <li><a class="toctree-l4" href="#o2mrelationtype-relationtype">o2MRelation.type : relationType</a></li>
-                
-                    <li><a class="toctree-l4" href="#o2mrelationsourcetable-table">o2MRelation.sourceTable : Table</a></li>
-                
-                    <li><a class="toctree-l4" href="#o2mrelationtargettable-table">o2MRelation.targetTable : Table</a></li>
-                
-                    <li><a class="toctree-l4" href="#o2mrelationconstraint-table">o2MRelation.constraint : Table</a></li>
-                
-                    <li><a class="toctree-l4" href="#o2mrelationgeneratenamestrategy-string">o2MRelation.generateName([strategy]) ⇒ string</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Schema/">Schema</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Table/">Table</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../PgStructure/">pgStructure</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Schema/">Schema</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Table/">Table</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -219,7 +175,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.5.15</a>
+        <a href="../..">pg-structure 4.0.0</a>
       </nav>
 
       
@@ -333,12 +289,12 @@ let sourcePKColumn   = relation.sourceTable.primaryKeys[0];  // COLUMN:      id 
 <p><a name="O2MRelation+type"></a></p>
 <h3 id="o2mrelationtype-relationtype">o2MRelation.type : <code>relationType</code></h3>
 <p>Type of relation which is <code>ONE TO MANY</code>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#O2MRelation">O2MRelation</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#O2MRelation"><code>O2MRelation</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="O2MRelation+sourceTable"></a></p>
 <h3 id="o2mrelationsourcetable-table">o2MRelation.sourceTable : <code>Table</code></h3>
 <p><a href="../Table">Table</a> which this relation belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#O2MRelation">O2MRelation</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#O2MRelation"><code>O2MRelation</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">let relation     = product.O2MRelationRelations[0];  // RELATION:    product ---&lt; line_item
@@ -348,7 +304,7 @@ let sourceTable  = relation.sourceTable;             // TABLE:       product
 <p><a name="O2MRelation+targetTable"></a></p>
 <h3 id="o2mrelationtargettable-table">o2MRelation.targetTable : <code>Table</code></h3>
 <p><a href="../Table">Table</a> which this relation is referring to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#O2MRelation">O2MRelation</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#O2MRelation"><code>O2MRelation</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">let relation     = product.O2MRelationRelations[0];  // RELATION:    product ---&lt; line_item
@@ -358,7 +314,7 @@ let targetTable  = relation.targetTable;             // TABLE:       line_item
 <p><a name="O2MRelation+constraint"></a></p>
 <h3 id="o2mrelationconstraint-table">o2MRelation.constraint : <code>Table</code></h3>
 <p>Foreign key <a href="../Constraint">constraint</a> between <a href="#O2MRelation+sourceTable">source table</a> and <a href="#O2MRelation+targetTable">target table</a>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#O2MRelation">O2MRelation</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#O2MRelation"><code>O2MRelation</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">let relation     = product.O2MRelationRelations[0];  // RELATION:    product ---&lt; line_item
@@ -369,7 +325,7 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
 <p><a name="O2MRelation+generateName"></a></p>
 <h3 id="o2mrelationgeneratenamestrategy-string">o2MRelation.generateName([strategy]) ⇒ <code>string</code></h3>
 <p>(! EXPERIMENTAL) Returns name for relation using given strategy. Please see <a href="../../relation-names/">Relation Names</a> for details.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#O2MRelation">O2MRelation</a></code><br />
+<p><strong>Kind</strong>: instance method of <a href="#O2MRelation"><code>O2MRelation</code></a><br />
 <strong>Returns</strong>: <code>string</code> - - Relation name.<br />
 <strong>See</strong>: <a href="../../relation-names/">Relation Names</a>  </p>
 <table>
@@ -425,7 +381,7 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/ozum/pg-structure.git" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ozum/pg-structure.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../Map/" style="color: #fcfcfc;">&laquo; Previous</a></span>

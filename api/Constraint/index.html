@@ -8,7 +8,7 @@
   
   <meta name="author" content="Özüm Eldoğan">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Constraint - pg-structure 3.5.15</title>
+  <title>Constraint - pg-structure 4.0.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -45,7 +45,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.5.15</a>
+        <a href="../.." class="icon icon-home"> pg-structure 4.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -55,189 +55,145 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../concepts/">Concepts</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../concepts/">Concepts</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../examples/">Examples</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../examples/">Examples</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../history/">History</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../history/">History</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../license/">License</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../license/">License</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../report/">Test & Coverage Report</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../report/">Test & Coverage Report</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../relation-names/">Relation Names</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../relation-names/">Relation Names</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API</span>
     <ul class="subnav">
-    <li><span>API</span></li>
+                <li class="">
+                    
+    <a class="" href="../Column/">Column</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Constraint</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#constraint">Constraint</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#notes-for-through-constraints">Notes for Through Constraints </a></li>
+        
+            <li><a class="toctree-l4" href="#new-constraintargs">new Constraint(args)</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintname-string">constraint.name : string</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintfullname-string">constraint.fullName : string</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintfullcatalogname-string">constraint.fullCatalogName : string</a></li>
+        
+            <li><a class="toctree-l4" href="#constrainttype-contsrainttype">constraint.type : contsraintType</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintcomment-string">constraint.comment : string</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintcommentdata-object">constraint.commentData : Object</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintdescription-string">constraint.description : string</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintdescriptiondata-object">constraint.descriptionData : Object</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintchild-table">constraint.child : Table</a></li>
+        
+            <li><a class="toctree-l4" href="#constrainttable-table">constraint.table : Table</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintdb-db">constraint.db : Db</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintschema-schema">constraint.schema : Schema</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintmatchoption-string">constraint.matchOption : string</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintonupdate-constraintrule-124-null">constraint.onUpdate : constraintRule | null</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintondelete-constraintrule-124-null">constraint.onDelete : constraintRule | null</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintreferencedtable-table-124-null">constraint.referencedTable : Table | null</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintparent-table-124-null">constraint.parent : Table | null</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintcolumns-mapcolumn">constraint.columns : Map.&lt;Column&gt;</a></li>
+        
+            <li><a class="toctree-l4" href="#constraintreferencedcolumnsby-mapcolumn">constraint.referencedColumnsBy : Map.&lt;Column&gt;</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Column/">Column</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Constraint</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#constraint">Constraint</a></li>
-                
-                    <li><a class="toctree-l4" href="#notes-for-through-constraints">Notes for Through Constraints </a></li>
-                
-                    <li><a class="toctree-l4" href="#new-constraintargs">new Constraint(args)</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintname-string">constraint.name : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintfullname-string">constraint.fullName : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintfullcatalogname-string">constraint.fullCatalogName : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#constrainttype-contsrainttype">constraint.type : contsraintType</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintcomment-string">constraint.comment : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintcommentdata-object">constraint.commentData : Object</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintdescription-string">constraint.description : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintdescriptiondata-object">constraint.descriptionData : Object</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintchild-table">constraint.child : Table</a></li>
-                
-                    <li><a class="toctree-l4" href="#constrainttable-table">constraint.table : Table</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintdb-db">constraint.db : Db</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintschema-schema">constraint.schema : Schema</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintmatchoption-string">constraint.matchOption : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintonupdate-constraintrule-null">constraint.onUpdate : constraintRule &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintondelete-constraintrule-null">constraint.onDelete : constraintRule &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintreferencedtable-table-null">constraint.referencedTable : Table &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintparent-table-null">constraint.parent : Table &#124; null</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintcolumns-mapcolumn">constraint.columns : Map.&lt;Column&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#constraintreferencedcolumnsby-mapcolumn">constraint.referencedColumnsBy : Map.&lt;Column&gt;</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Db/">Db</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Index/">Index</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../M2MRelation/">M2M Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../M2ORelation/">M2O Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Map/">Map</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../O2MRelation/">O2M Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Schema/">Schema</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Table/">Table</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Db/">Db</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Index/">Index</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../M2MRelation/">M2M Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../M2ORelation/">M2O Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Map/">Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../O2MRelation/">O2M Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../PgStructure/">pgStructure</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Schema/">Schema</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Table/">Table</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -249,7 +205,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.5.15</a>
+        <a href="../..">pg-structure 4.0.0</a>
       </nav>
 
       
@@ -325,10 +281,10 @@ color and vendor tables would have many to many <code>through constraints</code>
 <li><a href="#Constraint+db">.db</a> : <code>Db</code></li>
 <li><a href="#Constraint+schema">.schema</a> : <code>Schema</code></li>
 <li><a href="#Constraint+matchOption">.matchOption</a> : <code>string</code></li>
-<li><a href="#Constraint+onUpdate">.onUpdate</a> : <code>constraintRule</code> &#124; <code>null</code></li>
-<li><a href="#Constraint+onDelete">.onDelete</a> : <code>constraintRule</code> &#124; <code>null</code></li>
-<li><a href="#Constraint+referencedTable">.referencedTable</a> : <code>Table</code> &#124; <code>null</code></li>
-<li><a href="#Constraint+parent">.parent</a> : <code>Table</code> &#124; <code>null</code></li>
+<li><a href="#Constraint+onUpdate">.onUpdate</a> : <code>constraintRule</code> | <code>null</code></li>
+<li><a href="#Constraint+onDelete">.onDelete</a> : <code>constraintRule</code> | <code>null</code></li>
+<li><a href="#Constraint+referencedTable">.referencedTable</a> : <code>Table</code> | <code>null</code></li>
+<li><a href="#Constraint+parent">.parent</a> : <code>Table</code> | <code>null</code></li>
 <li><a href="#Constraint+columns">.columns</a> : <code>Map.&lt;Column&gt;</code></li>
 <li><a href="#Constraint+referencedColumnsBy">.referencedColumnsBy</a> : <code>Map.&lt;Column&gt;</code></li>
 </ul>
@@ -406,12 +362,12 @@ color and vendor tables would have many to many <code>through constraints</code>
 <p><a name="Constraint+name"></a></p>
 <h3 id="constraintname-string">constraint.name : <code>string</code></h3>
 <p>Name of the constraint.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+fullName"></a></p>
 <h3 id="constraintfullname-string">constraint.fullName : <code>string</code></h3>
 <p>Full name of the <a href="#Constraint">constraint</a> with (.) notation.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var fullName = constraint.fullName; // crm.public
@@ -420,7 +376,7 @@ color and vendor tables would have many to many <code>through constraints</code>
 <p><a name="Constraint+fullCatalogName"></a></p>
 <h3 id="constraintfullcatalogname-string">constraint.fullCatalogName : <code>string</code></h3>
 <p>Full name of the <a href="#Constraint">constraint</a> with (.) notation including catalog name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var fullCatalogName = constraint.fullCatalogName; // crm.public
@@ -429,19 +385,19 @@ color and vendor tables would have many to many <code>through constraints</code>
 <p><a name="Constraint+type"></a></p>
 <h3 id="constrainttype-contsrainttype">constraint.type : <code>contsraintType</code></h3>
 <p>Constraint type. One of <code>PRIMARY KEY</code>, <code>FOREIGN KEY</code> or <code>CHECK</code></p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+comment"></a></p>
 <h3 id="constraintcomment-string">constraint.comment : <code>string</code></h3>
 <p>Comment of the Constraint.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Constraint+description">description</a><br />
 <a name="Constraint+commentData"></a></p>
 <h3 id="constraintcommentdata-object">constraint.commentData : <code>Object</code></h3>
 <p>JS Object extracted from constraint description. Object is expected as JSON data between <code>[JSON]</code> and <code>[/JSON]</code>
 tags in description. Tags are case-insensitive.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Constraint+descriptionData">descriptionData</a><br />
 <strong>Example</strong>  </p>
@@ -453,14 +409,14 @@ console.log(constraint.commentData.extraData);   // -&gt; 2
 <p><a name="Constraint+description"></a></p>
 <h3 id="constraintdescription-string">constraint.description : <code>string</code></h3>
 <p>Comment of the Constraint.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Constraint+comment">comment</a><br />
 <a name="Constraint+descriptionData"></a></p>
 <h3 id="constraintdescriptiondata-object">constraint.descriptionData : <code>Object</code></h3>
 <p>JS Object extracted from constraint description. Object is expected as JSON data between <code>[JSON]</code> and <code>[/JSON]</code>
 tags in description. Tags are case-insensitive.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Constraint+commentData">commentData</a><br />
 <strong>Example</strong>  </p>
@@ -474,7 +430,7 @@ console.log(constraint.descriptionData.extraData);   // -&gt; 2
 <p>Child <a href="../Table">table</a> of this <a href="#Constraint">constraint</a>.
 <strong>Note for foreign key constraints:</strong> Child table is the table which contains foreign key.
 In <a href="#exampleSchema">example schema</a> product is a child table (vendor_id FK) of vendor table.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var table = constraint.child;
@@ -485,7 +441,7 @@ In <a href="#exampleSchema">example schema</a> product is a child table (vendor_
 <p><a href="../Table">Table</a> which this <a href="#Constraint">constraint</a> belongs to or defined in. <br>
 <strong>Note for foreign key constraints:</strong> As usual PostgreSQL defines foreign key constraints in child tables,
 where foreign key column is defined, so this is child table for foreign key constraints.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var table = constraint.table;
@@ -494,44 +450,44 @@ where foreign key column is defined, so this is child table for foreign key cons
 <p><a name="Constraint+db"></a></p>
 <h3 id="constraintdb-db">constraint.db : <code>Db</code></h3>
 <p><a href="../Db">Db</a> this <a href="#Constraint">constraint</a> belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+schema"></a></p>
 <h3 id="constraintschema-schema">constraint.schema : <code>Schema</code></h3>
 <p><a href="../Schema">Schema</a> this <a href="#Constraint">constraint</a> belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+matchOption"></a></p>
 <h3 id="constraintmatchoption-string">constraint.matchOption : <code>string</code></h3>
 <p>Match option of <a href="#Constraint">Constraint</a>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+onUpdate"></a></p>
-<h3 id="constraintonupdate-constraintrule-null">constraint.onUpdate : <code>constraintRule</code> &#124; <code>null</code></h3>
+<h3 id="constraintonupdate-constraintrule-124-null">constraint.onUpdate : <code>constraintRule</code> | <code>null</code></h3>
 <p>Update rule for foreign key <a href="#Constraint">constraints</a>. One of <code>CASCADE</code>, <code>SET NULL</code>, <code>SET DEFAULT</code>, <code>RESTRICT</code>, <code>NO ACTION</code>
 If this is not a foreign key <a href="#Constraint">constraint</a> this is <code>null</code>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+onDelete"></a></p>
-<h3 id="constraintondelete-constraintrule-null">constraint.onDelete : <code>constraintRule</code> &#124; <code>null</code></h3>
+<h3 id="constraintondelete-constraintrule-124-null">constraint.onDelete : <code>constraintRule</code> | <code>null</code></h3>
 <p>Update rule for foreign key <a href="#Constraint">constraints</a>. One of <code>CASCADE</code>, <code>SET NULL</code>, <code>SET DEFAULT</code>, <code>RESTRICT</code>, <code>NO ACTION</code>
 If this is not a foreign key <a href="#Constraint">constraint</a> this is <code>null</code>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+referencedTable"></a></p>
-<h3 id="constraintreferencedtable-table-null">constraint.referencedTable : <code>Table</code> &#124; <code>null</code></h3>
+<h3 id="constraintreferencedtable-table-124-null">constraint.referencedTable : <code>Table</code> | <code>null</code></h3>
 <p>For foreign key <a href="#Constraint">constraints</a> this is <a href="../Table">Table</a> instance this <a href="#Constraint">constraint</a> refers to.
 If this is not a foreign key <a href="#Constraint">constraint</a> this is <code>null</code>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Constraint+parent">parent</a><br />
 <a name="Constraint+parent"></a></p>
-<h3 id="constraintparent-table-null">constraint.parent : <code>Table</code> &#124; <code>null</code></h3>
+<h3 id="constraintparent-table-124-null">constraint.parent : <code>Table</code> | <code>null</code></h3>
 <p>For foreign key <a href="#Constraint">constraints</a> this is <a href="../Table">Table</a> instance this <a href="#Constraint">constraint</a> refers to.
 If this is not a foreign key <a href="#Constraint">constraint</a> this is <code>null</code>. <br>
 <strong>Please Note:</strong> This is not the <a href="../Table">Table</a> this constraint belongs to or defined in. Parent applies only to
 foreign key constraints and for foreign key constraints parent means referenced table not the table it is defined in.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong></p>
 <ul>
@@ -542,13 +498,13 @@ foreign key constraints and for foreign key constraints parent means referenced 
 <h3 id="constraintcolumns-mapcolumn">constraint.columns : <code>Map.&lt;Column&gt;</code></h3>
 <p>For foreign key constraints, this is <a href="../Map">map</a> of <a href="../Column">columns</a> restricted by <a href="#Constraint">constraint</a>, in order their ordinal position
 within the constraint key.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Constraint+referencedColumnsBy"></a></p>
 <h3 id="constraintreferencedcolumnsby-mapcolumn">constraint.referencedColumnsBy : <code>Map.&lt;Column&gt;</code></h3>
 <p>For foreign key constraints, this is <a href="../Map">map</a> of <a href="../Column">columns</a> referenced by this constraint's columns.
 Keys are referencing column's names, values are referenced columns.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Constraint">Constraint</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Constraint"><code>Constraint</code></a><br />
 <strong>Read only</strong>: true  </p>
               
             </div>
@@ -587,7 +543,7 @@ Keys are referencing column's names, values are referenced columns.</p>
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/ozum/pg-structure.git" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ozum/pg-structure.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../Column/" style="color: #fcfcfc;">&laquo; Previous</a></span>

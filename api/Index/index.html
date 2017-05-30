@@ -8,7 +8,7 @@
   
   <meta name="author" content="Özüm Eldoğan">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Index - pg-structure 3.5.15</title>
+  <title>Index - pg-structure 4.0.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -45,7 +45,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.5.15</a>
+        <a href="../.." class="icon icon-home"> pg-structure 4.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -55,171 +55,127 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../concepts/">Concepts</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../concepts/">Concepts</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../examples/">Examples</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../examples/">Examples</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../history/">History</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../history/">History</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../license/">License</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../license/">License</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../report/">Test & Coverage Report</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../report/">Test & Coverage Report</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../relation-names/">Relation Names</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../relation-names/">Relation Names</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API</span>
     <ul class="subnav">
-    <li><span>API</span></li>
+                <li class="">
+                    
+    <a class="" href="../Column/">Column</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Constraint/">Constraint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Db/">Db</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Index</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#index">Index</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#new-indexargs">new Index(args)</a></li>
+        
+            <li><a class="toctree-l4" href="#indexname-string">index.name : string</a></li>
+        
+            <li><a class="toctree-l4" href="#indexfullname-string">index.fullName : string</a></li>
+        
+            <li><a class="toctree-l4" href="#indexfullcatalogname-string">index.fullCatalogName : string</a></li>
+        
+            <li><a class="toctree-l4" href="#indexisunique-boolean">index.isUnique : boolean</a></li>
+        
+            <li><a class="toctree-l4" href="#indexisprimarykey-boolean">index.isPrimaryKey : boolean</a></li>
+        
+            <li><a class="toctree-l4" href="#indextable-table">index.table : Table</a></li>
+        
+            <li><a class="toctree-l4" href="#indexparent-table">index.parent : Table</a></li>
+        
+            <li><a class="toctree-l4" href="#indexdb-db">index.db : Db</a></li>
+        
+            <li><a class="toctree-l4" href="#indexschema-schema">index.schema : Schema</a></li>
+        
+            <li><a class="toctree-l4" href="#indexcolumns-arraycolumn">index.columns : Array.&lt;Column&gt;</a></li>
+        
+            <li><a class="toctree-l4" href="#indexcolumnsbyname-objectstring-column">index.columnsByName : Object.&lt;string, Column&gt;</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Column/">Column</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Constraint/">Constraint</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Db/">Db</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Index</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#index">Index</a></li>
-                
-                    <li><a class="toctree-l4" href="#new-indexargs">new Index(args)</a></li>
-                
-                    <li><a class="toctree-l4" href="#indexname-string">index.name : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#indexfullname-string">index.fullName : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#indexfullcatalogname-string">index.fullCatalogName : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#indexisunique-boolean">index.isUnique : boolean</a></li>
-                
-                    <li><a class="toctree-l4" href="#indexisprimarykey-boolean">index.isPrimaryKey : boolean</a></li>
-                
-                    <li><a class="toctree-l4" href="#indextable-table">index.table : Table</a></li>
-                
-                    <li><a class="toctree-l4" href="#indexparent-table">index.parent : Table</a></li>
-                
-                    <li><a class="toctree-l4" href="#indexdb-db">index.db : Db</a></li>
-                
-                    <li><a class="toctree-l4" href="#indexschema-schema">index.schema : Schema</a></li>
-                
-                    <li><a class="toctree-l4" href="#indexcolumns-arraycolumn">index.columns : Array.&lt;Column&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#indexcolumnsbyname-objectstring-column">index.columnsByName : Object.&lt;string, Column&gt;</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../M2MRelation/">M2M Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../M2ORelation/">M2O Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Map/">Map</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../O2MRelation/">O2M Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Schema/">Schema</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Table/">Table</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../M2MRelation/">M2M Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../M2ORelation/">M2O Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Map/">Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../O2MRelation/">O2M Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../PgStructure/">pgStructure</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Schema/">Schema</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Table/">Table</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -231,7 +187,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.5.15</a>
+        <a href="../..">pg-structure 4.0.0</a>
       </nav>
 
       
@@ -323,12 +279,12 @@
 <p><a name="Index+name"></a></p>
 <h3 id="indexname-string">index.name : <code>string</code></h3>
 <p>Name of the index.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Index+fullName"></a></p>
 <h3 id="indexfullname-string">index.fullName : <code>string</code></h3>
 <p>Full name of the <a href="#Index">index</a> with (.) notation.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var fullName = index.fullName; // crm.public
@@ -337,7 +293,7 @@
 <p><a name="Index+fullCatalogName"></a></p>
 <h3 id="indexfullcatalogname-string">index.fullCatalogName : <code>string</code></h3>
 <p>Full name of the <a href="#Index">index</a> with (.) notation including catalog name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var fullCatalogName = index.fullCatalogName; // crm.public
@@ -346,44 +302,44 @@
 <p><a name="Index+isUnique"></a></p>
 <h3 id="indexisunique-boolean">index.isUnique : <code>boolean</code></h3>
 <p>If true, this is a unique index.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Index+isPrimaryKey"></a></p>
 <h3 id="indexisprimarykey-boolean">index.isPrimaryKey : <code>boolean</code></h3>
 <p>If true, this index represents the primary key of the table (<a href="#Index+isUnique">isUnique</a> is always true for primary keys.)</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Index+table"></a></p>
 <h3 id="indextable-table">index.table : <code>Table</code></h3>
 <p><a href="../Table">Table</a> which this <a href="#Index">index</a> belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Index+parent"></a></p>
 <h3 id="indexparent-table">index.parent : <code>Table</code></h3>
 <p><a href="../Table">Table</a> which this <a href="#Index">index</a> belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Index+db"></a></p>
 <h3 id="indexdb-db">index.db : <code>Db</code></h3>
 <p><a href="../Db">Db</a> this <a href="#Index">index</a> belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Index+schema"></a></p>
 <h3 id="indexschema-schema">index.schema : <code>Schema</code></h3>
 <p><a href="../Schema">Schema</a> this <a href="#Index">index</a> belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Index+columns"></a></p>
 <h3 id="indexcolumns-arraycolumn">index.columns : <code>Array.&lt;Column&gt;</code></h3>
 <p>List of <a href="../Column">columns</a> restricted by <a href="#Index">index</a>, in order their ordinal position
 within the index key. If <a href="#Index">index</a> does not have any <a href="../Column">columns</a> this is <code>null</code>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Index+columnsByName"></a></p>
 <h3 id="indexcolumnsbyname-objectstring-column">index.columnsByName : <code>Object.&lt;string, Column&gt;</code></h3>
 <p>List of columns restricted by <a href="#Index">index</a>, in order their ordinal position within the index key.
 If <a href="#Index">index</a> does not have any columns this is <code>null</code>.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Index">Index</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Index"><code>Index</code></a><br />
 <strong>Read only</strong>: true  </p>
               
             </div>
@@ -422,7 +378,7 @@ If <a href="#Index">index</a> does not have any columns this is <code>null</code
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/ozum/pg-structure.git" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ozum/pg-structure.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../Db/" style="color: #fcfcfc;">&laquo; Previous</a></span>
