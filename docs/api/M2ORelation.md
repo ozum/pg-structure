@@ -68,14 +68,14 @@ let PKColumn     = relation.targetTable.primaryKeys[0];  // COLUMN:      id     
 ### m2ORelation.type : <code>relationType</code>
 Type of relation which is `MANY TO ONE`.
 
-**Kind**: instance property of <code>[M2ORelation](#M2ORelation)</code>  
+**Kind**: instance property of [<code>M2ORelation</code>](#M2ORelation)  
 **Read only**: true  
 <a name="M2ORelation+sourceTable"></a>
 
 ### m2ORelation.sourceTable : <code>Table</code>
 [Table](Table) which this relation belongs to.
 
-**Kind**: instance property of <code>[M2ORelation](#M2ORelation)</code>  
+**Kind**: instance property of [<code>M2ORelation</code>](#M2ORelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -87,7 +87,7 @@ let sourceTable  = relation.sourceTable;             // TABLE:       line_item
 ### m2ORelation.targetTable : <code>Table</code>
 [Table](Table) which this relation is referred by.
 
-**Kind**: instance property of <code>[M2ORelation](#M2ORelation)</code>  
+**Kind**: instance property of [<code>M2ORelation</code>](#M2ORelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -99,7 +99,7 @@ let targetTable  = relation.targetTable;             // TABLE:       product
 ### m2ORelation.constraint : <code>Table</code>
 Foreign key [constraint](Constraint) between [source table](#M2ORelation+sourceTable) and [target table](#M2ORelation+targetTable).
 
-**Kind**: instance property of <code>[M2ORelation](#M2ORelation)</code>  
+**Kind**: instance property of [<code>M2ORelation</code>](#M2ORelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -112,7 +112,7 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
 ### m2ORelation.generateName([strategy]) ⇒ <code>string</code>
 (! EXPERIMENTAL) Returns name for relation using given strategy. Please see [Relation Names](../relation-names.md) for details.
 
-**Kind**: instance method of <code>[M2ORelation](#M2ORelation)</code>  
+**Kind**: instance method of [<code>M2ORelation</code>](#M2ORelation)  
 **Returns**: <code>string</code> - - Relation name.  
 **See**: [Relation Names](../relation-names.md)  
 

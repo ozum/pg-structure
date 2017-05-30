@@ -22,7 +22,7 @@ or a value.
 ### map.size : <code>number</code>
 The number of key/value pairs in the Map object.
 
-**Kind**: instance property of <code>[Map](#Map)</code>  
+**Kind**: instance property of [<code>Map</code>](#Map)  
 **Example**  
 ```js
 let size = db.get('public.account').columns.size;
@@ -33,7 +33,7 @@ let size = db.get('public.account').columns.size;
 <img src="http://www.pg-structure.com/images/warning-24.png" style="margin-left: -26px;">Not part of Map standard.
 Values of Map as an array.
 
-**Kind**: instance property of <code>[Map](#Map)</code>  
+**Kind**: instance property of [<code>Map</code>](#Map)  
 **Example**  
 ```js
 let schemasArray = db.schemas.array;
@@ -43,7 +43,7 @@ let schemasArray = db.schemas.array;
 ### map.entries() ⇒ <code>Iterator</code>
 Returns a new Iterator object that contains an array of [key, value] for each element in the Map object in insertion order.
 
-**Kind**: instance method of <code>[Map](#Map)</code>  
+**Kind**: instance method of [<code>Map</code>](#Map)  
 **Example**  
 ```js
 let column = db.get('public.account').columns.get('name');
@@ -54,7 +54,7 @@ let column = db.get('public.account').columns.get('name');
 Calls callbackFn once for each key-value pair present in the Map object, in insertion order.
 If a thisArg parameter is provided to forEach, it will be used as the this value for each callback.
 
-**Kind**: instance method of <code>[Map](#Map)</code>  
+**Kind**: instance method of [<code>Map</code>](#Map)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -66,7 +66,7 @@ If a thisArg parameter is provided to forEach, it will be used as the this value
 ### map.get(name) ⇒ <code>\*</code>
 Returns the value associated to the key, or undefined if there is none.
 
-**Kind**: instance method of <code>[Map](#Map)</code>  
+**Kind**: instance method of [<code>Map</code>](#Map)  
 **Returns**: <code>\*</code> - - Value associated to key.  
 
 | Param | Type | Description |
@@ -82,7 +82,7 @@ let column = db.get('public.account').columns.get('name');
 ### map.has(name) ⇒ <code>boolean</code>
 Returns a boolean asserting whether a value has been associated to the key in the Map object or not.
 
-**Kind**: instance method of <code>[Map](#Map)</code>  
+**Kind**: instance method of [<code>Map</code>](#Map)  
 **Returns**: <code>boolean</code> - - `true` if key exists.  
 
 | Param | Type | Description |
@@ -98,7 +98,7 @@ let exists = db.schemas.has('public'); // true
 ### map.keys() ⇒ <code>Iterator</code>
 Returns a new Iterator object that contains the keys for each element in the Map object in insertion order.
 
-**Kind**: instance method of <code>[Map](#Map)</code>  
+**Kind**: instance method of [<code>Map</code>](#Map)  
 **Example**  
 ```js
 for (let tableName of db.schemas.get('public').tables.keys()) {
@@ -112,7 +112,7 @@ let tableNames = Array.from(db.schemas.get('public').tables.keys()); // Table na
 ### map.values() ⇒ <code>Iterator</code>
 Returns a new Iterator object that contains the values for each element in the Map object in insertion order.
 
-**Kind**: instance method of <code>[Map](#Map)</code>  
+**Kind**: instance method of [<code>Map</code>](#Map)  
 **Example**  
 ```js
 for (let table of db.schemas.get('public').tables.values()) {

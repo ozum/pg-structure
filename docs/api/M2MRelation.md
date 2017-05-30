@@ -86,14 +86,14 @@ let targetPKColumn       = relation.targetTable.primaryKeys[0];  // COLUMN:     
 ### m2MRelation.type : <code>relationType</code>
 Type of relation which is `MANY TO MANY`.
 
-**Kind**: instance property of <code>[M2MRelation](#M2MRelation)</code>  
+**Kind**: instance property of [<code>M2MRelation</code>](#M2MRelation)  
 **Read only**: true  
 <a name="M2MRelation+sourceTable"></a>
 
 ### m2MRelation.sourceTable : <code>Table</code>
 [Table](Table) which this relation belongs to.
 
-**Kind**: instance property of <code>[M2MRelation](#M2MRelation)</code>  
+**Kind**: instance property of [<code>M2MRelation</code>](#M2MRelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -106,7 +106,7 @@ let source   = relation.sourceTable;             // TABLE:       product
 Join [Table](Table) of this relationship. This table contains foreign key columns referring both
 [sourceTable](#M2MRelation+sourceTable) and [targetTable](#M2MRelation+targetTable).
 
-**Kind**: instance property of <code>[M2MRelation](#M2MRelation)</code>  
+**Kind**: instance property of [<code>M2MRelation</code>](#M2MRelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -118,7 +118,7 @@ let joinTable = relation.joinTable;              // TABLE:       line_item
 ### m2MRelation.targetTable : <code>Table</code>
 [Table](Table) which this relation is referring to (Through a join table).
 
-**Kind**: instance property of <code>[M2MRelation](#M2MRelation)</code>  
+**Kind**: instance property of [<code>M2MRelation</code>](#M2MRelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -130,7 +130,7 @@ let target   = relation.targetTable;             // TABLE:       cart
 ### m2MRelation.sourceConstraint : <code>Table</code>
 Foreign key [constraint](Constraint) between [source table](#M2MRelation+sourceTable) and [join table](#M2MRelation+joinTable).
 
-**Kind**: instance property of <code>[M2MRelation](#M2MRelation)</code>  
+**Kind**: instance property of [<code>M2MRelation</code>](#M2MRelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -143,7 +143,7 @@ let sourceJoinFKColumn   = relation.sourceConstraint.columns[0]; // COLUMN:     
 ### m2MRelation.targetConstraint : <code>Table</code>
 Foreign key [constraint](Constraint) between [join table](#M2MRelation+joinTable) and [target table](#M2MRelation+targetTable).
 
-**Kind**: instance property of <code>[M2MRelation](#M2MRelation)</code>  
+**Kind**: instance property of [<code>M2MRelation</code>](#M2MRelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -156,7 +156,7 @@ let targetJoinFKColumn   = relation.targetConstraint.columns[0]; // COLUMN:     
 ### m2MRelation.generateName([strategy]) ⇒ <code>string</code>
 (! EXPERIMENTAL) Returns name for relation using given strategy. Please see [Relation Names](../relation-names.md) for details.
 
-**Kind**: instance method of <code>[M2MRelation](#M2MRelation)</code>  
+**Kind**: instance method of [<code>M2MRelation</code>](#M2MRelation)  
 **Returns**: <code>string</code> - - Relation name.  
 **See**: [Relation Names](../relation-names.md)  
 

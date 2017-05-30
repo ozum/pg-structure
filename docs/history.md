@@ -4,6 +4,11 @@
 
 # History & Release Notes
 
+###### 4.0.0 / 2017-05-30
+* Added: pg-structure throws exception when a non-existing schema requested.
+* Added: Table#kind to determine whether a table is a view or table.
+* Added: Schema#description and Schema#comment attributes to get schema comments.
+
 ###### 3.5.14 / 2017-03-06
 * Fixed: If same constraint name is used more than once in same schema (non-unique constraint name), pg-structure was failing.
 

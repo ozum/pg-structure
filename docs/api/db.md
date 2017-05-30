@@ -12,7 +12,7 @@ Class which represent a database. Provides attributes and methods for details of
     * [.fullCatalogName](#Db+fullCatalogName) : <code>string</code>
     * [.options](#Db+options) : <code>Object</code>
     * [.schemas](#Db+schemas) : <code>Map.&lt;Schema&gt;</code>
-    * [.get(path)](#Db+get) ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
+    * [.get(path)](#Db+get) ⇒ <code>Schema</code> \| <code>Table</code> \| <code>Column</code> \| <code>undefined</code>
 
 <a name="new_Db_new"></a>
 
@@ -32,35 +32,35 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 ### db.name : <code>string</code>
 Name of the [Database](Database).
 
-**Kind**: instance property of <code>[Db](#Db)</code>  
+**Kind**: instance property of [<code>Db</code>](#Db)  
 **Read only**: true  
 <a name="Db+fullName"></a>
 
 ### db.fullName : <code>string</code>
 Full name of the [Database](Database) with (.) notation. Since database does not have a parent this equals database name.
 
-**Kind**: instance property of <code>[Db](#Db)</code>  
+**Kind**: instance property of [<code>Db</code>](#Db)  
 **Read only**: true  
 <a name="Db+fullCatalogName"></a>
 
 ### db.fullCatalogName : <code>string</code>
 Full name of the [Database](Database) with (.) notation including catalog name. Since database does not have a parent this equals database name.
 
-**Kind**: instance property of <code>[Db](#Db)</code>  
+**Kind**: instance property of [<code>Db</code>](#Db)  
 **Read only**: true  
 <a name="Db+options"></a>
 
 ### db.options : <code>Object</code>
 Options passed to during initialization.
 
-**Kind**: instance property of <code>[Db](#Db)</code>  
+**Kind**: instance property of [<code>Db</code>](#Db)  
 **Read only**: true  
 <a name="Db+schemas"></a>
 
 ### db.schemas : <code>Map.&lt;Schema&gt;</code>
 All [Schema](Schema) instances in the database as a [Map](Map). Schemas are ordered by their name.
 
-**Kind**: instance property of <code>[Db](#Db)</code>  
+**Kind**: instance property of [<code>Db</code>](#Db)  
 **Read only**: true  
 **See**: [Map](Map)  
 **Example**  
@@ -80,11 +80,11 @@ for (let [name, schema] of db.schemas) {
 ```
 <a name="Db+get"></a>
 
-### db.get(path) ⇒ <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
+### db.get(path) ⇒ <code>Schema</code> \| <code>Table</code> \| <code>Column</code> \| <code>undefined</code>
 Returns [Schema](Schema), [Table](Table) or [Column](Column) on given path relative to [Db](#Db). Path should be in dot (.) notation.
 
-**Kind**: instance method of <code>[Db](#Db)</code>  
-**Returns**: <code>Schema</code> &#124; <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code> - - Requested item.  
+**Kind**: instance method of [<code>Db</code>](#Db)  
+**Returns**: <code>Schema</code> \| <code>Table</code> \| <code>Column</code> \| <code>undefined</code> - - Requested item.  
 
 | Param | Type | Description |
 | --- | --- | --- |

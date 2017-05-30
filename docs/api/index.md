@@ -38,14 +38,14 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 ### index.name : <code>string</code>
 Name of the index.
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  
 <a name="Index+fullName"></a>
 
 ### index.fullName : <code>string</code>
 Full name of the [index](#Index) with (.) notation.
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  
 **Example**  
 ```js
@@ -56,7 +56,7 @@ var fullName = index.fullName; // crm.public
 ### index.fullCatalogName : <code>string</code>
 Full name of the [index](#Index) with (.) notation including catalog name.
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  
 **Example**  
 ```js
@@ -67,42 +67,42 @@ var fullCatalogName = index.fullCatalogName; // crm.public
 ### index.isUnique : <code>boolean</code>
 If true, this is a unique index.
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  
 <a name="Index+isPrimaryKey"></a>
 
 ### index.isPrimaryKey : <code>boolean</code>
 If true, this index represents the primary key of the table ([isUnique](#Index+isUnique) is always true for primary keys.)
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  
 <a name="Index+table"></a>
 
 ### index.table : <code>Table</code>
 [Table](Table) which this [index](#Index) belongs to.
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  
 <a name="Index+parent"></a>
 
 ### index.parent : <code>Table</code>
 [Table](Table) which this [index](#Index) belongs to.
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  
 <a name="Index+db"></a>
 
 ### index.db : <code>Db</code>
 [Db](Db) this [index](#Index) belongs to.
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  
 <a name="Index+schema"></a>
 
 ### index.schema : <code>Schema</code>
 [Schema](Schema) this [index](#Index) belongs to.
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  
 <a name="Index+columns"></a>
 
@@ -110,7 +110,7 @@ If true, this index represents the primary key of the table ([isUnique](#Index+i
 List of [columns](Column) restricted by [index](#Index), in order their ordinal position
 within the index key. If [index](#Index) does not have any [columns](Column) this is `null`.
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  
 <a name="Index+columnsByName"></a>
 
@@ -118,5 +118,5 @@ within the index key. If [index](#Index) does not have any [columns](Column) thi
 List of columns restricted by [index](#Index), in order their ordinal position within the index key.
 If [index](#Index) does not have any columns this is `null`.
 
-**Kind**: instance property of <code>[Index](#Index)</code>  
+**Kind**: instance property of [<code>Index</code>](#Index)  
 **Read only**: true  

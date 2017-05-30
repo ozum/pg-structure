@@ -65,14 +65,14 @@ let sourcePKColumn   = relation.sourceTable.primaryKeys[0];  // COLUMN:      id 
 ### o2MRelation.type : <code>relationType</code>
 Type of relation which is `ONE TO MANY`.
 
-**Kind**: instance property of <code>[O2MRelation](#O2MRelation)</code>  
+**Kind**: instance property of [<code>O2MRelation</code>](#O2MRelation)  
 **Read only**: true  
 <a name="O2MRelation+sourceTable"></a>
 
 ### o2MRelation.sourceTable : <code>Table</code>
 [Table](Table) which this relation belongs to.
 
-**Kind**: instance property of <code>[O2MRelation](#O2MRelation)</code>  
+**Kind**: instance property of [<code>O2MRelation</code>](#O2MRelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -84,7 +84,7 @@ let sourceTable  = relation.sourceTable;             // TABLE:       product
 ### o2MRelation.targetTable : <code>Table</code>
 [Table](Table) which this relation is referring to.
 
-**Kind**: instance property of <code>[O2MRelation](#O2MRelation)</code>  
+**Kind**: instance property of [<code>O2MRelation</code>](#O2MRelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -96,7 +96,7 @@ let targetTable  = relation.targetTable;             // TABLE:       line_item
 ### o2MRelation.constraint : <code>Table</code>
 Foreign key [constraint](Constraint) between [source table](#O2MRelation+sourceTable) and [target table](#O2MRelation+targetTable).
 
-**Kind**: instance property of <code>[O2MRelation](#O2MRelation)</code>  
+**Kind**: instance property of [<code>O2MRelation</code>](#O2MRelation)  
 **Read only**: true  
 **Example**  
 ```js
@@ -109,7 +109,7 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
 ### o2MRelation.generateName([strategy]) ⇒ <code>string</code>
 (! EXPERIMENTAL) Returns name for relation using given strategy. Please see [Relation Names](../relation-names.md) for details.
 
-**Kind**: instance method of <code>[O2MRelation](#O2MRelation)</code>  
+**Kind**: instance method of [<code>O2MRelation</code>](#O2MRelation)  
 **Returns**: <code>string</code> - - Relation name.  
 **See**: [Relation Names](../relation-names.md)  
 

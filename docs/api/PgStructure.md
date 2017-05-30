@@ -9,8 +9,8 @@
             * [.load(file)](#module_pgStructure--module.exports.load) ⇒ <code>Promise.&lt;(Db\|undefined)&gt;</code>
             * [.serialize(db)](#module_pgStructure--module.exports.serialize) ⇒ <code>string</code>
             * [.toString(db)](#module_pgStructure--module.exports.toString) ⇒ <code>string</code>
-            * [.deserialize(serializedDbJSON)](#module_pgStructure--module.exports.deserialize) ⇒ <code>Db</code> &#124; <code>undefined</code>
-            * [.parse(serializedDb)](#module_pgStructure--module.exports.parse) ⇒ <code>Db</code> &#124; <code>undefined</code>
+            * [.deserialize(serializedDbJSON)](#module_pgStructure--module.exports.deserialize) ⇒ <code>Db</code> \| <code>undefined</code>
+            * [.parse(serializedDb)](#module_pgStructure--module.exports.parse) ⇒ <code>Db</code> \| <code>undefined</code>
         * _inner_
             * [~pgOptions](#module_pgStructure--module.exports..pgOptions) : <code>Object</code>
 
@@ -21,11 +21,15 @@ Creates and returns [Db](Db) instance by reverse engineering PostgreSQL database
 
 **Kind**: Exported function  
 **Returns**: <code>Promise.&lt;Db&gt;</code> - - [Db](Db).  
+**Throws**:
+
+- <code>Error</code> - Throws if one of the requested shchemas does not exists on database.
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| pgOptions | <code>pgOptions</code> &#124; <code>pg#client</code> |  | node-postgres client or connection parameters. Parameters passed directly to node-postgres. See it for details. |
-| [schemas] | <code>string</code> &#124; <code>Array.&lt;string&gt;</code> | <code>&quot;[&#x27;public&#x27;]&quot;</code> | PostgreSQL schemas to be parsed. |
+| pgOptions | <code>pgOptions</code> \| <code>pg#client</code> |  | node-postgres client or connection parameters. Parameters passed directly to node-postgres. See it for details. |
+| [schemas] | <code>string</code> \| <code>Array.&lt;string&gt;</code> | <code>&quot;[&#x27;public&#x27;]&quot;</code> | PostgreSQL schemas to be parsed. |
 | options | <code>Object</code> |  | pg-structure options. |
 | [options.cache] | <code>boolean</code> | <code>true</code> | Use cache to memoize calculated results. |
 
@@ -43,12 +47,12 @@ pgStructure({database: 'db', user: 'user', password: 'password'}, ['public', 'ot
 Saves given database structure to a disk file. If given file name ends with `.zip` extension, file will be saved as
 compressed zip file.
 
-**Kind**: static method of <code>[module.exports](#exp_module_pgStructure--module.exports)</code>  
+**Kind**: static method of [<code>module.exports</code>](#exp_module_pgStructure--module.exports)  
 **Returns**: <code>Promise.&lt;string&gt;</code> - - Serialized string.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| file | <code>string</code> &#124; <code>undefined</code> | File path to save database structure. |
+| file | <code>string</code> \| <code>undefined</code> | File path to save database structure. |
 | db | <code>Db</code> | [Db](Db) object to save. |
 
 **Example**  
@@ -69,7 +73,7 @@ automatically.<br/>
 load files saved by incompatible pg-structure module versions and returns `undefined`. In this case you should
 fetch structure from database and create a new save file.
 
-**Kind**: static method of <code>[module.exports](#exp_module_pgStructure--module.exports)</code>  
+**Kind**: static method of [<code>module.exports</code>](#exp_module_pgStructure--module.exports)  
 **Returns**: <code>Promise.&lt;(Db\|undefined)&gt;</code> - - [Db](Db) instance or `undefined` if saved file is generated with incompatible module version.  
 
 | Param | Type | Description |
@@ -89,7 +93,7 @@ pgStructure.load('./db.json')
 #### module.exports.serialize(db) ⇒ <code>string</code>
 Serializes database structure to make it possible to store or transfer.
 
-**Kind**: static method of <code>[module.exports](#exp_module_pgStructure--module.exports)</code>  
+**Kind**: static method of [<code>module.exports</code>](#exp_module_pgStructure--module.exports)  
 **Returns**: <code>string</code> - - Serialized database structure.  
 
 | Param | Type | Description |
@@ -108,7 +112,7 @@ pgStructure({database: 'db', user: 'user', password: 'password', host: 'localhos
 #### module.exports.toString(db) ⇒ <code>string</code>
 Alias of {@link module:pgStructure.serialize). Serializes database structure to make it possible to store or transfer.
 
-**Kind**: static method of <code>[module.exports](#exp_module_pgStructure--module.exports)</code>  
+**Kind**: static method of [<code>module.exports</code>](#exp_module_pgStructure--module.exports)  
 **Returns**: <code>string</code> - - Serialized database structure.  
 **See**: {@link module:pgStructure.serialize)  
 
@@ -118,13 +122,13 @@ Alias of {@link module:pgStructure.serialize). Serializes database structure to 
 
 <a name="module_pgStructure--module.exports.deserialize"></a>
 
-#### module.exports.deserialize(serializedDbJSON) ⇒ <code>Db</code> &#124; <code>undefined</code>
+#### module.exports.deserialize(serializedDbJSON) ⇒ <code>Db</code> \| <code>undefined</code>
 Creates and returns [Db](Db) instance using previously serialized string. <br/>
 <img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
 deserialize incompatible pg-structure module versions and returns `undefined`. In this case you should fetch structure from database.
 
-**Kind**: static method of <code>[module.exports](#exp_module_pgStructure--module.exports)</code>  
-**Returns**: <code>Db</code> &#124; <code>undefined</code> - - [Db](Db) instance. If serialized string is from incompatible module version, this is `undefined`
+**Kind**: static method of [<code>module.exports</code>](#exp_module_pgStructure--module.exports)  
+**Returns**: <code>Db</code> \| <code>undefined</code> - - [Db](Db) instance. If serialized string is from incompatible module version, this is `undefined`
 var pgStructure = require('pg-structure');
 
 pgStructure.deserialize('./db.json')
@@ -137,13 +141,13 @@ pgStructure.deserialize('./db.json')
 
 <a name="module_pgStructure--module.exports.parse"></a>
 
-#### module.exports.parse(serializedDb) ⇒ <code>Db</code> &#124; <code>undefined</code>
+#### module.exports.parse(serializedDb) ⇒ <code>Db</code> \| <code>undefined</code>
 Alias of [deserialize](#module_pgStructure--module.exports.deserialize). Creates and returns [Db](Db) instance using previously serialized string. <br/>
 <img src="../../images/warning-24.png" style="margin-left: -26px;"> pgStructure cannot
 deserialize incompatible pg-structure module versions and returns `undefined`. In this case you should fetch structure from database.
 
-**Kind**: static method of <code>[module.exports](#exp_module_pgStructure--module.exports)</code>  
-**Returns**: <code>Db</code> &#124; <code>undefined</code> - - [Db](Db) instance. If serialized string is from incompatible module version, this is `undefined`  
+**Kind**: static method of [<code>module.exports</code>](#exp_module_pgStructure--module.exports)  
+**Returns**: <code>Db</code> \| <code>undefined</code> - - [Db](Db) instance. If serialized string is from incompatible module version, this is `undefined`  
 **See**: [deserialize](#module_pgStructure--module.exports.deserialize)  
 
 | Param | Type | Description |
@@ -155,7 +159,7 @@ deserialize incompatible pg-structure module versions and returns `undefined`. I
 #### module.exports~pgOptions : <code>Object</code>
 PostgreSQL connection options which are passed directly to node-postgres.
 
-**Kind**: inner typedef of <code>[module.exports](#exp_module_pgStructure--module.exports)</code>  
+**Kind**: inner typedef of [<code>module.exports</code>](#exp_module_pgStructure--module.exports)  
 **Properties**
 
 | Name | Type | Default | Description |
@@ -165,5 +169,5 @@ PostgreSQL connection options which are passed directly to node-postgres.
 | port | <code>number</code> | <code>5432</code> | Port of the database. |
 | user | <code>string</code> |  | Username for connecting to db. |
 | password | <code>string</code> |  | Password to connecting to db. |
-| ssl | <code>boolean</code> &#124; <code>Object</code> | <code>false</code> | Pass the same options as tls.connect(). |
+| ssl | <code>boolean</code> \| <code>Object</code> | <code>false</code> | Pass the same options as tls.connect(). |
 

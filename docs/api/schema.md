@@ -12,8 +12,10 @@ Class which represent a PostgreSQL schema. Provides attributes and methods for d
     * [.fullCatalogName](#Schema+fullCatalogName) : <code>string</code>
     * [.db](#Schema+db) : <code>Db</code>
     * [.parent](#Schema+parent) : <code>Db</code>
+    * [.comment](#Schema+comment) : <code>string</code>
+    * [.description](#Schema+description) : <code>string</code>
     * [.tables](#Schema+tables) : <code>Map.&lt;Table&gt;</code>
-    * [.get(path)](#Schema+get) ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
+    * [.get(path)](#Schema+get) ⇒ <code>Table</code> \| <code>Column</code> \| <code>undefined</code>
 
 <a name="new_Schema_new"></a>
 
@@ -26,20 +28,21 @@ Constructor function. You don't need to call constructor manually. pg-structure 
 | args | <code>Object</code> | Attributes of the [Schema](#Schema) instance to be created. |
 | args.parent | <code>Db</code> | Parent [Db](Db) of the Schema. |
 | args.name | <code>string</code> | Name of the Schema. |
+| args.description | <code>string</code> | Description of the Schema. |
 
 <a name="Schema+name"></a>
 
 ### schema.name : <code>string</code>
 Name of the schema.
 
-**Kind**: instance property of <code>[Schema](#Schema)</code>  
+**Kind**: instance property of [<code>Schema</code>](#Schema)  
 **Read only**: true  
 <a name="Schema+fullName"></a>
 
 ### schema.fullName : <code>string</code>
 Full name of the [Schema](#Schema). For schema it is equal to schema name.
 
-**Kind**: instance property of <code>[Schema](#Schema)</code>  
+**Kind**: instance property of [<code>Schema</code>](#Schema)  
 **Read only**: true  
 **Example**  
 ```js
@@ -50,7 +53,7 @@ var fullName = schema.fullName; // public
 ### schema.fullCatalogName : <code>string</code>
 Full name of the [Schema](#Schema) with (.) notation including catalog name.
 
-**Kind**: instance property of <code>[Schema](#Schema)</code>  
+**Kind**: instance property of [<code>Schema</code>](#Schema)  
 **Read only**: true  
 **Example**  
 ```js
@@ -61,7 +64,7 @@ var fullCatalogName = schema.fullCatalogName; // crm.public
 ### schema.db : <code>Db</code>
 [Db](Db) this schema belongs to.
 
-**Kind**: instance property of <code>[Schema](#Schema)</code>  
+**Kind**: instance property of [<code>Schema</code>](#Schema)  
 **Read only**: true  
 **See**: Aliases [parent](#Schema+parent)  
 **Example**  
@@ -73,19 +76,35 @@ var db = schema.db; // Db instance
 ### schema.parent : <code>Db</code>
 [Db](Db) this schema belongs to.
 
-**Kind**: instance property of <code>[Schema](#Schema)</code>  
+**Kind**: instance property of [<code>Schema</code>](#Schema)  
 **Read only**: true  
 **See**: Aliases [db](#Schema+db)  
 **Example**  
 ```js
 var db = schema.parent; // Db instance
 ```
+<a name="Schema+comment"></a>
+
+### schema.comment : <code>string</code>
+Comment of the schema.
+
+**Kind**: instance property of [<code>Schema</code>](#Schema)  
+**Read only**: true  
+**See**: Aliases [description](#Schema+description)  
+<a name="Schema+description"></a>
+
+### schema.description : <code>string</code>
+Comment of the schema.
+
+**Kind**: instance property of [<code>Schema</code>](#Schema)  
+**Read only**: true  
+**See**: Aliases [comment](#Schema+comment)  
 <a name="Schema+tables"></a>
 
 ### schema.tables : <code>Map.&lt;Table&gt;</code>
 All [Table](Table) instances of the schema as a [Map](Map). They are ordered by their name.
 
-**Kind**: instance property of <code>[Schema](#Schema)</code>  
+**Kind**: instance property of [<code>Schema</code>](#Schema)  
 **Read only**: true  
 **See**: [Map](Map)  
 **Example**  
@@ -105,11 +124,11 @@ for (let [name, table] of schema.tables) {
 ```
 <a name="Schema+get"></a>
 
-### schema.get(path) ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code>
+### schema.get(path) ⇒ <code>Table</code> \| <code>Column</code> \| <code>undefined</code>
 Returns [Table](Table) or [Column](Column) on given path relative to [Schema](#Schema). Path should be in dot (.) notation.
 
-**Kind**: instance method of <code>[Schema](#Schema)</code>  
-**Returns**: <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code> - - Requested item.  
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+**Returns**: <code>Table</code> \| <code>Column</code> \| <code>undefined</code> - - Requested item.  
 
 | Param | Type | Description |
 | --- | --- | --- |
