@@ -8,7 +8,7 @@
   
   <meta name="author" content="Özüm Eldoğan">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Schema - pg-structure 3.5.15</title>
+  <title>Schema - pg-structure 4.0.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -45,7 +45,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 3.5.15</a>
+        <a href="../.." class="icon icon-home"> pg-structure 4.0.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -55,163 +55,123 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../concepts/">Concepts</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../concepts/">Concepts</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../examples/">Examples</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../examples/">Examples</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../history/">History</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../history/">History</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../license/">License</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../license/">License</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../report/">Test & Coverage Report</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../report/">Test & Coverage Report</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../relation-names/">Relation Names</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../relation-names/">Relation Names</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API</span>
     <ul class="subnav">
-    <li><span>API</span></li>
+                <li class="">
+                    
+    <a class="" href="../Column/">Column</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Constraint/">Constraint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Db/">Db</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Index/">Index</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../M2MRelation/">M2M Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../M2ORelation/">M2O Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Map/">Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../O2MRelation/">O2M Relation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../PgStructure/">pgStructure</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Schema</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#schema">Schema</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#new-schemaargs">new Schema(args)</a></li>
+        
+            <li><a class="toctree-l4" href="#schemaname-string">schema.name : string</a></li>
+        
+            <li><a class="toctree-l4" href="#schemafullname-string">schema.fullName : string</a></li>
+        
+            <li><a class="toctree-l4" href="#schemafullcatalogname-string">schema.fullCatalogName : string</a></li>
+        
+            <li><a class="toctree-l4" href="#schemadb-db">schema.db : Db</a></li>
+        
+            <li><a class="toctree-l4" href="#schemaparent-db">schema.parent : Db</a></li>
+        
+            <li><a class="toctree-l4" href="#schemacomment-string">schema.comment : string</a></li>
+        
+            <li><a class="toctree-l4" href="#schemadescription-string">schema.description : string</a></li>
+        
+            <li><a class="toctree-l4" href="#schematables-maptable">schema.tables : Map.&lt;Table&gt;</a></li>
+        
+            <li><a class="toctree-l4" href="#schemagetpath-table-124-column-124-undefined">schema.get(path) ⇒ Table | Column | undefined</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Column/">Column</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Constraint/">Constraint</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Db/">Db</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Index/">Index</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../M2MRelation/">M2M Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../M2ORelation/">M2O Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Map/">Map</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../O2MRelation/">O2M Relation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../PgStructure/">pgStructure</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Schema</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#schema">Schema</a></li>
-                
-                    <li><a class="toctree-l4" href="#new-schemaargs">new Schema(args)</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemaname-string">schema.name : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemafullname-string">schema.fullName : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemafullcatalogname-string">schema.fullCatalogName : string</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemadb-db">schema.db : Db</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemaparent-db">schema.parent : Db</a></li>
-                
-                    <li><a class="toctree-l4" href="#schematables-maptable">schema.tables : Map.&lt;Table&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#schemagetpath-table-column-undefined">schema.get(path) ⇒ Table &#124; Column &#124; undefined</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Table/">Table</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Table/">Table</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -223,7 +183,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 3.5.15</a>
+        <a href="../..">pg-structure 4.0.0</a>
       </nav>
 
       
@@ -264,8 +224,10 @@
 <li><a href="#Schema+fullCatalogName">.fullCatalogName</a> : <code>string</code></li>
 <li><a href="#Schema+db">.db</a> : <code>Db</code></li>
 <li><a href="#Schema+parent">.parent</a> : <code>Db</code></li>
+<li><a href="#Schema+comment">.comment</a> : <code>string</code></li>
+<li><a href="#Schema+description">.description</a> : <code>string</code></li>
 <li><a href="#Schema+tables">.tables</a> : <code>Map.&lt;Table&gt;</code></li>
-<li><a href="#Schema+get">.get(path)</a> ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></li>
+<li><a href="#Schema+get">.get(path)</a> ⇒ <code>Table</code> | <code>Column</code> | <code>undefined</code></li>
 </ul>
 </li>
 </ul>
@@ -296,17 +258,22 @@
 <td><code>string</code></td>
 <td>Name of the Schema.</td>
 </tr>
+<tr>
+<td>args.description</td>
+<td><code>string</code></td>
+<td>Description of the Schema.</td>
+</tr>
 </tbody>
 </table>
 <p><a name="Schema+name"></a></p>
 <h3 id="schemaname-string">schema.name : <code>string</code></h3>
 <p>Name of the schema.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Schema"><code>Schema</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Schema+fullName"></a></p>
 <h3 id="schemafullname-string">schema.fullName : <code>string</code></h3>
 <p>Full name of the <a href="#Schema">Schema</a>. For schema it is equal to schema name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Schema"><code>Schema</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var fullName = schema.fullName; // public
@@ -315,7 +282,7 @@
 <p><a name="Schema+fullCatalogName"></a></p>
 <h3 id="schemafullcatalogname-string">schema.fullCatalogName : <code>string</code></h3>
 <p>Full name of the <a href="#Schema">Schema</a> with (.) notation including catalog name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Schema"><code>Schema</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var fullCatalogName = schema.fullCatalogName; // crm.public
@@ -324,7 +291,7 @@
 <p><a name="Schema+db"></a></p>
 <h3 id="schemadb-db">schema.db : <code>Db</code></h3>
 <p><a href="../Db">Db</a> this schema belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Schema"><code>Schema</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Schema+parent">parent</a><br />
 <strong>Example</strong>  </p>
@@ -334,17 +301,29 @@
 <p><a name="Schema+parent"></a></p>
 <h3 id="schemaparent-db">schema.parent : <code>Db</code></h3>
 <p><a href="../Db">Db</a> this schema belongs to.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Schema"><code>Schema</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Schema+db">db</a><br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var db = schema.parent; // Db instance
 </code></pre>
 
-<p><a name="Schema+tables"></a></p>
+<p><a name="Schema+comment"></a></p>
+<h3 id="schemacomment-string">schema.comment : <code>string</code></h3>
+<p>Comment of the schema.</p>
+<p><strong>Kind</strong>: instance property of <a href="#Schema"><code>Schema</code></a><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: Aliases <a href="#Schema+description">description</a><br />
+<a name="Schema+description"></a></p>
+<h3 id="schemadescription-string">schema.description : <code>string</code></h3>
+<p>Comment of the schema.</p>
+<p><strong>Kind</strong>: instance property of <a href="#Schema"><code>Schema</code></a><br />
+<strong>Read only</strong>: true<br />
+<strong>See</strong>: Aliases <a href="#Schema+comment">comment</a><br />
+<a name="Schema+tables"></a></p>
 <h3 id="schematables-maptable">schema.tables : <code>Map.&lt;Table&gt;</code></h3>
 <p>All <a href="../Table">Table</a> instances of the schema as a <a href="../Map">Map</a>. They are ordered by their name.</p>
-<p><strong>Kind</strong>: instance property of <code><a href="#Schema">Schema</a></code><br />
+<p><strong>Kind</strong>: instance property of <a href="#Schema"><code>Schema</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="../Map">Map</a><br />
 <strong>Example</strong>  </p>
@@ -363,10 +342,10 @@ for (let [name, table] of schema.tables) {
 </code></pre>
 
 <p><a name="Schema+get"></a></p>
-<h3 id="schemagetpath-table-column-undefined">schema.get(path) ⇒ <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code></h3>
+<h3 id="schemagetpath-table-124-column-124-undefined">schema.get(path) ⇒ <code>Table</code> | <code>Column</code> | <code>undefined</code></h3>
 <p>Returns <a href="../Table">Table</a> or <a href="../Column">Column</a> on given path relative to <a href="#Schema">Schema</a>. Path should be in dot (.) notation.</p>
-<p><strong>Kind</strong>: instance method of <code><a href="#Schema">Schema</a></code><br />
-<strong>Returns</strong>: <code>Table</code> &#124; <code>Column</code> &#124; <code>undefined</code> - - Requested item.  </p>
+<p><strong>Kind</strong>: instance method of <a href="#Schema"><code>Schema</code></a><br />
+<strong>Returns</strong>: <code>Table</code> | <code>Column</code> | <code>undefined</code> - - Requested item.  </p>
 <table>
 <thead>
 <tr>
@@ -424,7 +403,7 @@ for (let [name, table] of schema.tables) {
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/ozum/pg-structure.git" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ozum/pg-structure.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../PgStructure/" style="color: #fcfcfc;">&laquo; Previous</a></span>
