@@ -12,6 +12,7 @@ var expect      = Chai.expect;
 var dbs = {};
 var db;
 var table;
+var view;
 
 lab.before((done) => {
     testDB.createDB('1')
@@ -37,6 +38,7 @@ var tests = function(key) {
         lab.before((done) => {
             db = dbs[key];
             table = db.get('public.account');
+            view = db.get('public.v_contacts_with_account');
             done();
         });
 
@@ -48,6 +50,16 @@ var tests = function(key) {
         it('should have fullName.', function(done) {
             expect(table.fullName).to.equal('public.account');
             done();
+        });
+
+        it('should have kind of table if it is a table.', function(done) {
+          expect(table.kind).to.equal('table');
+          done();
+        });
+
+        it('should have kind of view if it is a view.', function(done) {
+          expect(view.kind).to.equal('view');
+          done();
         });
 
         it('should have fullCatalogName.', function(done) {

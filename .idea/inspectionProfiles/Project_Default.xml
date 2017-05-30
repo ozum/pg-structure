@@ -3,6 +3,5 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="Eslint" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="IgnoreCoverEntry" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="Jscs" enabled="true" level="ERROR" enabled_by_default="true" />
   </profile>
 </component>
