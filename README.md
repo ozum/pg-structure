@@ -125,7 +125,7 @@ To start coding read main [pg-structure](http://localhost:63342/pg-structure3/si
 During development API references helps you.
 
 ## Special Thanks
-**pg-structure** is developed under sponsorship of [Fortibase](http://www.fortibase.com) and released as open source. See [license](http://www.pg-structure.com/license/).
+**pg-structure** is developed under sponsorship of [Ozsoft](http://www.ozsoft.com) and released as open source. See [license](http://www.pg-structure.com/license/).
 
 Also documentation is auto generated thanks to:
 

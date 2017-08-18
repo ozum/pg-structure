@@ -3,7 +3,7 @@ Created: 24.02.2016
 Modified: 30.05.2017
 Project: Node Test
 Model: Node Test
-Company: Fortibase
+Company: Ozsoft
 Author: Özüm Eldoğan
 Version: 1.0
 Database: PostgreSQL 9.4

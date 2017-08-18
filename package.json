@@ -10,7 +10,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "node_modules/lab/bin/lab",
+    "test": "node_modules/lab/bin/lab --globals WebAssembly",
     "doc:report": "node_modules/lab/bin/lab -r html -o site/report.html",
     "doc:mkdocs": "node bin/js2md.js && mkdocs build --clean",
     "doc:readme": "jsdoc2md \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
@@ -39,7 +39,7 @@
   ],
   "author": {
     "name": "Özüm Eldoğan",
-    "url": "http://www.fortibase.com"
+    "url": "http://www.ozsoft.com"
   },
   "license": "MIT",
   "dependencies": {
