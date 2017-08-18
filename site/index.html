@@ -8,24 +8,24 @@
   <meta name="description" content="Get PostgreSQL database structure as a detailed JS Object.">
   <meta name="author" content="Özüm Eldoğan">
   <link rel="shortcut icon" href="./img/favicon.ico">
-  <title>Home - pg-structure 4.0.1</title>
+  <title>Home - pg-structure 4.0.2</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="./css/theme.css" type="text/css" />
   <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="./css/highlight.css">
-
+  
   <script>
     // Current page data
     var mkdocs_page_name = "Home";
     var mkdocs_page_input_path = "index.md";
     var mkdocs_page_url = "/";
   </script>
-
+  
   <script src="./js/jquery-2.1.1.min.js"></script>
   <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script>
-
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -35,17 +35,17 @@
       ga('create', 'UA-45732546-4', 'auto');
       ga('send', 'pageview');
   </script>
-
+  
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
 
-
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> pg-structure 4.0.1</a>
+        <a href="." class="icon icon-home"> pg-structure 4.0.2</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -55,118 +55,113 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
-
-
+	  
+          
             <li class="toctree-l1 current">
-
+		
     <a class="current" href=".">Home</a>
     <ul class="subnav">
-
+            
     <li class="toctree-l2"><a href="#welcome-to-pg-structure">Welcome to pg-structure</a></li>
-
+    
         <ul>
-
+        
             <li><a class="toctree-l3" href="#example">Example</a></li>
-
+        
             <li><a class="toctree-l3" href="#detailed-example">Detailed Example</a></li>
-
+        
             <li><a class="toctree-l3" href="#load-save-example">Load &amp; Save Example</a></li>
-
+        
             <li><a class="toctree-l3" href="#features">Features</a></li>
-
+        
             <li><a class="toctree-l3" href="#where-to-start">Where to Start?</a></li>
-
+        
             <li><a class="toctree-l3" href="#special-thanks">Special Thanks</a></li>
-
+        
             <li><a class="toctree-l3" href="#contributions">Contributions</a></li>
-
+        
         </ul>
-
+    
 
     </ul>
 	    </li>
-
+          
             <li class="toctree-l1">
-
+		
     <a class="" href="concepts/">Concepts</a>
 	    </li>
-
+          
             <li class="toctree-l1">
-
+		
     <a class="" href="examples/">Examples</a>
 	    </li>
-
+          
             <li class="toctree-l1">
-
+		
     <a class="" href="history/">History</a>
 	    </li>
-
+          
             <li class="toctree-l1">
-
+		
     <a class="" href="license/">License</a>
 	    </li>
-
+          
             <li class="toctree-l1">
-
-    <a class="" href="report/">Test & Coverage Report</a>
-	    </li>
-
-            <li class="toctree-l1">
-
+		
     <a class="" href="relation-names/">Relation Names</a>
 	    </li>
-
+          
             <li class="toctree-l1">
-
+		
     <span class="caption-text">API</span>
     <ul class="subnav">
                 <li class="">
-
+                    
     <a class="" href="api/Column/">Column</a>
                 </li>
                 <li class="">
-
+                    
     <a class="" href="api/Constraint/">Constraint</a>
                 </li>
                 <li class="">
-
+                    
     <a class="" href="api/Db/">Db</a>
                 </li>
                 <li class="">
-
+                    
     <a class="" href="api/Index/">Index</a>
                 </li>
                 <li class="">
-
+                    
     <a class="" href="api/M2MRelation/">M2M Relation</a>
                 </li>
                 <li class="">
-
+                    
     <a class="" href="api/M2ORelation/">M2O Relation</a>
                 </li>
                 <li class="">
-
+                    
     <a class="" href="api/Map/">Map</a>
                 </li>
                 <li class="">
-
+                    
     <a class="" href="api/O2MRelation/">O2M Relation</a>
                 </li>
                 <li class="">
-
+                    
     <a class="" href="api/PgStructure/">pgStructure</a>
                 </li>
                 <li class="">
-
+                    
     <a class="" href="api/Schema/">Schema</a>
                 </li>
                 <li class="">
-
+                    
     <a class="" href="api/Table/">Table</a>
                 </li>
     </ul>
 	    </li>
-
+          
         </ul>
       </div>
       &nbsp;
@@ -174,34 +169,34 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-
+      
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">pg-structure 4.0.1</a>
+        <a href=".">pg-structure 4.0.2</a>
       </nav>
 
-
+      
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".">Docs</a> &raquo;</li>
-
-
-
+    
+      
+    
     <li>Home</li>
     <li class="wy-breadcrumbs-aside">
-
+      
         <a href="https://github.com/ozum/pg-structure.git/edit/master/docs/index.md"
           class="icon icon-github"> Edit on GitHub</a>
-
+      
     </li>
   </ul>
   <hr/>
 </div>
           <div role="main">
             <div class="section">
-
+              
                 <h1 id="welcome-to-pg-structure">Welcome to pg-structure</h1>
 <p><strong>pg-structure</strong> is a Node.js library to get structure of a <a href="http://www.postgresql.org">PostgreSQL</a> database automatically as a detailed object.</p>
 <table style="border:none; border-spacing: 10px; border-collapse: separate;">
@@ -314,8 +309,7 @@ You may want to read <a href="http://localhost:63342/pg-structure3/site/examples
 To start coding read main <a href="http://localhost:63342/pg-structure3/site/api/PgStructure/">pg-structure</a> module's documentation.
 During development API references helps you.</p>
 <h2 id="special-thanks">Special Thanks</h2>
-<p><strong>pg-structure</strong> is developed under sponsorship of <a href="http://www.ozsoft.com">Ozsoft</a> and released as open source. See <a href="http://www.pg-structure.com/license/">license</a>.</p>
-<p>Also documentation is auto generated thanks to:</p>
+<p>Documentation is auto generated thanks to:</p>
 <ul>
 <li><a href="http://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>.</li>
 <li>Markdown is generated by <a href="https://www.npmjs.com/package/jsdoc-to-markdown">jsdoc-to-markdown</a></li>
@@ -325,47 +319,47 @@ During development API references helps you.</p>
 <li>For contribution please send pull requests with tests on <a href="https://github.com/ozum/pg-structure.git">GitHub</a>.</li>
 <li>Send bugs and feature requests to <a href="https://github.com/ozum/pg-structure/issues">GitHub Issues</a>.</li>
 </ul>
-
+              
             </div>
           </div>
           <footer>
-
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-
+      
         <a href="concepts/" class="btn btn-neutral float-right" title="Concepts">Next <span class="icon icon-circle-arrow-right"></span></a>
-
-
+      
+      
     </div>
-
+  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-
+    
       <p>© Özüm Eldoğan</p>
-
+    
   </div>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
-
+      
           <a href="https://github.com/ozum/pg-structure.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-
-
-
+      
+      
+      
         <span style="margin-left: 15px"><a href="concepts/" style="color: #fcfcfc">Next &raquo;</a></span>
-
+      
     </span>
 </div>
     <script src="./js/theme.js"></script>
@@ -375,5 +369,5 @@ During development API references helps you.</p>
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-05-30 09:54:26
+Build Date UTC : 2017-08-18 20:35:46
 -->

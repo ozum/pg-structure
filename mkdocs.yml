@@ -1,4 +1,4 @@
-site_name: pg-structure 4.0.1
+site_name: pg-structure 4.0.2
 theme: readthedocs
 pages:
   - Home: index.md
@@ -6,7 +6,6 @@ pages:
   - Examples: examples.md
   - History: history.md
   - License: license.md
-  - Test & Coverage Report: report.md
   - Relation Names: relation-names.md
   - API:
       - Column: api/Column.md
