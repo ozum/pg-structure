@@ -11,10 +11,9 @@
   },
   "scripts": {
     "test": "node_modules/lab/bin/lab --globals WebAssembly",
-    "doc:report": "node_modules/lab/bin/lab -r html -o site/report.html",
     "doc:mkdocs": "node bin/js2md.js && mkdocs build --clean",
     "doc:readme": "jsdoc2md \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
-    "doc": "npm run doc:mkdocs && npm run doc:report && npm run doc:readme",
+    "doc": "npm run doc:mkdocs && npm run doc:readme",
     "preversion": "eslint lib &&  npm test;",
     "postversion": "npm run doc && git add -A site && git add README.md mkdocs.yml && git commit -m 'Doc update.' && git push && git push --tags && git subtree push --prefix site origin gh-pages && npm publish;"
   },
