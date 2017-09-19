@@ -1,52 +1,50 @@
 -- Should return:
 -- schemaName, tableName, name, default, allowNull, type, special, length, precision, scale, arrayType, arrayDimension, position, description
 SELECT
--- 	c.*,
--- 	'|' as "|",
-  CONCAT(cols.table_catalog, '.', cols.table_schema, '.', cols.table_name)          AS "parent",
-  cols.table_schema                                                       AS "schema",
-  cols.table_catalog                                                      AS "db",
-  pg_catalog.obj_description(c.relnamespace, 'pg_namespace')         AS "schemaComment",
+  CONCAT(cols.table_catalog, '.', cols.table_schema, '.', cols.table_name)                          AS "parent",
+  cols.table_schema                                                                                 AS "schema",
+  cols.table_catalog                                                                                AS "db",
+  pg_catalog.obj_description(c.relnamespace, 'pg_namespace')                                        AS "schemaComment",
   CASE c.relkind
       WHEN 'r' THEN 'table'
       WHEN 'v' THEN 'view'
-  END                                                                AS "kind",
-  cols.table_name                                                         AS "table",
-  pg_catalog.obj_description(c.oid, 'pg_class')                      AS "tableDescription",
-  cols.column_name                                                        AS "name",
-  CONCAT(cols.table_schema, '.', cols.table_name, '.', cols.column_name)            AS "fullName",
-  CONCAT(cols.table_catalog, '.', cols.table_schema, '.', cols.table_name, '.', cols.column_name) AS "fullCatalogName",
-  cols.column_default                                                     AS "defaultWithTypeCast",
-  CASE WHEN cols.column_default ILIKE 'nextval%' THEN TRUE ELSE FALSE END AS "isAutoIncrement",
-  CAST(cols.is_nullable AS BOOLEAN)                                       AS "allowNull",
+  END                                                                                               AS "kind",
+  cols.table_name                                                                                   AS "table",
+  pg_catalog.obj_description(c.oid, 'pg_class')                                                     AS "tableDescription",
+  cols.column_name                                                                                  AS "name",
+  CONCAT(cols.table_schema, '.', cols.table_name, '.', cols.column_name)                            AS "fullName",
+  CONCAT(cols.table_catalog, '.', cols.table_schema, '.', cols.table_name, '.', cols.column_name)   AS "fullCatalogName",
+  cols.column_default                                                                               AS "defaultWithTypeCast",
+  CASE WHEN cols.column_default ILIKE 'nextval%' THEN TRUE ELSE FALSE END                           AS "isAutoIncrement",
+  CAST(cols.is_nullable AS BOOLEAN)                                                                 AS "allowNull",
   CASE WHEN cols.udt_name = 'hstore' THEN cols.udt_name
-  ELSE LOWER(cols.data_type) END                                          AS "type",
-  t.typcategory                                                      AS "typeCategory", -- See http://www.postgresql.org/docs/current/static/catalog-pg-type.html
+  ELSE LOWER(cols.data_type) END                                                                    AS "type",
+  t.typcategory                                                                                     AS "typeCategory", -- See http://www.postgresql.org/docs/current/static/catalog-pg-type.html
   CASE WHEN t.typcategory = 'E' THEN
       (SELECT Array_agg(e.enumlabel)
        FROM pg_catalog.pg_type t JOIN pg_catalog.pg_enum e ON t.oid = e.enumtypid
        WHERE t.typname = udt_name)
-  ELSE NULL END                                                      AS "enumValues",
+  ELSE NULL END                                                                                     AS "enumValues",
   CASE WHEN LOWER(cols.data_type) = 'array' THEN information_schema._pg_char_max_length(arraytype.oid, a.atttypmod)
-  ELSE cols.character_maximum_length END                                  AS "length",
+  ELSE cols.character_maximum_length END                                                            AS "length",
   CASE WHEN LOWER(cols.data_type) = 'array' THEN COALESCE(
       information_schema._pg_datetime_precision(arraytype.oid, a.atttypmod),
       information_schema._pg_numeric_precision(arraytype.oid, a.atttypmod))
   WHEN cols.datetime_precision IS NULL THEN numeric_precision
-  ELSE cols.datetime_precision END                                        AS "precision",
+  ELSE cols.datetime_precision END                                                                  AS "precision",
   CASE WHEN LOWER(cols.data_type) = 'array' THEN information_schema._pg_numeric_scale(arraytype.oid, a.atttypmod)
-  ELSE cols.numeric_scale END                                             AS "scale",
+  ELSE cols.numeric_scale END                                                                       AS "scale",
   CASE WHEN LEFT(cols.udt_name, 1) = '_' THEN LEFT(format_type(a.atttypid, NULL), -2)
-  ELSE NULL END                                                      AS "arrayType",
-  a.attndims                                                         AS "arrayDimension",
-  cols.domain_catalog                                                     AS "domainCatalog",
-  cols.domain_schema                                                      AS "domainSchema",
-  cols.domain_name                                                        AS "domainName",
+  ELSE NULL END                                                                                     AS "arrayType",
+  a.attndims                                                                                        AS "arrayDimension",
+  cols.domain_catalog                                                                               AS "domainCatalog",
+  cols.domain_schema                                                                                AS "domainSchema",
+  cols.domain_name                                                                                  AS "domainName",
   CASE WHEN t.typcategory IN ('E', 'C') THEN format_type(a.atttypid, NULL)
-  ELSE NULL END                                                      AS "userDefinedType",
-  cols.udt_name                                                           AS "udtName",      -- User Defined Types such as composite, enumerated etc.
-  cols.ordinal_position                                                   AS "position",
-  pg_catalog.col_description(c.oid, cols.ordinal_position :: INT) AS "description"
+  ELSE NULL END                                                                                     AS "userDefinedType",
+  cols.udt_name                                                                                     AS "udtName",      -- User Defined Types such as composite, enumerated etc.
+  cols.ordinal_position                                                                             AS "position",
+  pg_catalog.col_description(c.oid, cols.ordinal_position :: INT)                                   AS "description"
 FROM information_schema.columns cols
   INNER JOIN pg_catalog.pg_class c ON c.oid = (SELECT ('"' || cols.table_schema || '"."' || cols.table_name || '"')::regclass::oid) AND c.relname = cols.table_name
   INNER JOIN pg_catalog.pg_attribute a ON c.oid = a.attrelid and a.attname = cols.column_name
