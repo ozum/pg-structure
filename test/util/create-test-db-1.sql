@@ -1,6 +1,6 @@
 /*
 Created: 24.02.2016
-Modified: 30.05.2017
+Modified: 27.09.2017
 Project: Node Test
 Model: Node Test
 Company: Ozsoft
@@ -585,6 +585,22 @@ CREATE VIEW "public"."v_contacts_with_account" AS
 SELECT "public"."account"."id" AS "account_id", "public"."account"."name" AS "account_name", "public"."contact"."name" AS "contact_name"
 FROM "public"."account", "public"."contact"
 WHERE contact.company_id = account.id
+;
+
+CREATE VIEW "other_schema"."v_contacts_with_account" AS
+SELECT "name"
+FROM "other_schema"."other_schema_table"
+;
+
+COMMENT ON VIEW "other_schema"."v_contacts_with_account" IS 'Diğer bir şemada aynı isimli view ile çakışma olup olmadığını test için.'
+;
+
+CREATE VIEW "other_schema"."contact" AS
+SELECT "id"
+FROM "other_schema"."other_schema_table"
+;
+
+COMMENT ON VIEW "other_schema"."contact" IS 'public schema''da bulunan bir tablo ismi ile aynı isimli view. Çakışma testi için.'
 ;
 
 -- Create relationships section -------------------------------------------------

@@ -67,6 +67,8 @@
 					<FullBackground>0</FullBackground>
 					<LineList>
 						<Id>{7996A0C7-5839-4213-8AA9-9290C3DAA2EF}</Id>
+						<Id>{BF76CC47-2468-47A6-969D-F1A32E7B024B}</Id>
+						<Id>{81F76D2C-CFC4-41FB-BC97-E4740400B524}</Id>
 					</LineList>
 					<Group/>
 					<DisplayIndexes>1</DisplayIndexes>
@@ -719,6 +721,74 @@
 					<LineList>
 						<Id>{5DA01ED9-FF3D-44AF-B6F3-133547F23A50}</Id>
 						<Id>{39731948-DACC-4ECD-8D38-C14C9B02AA98}</Id>
+					</LineList>
+					<Group/>
+				</WorkSpaceShapePERViewPG94>
+				<WorkSpaceShapePERViewPG94 ObjectType="2503" CSAOName="WorkSpaceShapePERViewPG94" CSAOCaption="View Shortcut">
+					<Id>{6E424408-33A6-4C13-AF03-316DAFAA8C76}</Id>
+					<Name>v_contacts_with_account</Name>
+					<Ordinal>0</Ordinal>
+					<GlobalOrder>0</GlobalOrder>
+					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+					<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+					<ParentBaseID>{CC040F29-D482-4928-A933-6F28F7C6DDD9}</ParentBaseID>
+					<PenWidth>1</PenWidth>
+					<PenColor>5197647</PenColor>
+					<BrushColor>15793151</BrushColor>
+					<FontCharset>238</FontCharset>
+					<FontColor>0</FontColor>
+					<FontName>Arial</FontName>
+					<FontStyle>0</FontStyle>
+					<FormatLocked>0</FormatLocked>
+					<FontHeight>-28</FontHeight>
+					<ZOrder>0</ZOrder>
+					<Top>2423</Top>
+					<Left>3286</Left>
+					<z>0</z>
+					<Width>497</Width>
+					<Height>150</Height>
+					<dz>0</dz>
+					<RecalculateSizes>1</RecalculateSizes>
+					<UseWorkSpaceRecalculateSizes>1</UseWorkSpaceRecalculateSizes>
+					<Shadow>0</Shadow>
+					<FullBackground>0</FullBackground>
+					<LineList>
+						<Id>{BF76CC47-2468-47A6-969D-F1A32E7B024B}</Id>
+					</LineList>
+					<Group/>
+				</WorkSpaceShapePERViewPG94>
+				<WorkSpaceShapePERViewPG94 ObjectType="2503" CSAOName="WorkSpaceShapePERViewPG94" CSAOCaption="View Shortcut">
+					<Id>{E4D2FF12-BB4F-4294-8817-95497393F935}</Id>
+					<Name>contact</Name>
+					<Ordinal>0</Ordinal>
+					<GlobalOrder>0</GlobalOrder>
+					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+					<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+					<ParentBaseID>{DD3A4875-37EC-4ED2-A6A0-3B04654EF9F6}</ParentBaseID>
+					<PenWidth>1</PenWidth>
+					<PenColor>5197647</PenColor>
+					<BrushColor>15793151</BrushColor>
+					<FontCharset>238</FontCharset>
+					<FontColor>0</FontColor>
+					<FontName>Arial</FontName>
+					<FontStyle>0</FontStyle>
+					<FormatLocked>0</FormatLocked>
+					<FontHeight>-28</FontHeight>
+					<ZOrder>0</ZOrder>
+					<Top>2444</Top>
+					<Left>2298</Left>
+					<z>0</z>
+					<Width>193</Width>
+					<Height>150</Height>
+					<dz>0</dz>
+					<RecalculateSizes>1</RecalculateSizes>
+					<UseWorkSpaceRecalculateSizes>1</UseWorkSpaceRecalculateSizes>
+					<Shadow>0</Shadow>
+					<FullBackground>0</FullBackground>
+					<LineList>
+						<Id>{81F76D2C-CFC4-41FB-BC97-E4740400B524}</Id>
 					</LineList>
 					<Group/>
 				</WorkSpaceShapePERViewPG94>
@@ -1552,6 +1622,102 @@
 						</Point>
 					</Points>
 				</WorkSpaceLinePERViewRelationPG94>
+				<WorkSpaceLinePERViewRelationPG94 ObjectType="2505" CSAOName="WorkSpaceLinePERViewRelationPG94" CSAOCaption="View Relation Shortcut">
+					<Id>{BF76CC47-2468-47A6-969D-F1A32E7B024B}</Id>
+					<Name>View Relationship3</Name>
+					<Ordinal>0</Ordinal>
+					<GlobalOrder>0</GlobalOrder>
+					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+					<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+					<ParentBaseID>{E9CEB4AB-FCF5-46CC-9C3D-82475240DD32}</ParentBaseID>
+					<PenWidth>1</PenWidth>
+					<PenColor>5197647</PenColor>
+					<BrushColor>15793151</BrushColor>
+					<FontCharset>238</FontCharset>
+					<FontColor>0</FontColor>
+					<FontName>Arial</FontName>
+					<FontStyle>0</FontStyle>
+					<FormatLocked>0</FormatLocked>
+					<FontHeight>-28</FontHeight>
+					<ZOrder>-10</ZOrder>
+					<LockPointsInRightAngledMode>0</LockPointsInRightAngledMode>
+					<RightAngledLine>0</RightAngledLine>
+					<WorkSpaceShape1>
+						<Id>{D9738C0D-A8D0-4B64-A625-910C8A3A9606}</Id>
+					</WorkSpaceShape1>
+					<WorkSpaceShape2>
+						<Id>{6E424408-33A6-4C13-AF03-316DAFAA8C76}</Id>
+					</WorkSpaceShape2>
+					<NamePositionX>3321</NamePositionX>
+					<NamePositionY>1831</NamePositionY>
+					<Points>
+						<Point>
+							<x>3310</x>
+							<y>1418</y>
+						</Point>
+						<Point>
+							<x>3310</x>
+							<y>1921</y>
+						</Point>
+						<Point>
+							<x>3534</x>
+							<y>1921</y>
+						</Point>
+						<Point>
+							<x>3534</x>
+							<y>2423</y>
+						</Point>
+					</Points>
+				</WorkSpaceLinePERViewRelationPG94>
+				<WorkSpaceLinePERViewRelationPG94 ObjectType="2505" CSAOName="WorkSpaceLinePERViewRelationPG94" CSAOCaption="View Relation Shortcut">
+					<Id>{81F76D2C-CFC4-41FB-BC97-E4740400B524}</Id>
+					<Name>View Relationship4</Name>
+					<Ordinal>0</Ordinal>
+					<GlobalOrder>0</GlobalOrder>
+					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+					<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+					<ParentBaseID>{CBB29AE8-3DF1-4E0A-A956-46DB37267A44}</ParentBaseID>
+					<PenWidth>1</PenWidth>
+					<PenColor>5197647</PenColor>
+					<BrushColor>15793151</BrushColor>
+					<FontCharset>238</FontCharset>
+					<FontColor>0</FontColor>
+					<FontName>Arial</FontName>
+					<FontStyle>0</FontStyle>
+					<FormatLocked>0</FormatLocked>
+					<FontHeight>-28</FontHeight>
+					<ZOrder>-10</ZOrder>
+					<LockPointsInRightAngledMode>0</LockPointsInRightAngledMode>
+					<RightAngledLine>0</RightAngledLine>
+					<WorkSpaceShape1>
+						<Id>{D9738C0D-A8D0-4B64-A625-910C8A3A9606}</Id>
+					</WorkSpaceShape1>
+					<WorkSpaceShape2>
+						<Id>{E4D2FF12-BB4F-4294-8817-95497393F935}</Id>
+					</WorkSpaceShape2>
+					<NamePositionX>2574</NamePositionX>
+					<NamePositionY>1713</NamePositionY>
+					<Points>
+						<Point>
+							<x>3211</x>
+							<y>1418</y>
+						</Point>
+						<Point>
+							<x>3211</x>
+							<y>1803</y>
+						</Point>
+						<Point>
+							<x>2394</x>
+							<y>1803</y>
+						</Point>
+						<Point>
+							<x>2394</x>
+							<y>2444</y>
+						</Point>
+					</Points>
+				</WorkSpaceLinePERViewRelationPG94>
 			</LineList>
 			<Page>
 				<WorkSpacePagePG94 ObjectType="1511" CSAOName="WorkSpacePagePG94" CSAOCaption="Workspace Page">
@@ -1596,7 +1762,7 @@
 			<Company>Ozsoft</Company>
 			<Version>1.0</Version>
 			<CreatedDate>2016-02-24T15:33:32.000+02:00</CreatedDate>
-			<ModifiedDate>2017-05-30T11:47:39.554+03:00</ModifiedDate>
+			<ModifiedDate>2017-09-27T09:54:46.264+03:00</ModifiedDate>
 			<Project>Node Test</Project>
 			<Description></Description>
 		</ModelTitlePG94>
@@ -1654,6 +1820,8 @@
 				<Id>{9B0C56E3-53A0-4C79-834E-A3ED6DFCE164}</Id>
 				<Id>{37A8CFD7-A0ED-48D8-9158-58A3BEE04DA3}</Id>
 				<Id>{5019A147-2BFD-406E-B32F-3A4CAE26FBA6}</Id>
+				<Id>{CC040F29-D482-4928-A933-6F28F7C6DDD9}</Id>
+				<Id>{DD3A4875-37EC-4ED2-A6A0-3B04654EF9F6}</Id>
 			</SelectedObjects>
 			<OrderSettings>
 				<OrderSettingsPG94 ObjectType="1071" CSAOName="OrderSettingsPG94" CSAOCaption="Order Settings">
@@ -2021,7 +2189,7 @@ UserName=user
 					<Description></Description>
 					<IsLast>1</IsLast>
 					<SerializedGenerator>&lt;?xml version="1.0"?&gt;
-&lt;PERCodeGeneratorPG94 ObjectType="2027" CSAOName="PERCodeGeneratorPG94" CSAOCaption="TPERCodeGeneratorFactory" InternalVersion="19.10" ProductVersion="6.1.3.26"&gt;&lt;Id&gt;{04687A15-4E09-4E1A-AEED-2447335C4BE3}&lt;/Id&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;FileName&gt;\\Mac\Home\Documents\Toad Data Modeler\GeneratedScripts\Generated.SQL&lt;/FileName&gt;&lt;GenerateFromModel&gt;1&lt;/GenerateFromModel&gt;&lt;GenerateWorkspaceID&gt;{00000000-0000-0000-0000-000000000000}&lt;/GenerateWorkspaceID&gt;&lt;PreviewBeforeSave&gt;0&lt;/PreviewBeforeSave&gt;&lt;TextCaseIndex&gt;0&lt;/TextCaseIndex&gt;&lt;AppendToFile&gt;0&lt;/AppendToFile&gt;&lt;SelectedObjects&gt;&lt;Id&gt;{84F6AA18-8933-4605-8BA7-CB2A04E39AB5}&lt;/Id&gt;&lt;Id&gt;{6060E575-88D0-44E5-AE6F-B1B688B5FF45}&lt;/Id&gt;&lt;Id&gt;{0768A354-2BE0-4C32-B82D-91822730AB72}&lt;/Id&gt;&lt;Id&gt;{510F84B4-9C39-49DC-ABCA-5E9431FC75E2}&lt;/Id&gt;&lt;Id&gt;{A02F5EDB-0E7A-4AC2-9881-7E87B32F718B}&lt;/Id&gt;&lt;Id&gt;{55C3C3E7-85F7-49FC-8FB4-912A8D7B66D4}&lt;/Id&gt;&lt;Id&gt;{E564AE61-4EFB-4A2A-8C8F-AFD96FFDBB52}&lt;/Id&gt;&lt;Id&gt;{61669317-E0D5-489D-95DF-A0FAA7585511}&lt;/Id&gt;&lt;Id&gt;{3000E3AE-BDFF-46D7-94D9-1D828FBF9CFC}&lt;/Id&gt;&lt;Id&gt;{99BCB08D-609F-4D2E-8537-5695885FA992}&lt;/Id&gt;&lt;Id&gt;{55412B29-E168-467E-8C60-A7DB68A7FD8E}&lt;/Id&gt;&lt;Id&gt;{C63F85FB-78DF-4B60-9A76-D115430C455A}&lt;/Id&gt;&lt;Id&gt;{0BF16813-84CC-455E-AD5B-BECDC926358A}&lt;/Id&gt;&lt;Id&gt;{55C61174-948B-45CA-A657-2809A5883BFA}&lt;/Id&gt;&lt;Id&gt;{86314C53-770B-4808-8643-9B8717F05E84}&lt;/Id&gt;&lt;Id&gt;{01509574-245A-4C25-BA98-C1A59964AE8D}&lt;/Id&gt;&lt;Id&gt;{9DE37296-C02E-423C-8DEC-AF6A89BD1056}&lt;/Id&gt;&lt;Id&gt;{D7E82E17-6999-4B98-A88B-9425D428DE2F}&lt;/Id&gt;&lt;Id&gt;{037C6980-88FD-4BE3-BDC6-D05423787EB2}&lt;/Id&gt;&lt;Id&gt;{8A1432C8-DE8F-49C8-AEDD-F091486B70D1}&lt;/Id&gt;&lt;Id&gt;{7C73C38D-226D-4957-A28A-6300EA2F5BFF}&lt;/Id&gt;&lt;Id&gt;{B24F5E47-1257-4994-9F0E-65029EAAB887}&lt;/Id&gt;&lt;Id&gt;{EA438C5A-6608-4BE6-ADD2-296C1054F3D2}&lt;/Id&gt;&lt;Id&gt;{EDAA7EBA-AF3D-4E7A-84A4-2AC4EEB7460B}&lt;/Id&gt;&lt;Id&gt;{B97B8E92-D464-4CBD-958C-197A957478A2}&lt;/Id&gt;&lt;Id&gt;{82CCDED4-162A-4BCD-8B75-6A4BCA119D20}&lt;/Id&gt;&lt;Id&gt;{E0C6B259-E3D5-4B92-9C63-A281056FEA48}&lt;/Id&gt;&lt;Id&gt;{70A38D5F-DBE3-4B8A-8497-194117EDD7C7}&lt;/Id&gt;&lt;Id&gt;{53D06870-7370-4866-94F7-5B96F31E6910}&lt;/Id&gt;&lt;Id&gt;{9950A7BE-D991-4E1A-82A0-2A4F73DA24CD}&lt;/Id&gt;&lt;Id&gt;{32DBCCC3-F002-47D8-AC24-D81206F2DA4D}&lt;/Id&gt;&lt;Id&gt;{4D112652-BF6B-4C61-A3A5-B9555B362846}&lt;/Id&gt;&lt;Id&gt;{BFBB2B1C-83EE-40D0-A294-02229B0E91D0}&lt;/Id&gt;&lt;Id&gt;{DF72C3C0-1CB0-4228-90B3-207849F7CC65}&lt;/Id&gt;&lt;Id&gt;{4D4B83B2-B686-4241-89A5-9C487FD6493E}&lt;/Id&gt;&lt;Id&gt;{A2386CF2-272F-4B9F-850A-E89D49FD1550}&lt;/Id&gt;&lt;Id&gt;{9B0C56E3-53A0-4C79-834E-A3ED6DFCE164}&lt;/Id&gt;&lt;Id&gt;{37A8CFD7-A0ED-48D8-9158-58A3BEE04DA3}&lt;/Id&gt;&lt;Id&gt;{5019A147-2BFD-406E-B32F-3A4CAE26FBA6}&lt;/Id&gt;&lt;/SelectedObjects&gt;&lt;OrderSettings&gt;&lt;OrderSettingsPG94 ObjectType="1071" CSAOName="OrderSettingsPG94" CSAOCaption="Order Settings"&gt;&lt;Id&gt;{D00E43C8-CF8E-417B-AA72-BF7A89B1E845}&lt;/Id&gt;&lt;Name&gt;&lt;/Name&gt;&lt;Ordinal&gt;0&lt;/Ordinal&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;/OrderSettingsPG94&gt;&lt;/OrderSettings&gt;&lt;Terminator&gt;;&lt;/Terminator&gt;&lt;RefGenChild&gt;1&lt;/RefGenChild&gt;&lt;RefGenParent&gt;0&lt;/RefGenParent&gt;&lt;RefGenBoth&gt;0&lt;/RefGenBoth&gt;&lt;CreateUsers&gt;0&lt;/CreateUsers&gt;&lt;CreateComments&gt;1&lt;/CreateComments&gt;&lt;UseQuotations&gt;1&lt;/UseQuotations&gt;&lt;CreateMaterializedViews&gt;0&lt;/CreateMaterializedViews&gt;&lt;DropMaterializedViews&gt;0&lt;/DropMaterializedViews&gt;&lt;UseQualifiedNames&gt;1&lt;/UseQualifiedNames&gt;&lt;SelectedOTP&gt;&lt;SelectedOTPsPG94 ObjectType="118" CSAOName="SelectedOTPsPG94" CSAOCaption="TSelectedOTPsFactory"&gt;&lt;Id&gt;{E09F5285-6196-4353-9BAD-1C061C71DB35}&lt;/Id&gt;&lt;Name&gt;Default&lt;/Name&gt;&lt;Ordinal&gt;0&lt;/Ordinal&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;Category&gt;&lt;/Category&gt;&lt;IsDefault&gt;0&lt;/IsDefault&gt;&lt;IsSystem&gt;0&lt;/IsSystem&gt;&lt;ClassContainers&gt;&lt;SelectedOTPsClassContainerPG94 ObjectType="119" CSAOName="SelectedOTPsClassContainerPG94" CSAOCaption="TSelectedOTPsClassContainerFactory"&gt;&lt;Id&gt;{66FF41E8-6C0B-4CE7-B435-C5ABC16F027E}&lt;/Id&gt;&lt;Name&gt;PERModelPG94&lt;/Name&gt;&lt;Ordinal&gt;0&lt;/Ordinal&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;Properties&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Entities&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;DictTypes&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;UserDataTypes&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Relations&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;UserGroups&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;InstanceUserGroupRelations&lt;/Name&gt;&lt;ExtensionValue&gt;&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Views&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Schemas&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Functions&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Sequences&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Aggregates&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;RewriteRules&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;MaterializedViews&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;AfterScript&lt;/Name&gt;&lt;ExtensionValue&gt;&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;BeforeScript&lt;/Name&gt;&lt;ExtensionValue&gt;&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;/Properties&gt;&lt;/SelectedOTPsClassContainerPG94&gt;&lt;SelectedOTPsClassContainerPG94 ObjectType="119" CSAOName="SelectedOTPsClassContainerPG94" CSAOCaption="TSelectedOTPsClassContainerFactory"&gt;&lt;Id&gt;{295359B2-53AA-43C2-A2B2-A4E6A2B542CC}&lt;/Id&gt;&lt;Name&gt;PEREntityPG94&lt;/Name&gt;&lt;Ordinal&gt;0&lt;/Ordinal&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;Properties&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Keys&lt;/Name&gt;&lt;ExtensionValue&gt;Create All Keys&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Indexes&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Triggers&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;/Properties&gt;&lt;/SelectedOTPsClassContainerPG94&gt;&lt;SelectedOTPsClassContainerPG94 ObjectType="119" CSAOName="SelectedOTPsClassContainerPG94" CSAOCaption="TSelectedOTPsClassContainerFactory"&gt;&lt;Id&gt;{2D9218E5-D986-419F-BCE0-BE28FA0B86E1}&lt;/Id&gt;&lt;Name&gt;PERViewPG94&lt;/Name&gt;&lt;Ordinal&gt;0&lt;/Ordinal&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;Properties&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Triggers&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;/Properties&gt;&lt;/SelectedOTPsClassContainerPG94&gt;&lt;/ClassContainers&gt;&lt;/SelectedOTPsPG94&gt;&lt;/SelectedOTP&gt;&lt;SynchronizinigSelectedOTP/&gt;&lt;DropRulesIntegrity&gt;RESTRICT&lt;/DropRulesIntegrity&gt;&lt;GenerateNullComments&gt;0&lt;/GenerateNullComments&gt;&lt;DropAggregatesIntegrity&gt;RESTRICT&lt;/DropAggregatesIntegrity&gt;&lt;DropSequencesIntegrity&gt;RESTRICT&lt;/DropSequencesIntegrity&gt;&lt;DropSchemasIntegrity&gt;RESTRICT&lt;/DropSchemasIntegrity&gt;&lt;DropTablesIntegrity&gt;RESTRICT&lt;/DropTablesIntegrity&gt;&lt;GrantUserGroupsToUG&gt;1&lt;/GrantUserGroupsToUG&gt;&lt;GenerateCreateReplace&gt;0&lt;/GenerateCreateReplace&gt;&lt;Schema/&gt;&lt;GenerateCheckConstraintDomainNames&gt;0&lt;/GenerateCheckConstraintDomainNames&gt;&lt;GeneratePermissionsOnlyToSelectedObjectTypes&gt;1&lt;/GeneratePermissionsOnlyToSelectedObjectTypes&gt;&lt;DollarQuotingType&gt;$$&lt;/DollarQuotingType&gt;&lt;DropIfExists&gt;0&lt;/DropIfExists&gt;&lt;/PERCodeGeneratorPG94&gt;
+&lt;PERCodeGeneratorPG94 ObjectType="2027" CSAOName="PERCodeGeneratorPG94" CSAOCaption="TPERCodeGeneratorFactory" InternalVersion="19.10" ProductVersion="6.1.3.26"&gt;&lt;Id&gt;{04687A15-4E09-4E1A-AEED-2447335C4BE3}&lt;/Id&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;FileName&gt;\\Mac\Home\Documents\Toad Data Modeler\GeneratedScripts\Generated.SQL&lt;/FileName&gt;&lt;GenerateFromModel&gt;1&lt;/GenerateFromModel&gt;&lt;GenerateWorkspaceID&gt;{00000000-0000-0000-0000-000000000000}&lt;/GenerateWorkspaceID&gt;&lt;PreviewBeforeSave&gt;0&lt;/PreviewBeforeSave&gt;&lt;TextCaseIndex&gt;0&lt;/TextCaseIndex&gt;&lt;AppendToFile&gt;0&lt;/AppendToFile&gt;&lt;SelectedObjects&gt;&lt;Id&gt;{84F6AA18-8933-4605-8BA7-CB2A04E39AB5}&lt;/Id&gt;&lt;Id&gt;{6060E575-88D0-44E5-AE6F-B1B688B5FF45}&lt;/Id&gt;&lt;Id&gt;{0768A354-2BE0-4C32-B82D-91822730AB72}&lt;/Id&gt;&lt;Id&gt;{510F84B4-9C39-49DC-ABCA-5E9431FC75E2}&lt;/Id&gt;&lt;Id&gt;{A02F5EDB-0E7A-4AC2-9881-7E87B32F718B}&lt;/Id&gt;&lt;Id&gt;{55C3C3E7-85F7-49FC-8FB4-912A8D7B66D4}&lt;/Id&gt;&lt;Id&gt;{E564AE61-4EFB-4A2A-8C8F-AFD96FFDBB52}&lt;/Id&gt;&lt;Id&gt;{61669317-E0D5-489D-95DF-A0FAA7585511}&lt;/Id&gt;&lt;Id&gt;{3000E3AE-BDFF-46D7-94D9-1D828FBF9CFC}&lt;/Id&gt;&lt;Id&gt;{99BCB08D-609F-4D2E-8537-5695885FA992}&lt;/Id&gt;&lt;Id&gt;{55412B29-E168-467E-8C60-A7DB68A7FD8E}&lt;/Id&gt;&lt;Id&gt;{C63F85FB-78DF-4B60-9A76-D115430C455A}&lt;/Id&gt;&lt;Id&gt;{0BF16813-84CC-455E-AD5B-BECDC926358A}&lt;/Id&gt;&lt;Id&gt;{55C61174-948B-45CA-A657-2809A5883BFA}&lt;/Id&gt;&lt;Id&gt;{86314C53-770B-4808-8643-9B8717F05E84}&lt;/Id&gt;&lt;Id&gt;{01509574-245A-4C25-BA98-C1A59964AE8D}&lt;/Id&gt;&lt;Id&gt;{9DE37296-C02E-423C-8DEC-AF6A89BD1056}&lt;/Id&gt;&lt;Id&gt;{D7E82E17-6999-4B98-A88B-9425D428DE2F}&lt;/Id&gt;&lt;Id&gt;{037C6980-88FD-4BE3-BDC6-D05423787EB2}&lt;/Id&gt;&lt;Id&gt;{8A1432C8-DE8F-49C8-AEDD-F091486B70D1}&lt;/Id&gt;&lt;Id&gt;{7C73C38D-226D-4957-A28A-6300EA2F5BFF}&lt;/Id&gt;&lt;Id&gt;{B24F5E47-1257-4994-9F0E-65029EAAB887}&lt;/Id&gt;&lt;Id&gt;{EA438C5A-6608-4BE6-ADD2-296C1054F3D2}&lt;/Id&gt;&lt;Id&gt;{EDAA7EBA-AF3D-4E7A-84A4-2AC4EEB7460B}&lt;/Id&gt;&lt;Id&gt;{B97B8E92-D464-4CBD-958C-197A957478A2}&lt;/Id&gt;&lt;Id&gt;{82CCDED4-162A-4BCD-8B75-6A4BCA119D20}&lt;/Id&gt;&lt;Id&gt;{E0C6B259-E3D5-4B92-9C63-A281056FEA48}&lt;/Id&gt;&lt;Id&gt;{70A38D5F-DBE3-4B8A-8497-194117EDD7C7}&lt;/Id&gt;&lt;Id&gt;{53D06870-7370-4866-94F7-5B96F31E6910}&lt;/Id&gt;&lt;Id&gt;{9950A7BE-D991-4E1A-82A0-2A4F73DA24CD}&lt;/Id&gt;&lt;Id&gt;{32DBCCC3-F002-47D8-AC24-D81206F2DA4D}&lt;/Id&gt;&lt;Id&gt;{4D112652-BF6B-4C61-A3A5-B9555B362846}&lt;/Id&gt;&lt;Id&gt;{BFBB2B1C-83EE-40D0-A294-02229B0E91D0}&lt;/Id&gt;&lt;Id&gt;{DF72C3C0-1CB0-4228-90B3-207849F7CC65}&lt;/Id&gt;&lt;Id&gt;{4D4B83B2-B686-4241-89A5-9C487FD6493E}&lt;/Id&gt;&lt;Id&gt;{A2386CF2-272F-4B9F-850A-E89D49FD1550}&lt;/Id&gt;&lt;Id&gt;{9B0C56E3-53A0-4C79-834E-A3ED6DFCE164}&lt;/Id&gt;&lt;Id&gt;{37A8CFD7-A0ED-48D8-9158-58A3BEE04DA3}&lt;/Id&gt;&lt;Id&gt;{5019A147-2BFD-406E-B32F-3A4CAE26FBA6}&lt;/Id&gt;&lt;Id&gt;{CC040F29-D482-4928-A933-6F28F7C6DDD9}&lt;/Id&gt;&lt;Id&gt;{DD3A4875-37EC-4ED2-A6A0-3B04654EF9F6}&lt;/Id&gt;&lt;/SelectedObjects&gt;&lt;OrderSettings&gt;&lt;OrderSettingsPG94 ObjectType="1071" CSAOName="OrderSettingsPG94" CSAOCaption="Order Settings"&gt;&lt;Id&gt;{D00E43C8-CF8E-417B-AA72-BF7A89B1E845}&lt;/Id&gt;&lt;Name&gt;&lt;/Name&gt;&lt;Ordinal&gt;0&lt;/Ordinal&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;/OrderSettingsPG94&gt;&lt;/OrderSettings&gt;&lt;Terminator&gt;;&lt;/Terminator&gt;&lt;RefGenChild&gt;1&lt;/RefGenChild&gt;&lt;RefGenParent&gt;0&lt;/RefGenParent&gt;&lt;RefGenBoth&gt;0&lt;/RefGenBoth&gt;&lt;CreateUsers&gt;0&lt;/CreateUsers&gt;&lt;CreateComments&gt;1&lt;/CreateComments&gt;&lt;UseQuotations&gt;1&lt;/UseQuotations&gt;&lt;CreateMaterializedViews&gt;0&lt;/CreateMaterializedViews&gt;&lt;DropMaterializedViews&gt;0&lt;/DropMaterializedViews&gt;&lt;UseQualifiedNames&gt;1&lt;/UseQualifiedNames&gt;&lt;SelectedOTP&gt;&lt;SelectedOTPsPG94 ObjectType="118" CSAOName="SelectedOTPsPG94" CSAOCaption="TSelectedOTPsFactory"&gt;&lt;Id&gt;{E09F5285-6196-4353-9BAD-1C061C71DB35}&lt;/Id&gt;&lt;Name&gt;Default&lt;/Name&gt;&lt;Ordinal&gt;0&lt;/Ordinal&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;Category&gt;&lt;/Category&gt;&lt;IsDefault&gt;0&lt;/IsDefault&gt;&lt;IsSystem&gt;0&lt;/IsSystem&gt;&lt;ClassContainers&gt;&lt;SelectedOTPsClassContainerPG94 ObjectType="119" CSAOName="SelectedOTPsClassContainerPG94" CSAOCaption="TSelectedOTPsClassContainerFactory"&gt;&lt;Id&gt;{66FF41E8-6C0B-4CE7-B435-C5ABC16F027E}&lt;/Id&gt;&lt;Name&gt;PERModelPG94&lt;/Name&gt;&lt;Ordinal&gt;0&lt;/Ordinal&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;Properties&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Entities&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;DictTypes&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;UserDataTypes&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Relations&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;UserGroups&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;InstanceUserGroupRelations&lt;/Name&gt;&lt;ExtensionValue&gt;&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Views&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Schemas&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Functions&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Sequences&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Aggregates&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;RewriteRules&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;MaterializedViews&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;AfterScript&lt;/Name&gt;&lt;ExtensionValue&gt;&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;BeforeScript&lt;/Name&gt;&lt;ExtensionValue&gt;&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;/Properties&gt;&lt;/SelectedOTPsClassContainerPG94&gt;&lt;SelectedOTPsClassContainerPG94 ObjectType="119" CSAOName="SelectedOTPsClassContainerPG94" CSAOCaption="TSelectedOTPsClassContainerFactory"&gt;&lt;Id&gt;{295359B2-53AA-43C2-A2B2-A4E6A2B542CC}&lt;/Id&gt;&lt;Name&gt;PEREntityPG94&lt;/Name&gt;&lt;Ordinal&gt;0&lt;/Ordinal&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;Properties&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Keys&lt;/Name&gt;&lt;ExtensionValue&gt;Create All Keys&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Indexes&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Triggers&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;/Properties&gt;&lt;/SelectedOTPsClassContainerPG94&gt;&lt;SelectedOTPsClassContainerPG94 ObjectType="119" CSAOName="SelectedOTPsClassContainerPG94" CSAOCaption="TSelectedOTPsClassContainerFactory"&gt;&lt;Id&gt;{2D9218E5-D986-419F-BCE0-BE28FA0B86E1}&lt;/Id&gt;&lt;Name&gt;PERViewPG94&lt;/Name&gt;&lt;Ordinal&gt;0&lt;/Ordinal&gt;&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&lt;Properties&gt;&lt;SelectedOTPsPropertyPG94 ObjectType="120" CSAOName="SelectedOTPsPropertyPG94" CSAOCaption="TSelectedOTPsPropertyFactory"&gt;&lt;Name&gt;Triggers&lt;/Name&gt;&lt;ExtensionValue&gt;Create&lt;/ExtensionValue&gt;&lt;/SelectedOTPsPropertyPG94&gt;&lt;/Properties&gt;&lt;/SelectedOTPsClassContainerPG94&gt;&lt;/ClassContainers&gt;&lt;/SelectedOTPsPG94&gt;&lt;/SelectedOTP&gt;&lt;SynchronizinigSelectedOTP/&gt;&lt;DropRulesIntegrity&gt;RESTRICT&lt;/DropRulesIntegrity&gt;&lt;GenerateNullComments&gt;0&lt;/GenerateNullComments&gt;&lt;DropAggregatesIntegrity&gt;RESTRICT&lt;/DropAggregatesIntegrity&gt;&lt;DropSequencesIntegrity&gt;RESTRICT&lt;/DropSequencesIntegrity&gt;&lt;DropSchemasIntegrity&gt;RESTRICT&lt;/DropSchemasIntegrity&gt;&lt;DropTablesIntegrity&gt;RESTRICT&lt;/DropTablesIntegrity&gt;&lt;GrantUserGroupsToUG&gt;1&lt;/GrantUserGroupsToUG&gt;&lt;GenerateCreateReplace&gt;0&lt;/GenerateCreateReplace&gt;&lt;Schema/&gt;&lt;GenerateCheckConstraintDomainNames&gt;0&lt;/GenerateCheckConstraintDomainNames&gt;&lt;GeneratePermissionsOnlyToSelectedObjectTypes&gt;1&lt;/GeneratePermissionsOnlyToSelectedObjectTypes&gt;&lt;DollarQuotingType&gt;$$&lt;/DollarQuotingType&gt;&lt;DropIfExists&gt;0&lt;/DropIfExists&gt;&lt;/PERCodeGeneratorPG94&gt;
 </SerializedGenerator>
 				</IGeneratorAliasPG94>
 			</GeneratorAliases>
@@ -2096,6 +2264,9 @@ IS 'public schema comment';</AfterScript>
 					<UserDataType/>
 					<Default/>
 					<KeyConstraint/>
+					<ViewAttributes>
+						<Id>{EF0A923A-7EC7-4A9F-87A5-1ACB275614B2}</Id>
+					</ViewAttributes>
 					<ArrDims></ArrDims>
 					<IsArray>0</IsArray>
 					<StorageMode></StorageMode>
@@ -2135,6 +2306,9 @@ IS 'public schema comment';</AfterScript>
 					<UserDataType/>
 					<Default/>
 					<KeyConstraint/>
+					<ViewAttributes>
+						<Id>{C71B7D85-DDA2-4112-AA7F-0512ED65F2EC}</Id>
+					</ViewAttributes>
 					<ArrDims></ArrDims>
 					<IsArray>0</IsArray>
 					<StorageMode></StorageMode>
@@ -2289,6 +2463,10 @@ IS 'public schema comment';</AfterScript>
 			<Schema>
 				<Id>{6060E575-88D0-44E5-AE6F-B1B688B5FF45}</Id>
 			</Schema>
+			<ViewRelations>
+				<Id>{E9CEB4AB-FCF5-46CC-9C3D-82475240DD32}</Id>
+				<Id>{CBB29AE8-3DF1-4E0A-A956-46DB37267A44}</Id>
+			</ViewRelations>
 			<WithOids>0</WithOids>
 			<Inherited></Inherited>
 			<TempTable>0</TempTable>
@@ -10197,6 +10375,124 @@ IS 'public schema comment';</AfterScript>
 			<Recursive>0</Recursive>
 			<CheckOption></CheckOption>
 		</PERViewPG94>
+		<PERViewPG94 ObjectType="2005" CSAOName="PERViewPG94" CSAOCaption="View">
+			<Id>{CC040F29-D482-4928-A933-6F28F7C6DDD9}</Id>
+			<Name>v_contacts_with_account</Name>
+			<Ordinal>0</Ordinal>
+			<GlobalOrder>24</GlobalOrder>
+			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+			<RNOffset>0</RNOffset>
+			<RNLength>0</RNLength>
+			<IgnoreNC>0</IgnoreNC>
+			<VerifyState>1</VerifyState>
+			<GenerateCode>1</GenerateCode>
+			<BeforeScript></BeforeScript>
+			<AfterScript></AfterScript>
+			<Notes></Notes>
+			<Comments>Diğer bir şemada aynı isimli view ile çakışma olup olmadığını test için.</Comments>
+			<SQL>
+<![CDATA[AS /*select_statement*/]]>
+			</SQL>
+			<Caption>v_contacts_with_account</Caption>
+			<GenerateSQLOnly>0</GenerateSQLOnly>
+			<OrderByText></OrderByText>
+			<GroupText></GroupText>
+			<WhereText></WhereText>
+			<HavingText></HavingText>
+			<SelectInViewsAsText>0</SelectInViewsAsText>
+			<Distinct>0</Distinct>
+			<Schema>
+				<Id>{6060E575-88D0-44E5-AE6F-B1B688B5FF45}</Id>
+			</Schema>
+			<DbOwner/>
+			<Category/>
+			<ViewRelations>
+				<Id>{E9CEB4AB-FCF5-46CC-9C3D-82475240DD32}</Id>
+			</ViewRelations>
+			<ViewAttributes>
+				<PERViewAttributePG94 ObjectType="2037" CSAOName="PERViewAttributePG94" CSAOCaption="View Attribute">
+					<Id>{C71B7D85-DDA2-4112-AA7F-0512ED65F2EC}</Id>
+					<Name>name</Name>
+					<Ordinal>0</Ordinal>
+					<GlobalOrder>0</GlobalOrder>
+					<Alias></Alias>
+					<Expression></Expression>
+					<Attribute>
+						<Id>{0C1EB979-E81D-4F23-B859-398C80041935}</Id>
+					</Attribute>
+					<Relation>
+						<Id>{E9CEB4AB-FCF5-46CC-9C3D-82475240DD32}</Id>
+					</Relation>
+					<ViewAttributeOrder/>
+					<ViewAttributeGroup/>
+				</PERViewAttributePG94>
+			</ViewAttributes>
+			<Aliases></Aliases>
+			<DistinctOnExpressionList></DistinctOnExpressionList>
+			<Recursive>0</Recursive>
+			<CheckOption></CheckOption>
+		</PERViewPG94>
+		<PERViewPG94 ObjectType="2005" CSAOName="PERViewPG94" CSAOCaption="View">
+			<Id>{DD3A4875-37EC-4ED2-A6A0-3B04654EF9F6}</Id>
+			<Name>contact</Name>
+			<Ordinal>0</Ordinal>
+			<GlobalOrder>25</GlobalOrder>
+			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+			<RNOffset>0</RNOffset>
+			<RNLength>0</RNLength>
+			<IgnoreNC>0</IgnoreNC>
+			<VerifyState>1</VerifyState>
+			<GenerateCode>1</GenerateCode>
+			<BeforeScript></BeforeScript>
+			<AfterScript></AfterScript>
+			<Notes></Notes>
+			<Comments>Diğer şema public schema'da bulunan bir tablo ismi ile aynı isimli view. Çakışma testi için.</Comments>
+			<SQL>
+<![CDATA[AS /*select_statement*/]]>
+			</SQL>
+			<Caption>contact</Caption>
+			<GenerateSQLOnly>0</GenerateSQLOnly>
+			<OrderByText></OrderByText>
+			<GroupText></GroupText>
+			<WhereText></WhereText>
+			<HavingText></HavingText>
+			<SelectInViewsAsText>0</SelectInViewsAsText>
+			<Distinct>0</Distinct>
+			<Schema>
+				<Id>{6060E575-88D0-44E5-AE6F-B1B688B5FF45}</Id>
+			</Schema>
+			<DbOwner/>
+			<Category/>
+			<ViewRelations>
+				<Id>{CBB29AE8-3DF1-4E0A-A956-46DB37267A44}</Id>
+			</ViewRelations>
+			<ViewAttributes>
+				<PERViewAttributePG94 ObjectType="2037" CSAOName="PERViewAttributePG94" CSAOCaption="View Attribute">
+					<Id>{EF0A923A-7EC7-4A9F-87A5-1ACB275614B2}</Id>
+					<Name>id</Name>
+					<Ordinal>0</Ordinal>
+					<GlobalOrder>0</GlobalOrder>
+					<Alias></Alias>
+					<Expression></Expression>
+					<Attribute>
+						<Id>{F942B0B3-1DD1-4D5B-8B7E-A9705B4DCA1B}</Id>
+					</Attribute>
+					<Relation>
+						<Id>{CBB29AE8-3DF1-4E0A-A956-46DB37267A44}</Id>
+					</Relation>
+					<ViewAttributeOrder/>
+					<ViewAttributeGroup/>
+				</PERViewAttributePG94>
+			</ViewAttributes>
+			<Aliases></Aliases>
+			<DistinctOnExpressionList></DistinctOnExpressionList>
+			<Recursive>0</Recursive>
+			<CheckOption></CheckOption>
+		</PERViewPG94>
 	</Views>
 	<Schemas>
 		<PERSchemaPG94 ObjectType="2024" CSAOName="PERSchemaPG94" CSAOCaption="Schema">
@@ -10238,6 +10534,8 @@ IS 'public schema comment';</AfterScript>
 			<Caption>other_schema</Caption>
 			<Objects>
 				<Id>{3000E3AE-BDFF-46D7-94D9-1D828FBF9CFC}</Id>
+				<Id>{CC040F29-D482-4928-A933-6F28F7C6DDD9}</Id>
+				<Id>{DD3A4875-37EC-4ED2-A6A0-3B04654EF9F6}</Id>
 			</Objects>
 			<DbUserGroupAuthorization/>
 			<Comments>Other Schema Comment</Comments>
@@ -10382,6 +10680,48 @@ $$</SQL>
 			<Alias></Alias>
 			<ViewAttributes>
 				<Id>{341B1341-9D2C-4F31-A40E-F4B1DFC077F8}</Id>
+			</ViewAttributes>
+			<Category/>
+		</PERViewRelationPG94>
+		<PERViewRelationPG94 ObjectType="2036" CSAOName="PERViewRelationPG94" CSAOCaption="View Relationship">
+			<Id>{E9CEB4AB-FCF5-46CC-9C3D-82475240DD32}</Id>
+			<Name>View Relationship3</Name>
+			<Ordinal>0</Ordinal>
+			<GlobalOrder>0</GlobalOrder>
+			<O1>
+				<Id>{3000E3AE-BDFF-46D7-94D9-1D828FBF9CFC}</Id>
+			</O1>
+			<O2>
+				<Id>{CC040F29-D482-4928-A933-6F28F7C6DDD9}</Id>
+			</O2>
+			<GenerateCode>1</GenerateCode>
+			<Comments></Comments>
+			<Notes></Notes>
+			<Caption>View Relationship3</Caption>
+			<Alias></Alias>
+			<ViewAttributes>
+				<Id>{C71B7D85-DDA2-4112-AA7F-0512ED65F2EC}</Id>
+			</ViewAttributes>
+			<Category/>
+		</PERViewRelationPG94>
+		<PERViewRelationPG94 ObjectType="2036" CSAOName="PERViewRelationPG94" CSAOCaption="View Relationship">
+			<Id>{CBB29AE8-3DF1-4E0A-A956-46DB37267A44}</Id>
+			<Name>View Relationship4</Name>
+			<Ordinal>0</Ordinal>
+			<GlobalOrder>0</GlobalOrder>
+			<O1>
+				<Id>{3000E3AE-BDFF-46D7-94D9-1D828FBF9CFC}</Id>
+			</O1>
+			<O2>
+				<Id>{DD3A4875-37EC-4ED2-A6A0-3B04654EF9F6}</Id>
+			</O2>
+			<GenerateCode>1</GenerateCode>
+			<Comments></Comments>
+			<Notes></Notes>
+			<Caption>View Relationship4</Caption>
+			<Alias></Alias>
+			<ViewAttributes>
+				<Id>{EF0A923A-7EC7-4A9F-87A5-1ACB275614B2}</Id>
 			</ViewAttributes>
 			<Category/>
 		</PERViewRelationPG94>
