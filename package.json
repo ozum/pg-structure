@@ -10,7 +10,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "node_modules/lab/bin/lab --globals WebAssembly",
+    "test": "lab --globals WebAssembly",
     "doc:mkdocs": "node bin/js2md.js && mkdocs build --clean",
     "doc:readme": "jsdoc2md \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
     "doc": "npm run doc:mkdocs && npm run doc:readme",
@@ -42,16 +42,16 @@
   },
   "license": "MIT",
   "dependencies": {
+    "fs-extra": "^4.0.2",
     "inflection": "^1.8.0",
     "jsonic": "^0.2.2",
     "jszip": "^3.0.0",
     "lodash": "^4.0.0",
-    "pg": "^6.x",
+    "pg": "^7.4.0",
     "semver": "^5.1.0"
   },
   "devDependencies": {
-    "chai": "^3.x",
-    "fs-extra": "^2.x",
+    "chai": "^4.x",
     "js-yaml": "^3.x",
     "jsdoc-to-markdown": "^3.x",
     "lab": "^11.x",
