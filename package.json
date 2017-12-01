@@ -10,7 +10,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "lab --globals WebAssembly",
+    "test": "lab --globals WebAssembly,SharedArrayBuffer,Atomics",
     "doc:mkdocs": "node bin/js2md.js && mkdocs build --clean",
     "doc:readme": "jsdoc2md \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
     "doc": "npm run doc:mkdocs && npm run doc:readme",
