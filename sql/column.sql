@@ -17,7 +17,7 @@ SELECT
   column_default                                                     AS "defaultWithTypeCast",
   CASE WHEN column_default ILIKE 'nextval%' THEN TRUE ELSE FALSE END AS "isAutoIncrement",
   CAST(is_nullable AS BOOLEAN)                                       AS "allowNull",
-  CASE WHEN udt_name = 'hstore' THEN udt_name
+  CASE WHEN udt_name IN ('hstore', 'citext') THEN udt_name
   ELSE LOWER(data_type) END                                          AS "type",
   t.typcategory                                                      AS "typeCategory", -- See http://www.postgresql.org/docs/current/static/catalog-pg-type.html
   CASE WHEN t.typcategory = 'E' THEN
