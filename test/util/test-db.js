@@ -1,35 +1,43 @@
-'use strict';
+"use strict";
 
-var PgTestUtil  = require('pg-test-util');
-var path        = require('path');
+var PgTestUtil = require("pg-test-util").default;
+var path = require("path");
 
-var db = 'pg-test-util';
+var dbName = "pg-test-util";
 
 var dbOptions = {
-    host: 'localhost',
-    port: 5432,
-    user: 'user',
-    password: 'password',
-    defaultDatabase: db
+    connection: {
+        host: "localhost",
+        port: 5432,
+        user: "user",
+        password: "password"
+    },
+    defaultDatabase: dbName
 };
-
-
-
 
 var pgUtil = new PgTestUtil(dbOptions);
 
 var createDB = function createDB(code) {
-    return pgUtil.createDB(db, { drop: false })
-        .then(() => { return pgUtil.executeSQLFile(path.join(__dirname, `create-test-db-${code}.sql`)); })
-        .catch((err) => { console.log(err); });
+    return pgUtil
+        .createDatabase({ name: dbName, drop: false })
+        .then(db => db.queryFile(path.join(__dirname, `create-test-db-${code}.sql`)))
+        .catch(err => {
+            console.log(err);
+        });
 };
 
 var dropDB = function dropDB() {
-    return pgUtil.dropDB(db);
+    return pgUtil.dropDatabase(dbName);
 };
 
 module.exports = {
     createDB: createDB,
     dropDB: dropDB,
-    credentials: { database: db, user: dbOptions.user, password: dbOptions.password, host: dbOptions.host, port: dbOptions.port }
+    credentials: {
+        database: dbName,
+        user: dbOptions.connection.user,
+        password: dbOptions.connection.password,
+        host: dbOptions.connection.host,
+        port: dbOptions.connection.port
+    }
 };

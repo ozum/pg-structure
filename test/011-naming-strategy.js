@@ -1,13 +1,13 @@
-'use strict';
-var Lab         = require('lab');
-var Chai        = require('chai');
-var pgStructure = require('../index');
+"use strict";
+var Lab = require("lab");
+var Chai = require("chai");
+var pgStructure = require("../index");
 
-var lab         = exports.lab = Lab.script();
-var describe    = lab.describe;
-var it          = lab.it;
-var testDB      = require('./util/test-db.js');
-var expect      = Chai.expect;
+var lab = (exports.lab = Lab.script());
+var describe = lab.describe;
+var it = lab.it;
+var testDB = require("./util/test-db.js");
+var expect = Chai.expect;
 
 var dbs = {};
 var db;
@@ -15,37 +15,32 @@ var m2m;
 var o2m;
 var m2o;
 
-lab.before((done) => {
-    testDB.createDB('naming-strategy')
-        .then(() => pgStructure(testDB.credentials, ['public']))
-        .then((result) => {
-            dbs.fromDB      = result;
-            dbs.fromFile    = pgStructure.deserialize(pgStructure.serialize(result));
-            done();
+lab.before(() =>
+    testDB
+        .createDB("naming-strategy")
+        .then(() => pgStructure(testDB.credentials, ["public"]))
+        .then(result => {
+            dbs.fromDB = result;
+            dbs.fromFile = pgStructure.deserialize(pgStructure.serialize(result));
         })
-        .catch((err) => {
+        .catch(err => {
             console.log(err.stack);
-        });
-});
+        })
+);
 
-lab.after((done) => {
-    testDB.dropDB().then(() => {
-        done();
-    });
-});
+lab.after(() => testDB.dropDB());
 
 var tests = function(key) {
     return function() {
-        lab.before((done) => {
+        lab.before(() => {
             db = dbs[key];
-            done();
         });
 
-        it('should have unique relation names.', function(done) {
+        it("should have unique relation names.", function() {
             let seenBefore = {};
             let list = [];
 
-            for (let rel of db.get('public.Account').m2mRelations) {
+            for (let rel of db.get("public.Account").m2mRelations) {
                 let name = rel.generateName();
                 if (seenBefore[name]) {
                     list.push(`${name} (${rel.type})`);
@@ -54,7 +49,7 @@ var tests = function(key) {
                 seenBefore[name] = true;
             }
 
-            for (let rel of db.get('public.Account').o2mRelations) {
+            for (let rel of db.get("public.Account").o2mRelations) {
                 let name = rel.generateName();
                 if (seenBefore[name]) {
                     list.push(`${name} (${rel.type})`);
@@ -64,10 +59,9 @@ var tests = function(key) {
             }
 
             expect(list).to.deep.equal([]);
-            done();
         });
     };
 };
 
-describe('M2MConstraint from Database', tests('fromDB'));
-describe('M2MConstraint from File', tests('fromFile'));
+describe("M2MConstraint from Database", tests("fromDB"));
+describe("M2MConstraint from File", tests("fromFile"));

@@ -1,13 +1,13 @@
-'use strict';
-var Lab         = require('lab');
-var Chai        = require('chai');
-var pgStructure = require('../index');
+"use strict";
+var Lab = require("lab");
+var Chai = require("chai");
+var pgStructure = require("../index");
 
-var lab         = exports.lab = Lab.script();
-var describe    = lab.describe;
-var it          = lab.it;
-var testDB      = require('./util/test-db.js');
-var expect      = Chai.expect;
+var lab = (exports.lab = Lab.script());
+var describe = lab.describe;
+var it = lab.it;
+var testDB = require("./util/test-db.js");
+var expect = Chai.expect;
 
 var dbs = {};
 var db;
@@ -17,298 +17,249 @@ var view;
 var view2;
 var view3;
 
-lab.before((done) => {
-    testDB.createDB('1')
-        .then(() => pgStructure(testDB.credentials, ['public', 'other_schema']))
-        .then((result) => {
-            dbs.fromDB      = result;
-            dbs.fromFile    = pgStructure.deserialize(pgStructure.serialize(result));
-            done();
+lab.before(() =>
+    testDB
+        .createDB("1")
+        .then(() => pgStructure(testDB.credentials, ["public", "other_schema"]))
+        .then(result => {
+            dbs.fromDB = result;
+            dbs.fromFile = pgStructure.deserialize(pgStructure.serialize(result));
         })
-        .catch((err) => {
+        .catch(err => {
             console.log(err.stack);
-        });
-});
+        })
+);
 
-lab.after((done) => {
-    testDB.dropDB().then(() => {
-        done();
-    });
-});
+lab.after(() => testDB.dropDB());
 
 var tests = function(key) {
     return function() {
-        lab.before((done) => {
+        lab.before(() => {
             db = dbs[key];
-            table = db.get('public.account');
-            table2 = db.get('public.contact');
-            view = db.get('public.v_contacts_with_account');
-            view2 = db.get('other_schema.v_contacts_with_account');
-            view3 = db.get('other_schema.contact');
-            done();
+            table = db.get("public.account");
+            table2 = db.get("public.contact");
+            view = db.get("public.v_contacts_with_account");
+            view2 = db.get("other_schema.v_contacts_with_account");
+            view3 = db.get("other_schema.contact");
         });
 
-        it('should have name.', function(done) {
-            expect(table.name).to.equal('account');
-            done();
+        it("should have name.", function() {
+            expect(table.name).to.equal("account");
         });
 
-        it('should have table2 name.', function(done) {
-            expect(table2.name).to.equal('contact');
-            done();
+        it("should have table2 name.", function() {
+            expect(table2.name).to.equal("contact");
         });
 
-        it('should have fullName.', function(done) {
-            expect(table.fullName).to.equal('public.account');
-            done();
+        it("should have fullName.", function() {
+            expect(table.fullName).to.equal("public.account");
         });
 
-        it('should have kind of table if it is a table.', function(done) {
-          expect(table.kind).to.equal('table');
-          done();
+        it("should have kind of table if it is a table.", function() {
+            expect(table.kind).to.equal("table");
         });
 
-        it('should have kind of view if it is a view.', function(done) {
-          expect(view.kind).to.equal('view');
-          done();
+        it("should have kind of view if it is a view.", function() {
+            expect(view.kind).to.equal("view");
         });
 
-        it('should have view name.', function(done) {
-            expect(view.name).to.equal('v_contacts_with_account');
-            done();
+        it("should have view name.", function() {
+            expect(view.name).to.equal("v_contacts_with_account");
         });
 
-        it('should have view2 name.', function(done) {
-            expect(view2.name).to.equal('v_contacts_with_account');
-            done();
+        it("should have view2 name.", function() {
+            expect(view2.name).to.equal("v_contacts_with_account");
         });
 
-        it('should have view3 name.', function(done) {
-            expect(view3.name).to.equal('contact');
-            done();
+        it("should have view3 name.", function() {
+            expect(view3.name).to.equal("contact");
         });
 
-        it('should have fullCatalogName.', function(done) {
-            expect(table.fullCatalogName).to.equal('pg-test-util.public.account');
-            done();
+        it("should have fullCatalogName.", function() {
+            expect(table.fullCatalogName).to.equal("pg-test-util.public.account");
         });
 
-        it('should have db.', function(done) {
-            expect(table.db.name).to.equal('pg-test-util');
-            done();
+        it("should have db.", function() {
+            expect(table.db.name).to.equal("pg-test-util");
         });
 
-        it('should have parent.', function(done) {
-            expect(table.parent.name).to.equal('public');
-            done();
+        it("should have parent.", function() {
+            expect(table.parent.name).to.equal("public");
         });
 
-        it('should have schema.', function(done) {
-            expect(table.schema.name).to.equal('public');
-            done();
+        it("should have schema.", function() {
+            expect(table.schema.name).to.equal("public");
         });
 
-        it('should have columns.get().', function(done) {
-            expect(table.columns.get('id').name).to.equal('id');
-            done();
+        it("should have columns.get().", function() {
+            expect(table.columns.get("id").name).to.equal("id");
         });
 
-        it('should have comment.', function(done) {
-            expect(table.comment).to.equal('Firma bilgilerinin tutulduğu tablo.');
-            done();
+        it("should have comment.", function() {
+            expect(table.comment).to.equal("Firma bilgilerinin tutulduğu tablo.");
         });
 
-        it('should have constraints.', function(done) {
-            expect([...table.constraints.values()][0].name.includes('not_null')).to.equal(true);
-            done();
+        it("should have constraints.", function() {
+            expect([...table.constraints.values()][0].name.includes("not_null")).to.equal(true);
         });
 
-        it('should have constraintsByName.', function(done) {
-            expect(table.constraints.get('contact_has_companies').name).to.equal('contact_has_companies');
-            done();
+        it("should have constraintsByName.", function() {
+            expect(table.constraints.get("contact_has_companies").name).to.equal("contact_has_companies");
         });
 
-        it('should have description.', function(done) {
-            expect(table.description).to.equal('Firma bilgilerinin tutulduğu tablo.');
-            done();
+        it("should have description.", function() {
+            expect(table.description).to.equal("Firma bilgilerinin tutulduğu tablo.");
         });
 
-        it('should have foreignKeyConstraints.', function(done) {
-            expect([...table.foreignKeyConstraints.values()][0].name).to.equal('contact_has_companies');
+        it("should have foreignKeyConstraints.", function() {
+            expect([...table.foreignKeyConstraints.values()][0].name).to.equal("contact_has_companies");
             expect(table.foreignKeyConstraints.size).to.equal(1);
-            expect(db.get('public.cart_line_item').foreignKeyConstraints.size).to.equal(2);
-            expect(db.get('public.cart_line_item_cross_composite').foreignKeyConstraints.size).to.equal(2);
-            expect(db.get('public.message').foreignKeyConstraints.size).to.equal(2);
-            done();
+            expect(db.get("public.cart_line_item").foreignKeyConstraints.size).to.equal(2);
+            expect(db.get("public.cart_line_item_cross_composite").foreignKeyConstraints.size).to.equal(2);
+            expect(db.get("public.message").foreignKeyConstraints.size).to.equal(2);
         });
 
-        it('should have foreignKeyConstraints.get().', function(done) {
-            expect(table.foreignKeyConstraints.get('contact_has_companies').name).to.equal('contact_has_companies');
-            done();
+        it("should have foreignKeyConstraints.get().", function() {
+            expect(table.foreignKeyConstraints.get("contact_has_companies").name).to.equal("contact_has_companies");
         });
 
-        it('should have foreignKeyColumns.', function(done) {
-            let fkColumns = [...db.get('public.cart_line_item_cross_composite').foreignKeyColumns.values()];
-            expect(fkColumns[0].name).to.equal('primary_cart_id');
-            expect(fkColumns[1].name).to.equal('primary_product_id');
-            expect(fkColumns[2].name).to.equal('secondary_cart_id');
-            expect(fkColumns[3].name).to.equal('secondary_product_id');
-            done();
+        it("should have foreignKeyColumns.", function() {
+            let fkColumns = [...db.get("public.cart_line_item_cross_composite").foreignKeyColumns.values()];
+            expect(fkColumns[0].name).to.equal("primary_cart_id");
+            expect(fkColumns[1].name).to.equal("primary_product_id");
+            expect(fkColumns[2].name).to.equal("secondary_cart_id");
+            expect(fkColumns[3].name).to.equal("secondary_product_id");
         });
 
-        it('should have foreignKeyColumns.get().', function(done) {
-            let fkColumns = db.get('public.cart_line_item_cross_composite').foreignKeyColumns;
-            expect(fkColumns.get('secondary_cart_id').name).to.equal('secondary_cart_id');
-            done();
+        it("should have foreignKeyColumns.get().", function() {
+            let fkColumns = db.get("public.cart_line_item_cross_composite").foreignKeyColumns;
+            expect(fkColumns.get("secondary_cart_id").name).to.equal("secondary_cart_id");
         });
 
-        it('should have primaryKeyConstraint.', function(done) {
-            expect(table.primaryKeyConstraint.name).to.equal('Key2');
-            expect([...table.primaryKeyConstraint.columns.values()][0].name).to.equal('id');
-            done();
+        it("should have primaryKeyConstraint.", function() {
+            expect(table.primaryKeyConstraint.name).to.equal("Key2");
+            expect([...table.primaryKeyConstraint.columns.values()][0].name).to.equal("id");
         });
 
-        it('should have primaryKeyColumns.', function(done) {
-            expect([...table.primaryKeyColumns.values()][0].name).to.equal('id');
-            done();
+        it("should have primaryKeyColumns.", function() {
+            expect([...table.primaryKeyColumns.values()][0].name).to.equal("id");
         });
 
-        it('without primary key should return empty set for primaryKeyColumns.', function(done) {
-            expect([...db.get('public.v_contacts_with_account').primaryKeyColumns.values()]).to.deep.equal([]);
-            done();
+        it("without primary key should return empty set for primaryKeyColumns.", function() {
+            expect([...db.get("public.v_contacts_with_account").primaryKeyColumns.values()]).to.deep.equal([]);
         });
 
-        it('should have primaryKeyColumns.get().', function(done) {
-            expect(table.primaryKeyColumns.get('id').name).to.equal('id');
-            done();
+        it("should have primaryKeyColumns.get().", function() {
+            expect(table.primaryKeyColumns.get("id").name).to.equal("id");
         });
 
-        it('should have hasManyTables.', function(done) {
-            expect([...table.hasManyTables.values()][0].name).to.equal('contact');
-            expect(db.get('public.cart').hasManyTables.size).to.equal(1);
-            done();
+        it("should have hasManyTables.", function() {
+            expect([...table.hasManyTables.values()][0].name).to.equal("contact");
+            expect(db.get("public.cart").hasManyTables.size).to.equal(1);
         });
 
-        it('should have hasManyTables.get().', function(done) {
-            expect(table.hasManyTables.get('contact').name).to.equal('contact');
-            done();
+        it("should have hasManyTables.get().", function() {
+            expect(table.hasManyTables.get("contact").name).to.equal("contact");
         });
 
-        it('without hasMany relation should return empty set for hasManyTables.', function(done) {
-            expect([...db.get('public.v_contacts_with_account').hasManyTables.values()]).to.deep.equal([]);
-            done();
+        it("without hasMany relation should return empty set for hasManyTables.", function() {
+            expect([...db.get("public.v_contacts_with_account").hasManyTables.values()]).to.deep.equal([]);
         });
 
-        it('should have belongsToTables.', function(done) {
-            let contactTable = db.get('public.contact');
-            expect([...contactTable.belongsToTables.values()][0].name).to.equal('account');
-            expect(db.get('public.cart_line_item_cross_composite').belongsToTables.size).to.equal(1);
-            expect(db.get('public.class_register').belongsToTables.size).to.equal(2);
-            done();
+        it("should have belongsToTables.", function() {
+            let contactTable = db.get("public.contact");
+            expect([...contactTable.belongsToTables.values()][0].name).to.equal("account");
+            expect(db.get("public.cart_line_item_cross_composite").belongsToTables.size).to.equal(1);
+            expect(db.get("public.class_register").belongsToTables.size).to.equal(2);
         });
 
-        it('should have belongsToTables.get().', function(done) {
-            let contactTable = db.get('public.contact');
-            expect(contactTable.belongsToTables.get('account').name).to.equal('account');
-            done();
+        it("should have belongsToTables.get().", function() {
+            let contactTable = db.get("public.contact");
+            expect(contactTable.belongsToTables.get("account").name).to.equal("account");
         });
 
-        it('should have belongsToManyTables.', function(done) {
-            let cartTable = db.get('public.cart');
-            expect([...cartTable.belongsToManyTables.values()][0].name).to.equal('product');
-            expect(db.get('public.student').belongsToManyTables.size).to.equal(2);
-            expect(db.get('public.cart_line_item').belongsToManyTables.size).to.equal(1);
-            done();
+        it("should have belongsToManyTables.", function() {
+            let cartTable = db.get("public.cart");
+            expect([...cartTable.belongsToManyTables.values()][0].name).to.equal("product");
+            expect(db.get("public.student").belongsToManyTables.size).to.equal(2);
+            expect(db.get("public.cart_line_item").belongsToManyTables.size).to.equal(1);
         });
 
-        it('should have belongsToManyTablesPk.', function(done) {
-            let cartTable = db.get('public.cart');
-            expect([...cartTable.belongsToManyTablesPk.values()][0].name).to.equal('product');
-            expect(db.get('public.student').belongsToManyTablesPk.size).to.equal(1);
-            expect(db.get('public.cart_line_item').belongsToManyTablesPk.size).to.equal(0);
-            done();
+        it("should have belongsToManyTablesPk.", function() {
+            let cartTable = db.get("public.cart");
+            expect([...cartTable.belongsToManyTablesPk.values()][0].name).to.equal("product");
+            expect(db.get("public.student").belongsToManyTablesPk.size).to.equal(1);
+            expect(db.get("public.cart_line_item").belongsToManyTablesPk.size).to.equal(0);
         });
 
-        it('should have belongsToManyTables.get().', function(done) {
-            let cartTable = db.get('public.cart');
-            expect(cartTable.belongsToManyTables.get('product').name).to.equal('product');
-            done();
+        it("should have belongsToManyTables.get().", function() {
+            let cartTable = db.get("public.cart");
+            expect(cartTable.belongsToManyTables.get("product").name).to.equal("product");
         });
 
-        it('should have m2mRelations.', function(done) {
-            let cartTable = db.get('public.cart');
-            let contactTable = db.get('public.contact');
-            expect([...cartTable.m2mRelations.values()][0].sourceConstraint.name).to.equal('cart_has_products');
+        it("should have m2mRelations.", function() {
+            let cartTable = db.get("public.cart");
+            let contactTable = db.get("public.contact");
+            expect([...cartTable.m2mRelations.values()][0].sourceConstraint.name).to.equal("cart_has_products");
             expect([...contactTable.m2mRelations.values()]).to.deep.equal([]);
-            expect(db.get('public.student').m2mRelations.size).to.equal(3);
-            expect(db.get('public.cart').m2mRelations.size).to.equal(1);
-            expect(db.get('public.cart_line_item').m2mRelations.size).to.equal(2);
-            done();
+            expect(db.get("public.student").m2mRelations.size).to.equal(3);
+            expect(db.get("public.cart").m2mRelations.size).to.equal(1);
+            expect(db.get("public.cart_line_item").m2mRelations.size).to.equal(2);
         });
 
-        it('should have m2mRelationsPk.', function(done) {
-            let cartTable = db.get('public.cart');
-            let contactTable = db.get('public.contact');
-            expect([...cartTable.m2mRelationsPk.values()][0].sourceConstraint.name).to.equal('cart_has_products');
+        it("should have m2mRelationsPk.", function() {
+            let cartTable = db.get("public.cart");
+            let contactTable = db.get("public.contact");
+            expect([...cartTable.m2mRelationsPk.values()][0].sourceConstraint.name).to.equal("cart_has_products");
             expect([...contactTable.m2mRelationsPk.values()]).to.deep.equal([]);
-            expect(db.get('public.student').m2mRelationsPk.size).to.equal(1);
-            expect(db.get('public.cart').m2mRelationsPk.size).to.equal(1);
-            expect(db.get('public.cart_line_item').m2mRelationsPk.size).to.equal(0);
-            done();
+            expect(db.get("public.student").m2mRelationsPk.size).to.equal(1);
+            expect(db.get("public.cart").m2mRelationsPk.size).to.equal(1);
+            expect(db.get("public.cart_line_item").m2mRelationsPk.size).to.equal(0);
         });
 
-        it('should have o2mRelations.', function(done) {
-            let cartTable = db.get('public.cart');
-            expect([...cartTable.o2mRelations.values()][0].constraint.name).to.equal('cart_has_products');
-            expect(db.get('public.account').o2mRelations.size).to.equal(3);
-            expect(db.get('public.cart_line_item').o2mRelations.size).to.equal(3);
-            done();
+        it("should have o2mRelations.", function() {
+            let cartTable = db.get("public.cart");
+            expect([...cartTable.o2mRelations.values()][0].constraint.name).to.equal("cart_has_products");
+            expect(db.get("public.account").o2mRelations.size).to.equal(3);
+            expect(db.get("public.cart_line_item").o2mRelations.size).to.equal(3);
         });
 
-        it('should have m2oRelations.', function(done) {
-            let cartLineItemTable = db.get('public.cart_line_item');
-            expect([...cartLineItemTable.m2oRelations.values()][0].constraint.name).to.equal('cart_has_products');
-            expect(db.get('public.cart_line_item_cross_composite').m2oRelations.size).to.equal(2);
-            expect(db.get('public.class_register').m2oRelations.size).to.equal(2);
-            expect(db.get('public.cart_line_item').m2oRelations.size).to.equal(2);
-
-            done();
+        it("should have m2oRelations.", function() {
+            let cartLineItemTable = db.get("public.cart_line_item");
+            expect([...cartLineItemTable.m2oRelations.values()][0].constraint.name).to.equal("cart_has_products");
+            expect(db.get("public.cart_line_item_cross_composite").m2oRelations.size).to.equal(2);
+            expect(db.get("public.class_register").m2oRelations.size).to.equal(2);
+            expect(db.get("public.cart_line_item").m2oRelations.size).to.equal(2);
         });
 
-        it('should have relations.', function(done) {
-            let cartLineItemTable = db.get('public.cart_line_item');
+        it("should have relations.", function() {
+            let cartLineItemTable = db.get("public.cart_line_item");
             expect(cartLineItemTable.relations.size).to.equal(7);
-            expect([...db.get('public.type_table').relations.values()]).to.deep.equal([]);
-            done();
+            expect([...db.get("public.type_table").relations.values()]).to.deep.equal([]);
         });
 
-        it('should have indexes.', function(done) {
-            let collection = [...db.get('public.contact').indexes.values()];
+        it("should have indexes.", function() {
+            let collection = [...db.get("public.contact").indexes.values()];
             expect(collection.length).to.equal(7);
-            expect(collection[0].name).to.equal('email');
-            expect(collection[1].name).to.equal('IX_Relationship1');
-            expect(collection[2].name).to.equal('IX_Relationship6');
-            expect([...collection[0].columns.values()][0].name).to.equal('email');
-
-            done();
+            expect(collection[0].name).to.equal("email");
+            expect(collection[1].name).to.equal("IX_Relationship1");
+            expect(collection[2].name).to.equal("IX_Relationship6");
+            expect([...collection[0].columns.values()][0].name).to.equal("email");
         });
 
-        it('should have get().', function(done) {
-            expect(table.get('field3').name).to.equal('field3');
-            done();
+        it("should have get().", function() {
+            expect(table.get("field3").name).to.equal("field3");
         });
 
-        it('should have commentData.', function(done) {
-            expect(table.commentData).to.deep.equal({ jsonkey: 'jsonvalue' });
-            done();
+        it("should have commentData.", function() {
+            expect(table.commentData).to.deep.equal({ jsonkey: "jsonvalue" });
         });
 
-        it('should have descriptionData.', function(done) {
-            expect(table.descriptionData).to.deep.equal({ jsonkey: 'jsonvalue' });
-            done();
+        it("should have descriptionData.", function() {
+            expect(table.descriptionData).to.deep.equal({ jsonkey: "jsonvalue" });
         });
     };
 };
 
-describe('Table from Database', tests('fromDB'));
-describe('Table from File', tests('fromFile'));
+describe("Table from Database", tests("fromDB"));
+describe("Table from File", tests("fromFile"));

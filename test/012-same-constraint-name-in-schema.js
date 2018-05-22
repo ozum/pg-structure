@@ -1,50 +1,44 @@
-'use strict';
-var Lab         = require('lab');
-var Chai        = require('chai');
-var pgStructure = require('../index');
+"use strict";
+var Lab = require("lab");
+var Chai = require("chai");
+var pgStructure = require("../index");
 
-var lab         = exports.lab = Lab.script();
-var describe    = lab.describe;
-var it          = lab.it;
-var testDB      = require('./util/test-db.js');
-var expect      = Chai.expect;
+var lab = (exports.lab = Lab.script());
+var describe = lab.describe;
+var it = lab.it;
+var testDB = require("./util/test-db.js");
+var expect = Chai.expect;
 
 var dbs = {};
 var db;
 var constraint;
 
-lab.before((done) => {
-    testDB.createDB('4')
-        .then(() => pgStructure(testDB.credentials, ['public', 'nir']))
-        .then((result) => {
-            dbs.fromDB      = result;
-            dbs.fromFile    = pgStructure.deserialize(pgStructure.serialize(result));
-            done();
+lab.before(() =>
+    testDB
+        .createDB("4")
+        .then(() => pgStructure(testDB.credentials, ["public", "nir"]))
+        .then(result => {
+            dbs.fromDB = result;
+            dbs.fromFile = pgStructure.deserialize(pgStructure.serialize(result));
         })
-        .catch((err) => {
+        .catch(err => {
             console.log(err.stack);
-        });
-});
+        })
+);
 
-lab.after((done) => {
-    testDB.dropDB().then(() => {
-        done();
-    });
-});
+lab.after(() => testDB.dropDB());
 
 let tests = function(key) {
-    lab.before((done) => {
+    lab.before(done => {
         db = dbs[key];
-        done();
     });
 
     return function() {
-        it('should have constraint.', function(done) {
-            expect(db.get('nir.nir_links').constraints.get('nir_links_fk3').name).to.equal('nir_links_fk3');
-            done();
+        it("should have constraint.", function() {
+            expect(db.get("nir.nir_links").constraints.get("nir_links_fk3").name).to.equal("nir_links_fk3");
         });
     };
 };
 
-describe('Constraint from Database', tests('fromDB'));
-describe('Constraint from File', tests('fromFile'));
+describe("Constraint from Database", tests("fromDB"));
+describe("Constraint from File", tests("fromFile"));

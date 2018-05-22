@@ -1,4 +1,4 @@
-﻿/*
+/*
 Created: 03.05.2016
 Modified: 03.05.2016
 Project: pg-structure
@@ -84,7 +84,7 @@ CREATE INDEX "IXAccountAddresss" ON "Address" ("accountId","organizationId")
 ALTER TABLE "Address" ADD CONSTRAINT "Address_Key1" PRIMARY KEY ("id")
 ;
 
--- Create relationships section ------------------------------------------------- 
+-- Create relationships section -------------------------------------------------
 
 ALTER TABLE "Account" ADD CONSTRAINT "OrganizationAccounts" FOREIGN KEY ("organizationId") REFERENCES "Organization" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 ;
@@ -103,9 +103,3 @@ ALTER TABLE "Address" ADD CONSTRAINT "AccountAddresses" FOREIGN KEY ("accountId"
 
 ALTER TABLE "Account" ADD CONSTRAINT "ContactAccounts" FOREIGN KEY ("primaryContactId", "organizationId") REFERENCES "Contact" ("id", "organizationId") ON DELETE CASCADE ON UPDATE CASCADE
 ;
-
-
-
-
-
-

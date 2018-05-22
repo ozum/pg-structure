@@ -165,9 +165,9 @@ PostgreSQL connection options which are passed directly to node-postgres.
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | database | <code>string</code> |  | Database name |
-| host | <code>string</code> | <code>&quot;localhost&quot;</code> | Hostname of the database. |
-| port | <code>number</code> | <code>5432</code> | Port of the database. |
-| user | <code>string</code> |  | Username for connecting to db. |
-| password | <code>string</code> |  | Password to connecting to db. |
-| ssl | <code>boolean</code> \| <code>Object</code> | <code>false</code> | Pass the same options as tls.connect(). |
+| [host] | <code>string</code> | <code>&quot;localhost&quot;</code> | Hostname of the database. |
+| [port] | <code>number</code> | <code>5432</code> | Port of the database. |
+| [user] | <code>string</code> |  | Username for connecting to db. |
+| [password] | <code>string</code> |  | Password to connecting to db. |
+| [ssl] | <code>boolean</code> \| <code>Object</code> | <code>false</code> | Pass the same options as tls.connect(). |
 
