@@ -9,8 +9,10 @@ var dbOptions = {
     connection: {
         host: "localhost",
         port: 5432,
-        user: "user",
-        password: "password"
+        // user: "user",
+        // password: "password"
+        user: "postgres",
+        password: ""
     },
     defaultDatabase: dbName
 };
@@ -19,7 +21,7 @@ var pgUtil = new PgTestUtil(dbOptions);
 
 var createDB = function createDB(code) {
     return pgUtil
-        .createDatabase({ name: dbName, drop: false })
+        .createDatabase({ name: dbName, drop: true })
         .then(db => db.queryFile(path.join(__dirname, `create-test-db-${code}.sql`)))
         .catch(err => {
             console.log(err);
