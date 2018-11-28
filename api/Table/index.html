@@ -8,12 +8,12 @@
   
   <meta name="author" content="Özüm Eldoğan">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Table - pg-structure 4.1.3</title>
+  <title>Table - pg-structure 4.2.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
@@ -22,15 +22,16 @@
     var mkdocs_page_url = "/api/Table/";
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-45732546-4', 'auto');
       ga('send', 'pageview');
@@ -45,10 +46,10 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> pg-structure 4.1.3</a>
+        <a href="../.." class="icon icon-home"> pg-structure 4.2.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -203,6 +204,10 @@
 
     </ul>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../Type/">Type</a>
+                </li>
     </ul>
 	    </li>
           
@@ -216,7 +221,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">pg-structure 4.1.3</a>
+        <a href="../..">pg-structure 4.2.0</a>
       </nav>
 
       
@@ -264,7 +269,7 @@ name                 name                   name
 </code></pre>
 
 <p>Below is the same schema as image:
-<img alt="Database Schema" src="../../../images/schema-through.png" /></p>
+<img alt="Database Schema" src="../../images/schema-through.png" /></p>
 <p><strong>Kind</strong>: global class  </p>
 <ul>
 <li><a href="#Table">Table</a><ul>
@@ -320,7 +325,7 @@ name                 name                   name
 <tr>
 <td>args.parent</td>
 <td><code>Schema</code></td>
-<td>Parent <a href="../Schema">Schema</a> of the Table.</td>
+<td>Parent <a href="Schema">Schema</a> of the Table.</td>
 </tr>
 <tr>
 <td>args.name</td>
@@ -369,7 +374,7 @@ name                 name                   name
 
 <p><a name="Table+schema"></a></p>
 <h3 id="tableschema-schema">table.schema : <code>Schema</code></h3>
-<p><a href="../Schema">Schema</a> this table belongs to.</p>
+<p><a href="Schema">Schema</a> this table belongs to.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Table+parent">parent</a><br />
@@ -379,7 +384,7 @@ name                 name                   name
 
 <p><a name="Table+parent"></a></p>
 <h3 id="tableparent-schema">table.parent : <code>Schema</code></h3>
-<p><a href="../Schema">Schema</a> this table belongs to.</p>
+<p><a href="Schema">Schema</a> this table belongs to.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: Aliases <a href="#Table+schema">schema</a><br />
@@ -443,11 +448,11 @@ console.log(table.descriptionData.extraData);    // -&gt; 2
 <strong>Read only</strong>: true<br />
 <a name="Table+columns"></a></p>
 <h3 id="tablecolumns-mapcolumn">table.columns : <code>Map.&lt;Column&gt;</code></h3>
-<p>All <a href="../Column">Column</a> instances in the table as a <a href="../Map">Map</a>. They are ordered same order as they are
+<p>All <a href="Column">Column</a> instances in the table as a <a href="Map">Map</a>. They are ordered same order as they are
 defined in database table.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="../Map">Map</a><br />
+<strong>See</strong>: <a href="Map">Map</a><br />
 <strong>Example</strong>  </p>
 <pre><code class="js">var isAvailable  = table.columns.has('id');
 var columnNames  = Array.from(schema.columns.keys());       // Use spread operator to get column names as an array.
@@ -465,36 +470,36 @@ for (let [name, column] of table.columns) {
 
 <p><a name="Table+constraints"></a></p>
 <h3 id="tableconstraints-mapconstraint">table.constraints : <code>Map.&lt;Constraint&gt;</code></h3>
-<p>All <a href="../Constraint">Constraint</a> instances in the table as a <a href="../Map">Map</a>. They are ordered by name.</p>
+<p>All <a href="Constraint">Constraint</a> instances in the table as a <a href="Map">Map</a>. They are ordered by name.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+db"></a></p>
 <h3 id="tabledb-db">table.db : <code>Db</code></h3>
-<p><a href="../Db">Db</a> this table belongs to.</p>
+<p><a href="Db">Db</a> this table belongs to.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+foreignKeyConstraints"></a></p>
 <h3 id="tableforeignkeyconstraints-mapconstraint">table.foreignKeyConstraints : <code>Map.&lt;Constraint&gt;</code></h3>
-<p>All <a href="../Constraint">Constraint</a> instances which are foreign key constraints in the table as a <a href="../Map">Map</a>.</p>
+<p>All <a href="Constraint">Constraint</a> instances which are foreign key constraints in the table as a <a href="Map">Map</a>.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Table+o2mRelations">o2mRelations</a>, <a href="#Table+m2oRelations">m2oRelations</a>, <a href="#Table+m2mRelations">m2mRelations</a> to get more details about relations.<br />
 <a name="Table+foreignKeyColumns"></a></p>
 <h3 id="tableforeignkeycolumns-mapcolumn">table.foreignKeyColumns : <code>Map.&lt;Column&gt;</code></h3>
-<p>All foreign key <a href="../Column">columns</a> of all <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a> as a <a href="../Map">Map</a>.
-Foreign key <a href="../Constraint">constraints</a> may contain more than one column. To get foreign key columns of a specific foreign key constraint
-use <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a>.<a href="../Constraint#columns">columns</a></p>
+<p>All foreign key <a href="Column">columns</a> of all <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a> as a <a href="Map">Map</a>.
+Foreign key <a href="Constraint">constraints</a> may contain more than one column. To get foreign key columns of a specific foreign key constraint
+use <a href="#Table+foreignKeyConstraints">foreignKeyConstraints</a>.<a href="Constraint#columns">columns</a></p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+foreignKeyConstraintsToThis"></a></p>
 <h3 id="tableforeignkeyconstraintstothis-mapconstraint">table.foreignKeyConstraintsToThis : <code>Map.&lt;Constraint&gt;</code></h3>
-<p>All foreign key <a href="../Constraint">Constraint</a> instances which are referring to this table as a <a href="../Map">Map</a>.</p>
+<p>All foreign key <a href="Constraint">Constraint</a> instances which are referring to this table as a <a href="Map">Map</a>.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Table+o2mRelations">o2mRelations</a>, <a href="#Table+m2oRelations">m2oRelations</a>, <a href="#Table+m2mRelations">m2mRelations</a> to get more details about relations.<br />
 <a name="Table+primaryKeyConstraint"></a></p>
 <h3 id="tableprimarykeyconstraint-constraint-124-undefined">table.primaryKeyConstraint : <code>Constraint</code> | <code>undefined</code></h3>
-<p>Primary key <a href="../Constraint">constraint</a> instance of this table.</p>
+<p>Primary key <a href="Constraint">constraint</a> instance of this table.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Table+primaryKeyColumns">primaryKeyColumns</a> to get primary key columns directly.<br />
@@ -509,7 +514,7 @@ for (let [name, column] of pkConstraint.columns) {
 
 <p><a name="Table+primaryKeyColumns"></a></p>
 <h3 id="tableprimarykeycolumns-mapcolumn">table.primaryKeyColumns : <code>Map.&lt;Column&gt;</code></h3>
-<p>Primary key <a href="../Column">columns</a> of this table as a <a href="../Map">Map</a>.</p>
+<p>Primary key <a href="Column">columns</a> of this table as a <a href="Map">Map</a>.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>See</strong>: <a href="#Table+primaryKeyConstraint">primaryKeyConstraint</a> to get primary key constraint.<br />
@@ -525,7 +530,7 @@ for (let [name, column] of pkConstraint.columns) {
 <p><a href="#Table">Tables</a> sorted by name, which this table has relationship of type <code>one to many</code>.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="../Map">Map</a><br />
+<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="Map">Map</a><br />
 <strong>Example</strong>  </p>
 <pre><code class="js">for (let [name, table] of vendorTable.hasManyTables) {
     console.log(table.name);
@@ -537,7 +542,7 @@ for (let [name, column] of pkConstraint.columns) {
 <p><a href="#Table">Tables</a> sorted by name, which this table has relationship of type <code>belongs to</code> which is reverse direction of <code>one to many</code>.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="../Map">Map</a><br />
+<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="Map">Map</a><br />
 <strong>Example</strong>  </p>
 <pre><code class="js">for (let [name, table] of productTable.belongsToTables) {
     console.log(table.name);
@@ -549,7 +554,7 @@ for (let [name, column] of pkConstraint.columns) {
 <p><a href="#Table">Tables</a> sorted by name, which this table has relationship of type <code>many to many</code>.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="../Map">Map</a><br />
+<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="Map">Map</a><br />
 <strong>Example</strong>  </p>
 <pre><code class="js">// Cart (id) has many products (id) through line_item join table.
 for (let [name, table] of cartTable.belongsToManyTables) {
@@ -563,7 +568,7 @@ for (let [name, table] of cartTable.belongsToManyTables) {
 only tables joined by primary keys in join table.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
-<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="../Map">Map</a><br />
+<strong>See</strong>: <a href="#exampleSchema">Example schema</a>, <a href="Map">Map</a><br />
 <strong>Example</strong>  </p>
 <pre><code class="js">// Cart (id) has many products (id) through line_item join table.
 for (let [name, table] of cartTable.belongsToManyTables) {
@@ -573,28 +578,28 @@ for (let [name, table] of cartTable.belongsToManyTables) {
 
 <p><a name="Table+m2mRelations"></a></p>
 <h3 id="tablem2mrelations-setm2mrelation">table.m2mRelations : <code>Set.&lt;M2MRelation&gt;</code></h3>
-<p>Set of <a href="../M2MRelation">many to many relationships</a> of the table. <a href="../M2MRelation">M2MRelation</a> resembles
+<p>Set of <a href="M2MRelation">many to many relationships</a> of the table. <a href="M2MRelation">M2MRelation</a> resembles
 <code>has many through</code> and <code>belongs to many</code> relations in ORMs. It has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+m2mRelationsPk"></a></p>
 <h3 id="tablem2mrelationspk-setm2mrelation">table.m2mRelationsPk : <code>Set.&lt;M2MRelation&gt;</code></h3>
-<p>Set of <a href="../M2MRelation">many to many relationships</a> of the table. Different from <a href="#Table+m2mRelations">m2mRelations</a>
+<p>Set of <a href="M2MRelation">many to many relationships</a> of the table. Different from <a href="#Table+m2mRelations">m2mRelations</a>
 this only includes relations joined by <code>Primary Foreign Keys</code> in join table. <code>Primary Foreign Keys</code> means
 foreign keys of join table which are also Primary Keys of join table at the same time.
-<a href="../M2MRelation">M2MRelation</a> resembles <code>has many through</code> and <code>belongs to many</code> relations in ORMs.
+<a href="M2MRelation">M2MRelation</a> resembles <code>has many through</code> and <code>belongs to many</code> relations in ORMs.
 It has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+o2mRelations"></a></p>
 <h3 id="tableo2mrelations-seto2mrelation">table.o2mRelations : <code>Set.&lt;O2MRelation&gt;</code></h3>
-<p>Set of <a href="../O2MRelation">one to many relationships</a> of the table. <a href="../O2MRelation">O2MRelation</a> resembles
+<p>Set of <a href="O2MRelation">one to many relationships</a> of the table. <a href="O2MRelation">O2MRelation</a> resembles
 <code>has many</code> relations in ORMs. It has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
 <a name="Table+m2oRelations"></a></p>
 <h3 id="tablem2orelations-setm2orelation">table.m2oRelations : <code>Set.&lt;M2ORelation&gt;</code></h3>
-<p>Set of <a href="../M2ORelation">many to one relationships</a> of the table. <a href="../M2ORelation">M2ORelation</a> resembles
+<p>Set of <a href="M2ORelation">many to one relationships</a> of the table. <a href="M2ORelation">M2ORelation</a> resembles
 <code>belongs to</code> relations in ORMs. It has some useful methods and information for generating ORM classes.</p>
 <p><strong>Kind</strong>: instance property of <a href="#Table"><code>Table</code></a><br />
 <strong>Read only</strong>: true<br />
@@ -605,7 +610,7 @@ It has some useful methods and information for generating ORM classes.</p>
 <strong>Read only</strong>: true<br />
 <a name="Table+get"></a></p>
 <h3 id="tablegetpath-column-124-undefined">table.get(path) ⇒ <code>Column</code> | <code>undefined</code></h3>
-<p>Returns <a href="../Column">Column</a> on given path relative to <a href="#Table">Table</a>.</p>
+<p>Returns <a href="Column">Column</a> on given path relative to <a href="#Table">Table</a>.</p>
 <p><strong>Kind</strong>: instance method of <a href="#Table"><code>Table</code></a><br />
 <strong>Returns</strong>: <code>Column</code> | <code>undefined</code> - - Requested item.  </p>
 <table>
@@ -634,6 +639,8 @@ It has some useful methods and information for generating ORM classes.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../Type/" class="btn btn-neutral float-right" title="Type">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
       
         <a href="../Schema/" class="btn btn-neutral" title="Schema"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
@@ -651,26 +658,30 @@ It has some useful methods and information for generating ORM classes.</p>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/ozum/pg-structure.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ozum/pg-structure.git/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../Schema/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
+        <span style="margin-left: 15px"><a href="../Type/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     </span>
 </div>
-    <script src="../../js/theme.js"></script>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>
