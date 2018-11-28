@@ -13,7 +13,7 @@
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
@@ -22,15 +22,16 @@
     var mkdocs_page_url = "/api/M2ORelation/";
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-45732546-4', 'auto');
       ga('send', 'pageview');
@@ -48,7 +49,7 @@
         <a href="../.." class="icon icon-home"> pg-structure 4.1.3</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -157,6 +158,10 @@
                     
     <a class="" href="../Table/">Table</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../Type/">Type</a>
+                </li>
     </ul>
 	    </li>
           
@@ -234,7 +239,7 @@ name                 name                   name
 </code></pre>
 
 <p>Below is the same schema as image:
-<img alt="Database Schema" src="../../../images/schema-through.png" /></p>
+<img alt="Database Schema" src="../../images/schema-through.png" /></p>
 <p>Some definitions used in descriptions for <a href="#M2ORelation">M2ORelation</a>.
 <em> <strong> Source Table: </strong> Table which this relationship belongs to.
 </em> <strong> Target Table: </strong> Table that is related to base table.</p>
@@ -255,12 +260,12 @@ name                 name                   name
 <tr>
 <td>args.sourceTable</td>
 <td><code>Table</code></td>
-<td>Source <a href="../Table">Table</a> which this relation belongs to.</td>
+<td>Source <a href="Table">Table</a> which this relation belongs to.</td>
 </tr>
 <tr>
 <td>args.targetTable</td>
 <td><code>Table</code></td>
-<td>Target <a href="../Table">Table</a> which this relation is referring to.</td>
+<td>Target <a href="Table">Table</a> which this relation is referring to.</td>
 </tr>
 <tr>
 <td>args.constraint</td>
@@ -294,7 +299,7 @@ let PKColumn     = relation.targetTable.primaryKeys[0];  // COLUMN:      id     
 <strong>Read only</strong>: true<br />
 <a name="M2ORelation+sourceTable"></a></p>
 <h3 id="m2orelationsourcetable-table">m2ORelation.sourceTable : <code>Table</code></h3>
-<p><a href="../Table">Table</a> which this relation belongs to.</p>
+<p><a href="Table">Table</a> which this relation belongs to.</p>
 <p><strong>Kind</strong>: instance property of <a href="#M2ORelation"><code>M2ORelation</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
@@ -304,7 +309,7 @@ let sourceTable  = relation.sourceTable;             // TABLE:       line_item
 
 <p><a name="M2ORelation+targetTable"></a></p>
 <h3 id="m2orelationtargettable-table">m2ORelation.targetTable : <code>Table</code></h3>
-<p><a href="../Table">Table</a> which this relation is referred by.</p>
+<p><a href="Table">Table</a> which this relation is referred by.</p>
 <p><strong>Kind</strong>: instance property of <a href="#M2ORelation"><code>M2ORelation</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
@@ -314,7 +319,7 @@ let targetTable  = relation.targetTable;             // TABLE:       product
 
 <p><a name="M2ORelation+constraint"></a></p>
 <h3 id="m2orelationconstraint-table">m2ORelation.constraint : <code>Table</code></h3>
-<p>Foreign key <a href="../Constraint">constraint</a> between <a href="#M2ORelation+sourceTable">source table</a> and <a href="#M2ORelation+targetTable">target table</a>.</p>
+<p>Foreign key <a href="Constraint">constraint</a> between <a href="#M2ORelation+sourceTable">source table</a> and <a href="#M2ORelation+targetTable">target table</a>.</p>
 <p><strong>Kind</strong>: instance property of <a href="#M2ORelation"><code>M2ORelation</code></a><br />
 <strong>Read only</strong>: true<br />
 <strong>Example</strong>  </p>
@@ -371,18 +376,18 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/ozum/pg-structure.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ozum/pg-structure.git/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../M2MRelation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -392,7 +397,9 @@ let FKColumn     = relation.constraint.columns[0];   // COLUMN:      product_id 
       
     </span>
 </div>
-    <script src="../../js/theme.js"></script>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>

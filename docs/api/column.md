@@ -3,46 +3,45 @@
 ## Column
 **Kind**: global class  
 
-- [Column](#column)
-    - [new Column(args)](#new-columnargs)
-    - [column.allowNull : <code>boolean</code>](#columnallownull--codebooleancode)
-    - [column.arrayDimension : <code>number</code>](#columnarraydimension--codenumbercode)
-    - [column.arrayType : <code>string</code> \| <code>null</code>](#columnarraytype--codestringcode--codenullcode)
-    - [column.comment : <code>string</code> \| <code>null</code>](#columncomment--codestringcode--codenullcode)
-    - [column.commentData : <code>Object</code>](#columncommentdata--codeobjectcode)
-    - [column.db : <code>Db</code>](#columndb--codedbcode)
-    - [column.default : <code>string</code> \| <code>null</code>](#columndefault--codestringcode--codenullcode)
-    - [column.defaultWithTypeCast : <code>string</code> \| <code>null</code>](#columndefaultwithtypecast--codestringcode--codenullcode)
-    - [column.description : <code>string</code> \| <code>null</code>](#columndescription--codestringcode--codenullcode)
-    - [column.descriptionData : <code>Object</code>](#columndescriptiondata--codeobjectcode)
-    - [column.domainName : <code>string</code> \| <code>null</code>](#columndomainname--codestringcode--codenullcode)
-    - [column.domainFullName : <code>string</code> \| <code>null</code>](#columndomainfullname--codestringcode--codenullcode)
-    - [column.domainFullCatalogName : <code>string</code> \| <code>null</code>](#columndomainfullcatalogname--codestringcode--codenullcode)
-    - [column.domainSchema : <code>string</code> \| <code>null</code>](#columndomainschema--codestringcode--codenullcode)
-    - [column.enumLabels : <code>Array.&lt;string&gt;</code> \| <code>null</code>](#columnenumlabels--codearrayltstringgtcode--codenullcode)
-    - [column.enumValues : <code>Array.&lt;string&gt;</code> \| <code>null</code>](#columnenumvalues--codearrayltstringgtcode--codenullcode)
-    - [column.foreignKeyConstraints : <code>Map.&lt;Constraint&gt;</code>](#columnforeignkeyconstraints--codemapltconstraintgtcode)
-    - [column.fullName : <code>string</code>](#columnfullname--codestringcode)
-    - [column.fullCatalogName : <code>string</code>](#columnfullcatalogname--codestringcode)
-    - [column.indexes : <code>Map.&lt;Index&gt;</code>](#columnindexes--codemapltindexgtcode)
-    - [column.isAutoIncrement : <code>boolean</code>](#columnisautoincrement--codebooleancode)
-    - [column.isSerial : <code>boolean</code>](#columnisserial--codebooleancode)
-    - [column.isForeignKey : <code>boolean</code>](#columnisforeignkey--codebooleancode)
-    - [column.isPrimaryKey : <code>boolean</code>](#columnisprimarykey--codebooleancode)
-    - [column.length : <code>number</code> \| <code>null</code>](#columnlength--codenumbercode--codenullcode)
-    - [column.name : <code>string</code>](#columnname--codestringcode)
-    - [column.notNull : <code>boolean</code>](#columnnotnull--codebooleancode)
-    - [column.parent : <code>Table</code>](#columnparent--codetablecode)
-    - [column.precision : <code>number</code> \| <code>null</code>](#columnprecision--codenumbercode--codenullcode)
-    - [column.referencedColumns : <code>Set.&lt;Column&gt;</code>](#columnreferencedcolumns--codesetltcolumngtcode)
-    - [column.scale : <code>number</code> \| <code>null</code>](#columnscale--codenumbercode--codenullcode)
-    - [column.schema : <code>Schema</code>](#columnschema--codeschemacode)
-    - [column.type : <code>postgreSQLDataType</code>](#columntype--codepostgresqldatatypecode)
-    - [column.table : <code>Table</code>](#columntable--codetablecode)
-    - [column.userDefinedType : <code>postgreSQLDataType</code> \| <code>null</code>](#columnuserdefinedtype--codepostgresqldatatypecode--codenullcode)
-    - [column.userType : <code>Type</code> \| <code>null</code>](#columnusertype--codetypecode--codenullcode)
-    - [column.uniqueIndexesNoPk : <code>Map.&lt;Index&gt;</code>](#columnuniqueindexesnopk--codemapltindexgtcode)
-    - [column.uniqueIndexes : <code>Map.&lt;Index&gt;</code>](#columnuniqueindexes--codemapltindexgtcode)
+* [Column](#Column)
+    * [new Column(args)](#new_Column_new)
+    * [.allowNull](#Column+allowNull) : <code>boolean</code>
+    * [.arrayDimension](#Column+arrayDimension) : <code>number</code>
+    * [.arrayType](#Column+arrayType) : <code>string</code> \| <code>null</code>
+    * [.comment](#Column+comment) : <code>string</code> \| <code>null</code>
+    * [.commentData](#Column+commentData) : <code>Object</code>
+    * [.db](#Column+db) : <code>Db</code>
+    * [.default](#Column+default) : <code>string</code> \| <code>null</code>
+    * [.defaultWithTypeCast](#Column+defaultWithTypeCast) : <code>string</code> \| <code>null</code>
+    * [.description](#Column+description) : <code>string</code> \| <code>null</code>
+    * [.descriptionData](#Column+descriptionData) : <code>Object</code>
+    * [.domainName](#Column+domainName) : <code>string</code> \| <code>null</code>
+    * [.domainFullName](#Column+domainFullName) : <code>string</code> \| <code>null</code>
+    * [.domainFullCatalogName](#Column+domainFullCatalogName) : <code>string</code> \| <code>null</code>
+    * [.domainSchema](#Column+domainSchema) : <code>string</code> \| <code>null</code>
+    * [.enumLabels](#Column+enumLabels) : <code>Array.&lt;string&gt;</code> \| <code>null</code>
+    * [.enumValues](#Column+enumValues) : <code>Array.&lt;string&gt;</code> \| <code>null</code>
+    * [.foreignKeyConstraints](#Column+foreignKeyConstraints) : <code>Map.&lt;Constraint&gt;</code>
+    * [.fullName](#Column+fullName) : <code>string</code>
+    * [.fullCatalogName](#Column+fullCatalogName) : <code>string</code>
+    * [.indexes](#Column+indexes) : <code>Map.&lt;Index&gt;</code>
+    * [.isAutoIncrement](#Column+isAutoIncrement) : <code>boolean</code>
+    * [.isSerial](#Column+isSerial) : <code>boolean</code>
+    * [.isForeignKey](#Column+isForeignKey) : <code>boolean</code>
+    * [.isPrimaryKey](#Column+isPrimaryKey) : <code>boolean</code>
+    * [.length](#Column+length) : <code>number</code> \| <code>null</code>
+    * [.name](#Column+name) : <code>string</code>
+    * [.notNull](#Column+notNull) : <code>boolean</code>
+    * [.parent](#Column+parent) : <code>Table</code>
+    * [.precision](#Column+precision) : <code>number</code> \| <code>null</code>
+    * [.referencedColumns](#Column+referencedColumns) : [<code>Set.&lt;Column&gt;</code>](#Column)
+    * [.scale](#Column+scale) : <code>number</code> \| <code>null</code>
+    * [.schema](#Column+schema) : <code>Schema</code>
+    * [.type](#Column+type) : <code>postgreSQLDataType</code>
+    * [.table](#Column+table) : <code>Table</code>
+    * [.userDefinedType](#Column+userDefinedType) : <code>postgreSQLDataType</code> \| <code>null</code>
+    * [.uniqueIndexesNoPk](#Column+uniqueIndexesNoPk) : <code>Map.&lt;Index&gt;</code>
+    * [.uniqueIndexes](#Column+uniqueIndexes) : <code>Map.&lt;Index&gt;</code>
 
 <a name="new_Column_new"></a>
 
@@ -413,13 +412,6 @@ var table = column.table; // Table instance
 If type of column is user defined such as composite, enumerated, this is the data type of the underlying type.
 
 **Kind**: instance property of [<code>Column</code>](#Column)  
-**Read only**: true  
-<a name="Column+userType"></a>
-
-### column.userType : <code>Type</code> \| <code>null</code>
-If type of column is a composite type this will contain the underlying fields
-
-**Kind**: instance property of [<code>Type</code>](#Type)  
 **Read only**: true  
 <a name="Column+uniqueIndexesNoPk"></a>
 

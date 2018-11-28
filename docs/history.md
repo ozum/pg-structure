@@ -4,6 +4,10 @@
 
 # History & Release Notes
 
+###### 4.2 / 2018-11-28
+
+* Added: schema/type ([PhilWaldmann](https://github.com/PhilWaldmann))
+
 ###### 4.0.0 / 2017-05-30
 * Added: pg-structure throws exception when a non-existing schema requested.
 * Added: Table#kind to determine whether a table is a view or table.

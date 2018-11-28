@@ -19,6 +19,7 @@ pages:
       - pgStructure: api/PgStructure.md
       - Schema: api/Schema.md
       - Table: api/Table.md
+      - Type: api/Type.md
 site_url: 'http://www.pg-structure.com'
 repo_url: 'https://github.com/ozum/pg-structure.git'
 site_description: Get PostgreSQL database structure as a detailed JS Object.

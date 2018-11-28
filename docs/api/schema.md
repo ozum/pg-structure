@@ -15,6 +15,7 @@ Class which represent a PostgreSQL schema. Provides attributes and methods for d
     * [.comment](#Schema+comment) : <code>string</code>
     * [.description](#Schema+description) : <code>string</code>
     * [.tables](#Schema+tables) : <code>Map.&lt;Table&gt;</code>
+    * [.types](#Schema+types) : <code>Map.&lt;Type&gt;</code>
     * [.get(path)](#Schema+get) ⇒ <code>Table</code> \| <code>Column</code> \| <code>undefined</code>
 
 <a name="new_Schema_new"></a>
@@ -121,6 +122,21 @@ for (let table of schema.tables.values()) {
 for (let [name, table] of schema.tables) {
     console.log(name, table.name);
 }
+```
+<a name="Schema+types"></a>
+
+### schema.types : <code>Map.&lt;Type&gt;</code>
+All [Type](Type) instances of the schema as a [Map](Map). They are ordered by their name.
+
+**Kind**: instance property of [<code>Schema</code>](#Schema)  
+**Read only**: true  
+**See**: [Map](Map)  
+**Example**  
+```js
+let isAvailable  = schema.types.has('address');
+let typeNames    = Array.from(schema.types.keys());        // Use spread operator to get table names as an array.
+let type         = schema.types.get('address');
+let columns         = type.columns;
 ```
 <a name="Schema+get"></a>
 
