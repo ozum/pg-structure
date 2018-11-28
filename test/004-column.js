@@ -288,6 +288,12 @@ var tests = function(key) {
             expect(typeTable.columns.get("company").userDefinedType).to.equal("composite_udt");
             expect(typeTable.columns.get("options").userDefinedType).to.equal("enumerated_udt");
         });
+
+        it("should have userType.", function() {
+            expect(typeTable.columns.get("person_tax").userType).to.equal(null);
+            expect(typeTable.columns.get("company").userType.columns).to.have.all.keys(['company_id', 'business_unit_id'])
+            expect(typeTable.columns.get("options").userType).to.equal(null);
+        });
     };
 };
 

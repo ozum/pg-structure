@@ -44,6 +44,9 @@ $$
 CREATE TYPE "public"."composite_udt" AS
  ( "company_id" int4, "business_unit_id" int4 )
 ;
+COMMENT ON TYPE composite_udt IS 'public type comment';
+COMMENT ON COLUMN composite_udt.company_id IS 'public type column comment';
+
 
 CREATE TYPE "public"."enumerated_udt" AS ENUM
  ( 'option_a', 'option_b', '"quote"', 'with,comma and "quote"' )
