@@ -1,60 +1,60 @@
 {
-    "name": "pg-structure",
-    "version": "4.1.3",
-    "description": "Get PostgreSQL database structure as a detailed JS Object.",
-    "homepage": "http://www.pg-structure.com",
-    "bugs": "https://github.com/ozum/pg-structure/issues",
-    "main": "index.js",
-    "directories": {
-        "bin": "bin",
-        "doc": "docs"
-    },
-    "scripts": {
-        "test": "lab --globals WebAssembly,SharedArrayBuffer,Atomics,__core-js_shared__",
-        "doc:mkdocs": "node bin/js2md.js && mkdocs build --clean",
-        "doc:readme": "jsdoc2md \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
-        "doc": "npm run doc:mkdocs && npm run doc:readme",
-        "preversion": "eslint lib &&  npm test;",
-        "postversion": "npm run doc && git add -A site && git add README.md mkdocs.yml && git commit -m 'Doc update.' && git push && git push --tags && git subtree push --prefix site origin gh-pages && npm publish;"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ozum/pg-structure.git"
-    },
-    "keywords": [
-        "postgresql",
-        "pg",
-        "reverse engineer",
-        "database",
-        "schema",
-        "model",
-        "export",
-        "dump",
-        "extract",
-        "information_schema",
-        "structure",
-        "auto generate",
-        "meta"
-    ],
-    "author": {
-        "name": "Özüm Eldoğan",
-        "url": "http://www.ozsoft.com"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "fs-extra": "^6.0.1",
-        "inflection": "^1.8.0",
-        "jsonic": "^0.3.0",
-        "jszip": "^3.1.5",
-        "lodash": "^4.17.10",
-        "pg": "^7.4.3",
-        "semver": "^5.5.0"
-    },
-    "devDependencies": {
-        "chai": "^4.x",
-        "js-yaml": "^3.11.0",
-        "jsdoc-to-markdown": "^4.0.1",
-        "lab": "^15.4.5",
-        "pg-test-util": "^2.0.4"
-    }
+  "name": "pg-structure",
+  "version": "4.1.3",
+  "description": "Get PostgreSQL database structure as a detailed JS Object.",
+  "homepage": "http://www.pg-structure.com",
+  "bugs": "https://github.com/ozum/pg-structure/issues",
+  "main": "index.js",
+  "directories": {
+    "bin": "bin",
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "lab --globals WebAssembly,SharedArrayBuffer,Atomics,__core-js_shared__,BigUint64Array,BigInt64Array,BigInt",
+    "doc:mkdocs": "node bin/js2md.js && mkdocs build --clean",
+    "doc:readme": "jsdoc2md \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
+    "doc": "npm run doc:mkdocs && npm run doc:readme",
+    "preversion": "eslint lib &&  npm test;",
+    "postversion": "npm run doc && git add -A site && git add README.md mkdocs.yml && git commit -m 'Doc update.' && git push && git push --tags && git subtree push --prefix site origin gh-pages && npm publish;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozum/pg-structure.git"
+  },
+  "keywords": [
+    "postgresql",
+    "pg",
+    "reverse engineer",
+    "database",
+    "schema",
+    "model",
+    "export",
+    "dump",
+    "extract",
+    "information_schema",
+    "structure",
+    "auto generate",
+    "meta"
+  ],
+  "author": {
+    "name": "Özüm Eldoğan",
+    "url": "http://www.ozsoft.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^6.0.1",
+    "inflection": "^1.8.0",
+    "jsonic": "^0.3.0",
+    "jszip": "^3.1.5",
+    "lodash": "^4.17.10",
+    "pg": "^7.4.3",
+    "semver": "^5.5.0"
+  },
+  "devDependencies": {
+    "chai": "^4.x",
+    "js-yaml": "^3.11.0",
+    "jsdoc-to-markdown": "^4.0.1",
+    "lab": "^15.4.5",
+    "pg-test-util": "^2.0.4"
+  }
 }
