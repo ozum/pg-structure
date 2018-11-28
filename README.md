@@ -116,6 +116,7 @@ fetch structure from database and create a new save file.
     * Constraint
     * Index
     * Relation
+    * Custom Data Type
 
 ## Where to Start?
 
@@ -135,3 +136,9 @@ Documentation is auto generated thanks to:
 * For contribution please send pull requests with tests on [GitHub](https://github.com/ozum/pg-structure.git).
 * Send bugs and feature requests to [GitHub Issues](https://github.com/ozum/pg-structure/issues).
 
+## Thanks for Contributions
+
+[PhilWaldmann](https://github.com/PhilWaldmann)
+[ShaunParsons](https://github.com/ShaunParsons)
+[cyberinferno](https://github.com/cyberinferno)
+[viniciuspinto](https://github.com/viniciuspinto)

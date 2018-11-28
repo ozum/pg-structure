@@ -9,10 +9,8 @@ var dbOptions = {
     connection: {
         host: "localhost",
         port: 5432,
-        // user: "user",
-        // password: "password"
-        user: "postgres",
-        password: ""
+        user: "user",
+        password: "password"
     },
     defaultDatabase: dbName
 };
