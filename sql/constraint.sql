@@ -239,10 +239,12 @@ FROM
             AND kcu.constraint_schema = rc.constraint_schema
     LEFT JOIN key_column_usage kcu2
         ON kcu2.ordinal_position = kcu.position_in_unique_constraint
+            -- AND kcu2.constraint_name = rc.unique_constraint_name
+            -- AND kcu.constraint_catalog = rc.constraint_catalog
+            -- AND kcu.constraint_schema = rc.constraint_schema
             AND kcu2.constraint_name = rc.unique_constraint_name
-            AND kcu.constraint_catalog = rc.constraint_catalog
-            AND kcu.constraint_schema = rc.constraint_schema
-
+            AND kcu2.constraint_catalog = rc.unique_constraint_catalog
+            AND kcu2.constraint_schema = rc.unique_constraint_schema
 
 WHERE
     tc.constraint_schema = ANY($1)
