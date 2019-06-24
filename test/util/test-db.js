@@ -7,10 +7,10 @@ var dbName = "pg-test-util";
 
 var dbOptions = {
     connection: {
-        host: "localhost",
-        port: 5432,
-        user: "user",
-        password: "password"
+        host: process.env.PGHOST || "localhost",
+        port: process.env.PGPORT || 5432,
+        user: process.env.PGUSER || "user",
+        password: process.env.PGPASSWORD || "password"
     },
     defaultDatabase: dbName
 };
@@ -22,7 +22,7 @@ var createDB = function createDB(code) {
         .createDatabase({ name: dbName, drop: true })
         .then(db => db.queryFile(path.join(__dirname, `create-test-db-${code}.sql`)))
         .catch(err => {
-            console.log(err);
+            console.error(err);
         });
 };
 

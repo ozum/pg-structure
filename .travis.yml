@@ -1,0 +1,41 @@
+language: node_js
+dist: xenial
+sudo: required
+
+
+matrix:
+  include:
+    - name: Postgresql 9.6
+      addons:
+        postgresql: "9.6"
+    - name: Postgresql 10
+      addons:
+        postgresql: "10"
+    - name: Postgresql 11
+      env:
+        - INSTALL_11=true
+      addons:
+        postgresql: "11"
+
+before_install:
+  - | 
+    if [[ "$INSTALL_11" == "true" ]]; then
+      sudo apt-get update
+      sudo apt-get --yes remove postgresql\*
+      sudo apt-get install -y postgresql-11 postgresql-client-11
+      sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
+      sudo service postgresql restart 11  
+    fi
+
+env:
+  global:
+    - PGUSER=postgres
+    - PGPASSWORD=postgres
+    - PGPORT=5432
+
+node_js:
+  - "10"
+
+script:
+  - psql --version
+  - npm test
