@@ -15,7 +15,9 @@
     "doc:readme": "jsdoc2md \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
     "doc": "npm run doc:mkdocs && npm run doc:readme",
     "preversion": "eslint lib &&  npm test;",
-    "postversion": "npm run doc && git add -A site && git add README.md mkdocs.yml && git commit -m 'Doc update.' && git push && git push --tags && git subtree push --prefix site origin gh-pages && npm publish;"
+    "postversion": "npm run doc && git add -A site && git add README.md mkdocs.yml && git commit -m 'Doc update.' && git push && git push --tags && git subtree push --prefix site origin gh-pages && npm publish;",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -48,7 +50,8 @@
     "jszip": "^3.1.5",
     "lodash": "^4.17.11",
     "pg": "^7.8.0",
-    "semver": "^5.6.0"
+    "semver": "^5.6.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -56,5 +59,6 @@
     "jsdoc-to-markdown": "^4.0.1",
     "lab": "^18.0.2",
     "pg-test-util": "^2.0.4"
-  }
+  },
+  "snyk": true
 }
