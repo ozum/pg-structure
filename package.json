@@ -1,6 +1,6 @@
 {
   "name": "pg-structure",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Reverse engineer PostgreSQL database as a detailed JS Object.",
   "keywords": [],
   "engines": {
@@ -8,7 +8,14 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["/bin", "/lib/**/!(*.spec|*.test)*.*", "/dist/**/!(*.spec|*.test)*.*", "/@types", "/module-files", "LICENSE"],
+  "files": [
+    "/bin",
+    "/lib/**/!(*.spec|*.test)*.*",
+    "/dist/**/!(*.spec|*.test)*.*",
+    "/@types",
+    "/module-files",
+    "LICENSE"
+  ],
   "homepage": "http://www.pg-structure.com",
   "bugs": "https://github.com/ozum/pg-structure/issues",
   "repository": {
@@ -96,7 +103,14 @@
       "scripts.devkeeper:update"
     ],
     "arrayKeys": {
-      "files": ["/bin", "/lib/**/!(*.spec|*.test)*.*", "/dist/**/!(*.spec|*.test)*.*", "/@types", "/module-files", "LICENSE"]
+      "files": [
+        "/bin",
+        "/lib/**/!(*.spec|*.test)*.*",
+        "/dist/**/!(*.spec|*.test)*.*",
+        "/@types",
+        "/module-files",
+        "LICENSE"
+      ]
     },
     "version": "0.1.21"
   }
