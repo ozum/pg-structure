@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Classes",
+    "children": [
+      "classes/basetype",
+      "classes/builtintype",
+      "classes/checkconstraint",
+      "classes/column",
+      "classes/compositetype",
+      "classes/constraint",
+      "classes/db",
+      "classes/dbobject",
+      "classes/domain",
+      "classes/entity",
+      "classes/enumtype",
+      "classes/exclusionconstraint",
+      "classes/foreignkey",
+      "classes/index",
+      "classes/m2mrelation",
+      "classes/m2orelation",
+      "classes/materializedview",
+      "classes/o2mrelation",
+      "classes/primarykey",
+      "classes/rangetype",
+      "classes/relation",
+      "classes/schema",
+      "classes/table",
+      "classes/type",
+      "classes/uniqueconstraint",
+      "classes/view"
+    ]
+  },
+  {
+    "title": "Enums",
+    "children": [
+      "enums/action",
+      "enums/casetype",
+      "enums/matchtype"
+    ]
+  }
+]

@@ -1,60 +1,103 @@
 {
   "name": "pg-structure",
-  "version": "4.2.2",
-  "description": "Get PostgreSQL database structure as a detailed JS Object.",
+  "version": "5.0.0",
+  "description": "Reverse engineer PostgreSQL database as a detailed JS Object.",
+  "keywords": [],
+  "engines": {
+    "node": ">=10.8.0"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["/bin", "/lib/**/!(*.spec|*.test)*.*", "/dist/**/!(*.spec|*.test)*.*", "/@types", "/module-files", "LICENSE"],
   "homepage": "http://www.pg-structure.com",
   "bugs": "https://github.com/ozum/pg-structure/issues",
-  "main": "index.js",
-  "directories": {
-    "bin": "bin",
-    "doc": "docs"
-  },
-  "scripts": {
-    "test": "lab --globals WebAssembly,SharedArrayBuffer,Atomics,__core-js_shared__,BigUint64Array,BigInt64Array,BigInt",
-    "doc:mkdocs": "node bin/js2md.js && mkdocs build --clean",
-    "doc:readme": "jsdoc2md \"lib/**/*\" > JSDOC.md; cat docs/link-to-doc.md docs/index.md > README.md; rm -f JSDOC.md docs/link-to-doc.md;",
-    "doc": "npm run doc:mkdocs && npm run doc:readme",
-    "preversion": "eslint lib &&  npm test;",
-    "postversion": "npm run doc && git add -A site && git add README.md mkdocs.yml && git commit -m 'Doc update.' && git push && git push --tags && git subtree push --prefix site origin gh-pages && npm publish;"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ozum/pg-structure.git"
   },
-  "keywords": [
-    "postgresql",
-    "pg",
-    "reverse engineer",
-    "database",
-    "schema",
-    "model",
-    "export",
-    "dump",
-    "extract",
-    "information_schema",
-    "structure",
-    "auto generate",
-    "meta"
-  ],
   "author": {
-    "name": "Özüm Eldoğan",
-    "url": "http://www.ozsoft.com"
+    "name": "Özüm Eldoğan"
   },
   "license": "MIT",
+  "scripts": {
+    "build": "rm -rf dist && tsc -b",
+    "commit": "git-cz",
+    "commit:add": "git add -A && npm run commit",
+    "devkeeper:update": "devkeeper update",
+    "docs:build": "npm-run-all -p typedoc:md typedoc:html && rm -rf docs/nav.02.api docs/.vuepress/public/api-site && mv api-docs-md docs/nav.02.api && mv api-docs-html docs/.vuepress/public/api-site && cp assets/typedoc/01.typedoc-iframe.md docs/nav.02.api/ && vuepress build docs",
+    "docs:dev": "vuepress dev docs",
+    "format": "prettier --write --config .prettierrc --check 'src/**/*.+(js|jsx|json|less|css|ts|tsx|md|vue|gql)'",
+    "lint": "eslint --max-warnings=0 --ignore-path .gitignore --cache 'src/**/*.+(js|jsx|ts|tsx|vue)'",
+    "readme": "if grep -q '{% include \"api.md\" %}' 'README.njk'; then npm run typedoc:single-md; mkdir -p temp && mv api.md temp/; fi && readmeasy --partial-dirs temp && rm -rf temp",
+    "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm-run-all -p build commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && npm publish)",
+    "test": "NODE_ENV=test jest --coverage --config=jest.config.json",
+    "test:watch": "NODE_ENV=test jest --watch --config=jest.config.json",
+    "typedoc:html": "rm -rf api-docs-html && typedoc --plugin typedoc-plugin-example-tag,typedoc-neo-theme --theme ./node_modules/typedoc-neo-theme/bin/default --mode file --out api-docs-html",
+    "typedoc:md": "rm -rf api-docs-md && typedoc --platform vuepress --plugin typedoc-plugin-example-tag,typedoc-plugin-markdown --excludeExternals --excludePrivate --excludeProtected --theme markdown --readme none --mode file --out api-docs-md && find api-docs-md -name \"index.md\" -exec sh -c 'mv \"$1\" \"${1%index.md}\"index2.md' - {} \\;",
+    "typedoc:single-md": "npm run typedoc:md && concat-md --dir-name-as-title api-docs-md > api.md && rm -rf api-docs-md",
+    "validate": "npm-run-all -p lint test"
+  },
   "dependencies": {
-    "fs-extra": "^7.0.1",
-    "inflection": "^1.8.0",
-    "jsonic": "^0.3.1",
-    "jszip": "^3.1.5",
-    "lodash": "^4.17.11",
-    "pg": "^7.8.0",
-    "semver": "^5.6.0"
+    "@typescript-plus/fast-memoize-decorator": "^0.1.0",
+    "fast-memoize": "^2.5.1",
+    "indexable-array": "^0.6.2",
+    "inflection": "^1.12.0",
+    "json5": "^2.1.1",
+    "lodash.get": "^4.4.2",
+    "pg": "^7.12.1",
+    "pg-connection-string": "^2.1.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "js-yaml": "^3.12.1",
-    "jsdoc-to-markdown": "^4.0.1",
-    "lab": "^18.0.2",
+    "@types/inflection": "^1.5.28",
+    "@types/json5": "0.0.30",
+    "@types/lodash.get": "^4.4.6",
+    "@types/pg": "^7.11.2",
+    "@types/pg-connection-string": "^2.0.0",
+    "devkeeper": "^0.1.21",
     "pg-test-util": "^2.0.4"
+  },
+  "devkeeperModifications": {
+    "files": [
+      ".gitignore",
+      ".commitlintrc",
+      ".czrc",
+      ".editorconfig",
+      ".eslintignore",
+      ".eslintrc.js",
+      ".gitattributes",
+      ".gitignore-to-rename",
+      ".huskyrc",
+      ".lintstagedrc",
+      ".prettierrc",
+      "jest.config.json",
+      "tsconfig.json",
+      "assets/typedoc/01.typedoc-iframe.md",
+      "docs/.vuepress/config.js"
+    ],
+    "objectKeys": [
+      "engines",
+      "main",
+      "types",
+      "scripts.build",
+      "scripts.typedoc:md",
+      "scripts.typedoc:html",
+      "scripts.typedoc:single-md",
+      "scripts.readme",
+      "scripts.format",
+      "scripts.lint",
+      "scripts.test",
+      "scripts.test:watch",
+      "scripts.validate",
+      "scripts.commit",
+      "scripts.commit:add",
+      "scripts.release",
+      "scripts.docs:dev",
+      "scripts.docs:build",
+      "scripts.devkeeper:update"
+    ],
+    "arrayKeys": {
+      "files": ["/bin", "/lib/**/!(*.spec|*.test)*.*", "/dist/**/!(*.spec|*.test)*.*", "/@types", "/module-files", "LICENSE"]
+    },
+    "version": "0.1.21"
   }
 }

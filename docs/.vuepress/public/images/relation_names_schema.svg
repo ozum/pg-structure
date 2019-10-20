@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="694" height="195">
+	<style xmlns="http://www.w3.org/2000/svg">/* &lt;![CDATA[ */svg {fill: #A6CAF0;stroke: #474747;stroke-width: 1px;font-size: 11px;font-family: "Arial";stroke-dasharray: 0;dominant-baseline: auto;shape-rendering: crispedges;text-anchor: inherit;background-color: #FFFFFF;}polyline {fill: none;}text {fill: #000000;stroke: none;dominant-baseline: text-before-edge;}.innerNote {fill: #FFFFFF;stroke: none;}ellipse {shape-rendering: auto;}.innerRect {fill: url(#innerRect);}.header {text-anchor: middle;}.view {fill: none;}.c-91F927A2D83007984422E9346649D92D {}.c-91F927A2D83007984422E9346649D92D text {fill: #000000;}.c-gr-15780518 {fill: url(#gr-15780518);}.c-91F927A2D83007984422E9346649D92D text {fill: #000000;}.c-91F927A2D83007984422E9346649D92D text {fill: #000000;}.c-91F927A2D83007984422E9346649D92D text {fill: #000000;}.c-91F927A2D83007984422E9346649D92D text {fill: #000000;}.c-91F927A2D83007984422E9346649D92D text {fill: #000000;}.c-A1015D7D73BACEE33D20E58298F00BDD {stroke-dasharray: 10 10;}.c-A1015D7D73BACEE33D20E58298F00BDD text {fill: #000000;}.c-A1015D7D73BACEE33D20E58298F00BDD text {fill: #000000;}.c-A1015D7D73BACEE33D20E58298F00BDD text {fill: #000000;}.c-A1015D7D73BACEE33D20E58298F00BDD text {fill: #000000;}.c-A1015D7D73BACEE33D20E58298F00BDD text {fill: #000000;}.c-91F927A2D83007984422E9346649D92D {}.c-91F927A2D83007984422E9346649D92D text {fill: #000000;}.c-91F927A2D83007984422E9346649D92D text {fill: #000000;}.attributes text {fill: #A0A0A4;}.withKeys {transform: translate(17px, 0);}.PKFK text {fill: #0000FF;}.PK text {fill: #FF0000;}.FK text {fill: #008000;}.mandatory text {fill: #000000;}.viewAttributes text {fill: #000000;}.materializedViewHeader {fill: #000000;dominant-baseline: middle;text-anchor: middle;}.lineName {dominant-baseline: middle;text-anchor: middle;}/* ]]&gt; */</style>
+	<defs xmlns="http://www.w3.org/2000/svg">
+		<filter xmlns="http://www.w3.org/2000/svg" id="shadow" x="-10%" y="-10%" width="200%" height="200%">
+			<feOffset xmlns="http://www.w3.org/2000/svg" in="SourceAlpha" result="offOut" dx="2" dy="2"/>
+			<feGaussianBlur xmlns="http://www.w3.org/2000/svg" in="offOut" result="blurOut" stdDeviation="3"/>
+			<feComponentTransfer xmlns="http://www.w3.org/2000/svg" in="blurOut" result="ctOut">
+				<feFuncA xmlns="http://www.w3.org/2000/svg" type="linear" slope="0.5"/>
+			</feComponentTransfer>
+			<feBlend xmlns="http://www.w3.org/2000/svg" in="SourceGraphic" in2="ctOut" mode="normal"/>
+		</filter>
+		<filter xmlns="http://www.w3.org/2000/svg" id="grayscale">
+			<feColorMatrix xmlns="http://www.w3.org/2000/svg" type="matrix" values="0.3333 0.3333  0.3333 0 0 0.3333 0.3333  0.3333 0 0 0.3333 0.3333  0.3333 0 0 0      0       0      1 0"/>
+		</filter>
+		<image xmlns="http://www.w3.org/2000/svg" id="icoPK" width="13" height="13" xlink:href="data:image/x-icon;base64,AAABAAEADQ0AAAEAGABkAgAAFgAAACgAAAANAAAAGgAAAAEAGAAAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7QAAAAAAAKGX1ygloUxLsgAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAO0AAABhW8UNG7kfK+AfP9MAiK0AAAAAAABGo8AAAABpuNkAAAAAAADtko3VFiO+&#13;&#10;IC3HPETfL07RO8v/AIW+RqPAAIW+RqPAAIW+j8vgAAAA7R0lqw8duwAAACg0uTRW2TvL/x208Rit&#13;&#10;5ifB9QCFvj/T/wCFvgAAAO0gJqwdKsEAAAApNbozUdc7y/87y/82w/o0wfgxwPVFzfoAhb4AAADt&#13;&#10;kozVER69KDfMTlblM1LVO8v/AIW+AIW+AIW+AIW+AIW+AAAAAAAA7QAAAGBbxBcmvjVB6SxO2wCM&#13;&#10;sAAAAAAAAAAAAAAAAAAAAAAAAAAAAO0AAAAAAACflNRBP6tWVbUAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAADtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7QAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAADt//hzQf/4c0HH+HNBg1hzQQAIc0EgCHNBIAhzQQAYc0GD+HNBx/hzQf/4c0H/&#13;&#10;+HNB//hzQQ=="/>
+		<image xmlns="http://www.w3.org/2000/svg" id="icoPKFK" width="13" height="13" xlink:href="data:image/x-icon;base64,AAABAAEADQ0AAAEAGABkAgAAFgAAACgAAAANAAAAGgAAAAEAGAAAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7QAAAAAAANerl6E7JbJcSwAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAO0AAADFcVy5GA3gLx/THyUAiK0AAAAAAABGo8AAAABpuNkAAAAAAADt1p2NviIW&#13;&#10;xy0h30w80S82O8v/AIW+RqPAAIW+RqPAAIW+j8vgAAAA7asqHbsaDwAAALkxKNk1PjvL/x208Rit&#13;&#10;5ifB9QCFvj/T/wCFvgAAAO2sLiDBKB0AAAC6NCrXMzk7y/87y/82w/o0wfgxwPVFzfoAhb4AAADt&#13;&#10;1Z2NvR8SzDMp5lxO1TM6O8v/AIW+AIW+AIW+AIW+AIW+AAAAAAAA7QAAAMRwXL4hF+pENdstNACM&#13;&#10;sAAAAAAAAAAAAAAAAAAAAAAAAAAAAO0AAAAAAADVqZSrUj+1ZVUAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAADtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7QAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAADt//hzQf/4c0HH+HNBg1hzQQAIc0EgCHNBIAhzQQAYc0GD+HNBx/hzQf/4c0H/&#13;&#10;+HNB//hzQQ=="/>
+		<image xmlns="http://www.w3.org/2000/svg" id="icoFK" width="13" height="13" xlink:href="data:image/x-icon;base64,AAABAAEADQ0AAAEAGABkAgAAFgAAACgAAAANAAAAGgAAAAEAGAAAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7QAAAAAAAJjXriWhQEuyYAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAO0AAABdxXUNuR4f4DYg0x8AiK0AAAAAAABGo8AAAABpuNkAAAAAAADtjtagFr4o&#13;&#10;IsczPN9SMdIvO8v/AIW+RqPAAIW+RqPAAIW+j8vgAAAA7R2rLw+7IAAAACi5NjnZNjvL/x208Rit&#13;&#10;5ifB9QCFvj/T/wCFvgAAAO0hrDMdwS4AAAArujk02DM7y/87y/82w/o0wfgxwPVFzfoAhb4AAADt&#13;&#10;jdagE70lKsw5TudiNdUzO8v/AIW+AIW+AIW+AIW+AIW+AAAAAAAA7QAAAF3EdBe+JzbqSy/bLgCM&#13;&#10;sAAAAAAAAAAAAAAAAAAAAAAAAAAAAO0AAAAAAACU1qw/q1ZVtWkAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAADtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7QAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAADt//hzQf/4c0HH+HNBg1hzQQAIc0EgCHNBIAhzQQAYc0GD+HNBx/hzQf/4c0H/&#13;&#10;+HNB//hzQQ=="/>
+		<image xmlns="http://www.w3.org/2000/svg" id="icoExternalObj" width="13" height="13" xlink:href="data:image/x-icon;base64,AAABAAEADQ0AAAEAIAAAAwAAFgAAACgAAAANAAAAGgAAAAEAIAAAAAAA2AIAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#13;&#10;AAAAfX18/4SEhP+EhIT/fX18/319fP99fXz/fX18/319fP99fXz/AAAAAAAAAAAAAAAAAAAAAH19&#13;&#10;fP//////////////////////////////////////fX18/wAAAAAAAAAAAAAAAAAAAAB9fXz/////&#13;&#10;//////////////////n5+f/m5ub//////319fP8AAAAAAAAAAAAAAAAAAAAAfX18////////////&#13;&#10;+fn5/6Kiov9ra2v/5ubm//////99fXz/AAAAAAAAAAAAAAAAAAAAAH19fP///////////6Kiov+T&#13;&#10;k5P/kpKS/2tra///////a2tr/2tra/8AAAAAAAAAAAAAAAB9fXz///////////9nZ2f/oqKi/5OT&#13;&#10;k/+SkpL/a2tr/4SEhP9ra2v/AAAAAAAAAAAAAAAArkkw/7xrUv+yX0f/smBI/2dnZ/+ioqL/kpKS&#13;&#10;/5GRkf+RkZH/a2tr/wAAAAAAAAAAAAAAALNhSP/9yqL/+MGa//jBmv/4wZr/bGxs/6Kiov+SkpL/&#13;&#10;kpKS/2tra/8AAAAAAAAAAAAAAACzYUj/s2FI/7NhSP+zYUj/Z2dn/6Kiov+ioqL/oqKi/6Kiov9r&#13;&#10;a2v/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGdnZ/9nZ2f/Z2dn/2dnZ/9nZ2f/bGxs/wAA&#13;&#10;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//gA&#13;&#10;AP/4AADAGAAAwBgAAMAYAADAGAAAwAgAAMAIAADACAAAwAgAAMAIAAD8CAAA//gAAA=="/>
+		<marker xmlns="http://www.w3.org/2000/svg" id="m9-0-15780518-4671303-1" refX="0" refY="6.5" viewbox="0 0 16.50 13.00" markerWidth="16.5" markerHeight="13" orient="auto" markerUnits="userSpaceOnUse">
+			<path xmlns="http://www.w3.org/2000/svg" d="M 11.010459,6.5 C 11.010459,8.0245594 9.7745594,9.260459 8.25,9.2604589 6.7254406,9.2604589 5.4895411,8.0245594 5.4895411,6.5 5.4895411,4.9754406 6.7254406,3.7395411 8.25,3.7395411 9.7745594,3.739541 11.010459,4.9754406 11.010459,6.5 Z M 0,6.5 h 5.5 m 5.5,0 h 5.5" fill="#A6CAF0" stroke="#474747" stroke-width="1px"/>
+		</marker>
+		<marker xmlns="http://www.w3.org/2000/svg" id="m8-1-15780518-4671303-1" refX="16.5" refY="6.5" viewbox="0 0 16.50 13.00" markerWidth="16.5" markerHeight="13" orient="auto" markerUnits="userSpaceOnUse">
+			<path xmlns="http://www.w3.org/2000/svg" d="M 6.010459,6.4995205 C 6.010459,8.0240799 4.774559,9.2600001 3.25,9.26 1.725441,9.26 0.48954099,8.0245594 0.48954099,6.5 c 0,-1.5245594 1.23565001,-2.76 2.76020901,-2.76 1.524559,-1e-7 2.760709,1.2349611 2.760709,2.7595205 z M 16.5,0 6.5,6.5 m 0,0 10,0.03125 M 6.5,6.5 16.5,13 m -10,0 V 0" fill="#A6CAF0" stroke="#474747" stroke-width="1px"/>
+		</marker>
+		<marker xmlns="http://www.w3.org/2000/svg" id="m5-0-15780518-4671303-1" refX="0" refY="6.5" viewbox="0 0 16.50 13.00" markerWidth="16.5" markerHeight="13" orient="auto" markerUnits="userSpaceOnUse">
+			<path xmlns="http://www.w3.org/2000/svg" d="M 0,6.5 H 16.5 M 6.5,13 V 0" fill="#A6CAF0" stroke="#474747" stroke-width="1px"/>
+		</marker>
+		<linearGradient xmlns="http://www.w3.org/2000/svg" id="innerRect" gradientTransform="rotate(90)">
+			<stop xmlns="http://www.w3.org/2000/svg" offset="0%" stop-color="#FFFFFF"/>
+			<stop xmlns="http://www.w3.org/2000/svg" offset="100%" stop-color="#F0F0F0"/>
+		</linearGradient>
+		<linearGradient xmlns="http://www.w3.org/2000/svg" id="innerRect" gradientTransform="rotate(90)">
+			<stop xmlns="http://www.w3.org/2000/svg" offset="0%" stop-color="#FFFFFF"/>
+			<stop xmlns="http://www.w3.org/2000/svg" offset="100%" stop-color="#F0F0F0"/>
+		</linearGradient>
+		<linearGradient xmlns="http://www.w3.org/2000/svg" id="gr-15780518" gradientTransform="rotate(90)">
+			<stop xmlns="http://www.w3.org/2000/svg" offset="0%" stop-color="#A6CAF0"/>
+			<stop xmlns="http://www.w3.org/2000/svg" offset="49%" stop-color="#C7DDF0"/>
+			<stop xmlns="http://www.w3.org/2000/svg" offset="50%" stop-color="#B1D0F0"/>
+			<stop xmlns="http://www.w3.org/2000/svg" offset="100%" stop-color="#D2E4F0"/>
+		</linearGradient>
+		<clipPath xmlns="http://www.w3.org/2000/svg" id="0-0-86-45_12">
+			<rect xmlns="http://www.w3.org/2000/svg" rx="12" ry="12" x="0" y="0" width="86" height="45"/>
+		</clipPath>
+	</defs>
+	<g xmlns="http://www.w3.org/2000/svg" transform="translate(-26, -59)">
+		<g xmlns="http://www.w3.org/2000/svg" transform="translate(219, 142)" filter="url(#shadow)">
+			<g xmlns="http://www.w3.org/2000/svg" class="c-91F927A2D83007984422E9346649D92D">
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="146" height="59"/>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="146" height="14" class="c-gr-15780518"/>
+				<text xmlns="http://www.w3.org/2000/svg" x="73" y="0" class="header">product</text>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="14" width="146" height="45" class="innerRect"/>
+				<g xmlns="http://www.w3.org/2000/svg" transform="translate(2, 14)" class="attributes">
+					<g xmlns="http://www.w3.org/2000/svg" transform="translate(15, 0)">
+						<g xmlns="http://www.w3.org/2000/svg" class="PK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoPK" transform="translate(-15, 1)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="2">id</text>
+						</g>
+						<g xmlns="http://www.w3.org/2000/svg" class="FK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoFK" transform="translate(-15, 15)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="16">vendor_id</text>
+						</g>
+						<g xmlns="http://www.w3.org/2000/svg" class="FK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoFK" transform="translate(-15, 29)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="30">alternative_vendor_id</text>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" transform="translate(652, 197)" filter="url(#shadow)">
+			<g xmlns="http://www.w3.org/2000/svg" class="c-91F927A2D83007984422E9346649D92D">
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="57" height="45"/>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="57" height="14" class="c-gr-15780518"/>
+				<text xmlns="http://www.w3.org/2000/svg" x="28" y="0" class="header">cart</text>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="14" width="57" height="31" class="innerRect"/>
+				<g xmlns="http://www.w3.org/2000/svg" transform="translate(2, 14)" class="attributes">
+					<g xmlns="http://www.w3.org/2000/svg" transform="translate(15, 0)">
+						<g xmlns="http://www.w3.org/2000/svg" class="PK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoPK" transform="translate(-15, 1)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="2">id</text>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" transform="translate(470, 159)" filter="url(#shadow)">
+			<g xmlns="http://www.w3.org/2000/svg" class="c-91F927A2D83007984422E9346649D92D">
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="85" height="74"/>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="85" height="14" class="c-gr-15780518"/>
+				<text xmlns="http://www.w3.org/2000/svg" x="42" y="0" class="header">line_item</text>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="14" width="85" height="60" class="innerRect"/>
+				<g xmlns="http://www.w3.org/2000/svg" transform="translate(2, 14)" class="attributes">
+					<g xmlns="http://www.w3.org/2000/svg" transform="translate(15, 0)">
+						<g xmlns="http://www.w3.org/2000/svg" class="PK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoPK" transform="translate(-15, 1)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="2">id</text>
+						</g>
+						<g xmlns="http://www.w3.org/2000/svg" class="FK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoFK" transform="translate(-15, 15)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="16">product_id</text>
+						</g>
+						<g xmlns="http://www.w3.org/2000/svg" class="FK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoFK" transform="translate(-15, 29)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="30">cart_id</text>
+						</g>
+						<g xmlns="http://www.w3.org/2000/svg" class="FK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoFK" transform="translate(-15, 43)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="44">color_id</text>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" transform="translate(652, 136)" filter="url(#shadow)">
+			<g xmlns="http://www.w3.org/2000/svg" class="c-91F927A2D83007984422E9346649D92D">
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="57" height="45"/>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="57" height="14" class="c-gr-15780518"/>
+				<text xmlns="http://www.w3.org/2000/svg" x="28" y="0" class="header">color</text>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="14" width="57" height="31" class="innerRect"/>
+				<g xmlns="http://www.w3.org/2000/svg" transform="translate(2, 14)" class="attributes">
+					<g xmlns="http://www.w3.org/2000/svg" transform="translate(15, 0)">
+						<g xmlns="http://www.w3.org/2000/svg" class="PK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoPK" transform="translate(-15, 1)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="2">id</text>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" transform="translate(36, 151)" filter="url(#shadow)">
+			<g xmlns="http://www.w3.org/2000/svg" class="c-91F927A2D83007984422E9346649D92D">
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="57" height="45"/>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="57" height="14" class="c-gr-15780518"/>
+				<text xmlns="http://www.w3.org/2000/svg" x="28" y="0" class="header">vendor</text>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="14" width="57" height="31" class="innerRect"/>
+				<g xmlns="http://www.w3.org/2000/svg" transform="translate(2, 14)" class="attributes">
+					<g xmlns="http://www.w3.org/2000/svg" transform="translate(15, 0)">
+						<g xmlns="http://www.w3.org/2000/svg" class="PK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoPK" transform="translate(-15, 1)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="2">id</text>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" transform="translate(470, 69)" filter="url(#shadow)">
+			<g xmlns="http://www.w3.org/2000/svg" clip-path="url(#0-0-86-45_12)" class="c-91F927A2D83007984422E9346649D92D">
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="86" height="45"/>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="86" height="14" class="c-gr-15780518"/>
+				<text xmlns="http://www.w3.org/2000/svg" x="43" y="0" class="header">product_color</text>
+				<rect xmlns="http://www.w3.org/2000/svg" x="0" y="14" width="86" height="31" class="innerRect"/>
+				<g xmlns="http://www.w3.org/2000/svg" transform="translate(2, 14)" class="attributes">
+					<g xmlns="http://www.w3.org/2000/svg" transform="translate(15, 0)">
+						<g xmlns="http://www.w3.org/2000/svg" class="PKFK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoPKFK" transform="translate(-15, 1)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="2">product_id</text>
+						</g>
+						<g xmlns="http://www.w3.org/2000/svg" class="PKFK">
+							<use xmlns="http://www.w3.org/2000/svg" xlink:href="#icoPKFK" transform="translate(-15, 15)"/>
+							<text xmlns="http://www.w3.org/2000/svg" x="0" y="16">color_id</text>
+						</g>
+					</g>
+				</g>
+			</g>
+			<rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="86" height="45" rx="12" ry="12" style="fill:none; stroke:#474747; stroke-width:1; shape-rendering: auto;"/>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" class="c-A1015D7D73BACEE33D20E58298F00BDD">
+			<polyline xmlns="http://www.w3.org/2000/svg" points="92,173 219,173" marker-start="url(#m9-0-15780518-4671303-1)" marker-end="url(#m8-1-15780518-4671303-1)"/>
+			<text xmlns="http://www.w3.org/2000/svg" x="158" y="162" class="lineName">product_vendor</text>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" class="c-A1015D7D73BACEE33D20E58298F00BDD">
+			<polyline xmlns="http://www.w3.org/2000/svg" points="92,188 219,188" marker-start="url(#m9-0-15780518-4671303-1)" marker-end="url(#m8-1-15780518-4671303-1)"/>
+			<text xmlns="http://www.w3.org/2000/svg" x="148" y="205" class="lineName">product_alternative_vendor</text>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" class="c-A1015D7D73BACEE33D20E58298F00BDD">
+			<polyline xmlns="http://www.w3.org/2000/svg" points="365,188 470,188" marker-start="url(#m9-0-15780518-4671303-1)" marker-end="url(#m8-1-15780518-4671303-1)"/>
+			<text xmlns="http://www.w3.org/2000/svg" x="415" y="174" class="lineName">line_item_product</text>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" class="c-A1015D7D73BACEE33D20E58298F00BDD">
+			<polyline xmlns="http://www.w3.org/2000/svg" points="652,216 555,216" marker-start="url(#m9-0-15780518-4671303-1)" marker-end="url(#m8-1-15780518-4671303-1)"/>
+			<text xmlns="http://www.w3.org/2000/svg" x="604" y="203" class="lineName">line_item_cart</text>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" class="c-A1015D7D73BACEE33D20E58298F00BDD">
+			<polyline xmlns="http://www.w3.org/2000/svg" points="652,173 555,173" marker-start="url(#m9-0-15780518-4671303-1)" marker-end="url(#m8-1-15780518-4671303-1)"/>
+			<text xmlns="http://www.w3.org/2000/svg" x="602" y="157" class="lineName">line_item_color</text>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" class="c-91F927A2D83007984422E9346649D92D">
+			<polyline xmlns="http://www.w3.org/2000/svg" points="292,142 292,101 470,101" marker-start="url(#m5-0-15780518-4671303-1)" marker-end="url(#m8-1-15780518-4671303-1)"/>
+			<text xmlns="http://www.w3.org/2000/svg" x="374" y="88" class="lineName">product_color_product</text>
+		</g>
+		<g xmlns="http://www.w3.org/2000/svg" class="c-91F927A2D83007984422E9346649D92D">
+			<polyline xmlns="http://www.w3.org/2000/svg" points="680,136 680,101 556,101" marker-start="url(#m5-0-15780518-4671303-1)" marker-end="url(#m8-1-15780518-4671303-1)"/>
+			<text xmlns="http://www.w3.org/2000/svg" x="655" y="88" class="lineName">product_color_color</text>
+		</g>
+	</g></svg>

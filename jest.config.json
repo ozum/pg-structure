@@ -1,0 +1,22 @@
+{
+  "//": "---- DON'T CHANGE THIS FILE IT IS AUTO GENERATED. Change '.devkeeperrc.json' file's 'test' key and execute `npm run devkeeper:update` ----",
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/dist/",
+    "<rootDir>/node_modules/",
+    "<rootDir>/test-helper/",
+    "<rootDir>/test/test-helper/",
+    "<rootDir>/src/test-helper/"
+  ],
+  "testPathIgnorePatterns": [
+    "<rootDir>/dist/",
+    "<rootDir>/node_modules/",
+    "<rootDir>/test-helper/",
+    "<rootDir>/test/test-helper/",
+    "<rootDir>/src/test-helper/"
+  ],
+  "coverageThreshold": { "global": { "branches": 100, "functions": 100, "lines": 100, "statements": 100 } },
+  "globalSetup": "<rootDir>/test/test-helper/global-setup.ts",
+  "globalTeardown": "<rootDir>/test/test-helper/global-teardown.ts"
+}

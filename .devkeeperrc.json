@@ -1,0 +1,8 @@
+{
+  "test": {
+    "coverageThreshold": { "global": { "branches": 100, "functions": 100, "lines": 100, "statements": 100 } },
+    "globalSetup": "<rootDir>/test/test-helper/global-setup.ts",
+    "globalTeardown": "<rootDir>/test/test-helper/global-teardown.ts"
+  },
+  "features": ["vuepress"]
+}
