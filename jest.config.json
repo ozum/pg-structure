@@ -7,14 +7,16 @@
     "<rootDir>/node_modules/",
     "<rootDir>/test-helper/",
     "<rootDir>/test/test-helper/",
-    "<rootDir>/src/test-helper/"
+    "<rootDir>/src/test-helper/",
+    "<rootDir>/.eslintrc.js"
   ],
   "testPathIgnorePatterns": [
     "<rootDir>/dist/",
     "<rootDir>/node_modules/",
     "<rootDir>/test-helper/",
     "<rootDir>/test/test-helper/",
-    "<rootDir>/src/test-helper/"
+    "<rootDir>/src/test-helper/",
+    "<rootDir>/.eslintrc.js"
   ],
   "coverageThreshold": { "global": { "branches": 100, "functions": 100, "lines": 100, "statements": 100 } },
   "globalSetup": "<rootDir>/test/test-helper/global-setup.ts",
