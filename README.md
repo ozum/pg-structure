@@ -8,6 +8,7 @@ Reverse engineer PostgreSQL database as a detailed JS Object.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [Home Page](#home-page)
 - [Installation](#installation)
 - [Synopsis](#synopsis)
 - [Details](#details)
@@ -15,7 +16,7 @@ Reverse engineer PostgreSQL database as a detailed JS Object.
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-# Home Page
+# Home Page
 
 Please see [pg-structure.com](https://www.pg-structure.com) for details.
 
