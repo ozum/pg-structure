@@ -20,6 +20,8 @@ Reverse engineer PostgreSQL database as a detailed JS Object.
 
 Please see [pg-structure.com](https://www.pg-structure.com) for details.
 
+__IMPORTANT__: If you upgrade, please see [v5 breaking changes](https://www.pg-structure.com/nav.01.guide/guide--nc/breaking-changes)
+
 # Installation
 
 `$ npm install pg-structure`
