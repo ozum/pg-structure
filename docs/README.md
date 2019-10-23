@@ -36,3 +36,7 @@ async function demo() {
   const relatedTables = table.hasManyTables;
 }
 ```
+
+### Changes
+
+If you upgrade, please see [v5 beraking changes](/nav.01.guide/guide--nc/breaking-changes).
