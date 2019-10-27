@@ -2,6 +2,12 @@
 
 ## v5
 
+### TL;DR
+
+- Completely rewritten with TypeScript.
+- New classes added and attributes moved to those new classes. (For example `Column.precision` moved to `Type` class and should be accesed `Column.type.precision`)
+- If you find any mistakes in docs, please open a case in [GitHub](https://github.com/ozum/pg-structure/issues)
+
 ### New Features
 
 - Rewritten in TypeScript from scratch.

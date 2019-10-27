@@ -39,7 +39,7 @@
     "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm-run-all -p build commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && git push --tags && npm publish)",
     "test": "NODE_ENV=test jest --coverage --config=jest.config.json",
     "test:watch": "NODE_ENV=test jest --watch --config=jest.config.json",
-    "typedoc:html": "rm -rf api-docs-html && typedoc --plugin typedoc-plugin-example-tag,typedoc-neo-theme --theme ./node_modules/typedoc-neo-theme/bin/default --mode file --out api-docs-html",
+    "typedoc:html": "rm -rf api-docs-html && typedoc --plugin typedoc-plugin-example-tag --mode file --out api-docs-html",
     "typedoc:md": "rm -rf api-docs-md && typedoc --platform vuepress --plugin typedoc-plugin-example-tag,typedoc-plugin-markdown --excludeExternals --excludePrivate --excludeProtected --theme markdown --readme none --mode file --out api-docs-md && find api-docs-md -name \"index.md\" -exec sh -c 'mv \"$1\" \"${1%index.md}\"index2.md' - {} \\;",
     "typedoc:single-md": "npm run typedoc:md && concat-md --dir-name-as-title api-docs-md > api.md && rm -rf api-docs-md",
     "validate": "npm-run-all -p lint test"
@@ -60,7 +60,7 @@
     "@types/lodash.get": "^4.4.6",
     "@types/pg": "^7.11.2",
     "@types/pg-connection-string": "^2.0.0",
-    "devkeeper": "^0.1.26",
+    "devkeeper": "^0.1.30",
     "pg-test-util": "^2.0.5"
   },
   "devkeeperModifications": {
@@ -112,6 +112,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.26"
+    "version": "0.1.30"
   }
 }
