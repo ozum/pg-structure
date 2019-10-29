@@ -146,7 +146,7 @@ export async function executeSqlFile(file: "column.sql", client: Client, schemas
 export async function executeSqlFile(file: "index.sql", client: Client, schemas: any[]): Promise<IndexQueryResult[]>;
 export async function executeSqlFile(file: "constraint.sql", client: Client, schemas: any[]): Promise<ConstraintQueryResult[]>;
 export async function executeSqlFile(file: string, client: Client, schemas: any[]): Promise<Record<string, any>[]> {
-  const filePath = join(__dirname, "../../module_files/sql", file);
+  const filePath = join(__dirname, "../../module-files/sql", file);
   const sql = await readFile(filePath, "utf8");
   const result = await client.query(sql, [schemas]);
   return result.rows;
