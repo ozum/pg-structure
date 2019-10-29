@@ -19,7 +19,7 @@ describe("CheckConstraint", () => {
   });
 
   it("should have expression", () => {
-    expect(constraint.expression).toBe("(created_at <= updated_at)");
+    expect(constraint.expression).toContain("(created_at <= updated_at)");
   });
 
   it("should have full name as a domain check constraint.", () => {

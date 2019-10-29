@@ -9,7 +9,7 @@ SELECT
   c.confupdtype AS "onUpdate",
   c.confdeltype AS "onDelete",
   c.confmatchtype AS "matchType",
-  c.consrc AS "checkConstraintExpression",
+  pg_get_constraintdef(c.oid) AS "checkConstraintExpression",
   pg_catalog.obj_description(c.oid, 'pg_constraint') AS "comment"
 FROM
   pg_constraint c
