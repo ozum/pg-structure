@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.8.0](https://github.com/ozum/pg-structure/compare/v4.2.2...v5.8.0) (2019-10-31)
+
+
+### Features
+
+* add more classes using TypeScript and IndexableArray ([2fc7d5e](https://github.com/ozum/pg-structure/commit/2fc7d5ed65a2beeee30d38b04fd58597f3bafa57))
+* add serialization and deserialization ([c3b39de](https://github.com/ozum/pg-structure/commit/c3b39de7919e193bd8eea0c9b7e35e79c11b3e24))
+
+
+### Bug Fixes
+
+* add @types/pg to dependencies. Fixes [#32](https://github.com/ozum/pg-structure/issues/32) ([887eac3](https://github.com/ozum/pg-structure/commit/887eac30c64b65c05ad542afe4f32ef4b05ca65e))
+* fix constraint definition change for pg v12 ([205c2cf](https://github.com/ozum/pg-structure/commit/205c2cf4f44f2b58e21de3da14e5ab3da7d4ceb0))
+* rename module_files to module-files ([e795074](https://github.com/ozum/pg-structure/commit/e795074dab1ec94435eb1a6946cfd45bf1346d17))
+
 ## [5.7.0](https://github.com/ozum/pg-structure/compare/v4.2.2...v5.7.0) (2019-10-31)
 
 
