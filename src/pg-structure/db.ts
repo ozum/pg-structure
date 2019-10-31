@@ -1,14 +1,19 @@
 import IndexableArray from "indexable-array";
 import { Memoize } from "@typescript-plus/fast-memoize-decorator";
+import { readFileSync } from "fs";
+import { join } from "path";
 import Schema from "./schema";
 import Table from "./entity/table";
 import Column from "./column";
 import Index from ".";
 import Entity from "./base/entity";
 import Type from "./base/type";
-import { RelationNameFunction, RelationNameCollision, CollisionsByTable } from "../types";
+import { RelationNameFunction, RelationNameCollision, CollisionsByTable, BuiltinRelationNameFunction } from "../types";
 import { getDuplicateNames } from "../util/helper";
 import { Relation } from "..";
+import { QueryResults } from "../types/query-result";
+
+const packageJson = JSON.parse(readFileSync(join(__dirname, "../../package.json"), { encoding: "utf8" }));
 
 /**
  * Function to get duplicate relation names from given relations.
@@ -22,7 +27,7 @@ function getDuplicateRelations(relations: IndexableArray<Relation, "name", never
 
 /** @ignore */
 export interface Config {
-  relationNameFunction: RelationNameFunction;
+  relationNameFunction: RelationNameFunction | BuiltinRelationNameFunction;
   commentDataToken: string;
   foreignKeyAliasSeparator: string;
   foreignKeyAliasTargetFirst: boolean;
@@ -33,25 +38,43 @@ export interface Config {
  */
 export default class Db {
   /** @ignore */
-  public constructor(name: string, config: Config) {
+  public constructor(name: string, config: Config, queryResults: QueryResults) {
     if (!name) {
       throw new Error("Database name is required.");
     }
 
     this.name = name;
     this._config = config;
+    this.queryResults = queryResults;
 
     this._systemSchema = new Schema({ oid: -1, name: "pseudo_pg_catalog", db: this });
   }
 
   /**
-   * Random assigned id to db.
+   * Serializes object.
+   *
+   * CAVEATS:
+   * - Serialized data may or may not be deserialized with another version of `pg-structure`. (Even between minor verisons are not guaranteed).
+   * - Serialized data is not direct stringified version of objects.
+   * - Ignores relation name function provided using `relationNameFunction` args, if it is not a builtin function.
+   *
+   * @example
+   * import pgStructure, { deserialize } from "pg-structure";
+   * const db = await pgStructure({ database: "db", user: "u", password: "pass" });
+   * const serialized = db.serialize();
+   * const otherDb = deserialize(serialized);
    */
+  public serialize(): string {
+    return JSON.stringify({ name: this.name, version: packageJson.version, config: this._config, queryResults: this.queryResults });
+  }
+
+  /** SQL query results returned from database to build pg-structure. */
+  private queryResults: QueryResults;
+
+  /** Random assigned id to db. */
   public readonly id = Math.random();
 
-  /**
-   * Name  of {@link Db database}.
-   */
+  /**  Name  of {@link Db database}. */
   public readonly name: string;
 
   /**

@@ -13,6 +13,7 @@ import {
   ConstraintQueryResult,
   ActionLetter,
   MatchTypeLetter,
+  QueryResults,
 } from "./types/query-result";
 import Domain from "./pg-structure/type/domain";
 import getBuiltinTypes from "./util/built-in-types";
@@ -32,7 +33,6 @@ import ExclusionConstraint from "./pg-structure/constraint/exclusion-constraint"
 import ForeignKey from "./pg-structure/constraint/foreign-key";
 import { Action, MatchType, RelationNameFunction, BuiltinRelationNameFunction } from "./types";
 import RangeType from "./pg-structure/type/range-type";
-import getRelationNameFunction from "./util/naming-function";
 
 export { default as Column } from "./pg-structure/column";
 export { default as Db } from "./pg-structure/db";
@@ -313,6 +313,32 @@ function addConstraints(db: Db, rows: ConstraintQueryResult[]): void {
 }
 
 /**
+ * Returns results of SQL queries of meta data.
+ *
+ * @ignore
+ */
+async function getQueryResultsFromDb(
+  client: Client,
+  includeSchemasArray?: string[],
+  excludeSchemasArray?: string[],
+  includeSystemSchemas?: boolean
+): Promise<QueryResults> {
+  const schemaRows = await getSchemas(client, { include: includeSchemasArray, exclude: excludeSchemasArray, system: includeSystemSchemas });
+  const schemaOids = schemaRows.map(schema => schema.oid);
+
+  return Promise.all([
+    schemaRows,
+    executeSqlFile("type.sql", client, schemaOids),
+    executeSqlFile("entity.sql", client, schemaOids),
+    executeSqlFile("column.sql", client, schemaOids),
+    executeSqlFile("index.sql", client, schemaOids),
+    executeSqlFile("constraint.sql", client, schemaOids),
+  ]);
+}
+
+// function getMetaDataFromJson(data: any): A {}
+
+/**
  * Creates and returns [[Db]] object which represents given database's structure. It is possible to include or exclude some schemas
  * using options. Please note that if included schemas contain references (i.e. foreign key to other schema or type in other schema)
  * to non-included schema, throws exception.
@@ -342,29 +368,25 @@ export default async function pgStructure(
   }: Options = {}
 ): Promise<Db> {
   const client = await getPgClient(pgClientOrConfig);
-  // const db = new Db(name || getDatabaseName(pgClientOrConfig), {
-  const db = new Db(name || getDatabaseName(pgClientOrConfig), {
-    commentDataToken,
-    relationNameFunction: getRelationNameFunction(relationNameFunction),
-    foreignKeyAliasSeparator,
-    foreignKeyAliasTargetFirst,
-  });
 
   const includeSchemasArray = Array.isArray(includeSchemas) || includeSchemas === undefined ? includeSchemas : [includeSchemas];
   const excludeSchemasArray = Array.isArray(excludeSchemas) || excludeSchemas === undefined ? excludeSchemas : [excludeSchemas];
-  const schemaRows = await getSchemas(client, { include: includeSchemasArray, exclude: excludeSchemasArray, system: includeSystemSchemas });
+
+  const queryResults = await getQueryResultsFromDb(client, includeSchemasArray, excludeSchemasArray, includeSystemSchemas);
+  const [schemaRows, typeRows, tableRows, columnRows, indexRows, constraintRows] = queryResults;
+
+  const db = new Db(
+    name || getDatabaseName(pgClientOrConfig),
+    {
+      commentDataToken,
+      relationNameFunction,
+      foreignKeyAliasSeparator,
+      foreignKeyAliasTargetFirst,
+    },
+    queryResults
+  );
 
   addSchemas(db, schemaRows);
-  const schemaOids = db.schemas.mapToArray(schema => schema.oid);
-
-  const [typeRows, tableRows, columnRows, indexRows, constraintRows] = await Promise.all([
-    executeSqlFile("type.sql", client, schemaOids),
-    executeSqlFile("entity.sql", client, schemaOids),
-    executeSqlFile("column.sql", client, schemaOids),
-    executeSqlFile("index.sql", client, schemaOids),
-    executeSqlFile("constraint.sql", client, schemaOids),
-  ]);
-
   addTypes(db, typeRows);
   addEntities(db, tableRows);
   addColumns(db, columnRows);
@@ -372,5 +394,32 @@ export default async function pgStructure(
   addConstraints(db, constraintRows);
 
   client.end();
+  return db;
+}
+
+/**
+ * Deserializes given data to create [[Db]] object.
+ *
+ * @param serializedData is serialized data of the `Db` object.
+ * @returns [[Db]] object for given serialized data.
+ * @example
+ * import pgStructure, { deserialize } from "pg-structure";
+ * const db = await pgStructure({ database: "db", user: "u", password: "pass" });
+ * const serialized = db.serialize();
+ * const otherDb = deserialize(serialized);
+ */
+export function deserialize(serializedData: string): Db {
+  const data = JSON.parse(serializedData);
+  const db = new Db(data.name, data.config, data.queryResults);
+
+  const [schemaRows, typeRows, tableRows, columnRows, indexRows, constraintRows] = data.queryResults;
+
+  addSchemas(db, schemaRows);
+  addTypes(db, typeRows);
+  addEntities(db, tableRows);
+  addColumns(db, columnRows);
+  addIndexes(db, indexRows);
+  addConstraints(db, constraintRows);
+
   return db;
 }

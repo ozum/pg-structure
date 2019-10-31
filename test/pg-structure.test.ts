@@ -1,5 +1,5 @@
 import { Client } from "pg";
-import pgStructure from "../src/index";
+import pgStructure, { deserialize } from "../src/index";
 
 describe("pgStructure() Factory", () => {
   it("should return object including system schemas.", async () => {
@@ -9,6 +9,14 @@ describe("pgStructure() Factory", () => {
     );
 
     expect(db.schemas.map(s => s.name)).toEqual(["extra_modules", "information_schema", "other_schema", "pg_catalog", "public"]);
+  });
+
+  it("should deserialize given JSON data.", async () => {
+    const db = await pgStructure({ database: "pg-structure-test-main", user: "user", password: "password" });
+    const serialized = db.serialize();
+    const otherDb = deserialize(serialized);
+
+    expect(otherDb.schemas.map(s => s.name)).toEqual(["extra_modules", "other_schema", "public"]);
   });
 
   it("should return object with included schemas.", async () => {

@@ -98,7 +98,8 @@ export default abstract class Relation {
    */
   @Memoize()
   public get name(): string {
-    return this.foreignKey.db._config.relationNameFunction(this);
+    const func = this.foreignKey.db._config.relationNameFunction;
+    return getRelationNameFunction(func)(this);
   }
 
   /**

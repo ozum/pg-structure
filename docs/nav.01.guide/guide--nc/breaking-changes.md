@@ -41,5 +41,11 @@
   - `constraint` attributes in relations are renamed as `foreignKey`.
 
 - Changed properties
+
   - `Schema.tables` contains only tables now. Previously it was containing tables and views combined. Use `Schema.entities` instead.
   - All properties and methods which contain or return `Constraint` instances, now return related subclasses `ForeignKey`, `PrimaryKey` etc.
+
+- `pg-structure`
+  - `load`, `save` functions / features are removed.
+  - `parse` is removed. Use `deserialize` instead.
+  - `serialize` and `toString` functions are removed. Use `db.serialize()` method instead.

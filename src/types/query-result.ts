@@ -92,3 +92,13 @@ export interface ConstraintQueryResult {
   checkConstraintExpression: string;
   comment: string | null;
 }
+
+/** @ignore */
+export type QueryResults = [
+  SchemaQueryResult[],
+  TypeQueryResult[],
+  EntityQueryResult[],
+  ColumnQueryResult[],
+  IndexQueryResult[],
+  ConstraintQueryResult[]
+];
