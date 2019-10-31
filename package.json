@@ -53,14 +53,15 @@
     "json5": "^2.1.1",
     "lodash.get": "^4.4.2",
     "pg": "^7.12.1",
-    "pg-connection-string": "^2.1.0"
+    "pg-connection-string": "^2.1.0",
+    "tslib": "1.10.0"
   },
   "devDependencies": {
     "@types/inflection": "^1.5.28",
     "@types/json5": "0.0.30",
     "@types/lodash.get": "^4.4.6",
     "@types/pg-connection-string": "^2.0.0",
-    "devkeeper": "^0.1.30",
+    "devkeeper": "^0.1.33",
     "pg-test-util": "^2.0.5"
   },
   "devkeeperModifications": {
@@ -100,7 +101,8 @@
       "scripts.release",
       "scripts.docs:dev",
       "scripts.docs:build",
-      "scripts.devkeeper:update"
+      "scripts.devkeeper:update",
+      "dependencies.tslib"
     ],
     "arrayKeys": {
       "files": [
@@ -112,6 +114,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.30"
+    "version": "0.1.33"
   }
 }
