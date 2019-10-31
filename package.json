@@ -45,6 +45,7 @@
     "validate": "npm-run-all -p lint test"
   },
   "dependencies": {
+    "@types/pg": "^7.11.2",
     "@typescript-plus/fast-memoize-decorator": "^0.1.0",
     "fast-memoize": "^2.5.1",
     "indexable-array": "^0.6.2",
@@ -58,7 +59,6 @@
     "@types/inflection": "^1.5.28",
     "@types/json5": "0.0.30",
     "@types/lodash.get": "^4.4.6",
-    "@types/pg": "^7.11.2",
     "@types/pg-connection-string": "^2.0.0",
     "devkeeper": "^0.1.30",
     "pg-test-util": "^2.0.5"
