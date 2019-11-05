@@ -163,6 +163,7 @@ export default function getBuiltinTypes(schema: Schema): BuiltInType[] {
 
     new BuiltInType({ category: "U", schema, oid: 0, classOid: 0, name: "json" }),
     new BuiltInType({ category: "U", schema, oid: 0, classOid: 0, name: "jsonb" }),
+    new BuiltInType({ category: "U", schema, oid: 0, classOid: 0, name: "jsonpath" }),
 
     //
     // ────────────────────────────────────────────────── I ──────────
