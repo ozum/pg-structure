@@ -6,8 +6,8 @@
   "engines": {
     "node": ">=10.8.0"
   },
-  "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "main": "dist/index.js",
   "files": [
     "/bin",
     "/lib/**/!(*.spec|*.test)*.*",
@@ -33,10 +33,11 @@
     "devkeeper:update": "devkeeper update",
     "docs:build": "npm-run-all -p typedoc:md typedoc:html && rm -rf docs/nav.02.api docs/.vuepress/public/api-site && mv api-docs-md docs/nav.02.api && mv api-docs-html docs/.vuepress/public/api-site && cp assets/typedoc/01.typedoc-iframe.md docs/nav.02.api/ && vuepress build docs",
     "docs:dev": "vuepress dev docs",
+    "file:watch": "ts-node-dev --respawn --transpileOnly --compiler-options '{ \"module\": \"commonjs\" }'",
     "format": "prettier --write --config .prettierrc --check 'src/**/*.+(js|jsx|json|less|css|ts|tsx|md|vue|gql)'",
     "lint": "eslint --max-warnings=0 --ignore-path .gitignore --cache 'src/**/*.+(js|jsx|ts|tsx|vue)'",
-    "readme": "if grep -q '{% include \"api.md\" %}' 'README.njk'; then npm run typedoc:single-md; mkdir -p temp && mv api.md temp/; fi && readmeasy --partial-dirs temp && rm -rf temp",
-    "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm-run-all -p build commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && git push --tags && npm publish)",
+    "readme": "if grep -q '{% include \"api.md\" %}' 'README.njk'; then npm run typedoc:single-md; mkdir -p temp && mv api.md temp/; fi && readmeasy --partial-dirs temp,node_modules/devkeeper/module-files/template-partials && rm -rf temp",
+    "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm run build && npm run commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && git push --tags && npm publish)",
     "test": "NODE_ENV=test jest --coverage --config=jest.config.json",
     "test:watch": "NODE_ENV=test jest --watch --config=jest.config.json",
     "typedoc:html": "rm -rf api-docs-html && typedoc --plugin typedoc-plugin-example-tag --mode file --out api-docs-html",
@@ -53,15 +54,14 @@
     "json5": "^2.1.1",
     "lodash.get": "^4.4.2",
     "pg": "^7.12.1",
-    "pg-connection-string": "^2.1.0",
-    "tslib": "1.10.0"
+    "pg-connection-string": "^2.1.0"
   },
   "devDependencies": {
     "@types/inflection": "^1.5.28",
     "@types/json5": "0.0.30",
     "@types/lodash.get": "^4.4.6",
     "@types/pg-connection-string": "^2.0.0",
-    "devkeeper": "^0.1.33",
+    "devkeeper": "^0.1.48",
     "pg-test-util": "^2.0.5"
   },
   "devkeeperModifications": {
@@ -99,10 +99,10 @@
       "scripts.commit",
       "scripts.commit:add",
       "scripts.release",
+      "scripts.file:watch",
       "scripts.docs:dev",
       "scripts.docs:build",
-      "scripts.devkeeper:update",
-      "dependencies.tslib"
+      "scripts.devkeeper:update"
     ],
     "arrayKeys": {
       "files": [
@@ -114,6 +114,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.33"
+    "version": "0.1.48"
   }
 }

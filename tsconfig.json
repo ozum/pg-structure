@@ -8,7 +8,7 @@
     // "checkJs": true,                       // Report errors in .js files. schema
     // "jsx": "preserve",                     // Specify JSX code generation: 'preserve', 'react-native', or 'react'. schema
     "declaration": true, // Generates corresponding '.d.ts' file. schema
-    // "declarationMap": true,                // Generates a sourcemap for each corresponding '.d.ts' file. schema
+    "declarationMap": true, // Generates a sourcemap for each corresponding '.d.ts' file. schema
     "sourceMap": true, // Generates corresponding '.map' file. schema
     // "outFile": "./",                       // Concatenate and emit output to single file. schema
     "outDir": "dist", // Redirect output structure to the directory. schema
@@ -18,7 +18,7 @@
     // "tsBuildInfoFile": "./",               // Specify file to store incremental compilation information schema
     // "removeComments": true,                // Do not emit comments to output. schema
     // "noEmit": true,                        // Do not emit outputs. schema
-    "importHelpers": true, // Import emit helpers from 'tslib'. schema
+    "importHelpers": false, // Import emit helpers from 'tslib'. schema
     // "downlevelIteration": true,            // Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. schema
     // "isolatedModules": true,               // Transpile each file as a separate module (similar to 'ts.transpileModule'). schema
 
@@ -59,8 +59,9 @@
     "experimentalDecorators": true, // Enables experimental support for ES7 decorators.
     "emitDecoratorMetadata": true // Enables experimental support for emitting type metadata for decorators. schema
   },
-  "include": ["src/**/*", "test-helper/**/*"],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts", "**/*.spec.ts", "**/*.e2e.ts", "**/*/test-helper"],
   "typedocOptions": {
-    "exclude": ["**/*+(.test|.spec|.e2e).ts", "*/util/**/*", "*/helper/**/*"]
+    "exclude": ["**/*+(.test|.spec|.e2e).ts", "*/test-helper/**/*"]
   }
 }
