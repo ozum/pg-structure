@@ -54,7 +54,8 @@
     "json5": "^2.1.1",
     "lodash.get": "^4.4.2",
     "pg": "^7.12.1",
-    "pg-connection-string": "^2.1.0"
+    "pg-connection-string": "^2.1.0",
+    "tslib": "1.10.0"
   },
   "devDependencies": {
     "@types/inflection": "^1.5.28",
