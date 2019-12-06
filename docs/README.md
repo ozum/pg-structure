@@ -39,4 +39,4 @@ async function demo() {
 
 ### Changes
 
-If you upgrade, please see [v5 beraking changes](/nav.01.guide/guide--nc/breaking-changes).
+If you upgrade, please see [v5 breaking changes](/nav.01.guide/guide--nc/breaking-changes).
