@@ -40,3 +40,9 @@ async function demo() {
 ### Changes
 
 If you upgrade, please see [v5 breaking changes](/nav.01.guide/guide--nc/breaking-changes).
+
+### Thanks
+
+JetBrains supported this open source project by providing their products free of charge.
+
+<a href="https://www.jetbrains.com/?from=pg-structure"><img src="/images/jetbrains.svg" alt="JetBrains Logo"></img></a>
