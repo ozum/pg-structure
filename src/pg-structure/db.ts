@@ -171,6 +171,9 @@ export default class Db {
    * Returns {@link Schema schema}, {@link Table table} or {@link Column column} for given path. Path should be in dot (.) notation.
    * If no schema is provided looks into `public` schema as PostgreSQL does.
    *
+   * Note for TypeScript users: Since `get()` could return one of the many possible types, you may need to specify your expected type using `as`.
+   * i.e. `const result = db.get("public") as Schema`;
+   *
    * @param path is the path of the requested item in dot (.) notation such as `public.contact`
    * @returns requested {@link DbObject database object}.
    * @example

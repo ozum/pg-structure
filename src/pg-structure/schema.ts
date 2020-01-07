@@ -109,6 +109,9 @@ export default class Schema extends DbObject {
   /**
    * Returns {@link Table table}, {@link View view} or {@link Column column} on given path in {@link Schema schema}. Path should be in dot (.) notation.
    *
+   * Note for TypeScript users: Since `get()` could return one of the many possible types, you may need to specify your expected type using `as`.
+   * i.e. `const result = db.get("public.account") as Table`;
+   *
    * @param path is the path of the requested item in dot (.) notation such as 'public.contact'
    * @returns requested {@link DbObject database object}.
    * @example

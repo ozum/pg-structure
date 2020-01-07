@@ -1,4 +1,5 @@
 {
+  "*.{jsx,tsx}": ["eslint --fix", "git add"],
   "*.{js,ts}": ["eslint --fix", "git add", "jest --bail --coverage --findRelatedTests --config=jest.config.json"],
   "*.{json,md,gql,less,css}": ["prettier --write", "git add"],
   ".*{rc, json}": "jsonlint"

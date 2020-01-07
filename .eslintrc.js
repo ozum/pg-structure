@@ -37,6 +37,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "@typescript-eslint/explicit-function-return-type": ["warn", { allowExpressions: true, allowTypedFunctionExpressions: true }],
     "@typescript-eslint/no-explicit-any": "off",
+    "import/extensions": ["error", "ignorePackages", { "js": "never", "mjs": "never", "jsx": "never", "ts": "never", "tsx": "never" }]
   },
   overrides: [
     {
