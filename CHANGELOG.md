@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.10.5](https://github.com/ozum/pg-structure/compare/v5.10.1...v5.10.5) (2020-01-07)
+
+
+### Bug Fixes
+
+* update dependencies ([62618bd](https://github.com/ozum/pg-structure/commit/62618bd2abb8daff8539b1d0521fc140520beb0c))
+* update dependencies ([b457675](https://github.com/ozum/pg-structure/commit/b4576756aea91e09c5d99ad21ef412de3e083dac))
+* update dev packages and docs ([7be0c98](https://github.com/ozum/pg-structure/commit/7be0c98a018ac7f4d894837eecd0b1f74e0fe967))
+
 ### [5.10.4](https://github.com/ozum/pg-structure/compare/v5.10.1...v5.10.4) (2019-12-25)
 
 
