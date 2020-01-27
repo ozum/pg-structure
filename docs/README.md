@@ -29,7 +29,8 @@ import pgStructure from "pg-structure";
 async function demo() {
   const db = await pgStructure({ database: "db", user: "u", password: "pass" }, { includeSchemas: ["public"] });
 
-  const table = db.get("contact");
+  const accountTable = db.get("account"); // TypeScript: db.get("account") as Entity
+  const table = db.tables.get("contact");
   const columnNames = table.columns.map(c => c.name);
   const columnTypeName = table.columns.get("options").type.name;
   const indexColumnNames = table.indexes.get("ix_mail").columns;
