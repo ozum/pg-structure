@@ -55,7 +55,7 @@ export { default as M2MRelation } from "./pg-structure/relation/m2m-relation";
 export { default as M2ORelation } from "./pg-structure/relation/m2o-relation";
 export { default as O2MRelation } from "./pg-structure/relation/o2m-relation";
 export { default as BaseType } from "./pg-structure/type/base-type";
-export { default as BuiltinType } from "./pg-structure/type/built-in-type";
+export { default as BuiltInType } from "./pg-structure/type/built-in-type";
 export { default as CompositeType } from "./pg-structure/type/composite-type";
 export { default as Domain } from "./pg-structure/type/domain";
 export { default as EnumType } from "./pg-structure/type/enum-type";
