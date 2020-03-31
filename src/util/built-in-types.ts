@@ -7,6 +7,8 @@ import Schema from "../pg-structure/schema";
  * @ignore
  * @param schema is schema name to be built-in type defined.
  * @returns builtin types
+ *
+ * Types are from `pg_catalog.pg_type` system table.
  */
 export default function getBuiltinTypes(schema: Schema): BuiltInType[] {
   return [
@@ -274,8 +276,8 @@ export default function getBuiltinTypes(schema: Schema): BuiltInType[] {
       oid: 0,
       classOid: 0,
       name: "pg_ndistinct",
-      shortName: "pg_ndistinct",
-      internalName: "pg_ndistinct",
+      // shortName: "pg_ndistinct",
+      // internalName: "pg_ndistinct",
     }),
     new BuiltInType({
       category: "S",
@@ -283,8 +285,15 @@ export default function getBuiltinTypes(schema: Schema): BuiltInType[] {
       oid: 0,
       classOid: 0,
       name: "pg_dependencies",
-      shortName: "pg_dependencies",
-      internalName: "pg_dependencies",
+      // shortName: "pg_dependencies",
+      // internalName: "pg_dependencies",
+    }),
+    new BuiltInType({
+      category: "S",
+      schema,
+      oid: 0,
+      classOid: 0,
+      name: "pg_mcv_list",
     }),
   ];
 }

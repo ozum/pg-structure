@@ -22,9 +22,25 @@ describe("pgStructure() Factory", () => {
   it("should return object with included schemas.", async () => {
     const db = await pgStructure(
       { database: "pg-structure-test-main", user: "user", password: "password" },
-      { includeSchemas: "%nfo%", includeSystemSchemas: true }
+      { includeSystemSchemas: true, includeSchemas: "extra_modules" }
     );
-    expect(db.schemas.map(s => s.name)).toEqual(["information_schema"]);
+    expect(db.schemas.map(s => s.name)).toEqual(["extra_modules", "information_schema", "pg_catalog"]);
+  });
+
+  it("should return object with included schemas - 2.", async () => {
+    const db = await pgStructure(
+      { database: "pg-structure-test-main", user: "user", password: "password" },
+      { includeSystemSchemas: true }
+    );
+    expect(db.schemas.map(s => s.name)).toEqual(["extra_modules", "information_schema", "other_schema", "pg_catalog", "public"]);
+  });
+
+  it("should return object with included schemas 3.", async () => {
+    const db = await pgStructure(
+      { database: "pg-structure-test-main", user: "user", password: "password" },
+      { includeSchemas: ["extra_modules", "other_schema", "public"] }
+    );
+    expect(db.schemas.map(s => s.name)).toEqual(["extra_modules", "other_schema", "public"]);
   });
 
   it("should return object with excluded schemas.", async () => {

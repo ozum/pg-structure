@@ -138,13 +138,17 @@ async function getSchemas(
   { include = [], exclude = [], system = false }: { include?: string[]; exclude?: string[]; system?: boolean }
 ): Promise<SchemaQueryResult[]> {
   const where: string[] = ["NOT pg_is_other_temp_schema(oid)", "nspname <> 'pg_toast'"];
+  const whereInclude: string[] = [];
   const parameters: string[] = [];
+  const includedPatterns = include.concat(system && include.length > 0 ? ["information_schema", "pg_%"] : []);
   const excludedPatterns = exclude.concat(system ? [] : ["information_schema", "pg_%"]);
 
-  include.forEach((pattern, i) => {
-    where.push(`nspname LIKE $${i + 1}`); // nspname LIKE $1
+  includedPatterns.forEach((pattern, i) => {
+    whereInclude.push(`nspname LIKE $${i + 1}`); // nspname LIKE $1
     parameters.push(pattern);
   });
+
+  if (whereInclude.length > 0) where.push(`(${whereInclude.join(" OR ")})`);
 
   excludedPatterns.forEach((pattern, i) => {
     where.push(`nspname NOT LIKE $${i + include.length + 1}`); // nspname NOT LIKE $2
