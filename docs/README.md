@@ -19,9 +19,9 @@ footer: MIT Licensed | Copyright © 2019-present Özüm Eldoğan
 const columnNames = db.get("contact").columns.map(c => c.name); // Column names of `public.contact` table.
 ```
 
-### Reverse Engineer a PostgreSQL Database
+## Reverse Engineer a PostgreSQL Database
 
-`pg-structure` reverse engineers PostgreSQL database and lets you easily code, analyze, operate on PostgreSQL database structure by providing details about [DB](/nav.02.api/classes/db), [Schema](/nav.02.api/classes/schema), [Table](/nav.02.api/classes/table), [Column](/nav.02.api/classes/column), [ForeignKey](/nav.02.api/classes/foreignkey), [Relation](/nav.02.api/classes/relation), [Index](/nav.02.api/classes/index2), [Type](/nav.02.api/classes/type). etc.
+Open source `pg-structure` reverse engineers PostgreSQL database and lets you easily code, analyze, operate on PostgreSQL database structure by providing details about [DB](/nav.02.api/classes/db), [Schema](/nav.02.api/classes/schema), [Table](/nav.02.api/classes/table), [Column](/nav.02.api/classes/column), [ForeignKey](/nav.02.api/classes/foreignkey), [Relation](/nav.02.api/classes/relation), [Index](/nav.02.api/classes/index2), [Type](/nav.02.api/classes/type). etc.
 
 ```ts
 import pgStructure from "pg-structure";
@@ -38,12 +38,7 @@ async function demo() {
 }
 ```
 
-### Changes
+## Sponsors
 
-If you upgrade, please see [v5 breaking changes](/nav.01.guide/guide--nc/breaking-changes).
-
-### Thanks
-
-JetBrains supported this open source project by providing their products free of charge.
-
-<a href="https://www.jetbrains.com/?from=pg-structure"><img src="/images/jetbrains.svg" alt="JetBrains Logo"></img></a>
+<a href="https://www.jetbrains.com/?from=pg-structure"><img src="/images/jetbrains.svg" width="120" height="130" alt="JetBrains Logo" align="middle" /></a>
+<a href="https://www.sqlmanager.net"><img src="/images/sqlmanager.png" width="266" height="83" alt="EMS SQL Manager Logo" align="middle" /></a>
