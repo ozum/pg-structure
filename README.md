@@ -31,7 +31,7 @@ async function demo() {
   const db = await pgStructure({ database: "db", user: "u", password: "pass" }, { includeSchemas: ["public"] });
 
   const table = db.get("contact");
-  const columnNames = table.columns.map(c => c.name);
+  const columnNames = table.columns.map((c) => c.name);
   const columnTypeName = table.columns.get("options").type.name;
   const indexColumnNames = table.indexes.get("ix_mail").columns;
   const relatedTables = table.hasManyTables;
