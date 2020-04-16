@@ -31,7 +31,7 @@
     "commit": "git-cz",
     "commit:add": "git add -A && npm run commit",
     "devkeeper:update": "devkeeper update",
-    "docs:build": "npm-run-all -p typedoc:md typedoc:html && rm -rf docs/nav.02.api docs/.vuepress/public/api-site && mv api-docs-md docs/nav.02.api && mv api-docs-html docs/.vuepress/public/api-site && cp assets/typedoc/01.typedoc-iframe.md docs/nav.02.api/ && vuepress build docs",
+    "docs:build": "npm-run-all -p typedoc:md typedoc:html && rm -rf docs/nav.02.api docs/.vuepress/public/api-site && mv api-docs-md docs/nav.02.api && mv api-docs-html docs/.vuepress/public/api-site && cp assets/typedoc/01.typedoc-iframe.md docs/nav.02.api/ && NODE_ENV=production vuepress build docs",
     "docs:dev": "vuepress dev docs",
     "file:watch": "ts-node-dev --respawn --transpileOnly --compiler-options '{ \"module\": \"commonjs\" }'",
     "format": "prettier --write --config .prettierrc --check 'src/**/*.+(js|jsx|json|less|css|ts|tsx|md|vue|gql)'",
@@ -46,22 +46,22 @@
     "validate": "npm-run-all -p lint test"
   },
   "dependencies": {
-    "@types/pg": "^7.14.1",
+    "@types/pg": "^7.14.3",
     "@typescript-plus/fast-memoize-decorator": "^0.1.0",
-    "fast-memoize": "^2.5.1",
+    "fast-memoize": "^2.5.2",
     "indexable-array": "^0.6.4",
     "inflection": "^1.12.0",
-    "json5": "^2.1.1",
+    "json5": "^2.1.3",
     "lodash.get": "^4.4.2",
-    "pg": "^7.17.1",
-    "pg-connection-string": "^2.1.0"
+    "pg": "^8.0.2",
+    "pg-connection-string": "^2.2.0"
   },
   "devDependencies": {
     "@types/inflection": "^1.5.28",
     "@types/json5": "0.0.30",
     "@types/lodash.get": "^4.4.6",
     "@types/pg-connection-string": "^2.0.0",
-    "devkeeper": "^0.1.56",
+    "devkeeper": "^0.1.65",
     "pg-test-util": "^2.0.5"
   },
   "devkeeperModifications": {
@@ -114,6 +114,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.56"
+    "version": "0.1.65"
   }
 }
