@@ -86,7 +86,7 @@ export default class ForeignKey extends Constraint {
    * List of other foreign keys which has same source table and target table.
    */
   public get correspondingForeignKeys(): IndexableArray<ForeignKey, "name", never, true> {
-    return this.table.getForeignKeysTo(this.referencedTable).filter(fk => fk !== this);
+    return this.table.getForeignKeysTo(this.referencedTable).filter((fk) => fk !== this);
   }
 
   /**

@@ -100,7 +100,7 @@ export function parseEnumValues(values: string | string[]): string[] {
 export function strip(source: string, strings: string | string[]): string {
   let result = source;
   const stringArray = Array.isArray(strings) ? strings : [strings];
-  stringArray.forEach(string => {
+  stringArray.forEach((string) => {
     const prefixRx = new RegExp(`^${string}[_\\s-]+`);
     const middleRx = new RegExp(`${string}[_\\s-]+`);
     const suffixRx = new RegExp(`[_\\s-]*${string}$`);
@@ -153,6 +153,14 @@ export async function executeSqlFile(file: string, client: Client, schemas: any[
 }
 
 /**
+ * Returns whether given argument is a PostgreSQL client or pool.
+ * @returns boolean
+ */
+function isPgClient(pgClientOrConfig: any): pgClientOrConfig is Client {
+  return typeof pgClientOrConfig.query === "function" && typeof pgClientOrConfig.connect === "function";
+}
+
+/**
  * Returns pg client. If given object is already pg client returns it directly, otherwise creates pg object
  * based on given options.
  *
@@ -160,17 +168,23 @@ export async function executeSqlFile(file: string, client: Client, schemas: any[
  * @param is pg client or Connection parameters.
  * @returns pg client.
  */
-export async function getPgClient(pgClientOrConfig: Client | ClientConfig | string): Promise<Client> {
-  if (pgClientOrConfig instanceof Client) {
-    if (!(pgClientOrConfig as any).readyForQuery) {
+export async function getPgClient(
+  pgClientOrConfig: Client | ClientConfig | string
+): Promise<{ client: Client; closeConnectionAfter: boolean }> {
+  let closeConnectionAfter = false;
+  if (isPgClient(pgClientOrConfig)) {
+    try {
+      await pgClientOrConfig.query("select true");
+    } catch (e) {
       await pgClientOrConfig.connect();
+      closeConnectionAfter = true;
     }
-    return pgClientOrConfig;
+    return { client: pgClientOrConfig, closeConnectionAfter };
   }
 
   const client = new Client(pgClientOrConfig);
   await client.connect();
-  return client;
+  return { client, closeConnectionAfter: true };
 }
 
 /**
@@ -238,7 +252,7 @@ export function parseSQLType(
 ): { schema: Schema; typeName: string; length?: number; precision?: number; scale?: number } {
   const modifierRegExp = /\((.+?)\)/;
   const match = modifierRegExp.exec(sqlType); // Match modifiers such as (1,2) or (2)
-  const modifiers = match ? match[1].split(",").map(n => parseInt(n, 10)) : [];
+  const modifiers = match ? match[1].split(",").map((n) => parseInt(n, 10)) : [];
   const parts = sqlType
     .replace("[]", "") // Remove [] from arrays
     .replace(modifierRegExp, "") // Remove modifier numbers (1), (1,2)
@@ -305,7 +319,7 @@ export function memoizeSerializer(args: any): string {
  */
 export const getAliases = memoize(
   (fk: ForeignKey): [string, string] => {
-    const aliases = fk.name.split(fk.db._config.foreignKeyAliasSeparator).map(alias => alias.trim());
+    const aliases = fk.name.split(fk.db._config.foreignKeyAliasSeparator).map((alias) => alias.trim());
 
     if (aliases.length === 2) {
       return (fk.db._config.foreignKeyAliasTargetFirst ? aliases.reverse() : aliases) as [string, string];
@@ -327,9 +341,12 @@ export const getAliases = memoize(
  * Memoized function to get foreign keys from source table to target table.
  * @hidden
  */
-export const getForeignKeysTo = memoize((source: Table, target?: Table) => source.foreignKeys.filter(fk => fk.referencedTable === target), {
-  serializer: memoizeSerializer,
-});
+export const getForeignKeysTo = memoize(
+  (source: Table, target?: Table) => source.foreignKeys.filter((fk) => fk.referencedTable === target),
+  {
+    serializer: memoizeSerializer,
+  }
+);
 
 /**
  * Creates a summary table in markdown format for all relations in database.
@@ -350,8 +367,8 @@ export function getRelationsMarkdown(db: Db, fk = false): string {
     `| ------ | ---- | ----- |------------ | - | ${fk ? "--- |" : ""}`,
   ];
 
-  db.tables.forEach(t => {
-    const rels = t.relations.map(r => {
+  db.tables.forEach((t) => {
+    const rels = t.relations.map((r) => {
       const tables = `${r.sourceTable.name}_ → ${r instanceof M2MRelation ? " ... →" : ""} _${r.targetTable.name}`;
       const type = r.constructor.name.replace("Relation", "");
       const short = r.getName("short");

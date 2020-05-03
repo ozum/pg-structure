@@ -70,8 +70,8 @@ export default class Table extends Entity {
   public getJoinTablesTo(target: Table | string): IndexableArray<Table, "name", never, true> {
     const targetTable = typeof target === "string" ? this.schema.tables.getMaybe(target) || this.db.tables.get(target) : target;
     const joinTables = this.getThroughConstraints()
-      .filter(tc => tc.toOther.referencedTable === targetTable)
-      .map(tc => tc.toOther.table);
+      .filter((tc) => tc.toOther.referencedTable === targetTable)
+      .map((tc) => tc.toOther.table);
     const uniqueJoinTables = new Set(joinTables);
     return IndexableArray.throwingFrom(uniqueJoinTables, "name").sortBy("name");
   }
@@ -128,7 +128,7 @@ export default class Table extends Entity {
    * vendorTable.hasManyTables.getAll("contact"); // All related tables named contact.
    */
   public get hasManyTables(): IndexableArray<Table, "name", never, true> {
-    return this.foreignKeysToThis.map(fk => fk.table).sortBy("name");
+    return this.foreignKeysToThis.map((fk) => fk.table).sortBy("name");
   }
 
   /**
@@ -143,7 +143,7 @@ export default class Table extends Entity {
    * productTable.belongsToTables.getAll("contact"); // All related tables named contact.
    */
   public get belongsToTables(): IndexableArray<Table, "name", never, true> {
-    return this.foreignKeys.map(fk => fk.referencedTable).sortBy("name");
+    return this.foreignKeys.map((fk) => fk.referencedTable).sortBy("name");
   }
 
   /**
@@ -159,7 +159,7 @@ export default class Table extends Entity {
    */
   @Memoize()
   public get belongsToManyTables(): IndexableArray<Table, "name", never, true> {
-    const tables = this.getThroughConstraints().map(constraint => constraint.toOther.referencedTable) as Table[];
+    const tables = this.getThroughConstraints().map((constraint) => constraint.toOther.referencedTable) as Table[];
     return IndexableArray.throwingFrom(tables, "name").sortBy("name");
   }
 
@@ -176,7 +176,7 @@ export default class Table extends Entity {
    */
   @Memoize()
   public get belongsToManyTablesPk(): IndexableArray<Table, "name", never, true> {
-    const tables = this.getThroughConstraints(true).map(constraint => constraint.toOther.referencedTable) as Table[];
+    const tables = this.getThroughConstraints(true).map((constraint) => constraint.toOther.referencedTable) as Table[];
     return IndexableArray.throwingFrom(tables, "name").sortBy("name");
   }
 
@@ -207,7 +207,7 @@ export default class Table extends Entity {
    */
   @Memoize()
   public get o2mRelations(): IndexableArray<O2MRelation, "name", never, true> {
-    return this.foreignKeysToThis.map(fk => new O2MRelation({ foreignKey: fk })).sortBy("name");
+    return this.foreignKeysToThis.map((fk) => new O2MRelation({ foreignKey: fk })).sortBy("name");
   }
 
   /**
@@ -216,7 +216,7 @@ export default class Table extends Entity {
    */
   @Memoize()
   public get m2oRelations(): IndexableArray<M2ORelation, "name", never, true> {
-    return this.foreignKeys.map(fk => new M2ORelation({ foreignKey: fk })).sortBy("name");
+    return this.foreignKeys.map((fk) => new M2ORelation({ foreignKey: fk })).sortBy("name");
   }
 
   /**
@@ -241,11 +241,11 @@ export default class Table extends Entity {
     toOther: ForeignKey;
   }[] {
     const result: ReturnType<Table["getThroughConstraints"]> = [];
-    this.foreignKeysToThis.forEach(fkToThis => {
+    this.foreignKeysToThis.forEach((fkToThis) => {
       const joinTable = fkToThis.table;
       joinTable.foreignKeys
-        .filter(fkToOther => fkToThis !== fkToOther)
-        .forEach(fkToOther => {
+        .filter((fkToOther) => fkToThis !== fkToOther)
+        .forEach((fkToOther) => {
           result.push({
             toThis: fkToThis,
             toOther: fkToOther,
@@ -254,13 +254,13 @@ export default class Table extends Entity {
     });
 
     return onlyPk
-      ? result.filter(c => c.toThis.columns.every(col => col.isPrimaryKey) && c.toOther.columns.every(col => col.isPrimaryKey))
+      ? result.filter((c) => c.toThis.columns.every((col) => col.isPrimaryKey) && c.toOther.columns.every((col) => col.isPrimaryKey))
       : result;
   }
 
   /** @ignore */
   private getM2MRelations(onlyPk: boolean): M2MRelation[] {
-    return this.getThroughConstraints(onlyPk).map(tc => new M2MRelation({ foreignKey: tc.toThis, targetForeignKey: tc.toOther }));
+    return this.getThroughConstraints(onlyPk).map((tc) => new M2MRelation({ foreignKey: tc.toThis, targetForeignKey: tc.toOther }));
   }
 
   /**

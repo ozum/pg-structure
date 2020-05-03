@@ -25,7 +25,7 @@ export default class Schema extends DbObject {
     this._db = args.db;
     this.oid = args.oid;
 
-    ["_db"].forEach(property => Object.defineProperty(this, property, { writable: true, enumerable: false })); // Make added fields non-enumerable.
+    ["_db"].forEach((property) => Object.defineProperty(this, property, { writable: true, enumerable: false })); // Make added fields non-enumerable.
   }
 
   /**

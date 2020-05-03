@@ -84,7 +84,7 @@ export default class Index extends DbObject {
    */
   @Memoize()
   public get columns(): IndexableArray<Column, "name", never, true> {
-    const columns = this.columnsAndExpressions.filter(col => col instanceof Column) as Column[];
+    const columns = this.columnsAndExpressions.filter((col) => col instanceof Column) as Column[];
     return IndexableArray.throwingFrom(columns, "name");
   }
 

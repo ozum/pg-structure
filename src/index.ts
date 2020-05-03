@@ -168,7 +168,7 @@ async function getSchemas(
  * @param db is Db object.
  */
 function addSchemas(db: Db, rows: SchemaQueryResult[]): void {
-  rows.forEach(row => {
+  rows.forEach((row) => {
     db.schemas.push(new Schema({ ...row, db }));
   });
 }
@@ -181,11 +181,11 @@ function addSchemas(db: Db, rows: SchemaQueryResult[]): void {
  * @param rows are query result of types to be added.
  */
 function addTypes(db: Db, rows: TypeQueryResult[]): void {
-  getBuiltinTypes(db._systemSchema).forEach(builtinType => db._systemSchema.types.push(builtinType));
+  getBuiltinTypes(db._systemSchema).forEach((builtinType) => db._systemSchema.types.push(builtinType));
   const typeKinds = { d: Domain, e: EnumType, b: BaseType, c: CompositeType, r: RangeType };
   rows
-    .filter(row => row.kind in typeKinds)
-    .forEach(row => {
+    .filter((row) => row.kind in typeKinds)
+    .forEach((row) => {
       const schema = db.schemas.get(row.schemaOid, { key: "oid" }) as Schema;
       const kind = row.kind as keyof typeof typeKinds;
       const type = new typeKinds[kind]({ ...row, schema, sqlType: row.sqlType as string });
@@ -201,7 +201,7 @@ function addTypes(db: Db, rows: TypeQueryResult[]): void {
  * @param rows are query result of entities to be added.
  */
 function addEntities(db: Db, rows: EntityQueryResult[]): void {
-  rows.forEach(row => {
+  rows.forEach((row) => {
     const schema = db.schemas.get(row.schemaOid, { key: "oid" }) as Schema;
 
     /* istanbul ignore else */
@@ -223,7 +223,7 @@ function addEntities(db: Db, rows: EntityQueryResult[]): void {
  * @param rows are query result of columns to be added.
  */
 function addColumns(db: Db, rows: ColumnQueryResult[]): void {
-  rows.forEach(row => {
+  rows.forEach((row) => {
     const parent = (row.parentKind === "c"
       ? db.types.get(row.parentOid as any, { key: "classOid" })
       : db.entities.get(row.parentOid as any, { key: "oid" })) as CompositeType | Entity;
@@ -240,12 +240,12 @@ function addColumns(db: Db, rows: ColumnQueryResult[]): void {
  * @param rows are query result of indexes to be added.
  */
 function addIndexes(db: Db, rows: IndexQueryResult[]): void {
-  rows.forEach(row => {
+  rows.forEach((row) => {
     const table = db.tables.get(row.tableOid, { key: "oid" }) as Table;
     const index = new Index({ ...row, table });
     const indexExpressions = [...row.indexExpressions]; // Non column reference index expressions.
 
-    row.columnPositions.forEach(position => {
+    row.columnPositions.forEach((position) => {
       // If position is 0, then it's an index attribute that is not simple column references. It is an expression which is stored in indexExpressions.
       const columnOrExpression = position > 0 ? table.columns[position - 1] : (indexExpressions.shift() as string);
       index.columnsAndExpressions.push(columnOrExpression);
@@ -277,7 +277,7 @@ function addConstraints(db: Db, rows: ConstraintQueryResult[]): void {
     s: MatchType.Simple,
   };
 
-  rows.forEach(row => {
+  rows.forEach((row) => {
     const table = db.tables.getMaybe(row.tableOid, { key: "oid" });
     const index = db.indexes.getMaybe(row.indexOid, { key: "oid" }) as Index;
     const domain = db.types.getMaybe(row.typeOid, { key: "oid" }) as Domain | undefined;
@@ -298,7 +298,7 @@ function addConstraints(db: Db, rows: ConstraintQueryResult[]): void {
           ...row,
           table,
           index,
-          columns: row.constrainedColumnPositions.map(pos => table.columns.get(pos, { key: "attributeNumber" })) as Column[],
+          columns: row.constrainedColumnPositions.map((pos) => table.columns.get(pos, { key: "attributeNumber" })) as Column[],
           onUpdate: actionLetterMap[row.onUpdate],
           onDelete: actionLetterMap[row.onDelete],
           matchType: matchTypeLetterMap[row.matchType],
@@ -328,7 +328,7 @@ async function getQueryResultsFromDb(
   includeSystemSchemas?: boolean
 ): Promise<QueryResults> {
   const schemaRows = await getSchemas(client, { include: includeSchemasArray, exclude: excludeSchemasArray, system: includeSystemSchemas });
-  const schemaOids = schemaRows.map(schema => schema.oid);
+  const schemaOids = schemaRows.map((schema) => schema.oid);
 
   return Promise.all([
     schemaRows,
@@ -371,7 +371,7 @@ export default async function pgStructure(
     relationNameFunction = "short",
   }: Options = {}
 ): Promise<Db> {
-  const client = await getPgClient(pgClientOrConfig);
+  const { client, closeConnectionAfter } = await getPgClient(pgClientOrConfig);
 
   const includeSchemasArray = Array.isArray(includeSchemas) || includeSchemas === undefined ? includeSchemas : [includeSchemas];
   const excludeSchemasArray = Array.isArray(excludeSchemas) || excludeSchemas === undefined ? excludeSchemas : [excludeSchemas];
@@ -397,7 +397,7 @@ export default async function pgStructure(
   addIndexes(db, indexRows);
   addConstraints(db, constraintRows);
 
-  client.end();
+  if (closeConnectionAfter) client.end(); // If a connected client is provided, do not close connection.
   return db;
 }
 

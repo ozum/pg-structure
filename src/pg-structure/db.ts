@@ -22,7 +22,7 @@ const packageJson = JSON.parse(readFileSync(join(__dirname, "../../package.json"
  * @param relations are relations to get duplicate names.
  */
 function getDuplicateRelations(relations: IndexableArray<Relation, "name", never, true>): RelationNameCollision[] {
-  return getDuplicateNames(relations).map(name => ({ [name]: relations.getAll(name).map(rel => rel.info) }));
+  return getDuplicateNames(relations).map((name) => ({ [name]: relations.getAll(name).map((rel) => rel.info) }));
 }
 
 /** @ignore */
@@ -205,7 +205,7 @@ export default class Db {
     //   [name]: this.tables[0].m2oRelations.getAll(name).map(rel => rel.info),
     // }));
 
-    this.tables.forEach(table => {
+    this.tables.forEach((table) => {
       // const duplicates: { m2o: Collision; o2m: Collision; m2m: Collision } = {
       //   m2o: getDuplicateNames(table.m2oRelations).map(name => ({ [name]: table.m2oRelations.getAll(name).map(rel => rel.info) })),
       //   o2m: getDuplicateNames(table.o2mRelations).map(name => ({ [name]: table.o2mRelations.getAll(name).map(rel => rel.info) })),

@@ -169,7 +169,7 @@ export default class Column extends DbObject {
   @Memoize()
   public get foreignKeys(): IndexableArray<ForeignKey, "name", never, true> {
     return this.entity instanceof Table
-      ? this.entity.foreignKeys.filter(e => e.columns.has(this.name))
+      ? this.entity.foreignKeys.filter((e) => e.columns.has(this.name))
       : IndexableArray.throwingFrom([], "name");
   }
 
@@ -179,7 +179,7 @@ export default class Column extends DbObject {
   @Memoize()
   public get indexes(): IndexableArray<Index, "name", never, true> {
     return this.entity instanceof Table
-      ? this.entity.indexes.filter(e => e.columns.has(this.name))
+      ? this.entity.indexes.filter((e) => e.columns.has(this.name))
       : IndexableArray.throwingFrom([], "name");
   }
 
@@ -218,7 +218,7 @@ export default class Column extends DbObject {
     return (
       this.foreignKeys
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        .map(fk => fk.referencedColumnsBy.find(by => by.column === this)!.references)
+        .map((fk) => fk.referencedColumnsBy.find((by) => by.column === this)!.references)
         .filter(Boolean)
     );
   }
@@ -238,7 +238,7 @@ export default class Column extends DbObject {
    */
   @Memoize()
   public get uniqueIndexesNoPk(): IndexableArray<Index, "name", never, true> {
-    return this.uniqueIndexes.filter(e => !e.isPrimaryKey);
+    return this.uniqueIndexes.filter((e) => !e.isPrimaryKey);
   }
 
   /**
@@ -249,6 +249,6 @@ export default class Column extends DbObject {
    */
   @Memoize()
   public get uniqueIndexes(): IndexableArray<Index, "name", never, true> {
-    return this.indexes.filter(e => e.isUnique);
+    return this.indexes.filter((e) => e.isUnique);
   }
 }

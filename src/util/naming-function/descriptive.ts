@@ -65,7 +65,7 @@ function m2oName(relation: M2ORelation): string {
  * @ignore
  * @param relation is the relation to generate name for.
  */
-export default function(relation: Relation): string {
+export default function (relation: Relation): string {
   const inflectionMethod = relation.sourceTable.nameCaseType === CaseType.CamelCase ? "camelize" : "underscore";
 
   if (relation instanceof M2ORelation) {
