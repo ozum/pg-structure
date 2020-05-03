@@ -1,6 +1,5 @@
 {
   "hooks": {
-    "DISABLED see: https://github.com/commitizen/cz-cli/issues/558#event-2490437059 prepare-commit-msg": "exec < /dev/tty && git cz --hook",
     "pre-commit": "lint-staged",
     "commit-msg": "commitlint -e $GIT_PARAMS"
   }

@@ -53,15 +53,15 @@
     "inflection": "^1.12.0",
     "json5": "^2.1.3",
     "lodash.get": "^4.4.2",
-    "pg": "^8.0.2",
-    "pg-connection-string": "^2.2.0"
+    "pg": "^8.0.3",
+    "pg-connection-string": "^2.2.1"
   },
   "devDependencies": {
     "@types/inflection": "^1.5.28",
     "@types/json5": "0.0.30",
     "@types/lodash.get": "^4.4.6",
     "@types/pg-connection-string": "^2.0.0",
-    "devkeeper": "^0.1.65",
+    "devkeeper": "^0.1.68",
     "pg-test-util": "^2.0.5"
   },
   "devkeeperModifications": {
@@ -114,6 +114,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.65"
+    "version": "0.1.68"
   }
 }
