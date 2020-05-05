@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.10.14](https://github.com/ozum/pg-structure/compare/v5.10.12...v5.10.14) (2020-05-05)
+
+
+### Bug Fixes
+
+* update dev packages ([7f05b28](https://github.com/ozum/pg-structure/commit/7f05b28f02041ca034f8d8f37b777c23b5475892))
+
 ### [5.10.13](https://github.com/ozum/pg-structure/compare/v5.10.12...v5.10.13) (2020-05-03)
 
 ### [5.10.12](https://github.com/ozum/pg-structure/compare/v5.10.11...v5.10.12) (2020-05-03)
