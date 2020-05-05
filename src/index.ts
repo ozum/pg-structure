@@ -92,6 +92,7 @@ interface Options {
    * }
    */
   relationNameFunction?: RelationNameFunction | BuiltinRelationNameFunction;
+
   /**
    * Tag name to extract JSON data from from database object's comments. For example by default JSON data between `[pg-structure][/pg-structure]`
    * is available imn database objects. Data can be retrieved with {@link DbObject.commentData commentData} method.
