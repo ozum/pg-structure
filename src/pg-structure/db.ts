@@ -8,7 +8,7 @@ import Column from "./column";
 import Index from ".";
 import Entity from "./base/entity";
 import Type from "./base/type";
-import { RelationNameFunction, RelationNameCollision, CollisionsByTable, BuiltinRelationNameFunction } from "../types";
+import { RelationNameFunctions, RelationNameCollision, CollisionsByTable, BuiltinRelationNameFunctions } from "../types";
 import { getDuplicateNames } from "../util/helper";
 import { Relation } from "..";
 import { QueryResults } from "../types/query-result";
@@ -27,7 +27,7 @@ function getDuplicateRelations(relations: IndexableArray<Relation, "name", never
 
 /** @ignore */
 export interface Config {
-  relationNameFunction: RelationNameFunction | BuiltinRelationNameFunction;
+  relationNameFunctions: RelationNameFunctions | BuiltinRelationNameFunctions;
   commentDataToken: string;
   foreignKeyAliasSeparator: string;
   foreignKeyAliasTargetFirst: boolean;
@@ -56,7 +56,7 @@ export default class Db {
    * CAVEATS:
    * - Serialized data may or may not be deserialized with another version of `pg-structure`. (Even between minor verisons are not guaranteed).
    * - Serialized data is not direct stringified version of objects.
-   * - Ignores relation name function provided using `relationNameFunction` args, if it is not a builtin function.
+   * - Ignores relation name function provided using `relationNameFunctions` args, if it is not a builtin function.
    *
    * @example
    * import pgStructure, { deserialize } from "pg-structure";

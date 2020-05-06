@@ -60,8 +60,7 @@ export default memoize((text: string, nameA: string, nameB: string): [string | u
   const replacedText = text.replace(longName, " ".repeat(longName.length));
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [shortName, shortStart, shortEnd] =
-    nameA.length <= nameB.length ? getIndexes(replacedText, nameA) : getIndexes(replacedText, nameB);
+  const [, shortStart, shortEnd] = nameA.length <= nameB.length ? getIndexes(replacedText, nameA) : getIndexes(replacedText, nameB);
 
   const [aStart, aEnd, bStart, bEnd] =
     nameA.length > nameB.length ? [longStart, longEnd, shortStart, shortEnd] : [shortStart, shortEnd, longStart, longEnd];

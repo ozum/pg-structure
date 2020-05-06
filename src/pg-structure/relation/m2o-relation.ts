@@ -1,7 +1,10 @@
+import { Memoize } from "@typescript-plus/fast-memoize-decorator/dist/src";
+import { RelationNameFunctions, BuiltinRelationNameFunctions } from "../../types/index";
 import Relation, { RelationConstructorArgs, RelationWithout } from "../base/relation";
 import Table from "../entity/table";
 import ForeignKey from "../constraint/foreign-key";
-import { getAliases } from "../../util/helper";
+import getAliases from "../../util/get-aliases";
+import getRelationNameFunctions from "../../util/naming-function";
 
 /** @ignore */
 export interface M2ORelationConstructorArgs extends RelationConstructorArgs {
@@ -37,6 +40,28 @@ export default class M2ORelation extends Relation {
   public constructor(args: M2ORelationConstructorArgs) {
     super(args);
     this.foreignKey = args.foreignKey;
+  }
+
+  /**
+   * Suggested name for {@link Relation relation}.
+   *
+   * @see {@link ../relation-names.md Relation Names}
+   */
+  @Memoize()
+  public get name(): string {
+    const func = this.foreignKey.db._config.relationNameFunctions;
+    return getRelationNameFunctions(func).m2o(this);
+  }
+
+  /**
+   * Retunrs name for the relation using given naming function.
+   *
+   * @param relationNameFunctions are custom functions or name of the builtin functions to generate names with.
+   * @returns name for the relation using naming function.
+   */
+  @Memoize()
+  public getName(relationNameFunctions: RelationNameFunctions | BuiltinRelationNameFunctions): string {
+    return getRelationNameFunctions(relationNameFunctions).m2o(this);
   }
 
   /**

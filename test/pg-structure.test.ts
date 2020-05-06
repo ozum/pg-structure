@@ -8,7 +8,7 @@ describe("pgStructure() Factory", () => {
       { includeSystemSchemas: true }
     );
 
-    expect(db.schemas.map(s => s.name)).toEqual(["extra_modules", "information_schema", "other_schema", "pg_catalog", "public"]);
+    expect(db.schemas.map((s) => s.name)).toEqual(["extra_modules", "information_schema", "other_schema", "pg_catalog", "public"]);
   });
 
   it("should deserialize given JSON data.", async () => {
@@ -16,7 +16,7 @@ describe("pgStructure() Factory", () => {
     const serialized = db.serialize();
     const otherDb = deserialize(serialized);
 
-    expect(otherDb.schemas.map(s => s.name)).toEqual(["extra_modules", "other_schema", "public"]);
+    expect(otherDb.schemas.map((s) => s.name)).toEqual(["extra_modules", "other_schema", "public"]);
   });
 
   it("should return object with included schemas.", async () => {
@@ -24,7 +24,7 @@ describe("pgStructure() Factory", () => {
       { database: "pg-structure-test-main", user: "user", password: "password" },
       { includeSystemSchemas: true, includeSchemas: "extra_modules" }
     );
-    expect(db.schemas.map(s => s.name)).toEqual(["extra_modules", "information_schema", "pg_catalog"]);
+    expect(db.schemas.map((s) => s.name)).toEqual(["extra_modules", "information_schema", "pg_catalog"]);
   });
 
   it("should return object with included schemas - 2.", async () => {
@@ -32,7 +32,7 @@ describe("pgStructure() Factory", () => {
       { database: "pg-structure-test-main", user: "user", password: "password" },
       { includeSystemSchemas: true }
     );
-    expect(db.schemas.map(s => s.name)).toEqual(["extra_modules", "information_schema", "other_schema", "pg_catalog", "public"]);
+    expect(db.schemas.map((s) => s.name)).toEqual(["extra_modules", "information_schema", "other_schema", "pg_catalog", "public"]);
   });
 
   it("should return object with included schemas 3.", async () => {
@@ -40,7 +40,7 @@ describe("pgStructure() Factory", () => {
       { database: "pg-structure-test-main", user: "user", password: "password" },
       { includeSchemas: ["extra_modules", "other_schema", "public"] }
     );
-    expect(db.schemas.map(s => s.name)).toEqual(["extra_modules", "other_schema", "public"]);
+    expect(db.schemas.map((s) => s.name)).toEqual(["extra_modules", "other_schema", "public"]);
   });
 
   it("should return object with excluded schemas.", async () => {
@@ -48,13 +48,19 @@ describe("pgStructure() Factory", () => {
       { database: "pg-structure-test-main", user: "user", password: "password" },
       { excludeSchemas: "%nfo%", includeSystemSchemas: true }
     );
-    expect(db.schemas.map(s => s.name)).toEqual(["extra_modules", "other_schema", "pg_catalog", "public"]);
+    expect(db.schemas.map((s) => s.name)).toEqual(["extra_modules", "other_schema", "pg_catalog", "public"]);
   });
 
   it("should accept relation name function.", async () => {
     const db = await pgStructure(
       { database: "pg-structure-test-main", user: "user", password: "password" },
-      { relationNameFunction: relation => `X_${relation.sourceTable.name}` }
+      {
+        relationNameFunctions: {
+          o2m: (relation) => `X_${relation.sourceTable.name}`,
+          m2o: (relation) => `X_${relation.sourceTable.name}`,
+          m2m: (relation) => `X_${relation.sourceTable.name}`,
+        },
+      }
     );
 
     expect(db.tables.get("account").o2mRelations[0].name).toEqual("X_account");

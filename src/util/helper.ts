@@ -9,8 +9,9 @@ import { TypeQueryResult, EntityQueryResult, ColumnQueryResult, IndexQueryResult
 import Schema from "../pg-structure/schema";
 import Db from "../pg-structure/db";
 import BuiltInType from "../pg-structure/type/built-in-type";
-import { ForeignKey, Table, M2MRelation } from "..";
-import getAdjectives from "./get-adjectives";
+import Table from "../pg-structure/entity/table";
+import M2MRelation from "../pg-structure/relation/m2m-relation";
+import memoizeSerializer from "./memoize-serializer";
 
 const { readFile } = fs.promises;
 
@@ -90,34 +91,6 @@ export function parseEnumValues(values: string | string[]): string[] {
 }
 
 /**
- * Strips given string from source string.
- *
- * @ignore
- * @param source is the source string to be cleaned.
- * @param prefix is the string to delete.
- * @returns cleaned string.
- */
-export function strip(source: string, strings: string | string[]): string {
-  let result = source;
-  const stringArray = Array.isArray(strings) ? strings : [strings];
-  stringArray.forEach((string) => {
-    const prefixRx = new RegExp(`^${string}[_\\s-]+`);
-    const middleRx = new RegExp(`${string}[_\\s-]+`);
-    const suffixRx = new RegExp(`[_\\s-]*${string}$`);
-
-    if (result.match(prefixRx)) {
-      result = result.replace(prefixRx, "");
-    } else if (result.match(middleRx)) {
-      result = result.replace(middleRx, "");
-    } else {
-      result = result.replace(suffixRx, "");
-    }
-  });
-
-  return result;
-}
-
-/**
  * Returns case type (CamelCase or snake_case) of the given string. Please note, fk function
  * uses simple checks and does not check comprehensively considering all language variations.
  *
@@ -172,10 +145,9 @@ export async function getPgClient(
   pgClientOrConfig: Client | ClientConfig | string
 ): Promise<{ client: Client; closeConnectionAfter: boolean }> {
   let closeConnectionAfter = false;
+
   if (isPgClient(pgClientOrConfig)) {
-    try {
-      await pgClientOrConfig.query("select true");
-    } catch (e) {
+    if (!(pgClientOrConfig as any)._connected) {
       await pgClientOrConfig.connect();
       closeConnectionAfter = true;
     }
@@ -297,45 +269,6 @@ export function getDuplicateNames(indexableArray: { name: string }[]): string[] 
   return duplicates;
 }
 
-/**
- * Serializer function for fast-memoize to be used with db objects.
- *
- * @ignore
- * @param args args passed to the original function.
- */
-export function memoizeSerializer(args: any): string {
-  return JSON.stringify(
-    (Array.isArray(args) ? args : [args]).map((arg: any) => {
-      return arg.fullCatalogName ? `${arg.db.id},${arg.constructor.name},${arg.fullCatalogName}` : arg;
-    })
-  );
-}
-
-/**
- * Returns table and referenced table aliases for given foreign key.
- *
- * @ignore
- * @param fk is the foreign key to get table and referenced table aliases for.
- */
-export const getAliases = memoize(
-  (fk: ForeignKey): [string, string] => {
-    const aliases = fk.name.split(fk.db._config.foreignKeyAliasSeparator).map((alias) => alias.trim());
-
-    if (aliases.length === 2) {
-      return (fk.db._config.foreignKeyAliasTargetFirst ? aliases.reverse() : aliases) as [string, string];
-    }
-
-    // const [tableAdjective, referencedTableAdjective] = getAdjectives(fk);
-    const [tableAdjective, referencedTableAdjective] = getAdjectives(fk.name, fk.table.name, fk.referencedTable.name);
-
-    return [
-      tableAdjective ? `${tableAdjective}${fk.separator}${fk.table.name}` : fk.table.name,
-      referencedTableAdjective ? `${referencedTableAdjective}${fk.separator}${fk.referencedTable.name}` : fk.referencedTable.name,
-    ];
-  },
-  { serializer: memoizeSerializer }
-);
-
 // Memoize uses JSON.stringify to cache arguments. DB objects has circular data structures which cannot be serialized. Below are manually memoized functions:
 /**
  * Memoized function to get foreign keys from source table to target table.
@@ -352,7 +285,6 @@ export const getForeignKeysTo = memoize(
  * Creates a summary table in markdown format for all relations in database.
  *
  * @ignore
- * @param relationNameFunction is function to name relations.
  * @returns markdown table.
  *
  * @example

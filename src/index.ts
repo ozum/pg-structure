@@ -31,7 +31,7 @@ import UniqueConstraint from "./pg-structure/constraint/unique-constraint";
 import CheckConstraint from "./pg-structure/constraint/check-constraint";
 import ExclusionConstraint from "./pg-structure/constraint/exclusion-constraint";
 import ForeignKey from "./pg-structure/constraint/foreign-key";
-import { Action, MatchType, RelationNameFunction, BuiltinRelationNameFunction } from "./types";
+import { Action, MatchType, RelationNameFunctions, BuiltinRelationNameFunctions } from "./types";
 import RangeType from "./pg-structure/type/range-type";
 
 export { default as Column } from "./pg-structure/column";
@@ -84,14 +84,18 @@ interface Options {
    *
    * @example
    * const config = {
-   *   relationNameFunction: (relation) => inflection.pluralize(relation.foreignKey.name),
+   *   relationNameFunctions: {
+   *     o2m: (relation) => some_func(relation.foreignKey.name),
+   *     m2o: (relation) => some_func(relation.foreignKey.name),
+   *     m2m: (relation) => some_func(relation.foreignKey.name),
+   *   },
    * }
    *
    * const config2 = {
-   *   relationNameFunction: "short",
+   *   relationNameFunctions: "short",
    * }
    */
-  relationNameFunction?: RelationNameFunction | BuiltinRelationNameFunction;
+  relationNameFunctions?: RelationNameFunctions | BuiltinRelationNameFunctions;
 
   /**
    * Tag name to extract JSON data from from database object's comments. For example by default JSON data between `[pg-structure][/pg-structure]`
@@ -356,7 +360,7 @@ async function getQueryResultsFromDb(
  * @param includeSystemSchemas is whether to include PostgreSQL system schemas (i.e. `pg_catalog`) from database.
  * @param foreignKeyAliasSeparator is character to separate {@link ForeignKey.sourceAlias source alias} and {@link ForeignKey.targetAlias target alias} in {@link ForeignKey foreign key} name. For example: `prime_color,product`.
  * @param foreignKeyAliasTargetFirst is whether first part of the foreign key aliases contains target alias (i.e `company_employees`) or source alias (i.e. `employee_company`).
- * @param relationNameFunction Optional function to generate names for relationships. If not provided, default naming functions are used. All necessary information such as {@link Table table} names, {@link Column columns}, {@link ForeignKey foreign key}, {@link DbObject.commentData comment data} can be accessed via passed {@link Relation relation} parameter.    * It is also possible to use one of the builtin naming functions such as `short`, `descriptive`.
+ * @param relationNameFunctions Optional functions to generate names for relationships. If not provided, default naming functions are used. All necessary information such as {@link Table table} names, {@link Column columns}, {@link ForeignKey foreign key}, {@link DbObject.commentData comment data} can be accessed via passed {@link Relation relation} parameter. It is also possible to use one of the builtin naming functions such as `short`, `descriptive`.
  * @returns [[Db]] object which represents given database's structure.
  */
 export default async function pgStructure(
@@ -369,7 +373,7 @@ export default async function pgStructure(
     includeSystemSchemas,
     foreignKeyAliasSeparator = ",",
     foreignKeyAliasTargetFirst = false,
-    relationNameFunction = "short",
+    relationNameFunctions = "short",
   }: Options = {}
 ): Promise<Db> {
   const { client, closeConnectionAfter } = await getPgClient(pgClientOrConfig);
@@ -384,7 +388,7 @@ export default async function pgStructure(
     name || getDatabaseName(pgClientOrConfig),
     {
       commentDataToken,
-      relationNameFunction,
+      relationNameFunctions,
       foreignKeyAliasSeparator,
       foreignKeyAliasTargetFirst,
     },

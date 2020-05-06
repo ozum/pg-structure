@@ -1,15 +1,15 @@
 import shortNamingFunction from "./short";
 import descriptiveNamingFunction from "./descriptive";
-import { RelationNameFunction, BuiltinRelationNameFunction } from "../../types";
+import { RelationNameFunctions, BuiltinRelationNameFunctions } from "../../types";
 
 /** @ignore */
-const relationNameFunctions = {
+const builtinRelationNameFunctions = {
   short: shortNamingFunction,
   descriptive: descriptiveNamingFunction,
 };
 
-export default function getRelationNameFunction(
-  relationNameFunction: RelationNameFunction | BuiltinRelationNameFunction
-): RelationNameFunction {
-  return typeof relationNameFunction === "string" ? relationNameFunctions[relationNameFunction] : relationNameFunction;
+export default function getRelationNameFunctions(
+  relationNameFunctions: RelationNameFunctions | BuiltinRelationNameFunctions
+): RelationNameFunctions {
+  return typeof relationNameFunctions === "string" ? builtinRelationNameFunctions[relationNameFunctions] : relationNameFunctions;
 }

@@ -1,5 +1,7 @@
 import { transform } from "inflection";
-import { O2MRelation, M2ORelation, M2MRelation, Relation } from "../../index";
+import O2MRelation from "../../pg-structure/relation/o2m-relation";
+import M2ORelation from "../../pg-structure/relation/m2o-relation";
+import M2MRelation from "../../pg-structure/relation/m2m-relation";
 import { CaseType } from "../../types";
 
 /**
@@ -9,6 +11,7 @@ import { CaseType } from "../../types";
  * @param relation is the relation to generate name for.
  */
 function m2mName(relation: M2MRelation): string {
+  const inflectionMethod = relation.sourceTable.nameCaseType === CaseType.CamelCase ? "camelize" : "underscore";
   // (Student --< Message >-- Student) causes `receiver_senders` and `sender_receivers`. Make them senders and receivers.
   const tolerableCorrespondence = relation.targetTable === relation.sourceTable ? 1 : 0;
   const sep = relation.sourceTable.separator;
@@ -28,7 +31,7 @@ function m2mName(relation: M2MRelation): string {
     result += relation.getTargetNameWithout("join");
   }
 
-  return result;
+  return transform(result, ["pluralize", inflectionMethod]);
 }
 
 /**
@@ -38,16 +41,21 @@ function m2mName(relation: M2MRelation): string {
  * @param relation is the relation to generate name for.
  */
 function o2mName(relation: O2MRelation): string {
+  const inflectionMethod = relation.sourceTable.nameCaseType === CaseType.CamelCase ? "camelize" : "underscore";
   const fk = relation.foreignKey;
   const sep = relation.sourceTable.separator;
+  let result = "";
 
   if (fk.correspondingForeignKeys.length === 0) {
-    return relation.targetName;
+    result = relation.targetName;
+  } else {
+    result =
+      relation.targetName === relation.targetAlias
+        ? (relation.sourceAdjective || relation.getSourceAliasWithout("target")) + sep + relation.targetName
+        : relation.getTargetAliasWithout("source");
   }
 
-  return relation.targetName === relation.targetAlias
-    ? (relation.sourceAdjective || relation.getSourceAliasWithout("target")) + sep + relation.targetName
-    : relation.getTargetAliasWithout("source");
+  return transform(result, ["pluralize", inflectionMethod]);
 }
 
 /**
@@ -57,30 +65,24 @@ function o2mName(relation: O2MRelation): string {
  * @param relation is the relation to generate name for.
  */
 function m2oName(relation: M2ORelation): string {
-  return relation.foreignKey.correspondingForeignKeys.length > 0
-    ? relation.getTargetAliasWithout("source")
-    : relation.getTargetNameWithout("source");
+  const inflectionMethod = relation.sourceTable.nameCaseType === CaseType.CamelCase ? "camelize" : "underscore";
+
+  const result =
+    relation.foreignKey.correspondingForeignKeys.length > 0
+      ? relation.getTargetAliasWithout("source")
+      : relation.getTargetNameWithout("source");
+
+  return transform(result, ["singularize", inflectionMethod]);
 }
 
 /**
  * Relation name generator function.
  *
  * @ignore
- * @param relation is the relation to generate name for.
- */
-export default function (relation: Relation): string {
-  const inflectionMethod = relation.sourceTable.nameCaseType === CaseType.CamelCase ? "camelize" : "underscore";
 
-  if (relation instanceof M2ORelation) {
-    return transform(m2oName(relation), ["singularize", inflectionMethod]);
-  }
-  if (relation instanceof M2MRelation) {
-    return transform(m2mName(relation), ["pluralize", inflectionMethod]);
-  }
-  /* istanbul ignore else */
-  if (relation instanceof O2MRelation) {
-    return transform(o2mName(relation), ["pluralize", inflectionMethod]);
-  }
-  /* istanbul ignore next */
-  throw new Error("Unknown relation type.");
-}
+ */
+export default {
+  o2m: o2mName,
+  m2o: m2oName,
+  m2m: m2mName,
+};

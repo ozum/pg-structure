@@ -59,6 +59,6 @@ Below are generated names for example. Differences between short and long are in
 
 Provided built-in functions `short` and `descriptive` tries to generate shortest name possible considering number of relations and number of join tables between same tables. `descriptive` adds adjectives more freely compared to `short`. Most of the time, they generate same names.
 
-## Custom Function
+## Custom Functions
 
-It could be a better solution to provide your own custom naming function according to your needs. Please see [relation name function description](/nav.02.api/#relationnamefunction) for details.
+It could be a better solution to provide your own custom naming function according to your needs. Please see [relation name functions description](/nav.02.api/#relationnamefunctions) for details.

@@ -1,9 +1,6 @@
-import { Memoize } from "@typescript-plus/fast-memoize-decorator/dist/src";
 import { Table, ForeignKey } from "../..";
-import { strip } from "../../util/helper";
+import strip from "../../util/strip";
 import getAdjectives from "../../util/get-adjectives";
-import { BuiltinRelationNameFunction, RelationNameFunction } from "../../types";
-import getRelationNameFunction from "../../util/naming-function";
 
 /**
  * Table type to exclude it's name from generated name, alias or adjectives.
@@ -25,7 +22,8 @@ export default abstract class Relation {
   /** @ignore */
 
   public constructor(args: RelationConstructorArgs) {
-    const stub = args; // eslint-disable-line @typescript-eslint/no-unused-vars
+    const stub: any = args; // eslint-disable-line @typescript-eslint/no-unused-vars
+    stub.x = 3;
   }
 
   /** @ignore */
@@ -36,6 +34,8 @@ export default abstract class Relation {
   abstract readonly foreignKey: ForeignKey;
   /** @ignore */
   abstract readonly info: string;
+  /** @ignore */
+  abstract get name(): string;
 
   /** @ignore */
   protected getWithout(string: string, without?: RelationWithout | RelationWithout[]): string {
@@ -89,27 +89,5 @@ export default abstract class Relation {
   /** Source table's adjective extracted from foreign key name. */
   public get targetAdjective(): string | undefined {
     return getAdjectives(this.foreignKey.name, this.sourceTable.name, this.targetTable.name)[1];
-  }
-
-  /**
-   * Suggested name for {@link Relation relation}.
-   *
-   * @see {@link ../relation-names.md Relation Names}
-   */
-  @Memoize()
-  public get name(): string {
-    const func = this.foreignKey.db._config.relationNameFunction;
-    return getRelationNameFunction(func)(this);
-  }
-
-  /**
-   * Retunrs name for the relation using given naming function.
-   *
-   * @param relationNameFunction is custom function or name of the builtin function to generate names with.
-   * @returns name for the relation using naming function.
-   */
-  @Memoize()
-  public getName(relationNameFunction: RelationNameFunction | BuiltinRelationNameFunction): string {
-    return getRelationNameFunction(relationNameFunction)(this);
   }
 }

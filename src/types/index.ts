@@ -1,4 +1,6 @@
-import { Relation } from "..";
+import O2MRelation from "../pg-structure/relation/o2m-relation";
+import M2ORelation from "../pg-structure/relation/m2o-relation";
+import M2MRelation from "../pg-structure/relation/m2m-relation";
 
 export * from "./json";
 
@@ -39,15 +41,23 @@ export type TypeCategory = "A" | "B" | "C" | "D" | "E" | "G" | "I" | "N" | "P" |
  *
  * @example
  * const config = {
- *   relationNameFunction: (relation) => inflection.pluralize(relation.targetTable.name),
+ *   relationNameFunctions: {
+ *     o2m: (relation) => some_function(relation.targetTable.name),
+ *     m2o: (relation) => some_function(relation.targetTable.name),
+ *     m2m: (relation) => some_function(relation.targetTable.name),
+ *   },
  * }
  */
-export type RelationNameFunction = (relation: Relation) => string;
+export type RelationNameFunctions = {
+  o2m: (relation: O2MRelation) => string;
+  m2o: (relation: M2ORelation) => string;
+  m2m: (relation: M2MRelation) => string;
+};
 
 /**
  * Name of the builtin relation name function.
  */
-export type BuiltinRelationNameFunction = "short" | "descriptive";
+export type BuiltinRelationNameFunctions = "short" | "descriptive";
 
 /**
  * Type to store a relation name collision. Keys are relation names and values are information about relations with that name.

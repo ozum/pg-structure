@@ -1,5 +1,4 @@
 /* eslint-disable prefer-destructuring, @typescript-eslint/no-non-null-assertion  */
-
 import { Db, Table, View, Column, CompositeType } from "../src/index";
 import getDb from "./test-helper/get-db";
 
@@ -111,7 +110,7 @@ describe("Column", () => {
   it("should have indexes.", () => {
     expect(accountTable.get("id").indexes.length).toBe(4);
     expect(compositeColumn.indexes.length).toBe(0);
-    expect(accountTable.get("id").indexes.map(i => i.name)).toEqual([
+    expect(accountTable.get("id").indexes.map((i) => i.name)).toEqual([
       "ix_column_and_expression",
       "ix_columns",
       "ix_partial_unique",
@@ -135,7 +134,7 @@ describe("Column", () => {
   });
 
   it("should have referencedColumns.", () => {
-    expect(contactTable.get("primary_account_id").referencedColumns.map(c => c.name)).toEqual(["id"]);
+    expect(contactTable.get("primary_account_id").referencedColumns.map((c) => c.name)).toEqual(["id"]);
     expect(idColumn.referencedColumns.length).toBe(0);
   });
 
@@ -144,10 +143,10 @@ describe("Column", () => {
   });
 
   it("should have uniqueIndexes.", () => {
-    expect(idColumn.uniqueIndexes.map(i => i.name)).toEqual(["ix_partial_unique", "KeyEntity11"]);
+    expect(idColumn.uniqueIndexes.map((i) => i.name)).toEqual(["ix_partial_unique", "KeyEntity11"]);
   });
 
   it("should have uniqueIndexesNoPk.", () => {
-    expect(idColumn.uniqueIndexesNoPk.map(i => i.name)).toEqual(["ix_partial_unique"]);
+    expect(idColumn.uniqueIndexesNoPk.map((i) => i.name)).toEqual(["ix_partial_unique"]);
   });
 });

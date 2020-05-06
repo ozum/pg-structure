@@ -1,5 +1,7 @@
 import memoize from "fast-memoize";
-import { memoizeSerializer, unquote, replaceTypeCast, strip, parseEnumValues, getRelationsMarkdown } from "../../src/util/helper";
+import { unquote, replaceTypeCast, parseEnumValues, getRelationsMarkdown } from "../../src/util/helper";
+import memoizeSerializer from "../../src/util/memoize-serializer";
+import strip from "../../src/util/strip";
 import getDb from "../test-helper/get-db";
 import { Db } from "../../src";
 

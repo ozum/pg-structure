@@ -18,7 +18,7 @@ export async function getDescriptiveDb(): Promise<Db> {
   if (!(desscriptiveDb instanceof Db)) {
     desscriptiveDb = await pgStructure(
       { database: "pg-structure-test-main", user: "user", password: "password" },
-      { relationNameFunction: "descriptive" }
+      { relationNameFunctions: "descriptive" }
     );
   }
   return desscriptiveDb;
@@ -35,7 +35,7 @@ export async function getDescriptiveNameDb(): Promise<Db> {
   if (!(descriptiveNameDb instanceof Db)) {
     descriptiveNameDb = await pgStructure(
       { database: "pg-structure-test-relation-names", user: "user", password: "password" },
-      { relationNameFunction: "descriptive" }
+      { relationNameFunctions: "descriptive" }
     );
   }
   return descriptiveNameDb;
@@ -63,7 +63,7 @@ export async function getReverseDescriptiveNameDb(): Promise<Db> {
         user: "user",
         password: "password",
       },
-      { foreignKeyAliasTargetFirst: true, relationNameFunction: "descriptive" }
+      { foreignKeyAliasTargetFirst: true, relationNameFunctions: "descriptive" }
     );
   }
   return reverseDescriptiveNameDb;
