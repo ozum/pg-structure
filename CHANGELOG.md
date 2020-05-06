@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/ozum/pg-structure/compare/v5.10.15...v6.0.0) (2020-05-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* `relationNameFunction` parameter is changed to `relationNameFunctions` which
+accepts an object instead of a function.
+
+### Bug Fixes
+
+* fix circular dependencies ([582845c](https://github.com/ozum/pg-structure/commit/582845c3dcd641c4220a5efac8cc909cdd0dc4e1))
+
 ### [5.10.15](https://github.com/ozum/pg-structure/compare/v5.10.14...v5.10.15) (2020-05-05)
 
 ### [5.10.14](https://github.com/ozum/pg-structure/compare/v5.10.12...v5.10.14) (2020-05-05)
