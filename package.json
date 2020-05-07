@@ -13,8 +13,7 @@
     "/lib/**/!(*.spec|*.test)*.*",
     "/dist/**/!(*.spec|*.test)*.*",
     "/@types",
-    "/module-files",
-    "LICENSE"
+    "/module-files"
   ],
   "homepage": "http://www.pg-structure.com",
   "bugs": "https://github.com/ozum/pg-structure/issues",
