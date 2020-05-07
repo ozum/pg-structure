@@ -110,6 +110,9 @@ interface Options {
    * const someData = db.get("public.account").commentData; // { level: 3 }
    */
   commentDataToken?: string;
+
+  /** Prevents pg-strucrture to close given database connection. */
+  keepConnection?: boolean;
 }
 
 /**
@@ -374,6 +377,7 @@ export default async function pgStructure(
     foreignKeyAliasSeparator = ",",
     foreignKeyAliasTargetFirst = false,
     relationNameFunctions = "short",
+    keepConnection = false,
   }: Options = {}
 ): Promise<Db> {
   const { client, closeConnectionAfter } = await getPgClient(pgClientOrConfig);
@@ -402,7 +406,7 @@ export default async function pgStructure(
   addIndexes(db, indexRows);
   addConstraints(db, constraintRows);
 
-  if (closeConnectionAfter) client.end(); // If a connected client is provided, do not close connection.
+  if (!keepConnection && closeConnectionAfter) client.end(); // If a connected client is provided, do not close connection.
   return db;
 }
 
