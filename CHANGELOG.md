@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.3.0](https://github.com/ozum/pg-structure/compare/v6.0.0...v6.3.0) (2020-05-08)
+
+
+### Features
+
+* add option to keep pg connection ([ba68ca8](https://github.com/ozum/pg-structure/commit/ba68ca8fe75201f431b46b2571d722f619e0834f))
+
+
+### Bug Fixes
+
+* remove LICENSE from package.files ([53c4803](https://github.com/ozum/pg-structure/commit/53c48032655d8d48e43fc13b1357bef7e93ccef5))
+* update packages ([df3e438](https://github.com/ozum/pg-structure/commit/df3e43880c77acbc59f42e2d11230c313df99b5d))
+
 ## [6.2.0](https://github.com/ozum/pg-structure/compare/v6.0.0...v6.2.0) (2020-05-07)
 
 
