@@ -13,7 +13,8 @@
     "/lib/**/!(*.spec|*.test)*.*",
     "/dist/**/!(*.spec|*.test)*.*",
     "/@types",
-    "/module-files"
+    "/module-files",
+    "LICENSE"
   ],
   "homepage": "http://www.pg-structure.com",
   "bugs": "https://github.com/ozum/pg-structure/issues",
@@ -60,7 +61,7 @@
     "@types/json5": "0.0.30",
     "@types/lodash.get": "^4.4.6",
     "@types/pg-connection-string": "^2.0.0",
-    "devkeeper": "^0.1.70",
+    "devkeeper": "^0.1.74",
     "pg-test-util": "^2.0.6"
   },
   "devkeeperModifications": {
@@ -113,6 +114,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.70"
+    "version": "0.1.74"
   }
 }
