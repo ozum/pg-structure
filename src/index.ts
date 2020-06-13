@@ -249,17 +249,17 @@ function addColumns(db: Db, rows: ColumnQueryResult[]): void {
  */
 function addIndexes(db: Db, rows: IndexQueryResult[]): void {
   rows.forEach((row) => {
-    const table = db.tables.get(row.tableOid, { key: "oid" }) as Table;
-    const index = new Index({ ...row, table });
+    const parent = db.entities.get(row.tableOid, { key: "oid" }) as Table | MaterializedView;
+    const index = new Index({ ...row, parent });
     const indexExpressions = [...row.indexExpressions]; // Non column reference index expressions.
 
     row.columnPositions.forEach((position) => {
       // If position is 0, then it's an index attribute that is not simple column references. It is an expression which is stored in indexExpressions.
-      const columnOrExpression = position > 0 ? table.columns[position - 1] : (indexExpressions.shift() as string);
+      const columnOrExpression = position > 0 ? parent.columns[position - 1] : (indexExpressions.shift() as string);
       index.columnsAndExpressions.push(columnOrExpression);
     });
 
-    table.indexes.push(index);
+    parent.indexes.push(index);
   });
 }
 

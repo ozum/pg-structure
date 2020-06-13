@@ -4,11 +4,13 @@ import Schema from "./schema";
 import Table from "./entity/table";
 import Column from "./column";
 import DbObject, { DbObjectConstructorArgs } from "./base/db-object";
+import MaterializedView from "./entity/materialized-view";
+import { Entity } from "..";
 
 /** @ignore */
 interface IndexConstructorArgs extends DbObjectConstructorArgs {
   oid: number;
-  table: Table;
+  parent: Entity;
   name: string;
   isUnique: boolean;
   isPrimaryKey: boolean;
@@ -27,7 +29,7 @@ export default class Index extends DbObject {
     this.isUnique = args.isUnique;
     this.isPrimaryKey = args.isPrimaryKey;
     this.isExclusion = args.isExclusion;
-    this.table = args.table;
+    this.parent = args.parent;
     this.partialIndexExpression = args.partialIndexExpression || undefined;
   }
 
@@ -35,7 +37,7 @@ export default class Index extends DbObject {
   public readonly oid: number;
 
   public get fullName(): string {
-    return `${this.schema.name}.${this.table.name}.${this.name}`;
+    return `${this.schema.name}.${this.parent.name}.${this.name}`;
   }
 
   /**
@@ -67,13 +69,24 @@ export default class Index extends DbObject {
   /**
    * {@link Table} which this {@link Index index} belongs to.
    */
-  public readonly table: Table;
+  public get table(): Table | undefined {
+    return this.parent instanceof Table ? this.parent : undefined;
+  }
+
+  /**
+   * {@link MaterializedView} which this {@link Index index} belongs to.
+   */
+  public get materializedView(): MaterializedView | undefined {
+    return this.parent instanceof MaterializedView ? this.parent : undefined;
+  }
+
+  public readonly parent: Entity;
 
   /**
    * {@link Schema} this {@link Index index} belongs to.
    */
   public get schema(): Schema {
-    return this.table.schema;
+    return this.parent.schema;
   }
 
   /**

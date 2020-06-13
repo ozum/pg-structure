@@ -388,6 +388,10 @@ FROM
   other_schema.cart
   INNER JOIN public.contact ON public.contact.id = other_schema.cart.contact_id;
 
+-- Create index for mv_contact_other_schema_cart
+
+CREATE INDEX "mv_contact_other_schema_cart_cart_id_idx" ON "mv_contact_other_schema_cart" ("cart_id");
+
 -- Create foreign keys (relationships) section -------------------------------------------------
 ALTER TABLE "public"."cart_line_item"
   ADD CONSTRAINT "cart_line_item_first_cart" FOREIGN KEY ("cart_id") REFERENCES "public"."cart" ("id") ON DELETE RESTRICT ON
