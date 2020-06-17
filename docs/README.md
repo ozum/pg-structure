@@ -16,7 +16,7 @@ footer: MIT Licensed | Copyright © 2019-present Özüm Eldoğan
 ---
 
 ```ts
-const columnNames = db.get("contact").columns.map(c => c.name); // Column names of `public.contact` table.
+const columnNames = db.get("contact").columns.map((c) => c.name); // Column names of `public.contact` table.
 ```
 
 ## Reverse Engineer a PostgreSQL Database
@@ -31,7 +31,7 @@ async function demo() {
 
   const accountTable = db.get("account"); // TypeScript: db.get("account") as Entity
   const table = db.tables.get("contact");
-  const columnNames = table.columns.map(c => c.name);
+  const columnNames = table.columns.map((c) => c.name);
   const columnTypeName = table.columns.get("options").type.name;
   const indexColumnNames = table.indexes.get("ix_mail").columns;
   const relatedTables = table.hasManyTables;
@@ -42,3 +42,4 @@ async function demo() {
 
 <a href="https://www.jetbrains.com/?from=pg-structure"><img src="/images/jetbrains.svg" width="120" height="130" alt="JetBrains Logo" align="middle" /></a>
 <a href="https://www.sqlmanager.net"><img src="/images/sqlmanager.png" width="266" height="83" alt="EMS SQL Manager Logo" align="middle" /></a>
+<a href="https://wallabyjs.com/"><img src="/images/wallabyjs.png"  height="40" alt="Wallaby.js Logo" align="middle" /></a>
