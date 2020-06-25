@@ -5,6 +5,7 @@ import Entity from "./base/entity";
 import Table from "./entity/table";
 import View from "./entity/view";
 import Column from "./column";
+import CompositeType from "./type/composite-type";
 import Type from "./base/type";
 import DbObject, { DbObjectConstructorArgs } from "./base/db-object";
 import MaterializedView from "./entity/materialized-view";
@@ -88,6 +89,25 @@ export default class Schema extends DbObject {
 
   /**
    * All {@link Type custom database types} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
+   * This list includes types originated from entities such as tables, views and materialized views. Entities are also composite types in PostgreSQL.
+   * To exclude types originated from entites use `types` method.
+   *
+   * @example
+   * const typeArray    = schema.typesIncludingEntities;
+   * const isAvailable  = schema.typesIncludingEntities.has('address');
+   * const type         = schema.typesIncludingEntities.get('address');
+   * const columns      = type.columns;
+   */
+  public readonly typesIncludingEntities: IndexableArray<Type, "name", "shortName", true> = IndexableArray.throwingFrom(
+    [],
+    "name",
+    "shortName"
+  );
+
+  /**
+   * All {@link Type custom database types} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
+   * This list excludes types originated from entities such as tables, views and materialized views. Entities are also composite types in PostgreSQL.
+   * To get all types including entites use `typesIncludingEntities` method.
    *
    * @example
    * const typeArray    = schema.types;
@@ -95,7 +115,13 @@ export default class Schema extends DbObject {
    * const type         = schema.types.get('address');
    * const columns      = type.columns;
    */
-  public readonly types: IndexableArray<Type, "name", "shortName", true> = IndexableArray.throwingFrom([], "name", "shortName");
+  @Memoize()
+  public get types(): IndexableArray<Type, "name", "shortName", true> {
+    return this.typesIncludingEntities.filter((type) => {
+      // console.log(type.name, type instanceof CompositeType, (type as CompositeType).relationKind === "c");
+      return !(type instanceof CompositeType) || (type as CompositeType).relationKind === "c";
+    });
+  }
 
   /**
    * {@link Schema} of the object.

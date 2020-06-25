@@ -64,7 +64,9 @@ export default class ForeignKey extends Constraint {
    * This is [[Table]] instance this {@link ForeignKey foreign key} refers to.
    */
   public get referencedTable(): Table {
-    return this.index.table;
+    // it's not possible to have an foreign key on a materialized view, so
+    // `index.table` will always be defined
+    return this.index.table as Table;
   }
 
   /**

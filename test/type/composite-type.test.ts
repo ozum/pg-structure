@@ -1,4 +1,4 @@
-import { Db, CompositeType, Column } from "../../src/index";
+import { Db, CompositeType, Column, Table } from "../../src/index";
 import getDb from "../test-helper/get-db";
 
 let db: Db;
@@ -8,6 +8,7 @@ let field4: Column;
 beforeAll(async () => {
   db = await getDb();
   compositeType = db.schemas.get("public").types.get("udt_composite") as CompositeType;
+
   field4 = compositeType.columns.get("field4") as Column;
 });
 
@@ -16,8 +17,12 @@ describe("CompositeType", () => {
     expect(compositeType).toBeInstanceOf(CompositeType);
   });
 
+  it("should not be based on an entity.", () => {
+    expect(compositeType.entity).toBeUndefined();
+  });
+
   it("should have columns.", () => {
-    expect(compositeType.columns.map(c => c.fullName)).toEqual([
+    expect(compositeType.columns.map((c) => c.fullName)).toEqual([
       "public.udt_composite.field1",
       "public.udt_composite.field2",
       "public.udt_composite.field3",
@@ -37,6 +42,13 @@ describe("CompositeType", () => {
 
     it("should have array dimension.", () => {
       expect(field4.arrayDimension).toBe(2);
+    });
+  });
+
+  describe("entity", () => {
+    it("should return entity of composite type if it is based on entity", () => {
+      const entityCompositeType = db.entities.get("type_table").columns.get("field20").type as CompositeType;
+      expect(entityCompositeType.entity).toBeInstanceOf(Table);
     });
   });
 });

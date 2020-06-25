@@ -8,6 +8,8 @@ export type ActionLetter = "a" | "r" | "c" | "n" | "d"; // a: no action, r: rest
 export type MatchTypeLetter = "f" | "p" | "s"; // * f: full, p: partial, s: simple
 /** @ignore */
 export type ConstrainTypeLetter = "c" | "f" | "p" | "u" | "t" | "x"; // c: check, f: foreign key, p: primary key, u: unique, t: constraint trigger, x: exclusion constraint
+/** ignore */
+export type RelationKindLetter = "r" | "i" | "s" | "t" | "v" | "m" | "c" | "f" | "p" | "I"; // See: relkind in https://www.postgresql.org/docs/current/catalog-pg-class.html
 
 /** @ignore */
 export interface SchemaQueryResult {
@@ -29,6 +31,7 @@ export interface TypeQueryResult {
   values: string[];
   comment: string | null;
   arrayDimension: number;
+  relationKind?: RelationKindLetter;
 }
 
 /** @ignore */

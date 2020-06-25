@@ -35,7 +35,33 @@ describe("Schema", () => {
   });
 
   it("should have all types.", () => {
-    expect(schema.types.map(t => t.name)).toEqual(["cross_schema_domain", "price", "udt_composite", "udt_enum", "udt_range"]);
+    expect(schema.types.map((t) => t.name)).toEqual(["cross_schema_domain", "price", "udt_composite", "udt_enum", "udt_range"]);
+  });
+
+  it("should have all types including entity types.", () => {
+    expect(schema.typesIncludingEntities.map((t) => t.name)).toEqual([
+      "account",
+      "cancelled_item",
+      "cart",
+      "cart_line_item",
+      "class",
+      "class_registry",
+      "contact",
+      "cross_schema_domain",
+      "message",
+      "mv_contact_other_schema_cart",
+      "Part",
+      "PartGroup",
+      "price",
+      "product",
+      "product_category",
+      "student",
+      "type_table",
+      "udt_composite",
+      "udt_enum",
+      "udt_range",
+      "v_account_primary_contact",
+    ]);
   });
 
   it("should have views.", () => {

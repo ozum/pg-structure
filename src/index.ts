@@ -189,15 +189,15 @@ function addSchemas(db: Db, rows: SchemaQueryResult[]): void {
  * @param rows are query result of types to be added.
  */
 function addTypes(db: Db, rows: TypeQueryResult[]): void {
-  getBuiltinTypes(db._systemSchema).forEach((builtinType) => db._systemSchema.types.push(builtinType));
-  const typeKinds = { d: Domain, e: EnumType, b: BaseType, c: CompositeType, r: RangeType };
+  getBuiltinTypes(db._systemSchema).forEach((builtinType) => db._systemSchema.typesIncludingEntities.push(builtinType));
+  const typeKinds = { d: Domain, e: EnumType, b: BaseType, c: CompositeType, r: RangeType }; // https://www.postgresql.org/docs/9.5/catalog-pg-type.html
   rows
     .filter((row) => row.kind in typeKinds)
     .forEach((row) => {
       const schema = db.schemas.get(row.schemaOid, { key: "oid" }) as Schema;
       const kind = row.kind as keyof typeof typeKinds;
       const type = new typeKinds[kind]({ ...row, schema, sqlType: row.sqlType as string });
-      schema.types.push(type);
+      schema.typesIncludingEntities.push(type);
     });
 }
 
@@ -233,7 +233,7 @@ function addEntities(db: Db, rows: EntityQueryResult[]): void {
 function addColumns(db: Db, rows: ColumnQueryResult[]): void {
   rows.forEach((row) => {
     const parent = (row.parentKind === "c"
-      ? db.types.get(row.parentOid as any, { key: "classOid" })
+      ? db.typesIncludingEntities.get(row.parentOid as any, { key: "classOid" })
       : db.entities.get(row.parentOid as any, { key: "oid" })) as CompositeType | Entity;
 
     parent.columns.push(new Column({ parent, ...row }));
@@ -249,17 +249,17 @@ function addColumns(db: Db, rows: ColumnQueryResult[]): void {
  */
 function addIndexes(db: Db, rows: IndexQueryResult[]): void {
   rows.forEach((row) => {
-    const table = db.tables.get(row.tableOid, { key: "oid" }) as Table;
-    const index = new Index({ ...row, table });
+    const parent = db.entities.get(row.tableOid, { key: "oid" }) as Table | MaterializedView;
+    const index = new Index({ ...row, parent });
     const indexExpressions = [...row.indexExpressions]; // Non column reference index expressions.
 
     row.columnPositions.forEach((position) => {
       // If position is 0, then it's an index attribute that is not simple column references. It is an expression which is stored in indexExpressions.
-      const columnOrExpression = position > 0 ? table.columns[position - 1] : (indexExpressions.shift() as string);
+      const columnOrExpression = position > 0 ? parent.columns[position - 1] : (indexExpressions.shift() as string);
       index.columnsAndExpressions.push(columnOrExpression);
     });
 
-    table.indexes.push(index);
+    parent.indexes.push(index);
   });
 }
 
@@ -288,7 +288,7 @@ function addConstraints(db: Db, rows: ConstraintQueryResult[]): void {
   rows.forEach((row) => {
     const table = db.tables.getMaybe(row.tableOid, { key: "oid" });
     const index = db.indexes.getMaybe(row.indexOid, { key: "oid" }) as Index;
-    const domain = db.types.getMaybe(row.typeOid, { key: "oid" }) as Domain | undefined;
+    const domain = db.typesIncludingEntities.getMaybe(row.typeOid, { key: "oid" }) as Domain | undefined;
 
     /* istanbul ignore else */
     if (table) {

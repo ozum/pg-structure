@@ -232,8 +232,8 @@ export function parseSQLType(
   const schemaName = parts.length === 2 ? unquote(parts[0]) : undefined;
   const typeName = unquote(parts.length === 2 ? parts[1] : parts[0]);
   const builtInType = !schemaName
-    ? (db._systemSchema.types.getMaybe(typeName) as BuiltInType) ||
-      (db._systemSchema.types.getMaybe(typeName, { key: "shortName" }) as BuiltInType)
+    ? (db._systemSchema.typesIncludingEntities.getMaybe(typeName) as BuiltInType) ||
+      (db._systemSchema.typesIncludingEntities.getMaybe(typeName, { key: "shortName" }) as BuiltInType)
     : undefined;
   const schema = builtInType ? db._systemSchema : (db.schemas.get(schemaName || "public") as Schema);
 

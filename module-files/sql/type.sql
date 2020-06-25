@@ -44,13 +44,20 @@ WITH types AS (
         e.enumsortorder) AS "Elements",
       pg_catalog.pg_get_userbyid(t.typowner) AS "Owner",
       pg_catalog.array_to_string(t.typacl, E'\n') AS "Access privileges",
-      pg_catalog.obj_description(t.oid, 'pg_type') AS "Description"
+      pg_catalog.obj_description(t.oid, 'pg_type') AS "Description",
+      (
+        SELECT
+          c.relkind
+        FROM
+          pg_catalog.pg_class c
+        WHERE
+          c.oid = t.typrelid) AS "Relation Kind"
     FROM
       pg_catalog.pg_type t
     WHERE (t.typrelid = 0
       OR (
         SELECT
-          c.relkind = 'c'
+          c.relkind IN ('c', 'r', 'v', 'm') -- https://www.postgresql.org/docs/current/catalog-pg-class.html
         FROM
           pg_catalog.pg_class c
         WHERE
@@ -82,7 +89,8 @@ WITH types AS (
     "typndims" AS "arrayDimension",
     "Internal name" AS "name",
     "Elements" AS "values",
-    "Description" AS "comment"
+    "Description" AS "comment",
+	"Relation Kind" AS "relationKind"
   FROM
     types
   WHERE
