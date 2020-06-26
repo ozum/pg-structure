@@ -11,8 +11,8 @@ beforeAll(async () => {
 });
 
 describe("Db", () => {
-  it("should throw if no database name is provided", () => {
-    expect(() => new Db(undefined as any, {} as any, undefined as any)).toThrow("Database name is required.");
+  it("should throw if database name is not provided", () => {
+    expect(() => new Db({ name: undefined as any, serverVersion: "x" }, {} as any, undefined as any)).toThrow("Database name is required.");
   });
 
   it("should have config with default values.", () => {
@@ -48,7 +48,7 @@ describe("Db", () => {
   });
 
   it("should have schemas.", () => {
-    expect(db.schemas.map(s => s.name)).toEqual(["extra_modules", "other_schema", "public"]);
+    expect(db.schemas.map((s) => s.name)).toEqual(["extra_modules", "other_schema", "public"]);
   });
 
   it("should have system schema.", () => {

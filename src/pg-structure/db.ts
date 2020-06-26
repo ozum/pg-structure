@@ -39,12 +39,13 @@ export interface Config {
  */
 export default class Db {
   /** @ignore */
-  public constructor(name: string, config: Config, queryResults: QueryResults) {
-    if (!name) {
+  public constructor(args: { name: string; serverVersion: string }, config: Config, queryResults: QueryResults) {
+    if (!args.name) {
       throw new Error("Database name is required.");
     }
 
-    this.name = name;
+    this.name = args.name;
+    this.serverVersion = args.serverVersion;
     this._config = config;
     this.queryResults = queryResults;
 
@@ -66,7 +67,13 @@ export default class Db {
    * const otherDb = deserialize(serialized);
    */
   public serialize(): string {
-    return JSON.stringify({ name: this.name, version: packageJson.version, config: this._config, queryResults: this.queryResults });
+    return JSON.stringify({
+      name: this.name,
+      serverVersion: this.serverVersion,
+      version: packageJson.version,
+      config: this._config,
+      queryResults: this.queryResults,
+    });
   }
 
   /** SQL query results returned from database to build pg-structure. */
@@ -77,6 +84,9 @@ export default class Db {
 
   /**  Name  of {@link Db database}. */
   public readonly name: string;
+
+  /** Version of the PostgreSQL Engine */
+  public readonly serverVersion: string;
 
   /**
    * `pg-structure` configuration.

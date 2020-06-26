@@ -13,7 +13,15 @@ import Table from "../pg-structure/entity/table";
 import M2MRelation from "../pg-structure/relation/m2m-relation";
 import memoizeSerializer from "./memoize-serializer";
 
-const { readFile } = fs.promises;
+const { readFile, readdir } = fs.promises;
+
+interface SQLFileResult {
+  "type.sql": TypeQueryResult[];
+  "entity.sql": EntityQueryResult[];
+  "column.sql": ColumnQueryResult[];
+  "index.sql": IndexQueryResult[];
+  "constraint.sql": ConstraintQueryResult[];
+}
 
 /**
  * Extracts JSON5 between given tokens such as `[pg-structure]` and `[/pg-structure]` tags,
@@ -104,6 +112,29 @@ export function caseTypeOf(input: string): CaseType {
 }
 
 /**
+ * Returns major part of the given version string.
+ *
+ * @ignore
+ * @param version is the version to get major number from.
+ * @returns major version of given version.
+ */
+export function majorVersionOf(version: string): number {
+  return Number(version.replace(/\..+$/, ""));
+}
+
+/**
+ * Returns sorted PostgreSQL versions of provided SQL queries.
+ *
+ * @ignore
+ * @returns sorted versions.
+ */
+export async function getQueryVersionFor(serverVersion: string): Promise<string> {
+  const dirs = await readdir(join(__dirname, "../../module-files/sql"));
+  const major = majorVersionOf(serverVersion);
+  return dirs.reduce((version, dir) => (Number.isNaN(Number(dir)) || Number(dir) > major || version < dir ? version : dir), "9");
+}
+
+/**
  * Executes given sql file and assign callback function an error events for the query.
  *
  * @ignore
@@ -113,13 +144,13 @@ export function caseTypeOf(input: string): CaseType {
  * @param eventCallback is callback to call on 'row' event.
  * @returns void promise
  */
-export async function executeSqlFile(file: "type.sql", client: Client, schemas: any[]): Promise<TypeQueryResult[]>;
-export async function executeSqlFile(file: "entity.sql", client: Client, schemas: any[]): Promise<EntityQueryResult[]>;
-export async function executeSqlFile(file: "column.sql", client: Client, schemas: any[]): Promise<ColumnQueryResult[]>;
-export async function executeSqlFile(file: "index.sql", client: Client, schemas: any[]): Promise<IndexQueryResult[]>;
-export async function executeSqlFile(file: "constraint.sql", client: Client, schemas: any[]): Promise<ConstraintQueryResult[]>;
-export async function executeSqlFile(file: string, client: Client, schemas: any[]): Promise<Record<string, any>[]> {
-  const filePath = join(__dirname, "../../module-files/sql", file);
+export async function executeSqlFile<K extends keyof SQLFileResult>(
+  queryVersion: string,
+  file: K,
+  client: Client,
+  schemas: any[]
+): Promise<SQLFileResult[K]> {
+  const filePath = join(__dirname, "../../module-files/sql", queryVersion, file);
   const sql = await readFile(filePath, "utf8");
   const result = await client.query(sql, [schemas]);
   return result.rows;

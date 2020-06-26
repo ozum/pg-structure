@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Client, ClientConfig } from "pg";
 import { parse } from "pg-connection-string";
-import { executeSqlFile, getPgClient } from "./util/helper";
+import { executeSqlFile, getPgClient, getQueryVersionFor } from "./util/helper";
 import Db from "./pg-structure/db";
 import Schema from "./pg-structure/schema";
 import {
@@ -330,6 +330,7 @@ function addConstraints(db: Db, rows: ConstraintQueryResult[]): void {
  * @ignore
  */
 async function getQueryResultsFromDb(
+  serverVersion: string,
   client: Client,
   includeSchemasArray?: string[],
   excludeSchemasArray?: string[],
@@ -337,14 +338,15 @@ async function getQueryResultsFromDb(
 ): Promise<QueryResults> {
   const schemaRows = await getSchemas(client, { include: includeSchemasArray, exclude: excludeSchemasArray, system: includeSystemSchemas });
   const schemaOids = schemaRows.map((schema) => schema.oid);
+  const queryVersion = await getQueryVersionFor(serverVersion);
 
   return Promise.all([
     schemaRows,
-    executeSqlFile("type.sql", client, schemaOids),
-    executeSqlFile("entity.sql", client, schemaOids),
-    executeSqlFile("column.sql", client, schemaOids),
-    executeSqlFile("index.sql", client, schemaOids),
-    executeSqlFile("constraint.sql", client, schemaOids),
+    executeSqlFile(queryVersion, "type.sql", client, schemaOids),
+    executeSqlFile(queryVersion, "entity.sql", client, schemaOids),
+    executeSqlFile(queryVersion, "column.sql", client, schemaOids),
+    executeSqlFile(queryVersion, "index.sql", client, schemaOids),
+    executeSqlFile(queryVersion, "constraint.sql", client, schemaOids),
   ]);
 }
 
@@ -385,11 +387,12 @@ export default async function pgStructure(
   const includeSchemasArray = Array.isArray(includeSchemas) || includeSchemas === undefined ? includeSchemas : [includeSchemas];
   const excludeSchemasArray = Array.isArray(excludeSchemas) || excludeSchemas === undefined ? excludeSchemas : [excludeSchemas];
 
-  const queryResults = await getQueryResultsFromDb(client, includeSchemasArray, excludeSchemasArray, includeSystemSchemas);
+  const serverVersion = (await client.query("SHOW server_version")).rows[0].server_version;
+  const queryResults = await getQueryResultsFromDb(serverVersion, client, includeSchemasArray, excludeSchemasArray, includeSystemSchemas);
   const [schemaRows, typeRows, tableRows, columnRows, indexRows, constraintRows] = queryResults;
 
   const db = new Db(
-    name || getDatabaseName(pgClientOrConfig),
+    { name: name || getDatabaseName(pgClientOrConfig), serverVersion },
     {
       commentDataToken,
       relationNameFunctions,
@@ -423,7 +426,7 @@ export default async function pgStructure(
  */
 export function deserialize(serializedData: string): Db {
   const data = JSON.parse(serializedData);
-  const db = new Db(data.name, data.config, data.queryResults);
+  const db = new Db({ name: data.name, serverVersion: data.serverVersion }, data.config, data.queryResults);
 
   const [schemaRows, typeRows, tableRows, columnRows, indexRows, constraintRows] = data.queryResults;
 
