@@ -1,3 +1,4 @@
+import { TypeCategory, Volatility, ParallelSafety, ArgumentMode } from "./index";
 /** @ignore */
 export type EntityTypeLetter = "r" | "i" | "S" | "t" | "v" | "m" | "c" | "f" | "p" | "I"; // r = ordinary table, i = index, S = sequence, t = TOAST table, v = view, m = materialized view, c = composite type, f = foreign table, p = partitioned table, I = partitioned index
 /** @ignore */
@@ -10,6 +11,10 @@ export type MatchTypeLetter = "f" | "p" | "s"; // * f: full, p: partial, s: simp
 export type ConstrainTypeLetter = "c" | "f" | "p" | "u" | "t" | "x"; // c: check, f: foreign key, p: primary key, u: unique, t: constraint trigger, x: exclusion constraint
 /** ignore */
 export type RelationKindLetter = "r" | "i" | "s" | "t" | "v" | "m" | "c" | "f" | "p" | "I"; // See: relkind in https://www.postgresql.org/docs/current/catalog-pg-class.html
+/** @ignore */
+export type FunctionKindLetter = "f" | "p" | "a" | "w"; // See: https://www.postgresql.org/docs/12/catalog-pg-proc.html. f for a normal function, p for a procedure, a for an aggregate function, or w for a window function
+/** @ignore */
+export type ArgumentModeLetter = "i" | "o" | "b" | "v" | "t"; // See: https://www.postgresql.org/docs/12/catalog-pg-proc.html
 
 /** @ignore */
 export interface SchemaQueryResult {
@@ -21,9 +26,11 @@ export interface SchemaQueryResult {
 /** @ignore */
 export interface TypeQueryResult {
   oid: number;
+  arrayOid: number; // If typarray is not 0 then it identifies another row in pg_type, which is the array type having this type as element.
   schemaOid: number;
   classOid: number;
   kind: TypeKindLetter;
+  category: TypeCategory;
   notNull: boolean;
   default: string | number | null;
   sqlType: string | null; // character varying(20), numeric(3,2), extra_modules."extra-domain"[], timestamp(0) without time zone
@@ -46,6 +53,7 @@ export interface EntityQueryResult {
 /** @ignore */
 export interface ColumnQueryResult {
   parentOid: number;
+  typeOid: number;
   attributeNumber: number; // The number of the column. Ordinary columns are numbered from 1 up. Dropped columns has attribute numbers too, so numbers may differ from actiual existing column array index.
   parentKind: EntityTypeLetter;
   database: string;
@@ -97,11 +105,47 @@ export interface ConstraintQueryResult {
 }
 
 /** @ignore */
+export interface FunctionQueryResult {
+  oid: number;
+  schemaOid: number;
+  name: string;
+  kind: FunctionKindLetter;
+  source: string;
+  language: string;
+  estimatedCost: number;
+  estimatedRows: number;
+  isLeakProof: boolean;
+  isStrict: boolean;
+  parallelSafety: ParallelSafety;
+  volatility: Volatility;
+  returnType: number;
+  returnsSet: boolean;
+  variadicArgumentType: number; // Zero if there is no variadic argument.
+  argumentTypes: number[]; // Note that subscripting is 1-based (pg_proc.proallargtypes)
+  argumentNames: string[] | null; // Note that subscripting is 1-based
+  argumentModes: string | null; // If all the arguments are IN arguments, this field will be null. node-postgres returns string for char[]
+  signature: string;
+  comment: string;
+}
+
+/** @ignore */
 export type QueryResults = [
+  SchemaQueryResult[],
   SchemaQueryResult[],
   TypeQueryResult[],
   EntityQueryResult[],
   ColumnQueryResult[],
   IndexQueryResult[],
-  ConstraintQueryResult[]
+  ConstraintQueryResult[],
+  FunctionQueryResult[]
 ];
+
+/** @ignore */
+export interface SQLFileResult {
+  type: TypeQueryResult[];
+  entity: EntityQueryResult[];
+  column: ColumnQueryResult[];
+  index: IndexQueryResult[];
+  constraint: ConstraintQueryResult[];
+  function: FunctionQueryResult[];
+}

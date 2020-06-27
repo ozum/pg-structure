@@ -17,9 +17,11 @@
 WITH types AS (
   SELECT
     t.oid,
+    t.typarray,
     t.typrelid,
     t.typnamespace,
     t.typtype,
+    t.typcategory,
     t.typndims,
     t.typnotnull,
     t.typdefault,
@@ -76,9 +78,11 @@ WITH types AS (
 )
   SELECT
     oid,
+    typarray AS "arrayOid",
     typnamespace AS "schemaOid",
     typrelid AS "classOid", -- If this is a composite type (see typtype), then this column points to the pg_class entry that defines the corresponding table
     typtype AS "kind",
+    typcategory AS "category",
     typnotnull AS "notNull",
     typdefault AS "default",
     CASE WHEN sql_type = '-' THEN
@@ -90,11 +94,11 @@ WITH types AS (
     "Internal name" AS "name",
     "Elements" AS "values",
     "Description" AS "comment",
-	"Relation Kind" AS "relationKind"
+	  "Relation Kind" AS "relationKind"
   FROM
     types
   WHERE
     typnamespace = ANY ($1)
-ORDER BY
-  typnamespace,
-  LOWER("Internal name")
+  ORDER BY
+    typnamespace,
+    LOWER("Internal name")

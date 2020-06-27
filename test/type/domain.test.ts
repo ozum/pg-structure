@@ -1,6 +1,5 @@
-import { Db, Domain, CompositeType, CheckConstraint } from "../../src/index";
+import { Db, Domain, CompositeType, CheckConstraint, BaseType } from "../../src/index";
 import getDb from "../test-helper/get-db";
-import BuiltInType from "../../src/pg-structure/type/built-in-type";
 
 let db: Db;
 let crossSchemaDomain: Domain;
@@ -25,7 +24,7 @@ describe("Domain", () => {
 
   it("should have type.", () => {
     expect(crossSchemaDomain.type).toBeInstanceOf(CompositeType);
-    expect(price.type).toBeInstanceOf(BuiltInType);
+    expect(price.type).toBeInstanceOf(BaseType);
   });
 
   it("should have precision and scale.", () => {

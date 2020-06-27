@@ -34,9 +34,7 @@ export default abstract class Entity extends DBObject {
     return `${this.schema.name}.${this.name}`;
   }
 
-  /**
-   * [[Schema]] of the object.
-   */
+  /** [[Schema]] of the object. */
   public readonly schema: Schema;
 
   /**

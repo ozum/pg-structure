@@ -1,6 +1,6 @@
 /*
 Created: 9/20/2019
-Modified: 6/25/2020
+Modified: 6/27/2020
 Project: pg-structrue-test
 Model: Main
 Author: Özüm Eldoğan
@@ -51,16 +51,14 @@ CREATE TYPE "udt_enum" AS ENUM
 
 CREATE TYPE "other_schema"."udt_composite" AS
   ( "o_field_1" Numeric,
-"o_field_2" udt_range[]
- )
+"o_field_2" udt_range[] )
 ;
 
 CREATE TYPE "udt_composite" AS
   ( "field1" int4,
 "field2" Timestamp(0) with time zone,
 "field3" udt_enum,
-"field4" other_schema.udt_composite[][]
- )
+"field4" other_schema.udt_composite[][] )
 ;
 
 -- Create domain types section -------------------------------------------------
@@ -339,54 +337,6 @@ CREATE TRIGGER "account_updated_at"
   EXECUTE PROCEDURE "public"."t_updated_at"()
 ;
 
--- Table public.type_table
-
-CREATE TABLE "public"."type_table"
-(
-  "id" Serial NOT NULL,
-  "default_empty_string" Text DEFAULT '',
-  "field1_a" Character varying,
-  "field1_b" Character varying(2),
-  "field2_a" Numeric,
-  "field2_b" Numeric(3,2),
-  "field3" Character(7),
-  "field4_a" Timestamp,
-  "field4_b" Timestamp(0),
-  "field5" Bit(4),
-  "field6" Bit varying(10),
-  "field7_a" Timestamp with time zone,
-  "field7_b" Timestamp(0) with time zone,
-  "field8" Time(6),
-  "field9" Time(4) with time zone,
-  "field10" Smallint,
-  "field11" Integer DEFAULT 1,
-  "field12" Bigint,
-  "field13" "other_schema"."udt_composite",
-  "field14" "udt_composite",
-  "field15" "udt_enum",
-  "field16" "udt_range",
-  "field17" Jsonb,
-  "field18" "cross_schema_domain",
-  "field19" "price",
-  "a_field1" "udt_composite"[],
-  "a_field2" Timestamp(1) with time zone[][],
-  "field20" "public"."account"
-)
-WITH (
-  autovacuum_enabled=true)
-;
-COMMENT ON TABLE "public"."type_table" IS 'Type Table Description. [pg-structure]{ jsonKey: "json value" }[/pg-structure]'
-;
-COMMENT ON COLUMN "public"."type_table"."id" IS 'id description. [pg-structure]{ columnData: 1 }[/pg-structure]'
-;
-COMMENT ON COLUMN "public"."type_table"."default_empty_string" IS '[pg-structure]false_json:b:c[/pg-structure]'
-;
-COMMENT ON COLUMN "public"."type_table"."field1_a" IS 'Comment without data.'
-;
-
-ALTER TABLE "public"."type_table" ADD CONSTRAINT "type_table_pk" PRIMARY KEY ("id")
-;
-
 -- Table other_schema.cart
 
 CREATE TABLE "other_schema"."cart"
@@ -468,6 +418,54 @@ WITH (
 ALTER TABLE "PartGroup" ADD CONSTRAINT "KeyCamelCaseGroup1" PRIMARY KEY ("id")
 ;
 
+-- Table public.type_table
+
+CREATE TABLE "public"."type_table"
+(
+  "id" Serial NOT NULL,
+  "default_empty_string" Text DEFAULT '',
+  "field1_a" Character varying,
+  "field1_b" Character varying(2),
+  "field2_a" Numeric,
+  "field2_b" Numeric(3,2),
+  "field3" Character(7),
+  "field4_a" Timestamp,
+  "field4_b" Timestamp(0),
+  "field5" Bit(4),
+  "field6" Bit varying(10),
+  "field7_a" Timestamp with time zone,
+  "field7_b" Timestamp(0) with time zone,
+  "field8" Time(6),
+  "field9" Time(4) with time zone,
+  "field10" Smallint,
+  "field11" Integer DEFAULT 1,
+  "field12" Bigint,
+  "field13" "other_schema"."udt_composite",
+  "field14" "udt_composite",
+  "field15" "udt_enum",
+  "field16" "udt_range",
+  "field17" Jsonb,
+  "field18" "cross_schema_domain",
+  "field19" "price",
+  "a_field1" "udt_composite"[],
+  "a_field2" Timestamp(1) with time zone[][],
+  "field20" "public"."account"
+)
+WITH (
+  autovacuum_enabled=true)
+;
+COMMENT ON TABLE "public"."type_table" IS 'Type Table Description. [pg-structure]{ jsonKey: "json value" }[/pg-structure]'
+;
+COMMENT ON COLUMN "public"."type_table"."id" IS 'id description. [pg-structure]{ columnData: 1 }[/pg-structure]'
+;
+COMMENT ON COLUMN "public"."type_table"."default_empty_string" IS '[pg-structure]false_json:b:c[/pg-structure]'
+;
+COMMENT ON COLUMN "public"."type_table"."field1_a" IS 'Comment without data.'
+;
+
+ALTER TABLE "public"."type_table" ADD CONSTRAINT "type_table_pk" PRIMARY KEY ("id")
+;
+
 -- Create views section -------------------------------------------------
 
 CREATE VIEW "v_account_primary_contact" AS
@@ -482,14 +480,67 @@ CREATE MATERIALIZED VIEW "mv_contact_other_schema_cart"
 WITH (
   autovacuum_enabled=true)
 AS
+
 SELECT
+
   cart.id AS cart_id,
+
   contact.id AS contact_id
+
 FROM other_schema.cart
+
 INNER JOIN public.contact ON public.contact.id = other_schema.cart.contact_id
 ;
 
 CREATE INDEX "mv_contact_other_schema_cart_cart_id_idx" ON "mv_contact_other_schema_cart" ("cart_id");
+
+-- Create functions section -------------------------------------------------
+
+CREATE FUNCTION "record_returning_function"(  arg1 integer,
+  arg2 numeric,
+  out arg3 other_schema.udt_composite [],
+  inout "argIO" text,
+  out "argOut" other_schema.cart,
+  boolean,
+  out money,
+  inout "argIO2" text [] = '{[''a'',''b'']}'::text[],
+  variadic "argVar" integer [] = '{1,2}'::integer[])
+RETURNS RECORD
+  LANGUAGE plpgsql
+  VOLATILE
+AS
+$$
+BEGIN
+    /*function_body*/
+END
+$$
+;
+COMMENT ON FUNCTION "record_returning_function"(arg1 integer, arg2 numeric, OUT arg3 other_schema.udt_composite [], INOUT "argIO" text, OUT "argOut" other_schema.cart, boolean, OUT money, INOUT "argIO2" text [], VARIADIC "argVar" integer []) IS 'Function description'
+;
+
+CREATE FUNCTION "array_returning_function"(  integer)
+RETURNS Integer[]
+  LANGUAGE plpgsql
+  VOLATILE
+AS
+$$
+BEGIN
+    /*function_body*/
+END
+$$
+;
+
+CREATE FUNCTION "trigger_returning_function"()
+RETURNS trigger
+  LANGUAGE plpgsql
+  VOLATILE
+AS
+$$
+BEGIN
+    /*function_body*/
+END
+$$
+;
 
 -- Create foreign keys (relationships) section -------------------------------------------------
 

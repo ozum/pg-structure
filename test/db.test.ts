@@ -52,11 +52,11 @@ describe("Db", () => {
   });
 
   it("should have system schema.", () => {
-    expect(db._systemSchema.name).toEqual("pseudo_pg_catalog");
+    expect(db.systemSchemas[0].name).toBeDefined();
   });
 
   it("should have builtin types in system schema.", () => {
-    expect(db._systemSchema.types.get("smallint").name).toEqual("smallint");
+    expect(db.systemTypes.get("smallint").name).toEqual("smallint");
   });
 
   it("should have all entities.", () => {

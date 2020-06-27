@@ -86,3 +86,12 @@ export type RelationNameCollision = { [relationName: string]: string[] };
 export type CollisionsByTable = {
   [tableFullName: string]: { m2o: RelationNameCollision[]; o2m: RelationNameCollision[]; m2m: RelationNameCollision[] };
 };
+
+/** Volatility of the PostgreSQL function. */
+export type Volatility = "immutable" | "stable" | "volatile";
+
+/** Parallel safety of the PostgreSQL function. */
+export type ParallelSafety = "safe" | "unsafe" | "restricted";
+
+/** Modes of the PostgreSQL function arguments. */
+export type ArgumentMode = "in" | "inout" | "out" | "variadic" | "table";

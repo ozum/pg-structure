@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Client, ClientConfig } from "pg";
 import { parse } from "pg-connection-string";
-import { executeSqlFile, getPgClient, getQueryVersionFor } from "./util/helper";
-import Db from "./pg-structure/db";
-import Schema from "./pg-structure/schema";
 import {
   SchemaQueryResult,
   TypeQueryResult,
@@ -14,9 +11,13 @@ import {
   ActionLetter,
   MatchTypeLetter,
   QueryResults,
+  FunctionQueryResult,
 } from "./types/query-result";
+import { executeSqlFile, getPgClient, getQueryVersionFor } from "./util/helper";
+import Db from "./pg-structure/db";
+import Schema from "./pg-structure/schema";
+
 import Domain from "./pg-structure/type/domain";
-import getBuiltinTypes from "./util/built-in-types";
 import EnumType from "./pg-structure/type/enum-type";
 import BaseType from "./pg-structure/type/base-type";
 import CompositeType from "./pg-structure/type/composite-type";
@@ -33,6 +34,11 @@ import ExclusionConstraint from "./pg-structure/constraint/exclusion-constraint"
 import ForeignKey from "./pg-structure/constraint/foreign-key";
 import { Action, MatchType, RelationNameFunctions, BuiltinRelationNameFunctions } from "./types";
 import RangeType from "./pg-structure/type/range-type";
+import NormalFunction from "./pg-structure/function/normal-function";
+import Procedure from "./pg-structure/function/procedure";
+import AggregateFunction from "./pg-structure/function/aggregate-function";
+import WindowFunction from "./pg-structure/function/window-function";
+import PseudoType from "./pg-structure/type/pseudo-type";
 
 export { default as Column } from "./pg-structure/column";
 export { default as Db } from "./pg-structure/db";
@@ -55,11 +61,17 @@ export { default as M2MRelation } from "./pg-structure/relation/m2m-relation";
 export { default as M2ORelation } from "./pg-structure/relation/m2o-relation";
 export { default as O2MRelation } from "./pg-structure/relation/o2m-relation";
 export { default as BaseType } from "./pg-structure/type/base-type";
-export { default as BuiltInType } from "./pg-structure/type/built-in-type";
 export { default as CompositeType } from "./pg-structure/type/composite-type";
 export { default as Domain } from "./pg-structure/type/domain";
 export { default as EnumType } from "./pg-structure/type/enum-type";
+export { default as PseudoType } from "./pg-structure/type/pseudo-type";
 export { default as RangeType } from "./pg-structure/type/range-type";
+export { default as Func } from "./pg-structure/base/func";
+export { default as NormalFunction } from "./pg-structure/function/normal-function";
+export { default as Procedure } from "./pg-structure/function/procedure";
+export { default as AggregateFunction } from "./pg-structure/function/aggregate-function";
+export { default as FunctionArgument } from "./pg-structure/function-argument";
+export { default as WindowFunction } from "./pg-structure/function/window-function";
 export * from "./types/index";
 
 /** @ignore */
@@ -170,16 +182,56 @@ async function getSchemas(
 }
 
 /**
+ * Returns list of system schames required by pg-structure.
+ * Patterns are feeded to `LIKE` operator of SQL, so `%` and `_` may be used.
+ *
+ * @ignore
+ * @param client is pg client.
+ * @returns array of objects describing schemas.
+ */
+async function getSystemSchemas(client: Client): Promise<SchemaQueryResult[]> {
+  const sql = `SELECT oid, nspname AS name, obj_description(oid, 'pg_namespace') AS comment FROM pg_namespace WHERE nspname IN ('pg_catalog') ORDER BY nspname`;
+  return (await client.query(sql)).rows;
+}
+
+/**
+ * Adds system schemas required by pg-structure.
+ *
+ * @ignore
+ * @param db is Db object.
+ */
+function addSystemSchemas(db: Db, rows: SchemaQueryResult[]): void {
+  rows.forEach((row) => db.systemSchemas.push(new Schema({ ...row, db })));
+}
+
+/**
  * Adds schema instances to database.
  *
  * @ignore
  * @param db is Db object.
  */
 function addSchemas(db: Db, rows: SchemaQueryResult[]): void {
-  rows.forEach((row) => {
-    db.schemas.push(new Schema({ ...row, db }));
-  });
+  rows.forEach((row) => db.schemas.push(new Schema({ ...row, db })));
 }
+
+const builtinTypeAliases: Record<string, Record<string, string | boolean>> = {
+  int2: { name: "smallint" },
+  int4: { name: "integer", shortName: "int" },
+  int8: { name: "bigint" },
+  numeric: { internalName: "decimal", hasPrecision: true, hasScale: true },
+  float4: { name: "real" },
+  float8: { name: "double precision" },
+  varchar: { name: "character varying", hasLength: true },
+  char: { name: "character", hasLength: true },
+  timestamp: { name: "timestamp without time zone", hasPrecision: true },
+  timestamptz: { name: "timestamp with time zone", hasPrecision: true },
+  time: { name: "time without time zone", hasPrecision: true },
+  timetz: { name: "time with time zone", hasPrecision: true },
+  interval: { hasPrecision: true },
+  bool: { name: "boolean" },
+  bit: { hasLength: true },
+  varbit: { name: "bit varying", hasLength: true },
+};
 
 /**
  * Adds types to database.
@@ -189,16 +241,14 @@ function addSchemas(db: Db, rows: SchemaQueryResult[]): void {
  * @param rows are query result of types to be added.
  */
 function addTypes(db: Db, rows: TypeQueryResult[]): void {
-  getBuiltinTypes(db._systemSchema).forEach((builtinType) => db._systemSchema.typesIncludingEntities.push(builtinType));
-  const typeKinds = { d: Domain, e: EnumType, b: BaseType, c: CompositeType, r: RangeType }; // https://www.postgresql.org/docs/9.5/catalog-pg-type.html
-  rows
-    .filter((row) => row.kind in typeKinds)
-    .forEach((row) => {
-      const schema = db.schemas.get(row.schemaOid, { key: "oid" }) as Schema;
-      const kind = row.kind as keyof typeof typeKinds;
-      const type = new typeKinds[kind]({ ...row, schema, sqlType: row.sqlType as string });
-      schema.typesIncludingEntities.push(type);
-    });
+  const typeKinds = { d: Domain, e: EnumType, b: BaseType, c: CompositeType, r: RangeType, p: PseudoType }; // https://www.postgresql.org/docs/9.5/catalog-pg-type.html
+  rows.forEach((row) => {
+    const schema = db.systemSchemas.getMaybe(row.schemaOid, { key: "oid" }) || db.schemas.get(row.schemaOid, { key: "oid" });
+    const builtinTypeData = builtinTypeAliases[row.name] ? { internalName: row.name, ...builtinTypeAliases[row.name] } : {};
+    const kind = row.kind as keyof typeof typeKinds;
+    const type = new typeKinds[kind]({ ...row, ...builtinTypeData, schema, sqlType: row.sqlType as string }); // Only domain type has `sqlType` and it's required.
+    schema.typesIncludingEntities.push(type);
+  });
 }
 
 /**
@@ -213,13 +263,9 @@ function addEntities(db: Db, rows: EntityQueryResult[]): void {
     const schema = db.schemas.get(row.schemaOid, { key: "oid" }) as Schema;
 
     /* istanbul ignore else */
-    if (row.kind === "r") {
-      schema.tables.push(new Table({ ...row, schema }));
-    } else if (row.kind === "v") {
-      schema.views.push(new View({ ...row, schema }));
-    } else if (row.kind === "m") {
-      schema.materializedViews.push(new MaterializedView({ ...row, schema }));
-    }
+    if (row.kind === "r") schema.tables.push(new Table({ ...row, schema }));
+    else if (row.kind === "v") schema.views.push(new View({ ...row, schema }));
+    else if (row.kind === "m") schema.materializedViews.push(new MaterializedView({ ...row, schema }));
   });
 }
 
@@ -264,6 +310,25 @@ function addIndexes(db: Db, rows: IndexQueryResult[]): void {
 }
 
 /**
+ * Add functions to database.
+ *
+ * @ignore
+ * @param db is DB object.
+ * @param rows are query result of functions to be added.
+ */
+function addFunctions(db: Db, rows: FunctionQueryResult[]): void {
+  rows.forEach((row) => {
+    const schema = db.schemas.get(row.schemaOid, { key: "oid" }) as Schema;
+
+    /* istanbul ignore else */
+    if (row.kind === "f") schema.normalFunctions.push(new NormalFunction({ ...row, schema }));
+    else if (row.kind === "p") schema.procedures.push(new Procedure({ ...row, schema }));
+    else if (row.kind === "a") schema.aggregateFunctions.push(new AggregateFunction({ ...row, schema }));
+    else if (row.kind === "w") schema.windowFunctions.push(new WindowFunction({ ...row, schema }));
+  });
+}
+
+/**
  * Adds constraints to database.
  *
  * @ignore
@@ -293,15 +358,11 @@ function addConstraints(db: Db, rows: ConstraintQueryResult[]): void {
     /* istanbul ignore else */
     if (table) {
       /* istanbul ignore else */
-      if (row.kind === "p") {
-        table.constraints.push(new PrimaryKey({ ...row, index, table }));
-      } else if (row.kind === "u") {
-        table.constraints.push(new UniqueConstraint({ ...row, index, table }));
-      } else if (row.kind === "x") {
-        table.constraints.push(new ExclusionConstraint({ ...row, index, table }));
-      } else if (row.kind === "c") {
-        table.constraints.push(new CheckConstraint({ ...row, table, expression: row.checkConstraintExpression }));
-      } else if (row.kind === "f") {
+      if (row.kind === "p") table.constraints.push(new PrimaryKey({ ...row, index, table }));
+      else if (row.kind === "u") table.constraints.push(new UniqueConstraint({ ...row, index, table }));
+      else if (row.kind === "x") table.constraints.push(new ExclusionConstraint({ ...row, index, table }));
+      else if (row.kind === "c") table.constraints.push(new CheckConstraint({ ...row, table, expression: row.checkConstraintExpression }));
+      else if (row.kind === "f") {
         const foreignKey = new ForeignKey({
           ...row,
           table,
@@ -337,20 +398,40 @@ async function getQueryResultsFromDb(
   includeSystemSchemas?: boolean
 ): Promise<QueryResults> {
   const schemaRows = await getSchemas(client, { include: includeSchemasArray, exclude: excludeSchemasArray, system: includeSystemSchemas });
+  const systemSchemaRows = await getSystemSchemas(client);
   const schemaOids = schemaRows.map((schema) => schema.oid);
-  const queryVersion = await getQueryVersionFor(serverVersion);
+  const schemaOidsIncludingSystem = schemaOids.concat(systemSchemaRows.map((schema) => schema.oid));
+  const queryVersions = await getQueryVersionFor(serverVersion);
 
   return Promise.all([
     schemaRows,
-    executeSqlFile(queryVersion, "type.sql", client, schemaOids),
-    executeSqlFile(queryVersion, "entity.sql", client, schemaOids),
-    executeSqlFile(queryVersion, "column.sql", client, schemaOids),
-    executeSqlFile(queryVersion, "index.sql", client, schemaOids),
-    executeSqlFile(queryVersion, "constraint.sql", client, schemaOids),
+    systemSchemaRows,
+    executeSqlFile(queryVersions, "type", client, schemaOidsIncludingSystem),
+    executeSqlFile(queryVersions, "entity", client, schemaOids),
+    executeSqlFile(queryVersions, "column", client, schemaOids),
+    executeSqlFile(queryVersions, "index", client, schemaOids),
+    executeSqlFile(queryVersions, "constraint", client, schemaOids),
+    executeSqlFile(queryVersions, "function", client, schemaOids),
   ]);
 }
 
-// function getMetaDataFromJson(data: any): A {}
+/**
+ * Adds database objects to database.
+ *
+ * @ignore
+ * @param db  is DB object
+ * @param queryResults are query results to get object details from.
+ */
+function addObjects(db: Db, queryResults: QueryResults): void {
+  addSchemas(db, queryResults[0]);
+  addSystemSchemas(db, queryResults[1]);
+  addTypes(db, queryResults[2]);
+  addEntities(db, queryResults[3]);
+  addColumns(db, queryResults[4]);
+  addIndexes(db, queryResults[5]);
+  addConstraints(db, queryResults[6]);
+  addFunctions(db, queryResults[7]);
+}
 
 /**
  * Creates and returns [[Db]] object which represents given database's structure. It is possible to include or exclude some schemas
@@ -389,7 +470,6 @@ export default async function pgStructure(
 
   const serverVersion = (await client.query("SHOW server_version")).rows[0].server_version;
   const queryResults = await getQueryResultsFromDb(serverVersion, client, includeSchemasArray, excludeSchemasArray, includeSystemSchemas);
-  const [schemaRows, typeRows, tableRows, columnRows, indexRows, constraintRows] = queryResults;
 
   const db = new Db(
     { name: name || getDatabaseName(pgClientOrConfig), serverVersion },
@@ -402,12 +482,7 @@ export default async function pgStructure(
     queryResults
   );
 
-  addSchemas(db, schemaRows);
-  addTypes(db, typeRows);
-  addEntities(db, tableRows);
-  addColumns(db, columnRows);
-  addIndexes(db, indexRows);
-  addConstraints(db, constraintRows);
+  addObjects(db, queryResults);
 
   if (!keepConnection && closeConnectionAfter) client.end(); // If a connected client is provided, do not close connection.
   return db;
@@ -427,15 +502,6 @@ export default async function pgStructure(
 export function deserialize(serializedData: string): Db {
   const data = JSON.parse(serializedData);
   const db = new Db({ name: data.name, serverVersion: data.serverVersion }, data.config, data.queryResults);
-
-  const [schemaRows, typeRows, tableRows, columnRows, indexRows, constraintRows] = data.queryResults;
-
-  addSchemas(db, schemaRows);
-  addTypes(db, typeRows);
-  addEntities(db, tableRows);
-  addColumns(db, columnRows);
-  addIndexes(db, indexRows);
-  addConstraints(db, constraintRows);
-
+  addObjects(db, data.queryResults);
   return db;
 }

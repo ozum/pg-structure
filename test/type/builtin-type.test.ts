@@ -1,17 +1,17 @@
-import { Db, BuiltInType } from "../../src/index";
+import { Db, BaseType } from "../../src/index";
 import getDb from "../test-helper/get-db";
 
 let db: Db;
-let numericType: BuiltInType;
+let numericType: BaseType;
 
 beforeAll(async () => {
   db = await getDb();
-  numericType = db._systemSchema.types.get("numeric") as BuiltInType;
+  numericType = db.systemTypes.get("numeric") as BaseType;
 });
 
 describe("BuiltinType", () => {
   it("should be builtin type.", () => {
-    expect(numericType).toBeInstanceOf(BuiltInType);
+    expect(numericType).toBeInstanceOf(BaseType);
   });
 
   it("should have precision and scale attribute.", () => {

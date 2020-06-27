@@ -9,7 +9,6 @@ import Index from ".";
 import Entity from "./base/entity";
 import Type from "./base/type";
 import Relation from "./base/relation";
-import CompositeType from "./type/composite-type";
 import { RelationNameFunctions, RelationNameCollision, CollisionsByTable, BuiltinRelationNameFunctions } from "../types";
 import { getDuplicateNames } from "../util/helper";
 import { QueryResults } from "../types/query-result";
@@ -48,8 +47,6 @@ export default class Db {
     this.serverVersion = args.serverVersion;
     this._config = config;
     this.queryResults = queryResults;
-
-    this._systemSchema = new Schema({ oid: -1, name: "pseudo_pg_catalog", db: this });
   }
 
   /**
@@ -96,11 +93,11 @@ export default class Db {
   public readonly _config: Config;
 
   /**
-   * Schema to store PostgreSQL system related database objects such as builtin types etc.
+   * PostgreSQL system schemas needed by `pg-structure`.
    *
    * @ignore
    */
-  public readonly _systemSchema: Schema;
+  public readonly systemSchemas: IndexableArray<Schema, "name", "oid", true> = IndexableArray.throwingFrom([], "name", "oid");
 
   /**
    * All {@link Schema schemas} in the {@link Db database} as an {@link IndexableArray indexable array} ordered by their name.
@@ -129,59 +126,109 @@ export default class Db {
     T extends "tables" | "entities" | "views" | "types",
     E extends string = never,
     A extends T | "typesIncludingEntities" = T
-  >(type: A, ...extra: string[]): IndexableArray<any, "name", "oid" | E, true> {
-    return this.schemas.reduce(
+  >(system: boolean, type: A, ...extra: string[]): IndexableArray<any, "name", "oid" | E, true> {
+    const schemas = system ? this.systemSchemas : this.schemas;
+    return schemas.reduce(
       (allObjects, schema) => allObjects.concat(schema[type] as any),
       IndexableArray.throwingFrom([], "name", "oid", ...(extra as any))
     );
   }
 
   /**
-   * All {@link Table tables} of the database. Two PostgreSQL schemas may have same named table. `get` method of
+   * All {@link Table tables} of the database. Returned array have all objects, you may loop over them.
+   * However Returned array have all objects, you may loop over them.
+   * However two PostgreSQL schemas may have same named table. `get` method of
    * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
    * You may also use `getAll` or `get(1234, { key: oid })`.
    */
   @Memoize()
   public get tables(): IndexableArray<Table, "name", "oid", true> {
-    return this._allObjects<"tables">("tables");
+    return this._allObjects<"tables">(false, "tables");
   }
 
   /**
-   * All {@link Entity entities} of the database. Two PostgreSQL schemas may have same named entity. `get` method of
+   * All {@link Entity entities} of the database. Returned array have all objects, you may loop over them.
+   * However two PostgreSQL schemas may have same named entity. `get` method of
    * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
    * You may also use `getAll` or `get(1234, { key: oid })`.
    */
   @Memoize()
   public get entities(): IndexableArray<Entity, "name", "oid", true> {
-    return this._allObjects("entities");
+    return this._allObjects(false, "entities");
   }
 
   /**
-   * All {@link Type types} of the database. Two PostgreSQL schemas may have same named type. `get` method of
+   * All user defined {@link Type types} of the database excluding {@link entity entities} such as
+   * {@link Table table}, {@link Views view} and {@link MaterializedView materialized view} types.
+   * Entities are also composite types in PostgreSQL. To get all types including entites use `typesIncludingEntities` method.
+   * Returned array have all objects, you may loop over them.
+   * However two PostgreSQL schemas may have same named type. `get` method of
    * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
    * You may also use `getAll` or `get(1234, { key: oid })`.
-   * This list includes types originated from entities such as tables, views and materialized views. Entities are also composite types in PostgreSQL.
-   * To exclude types originated from entites use `types` method.
+   *
+   * @see [[typesIncludingEntities]], [[systemTypes]], [[allTypes]]
    */
   @Memoize()
-  public get types(): IndexableArray<Type, "name", "oid" | "classOid", true> {
-    return this._allObjects<"types", "classOid">("types", "classOid");
+  public get types(): IndexableArray<Type, "name", "oid" | "classOid" | "arrayOid" | "internalName", true> {
+    return this._allObjects<"types", "classOid">(false, "types", "classOid", "arrayOid", "internalName");
   }
 
   /**
-   * All {@link Type types} of the database. Two PostgreSQL schemas may have same named type. `get` method of
+   * All user defined {@link Type types} of the database including {@link entity entities} such as
+   * {@link Table table}, {@link Views view} and {@link MaterializedView materialized view} types.
+   * Entities are also composite types in PostgreSQL. To get all types excluding entites use `types` method.
    * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
    * You may also use `getAll` or `get(1234, { key: oid })`.
-   * This list excludes types originated from entities such as tables, views and materialized views. Entities are also composite types in PostgreSQL.
-   * To get all types including entites use `typesIncludingEntities` method.
+   *
+   * @see [[types]], [[systemTypes]], [[allTypes]]
    */
   @Memoize()
-  public get typesIncludingEntities(): IndexableArray<Type, "name", "oid" | "classOid", true> {
-    return this._allObjects<"types", "classOid", "typesIncludingEntities">("typesIncludingEntities", "classOid");
+  public get typesIncludingEntities(): IndexableArray<Type, "name", "oid" | "classOid" | "arrayOid" | "internalName", true> {
+    return this._allObjects<"types", "classOid", "typesIncludingEntities">(
+      false,
+      "typesIncludingEntities",
+      "classOid",
+      "arrayOid",
+      "internalName"
+    );
   }
 
   /**
-   * All {@link Index indexes} of the database. Two PostgreSQL schemas may have same named index. `get` method of
+   * All system {@link Type types} of the database. Returned array have all objects, you may loop over them.
+   * However two PostgreSQL schemas may have same named type. `get` method of
+   * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
+   * You may also use `getAll` or `get(1234, { key: oid })`.
+   *
+   * @see [[types]], [[typesIncludingEntities]], [[allTypes]]
+   */
+  @Memoize()
+  public get systemTypes(): IndexableArray<Type, "name", "oid" | "classOid" | "arrayOid" | "internalName", true> {
+    return this._allObjects<"types", "classOid", "typesIncludingEntities">(
+      true,
+      "typesIncludingEntities",
+      "classOid",
+      "arrayOid",
+      "internalName"
+    );
+  }
+
+  /**
+   * All {@link Type types} of the database including system types and {@link entity entities}.
+   * Returned array have all objects, you may loop over them.
+   * However two PostgreSQL schemas may have same named type. `get` method of
+   * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
+   * You may also use `getAll` or `get(1234, { key: oid })`.
+   *
+   * @see [[types]], [[typesIncludingEntities]], [[systemTypes]]
+   */
+  @Memoize()
+  public get allTypes(): IndexableArray<Type, "name", "oid" | "classOid" | "arrayOid" | "internalName", true> {
+    return this.typesIncludingEntities.concat(this.systemTypes);
+  }
+
+  /**
+   * All {@link Index indexes} of the database. Returned array have all objects, you may loop over them.
+   * However two PostgreSQL schemas may have same named index. `get` method of
    * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
    * You may also use `getAll` or `get(1234, { key: oid })`.
    */

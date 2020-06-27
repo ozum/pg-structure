@@ -14,6 +14,7 @@ import View from "./entity/view";
 /** @ignore */
 export interface ColumnConstructorArgs extends DbObjectConstructorArgs {
   parent: Entity | CompositeType;
+  typeOid: number;
   notNull: boolean;
   sqlType: string;
   arrayDimension: number;
@@ -30,9 +31,11 @@ export default class Column extends DbObject {
     super(args);
 
     this.parent = args.parent;
-    const { schema, typeName, length, precision, scale } = parseSQLType(this.db, args.sqlType);
+    const { schema: typeSchema, typeName, length, precision, scale } = parseSQLType(this.db, args.sqlType);
     this.notNull = args.notNull;
-    this.type = schema.typesIncludingEntities.getMaybe(typeName, { key: "shortName" }) || schema.typesIncludingEntities.get(typeName);
+    // if (typeName === "numeric") console.log(args.name);
+    this.type =
+      typeSchema.typesIncludingEntities.getMaybe(typeName, { key: "internalName" }) || typeSchema.typesIncludingEntities.get(typeName);
     this.length = length;
     this.precision = precision;
     this.scale = scale;

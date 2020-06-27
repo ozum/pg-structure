@@ -1717,7 +1717,7 @@
 			<Company/>
 			<Version>1.0.0</Version>
 			<CreatedDate>2019-09-20T15:01:10.170+03:00</CreatedDate>
-			<ModifiedDate>2020-06-25T20:48:53.999+03:00</ModifiedDate>
+			<ModifiedDate>2020-06-27T21:14:11.072+03:00</ModifiedDate>
 			<Project>pg-structrue-test</Project>
 			<Description/>
 		</ModelTitlePG100>
@@ -1779,6 +1779,8 @@
 				<Id>{BD1E57C1-207F-48FE-BAEE-DF36B322A0DB}</Id>
 				<Id>{927F146A-57DC-4A2C-A375-6A4E0A0E4245}</Id>
 				<Id>{ABD6108F-B821-41FE-8D15-5FE43257C836}</Id>
+				<Id>{B953F2ED-4EF8-45E6-9F13-AB25BE4CE952}</Id>
+				<Id>{206F553E-9F43-4BB8-AE1A-79982A566408}</Id>
 			</SelectedObjects>
 			<OrderSettings>
 				<OrderSettingsPG100 ObjectType="1071" CSAOName="OrderSettingsPG100" CSAOCaption="Order Settings">
@@ -1965,7 +1967,7 @@
 	</CodeGenerators>
 	<DefaultDataSources>
 		<DefaultDataSourceConvertorPG100 ObjectType="1068" CSAOName="DefaultDataSourceConvertorPG100" CSAOCaption="DefaultDataSourceConvertor">
-			<Id>{9996E1F6-EEB6-46A5-9E2F-2D5A12045FA0}</Id>
+			<Id>{41AD6DF8-6B2E-490D-9293-BA2AC772B012}</Id>
 			<Name/>
 			<Ordinal>0</Ordinal>
 			<GlobalOrder>0</GlobalOrder>
@@ -2105,6 +2107,8 @@
 		&lt;Id&gt;{BD1E57C1-207F-48FE-BAEE-DF36B322A0DB}&lt;/Id&gt;&#13;
 		&lt;Id&gt;{927F146A-57DC-4A2C-A375-6A4E0A0E4245}&lt;/Id&gt;&#13;
 		&lt;Id&gt;{ABD6108F-B821-41FE-8D15-5FE43257C836}&lt;/Id&gt;&#13;
+		&lt;Id&gt;{B953F2ED-4EF8-45E6-9F13-AB25BE4CE952}&lt;/Id&gt;&#13;
+		&lt;Id&gt;{206F553E-9F43-4BB8-AE1A-79982A566408}&lt;/Id&gt;&#13;
 	&lt;/SelectedObjects&gt;&#13;
 	&lt;OrderSettings&gt;&#13;
 		&lt;OrderSettingsPG100 ObjectType="1071" CSAOName="OrderSettingsPG100" CSAOCaption="Order Settings"&gt;&#13;
@@ -10252,7 +10256,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<CompositeTypeList>"field1" int4,&#13;
 "field2" Timestamp(0) with time zone,&#13;
 "field3" udt_enum,&#13;
-"field4" other_schema.udt_composite[][]&#13;</CompositeTypeList>
+"field4" other_schema.udt_composite[][]</CompositeTypeList>
 			<Default/>
 			<Delimiter/>
 			<Element/>
@@ -10313,7 +10317,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			</Attributes>
 			<Alignment>int4</Alignment>
 			<CompositeTypeList>"o_field_1" Numeric,&#13;
-"o_field_2" udt_range[]&#13;</CompositeTypeList>
+"o_field_2" udt_range[]</CompositeTypeList>
 			<Default/>
 			<Delimiter/>
 			<Element/>
@@ -12002,6 +12006,131 @@ $$</SQL>
 			<Window>0</Window>
 			<Parallel>UNSAFE</Parallel>
 		</PERFunctionPG100>
+		<PERFunctionPG100 ObjectType="2028" CSAOName="PERFunctionPG100" CSAOCaption="Function">
+			<Id>{6EF3C75D-351F-441F-9D48-FB25D5FC7276}</Id>
+			<Name>record_returning_function</Name>
+			<Ordinal>0</Ordinal>
+			<GlobalOrder>0</GlobalOrder>
+			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+			<RNOffset>0</RNOffset>
+			<RNLength>0</RNLength>
+			<IgnoreNC>0</IgnoreNC>
+			<VerifyState>1</VerifyState>
+			<GenerateCode>1</GenerateCode>
+			<BeforeScript/>
+			<AfterScript/>
+			<Notes/>
+			<Comments>Function description</Comments>
+			<SQL>BEGIN&#13;
+    /*function_body*/&#13;
+END</SQL>
+			<Caption>record_returning_function</Caption>
+			<GenerateSQLOnly>0</GenerateSQLOnly>
+			<Schema/>
+			<DbOwner/>
+			<ArgumentList> arg1 integer,&#13;
+  arg2 numeric,&#13;
+  out arg3 other_schema.udt_composite [],&#13;
+  inout "argIO" text,&#13;
+  out "argOut" other_schema.cart,&#13;
+  boolean,&#13;
+  out money,&#13;
+  inout "argIO2" text [] = '{[''a'',''b'']}'::text[],&#13;
+  variadic "argVar" integer [] = '{1,2}'::integer[]</ArgumentList>
+			<CLinkSymbol/>
+			<CObjFile/>
+			<IsSecurityDefiner>0</IsSecurityDefiner>
+			<IsStrict>0</IsStrict>
+			<Language>plpgsql</Language>
+			<Returns>RECORD</Returns>
+			<UserDefinedLanguage/>
+			<Volatility>VOLATILE</Volatility>
+			<Cost/>
+			<Leakproof>0</Leakproof>
+			<Rows/>
+			<Window>0</Window>
+			<Parallel>UNSAFE</Parallel>
+		</PERFunctionPG100>
+		<PERFunctionPG100 ObjectType="2028" CSAOName="PERFunctionPG100" CSAOCaption="Function">
+			<Id>{B953F2ED-4EF8-45E6-9F13-AB25BE4CE952}</Id>
+			<Name>array_returning_function</Name>
+			<Ordinal>0</Ordinal>
+			<GlobalOrder>0</GlobalOrder>
+			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+			<RNOffset>0</RNOffset>
+			<RNLength>0</RNLength>
+			<IgnoreNC>0</IgnoreNC>
+			<VerifyState>1</VerifyState>
+			<GenerateCode>1</GenerateCode>
+			<BeforeScript/>
+			<AfterScript/>
+			<Notes/>
+			<Comments/>
+			<SQL>BEGIN&#13;
+    /*function_body*/&#13;
+END</SQL>
+			<Caption>array_returning_function</Caption>
+			<GenerateSQLOnly>0</GenerateSQLOnly>
+			<Schema/>
+			<DbOwner/>
+			<ArgumentList> integer</ArgumentList>
+			<CLinkSymbol/>
+			<CObjFile/>
+			<IsSecurityDefiner>0</IsSecurityDefiner>
+			<IsStrict>0</IsStrict>
+			<Language>plpgsql</Language>
+			<Returns>Integer[]</Returns>
+			<UserDefinedLanguage/>
+			<Volatility>VOLATILE</Volatility>
+			<Cost/>
+			<Leakproof>0</Leakproof>
+			<Rows/>
+			<Window>0</Window>
+			<Parallel>UNSAFE</Parallel>
+		</PERFunctionPG100>
+		<PERFunctionPG100 ObjectType="2028" CSAOName="PERFunctionPG100" CSAOCaption="Function">
+			<Id>{206F553E-9F43-4BB8-AE1A-79982A566408}</Id>
+			<Name>trigger_returning_function</Name>
+			<Ordinal>0</Ordinal>
+			<GlobalOrder>0</GlobalOrder>
+			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+			<RNOffset>0</RNOffset>
+			<RNLength>0</RNLength>
+			<IgnoreNC>0</IgnoreNC>
+			<VerifyState>1</VerifyState>
+			<GenerateCode>1</GenerateCode>
+			<BeforeScript/>
+			<AfterScript/>
+			<Notes/>
+			<Comments/>
+			<SQL>BEGIN&#13;
+    /*function_body*/&#13;
+END</SQL>
+			<Caption>trigger_returning_function</Caption>
+			<GenerateSQLOnly>0</GenerateSQLOnly>
+			<Schema/>
+			<DbOwner/>
+			<ArgumentList/>
+			<CLinkSymbol/>
+			<CObjFile/>
+			<IsSecurityDefiner>0</IsSecurityDefiner>
+			<IsStrict>0</IsStrict>
+			<Language>plpgsql</Language>
+			<Returns>trigger</Returns>
+			<UserDefinedLanguage/>
+			<Volatility>VOLATILE</Volatility>
+			<Cost/>
+			<Leakproof>0</Leakproof>
+			<Rows/>
+			<Window>0</Window>
+			<Parallel>UNSAFE</Parallel>
+		</PERFunctionPG100>
 	</Functions>
 	<MaterializedViews>
 		<PERMaterializedViewPG100 ObjectType="2035" CSAOName="PERMaterializedViewPG100" CSAOCaption="Materialized View">
@@ -12025,13 +12154,23 @@ $$</SQL>
 			<SQL>
 <![CDATA[AS
 
+
+
 SELECT
+
+
 
   cart.id AS cart_id,
 
+
+
   contact.id AS contact_id
 
+
+
 FROM other_schema.cart
+
+
 
 INNER JOIN public.contact ON public.contact.id = other_schema.cart.contact_id]]>
 			</SQL>

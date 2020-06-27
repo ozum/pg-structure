@@ -9,6 +9,8 @@ import CompositeType from "./type/composite-type";
 import Type from "./base/type";
 import DbObject, { DbObjectConstructorArgs } from "./base/db-object";
 import MaterializedView from "./entity/materialized-view";
+import Func from "./base/func";
+import { Procedure, NormalFunction, AggregateFunction, WindowFunction } from "..";
 
 /** @ignore */
 export interface SchemaConstructorArgs extends DbObjectConstructorArgs {
@@ -88,6 +90,77 @@ export default class Schema extends DbObject {
   public readonly materializedViews: IndexableArray<MaterializedView, "name", never, true> = IndexableArray.throwingFrom([], "name");
 
   /**
+   * All {@link Function functions} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
+   *
+   * @example
+   * const functionArray   = schema.functions;
+   * const isAvailable     = schema.functions.has('some_function');
+   * const function        = schema.functions.get('some_function');
+   * const name            = function.name;
+   *
+   * schema.tables.forEach(table => console.log(table.name));
+   */
+  @Memoize()
+  public get functions(): IndexableArray<Func, "name", never, true> {
+    return IndexableArray.throwingFrom(
+      [...this.normalFunctions, ...this.procedures, ...this.aggregateFunctions, ...this.windowFunctions],
+      "name"
+    );
+  }
+
+  /**
+   * All {@link NormalFunction normalFunctions} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
+   *
+   * @example
+   * const functionArray   = schema.normalFunctions;
+   * const isAvailable     = schema.normalFunctions.has('some_function');
+   * const function        = schema.normalFunctions.get('some_function');
+   * const name            = normalFunctions.name;
+   *
+   * schema.tables.forEach(table => console.log(table.name));
+   */
+  public readonly normalFunctions: IndexableArray<NormalFunction, "name", never, true> = IndexableArray.throwingFrom([], "name");
+
+  /**
+   * All {@link Procedure procedures} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
+   *
+   * @example
+   * const functionArray   = schema.procedures;
+   * const isAvailable     = schema.procedures.has('some_procedure');
+   * const function        = schema.procedures.get('some_procedure');
+   * const name            = procedures.name;
+   *
+   * schema.tables.forEach(table => console.log(table.name));
+   */
+  public readonly procedures: IndexableArray<Procedure, "name", never, true> = IndexableArray.throwingFrom([], "name");
+
+  /**
+   * All {@link AggregateFunction aggregateFunctions} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
+   *
+   * @example
+   * const functionArray   = schema.aggregateFunctions;
+   * const isAvailable     = schema.aggregateFunctions.has('some_function');
+   * const function        = schema.aggregateFunctions.get('some_function');
+   * const name            = aggregateFunctions.name;
+   *
+   * schema.tables.forEach(table => console.log(table.name));
+   */
+  public readonly aggregateFunctions: IndexableArray<AggregateFunction, "name", never, true> = IndexableArray.throwingFrom([], "name");
+
+  /**
+   * All {@link WindowFunction windowFunctions} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
+   *
+   * @example
+   * const functionArray   = schema.windowFunctions;
+   * const isAvailable     = schema.windowFunctions.has('some_function');
+   * const function        = schema.windowFunctions.get('some_function');
+   * const name            = windowFunctions.name;
+   *
+   * schema.tables.forEach(table => console.log(table.name));
+   */
+  public readonly windowFunctions: IndexableArray<WindowFunction, "name", never, true> = IndexableArray.throwingFrom([], "name");
+
+  /**
    * All {@link Type custom database types} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
    * This list includes types originated from entities such as tables, views and materialized views. Entities are also composite types in PostgreSQL.
    * To exclude types originated from entites use `types` method.
@@ -98,11 +171,12 @@ export default class Schema extends DbObject {
    * const type         = schema.typesIncludingEntities.get('address');
    * const columns      = type.columns;
    */
-  public readonly typesIncludingEntities: IndexableArray<Type, "name", "shortName", true> = IndexableArray.throwingFrom(
-    [],
+  public readonly typesIncludingEntities: IndexableArray<
+    Type,
     "name",
-    "shortName"
-  );
+    "oid" | "classOid" | "internalName",
+    true
+  > = IndexableArray.throwingFrom([], "name", "oid", "classOid", "internalName");
 
   /**
    * All {@link Type custom database types} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
@@ -116,11 +190,8 @@ export default class Schema extends DbObject {
    * const columns      = type.columns;
    */
   @Memoize()
-  public get types(): IndexableArray<Type, "name", "shortName", true> {
-    return this.typesIncludingEntities.filter((type) => {
-      // console.log(type.name, type instanceof CompositeType, (type as CompositeType).relationKind === "c");
-      return !(type instanceof CompositeType) || (type as CompositeType).relationKind === "c";
-    });
+  public get types(): IndexableArray<Type, "name", "oid" | "classOid" | "internalName", true> {
+    return this.typesIncludingEntities.filter((type) => !(type instanceof CompositeType) || (type as CompositeType).relationKind === "c");
   }
 
   /**

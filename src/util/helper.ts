@@ -5,23 +5,15 @@ import { join } from "path";
 import memoize from "fast-memoize";
 import { JSONData } from "../types/json";
 import { CaseType } from "../types";
-import { TypeQueryResult, EntityQueryResult, ColumnQueryResult, IndexQueryResult, ConstraintQueryResult } from "../types/query-result";
+import { SQLFileResult } from "../types/query-result";
 import Schema from "../pg-structure/schema";
 import Db from "../pg-structure/db";
-import BuiltInType from "../pg-structure/type/built-in-type";
 import Table from "../pg-structure/entity/table";
 import M2MRelation from "../pg-structure/relation/m2m-relation";
 import memoizeSerializer from "./memoize-serializer";
+import { Type } from "..";
 
 const { readFile, readdir } = fs.promises;
-
-interface SQLFileResult {
-  "type.sql": TypeQueryResult[];
-  "entity.sql": EntityQueryResult[];
-  "column.sql": ColumnQueryResult[];
-  "index.sql": IndexQueryResult[];
-  "constraint.sql": ConstraintQueryResult[];
-}
 
 /**
  * Extracts JSON5 between given tokens such as `[pg-structure]` and `[/pg-structure]` tags,
@@ -123,15 +115,17 @@ export function majorVersionOf(version: string): number {
 }
 
 /**
- * Returns sorted PostgreSQL versions of provided SQL queries.
+ * Returns sorted query versions available which are less than or equal to provided server version.
  *
  * @ignore
  * @returns sorted versions.
+ * @example
+ * getQueryVersionFor(11); // ["11", "9"]
  */
-export async function getQueryVersionFor(serverVersion: string): Promise<string> {
-  const dirs = await readdir(join(__dirname, "../../module-files/sql"));
+export async function getQueryVersionFor(serverVersion: string): Promise<string[]> {
   const major = majorVersionOf(serverVersion);
-  return dirs.reduce((version, dir) => (Number.isNaN(Number(dir)) || Number(dir) > major || version < dir ? version : dir), "9");
+  const dirs = await readdir(join(__dirname, "../../module-files/sql"));
+  return dirs.filter((dir) => Number.isInteger(Number(dir)) && major >= Number(dir)).sort((a, b) => Number(b) - Number(a));
 }
 
 /**
@@ -145,13 +139,26 @@ export async function getQueryVersionFor(serverVersion: string): Promise<string>
  * @returns void promise
  */
 export async function executeSqlFile<K extends keyof SQLFileResult>(
-  queryVersion: string,
+  queryVersions: string[],
   file: K,
   client: Client,
   schemas: any[]
 ): Promise<SQLFileResult[K]> {
-  const filePath = join(__dirname, "../../module-files/sql", queryVersion, file);
-  const sql = await readFile(filePath, "utf8");
+  let sql: string | undefined;
+
+  // Find first compatible version of the sql file.
+  // eslint-disable-next-line no-restricted-syntax
+  for (const queryVersion of queryVersions) {
+    try {
+      const filePath = join(__dirname, "../../module-files/sql", queryVersion, `${file}.sql`);
+      sql = await readFile(filePath, "utf8"); // eslint-disable-line no-await-in-loop
+      break; // End if found.
+    } catch (error) {
+      /* istanbul ignore if */
+      if (error.code !== "ENOENT") throw error;
+    }
+  }
+  if (!sql) throw new Error(`Cannot find ${file}.sql in versions less than server version: ${queryVersions.join(", ")}`);
   const result = await client.query(sql, [schemas]);
   return result.rows;
 }
@@ -253,6 +260,7 @@ export function parseSQLType(
   db: Db,
   sqlType: string
 ): { schema: Schema; typeName: string; length?: number; precision?: number; scale?: number } {
+  let builtInType: Type | undefined;
   const modifierRegExp = /\((.+?)\)/;
   const match = modifierRegExp.exec(sqlType); // Match modifiers such as (1,2) or (2)
   const modifiers = match ? match[1].split(",").map((n) => parseInt(n, 10)) : [];
@@ -262,11 +270,14 @@ export function parseSQLType(
     .split(".");
   const schemaName = parts.length === 2 ? unquote(parts[0]) : undefined;
   const typeName = unquote(parts.length === 2 ? parts[1] : parts[0]);
-  const builtInType = !schemaName
-    ? (db._systemSchema.typesIncludingEntities.getMaybe(typeName) as BuiltInType) ||
-      (db._systemSchema.typesIncludingEntities.getMaybe(typeName, { key: "shortName" }) as BuiltInType)
-    : undefined;
-  const schema = builtInType ? db._systemSchema : (db.schemas.get(schemaName || "public") as Schema);
+
+  if (!schemaName) builtInType = db.systemTypes.getMaybe(typeName, { key: "internalName" }) || db.systemTypes.getMaybe(typeName);
+  const schema = builtInType ? builtInType.schema : db.schemas.get(schemaName || "public");
+
+  if (typeName === "numeric") {
+    // console.log(typeName, builtInType?.name, builtInType?.hasPrecision, builtInType?.hasScale, builtInType?.hasLength);
+    // console.log(typeName, builtInType);
+  }
 
   return {
     schema,

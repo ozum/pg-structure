@@ -44,8 +44,6 @@ export default class Domain extends Type {
 
   /** Data type of the domain. */
   public get type(): Type {
-    // const { schemaName, typeName } = parseSQLType(this._sqlType);
-    // const schema = (schemaName ? this.db.schemas.get(schemaName) : this.db.systemSchema) as Schema;
     return this._baseTypeSchema.typesIncludingEntities.get(this._baseTypeName) as Type;
   }
 

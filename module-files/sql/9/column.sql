@@ -1,5 +1,6 @@
 SELECT
   a.attrelid AS "parentOid",
+  a.atttypid AS "typeOid",
   a.attnum AS "attributeNumber",
   c.relkind AS "parentKind", -- r: table, i: index, S: sequence, t: TOAST table, v: view, m: materialized view, c: composite type, f: foreign table, p: partitioned table, I: partitioned index
   a.attname AS "name",

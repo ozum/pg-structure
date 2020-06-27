@@ -1,11 +1,15 @@
 import memoize from "fast-memoize";
-import { unquote, replaceTypeCast, parseEnumValues, getRelationsMarkdown } from "../../src/util/helper";
+import { unquote, replaceTypeCast, parseEnumValues, getRelationsMarkdown, executeSqlFile } from "../../src/util/helper";
 import memoizeSerializer from "../../src/util/memoize-serializer";
 import strip from "../../src/util/strip";
 import getDb from "../test-helper/get-db";
 import { Db } from "../../src";
 
 let db: Db;
+
+const mockClient = {
+  query: async (sql?: string) => ({ rows: sql ? [] : undefined }),
+};
 
 beforeAll(async () => {
   db = await getDb();
@@ -59,5 +63,22 @@ describe("strip()", () => {
 describe("parseEnumValues()", () => {
   it("should return empty array for unmatched atrings.", () => {
     expect(parseEnumValues("x")).toEqual([]);
+  });
+});
+
+describe("executeSqlFile", () => {
+  it("should execute query file", async () => {
+    const result = await executeSqlFile(["11", "9"], "function", mockClient as any, ["public"]);
+    expect(result).toEqual([]);
+  });
+
+  it("should execute query file which best fits for given server version", async () => {
+    const result = await executeSqlFile(["11", "9"], "type", mockClient as any, ["public"]);
+    expect(result).toEqual([]);
+  });
+
+  it("should throw if sutiable file cannot be found", async () => {
+    const result = executeSqlFile(["11", "9"], "xyz" as any, mockClient as any, ["public"]);
+    await expect(result).rejects.toThrow("Cannot find xyz.sql");
   });
 });
