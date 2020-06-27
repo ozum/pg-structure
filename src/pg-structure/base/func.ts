@@ -44,6 +44,7 @@ function getType(db: Db, oid: number): [Type, boolean] {
   return [db.allTypes.get(oid, { key: "arrayOid" }), true];
 }
 
+/** @ignore */
 const argumentModeLetterMap: Record<ArgumentModeLetter, ArgumentMode> = {
   i: "in",
   b: "inout",
@@ -53,7 +54,7 @@ const argumentModeLetterMap: Record<ArgumentModeLetter, ArgumentMode> = {
 };
 
 /**
- * Class which represent a PostgreSQL ({@link Function function}.
+ * Class which represent a PostgreSQL ({@link Func function}.
  * Provides attributes and methods for details of the function.
  * Class name is `Func` instead of `Function`, because `Function` is a reserved word in JavaScript,
  * and cannot be used as a class name.
