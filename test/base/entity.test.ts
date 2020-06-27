@@ -31,7 +31,7 @@ describe("Entity", () => {
   });
 
   it("should have columns.", () => {
-    expect(entity.columns.map(c => c.name)).toEqual(["cart_id", "contact_id"]);
+    expect(entity.columns.map((c) => c.name)).toEqual(["cart_id", "contact_id"]);
   });
 
   it("should detect snake case names.", () => {

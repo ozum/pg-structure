@@ -1,4 +1,4 @@
-import { TypeCategory, Volatility, ParallelSafety, ArgumentMode } from "./index";
+import { TypeCategory, Volatility, ParallelSafety } from "./index";
 /** @ignore */
 export type EntityTypeLetter = "r" | "i" | "S" | "t" | "v" | "m" | "c" | "f" | "p" | "I"; // r = ordinary table, i = index, S = sequence, t = TOAST table, v = view, m = materialized view, c = composite type, f = foreign table, p = partitioned table, I = partitioned index
 /** @ignore */
