@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.2.2](https://github.com/ozum/pg-structure/compare/v7.2.1...v7.2.2) (2020-06-27)
+
+
+### Bug Fixes
+
+* delete unused file ([ed88f07](https://github.com/ozum/pg-structure/commit/ed88f07937648c0d3737865e8ce597ed8a9b9f23))
+
 ### [7.2.1](https://github.com/ozum/pg-structure/compare/v7.2.0...v7.2.1) (2020-06-27)
 
 
