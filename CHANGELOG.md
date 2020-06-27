@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.2.0](https://github.com/ozum/pg-structure/compare/v7.1.0...v7.2.0) (2020-06-27)
+
+
+### Features
+
+* support PostgreSQL functions, version based SQL queries ([9c68415](https://github.com/ozum/pg-structure/commit/9c6841562f58458184660712185142d5ac2cf5b1))
+
 ## [7.1.0](https://github.com/ozum/pg-structure/compare/v7.0.0...v7.1.0) (2020-06-26)
 
 
