@@ -95,3 +95,15 @@ export type ParallelSafety = "safe" | "unsafe" | "restricted";
 
 /** Modes of the PostgreSQL function arguments. */
 export type ArgumentMode = "in" | "inout" | "out" | "variadic" | "table";
+
+/** whether the trigger fires once for each processed row or once for each statement. */
+export type TriggerOrientation = "row" | "statement";
+
+/** Time at which the trigger fires */
+export type TriggerTiming = "before" | "after" | "insteadOf";
+
+/** Event that fires the trigger */
+export type TriggerEvent = "insert" | "delete" | "update" | "truncate";
+
+/** In which session_replication_role modes the trigger fires. */
+export type TriggerEnabled = "origin" | "disabled" | "replica" | "always";

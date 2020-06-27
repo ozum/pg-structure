@@ -2,6 +2,7 @@ import IndexableArray from "indexable-array";
 import { Memoize } from "@typescript-plus/fast-memoize-decorator/dist/src";
 import Entity from "../base/entity";
 import Constraint from "../base/constraint";
+import Trigger from "../trigger";
 import PrimaryKey from "../constraint/primary-key";
 import ForeignKey from "../constraint/foreign-key";
 import M2ORelation from "../relation/m2o-relation";
@@ -23,6 +24,11 @@ import { getForeignKeysTo } from "../../util/helper";
  * ![Database Schema](/images/schema-through.png)
  */
 export default class Table extends Entity {
+  /**
+   * All {@link Trigger triggers} in the table as an [[IndexableArray]] ordered by name.
+   */
+  public readonly triggers: IndexableArray<Trigger, "name", never, true> = IndexableArray.throwingFrom([], "name");
+
   /**
    * All {@link Constraint constraints} in the table as an [[IndexableArray]] ordered by name.
    */

@@ -1717,7 +1717,7 @@
 			<Company/>
 			<Version>1.0.0</Version>
 			<CreatedDate>2019-09-20T15:01:10.170+03:00</CreatedDate>
-			<ModifiedDate>2020-06-27T21:14:11.072+03:00</ModifiedDate>
+			<ModifiedDate>2020-06-27T23:34:37.408+03:00</ModifiedDate>
 			<Project>pg-structrue-test</Project>
 			<Description/>
 		</ModelTitlePG100>
@@ -2304,7 +2304,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{3BD73C49-268C-41B4-8086-F04F91D39100}</Id>
 			<Name>type_table</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>13</GlobalOrder>
+			<GlobalOrder>27</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -3935,7 +3935,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{77F6428F-D9B0-493A-8770-C0CEEA161D5F}</Id>
 			<Name>account</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>22</GlobalOrder>
+			<GlobalOrder>21</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -4652,6 +4652,39 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RefNewTable/>
 					<RefOldTable/>
 				</PERTriggerEntityPG100>
+				<PERTriggerEntityPG100 ObjectType="2016" CSAOName="PERTriggerEntityPG100" CSAOCaption="Entity Trigger">
+					<Id>{3E3F2263-273E-4856-AADC-28F6F12FE3D1}</Id>
+					<Name>account_trigger</Name>
+					<Ordinal>0</Ordinal>
+					<GlobalOrder>0</GlobalOrder>
+					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+					<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+					<RNOffset>0</RNOffset>
+					<RNLength>0</RNLength>
+					<IgnoreNC>0</IgnoreNC>
+					<VerifyState>1</VerifyState>
+					<GenerateCode>1</GenerateCode>
+					<Notes/>
+					<Comments/>
+					<SQL/>
+					<Caption>account_trigger</Caption>
+					<GenerateSQLOnly>0</GenerateSQLOnly>
+					<EachRow>1</EachRow>
+					<EventDelete>1</EventDelete>
+					<EventInsert>1</EventInsert>
+					<EventUpdate>1</EventUpdate>
+					<Fire>BEFORE</Fire>
+					<Function>
+						<Id>{206F553E-9F43-4BB8-AE1A-79982A566408}</Id>
+					</Function>
+					<FunctionArguments>'arg1', 'arg2'</FunctionArguments>
+					<EventTruncate>0</EventTruncate>
+					<EventUpdateColumns>"name", "c"</EventUpdateColumns>
+					<WhenCondition>1 = 1</WhenCondition>
+					<RefNewTable/>
+					<RefOldTable/>
+				</PERTriggerEntityPG100>
 			</Triggers>
 			<DbOwner/>
 			<Schema/>
@@ -4703,7 +4736,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{454A32C2-B0C2-4793-B856-2AEFE75F8281}</Id>
 			<Name>cart</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>14</GlobalOrder>
+			<GlobalOrder>13</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -5160,7 +5193,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{CCD57860-92D5-4233-BE86-AB4995D18E0B}</Id>
 			<Name>product</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>19</GlobalOrder>
+			<GlobalOrder>18</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -5563,7 +5596,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{72935494-556C-40E2-9B18-CBF208CFB7A5}</Id>
 			<Name>cart_line_item</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>15</GlobalOrder>
+			<GlobalOrder>14</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -6147,7 +6180,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{1BA21834-200E-4E3D-ADDE-0B5AE85BCABB}</Id>
 			<Name>product_category</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>20</GlobalOrder>
+			<GlobalOrder>19</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -6511,7 +6544,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{B85B3FBE-60F1-4B17-8A59-5D16A6DB72A5}</Id>
 			<Name>cart</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>23</GlobalOrder>
+			<GlobalOrder>22</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -6863,7 +6896,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{EBD929D3-9D19-48CE-8402-357F7E2EB26A}</Id>
 			<Name>contact</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>24</GlobalOrder>
+			<GlobalOrder>23</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -7296,7 +7329,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{F05B220C-D554-4AA7-B5B5-18B8B1B20D4A}</Id>
 			<Name>message</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>18</GlobalOrder>
+			<GlobalOrder>17</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -8023,7 +8056,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{B328E431-347E-44CB-8F75-85E3EA539FE6}</Id>
 			<Name>class_registry</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>17</GlobalOrder>
+			<GlobalOrder>16</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -8578,7 +8611,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{49D7C092-3215-4A0D-BAB4-0C819B269EC0}</Id>
 			<Name>class</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>16</GlobalOrder>
+			<GlobalOrder>15</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -8973,7 +9006,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{F072937D-7313-4822-BFE0-375C62FA523D}</Id>
 			<Name>student</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>21</GlobalOrder>
+			<GlobalOrder>20</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -9384,7 +9417,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{F35DF47E-FCB1-47B4-B0BA-3779CB39D709}</Id>
 			<Name>Part</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>25</GlobalOrder>
+			<GlobalOrder>24</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -9673,7 +9706,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{E7E6FDF6-3872-4B20-81A3-F3B6DBDACE1C}</Id>
 			<Name>cancelled_item</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>26</GlobalOrder>
+			<GlobalOrder>25</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -9926,7 +9959,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{F8CE5D40-52E6-42D6-8851-3D51B6D0338C}</Id>
 			<Name>PartGroup</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>27</GlobalOrder>
+			<GlobalOrder>26</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -12010,7 +12043,7 @@ $$</SQL>
 			<Id>{6EF3C75D-351F-441F-9D48-FB25D5FC7276}</Id>
 			<Name>record_returning_function</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>0</GlobalOrder>
+			<GlobalOrder>30</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -12057,7 +12090,7 @@ END</SQL>
 			<Id>{B953F2ED-4EF8-45E6-9F13-AB25BE4CE952}</Id>
 			<Name>array_returning_function</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>0</GlobalOrder>
+			<GlobalOrder>31</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -12096,7 +12129,7 @@ END</SQL>
 			<Id>{206F553E-9F43-4BB8-AE1A-79982A566408}</Id>
 			<Name>trigger_returning_function</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>0</GlobalOrder>
+			<GlobalOrder>32</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -12123,6 +12156,9 @@ END</SQL>
 			<IsStrict>0</IsStrict>
 			<Language>plpgsql</Language>
 			<Returns>trigger</Returns>
+			<TriggerEntities>
+				<Id>{3E3F2263-273E-4856-AADC-28F6F12FE3D1}</Id>
+			</TriggerEntities>
 			<UserDefinedLanguage/>
 			<Volatility>VOLATILE</Volatility>
 			<Cost/>

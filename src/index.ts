@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Client, ClientConfig } from "pg";
 import { parse } from "pg-connection-string";
+import { Action, MatchType, RelationNameFunctions, BuiltinRelationNameFunctions } from "./types/index";
 import {
   SchemaQueryResult,
   TypeQueryResult,
@@ -12,6 +13,7 @@ import {
   MatchTypeLetter,
   QueryResults,
   FunctionQueryResult,
+  TriggerQueryResult,
 } from "./types/query-result";
 import { executeSqlFile, getPgClient, getQueryVersionFor } from "./util/helper";
 import Db from "./pg-structure/db";
@@ -32,13 +34,14 @@ import UniqueConstraint from "./pg-structure/constraint/unique-constraint";
 import CheckConstraint from "./pg-structure/constraint/check-constraint";
 import ExclusionConstraint from "./pg-structure/constraint/exclusion-constraint";
 import ForeignKey from "./pg-structure/constraint/foreign-key";
-import { Action, MatchType, RelationNameFunctions, BuiltinRelationNameFunctions } from "./types";
+
 import RangeType from "./pg-structure/type/range-type";
 import NormalFunction from "./pg-structure/function/normal-function";
 import Procedure from "./pg-structure/function/procedure";
 import AggregateFunction from "./pg-structure/function/aggregate-function";
 import WindowFunction from "./pg-structure/function/window-function";
 import PseudoType from "./pg-structure/type/pseudo-type";
+import Trigger from "./pg-structure/trigger";
 
 export { default as Column } from "./pg-structure/column";
 export { default as Db } from "./pg-structure/db";
@@ -72,6 +75,7 @@ export { default as Procedure } from "./pg-structure/function/procedure";
 export { default as AggregateFunction } from "./pg-structure/function/aggregate-function";
 export { default as FunctionArgument } from "./pg-structure/function-argument";
 export { default as WindowFunction } from "./pg-structure/function/window-function";
+export { default as Trigger } from "./pg-structure/trigger";
 export * from "./types/index";
 
 /** @ignore */
@@ -329,6 +333,20 @@ function addFunctions(db: Db, rows: FunctionQueryResult[]): void {
 }
 
 /**
+ *
+ * @ignore
+ * @param db is DB object.
+ * @param rows are query result of triggers to be added.
+ */
+function addTriggers(db: Db, rows: TriggerQueryResult[]): void {
+  rows.forEach((row) => {
+    const entity = db.entities.get(row.entityOid, { key: "oid" }) as Table | View;
+    const func = db.functions.get(row.functionOid, { key: "oid" });
+    entity.triggers.push(new Trigger({ ...row, function: func, parent: entity }));
+  });
+}
+
+/**
  * Adds constraints to database.
  *
  * @ignore
@@ -412,6 +430,7 @@ async function getQueryResultsFromDb(
     executeSqlFile(queryVersions, "index", client, schemaOids),
     executeSqlFile(queryVersions, "constraint", client, schemaOids),
     executeSqlFile(queryVersions, "function", client, schemaOids),
+    executeSqlFile(queryVersions, "trigger", client, schemaOids),
   ]);
 }
 
@@ -431,6 +450,7 @@ function addObjects(db: Db, queryResults: QueryResults): void {
   addIndexes(db, queryResults[5]);
   addConstraints(db, queryResults[6]);
   addFunctions(db, queryResults[7]);
+  addTriggers(db, queryResults[8]);
 }
 
 /**

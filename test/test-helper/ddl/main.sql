@@ -69,6 +69,20 @@ CREATE DOMAIN "cross_schema_domain" AS "udt_composite"[] NOT NULL
 CREATE DOMAIN "price" AS Numeric(8,2) DEFAULT 1.2 NOT NULL CHECK (VALUE > 0)
 ;
 
+-- Create functions section -------------------------------------------------
+
+CREATE FUNCTION "trigger_returning_function"()
+RETURNS trigger
+  LANGUAGE plpgsql
+  VOLATILE
+AS
+$$
+BEGIN
+    /*function_body*/
+END
+$$
+;
+
 -- Create tables section -------------------------------------------------
 
 -- Table public.cart
@@ -337,6 +351,14 @@ CREATE TRIGGER "account_updated_at"
   EXECUTE PROCEDURE "public"."t_updated_at"()
 ;
 
+CREATE TRIGGER "account_trigger"
+  BEFORE DELETE OR INSERT OR UPDATE OF "name", "c"
+  ON "account"
+  FOR EACH ROW
+  WHEN (1 = 1)
+  EXECUTE PROCEDURE "trigger_returning_function"('arg1', 'arg2')
+;
+
 -- Table other_schema.cart
 
 CREATE TABLE "other_schema"."cart"
@@ -496,6 +518,18 @@ CREATE INDEX "mv_contact_other_schema_cart_cart_id_idx" ON "mv_contact_other_sch
 
 -- Create functions section -------------------------------------------------
 
+CREATE FUNCTION "array_returning_function"(  integer)
+RETURNS Integer[]
+  LANGUAGE plpgsql
+  VOLATILE
+AS
+$$
+BEGIN
+    /*function_body*/
+END
+$$
+;
+
 CREATE FUNCTION "record_returning_function"(  arg1 integer,
   arg2 numeric,
   out arg3 other_schema.udt_composite [],
@@ -516,30 +550,6 @@ END
 $$
 ;
 COMMENT ON FUNCTION "record_returning_function"(arg1 integer, arg2 numeric, OUT arg3 other_schema.udt_composite [], INOUT "argIO" text, OUT "argOut" other_schema.cart, boolean, OUT money, INOUT "argIO2" text [], VARIADIC "argVar" integer []) IS 'Function description'
-;
-
-CREATE FUNCTION "array_returning_function"(  integer)
-RETURNS Integer[]
-  LANGUAGE plpgsql
-  VOLATILE
-AS
-$$
-BEGIN
-    /*function_body*/
-END
-$$
-;
-
-CREATE FUNCTION "trigger_returning_function"()
-RETURNS trigger
-  LANGUAGE plpgsql
-  VOLATILE
-AS
-$$
-BEGIN
-    /*function_body*/
-END
-$$
 ;
 
 -- Create foreign keys (relationships) section -------------------------------------------------

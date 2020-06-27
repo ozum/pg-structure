@@ -91,7 +91,7 @@ export default abstract class Func extends DbObject {
     // this.variadicArgumentType = db.allTypes.get(args.variadicArgumentType, { key: "oid" });
   }
 
-  /** Object identifier for the {@link Entity} */
+  /** Object identifier for the {@link Function} */
   public readonly oid: number;
 
   /** [[Schema]] of the object. */
@@ -152,7 +152,7 @@ export default abstract class Func extends DbObject {
    * Full name of the object with '.' notation including [[Schema]] name.
    *
    * @example
-   * const fullName = entity.fullName; // public.member
+   * const fullName = func.fullName; // public.some_func
    */
   public get fullName(): string {
     return `${this.schema.name}.${this.name}`;

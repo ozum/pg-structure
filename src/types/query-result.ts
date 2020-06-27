@@ -1,4 +1,4 @@
-import { TypeCategory, Volatility, ParallelSafety } from "./index";
+import { TypeCategory, Volatility, ParallelSafety, TriggerOrientation, TriggerTiming, TriggerEvent, TriggerEnabled } from "./index";
 /** @ignore */
 export type EntityTypeLetter = "r" | "i" | "S" | "t" | "v" | "m" | "c" | "f" | "p" | "I"; // r = ordinary table, i = index, S = sequence, t = TOAST table, v = view, m = materialized view, c = composite type, f = foreign table, p = partitioned table, I = partitioned index
 /** @ignore */
@@ -129,6 +129,22 @@ export interface FunctionQueryResult {
 }
 
 /** @ignore */
+export interface TriggerQueryResult {
+  oid: number;
+  schemaOid: number;
+  entityOid: number;
+  name: string;
+  functionOid: number;
+  orientation: TriggerOrientation;
+  timing: TriggerTiming;
+  events: TriggerEvent[];
+  condition: string | null;
+  isEnabled: TriggerEnabled;
+  isDeferrable: boolean;
+  isInitiallyDeferred: boolean;
+}
+
+/** @ignore */
 export type QueryResults = [
   SchemaQueryResult[],
   SchemaQueryResult[],
@@ -137,7 +153,8 @@ export type QueryResults = [
   ColumnQueryResult[],
   IndexQueryResult[],
   ConstraintQueryResult[],
-  FunctionQueryResult[]
+  FunctionQueryResult[],
+  TriggerQueryResult[]
 ];
 
 /** @ignore */
@@ -148,4 +165,5 @@ export interface SQLFileResult {
   index: IndexQueryResult[];
   constraint: ConstraintQueryResult[];
   function: FunctionQueryResult[];
+  trigger: TriggerQueryResult[];
 }

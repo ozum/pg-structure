@@ -12,6 +12,7 @@ import Relation from "./base/relation";
 import { RelationNameFunctions, RelationNameCollision, CollisionsByTable, BuiltinRelationNameFunctions } from "../types";
 import { getDuplicateNames } from "../util/helper";
 import { QueryResults } from "../types/query-result";
+import { Func } from "..";
 
 const packageJson = JSON.parse(readFileSync(join(__dirname, "../../package.json"), { encoding: "utf8" }));
 
@@ -123,7 +124,7 @@ export default class Db {
    * const allTables = db._allObjects(type: "tables");
    */
   private _allObjects<
-    T extends "tables" | "entities" | "views" | "types",
+    T extends "tables" | "entities" | "views" | "types" | "functions",
     E extends string = never,
     A extends T | "typesIncludingEntities" = T
   >(system: boolean, type: A, ...extra: string[]): IndexableArray<any, "name", "oid" | E, true> {
@@ -238,6 +239,17 @@ export default class Db {
       const indexes = schema.tables.reduce((schemaIndexes, table) => schemaIndexes.concat(table.indexes), [] as Index[]);
       return allIndexes.concat(indexes);
     }, IndexableArray.throwingFrom([] as Index[], "name", "oid"));
+  }
+
+  /**
+   * All {@link Entity entities} of the database. Returned array have all objects, you may loop over them.
+   * However two PostgreSQL schemas may have same named entity. `get` method of
+   * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
+   * You may also use `getAll` or `get(1234, { key: oid })`.
+   */
+  @Memoize()
+  public get functions(): IndexableArray<Func, "name", "oid", true> {
+    return this._allObjects(false, "functions");
   }
 
   /**

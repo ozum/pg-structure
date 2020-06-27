@@ -10,6 +10,9 @@ export interface FunctionArgumentConstructorArgs {
   argumentNumber: number;
 }
 
+/**
+ * Class which represent a PostgreSQL {@link Function function} argument. Provides attributes and methods for details of the {@link FunctionArgument function argument}.
+ */
 export default class FunctionArgument {
   /** @ignore */
   public constructor(args: FunctionArgumentConstructorArgs) {
