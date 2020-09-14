@@ -312,6 +312,7 @@ ALTER TABLE "public"."student" ADD CONSTRAINT "Key9" PRIMARY KEY ("first_name","
 CREATE TABLE "account"
 (
   "id" Serial NOT NULL,
+  "temp" integer, -- create a temporary column to drop later so that column.attributeNumber is no longer sequential
   "created_at" Timestamp(0) DEFAULT now() NOT NULL,
   "updated_at" Timestamp(0) DEFAULT now() NOT NULL,
   "name" Character varying(20) DEFAULT 'no_name' NOT NULL,
@@ -342,6 +343,9 @@ ALTER TABLE "account" ADD CONSTRAINT "KeyEntity11" PRIMARY KEY ("id")
 ;
 
 ALTER TABLE "account" ADD CONSTRAINT "account_unique_constraint" UNIQUE ("name","created_at")
+;
+
+ALTER TABLE "account" DROP COLUMN "temp"
 ;
 
 CREATE TRIGGER "account_updated_at"

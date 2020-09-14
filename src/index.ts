@@ -305,7 +305,7 @@ function addIndexes(db: Db, rows: IndexQueryResult[]): void {
 
     row.columnPositions.forEach((position) => {
       // If position is 0, then it's an index attribute that is not simple column references. It is an expression which is stored in indexExpressions.
-      const columnOrExpression = position > 0 ? parent.columns[position - 1] : (indexExpressions.shift() as string);
+      const columnOrExpression = position > 0 ? parent.columns.find((c) => c.attributeNumber === position)! : (indexExpressions.shift() as string);
       index.columnsAndExpressions.push(columnOrExpression);
     });
 
