@@ -160,7 +160,7 @@ export default class Db {
 
   /**
    * All user defined {@link Type types} of the database excluding {@link entity entities} such as
-   * {@link Table table}, {@link Views view} and {@link MaterializedView materialized view} types.
+   * {@link Table table}, {@link Views view}, {@link MaterializedView materialized view} and {@link Sequence sequence} types.
    * Entities are also composite types in PostgreSQL. To get all types including entites use `typesIncludingEntities` method.
    * Returned array have all objects, you may loop over them.
    * However two PostgreSQL schemas may have same named type. `get` method of
@@ -176,7 +176,7 @@ export default class Db {
 
   /**
    * All user defined {@link Type types} of the database including {@link entity entities} such as
-   * {@link Table table}, {@link Views view} and {@link MaterializedView materialized view} types.
+   * {@link Table table}, {@link Views view}, {@link MaterializedView materialized view} and {@link Sequence sequence} types.
    * Entities are also composite types in PostgreSQL. To get all types excluding entites use `types` method.
    * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
    * You may also use `getAll` or `get(1234, { key: oid })`.

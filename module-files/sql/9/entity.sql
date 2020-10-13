@@ -10,7 +10,7 @@ SELECT
 FROM
   pg_class c
 WHERE
-  c.relkind IN ('r', 'v', 'm') -- only tables (r), views (v), materialized views (m)
+  c.relkind IN ('r', 'v', 'm', 'S') -- only tables (r), views (v), materialized views (m), sequences (S)
   AND c.relnamespace = ANY ($1)
 ORDER BY
   c.relnamespace,
