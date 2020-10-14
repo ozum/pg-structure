@@ -13,7 +13,7 @@ export interface UniqueConstraintConstructorArgs extends ConstraintConstructorAr
 /**
  * Class which represent a unique constraint. Provides attributes and methods for details of the constraint.
  * Please note that all unique constraints have a unique index created by PostgreSQL automatically,
- * but unique indexes may not have unqiue constraint.
+ * but unique indexes may not have unique constraint.
  */
 export default class UniqueConstraint extends Constraint {
   /** @ignore */

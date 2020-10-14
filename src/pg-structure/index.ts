@@ -41,7 +41,7 @@ export default class Index extends DbObject {
 
   /**
    * If true, this is a unique index. Please note that all unique constraints have a unique index created by PostgreSQL automatically,
-   * but unique indexes may not have unqiue constraint.
+   * but unique indexes may not have unique constraint.
    */
   public readonly isUnique: boolean;
 

@@ -214,7 +214,7 @@ export function replaceTypeCast(defaultWithTypeCast: string | number | boolean |
 }
 
 /**
- * Checks whether given ddefault value is a serial type.
+ * Checks whether given default value is a serial type.
  *
  * @ignore
  * @param defaultValue is the default value to test whether it is serial type.
@@ -249,11 +249,11 @@ export function unquote(input: string): string {
 }
 
 /**
- * Parses SQL type name returned from `format_type(type_oid, typemod)` PostgrSQL System Information Function.
+ * Parses SQL type name returned from `format_type(type_oid, typemod)` PostgreSQL System Information Function.
  * such as `character varying(20)`, `numeric(3,2)`, `extra_modules."extra-domain"[]`, `timestamp(0) without time zone` etc.
  *
  * @ignore
- * @param sqlType is SQL type name returned from `format_type` PostgrSQL System Information Function.
+ * @param sqlType is SQL type name returned from `format_type` PostgreSQL System Information Function.
  * @returns type details.
  */
 export function parseSQLType(

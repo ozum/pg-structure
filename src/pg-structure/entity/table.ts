@@ -69,7 +69,7 @@ export default class Table extends Entity {
   }
 
   /**
-   * Returns joıin tables between this table and target table.
+   * Returns join tables between this table and target table.
    *
    * @param target is target {@link Table table} to get join tables for. It could be name, full name or {@link Table table} object.
    */
@@ -117,7 +117,7 @@ export default class Table extends Entity {
    *
    * @see {@link Table.primaryKeyColumns primaryKeyColumns} to get primary key columns directly.
    * @example
-   * table.primaryKey.columns.forEach(colunn => console.log(column.name));
+   * table.primaryKey.columns.forEach(column => console.log(column.name));
    */
   public get primaryKey(): PrimaryKey | undefined {
     return this.constraints.find(isPrimaryKey);

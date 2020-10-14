@@ -163,7 +163,7 @@ export default class Schema extends DbObject {
   /**
    * All {@link Type custom database types} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
    * This list includes types originated from entities such as tables, views and materialized views. Entities are also composite types in PostgreSQL.
-   * To exclude types originated from entites use `types` method.
+   * To exclude types originated from entities use `types` method.
    *
    * @example
    * const typeArray    = schema.typesIncludingEntities;
@@ -181,7 +181,7 @@ export default class Schema extends DbObject {
   /**
    * All {@link Type custom database types} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.
    * This list excludes types originated from entities such as tables, views and materialized views. Entities are also composite types in PostgreSQL.
-   * To get all types including entites use `typesIncludingEntities` method.
+   * To get all types including entities use `typesIncludingEntities` method.
    *
    * @example
    * const typeArray    = schema.types;

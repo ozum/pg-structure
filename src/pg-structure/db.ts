@@ -54,7 +54,7 @@ export default class Db {
    * Serializes object.
    *
    * CAVEATS:
-   * - Serialized data may or may not be deserialized with another version of `pg-structure`. (Even between minor verisons are not guaranteed).
+   * - Serialized data may or may not be deserialized with another version of `pg-structure`. (Even between minor versions are not guaranteed).
    * - Serialized data is not direct stringified version of objects.
    * - Ignores relation name function provided using `relationNameFunctions` args, if it is not a builtin function.
    *
@@ -161,7 +161,7 @@ export default class Db {
   /**
    * All user defined {@link Type types} of the database excluding {@link entity entities} such as
    * {@link Table table}, {@link Views view} and {@link MaterializedView materialized view} types.
-   * Entities are also composite types in PostgreSQL. To get all types including entites use `typesIncludingEntities` method.
+   * Entities are also composite types in PostgreSQL. To get all types including entities use `typesIncludingEntities` method.
    * Returned array have all objects, you may loop over them.
    * However two PostgreSQL schemas may have same named type. `get` method of
    * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
@@ -177,7 +177,7 @@ export default class Db {
   /**
    * All user defined {@link Type types} of the database including {@link entity entities} such as
    * {@link Table table}, {@link Views view} and {@link MaterializedView materialized view} types.
-   * Entities are also composite types in PostgreSQL. To get all types excluding entites use `types` method.
+   * Entities are also composite types in PostgreSQL. To get all types excluding entities use `types` method.
    * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
    * You may also use `getAll` or `get(1234, { key: oid })`.
    *
@@ -280,7 +280,7 @@ export default class Db {
   }
 
   /**
-   * Name colisions of table relations if there are any, otherwise undefined.
+   * Name collisions of table relations if there are any, otherwise undefined.
    */
   @Memoize()
   public get relationNameCollisions(): CollisionsByTable | undefined {

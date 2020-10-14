@@ -40,8 +40,8 @@ function sliceAndTrim(text: string, start: number, end: number): string {
 }
 
 /**
- * Retunrs adjectives of `nameA` and `nameB`. Searches both singular and plural forms.
- * Works both for snake case and camle case strings.
+ * Returns adjectives of `nameA` and `nameB`. Searches both singular and plural forms.
+ * Works both for snake case and camel case strings.
  *
  * @ignore
  * @param text is the text to search names in.
