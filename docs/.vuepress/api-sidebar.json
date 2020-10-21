@@ -2,8 +2,8 @@
   {
     "title": "Classes",
     "children": [
+      "classes/aggregatefunction",
       "classes/basetype",
-      "classes/builtintype",
       "classes/checkconstraint",
       "classes/column",
       "classes/compositetype",
@@ -15,27 +15,30 @@
       "classes/enumtype",
       "classes/exclusionconstraint",
       "classes/foreignkey",
+      "classes/func",
+      "classes/functionargument",
       "classes/index",
       "classes/m2mrelation",
       "classes/m2orelation",
       "classes/materializedview",
+      "classes/normalfunction",
       "classes/o2mrelation",
       "classes/primarykey",
+      "classes/procedure",
+      "classes/pseudotype",
       "classes/rangetype",
       "classes/relation",
       "classes/schema",
       "classes/table",
+      "classes/trigger",
       "classes/type",
       "classes/uniqueconstraint",
-      "classes/view"
+      "classes/view",
+      "classes/windowfunction"
     ]
   },
   {
     "title": "Enums",
-    "children": [
-      "enums/action",
-      "enums/casetype",
-      "enums/matchtype"
-    ]
+    "children": ["enums/action", "enums/casetype", "enums/matchtype"]
   }
 ]

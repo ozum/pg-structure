@@ -33,7 +33,7 @@ export default class Trigger extends DbObject {
     this.orientation = args.orientation;
     this.timing = args.timing;
     this.events = args.events;
-    this.condition = args.condition === null ? null : args.condition;
+    this.condition = args.condition;
     this.isEnabled = args.isEnabled;
     this.isDeferrable = args.isDeferrable;
     this.isInitiallyDeferred = args.isInitiallyDeferred;

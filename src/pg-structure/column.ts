@@ -129,7 +129,11 @@ export default class Column extends DbObject {
    */
   public readonly precision?: number;
 
-  /** If type is an array, this is the dimension of the array. Otherwise this is 0. */
+  /**
+   * If type is an array, this is the dimension of the array. Otherwise this is 0.
+   * NOTE: Array columns in views has dimension of 1 regardless of the actual dimension.
+   * Currently we could not find a way to determine array dimensions in views.
+   */
   public readonly arrayDimension: number;
 
   /**

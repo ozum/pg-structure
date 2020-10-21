@@ -43,3 +43,4 @@ async function demo() {
 <a href="https://www.jetbrains.com/?from=pg-structure"><img src="/images/jetbrains.svg" width="120" height="130" alt="JetBrains Logo" align="middle" /></a>
 <a href="https://www.sqlmanager.net"><img src="/images/sqlmanager.png" width="266" height="83" alt="EMS SQL Manager Logo" align="middle" /></a>
 <a href="https://wallabyjs.com/"><img src="/images/wallabyjs.png"  height="40" alt="Wallaby.js Logo" align="middle" /></a>
+<a href="https://www.codeweavers.com/"><img src="/images/codeweavers.png"  height="40" alt="Codeweavers Logo" align="middle" /></a>
