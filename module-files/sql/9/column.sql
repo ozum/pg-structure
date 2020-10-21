@@ -24,7 +24,8 @@ WHERE
   AND c.relkind IN ('m',
     'r',
     'v',
-    'c')
+    'c',
+    'p')
 ORDER BY
   c.relnamespace,
   LOWER(c.relname),

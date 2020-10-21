@@ -59,7 +59,7 @@ WITH types AS (
     WHERE (t.typrelid = 0
       OR (
         SELECT
-          c.relkind IN ('c', 'r', 'v', 'm') -- https://www.postgresql.org/docs/current/catalog-pg-class.html
+          c.relkind IN ('c', 'r', 'v', 'm', 'p') -- https://www.postgresql.org/docs/current/catalog-pg-class.html
         FROM
           pg_catalog.pg_class c
         WHERE

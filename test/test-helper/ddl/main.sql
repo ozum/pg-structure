@@ -1,6 +1,6 @@
 /*
 Created: 9/20/2019
-Modified: 6/27/2020
+Modified: 10/20/2020
 Project: pg-structrue-test
 Model: Main
 Author: Özüm Eldoğan
@@ -312,7 +312,7 @@ ALTER TABLE "public"."student" ADD CONSTRAINT "Key9" PRIMARY KEY ("first_name","
 CREATE TABLE "account"
 (
   "id" Serial NOT NULL,
-  "temp" integer, -- create a temporary column to drop later so that column.attributeNumber is no longer sequential
+  "temp" Integer,
   "created_at" Timestamp(0) DEFAULT now() NOT NULL,
   "updated_at" Timestamp(0) DEFAULT now() NOT NULL,
   "name" Character varying(20) DEFAULT 'no_name' NOT NULL,
@@ -322,6 +322,13 @@ CREATE TABLE "account"
 WITH (
   autovacuum_enabled=true)
 ;
+COMMENT ON COLUMN "account"."temp" IS 'Temporary column to drop later so that column.attributeNumber is no longer sequential.
+
+See: https://github.com/ozum/pg-structure/pull/55'
+;
+-- Drop temporary column so that column.attributeNumber is no longer sequential.
+-- See: https://github.com/ozum/pg-structure/pull/55
+ALTER TABLE "account" DROP COLUMN "temp";
 
 CREATE INDEX "ix_expression" ON "account" (LOWER(name))
 ;
@@ -343,9 +350,6 @@ ALTER TABLE "account" ADD CONSTRAINT "KeyEntity11" PRIMARY KEY ("id")
 ;
 
 ALTER TABLE "account" ADD CONSTRAINT "account_unique_constraint" UNIQUE ("name","created_at")
-;
-
-ALTER TABLE "account" DROP COLUMN "temp"
 ;
 
 CREATE TRIGGER "account_updated_at"
@@ -507,13 +511,43 @@ WITH (
   autovacuum_enabled=true)
 AS
 
+
+
+
+
+
+
 SELECT
+
+
+
+
+
+
 
   cart.id AS cart_id,
 
+
+
+
+
+
+
   contact.id AS contact_id
 
+
+
+
+
+
+
 FROM other_schema.cart
+
+
+
+
+
+
 
 INNER JOIN public.contact ON public.contact.id = other_schema.cart.contact_id
 ;
@@ -522,19 +556,7 @@ CREATE INDEX "mv_contact_other_schema_cart_cart_id_idx" ON "mv_contact_other_sch
 
 -- Create functions section -------------------------------------------------
 
-CREATE FUNCTION "array_returning_function"(  integer)
-RETURNS Integer[]
-  LANGUAGE plpgsql
-  VOLATILE
-AS
-$$
-BEGIN
-    /*function_body*/
-END
-$$
-;
-
-CREATE FUNCTION "record_returning_function"(  arg1 integer,
+CREATE FUNCTION "record_returning_function"(arg1 integer,
   arg2 numeric,
   out arg3 other_schema.udt_composite [],
   inout "argIO" text,
@@ -554,6 +576,18 @@ END
 $$
 ;
 COMMENT ON FUNCTION "record_returning_function"(arg1 integer, arg2 numeric, OUT arg3 other_schema.udt_composite [], INOUT "argIO" text, OUT "argOut" other_schema.cart, boolean, OUT money, INOUT "argIO2" text [], VARIADIC "argVar" integer []) IS 'Function description'
+;
+
+CREATE FUNCTION "array_returning_function"(integer)
+RETURNS Integer[]
+  LANGUAGE plpgsql
+  VOLATILE
+AS
+$$
+BEGIN
+    /*function_body*/
+END
+$$
 ;
 
 -- Create foreign keys (relationships) section -------------------------------------------------
@@ -719,3 +753,15 @@ ALTER TABLE "Part"
       ON UPDATE CASCADE
 ;
 
+-- Below tables are generated here, because Toad does not support PostgreSQL partitioned tables.
+CREATE TABLE "partitioned_table" (
+  id SERIAL NOT NULL,
+  size INTEGER,
+  PRIMARY KEY(id, size)
+) PARTITION BY RANGE (size);
+
+CREATE TABLE "partitioned_table_A" PARTITION OF "partitioned_table"
+    FOR VALUES FROM (1) TO (9);
+
+CREATE TABLE "partitioned_table_B" PARTITION OF "partitioned_table"
+    FOR VALUES FROM (10) TO (19);

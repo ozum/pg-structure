@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<PERModelPG100 ObjectType="2001" CSAOName="PERModelPG100" CSAOCaption="Model" InternalVersion="25" ProductVersion="7.2.0.13 beta" Version="1.30">
+<PERModelPG100 ObjectType="2001" CSAOName="PERModelPG100" CSAOCaption="Model" InternalVersion="25" ProductVersion="7.2.0.337" Version="1.30">
 	<Id>{DC2FD492-E46C-4396-B245-47D03C1B2CFC}</Id>
 	<Name>Main</Name>
 	<Ordinal>0</Ordinal>
@@ -75,6 +75,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapeModelTitlePG100 ObjectType="1504" CSAOName="WorkSpaceShapeModelTitlePG100" CSAOCaption="Model Title Shortcut">
 					<Id>{BBD4678B-5CAB-48BB-8B5A-1C15A48DBBBA}</Id>
@@ -98,7 +100,7 @@
 					<Top>122</Top>
 					<Left>185</Left>
 					<z>0</z>
-					<Width>579</Width>
+					<Width>591</Width>
 					<Height>281</Height>
 					<dz>0</dz>
 					<RecalculateSizes>1</RecalculateSizes>
@@ -130,7 +132,7 @@
 					<Left>1672</Left>
 					<z>0</z>
 					<Width>887</Width>
-					<Height>423</Height>
+					<Height>461</Height>
 					<dz>0</dz>
 					<RecalculateSizes>1</RecalculateSizes>
 					<UseWorkSpaceRecalculateSizes>1</UseWorkSpaceRecalculateSizes>
@@ -151,6 +153,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{29C8D74E-6AE0-4CB0-87D8-F5B94CA018B6}</Id>
@@ -197,6 +201,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{EEFC3DA0-574A-4D72-9DE1-9FC0922FEAC7}</Id>
@@ -243,6 +249,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{4EDE87AE-1B97-4AD4-980E-D47F0CDD1A82}</Id>
@@ -289,6 +297,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{B2E77991-A5FA-48FE-8AFA-C9AF39BA9105}</Id>
@@ -334,6 +344,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{24A048AB-DF3D-4FA1-8C0E-F7C778A85ACB}</Id>
@@ -377,6 +389,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{CE8E43CB-BFBF-4518-B9DE-80FD7E956DAE}</Id>
@@ -424,6 +438,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePERViewPG100 ObjectType="2503" CSAOName="WorkSpaceShapePERViewPG100" CSAOCaption="View Shortcut">
 					<Id>{8ADA7C97-A4EE-4BC4-A9FD-2C0D8B6D3947}</Id>
@@ -534,6 +550,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{68122B1B-CF9F-44C6-A3D2-CBBE210111D5}</Id>
@@ -578,6 +596,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{C6E3D2B7-93E2-4B40-9005-0EC0A9435889}</Id>
@@ -621,6 +641,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{30CDB786-D259-45FA-A2C7-90D5D8E9586D}</Id>
@@ -666,6 +688,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{B01BBC37-9B51-4EB2-B14A-931830F0BEE6}</Id>
@@ -710,6 +734,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{9B1DCB09-9E7F-49E2-8BFC-85E345F973A8}</Id>
@@ -754,6 +780,8 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
 				<WorkSpaceShapePEREntityPG100 ObjectType="2502" CSAOName="WorkSpaceShapePEREntityPG100" CSAOCaption="Entity Shortcut">
 					<Id>{1EF9C4E6-232D-4F9A-B63B-9CB38E5FBC40}</Id>
@@ -798,7 +826,40 @@
 					<Gradient>0</Gradient>
 					<DisplayNotNullMark>1</DisplayNotNullMark>
 					<DisplayKeyMark>1</DisplayKeyMark>
+					<DisplayColumnNotes>0</DisplayColumnNotes>
+					<DisplayColumnComments>0</DisplayColumnComments>
 				</WorkSpaceShapePEREntityPG100>
+				<WorkSpaceShapeNotePG100 ObjectType="1501" CSAOName="WorkSpaceShapeNotePG100" CSAOCaption="Note Shortcut">
+					<Id>{2845BEF0-3BAF-4947-AC6B-A7622F113D65}</Id>
+					<Name>Note1</Name>
+					<Ordinal>0</Ordinal>
+					<GlobalOrder>0</GlobalOrder>
+					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+					<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+					<ParentBaseID>{6E975C74-5F31-498E-A1E2-CD03BF47AC32}</ParentBaseID>
+					<PenWidth>1</PenWidth>
+					<PenColor>8421504</PenColor>
+					<BrushColor>15793151</BrushColor>
+					<FontCharset>162</FontCharset>
+					<FontColor>8421504</FontColor>
+					<FontName>Arial</FontName>
+					<FontStyle>0</FontStyle>
+					<FormatLocked>0</FormatLocked>
+					<FontHeight>-28</FontHeight>
+					<ZOrder>0</ZOrder>
+					<Top>1828</Top>
+					<Left>3119</Left>
+					<z>0</z>
+					<Width>781</Width>
+					<Height>180</Height>
+					<dz>0</dz>
+					<RecalculateSizes>0</RecalculateSizes>
+					<UseWorkSpaceRecalculateSizes>0</UseWorkSpaceRecalculateSizes>
+					<Shadow>0</Shadow>
+					<FullBackground>0</FullBackground>
+					<Group/>
+				</WorkSpaceShapeNotePG100>
 			</ShapeList>
 			<LineList>
 				<WorkSpaceLinePERRelationPG100 ObjectType="2504" CSAOName="WorkSpaceLinePERRelationPG100" CSAOCaption="Relation Shortcut">
@@ -1001,11 +1062,11 @@
 						<Id>{CE8E43CB-BFBF-4518-B9DE-80FD7E956DAE}</Id>
 					</WorkSpaceShape2>
 					<NamePositionX>2126</NamePositionX>
-					<NamePositionY>700</NamePositionY>
+					<NamePositionY>738</NamePositionY>
 					<Points>
 						<Point>
 							<x>2203</x>
-							<y>662</y>
+							<y>700</y>
 						</Point>
 						<Point>
 							<x>2203</x>
@@ -1041,11 +1102,11 @@
 						<Id>{CE8E43CB-BFBF-4518-B9DE-80FD7E956DAE}</Id>
 					</WorkSpaceShape2>
 					<NamePositionX>1591</NamePositionX>
-					<NamePositionY>694</NamePositionY>
+					<NamePositionY>732</NamePositionY>
 					<Points>
 						<Point>
 							<x>1965</x>
-							<y>662</y>
+							<y>700</y>
 						</Point>
 						<Point>
 							<x>1965</x>
@@ -1165,11 +1226,11 @@
 						<Id>{8ADA7C97-A4EE-4BC4-A9FD-2C0D8B6D3947}</Id>
 					</WorkSpaceShape2>
 					<NamePositionX>2009</NamePositionX>
-					<NamePositionY>1397</NamePositionY>
+					<NamePositionY>1416</NamePositionY>
 					<Points>
 						<Point>
 							<x>2109</x>
-							<y>662</y>
+							<y>700</y>
 						</Point>
 						<Point>
 							<x>2109</x>
@@ -1686,6 +1747,8 @@
 			<Gradient>0</Gradient>
 			<DisplayKeyMark>1</DisplayKeyMark>
 			<DisplayNotNullMark>1</DisplayNotNullMark>
+			<DisplayColumnNotes>0</DisplayColumnNotes>
+			<DisplayColumnComments>0</DisplayColumnComments>
 		</PERWorkSpacePG100>
 	</WorkSpaces>
 	<Categories>
@@ -1704,6 +1767,19 @@
 			</Objects>
 		</CategoryPG100>
 	</Categories>
+	<Notes>
+		<NotePG100 ObjectType="1001" CSAOName="NotePG100" CSAOCaption="Note">
+			<Id>{6E975C74-5F31-498E-A1E2-CD03BF47AC32}</Id>
+			<Name>Note1</Name>
+			<Ordinal>0</Ordinal>
+			<GlobalOrder>0</GlobalOrder>
+			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+			<Text>A partitioned table is added through "After Script" of model, because Toad does not support partitioned tables.</Text>
+			<WordWrap>0</WordWrap>
+		</NotePG100>
+	</Notes>
 	<ModelTitle>
 		<ModelTitlePG100 ObjectType="1011" CSAOName="ModelTitlePG100" CSAOCaption="Model Title">
 			<Id>{D87EDD50-7150-4C17-8912-3E10DC44FDD2}</Id>
@@ -1717,7 +1793,7 @@
 			<Company/>
 			<Version>1.0.0</Version>
 			<CreatedDate>2019-09-20T15:01:10.170+03:00</CreatedDate>
-			<ModifiedDate>2020-06-27T23:34:37.408+03:00</ModifiedDate>
+			<ModifiedDate>2020-10-20T12:27:07.499+03:00</ModifiedDate>
 			<Project>pg-structrue-test</Project>
 			<Description/>
 		</ModelTitlePG100>
@@ -2054,7 +2130,7 @@
 					<Description/>
 					<IsLast>1</IsLast>
 					<SerializedGenerator>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#13;
-&lt;PERCodeGeneratorPG100PG100 ObjectType="2027" CSAOName="PERCodeGeneratorPG100PG100" CSAOCaption="PERCodeGenerator PG100" InternalVersion="25" ProductVersion="7.2.0.13 beta"&gt;&#13;
+&lt;PERCodeGeneratorPG100PG100 ObjectType="2027" CSAOName="PERCodeGeneratorPG100PG100" CSAOCaption="PERCodeGenerator PG100" InternalVersion="25" ProductVersion="7.2.0.337"&gt;&#13;
 	&lt;Id&gt;{AA418542-767A-4CD4-BBF8-366EE4BC9BF4}&lt;/Id&gt;&#13;
 	&lt;GlobalOrder&gt;0&lt;/GlobalOrder&gt;&#13;
 	&lt;FileName&gt;C:\ProgramData\Toad Data Modeler\Generated Scripts\Generated.sql&lt;/FileName&gt;&#13;
@@ -2298,20 +2374,31 @@
 	</ModelManager>
 	<BeforeScript>CREATE SCHEMA extra_modules;&#13;
 CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
-	<AfterScript/>
+	<AfterScript>-- Below tables are generated here, because Toad does not support PostgreSQL partitioned tables.&#13;
+CREATE TABLE "partitioned_table" (&#13;
+  id SERIAL NOT NULL,&#13;
+  size INTEGER,&#13;
+  PRIMARY KEY(id, size)&#13;
+) PARTITION BY RANGE (size);&#13;
+&#13;
+CREATE TABLE "partitioned_table_A" PARTITION OF "partitioned_table"&#13;
+    FOR VALUES FROM (1) TO (9);&#13;
+&#13;
+CREATE TABLE "partitioned_table_B" PARTITION OF "partitioned_table"&#13;
+    FOR VALUES FROM (10) TO (19);</AfterScript>
 	<Entities>
 		<PEREntityPG100 ObjectType="2002" CSAOName="PEREntityPG100" CSAOCaption="Entity">
 			<Id>{3BD73C49-268C-41B4-8086-F04F91D39100}</Id>
 			<Name>type_table</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>27</GlobalOrder>
+			<GlobalOrder>28</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
 			<RNOffset>0</RNOffset>
 			<RNLength>0</RNLength>
 			<IgnoreNC>0</IgnoreNC>
-			<VerifyState>1</VerifyState>
+			<VerifyState>4</VerifyState>
 			<GenerateCode>1</GenerateCode>
 			<BeforeScript/>
 			<AfterScript/>
@@ -3852,7 +3939,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -3935,17 +4022,19 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{77F6428F-D9B0-493A-8770-C0CEEA161D5F}</Id>
 			<Name>account</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>21</GlobalOrder>
+			<GlobalOrder>22</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
 			<RNOffset>0</RNOffset>
 			<RNLength>0</RNLength>
 			<IgnoreNC>0</IgnoreNC>
-			<VerifyState>1</VerifyState>
+			<VerifyState>4</VerifyState>
 			<GenerateCode>1</GenerateCode>
 			<BeforeScript/>
-			<AfterScript/>
+			<AfterScript>-- Drop temporary column so that column.attributeNumber is no longer sequential.&#13;
+-- See: https://github.com/ozum/pg-structure/pull/55&#13;
+ALTER TABLE "account" DROP COLUMN "temp"; </AfterScript>
 			<Notes/>
 			<Comments/>
 			<Caption>account</Caption>
@@ -3962,7 +4051,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 				<PERAttributePG100 ObjectType="2003" CSAOName="PERAttributePG100" CSAOCaption="Attribute">
 					<Id>{2ACA0B72-A46E-493B-8A4E-01FE968A8AEF}</Id>
 					<Name>id</Name>
-					<Ordinal>0</Ordinal>
+					<Ordinal>1</Ordinal>
 					<GlobalOrder>0</GlobalOrder>
 					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
@@ -4028,9 +4117,65 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<IdentityStartWith/>
 				</PERAttributePG100>
 				<PERAttributePG100 ObjectType="2003" CSAOName="PERAttributePG100" CSAOCaption="Attribute">
+					<Id>{9266EF4C-C5E3-47AE-97DD-303481CC5A20}</Id>
+					<Name>temp</Name>
+					<Ordinal>2</Ordinal>
+					<GlobalOrder>0</GlobalOrder>
+					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
+					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
+					<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
+					<RNOffset>0</RNOffset>
+					<RNLength>0</RNLength>
+					<IgnoreNC>0</IgnoreNC>
+					<VerifyState>1</VerifyState>
+					<Notes/>
+					<Comments>Temporary column to drop later so that column.attributeNumber is no longer sequential.&#13;
+&#13;
+See: https://github.com/ozum/pg-structure/pull/55</Comments>
+					<DataTypeParam1/>
+					<DataTypeParam2/>
+					<KeepForeignKey>0</KeepForeignKey>
+					<DefaultValue/>
+					<NotNull>0</NotNull>
+					<Migrated>0</Migrated>
+					<Caption>temp</Caption>
+					<Unique>0</Unique>
+					<OriginalName/>
+					<CheckConstraint/>
+					<CheckConstraintName/>
+					<ExternalFK>0</ExternalFK>
+					<DevNotes/>
+					<DataEnabledUser>1</DataEnabledUser>
+					<ExternalFKList/>
+					<DictType/>
+					<Domain/>
+					<DataType>
+						<Id>{DE2EF0EA-A967-401A-9B25-2CC70D228D29}</Id>
+					</DataType>
+					<UserDataType/>
+					<Default/>
+					<KeyConstraint/>
+					<DataSettings/>
+					<ArrDims/>
+					<IsArray>0</IsArray>
+					<StorageMode/>
+					<Collation/>
+					<OptionsList/>
+					<Identity>0</Identity>
+					<IdentityCache>1</IdentityCache>
+					<IdentityGeneratedType>ALWAYS</IdentityGeneratedType>
+					<IdentityIncrementBy>1</IdentityIncrementBy>
+					<IdentityMaxValue/>
+					<IdentityMinValue/>
+					<IdentityNoCycle>1</IdentityNoCycle>
+					<IdentityNoMaxValue>1</IdentityNoMaxValue>
+					<IdentityNoMinValue>1</IdentityNoMinValue>
+					<IdentityStartWith/>
+				</PERAttributePG100>
+				<PERAttributePG100 ObjectType="2003" CSAOName="PERAttributePG100" CSAOCaption="Attribute">
 					<Id>{5B65DD43-59FF-4306-A94E-59F1B2FF9BEA}</Id>
 					<Name>created_at</Name>
-					<Ordinal>0</Ordinal>
+					<Ordinal>3</Ordinal>
 					<GlobalOrder>0</GlobalOrder>
 					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
@@ -4087,7 +4232,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 				<PERAttributePG100 ObjectType="2003" CSAOName="PERAttributePG100" CSAOCaption="Attribute">
 					<Id>{84D7F4EC-4131-4E92-B6B3-12CD728D9C64}</Id>
 					<Name>updated_at</Name>
-					<Ordinal>0</Ordinal>
+					<Ordinal>4</Ordinal>
 					<GlobalOrder>0</GlobalOrder>
 					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
@@ -4141,7 +4286,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 				<PERAttributePG100 ObjectType="2003" CSAOName="PERAttributePG100" CSAOCaption="Attribute">
 					<Id>{1F8FED66-986E-4473-899A-7BFD8E03AC75}</Id>
 					<Name>name</Name>
-					<Ordinal>0</Ordinal>
+					<Ordinal>5</Ordinal>
 					<GlobalOrder>0</GlobalOrder>
 					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
@@ -4201,7 +4346,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 				<PERAttributePG100 ObjectType="2003" CSAOName="PERAttributePG100" CSAOCaption="Attribute">
 					<Id>{5F95793B-A7E8-4F39-8E7C-1A6F2104ECBB}</Id>
 					<Name>c</Name>
-					<Ordinal>0</Ordinal>
+					<Ordinal>6</Ordinal>
 					<GlobalOrder>0</GlobalOrder>
 					<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 					<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
@@ -4265,7 +4410,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -4313,7 +4458,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -4373,7 +4518,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -4409,7 +4554,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -4445,7 +4590,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -4515,7 +4660,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -4569,7 +4714,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -4736,14 +4881,14 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{454A32C2-B0C2-4793-B856-2AEFE75F8281}</Id>
 			<Name>cart</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>13</GlobalOrder>
+			<GlobalOrder>14</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
 			<RNOffset>0</RNOffset>
 			<RNLength>0</RNLength>
 			<IgnoreNC>0</IgnoreNC>
-			<VerifyState>1</VerifyState>
+			<VerifyState>4</VerifyState>
 			<GenerateCode>1</GenerateCode>
 			<BeforeScript/>
 			<AfterScript/>
@@ -5005,7 +5150,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -5060,7 +5205,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -5193,14 +5338,14 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{CCD57860-92D5-4233-BE86-AB4995D18E0B}</Id>
 			<Name>product</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>18</GlobalOrder>
+			<GlobalOrder>19</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
 			<RNOffset>0</RNOffset>
 			<RNLength>0</RNLength>
 			<IgnoreNC>0</IgnoreNC>
-			<VerifyState>1</VerifyState>
+			<VerifyState>4</VerifyState>
 			<GenerateCode>1</GenerateCode>
 			<BeforeScript/>
 			<AfterScript/>
@@ -5408,7 +5553,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -5463,7 +5608,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -5596,14 +5741,14 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{72935494-556C-40E2-9B18-CBF208CFB7A5}</Id>
 			<Name>cart_line_item</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>14</GlobalOrder>
+			<GlobalOrder>15</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
 			<RNOffset>0</RNOffset>
 			<RNLength>0</RNLength>
 			<IgnoreNC>0</IgnoreNC>
-			<VerifyState>1</VerifyState>
+			<VerifyState>4</VerifyState>
 			<GenerateCode>1</GenerateCode>
 			<BeforeScript/>
 			<AfterScript/>
@@ -5929,7 +6074,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -5989,7 +6134,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -6047,7 +6192,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -6180,14 +6325,14 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{1BA21834-200E-4E3D-ADDE-0B5AE85BCABB}</Id>
 			<Name>product_category</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>19</GlobalOrder>
+			<GlobalOrder>20</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
 			<RNOffset>0</RNOffset>
 			<RNLength>0</RNLength>
 			<IgnoreNC>0</IgnoreNC>
-			<VerifyState>1</VerifyState>
+			<VerifyState>4</VerifyState>
 			<GenerateCode>1</GenerateCode>
 			<BeforeScript/>
 			<AfterScript/>
@@ -6393,7 +6538,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -6446,7 +6591,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -6544,14 +6689,14 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{B85B3FBE-60F1-4B17-8A59-5D16A6DB72A5}</Id>
 			<Name>cart</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>22</GlobalOrder>
+			<GlobalOrder>23</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
 			<RNOffset>0</RNOffset>
 			<RNLength>0</RNLength>
 			<IgnoreNC>0</IgnoreNC>
-			<VerifyState>1</VerifyState>
+			<VerifyState>4</VerifyState>
 			<GenerateCode>1</GenerateCode>
 			<BeforeScript/>
 			<AfterScript/>
@@ -6751,7 +6896,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -6796,7 +6941,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -6896,14 +7041,14 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{EBD929D3-9D19-48CE-8402-357F7E2EB26A}</Id>
 			<Name>contact</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>23</GlobalOrder>
+			<GlobalOrder>24</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
 			<RNOffset>0</RNOffset>
 			<RNLength>0</RNLength>
 			<IgnoreNC>0</IgnoreNC>
-			<VerifyState>1</VerifyState>
+			<VerifyState>4</VerifyState>
 			<GenerateCode>1</GenerateCode>
 			<BeforeScript/>
 			<AfterScript/>
@@ -7119,7 +7264,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -7172,7 +7317,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -7230,7 +7375,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 					<RNOffset>0</RNOffset>
 					<RNLength>0</RNLength>
 					<IgnoreNC>0</IgnoreNC>
-					<VerifyState>1</VerifyState>
+					<VerifyState>4</VerifyState>
 					<GenerateCode>1</GenerateCode>
 					<Notes/>
 					<Comments/>
@@ -7329,7 +7474,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{F05B220C-D554-4AA7-B5B5-18B8B1B20D4A}</Id>
 			<Name>message</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>17</GlobalOrder>
+			<GlobalOrder>18</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -8056,7 +8201,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{B328E431-347E-44CB-8F75-85E3EA539FE6}</Id>
 			<Name>class_registry</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>16</GlobalOrder>
+			<GlobalOrder>17</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -8611,7 +8756,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{49D7C092-3215-4A0D-BAB4-0C819B269EC0}</Id>
 			<Name>class</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>15</GlobalOrder>
+			<GlobalOrder>16</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -9006,7 +9151,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{F072937D-7313-4822-BFE0-375C62FA523D}</Id>
 			<Name>student</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>20</GlobalOrder>
+			<GlobalOrder>21</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -9417,7 +9562,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{F35DF47E-FCB1-47B4-B0BA-3779CB39D709}</Id>
 			<Name>Part</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>24</GlobalOrder>
+			<GlobalOrder>25</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -9706,7 +9851,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{E7E6FDF6-3872-4B20-81A3-F3B6DBDACE1C}</Id>
 			<Name>cancelled_item</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>25</GlobalOrder>
+			<GlobalOrder>26</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -9959,7 +10104,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{F8CE5D40-52E6-42D6-8851-3D51B6D0338C}</Id>
 			<Name>PartGroup</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>26</GlobalOrder>
+			<GlobalOrder>27</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -11801,7 +11946,7 @@ CREATE EXTENSION IF NOT EXISTS hstore SCHEMA extra_modules;</BeforeScript>
 			<Id>{892F5DEC-A763-44E9-BA43-34499CEEE58F}</Id>
 			<Name>v_account_primary_contact</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>28</GlobalOrder>
+			<GlobalOrder>29</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -12043,7 +12188,7 @@ $$</SQL>
 			<Id>{6EF3C75D-351F-441F-9D48-FB25D5FC7276}</Id>
 			<Name>record_returning_function</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>30</GlobalOrder>
+			<GlobalOrder>31</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -12063,7 +12208,7 @@ END</SQL>
 			<GenerateSQLOnly>0</GenerateSQLOnly>
 			<Schema/>
 			<DbOwner/>
-			<ArgumentList> arg1 integer,&#13;
+			<ArgumentList>arg1 integer,&#13;
   arg2 numeric,&#13;
   out arg3 other_schema.udt_composite [],&#13;
   inout "argIO" text,&#13;
@@ -12090,7 +12235,7 @@ END</SQL>
 			<Id>{B953F2ED-4EF8-45E6-9F13-AB25BE4CE952}</Id>
 			<Name>array_returning_function</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>31</GlobalOrder>
+			<GlobalOrder>32</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -12110,7 +12255,7 @@ END</SQL>
 			<GenerateSQLOnly>0</GenerateSQLOnly>
 			<Schema/>
 			<DbOwner/>
-			<ArgumentList> integer</ArgumentList>
+			<ArgumentList>integer</ArgumentList>
 			<CLinkSymbol/>
 			<CObjFile/>
 			<IsSecurityDefiner>0</IsSecurityDefiner>
@@ -12129,7 +12274,7 @@ END</SQL>
 			<Id>{206F553E-9F43-4BB8-AE1A-79982A566408}</Id>
 			<Name>trigger_returning_function</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>32</GlobalOrder>
+			<GlobalOrder>13</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -12173,7 +12318,7 @@ END</SQL>
 			<Id>{0DA814EB-D44D-4AB8-B704-78FB97EFAC13}</Id>
 			<Name>mv_contact_other_schema_cart</Name>
 			<Ordinal>0</Ordinal>
-			<GlobalOrder>29</GlobalOrder>
+			<GlobalOrder>30</GlobalOrder>
 			<GalleryItemID>{00000000-0000-0000-0000-000000000000}</GalleryItemID>
 			<GalleryID>{00000000-0000-0000-0000-000000000000}</GalleryID>
 			<GalleryObjectID>{00000000-0000-0000-0000-000000000000}</GalleryObjectID>
@@ -12192,7 +12337,15 @@ END</SQL>
 
 
 
+
+
+
+
 SELECT
+
+
+
+
 
 
 
@@ -12200,11 +12353,23 @@ SELECT
 
 
 
+
+
+
+
   contact.id AS contact_id
 
 
 
+
+
+
+
 FROM other_schema.cart
+
+
+
+
 
 
 

@@ -19,7 +19,7 @@ module.exports = async () => {
       file: `${__dirname}/ddl/relation-names-reverse.sql`,
     });
   } catch (e) {
-    console.log(e);
+    console.log(e); // eslint-disable-line no-console
   }
 
   (global as any).pgTestUtil = pgTestUtil;

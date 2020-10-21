@@ -267,7 +267,7 @@ function addEntities(db: Db, rows: EntityQueryResult[]): void {
     const schema = db.schemas.get(row.schemaOid, { key: "oid" }) as Schema;
 
     /* istanbul ignore else */
-    if (row.kind === "r") schema.tables.push(new Table({ ...row, schema }));
+    if (row.kind === "r" || row.kind === "p") schema.tables.push(new Table({ ...row, schema }));
     else if (row.kind === "v") schema.views.push(new View({ ...row, schema }));
     else if (row.kind === "m") schema.materializedViews.push(new MaterializedView({ ...row, schema }));
   });
@@ -305,7 +305,9 @@ function addIndexes(db: Db, rows: IndexQueryResult[]): void {
 
     row.columnPositions.forEach((position) => {
       // If position is 0, then it's an index attribute that is not simple column references. It is an expression which is stored in indexExpressions.
-      const columnOrExpression = position > 0 ? parent.columns.find((c) => c.attributeNumber === position)! : (indexExpressions.shift() as string);
+      const columnOrExpression = (position > 0
+        ? parent.columns.find((c: Column) => c.attributeNumber === position)
+        : indexExpressions.shift()) as string | Column;
       index.columnsAndExpressions.push(columnOrExpression);
     });
 
