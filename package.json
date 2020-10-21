@@ -1,6 +1,6 @@
 {
   "name": "pg-structure",
-  "version": "7.2.5",
+  "version": "7.2.6",
   "description": "Reverse engineer PostgreSQL database as a detailed JS Object.",
   "keywords": [],
   "engines": {

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.2.6](https://github.com/ozum/pg-structure/compare/v7.2.5...v7.2.6) (2020-10-21)
+
+
+### Bug Fixes
+
+* **sql:** there is no regexp_match on pg9 ([92c1a9b](https://github.com/ozum/pg-structure/commit/92c1a9b108acc9818266855ab5e81b79dc369e3b))
+* **views:** array detection when missing attndims ([23afec5](https://github.com/ozum/pg-structure/commit/23afec558625e1f945b9a360d50efeb860981628))
+
 ### [7.2.5](https://github.com/ozum/pg-structure/compare/v7.2.3...v7.2.5) (2020-10-21)
 
 
