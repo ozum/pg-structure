@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.2.5](https://github.com/ozum/pg-structure/compare/v7.2.3...v7.2.5) (2020-10-21)
+
+
+### Bug Fixes
+
+* support partitioned tables ([3f61ae8](https://github.com/ozum/pg-structure/commit/3f61ae83c001df67acb38a5caa0d0ae7f3cc9e38))
+
 ### [7.2.4](https://github.com/ozum/pg-structure/compare/v7.2.3...v7.2.4) (2020-10-18)
 
 ### [7.2.3](https://github.com/ozum/pg-structure/compare/v7.2.2...v7.2.3) (2020-06-27)
