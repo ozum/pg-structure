@@ -39,13 +39,13 @@ export default class ForeignKey extends Constraint {
 
   /**
    * Update action for {@link ForeignKey foreign keys}. One of `CASCADE`, `SET NULL`, `SET DEFAULT`, `RESTRICT`, `NO ACTION`.
-   * TypeScript developers should use {@link Action} enumn.
+   * TypeScript developers should use {@link Action} enum.
    */
   public readonly onUpdate: Action;
 
   /**
    * Delete action for {@link ForeignKey foreign keys}. One of `CASCADE`, `SET NULL`, `SET DEFAULT`, `RESTRICT`, `NO ACTION`.
-   * TypeScript developers should use {@link Action} enumn.
+   * TypeScript developers should use {@link Action} enum.
    */
   public readonly onDelete: Action;
 

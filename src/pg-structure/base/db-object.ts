@@ -87,7 +87,7 @@ export default abstract class DbObject {
   }
 
   /**
-   * Data which is extracted from database object's comment. Data is extracted from text between special case-insesitive tag
+   * Data which is extracted from database object's comment. Data is extracted from text between special case-insensitive tag
    * (default: `[pg-structure][/pg-structure]`) and converted to JavaScript object using [JSON5](https://json5.org).
    * Token name can be specified by using `commentDataToken` arguments.
    * For details of [JSON5](https://json5.org/), see it's web site: [https://json5.org](https://json5.org).

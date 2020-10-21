@@ -54,7 +54,7 @@ export interface EntityQueryResult {
 export interface ColumnQueryResult {
   parentOid: number;
   typeOid: number;
-  attributeNumber: number; // The number of the column. Ordinary columns are numbered from 1 up. Dropped columns has attribute numbers too, so numbers may differ from actiual existing column array index.
+  attributeNumber: number; // The number of the column. Ordinary columns are numbered from 1 up. Dropped columns has attribute numbers too, so numbers may differ from actual existing column array index.
   parentKind: EntityTypeLetter;
   database: string;
   name: string;

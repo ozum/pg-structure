@@ -28,6 +28,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf dist && tsc -b",
+    "prepare": "rm -rf dist && tsc -b",
     "commit": "git-cz",
     "commit:add": "git add -A && npm run commit",
     "devkeeper:update": "devkeeper update",

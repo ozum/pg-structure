@@ -54,7 +54,7 @@ export default class M2ORelation extends Relation {
   }
 
   /**
-   * Retunrs name for the relation using given naming function.
+   * Returns name for the relation using given naming function.
    *
    * @param relationNameFunctions are custom functions or name of the builtin functions to generate names with.
    * @returns name for the relation using naming function.
@@ -97,7 +97,7 @@ export default class M2ORelation extends Relation {
   }
 
   /**
-   * {@link ForiegnKey Foreign key} between {@link M2ORelation.sourceTable source table} and {@link M2ORelation.targetTable target table}.
+   * {@link ForeignKey Foreign key} between {@link M2ORelation.sourceTable source table} and {@link M2ORelation.targetTable target table}.
    *
    * @example
    * const relation     = product.M2ORelationRelations[0];  // RELATION:    line_item >---- product

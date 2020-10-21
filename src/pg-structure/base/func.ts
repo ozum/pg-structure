@@ -137,7 +137,7 @@ export default abstract class Func extends DbObject {
    *
    * Please note that, `name` is not required for PostgreSQL function arguments. There may be multiple empty string arguments.
    * {@link IndexableArray https://www.npmjs.com/package/indexable-array} returns first one.
-   * You may also use `getAll` to get all unnaed arguments as an array.
+   * You may also use `getAll` to get all unnamed arguments as an array.
    *
    * @example
    * myFunc.arguments.get("maxVal");

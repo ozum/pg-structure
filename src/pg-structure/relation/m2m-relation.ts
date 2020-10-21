@@ -81,7 +81,7 @@ export default class M2MRelation extends Relation {
   }
 
   /**
-   * Retunrs name for the relation using given naming function.
+   * Returns name for the relation using given naming function.
    *
    * @param relationNameFunctions are custom functions or name of the builtin functions to generate names with.
    * @returns name for the relation using naming function.

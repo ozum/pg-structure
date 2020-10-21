@@ -127,7 +127,7 @@ interface Options {
    */
   commentDataToken?: string;
 
-  /** Prevents pg-strucrture to close given database connection. */
+  /** Prevents pg-structure to close given database connection. */
   keepConnection?: boolean;
 }
 
@@ -147,7 +147,7 @@ function getDatabaseName(pgClientOrConfig: Client | ClientConfig | string): stri
 }
 
 /**
- * Returns list of schames in database. If no patterns are given returns all schemas except system schemas.
+ * Returns list of schemes in database. If no patterns are given returns all schemas except system schemas.
  * Patterns are feeded to `LIKE` operator of SQL, so `%` and `_` may be used.
  *
  * @ignore
