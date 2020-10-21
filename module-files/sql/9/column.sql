@@ -8,7 +8,7 @@ SELECT
   a.attnotnull AS "notNull",
   format_type(a.atttypid, atttypmod) AS "sqlType",
   CASE
-    WHEN c.relkind = 'v' AND a.attndims = 0 AND right(format_type(a.atttypid, atttypmod), 2) = '[]' THEN 1
+    WHEN c.relkind = 'v' AND a.attndims = 0 AND right(format_type(a.atttypid, atttypmod), 2) = '[]' THEN 1 -- Cannot find a way to detect array dimensions in views.
     ELSE a.attndims
   END AS "arrayDimension",
   a.attnum AS position,
@@ -27,7 +27,8 @@ WHERE
   AND c.relkind IN ('m',
     'r',
     'v',
-    'c')
+    'c',
+    'p')
 ORDER BY
   c.relnamespace,
   LOWER(c.relname),
