@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.2.7](https://github.com/ozum/pg-structure/compare/v7.2.3...v7.2.7) (2021-01-26)
+
+
+### Bug Fixes
+
+* fix triggers fro PostgreSQL 12+ ([73cffdc](https://github.com/ozum/pg-structure/commit/73cffdc2ca7b4f8c798804afabed86f8d9d7157e))
+* no triggers on psql 11 ([01648d1](https://github.com/ozum/pg-structure/commit/01648d1d18058562fe2da579c29de0d89c570697)), closes [#61](https://github.com/ozum/pg-structure/issues/61)
+* support partitioned tables ([3f61ae8](https://github.com/ozum/pg-structure/commit/3f61ae83c001df67acb38a5caa0d0ae7f3cc9e38))
+* **sql:** there is no regexp_match on pg9 ([92c1a9b](https://github.com/ozum/pg-structure/commit/92c1a9b108acc9818266855ab5e81b79dc369e3b))
+* **views:** array detection when missing attndims ([23afec5](https://github.com/ozum/pg-structure/commit/23afec558625e1f945b9a360d50efeb860981628))
+
 ### [7.2.6](https://github.com/ozum/pg-structure/compare/v7.2.5...v7.2.6) (2020-10-21)
 
 
