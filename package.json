@@ -28,7 +28,6 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf dist && tsc -b",
-    "prepare": "rm -rf dist && tsc -b",
     "commit": "git-cz",
     "commit:add": "git add -A && npm run commit",
     "devkeeper:update": "devkeeper update",
@@ -37,6 +36,7 @@
     "file:watch": "ts-node-dev --respawn --transpileOnly --compiler-options '{ \"module\": \"commonjs\" }'",
     "format": "prettier --write --config .prettierrc --check 'src/**/*.+(js|jsx|json|less|css|ts|tsx|md|vue|gql)'",
     "lint": "eslint --max-warnings=0 --ignore-path .gitignore --cache 'src/**/*.+(js|jsx|ts|tsx|vue)'",
+    "prepare": "rm -rf dist && tsc -b",
     "readme": "if grep -q '{% include \"api.md\" %}' 'README.njk'; then npm run typedoc:single-md; mkdir -p temp && mv api.md temp/; fi && readmeasy --partial-dirs temp,node_modules/devkeeper/module-files/template-partials && rm -rf temp",
     "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm run build && npm run commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && git push --tags && npm publish)",
     "test": "NODE_ENV=test jest --coverage --config=jest.config.json",
