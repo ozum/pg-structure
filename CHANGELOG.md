@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.3.0](https://github.com/ozum/pg-structure/compare/v7.2.7...v7.3.0) (2021-01-26)
+
+
+### Features
+
+* add sequence support ([13d169d](https://github.com/ozum/pg-structure/commit/13d169d07572ee85b21417e8605f96961ef9550b))
+
 ### [7.2.7](https://github.com/ozum/pg-structure/compare/v7.2.3...v7.2.7) (2021-01-26)
 
 
