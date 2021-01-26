@@ -26,6 +26,7 @@ import CompositeType from "./pg-structure/type/composite-type";
 import Table from "./pg-structure/entity/table";
 import View from "./pg-structure/entity/view";
 import MaterializedView from "./pg-structure/entity/materialized-view";
+import Sequence from "./pg-structure/entity/sequence";
 import Entity from "./pg-structure/base/entity";
 import Column from "./pg-structure/column";
 import Index from "./pg-structure";
@@ -58,6 +59,7 @@ export { default as ForeignKey } from "./pg-structure/constraint/foreign-key";
 export { default as PrimaryKey } from "./pg-structure/constraint/primary-key";
 export { default as UniqueConstraint } from "./pg-structure/constraint/unique-constraint";
 export { default as MaterializedView } from "./pg-structure/entity/materialized-view";
+export { default as Sequence } from "./pg-structure/entity/sequence";
 export { default as Table } from "./pg-structure/entity/table";
 export { default as View } from "./pg-structure/entity/view";
 export { default as M2MRelation } from "./pg-structure/relation/m2m-relation";
@@ -270,6 +272,7 @@ function addEntities(db: Db, rows: EntityQueryResult[]): void {
     if (row.kind === "r" || row.kind === "p") schema.tables.push(new Table({ ...row, schema }));
     else if (row.kind === "v") schema.views.push(new View({ ...row, schema }));
     else if (row.kind === "m") schema.materializedViews.push(new MaterializedView({ ...row, schema }));
+    else if (row.kind === "S") schema.sequences.push(new Sequence({ ...row, schema }));
   });
 }
 

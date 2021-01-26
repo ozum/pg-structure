@@ -1,5 +1,3 @@
-
-
 import { Db, View } from "../../src/index";
 import getDb from "../test-helper/get-db";
 
