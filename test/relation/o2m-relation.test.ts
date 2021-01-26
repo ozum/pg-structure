@@ -1,7 +1,12 @@
 /* eslint-disable prefer-destructuring */
 
 import { Db, Table } from "../../src/index";
-import getDb, { getRelationNameDb, getReverseRelationNameDb, getDescriptiveNameDb, getReverseDescriptiveNameDb } from "../test-helper/get-db";
+import getDb, {
+  getRelationNameDb,
+  getReverseRelationNameDb,
+  getDescriptiveNameDb,
+  getReverseDescriptiveNameDb,
+} from "../test-helper/get-db";
 
 let db: Db;
 let nameDb: Db;
@@ -11,10 +16,10 @@ let reverseDescriptiveDb: Db;
 let studentTable: Table;
 
 const getNames = (table: string): string[][] => [
-  (nameDb.get(table) as Table).o2mRelations.map(r => r.name),
-  (reverseDb.get(table) as Table).o2mRelations.map(r => r.name),
-  (descriptiveDb.get(table) as Table).o2mRelations.map(r => r.name),
-  (reverseDescriptiveDb.get(table) as Table).o2mRelations.map(r => r.name),
+  (nameDb.get(table) as Table).o2mRelations.map((r) => r.name),
+  (reverseDb.get(table) as Table).o2mRelations.map((r) => r.name),
+  (descriptiveDb.get(table) as Table).o2mRelations.map((r) => r.name),
+  (reverseDescriptiveDb.get(table) as Table).o2mRelations.map((r) => r.name),
 ];
 
 beforeAll(async () => {

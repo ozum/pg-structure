@@ -1,4 +1,4 @@
-import { Db, Sequence, Table, Schema } from "../../src/index";
+import { Db, Sequence, Schema } from "../../src/index";
 import getDb from "../test-helper/get-db";
 
 let db: Db;

@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import O2MRelation from "../pg-structure/relation/o2m-relation";
 import M2ORelation from "../pg-structure/relation/m2o-relation";
 import M2MRelation from "../pg-structure/relation/m2m-relation";

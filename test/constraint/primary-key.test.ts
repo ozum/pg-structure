@@ -19,6 +19,6 @@ describe("PrimaryKey", () => {
   });
 
   it("should have columns.", () => {
-    expect(pk.columns.map(c => c.name)).toEqual(["first_name", "middle_name", "last_name"]);
+    expect(pk.columns.map((c) => c.name)).toEqual(["first_name", "middle_name", "last_name"]);
   });
 });

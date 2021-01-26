@@ -31,13 +31,13 @@ describe("Table", () => {
   });
 
   it("should have constraints.", () => {
-    expect(accountTable.constraints.map(c => c.name)).toEqual([
+    expect(accountTable.constraints.map((c) => c.name)).toEqual([
       "account_unique_constraint",
       "account_update_later",
       "ix_exclude",
       "KeyEntity11",
     ]);
-    expect(accountTable.constraints.map(c => c.constructor.name)).toEqual([
+    expect(accountTable.constraints.map((c) => c.constructor.name)).toEqual([
       "UniqueConstraint",
       "CheckConstraint",
       "ExclusionConstraint",
@@ -46,29 +46,29 @@ describe("Table", () => {
   });
 
   it("should list foreign keys to itself.", () => {
-    expect(accountTable.foreignKeysToThis.map(fk => fk.name)).toEqual(["contact_primary_account", "contact_secondary_account"]);
+    expect(accountTable.foreignKeysToThis.map((fk) => fk.name)).toEqual(["contact_primary_account", "contact_secondary_account"]);
   });
 
   it("should list foreign keys from other table to this table.", () => {
-    expect(accountTable.getForeignKeysFrom(contactTable).map(fk => fk.name)).toEqual([
+    expect(accountTable.getForeignKeysFrom(contactTable).map((fk) => fk.name)).toEqual([
       "contact_primary_account",
       "contact_secondary_account",
     ]);
-    expect(otherSchemaCartTable.getForeignKeysFrom("contact").map(fk => fk.name)).toEqual([]);
+    expect(otherSchemaCartTable.getForeignKeysFrom("contact").map((fk) => fk.name)).toEqual([]);
   });
 
   it("should list foreign keys from this table to other table.", () => {
-    expect(contactTable.getForeignKeysTo("account").map(fk => fk.name)).toEqual(["contact_primary_account", "contact_secondary_account"]);
-    expect(otherSchemaCartTable.getForeignKeysTo("contact").map(fk => fk.name)).toEqual(["other_cart_contact"]);
+    expect(contactTable.getForeignKeysTo("account").map((fk) => fk.name)).toEqual(["contact_primary_account", "contact_secondary_account"]);
+    expect(otherSchemaCartTable.getForeignKeysTo("contact").map((fk) => fk.name)).toEqual(["other_cart_contact"]);
   });
 
   it("should list join tables to other table.", () => {
-    expect(cartTable.getJoinTablesTo("product").map(t => t.name)).toEqual(["cancelled_item", "cart_line_item"]);
-    expect(otherSchemaCartTable.getJoinTablesTo("product").map(t => t.name)).toEqual([]);
+    expect(cartTable.getJoinTablesTo("product").map((t) => t.name)).toEqual(["cancelled_item", "cart_line_item"]);
+    expect(otherSchemaCartTable.getJoinTablesTo("product").map((t) => t.name)).toEqual([]);
   });
 
   it("should have indexes.", () => {
-    expect(accountTable.indexes.map(i => i.name)).toEqual([
+    expect(accountTable.indexes.map((i) => i.name)).toEqual([
       "account_unique_constraint",
       "ix_column_and_expression",
       "ix_columns",
@@ -85,19 +85,19 @@ describe("Table", () => {
   });
 
   it("should list foreign keys", () => {
-    expect(contactTable.foreignKeys.map(fk => fk.name)).toEqual(["contact_primary_account", "contact_secondary_account"]);
+    expect(contactTable.foreignKeys.map((fk) => fk.name)).toEqual(["contact_primary_account", "contact_secondary_account"]);
   });
 
   it("should list unique constraints.", () => {
-    expect(accountTable.uniqueConstraints.map(c => c.name)).toEqual(["account_unique_constraint"]);
+    expect(accountTable.uniqueConstraints.map((c) => c.name)).toEqual(["account_unique_constraint"]);
   });
 
   it("should list check constraints.", () => {
-    expect(accountTable.checkConstraints.map(c => c.name)).toEqual(["account_update_later"]);
+    expect(accountTable.checkConstraints.map((c) => c.name)).toEqual(["account_update_later"]);
   });
 
   it("should list exclusion constraints.", () => {
-    expect(accountTable.exclusionConstraints.map(c => c.name)).toEqual(["ix_exclude"]);
+    expect(accountTable.exclusionConstraints.map((c) => c.name)).toEqual(["ix_exclude"]);
   });
 
   it("should have primary key.", () => {
@@ -105,11 +105,11 @@ describe("Table", () => {
   });
 
   it("should have hasManyTables attribute.", () => {
-    expect(accountTable.hasManyTables.map(t => t.name)).toEqual(["contact", "contact"]);
+    expect(accountTable.hasManyTables.map((t) => t.name)).toEqual(["contact", "contact"]);
   });
 
   it("should have belongsToTables attribute.", () => {
-    expect(contactTable.belongsToTables.map(t => t.name)).toEqual(["account", "account"]);
+    expect(contactTable.belongsToTables.map((t) => t.name)).toEqual(["account", "account"]);
   });
 
   it("should have belongsToManyTables attribute.", () => {

@@ -37,10 +37,7 @@ For example `columnA`, `columnB` and `columnC` below has same object:
 ```ts
 const columnA = db.get("account.user_name"); // Uses default `public` schema.
 const columnB = db.get("public.account.user_name");
-const columnC = db.schemas
-  .get("public")
-  .tables.get("account")
-  .columns.get("user_name");
+const columnC = db.schemas.get("public").tables.get("account").columns.get("user_name");
 ```
 
 ### Collections
@@ -50,7 +47,7 @@ Collections in `pg-structure` are provided using [IndexableArray](https://www.np
 Please note [IndexableArray](https://www.npmjs.com/package/indexable-array) throws exception if `get()` does not found required element. To get `undefined` use `getMaybe()`.
 
 ```ts
-const columnNames = table.columns.map(c => c.name); // Base array map.
+const columnNames = table.columns.map((c) => c.name); // Base array map.
 const column = table.columns.get("surname"); // Gets surname column.
 const unknown = table.columns.get("unknown_column"); // Throws exception
 const undef = table.columns.getMaybe("unknown_column"); // Undefined

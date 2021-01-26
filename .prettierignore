@@ -1,0 +1,9 @@
+*.nosync
+node_modules
+coverage
+dist
+build
+generators
+out
+.next
+.nuxt

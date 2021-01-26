@@ -3,7 +3,7 @@ export type Primitive = string | number | boolean | null;
 
 /** @ignore */
 export interface JSONObject {
-  [member: string]: JSONData | undefined;
+  [member: string]: JSONData | undefined; // eslint-disable-line no-use-before-define
 }
 
 /** @ignore */

@@ -10,10 +10,10 @@ let reverseDescriptiveDb: Db;
 let messageTable: Table;
 
 const getNames = (table: string): string[][] => [
-  (db.get(table) as Table).m2oRelations.map(r => r.name),
-  (reverseDb.get(table) as Table).m2oRelations.map(r => r.name),
-  (descriptiveDb.get(table) as Table).m2oRelations.map(r => r.name),
-  (reverseDescriptiveDb.get(table) as Table).m2oRelations.map(r => r.name),
+  (db.get(table) as Table).m2oRelations.map((r) => r.name),
+  (reverseDb.get(table) as Table).m2oRelations.map((r) => r.name),
+  (descriptiveDb.get(table) as Table).m2oRelations.map((r) => r.name),
+  (reverseDescriptiveDb.get(table) as Table).m2oRelations.map((r) => r.name),
 ];
 
 beforeAll(async () => {

@@ -1,4 +1,3 @@
-import IndexableArray from "indexable-array";
 import Entity from "../base/entity";
 
 /**

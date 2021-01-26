@@ -1,0 +1,26 @@
+{% if package.scripts and package.scripts.build %}
+  {% if package.scripts.build.match("microbundle") %}
+
+| Format                             | Instructions                                                       |
+| ---------------------------------- | ------------------------------------------------------------------ |
+| **TypeScript**                     | `import { ... } from "{{ package.name }}";`                        |
+| **Node (CommonJS)**                | `const { ... } = require("{{ package.name }}");`                   |
+| **ES Modules (Browsers, webpack)** | `import { ... } from "{{ package.name }}";`                        |
+| **UMD (Browser Global)**           | `<script src="path/to/module/{{ package.name }}.umd.js"></script>` |
+
+Development versions can be found in `dist/dev` directory.
+
+  {% elif package.scripts.build.match("rollup") %}
+
+| Format                             | Instructions                                                    |
+| ---------------------------------- | --------------------------------------------------------------- |
+| **TypeScript**                     | `import { ... } from "{{ package.name }}";`                     |
+| **Node (CommonJS)**                | `const { ... } = require("{{ package.name }}");`                |
+| **ES Modules (Browsers, webpack)** | `import { ... } from "{{ package.name }}";`                     |
+| **UMD (Browser Global)**           | `<script src="path/to/umd/{{ package.name }}.js"></script>`     |
+| **UMD (Browser Global)** (min)     | `<script src="path/to/umd/{{ package.name }}.min.js"></script>` |
+
+All unminified and minified bundle files are located in respective directories named after format (cjs, esm, umd) in `dist` (`dist/cjs/{{ package.name }}.js` and `{{ package.name }}.min.js`)
+
+  {% endif %}
+{% endif %}

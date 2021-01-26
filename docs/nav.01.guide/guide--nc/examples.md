@@ -29,7 +29,7 @@ const tables = db.get("public").tables;
 
 ```ts
 const columns = db.get("product").columns;
-columns.forEach(c => {
+columns.forEach((c) => {
   console.log(c.name);
 });
 ```
@@ -45,7 +45,7 @@ const pkColumns = pk.columns; // A primary key may have more than one columns (c
 
 ```ts
 const fks = db.get("product").foreignKeys; // A table may have more than one foreign keys.
-fks.forEach(fk => {
+fks.forEach((fk) => {
   // A foreign key may have more than one columns (composite key)
   const fkColumns = fk.columns;
 });

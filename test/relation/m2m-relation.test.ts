@@ -11,10 +11,10 @@ let studentTable: Table;
 let cartTable: Table;
 
 const getNames = (table: string): string[][] => [
-  (db.get(table) as Table).m2mRelations.map(r => r.name),
-  (reverseDb.get(table) as Table).m2mRelations.map(r => r.name),
-  (descriptiveDb.get(table) as Table).m2mRelations.map(r => r.name),
-  (reverseDescriptiveDb.get(table) as Table).m2mRelations.map(r => r.name),
+  (db.get(table) as Table).m2mRelations.map((r) => r.name),
+  (reverseDb.get(table) as Table).m2mRelations.map((r) => r.name),
+  (descriptiveDb.get(table) as Table).m2mRelations.map((r) => r.name),
+  (reverseDescriptiveDb.get(table) as Table).m2mRelations.map((r) => r.name),
 ];
 
 beforeAll(async () => {

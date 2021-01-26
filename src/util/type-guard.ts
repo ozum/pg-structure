@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import ForeignKey from "../pg-structure/constraint/foreign-key";
 import PrimaryKey from "../pg-structure/constraint/primary-key";
 import CheckConstraint from "../pg-structure/constraint/check-constraint";
