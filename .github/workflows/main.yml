@@ -23,7 +23,7 @@ jobs:
       # Change user name and password to meet your requirements
       - name: Create additional user
         run: |
-          sudo -u postgres psql --command="CREATE USER "user" PASSWORD 'password'" --command="\du"
+          sudo -u postgres psql --command="CREATE USER \"user\" PASSWORD 'password'" --command="\du"
 
       - name: Begin CI...
         uses: actions/checkout@v2
