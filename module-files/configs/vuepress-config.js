@@ -14,7 +14,7 @@ module.exports = {
   description: packageData.description,
   plugins,
   themeConfig: {
-    repo: typeof packageData.repository === "string" ? packageData.repository : packageData.repository.url,
+    repo: typeof packageData.repository === "object" ? packageData.repository.url : packageData.repository,
     nav,
     sidebar,
     sidebarDepth: 2,

@@ -7,5 +7,5 @@ const test = "jest --bail --coverage --findRelatedTests --config jest.config.js"
 module.exports = {
   "*.{jsx,tsx,vue,js,ts}": [lint],
   "src/**/*.{js,ts}": [test],
-  "*.{json,less,css,md,gql,graphql,html,yaml}": [format],
+  "*.{json,less,css,md,gql,graphql,html,yaml,yml}": [format],
 };
