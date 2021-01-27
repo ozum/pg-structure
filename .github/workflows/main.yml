@@ -14,6 +14,17 @@ jobs:
       - run: echo Condition met
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
+      # Use preinstalled PostgreSQL
+      - name: Start PostgreSQL on Ubuntu
+        run: |
+          sudo systemctl start postgresql.service
+          pg_isready
+
+      # Change user name and password to meet your requirements
+      - name: Create additional user
+        run: |
+          sudo -u postgres psql --command="CREATE USER user PASSWORD 'password'" --command="\du"
+
       - name: Begin CI...
         uses: actions/checkout@v2
 
