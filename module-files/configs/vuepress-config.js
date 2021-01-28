@@ -4,10 +4,17 @@ const packageData = require("../../package.json");
 
 const GOOGLE_ANALYTICS_ID = packageData.vuepress && packageData.vuepress["google-analytics-id"];
 
-const { nav, sidebar } = getVuePressBars(join(__dirname), "../../docs/.vuepress");
+const { nav, sidebar } = getVuePressBars(join(__dirname, "../../docs"), { addReadMeToFirstGroup: false });
 const plugins = ["@vuepress/active-header-links", "@vuepress/pwa"];
 
 if (GOOGLE_ANALYTICS_ID) plugins.push(["@vuepress/google-analytics", { ga: GOOGLE_ANALYTICS_ID }]);
+
+// If `addReadMeToFirstGroup` is `true`, and another link is not added API sidebar, it moves root README.md into first available section.
+// Below conditional code reverses this for api section by moving README.md link from children of classes (or first section) to main section.
+// if (sidebar["/nav.02.api/"][0].children) {
+//   sidebar["/nav.02.api/"][0].children.shift();
+//   sidebar["/nav.02.api/"].unshift("");
+// }
 
 module.exports = {
   title: packageData.label || packageData.name,
