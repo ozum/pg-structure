@@ -32,6 +32,15 @@ async function createTempDir() {
   return path;
 }
 
+/** Remove directory if it exists. */
+async function rmdirIfExists(path) {
+  try {
+    await fs.rmdir(path, { recursive: true });
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+}
+
 async function spawn(cmd, args, options) {
   const ps = await childProcess.spawn(cmd, args, options);
   return new Promise((resolve, reject) =>
@@ -83,16 +92,16 @@ async function md({ out, singleFile = false }) {
       createdFiles.filter((file) => basename(file) === "index.md").map((file) => fs.rename(file, join(dirname(file), "index2.md")))
     );
   } catch (error) {
-    if (singleFile) await fs.rmdir(tmpDir, { recursive: true });
+    if (singleFile) await rmdirIfExists(tmpDir);
     throw error;
   }
 
   if (singleFile) {
     const apiDoc = await concatMd(tmpDir, { dirNameAsTitle: true });
     fs.writeFile(out, apiDoc);
-    await fs.rmdir(tmpDir, { recursive: true });
+    await rmdirIfExists(tmpDir);
   } else {
-    await fs.rmdir(out, { recursive: true });
+    await rmdirIfExists(out);
     await fs.rename(tmpDir, out);
   }
 }
@@ -127,7 +136,7 @@ async function html({ out }) {
   // const cwd = getCwd();
   const bin = join(cwd, "node_modules/.bin/typedoc");
 
-  await fs.rmdir(out, { recursive: true });
+  await rmdirIfExists(out);
   await spawn(bin, ["--plugin", "typedoc-plugin-example-tag", "--out", out, getTypeDocEntry()], { stdio: "inherit" });
 }
 
