@@ -136,7 +136,7 @@ export interface Options {
   /** Character to separate {@link ForeignKey.sourceAlias source alias} and {@link ForeignKey.targetAlias target alias} in {@link ForeignKey foreign key} name. */
   foreignKeyAliasSeparator?: string;
 
-  /** is whether first part of the foreign key aliases contains target alias (i.e `company_employees`) or source alias (i.e. `employee_company`). */
+  /** Whether first part of the foreign key aliases contains target alias (i.e `company_employees`) or source alias (i.e. `employee_company`). */
   foreignKeyAliasTargetFirst?: boolean;
 
   /**
