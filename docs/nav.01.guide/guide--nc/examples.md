@@ -19,6 +19,20 @@ const db = await pgStructure(
 );
 ```
 
+### Connection with Environment Variables
+
+**.env**
+
+```
+DB_DATABASE=db
+DB_USER=user
+DB_PASSWORD=password
+```
+
+```ts
+const db = await pgStructure();
+```
+
 ### Get Tables Array
 
 ```ts

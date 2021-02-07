@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Client, ClientConfig } from "pg";
 import { parse } from "pg-connection-string";
+import dotenv from "dotenv";
 import { Action, MatchType, Options } from "./types/index";
 import {
   SchemaQueryResult,
@@ -15,7 +16,7 @@ import {
   FunctionQueryResult,
   TriggerQueryResult,
 } from "./types/query-result";
-import { executeSqlFile, getPgClient, getQueryVersionFor } from "./util/helper";
+import { executeSqlFile, getPgClient, getQueryVersionFor, getEnvValues } from "./util/helper";
 import Db from "./pg-structure/db";
 import Schema from "./pg-structure/schema";
 
@@ -44,6 +45,8 @@ import WindowFunction from "./pg-structure/function/window-function";
 import PseudoType from "./pg-structure/type/pseudo-type";
 import Trigger from "./pg-structure/trigger";
 
+dotenv.config();
+
 /**
  * Returns database name.
  *
@@ -53,7 +56,7 @@ import Trigger from "./pg-structure/trigger";
  */
 /* istanbul ignore next */
 function getDatabaseName(pgClientOrConfig: Client | ClientConfig | string): string {
-  if (pgClientOrConfig instanceof Client) {
+  if (!pgClientOrConfig || pgClientOrConfig instanceof Client) {
     return "database";
   }
   return (typeof pgClientOrConfig === "string" ? parse(pgClientOrConfig).database : pgClientOrConfig.database) || "database";
@@ -382,8 +385,9 @@ function addObjects(db: Db, queryResults: QueryResults): void {
  * @returns [[Db]] object which represents given database's structure.
  */
 export async function pgStructure(
-  pgClientOrConfig: Client | ClientConfig | string,
+  pgClientOrConfig?: Client | ClientConfig | string,
   {
+    envPrefix = "DB",
     name,
     commentDataToken = "pg-structure",
     includeSchemas,
@@ -395,6 +399,8 @@ export async function pgStructure(
     keepConnection = false,
   }: Options = {}
 ): Promise<Db> {
+  /* istanbul ignore next */
+  pgClientOrConfig = pgClientOrConfig ?? getEnvValues(envPrefix); // eslint-disable-line no-param-reassign
   const { client, closeConnectionAfter } = await getPgClient(pgClientOrConfig);
 
   const includeSchemasArray = Array.isArray(includeSchemas) || includeSchemas === undefined ? includeSchemas : [includeSchemas];

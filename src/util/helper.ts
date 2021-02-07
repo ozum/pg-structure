@@ -3,6 +3,7 @@ import JSON5 from "json5";
 import { Client, ClientConfig } from "pg";
 import { join } from "path";
 import memoize from "fast-memoize";
+import { camelize } from "inflection";
 import { JSONData } from "../types/json";
 import { CaseType } from "../types";
 import { SQLFileResult } from "../types/query-result";
@@ -169,6 +170,24 @@ export async function executeSqlFile<K extends keyof SQLFileResult>(
  */
 function isPgClient(pgClientOrConfig: any): pgClientOrConfig is Client {
   return typeof pgClientOrConfig.query === "function" && typeof pgClientOrConfig.connect === "function";
+}
+
+/**
+ * Gets client config from environment variables.
+ *
+ * @ignore
+ * @param prefix is the prefix used in environment variables.
+ * @returns the config.
+ *
+ * @example
+ * getEnvValues("DB"); // DB_USER=user DB_CONNECTION_STRIN=abc -> { user: "user", connectionString: "abc" }
+ */
+export function getEnvValues(prefix: string): ClientConfig {
+  const clientConfig: Record<string, any> = {};
+  Object.entries(process.env)
+    .filter(([name]) => name.startsWith(prefix))
+    .forEach(([name, value]) => (clientConfig[camelize(name.replace(`${prefix}_`, "").toLowerCase(), true)] = value)); // eslint-disable-line no-return-assign
+  return clientConfig;
 }
 
 /**

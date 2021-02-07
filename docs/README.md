@@ -27,6 +27,7 @@ Open source `pg-structure` reverse engineers PostgreSQL database and lets you ea
 import pgStructure from "pg-structure";
 
 async function demo() {
+  // pg-structure may read client config from process.env. Use environment variables for sensitive information such as passwords.
   const db = await pgStructure({ database: "db", user: "u", password: "pass" }, { includeSchemas: ["public"] });
 
   const accountTable = db.get("account"); // TypeScript: db.get("account") as Entity

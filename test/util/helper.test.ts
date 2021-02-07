@@ -1,5 +1,5 @@
 import memoize from "fast-memoize";
-import { unquote, replaceTypeCast, parseEnumValues, getRelationsMarkdown, executeSqlFile } from "../../src/util/helper";
+import { unquote, replaceTypeCast, parseEnumValues, getRelationsMarkdown, executeSqlFile, getEnvValues } from "../../src/util/helper";
 import memoizeSerializer from "../../src/util/memoize-serializer";
 import strip from "../../src/util/strip";
 import getDb from "../test-helper/get-db";
@@ -31,6 +31,15 @@ describe("memoizeSerializer()", () => {
 describe("unquote()", () => {
   it("should return empty if no input provided.", () => {
     expect(unquote("")).toBe("");
+  });
+});
+
+describe("getEnvValues()", () => {
+  it("should get environment variables.", () => {
+    process.env.XYZ_DATABASE = "db";
+    process.env.XYZ_USER = "user";
+    process.env.XYZ_SOME_DATA = "data";
+    expect(getEnvValues("XYZ")).toEqual({ database: "db", user: "user", someData: "data" });
   });
 });
 

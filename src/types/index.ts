@@ -113,6 +113,27 @@ export type TriggerEnabled = "origin" | "disabled" | "replica" | "always";
  * Options for the `pgStructure` function.
  */
 export interface Options {
+  /**
+   * Environment variable prefix to get database client details. If no client configuration is provided `pg-structure` tries to
+   * get client details from environment variables to populate `node-postgres` config (See [ClientConfig](https://node-postgres.com/api/client) of `pg`).
+   * All keys are built using this prefix in uppercase.
+   *
+   * |Environment Varibale|[ClientConfig](https://node-postgres.com/api/client) Key|
+   * |---|---|
+   * |DB_DATABASE|database|
+   * |DB_USER|user|
+   * |DB_PASSWORD|password|
+   * |DB_HOST|host|
+   * |DB_PORT|port|
+   * |DB_CONNECTION_STRING|connectionString|
+   * |DB_SSL|ssl|
+   * |...|...|
+   *
+   * @example
+   * const config = { envPrefix: "DB" }
+   */
+  envPrefix?: string;
+
   /** Name of the database. This is inferred if possible from client or connection string. */
   name?: string;
 
