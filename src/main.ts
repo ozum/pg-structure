@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Client, ClientConfig } from "pg";
 import { parse } from "pg-connection-string";
-import { Action, MatchType, RelationNameFunctions, BuiltinRelationNameFunctions } from "./types/index";
+import { Action, MatchType, Options } from "./types/index";
 import {
   SchemaQueryResult,
   TypeQueryResult,
@@ -43,59 +43,6 @@ import AggregateFunction from "./pg-structure/function/aggregate-function";
 import WindowFunction from "./pg-structure/function/window-function";
 import PseudoType from "./pg-structure/type/pseudo-type";
 import Trigger from "./pg-structure/trigger";
-
-/** @ignore */
-interface Options {
-  name?: string;
-  includeSchemas?: string | string[];
-  excludeSchemas?: string | string[];
-  includeSystemSchemas?: boolean;
-  /**
-   * Character to separate {@link ForeignKey.sourceAlias source alias} and {@link ForeignKey.targetAlias target alias}
-   * in {@link ForeignKey foreign key} name.
-   */
-  foreignKeyAliasSeparator?: string;
-  foreignKeyAliasTargetFirst?: boolean;
-
-  /**
-   * Optional function to generate names for relationships. If not provided, default naming functions are used.
-   * All necessary information such as {@link Table table} names, {@link Column columns}, {@link ForeignKey foreign key},
-   * {@link DbObject.commentData comment data} can be accessed via passed {@link Relation relation} parameter.
-   *
-   * It is also possible to use one of the builtin naming functions: `short`, `descriptive`.
-   *
-   * @example
-   * const config = {
-   *   relationNameFunctions: {
-   *     o2m: (relation) => some_func(relation.foreignKey.name),
-   *     m2o: (relation) => some_func(relation.foreignKey.name),
-   *     m2m: (relation) => some_func(relation.foreignKey.name),
-   *   },
-   * }
-   *
-   * const config2 = {
-   *   relationNameFunctions: "short",
-   * }
-   */
-  relationNameFunctions?: RelationNameFunctions | BuiltinRelationNameFunctions;
-
-  /**
-   * Tag name to extract JSON data from from database object's comments. For example by default JSON data between `[pg-structure][/pg-structure]`
-   * is available imn database objects. Data can be retrieved with {@link DbObject.commentData commentData} method.
-   *
-   * @example
-   * const config = {
-   *   commentDataToken: "pg-structure"
-   * }
-   *
-   * // Assuming `[pg-structure]{ level: 3 }[/pg-structure]` is written in database table comment/description.
-   * const someData = db.get("public.account").commentData; // { level: 3 }
-   */
-  commentDataToken?: string;
-
-  /** Prevents pg-structure to close given database connection. */
-  keepConnection?: boolean;
-}
 
 /**
  * Returns database name.
@@ -423,19 +370,15 @@ function addObjects(db: Db, queryResults: QueryResults): void {
 }
 
 /**
- * Creates and returns [[Db]] object which represents given database's structure. It is possible to include or exclude some schemas
- * using options. Please note that if included schemas contain references (i.e. foreign key to other schema or type in other schema)
- * to non-included schema, throws exception.
+ * Reverse engineers a PostgreSQL database and creates [[Db]] instance which represents given database's structure.
+ * There are several options such as to include or exclude schemas, provide custom names to relations. Please refer to [[Options]]
+ * for detailed explanations.
  *
- * @param pgClientOrConfig is connection string or [node-postgres client](https://node-postgres.com/api/client) or [node-postgres client](https://node-postgres.com/api/client) configuration.
- * @param name is name of the database. This is inferred if possible from client or connection string.
- * @param commentDataToken is tag name to extract JSON data from from database object's comments. For example by default JSON data between `[pg-structure][/pg-structure]` is available imn database objects. Data can be retrieved with {@link DbObject.commentData commentData} method.
- * @param includeSchemas is pattern similar to `SQL LIKE` (i.e `public_%`) or list of schemas to include.
- * @param excludeSchemas is pattern similar to `SQL LIKE` (i.e `public_%`) or list of schemas to exclude.
- * @param includeSystemSchemas is whether to include PostgreSQL system schemas (i.e. `pg_catalog`) from database.
- * @param foreignKeyAliasSeparator is character to separate {@link ForeignKey.sourceAlias source alias} and {@link ForeignKey.targetAlias target alias} in {@link ForeignKey foreign key} name. For example: `prime_color,product`.
- * @param foreignKeyAliasTargetFirst is whether first part of the foreign key aliases contains target alias (i.e `company_employees`) or source alias (i.e. `employee_company`).
- * @param relationNameFunctions Optional functions to generate names for relationships. If not provided, default naming functions are used. All necessary information such as {@link Table table} names, {@link Column columns}, {@link ForeignKey foreign key}, {@link DbObject.commentData comment data} can be accessed via passed {@link Relation relation} parameter. It is also possible to use one of the builtin naming functions such as `short`, `descriptive`.
+ * **IMPORTANT:** Please note that if included schemas contain references to a non-included schema, this function throws exception.
+ * (e.g. a foreign key to another schema or a type in another schema which is not included)
+ *
+ * @param pgClientOrConfig is connection string or [node-postgres client](https://node-postgres.com/api/client) configuration.
+ * @param __namedParameters are options to change behaviour of the function.
  * @returns [[Db]] object which represents given database's structure.
  */
 export async function pgStructure(

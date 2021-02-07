@@ -48,7 +48,7 @@ jobs:
       - name: Run Prettier
         run: yarn format --no-write --check
       - name: Test
-        run: yarn test --ci --coverage --maxWorkers=2
+        run: yarn test --ci --maxWorkers=2
         env:
           CI: true
       - name: Build

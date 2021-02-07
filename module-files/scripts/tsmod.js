@@ -3,7 +3,6 @@ const os = require("os");
 const { promises: fs, readFileSync } = require("fs");
 const { sep, join, normalize, basename, dirname, parse } = require("path");
 const childProcess = require("child_process");
-const { notSync } = require("not-sync");
 const readmeasy = require("readmeasy").default;
 
 const cwd = process.env.INIT_CWD || process.cwd();
@@ -32,15 +31,6 @@ async function createTempDir() {
   return path;
 }
 
-/** Remove directory if it exists. */
-async function rmdirIfExists(path) {
-  try {
-    await fs.rmdir(path, { recursive: true });
-  } catch (error) {
-    if (error.code !== "ENOENT") throw error;
-  }
-}
-
 async function spawn(cmd, args, options) {
   const ps = await childProcess.spawn(cmd, args, options);
   return new Promise((resolve, reject) =>
@@ -63,9 +53,7 @@ async function md({ out, singleFile = false }) {
   // rm -rf api-docs-md && typedoc  --plugin typedoc-plugin-example-tag,typedoc-plugin-markdown --excludeExternals --excludePrivate --excludeProtected --exclude 'src/bin/**/*' --theme markdown --readme none --out api-docs-md src/index.ts && find api-docs-md -name \"index.md\" -exec sh -c 'mv \"$1\" \"${1%index.md}\"index2.md' - {} \\;
   // const cwd = getCwd();
   const bin = join(cwd, "node_modules/.bin/typedoc");
-  const outDir = singleFile ? await createTempDir() : out;
-  if (!singleFile) await rmdirIfExists(outDir);
-
+  const tmpDir = await createTempDir();
   const options = [
     "--plugin",
     "typedoc-plugin-example-tag,typedoc-plugin-markdown",
@@ -79,7 +67,7 @@ async function md({ out, singleFile = false }) {
     "--readme",
     "none",
     "--out",
-    outDir,
+    tmpDir,
     getTypeDocEntry(),
   ];
 
@@ -87,21 +75,24 @@ async function md({ out, singleFile = false }) {
     await spawn(bin, options, { stdio: "inherit" });
 
     // Rename all "index.md" files as "index2.md", because VuePress treats "index.md" special. Renaming does not matter, because title comes from front-matter.
-    const createdFiles = await walk.async(outDir);
+    const createdFiles = await walk.async(tmpDir);
     await Promise.all(createdFiles.map((file) => addFrontMatterToMd(file)));
 
     await Promise.all(
       createdFiles.filter((file) => basename(file) === "index.md").map((file) => fs.rename(file, join(dirname(file), "index2.md")))
     );
   } catch (error) {
-    if (singleFile) await rmdirIfExists(outDir);
+    if (singleFile) await fs.rmdir(tmpDir, { recursive: true });
     throw error;
   }
 
   if (singleFile) {
-    const apiDoc = await concatMd(outDir, { dirNameAsTitle: true });
+    const apiDoc = await concatMd(tmpDir, { dirNameAsTitle: true });
     fs.writeFile(out, apiDoc);
-    await rmdirIfExists(outDir);
+    await fs.rmdir(tmpDir, { recursive: true });
+  } else {
+    await fs.rmdir(out, { recursive: true });
+    await fs.rename(tmpDir, out);
   }
 }
 
@@ -118,7 +109,9 @@ async function addFrontMatterToMd(file) {
 
     // "# Class: User" results in "User". "# User" results in "User".
     const firstTitleMatch = content.match(new RegExp("^[^#]+?#\\s+(.+?)\\r?\\n", "s"));
-    const firstTitle = firstTitleMatch !== null && firstTitleMatch[1] ? firstTitleMatch[1].replace(/.+?:\s+/, "") : undefined;
+    const firstTitle =
+      firstTitleMatch !== null && firstTitleMatch[1] ? firstTitleMatch[1].replace(/.+?:\s+/, "").replace("@", "\\@") : undefined;
+
     if (firstTitle) await fs.writeFile(file, `---\ntitle: ${firstTitle}\n---\n\n${content}`);
   } catch (error) {
     if (error.code !== "EISDIR") throw error;
@@ -135,7 +128,7 @@ async function html({ out }) {
   // const cwd = getCwd();
   const bin = join(cwd, "node_modules/.bin/typedoc");
 
-  await rmdirIfExists(out);
+  await fs.rmdir(out, { recursive: true });
   await spawn(bin, ["--plugin", "typedoc-plugin-example-tag", "--out", out, getTypeDocEntry()], { stdio: "inherit" });
 }
 
@@ -176,20 +169,9 @@ async function vuepressApi() {
   await fs.copyFile(iframePath, join(mdPath, basename(iframePath))); // Don't put this in `Promise.all` with `md` and `html`. It needs first directory created. Otherwise file is copied same name with directory, since there is no directory yet.
 }
 
-/**
- * Creates given directories and disables cloud storage syncroonization.
- *
- * @param {string[]} dirs are directories to create and disable syncronization.
- */
-async function applyNotSync(dirs) {
-  if (!hasDependency("not-sync")) return;
-  await notSync(dirs, { createDirs: true });
-}
-
 const commands = {
   readme: () => readme(),
   "vuepress-api": () => vuepressApi(),
-  "not-sync": (args) => applyNotSync(args[0].split(",")),
 };
 
 const [command, ...args] = process.argv.slice(2);

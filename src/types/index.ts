@@ -108,3 +108,74 @@ export type TriggerEvent = "insert" | "delete" | "update" | "truncate";
 
 /** In which session_replication_role modes the trigger fires. */
 export type TriggerEnabled = "origin" | "disabled" | "replica" | "always";
+
+/**
+ * Options for the `pgStructure` function.
+ */
+export interface Options {
+  /** Name of the database. This is inferred if possible from client or connection string. */
+  name?: string;
+
+  /**
+   * List of the schemas or a pattern similar to SQL's `LIKE` to select included schemas.
+   *
+   * @example
+   * const config = { includeSchemas: "public_%" }; // include all schemas starting with "public_"
+   *
+   * @example
+   * const config = { includeSchemas: ["public", "extra"] };
+   */
+  includeSchemas?: string | string[];
+
+  /** List of the schemas or a pattern similar to SQL's `LIKE` to select excluded schemas. */
+  excludeSchemas?: string | string[];
+
+  /** Whether to include PostgreSQL system schemas (i.e. `pg_catalog`) from database. */
+  includeSystemSchemas?: boolean;
+
+  /** Character to separate {@link ForeignKey.sourceAlias source alias} and {@link ForeignKey.targetAlias target alias} in {@link ForeignKey foreign key} name. */
+  foreignKeyAliasSeparator?: string;
+
+  /** is whether first part of the foreign key aliases contains target alias (i.e `company_employees`) or source alias (i.e. `employee_company`). */
+  foreignKeyAliasTargetFirst?: boolean;
+
+  /**
+   * Optional function to generate names for relationships. If not provided, default naming functions are used.
+   * All necessary information such as {@link Table table} names, {@link Column columns}, {@link ForeignKey foreign key},
+   * {@link DbObject.commentData comment data} can be accessed via passed {@link Relation relation} parameter.
+   *
+   * It is also possible to use one of the builtin naming functions: `short`, `descriptive`.
+   *
+   * @example
+   * const config = {
+   *   relationNameFunctions: {
+   *     o2m: (relation) => some_func(relation.foreignKey.name),
+   *     m2o: (relation) => some_func(relation.foreignKey.name),
+   *     m2m: (relation) => some_func(relation.foreignKey.name),
+   *   },
+   * }
+   *
+   * @example
+   * const config = {
+   *   relationNameFunctions: "short",
+   * }
+   */
+  relationNameFunctions?: RelationNameFunctions | BuiltinRelationNameFunctions;
+
+  /**
+   * Tag name to extract JSON data from from database object's comments. For example by default JSON data between `[pg-structure][/pg-structure]`
+   * is available imn database objects. Data can be retrieved with {@link DbObject.commentData commentData} method.
+   *
+   * @example
+   * const config = {
+   *   commentDataToken: "pg-structure"
+   * }
+   *
+   * // Assuming `[pg-structure]{ level: 3 }[/pg-structure]` is written in database table comment/description.
+   * const someData = db.get("public.account").commentData; // { level: 3 }
+   */
+  commentDataToken?: string;
+
+  /** Prevents pg-structure to close given database connection. */
+  keepConnection?: boolean;
+}
