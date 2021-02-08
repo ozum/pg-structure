@@ -16,7 +16,7 @@ import {
   FunctionQueryResult,
   TriggerQueryResult,
 } from "./types/query-result";
-import { executeSqlFile, getPgClient, getQueryVersionFor, getEnvValues } from "./util/helper";
+import { executeSqlFile, getConnectedPgClient, getQueryVersionFor, getEnvValues } from "./util/helper";
 import Db from "./pg-structure/db";
 import Schema from "./pg-structure/schema";
 
@@ -380,12 +380,12 @@ function addObjects(db: Db, queryResults: QueryResults): void {
  * **IMPORTANT:** Please note that if included schemas contain references to a non-included schema, this function throws exception.
  * (e.g. a foreign key to another schema or a type in another schema which is not included)
  *
- * @param pgClientOrConfig is connection string or [node-postgres client](https://node-postgres.com/api/client) configuration.
+ * @param maybePgClientOrConfig is connection string or [node-postgres client](https://node-postgres.com/api/client) configuration.
  * @param __namedParameters are options to change behaviour of the function.
  * @returns [[Db]] object which represents given database's structure.
  */
 export async function pgStructure(
-  pgClientOrConfig?: Client | ClientConfig | string,
+  maybePgClientOrConfig?: Client | ClientConfig | string,
   {
     envPrefix = "DB",
     name,
@@ -400,8 +400,8 @@ export async function pgStructure(
   }: Options = {}
 ): Promise<Db> {
   /* istanbul ignore next */
-  pgClientOrConfig = pgClientOrConfig ?? getEnvValues(envPrefix); // eslint-disable-line no-param-reassign
-  const { client, closeConnectionAfter } = await getPgClient(pgClientOrConfig);
+  const pgClientOrConfig = maybePgClientOrConfig ?? getEnvValues(envPrefix);
+  const { client, shouldCloseConnection } = await getConnectedPgClient(pgClientOrConfig);
 
   const includeSchemasArray = Array.isArray(includeSchemas) || includeSchemas === undefined ? includeSchemas : [includeSchemas];
   const excludeSchemasArray = Array.isArray(excludeSchemas) || excludeSchemas === undefined ? excludeSchemas : [excludeSchemas];
@@ -422,7 +422,7 @@ export async function pgStructure(
 
   addObjects(db, queryResults);
 
-  if (!keepConnection && closeConnectionAfter) client.end(); // If a connected client is provided, do not close connection.
+  if (!keepConnection && shouldCloseConnection) client.end(); // If a connected client is provided, do not close connection.
   return db;
 }
 

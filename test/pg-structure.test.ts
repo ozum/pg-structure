@@ -1,7 +1,7 @@
 import { Client } from "pg";
 import pgStructure, { deserialize } from "../src/index";
 
-describe("pgStructure() Factory", () => {
+describe("pgStructure()", () => {
   it("should return object including system schemas.", async () => {
     const db = await pgStructure(
       { database: "pg-structure-test-main", user: "user", password: "password" },
@@ -79,5 +79,9 @@ describe("pgStructure() Factory", () => {
     const db = await pgStructure(client);
 
     expect(db.tables.get("account").name).toEqual("account");
+  });
+
+  it("should throw if it cannot connect.", async () => {
+    await expect(pgStructure()).rejects.toThrow("cannot connect to the database");
   });
 });

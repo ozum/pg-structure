@@ -165,14 +165,6 @@ export async function executeSqlFile<K extends keyof SQLFileResult>(
 }
 
 /**
- * Returns whether given argument is a PostgreSQL client or pool.
- * @returns boolean
- */
-function isPgClient(pgClientOrConfig: any): pgClientOrConfig is Client {
-  return typeof pgClientOrConfig.query === "function" && typeof pgClientOrConfig.connect === "function";
-}
-
-/**
  * Gets client config from environment variables.
  *
  * @ignore
@@ -198,22 +190,19 @@ export function getEnvValues(prefix: string): ClientConfig {
  * @param is pg client or Connection parameters.
  * @returns pg client.
  */
-export async function getPgClient(
+export async function getConnectedPgClient(
   pgClientOrConfig: Client | ClientConfig | string
-): Promise<{ client: Client; closeConnectionAfter: boolean }> {
-  let closeConnectionAfter = false;
+): Promise<{ client: Client; shouldCloseConnection: boolean }> {
+  const isPgClient = typeof (pgClientOrConfig as any).query === "function" && typeof (pgClientOrConfig as any).connect === "function";
+  const client = (isPgClient ? pgClientOrConfig : new Client(pgClientOrConfig)) as Client;
 
-  if (isPgClient(pgClientOrConfig)) {
-    if (!(pgClientOrConfig as any)._connected) {
-      await pgClientOrConfig.connect();
-      closeConnectionAfter = true;
-    }
-    return { client: pgClientOrConfig, closeConnectionAfter };
+  try {
+    await client.connect();
+    return { client, shouldCloseConnection: true };
+  } catch (error) {
+    if (error.message.includes("Client has already been connected")) return { client, shouldCloseConnection: false };
+    throw new Error(`pg-structure cannot connect to the database: ${error.message}`);
   }
-
-  const client = new Client(pgClientOrConfig);
-  await client.connect();
-  return { client, closeConnectionAfter: true };
 }
 
 /**

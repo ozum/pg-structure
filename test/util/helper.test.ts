@@ -44,11 +44,11 @@ describe("getEnvValues()", () => {
 });
 
 describe("getRelationsMarkdown()", () => {
-  it("should generate markdown with foreign key", () => {
+  it("should generate markdown with foreign key.", () => {
     expect(getRelationsMarkdown(db)).toBeDefined();
   });
 
-  it("should generate markdown without foreign key", () => {
+  it("should generate markdown without foreign key.", () => {
     expect(getRelationsMarkdown(db, true)).toBeDefined();
   });
 });
@@ -76,17 +76,17 @@ describe("parseEnumValues()", () => {
 });
 
 describe("executeSqlFile", () => {
-  it("should execute query file", async () => {
+  it("should execute query file.", async () => {
     const result = await executeSqlFile(["11", "9"], "function", mockClient as any, ["public"]);
     expect(result).toEqual([]);
   });
 
-  it("should execute query file which best fits for given server version", async () => {
+  it("should execute query file which best fits for given server version.", async () => {
     const result = await executeSqlFile(["11", "9"], "type", mockClient as any, ["public"]);
     expect(result).toEqual([]);
   });
 
-  it("should throw if sutiable file cannot be found", async () => {
+  it("should throw if sutiable file cannot be found.", async () => {
     const result = executeSqlFile(["11", "9"], "xyz" as any, mockClient as any, ["public"]);
     await expect(result).rejects.toThrow("Cannot find xyz.sql");
   });
