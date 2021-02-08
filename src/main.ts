@@ -411,7 +411,7 @@ function isOptions(input?: Client | ClientConfig | string | Options): input is O
  * @example
  * const db = await pgStructure({ database: "db", user: "u", password: "pass" }, { includeSchemas: ["public"] });
  */
-export async function pgStructure(client: Client | ClientConfig | string, options?: Options): Promise<Db>;
+export async function pgStructure(client?: Client | ClientConfig | string, options?: Options): Promise<Db>;
 /**
  * Reads configuration details from environment variables to create [node-postgres client](https://node-postgres.com/api/client).
  * Keys are upper case environment variables prefixed with `options.envPrefix` (default is `DB`).
