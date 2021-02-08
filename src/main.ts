@@ -16,7 +16,7 @@ import {
   FunctionQueryResult,
   TriggerQueryResult,
 } from "./types/query-result";
-import { executeSqlFile, getConnectedPgClient, getQueryVersionFor, getEnvValues } from "./util/helper";
+import { executeSqlFile, getConnectedPgClient, getQueryVersionFor, getEnvValues, arrify } from "./util/helper";
 import Db from "./pg-structure/db";
 import Schema from "./pg-structure/schema";
 
@@ -373,6 +373,30 @@ function addObjects(db: Db, queryResults: QueryResults): void {
 }
 
 /**
+ * Checks whether given object are options for the `pgStructure` function.
+ *
+ * @param input is the input to check.
+ * @returns whether given input are options for the `pgStructure` function.
+ */
+function isOptions(input?: Client | ClientConfig | string | Options): input is Options {
+  if (input === undefined) return false;
+  const optionsAvailable: Required<{ [K in keyof Options]: true }> = {
+    envPrefix: true,
+    name: true,
+    commentDataToken: true,
+    includeSchemas: true,
+    excludeSchemas: true,
+    includeSystemSchemas: true,
+    foreignKeyAliasSeparator: true,
+    foreignKeyAliasTargetFirst: true,
+    relationNameFunctions: true,
+    keepConnection: true,
+  };
+
+  return Object.keys(input).some((key) => Object.prototype.hasOwnProperty.call(optionsAvailable, key));
+}
+
+/**
  * Reverse engineers a PostgreSQL database and creates [[Db]] instance which represents given database's structure.
  * There are several options such as to include or exclude schemas, provide custom names to relations. Please refer to [[Options]]
  * for detailed explanations.
@@ -380,49 +404,63 @@ function addObjects(db: Db, queryResults: QueryResults): void {
  * **IMPORTANT:** Please note that if included schemas contain references to a non-included schema, this function throws exception.
  * (e.g. a foreign key to another schema or a type in another schema which is not included)
  *
- * @param maybePgClientOrConfig is connection string or [node-postgres client](https://node-postgres.com/api/client) configuration.
- * @param __namedParameters are options to change behaviour of the function.
+ * @param client is either a [node-postgres client](https://node-postgres.com/api/client) or a configuration object or a connection string to create a [node-postgres client](https://node-postgres.com/api/client).
+ * @param options are preferences to modify reverse engineering process.
  * @returns [[Db]] object which represents given database's structure.
+ *
+ * @example
+ * const db = await pgStructure({ database: "db", user: "u", password: "pass" }, { includeSchemas: ["public"] });
  */
-export async function pgStructure(
-  maybePgClientOrConfig?: Client | ClientConfig | string,
-  {
-    envPrefix = "DB",
-    name,
-    commentDataToken = "pg-structure",
-    includeSchemas,
-    excludeSchemas,
-    includeSystemSchemas,
-    foreignKeyAliasSeparator = ",",
-    foreignKeyAliasTargetFirst = false,
-    relationNameFunctions = "short",
-    keepConnection = false,
-  }: Options = {}
-): Promise<Db> {
-  /* istanbul ignore next */
-  const pgClientOrConfig = maybePgClientOrConfig ?? getEnvValues(envPrefix);
+export async function pgStructure(client: Client | ClientConfig | string, options?: Options): Promise<Db>;
+/**
+ * Reads configuration details from environment variables to create [node-postgres client](https://node-postgres.com/api/client).
+ * Keys are upper case environment variables prefixed with `options.envPrefix` (default is `DB`).
+ *
+ * |Environment Varibale|[ClientConfig](https://node-postgres.com/api/client) Key|
+ * |---|---|
+ * |DB_DATABASE|database|
+ * |DB_USER|user|
+ * |DB_PASSWORD|password|
+ * |...|...|
+ *
+ * @param options are preferences to modify reverse engineering process.
+ * @returns [[Db]] object which represents given database's structure.
+ *
+ * @example
+ * const db = await pgStructure({ includeSchemas: ["public"] });
+ *
+ * @example
+ * const db = await pgStructure(); // Read connection details from environmet variables.
+ */
+export async function pgStructure(options?: Options): Promise<Db>;
+export async function pgStructure(clientOrOptions?: Client | ClientConfig | string | Options, maybeOptions: Options = {}): Promise<Db> {
+  const [maybePgClientOrConfig, options] = isOptions(clientOrOptions) ? [undefined, clientOrOptions] : [clientOrOptions, maybeOptions];
+  const pgClientOrConfig = maybePgClientOrConfig ?? getEnvValues(options.envPrefix ?? "DB");
   const { client, shouldCloseConnection } = await getConnectedPgClient(pgClientOrConfig);
 
-  const includeSchemasArray = Array.isArray(includeSchemas) || includeSchemas === undefined ? includeSchemas : [includeSchemas];
-  const excludeSchemasArray = Array.isArray(excludeSchemas) || excludeSchemas === undefined ? excludeSchemas : [excludeSchemas];
-
   const serverVersion = (await client.query("SHOW server_version")).rows[0].server_version;
-  const queryResults = await getQueryResultsFromDb(serverVersion, client, includeSchemasArray, excludeSchemasArray, includeSystemSchemas);
+  const queryResults = await getQueryResultsFromDb(
+    serverVersion,
+    client,
+    arrify(options.includeSchemas),
+    arrify(options.excludeSchemas),
+    options.includeSystemSchemas
+  );
 
   const db = new Db(
-    { name: name || getDatabaseName(pgClientOrConfig), serverVersion },
+    { name: options.name || getDatabaseName(pgClientOrConfig), serverVersion },
     {
-      commentDataToken,
-      relationNameFunctions,
-      foreignKeyAliasSeparator,
-      foreignKeyAliasTargetFirst,
+      commentDataToken: options.commentDataToken ?? "pg-structure",
+      relationNameFunctions: options.relationNameFunctions ?? "short",
+      foreignKeyAliasSeparator: options.foreignKeyAliasSeparator ?? ",",
+      foreignKeyAliasTargetFirst: options.foreignKeyAliasTargetFirst ?? false,
     },
     queryResults
   );
 
   addObjects(db, queryResults);
 
-  if (!keepConnection && shouldCloseConnection) client.end(); // If a connected client is provided, do not close connection.
+  if (!options.keepConnection && shouldCloseConnection) client.end(); // If a connected client is provided, do not close connection.
   return db;
 }
 

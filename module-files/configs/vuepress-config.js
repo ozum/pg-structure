@@ -16,6 +16,14 @@ if (GOOGLE_ANALYTICS_ID) plugins.push(["@vuepress/google-analytics", { ga: GOOGL
 //   sidebar["/nav.02.api/"].unshift("");
 // }
 
+// Find item with text "Api" and change it to "API".
+nav
+  .filter((item) => ["Api", "Cli"].includes(item.text))
+  .map((item) => {
+    item.text = item.text.toUpperCase(item.text); // eslint-disable-line no-param-reassign
+    return item;
+  });
+
 module.exports = {
   title: packageData.label || packageData.name,
   description: packageData.description,

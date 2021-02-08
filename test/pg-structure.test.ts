@@ -55,6 +55,8 @@ describe("pgStructure()", () => {
     const db = await pgStructure(
       { database: "pg-structure-test-main", user: "user", password: "password" },
       {
+        commentDataToken: "pg-structure",
+        foreignKeyAliasSeparator: ",",
         relationNameFunctions: {
           o2m: (relation) => `X_${relation.sourceTable.name}`,
           m2o: (relation) => `X_${relation.sourceTable.name}`,
@@ -83,5 +85,10 @@ describe("pgStructure()", () => {
 
   it("should throw if it cannot connect.", async () => {
     await expect(pgStructure()).rejects.toThrow("cannot connect to the database");
+  });
+
+  it("should accept options as first argument and reads client config from environment variables.", async () => {
+    process.env.DBPX_USER = "xyz-user";
+    await expect(pgStructure({ envPrefix: "DBPX", name: "deneme" })).rejects.toThrow('password authentication failed for user "xyz-user"');
   });
 });
