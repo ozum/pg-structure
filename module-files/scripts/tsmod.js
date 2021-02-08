@@ -38,10 +38,14 @@ async function spawn(cmd, args, options) {
   );
 }
 
-// /** Gets parent module's CWD which installed this module. Otherwise returns CWD. */
-// function getCwd(cwd) {
-//   return cwd ?? (process.env.INIT_CWD || process.cwd());
-// }
+/** Remove directory recursively, but don't throw if it does not exist. */
+async function rmdir(path) {
+  try {
+    await fs.rmdir(path, { recursive: true });
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+}
 
 /**
  * Creates TypeDoc multiple or single markdown from TypeScript source files.
@@ -82,16 +86,16 @@ async function md({ out, singleFile = false }) {
       createdFiles.filter((file) => basename(file) === "index.md").map((file) => fs.rename(file, join(dirname(file), "index2.md")))
     );
   } catch (error) {
-    if (singleFile) await fs.rmdir(tmpDir, { recursive: true });
+    if (singleFile) await rmdir(tmpDir);
     throw error;
   }
 
   if (singleFile) {
     const apiDoc = await concatMd(tmpDir, { dirNameAsTitle: true });
     fs.writeFile(out, apiDoc);
-    await fs.rmdir(tmpDir, { recursive: true });
+    await rmdir(tmpDir);
   } else {
-    await fs.rmdir(out, { recursive: true });
+    await rmdir(out);
     await fs.rename(tmpDir, out);
   }
 }
@@ -128,7 +132,7 @@ async function html({ out }) {
   // const cwd = getCwd();
   const bin = join(cwd, "node_modules/.bin/typedoc");
 
-  await fs.rmdir(out, { recursive: true });
+  await rmdir(out);
   await spawn(bin, ["--plugin", "typedoc-plugin-example-tag", "--out", out, getTypeDocEntry()], { stdio: "inherit" });
 }
 
