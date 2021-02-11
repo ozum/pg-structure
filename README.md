@@ -26,7 +26,7 @@ Please see [pg-structure.com](https://www.pg-structure.com) for details.
 import pgStructure from "pg-structure";
 
 async function demo() {
-  // pg-structure may read client config from process.env. Use environment variables for sensitive information such as passwords.
+  // Prefer to use environment variables or ".env" file for the credentials. See the ".env.example" file.
   const db = await pgStructure({ database: "db", user: "u", password: "pass" }, { includeSchemas: ["public"] });
 
   const table = db.get("contact");
