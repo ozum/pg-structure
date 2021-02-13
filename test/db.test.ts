@@ -12,7 +12,9 @@ beforeAll(async () => {
 
 describe("Db", () => {
   it("should throw if database name is not provided", () => {
-    expect(() => new Db({ name: undefined as any, serverVersion: "x" }, {} as any, undefined as any)).toThrow("Database name is required.");
+    expect(() => new Db({ name: undefined as any, serverVersion: "x" }, {} as any, undefined as any, undefined as any)).toThrow(
+      "Database name is required."
+    );
   });
 
   it("should have config with default values.", () => {
