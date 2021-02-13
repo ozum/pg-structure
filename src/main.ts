@@ -44,6 +44,7 @@ import AggregateFunction from "./pg-structure/function/aggregate-function";
 import WindowFunction from "./pg-structure/function/window-function";
 import PseudoType from "./pg-structure/type/pseudo-type";
 import Trigger from "./pg-structure/trigger";
+import getRelationNameFunctions from "./util/naming-function";
 
 dotenv.config();
 
@@ -455,7 +456,8 @@ export async function pgStructure(clientOrOptions?: Client | ClientConfig | stri
       foreignKeyAliasSeparator: options.foreignKeyAliasSeparator ?? ",",
       foreignKeyAliasTargetFirst: options.foreignKeyAliasTargetFirst ?? false,
     },
-    queryResults
+    queryResults,
+    getRelationNameFunctions(options.relationNameFunctions ?? "short")
   );
 
   addObjects(db, queryResults);
@@ -465,7 +467,8 @@ export async function pgStructure(clientOrOptions?: Client | ClientConfig | stri
 }
 
 /**
- * Deserializes given data to create [[Db]] object.
+ * Deserializes given data to create [[Db]] object. Please note that custom relation name functions are not serialized.
+ * To serialize, provide functions as a module and use them with `{ relationNameFunctions: "my-module" }`.
  *
  * @param serializedData is serialized data of the `Db` object.
  * @returns [[Db]] object for given serialized data.
@@ -477,7 +480,12 @@ export async function pgStructure(clientOrOptions?: Client | ClientConfig | stri
  */
 export function deserialize(serializedData: string): Db {
   const data = JSON.parse(serializedData);
-  const db = new Db({ name: data.name, serverVersion: data.serverVersion }, data.config, data.queryResults);
+  const db = new Db(
+    { name: data.name, serverVersion: data.serverVersion },
+    data.config,
+    data.queryResults,
+    getRelationNameFunctions(data.config.relationNameFunctions)
+  );
   addObjects(db, data.queryResults);
   return db;
 }

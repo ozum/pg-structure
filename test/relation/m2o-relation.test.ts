@@ -50,6 +50,14 @@ describe("M2ORelation", () => {
     expect(reverseDb.tables.get("person").m2oRelations.get("main_group").targetAlias).toEqual("main_group");
   });
 
+  it("should throw if functions are not compatible.", () => {
+    expect(() => messageTable.m2oRelations[0].getName({ o2m: "j" } as any)).toThrow("No compatible");
+  });
+
+  it("should throw if module exports functions taht are not compatible.", () => {
+    expect(() => messageTable.m2oRelations[0].getName(require.resolve("./m2o-relation.test"))).toThrow("does not export");
+  });
+
   describe("Names", () => {
     it("should be shortest names for 'message' table.", () => {
       const expectedShort = ["receiver_student", "sender_student", "status"];

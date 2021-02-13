@@ -2,6 +2,7 @@ import IndexableArray from "indexable-array";
 import { Memoize } from "@typescript-plus/fast-memoize-decorator";
 import { readFileSync } from "fs";
 import { join } from "path";
+import { RelationNameFunctions, RelationNameCollision, CollisionsByTable } from "../types/index";
 import Schema from "./schema";
 import Table from "./entity/table";
 import Column from "./column";
@@ -9,7 +10,7 @@ import Index from ".";
 import Entity from "./base/entity";
 import Type from "./base/type";
 import Relation from "./base/relation";
-import { RelationNameFunctions, RelationNameCollision, CollisionsByTable, BuiltinRelationNameFunctions } from "../types";
+
 import { getDuplicateNames } from "../util/helper";
 import { QueryResults } from "../types/query-result";
 import { Func } from "..";
@@ -28,7 +29,7 @@ function getDuplicateRelations(relations: IndexableArray<Relation, "name", never
 
 /** @ignore */
 export interface Config {
-  relationNameFunctions: RelationNameFunctions | BuiltinRelationNameFunctions;
+  relationNameFunctions: RelationNameFunctions | string;
   commentDataToken: string;
   foreignKeyAliasSeparator: string;
   foreignKeyAliasTargetFirst: boolean;
@@ -38,8 +39,15 @@ export interface Config {
  * Class which represent a {@link Db database}. Provides attributes and methods for details of the {@link Db database}.
  */
 export default class Db {
+  public _relationNameFunctions: RelationNameFunctions;
+
   /** @ignore */
-  public constructor(args: { name: string; serverVersion: string }, config: Config, queryResults: QueryResults) {
+  public constructor(
+    args: { name: string; serverVersion: string },
+    config: Config,
+    queryResults: QueryResults,
+    relationNameFunctions: RelationNameFunctions
+  ) {
     if (!args.name) {
       throw new Error("Database name is required.");
     }
@@ -47,6 +55,7 @@ export default class Db {
     this.name = args.name;
     this.serverVersion = args.serverVersion;
     this._config = config;
+    this._relationNameFunctions = relationNameFunctions;
     this.queryResults = queryResults;
   }
 
@@ -56,7 +65,7 @@ export default class Db {
    * CAVEATS:
    * - Serialized data may or may not be deserialized with another version of `pg-structure`. (Even between minor versions are not guaranteed).
    * - Serialized data is not direct stringified version of objects.
-   * - Ignores relation name function provided using `relationNameFunctions` args, if it is not a builtin function.
+   * - Ignores relation name function provided using `relationNameFunctions` args, if it is not a module name.
    *
    * @example
    * import pgStructure, { deserialize } from "pg-structure";

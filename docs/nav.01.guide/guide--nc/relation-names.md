@@ -2,19 +2,19 @@
 
 Relations are defined using foreign keys. `pg-structure` provides classes for [one to many](/nav.02.api/classes/o2mrelation), [many to one](/nav.02.api/classes/m2orelation) and [many to many](/nav.02.api/classes/m2mrelation) relations.
 
-Whereas foreign keys are defined in DBMS and have names, relations are not present actually in DBMS and therefore they do not have names defined in database system. As a result relation names have to be generated. Naming involves personal preferences, and `pg-structure` lets developers define their own relation naming functions.
+Whereas foreign keys are defined in DBMS and have names, relations are not present actually in DBMS and therefore they do not have names defined in the database system. As a result relation names have to be generated. Naming involves personal preferences, and `pg-structure` lets developers define their relation naming functions using custom modules.
 
 <span id="exampleSchema"></span>Below is the database schema used in examples:
 
 ![Database Schema](/images/relation_names_schema.svg)
 
-## Builtin Naming Functions
+## Builtin Naming Modules
 
-In addition to custom naming functions, `pg-structure` provides two built-in function: `short` and `desccriptive`. They use foreign key names, join table names and target table names to generate relation names.
+`pg-structure` provides two built-in modules: `short` and `descriptive`. They use foreign key names, join table names, and target table names to generate relation names.
 
 ### Foreign Key Names
 
-To use builtin functions effectively, foreign keys should be named as one of the below schemes (examples are for `product` and `vendor` tables.)
+To use built-in functions effectively, foreign keys should be named as one of the below schemes (examples are for `product` and `vendor` tables.)
 
 - **Tables:** table1_table2 (i.e. `product_vendor` or `vendor_products`)
 - **Tables & Optional Adjectives:** adjective_table1_adjective_table2 (i.e. `product_alternative_vendor`, `alternative_vendor_products` or `alternative_vendor_primary_products`)
@@ -57,8 +57,24 @@ Below are generated names for example. Differences between short and long are in
 
 </div>
 
-Provided built-in functions `short` and `descriptive` tries to generate shortest name possible considering number of relations and number of join tables between same tables. `descriptive` adds adjectives more freely compared to `short`. Most of the time, they generate same names.
+Provided built-in functions `short` and `descriptive` try to generate the shortest name possible considering the number of relations and number of join tables between same tables. `descriptive` adds adjectives more freely compared to `short`. Most of the time, they generate the same names.
 
-## Custom Functions
+## Custom Modules or Functions
 
-It could be a better solution to provide your own custom naming function according to your needs. Please see [relation name functions description](/nav.02.api/#relationnamefunctions) for details.
+You may prefer to use your functions. There are two ways to provide custom functions.
+
+1. (Suggested) Providing a module that exports `o2`, `m2o`, and `m2m` functions and providing module name to `pg-structure`.
+
+```ts
+await pgStructure({ relationNameFunctions: "short" }); // Use builtin module.
+await pgStructure({ relationNameFunctions: "my-module" }); // Use a custom module from installed npm packages.
+await pgStructure({ relationNameFunctions: require.resolve("./my-module") }); // Use a custom module from source code.
+```
+
+2. Providing relation name functions. `serialize()` cannot be used with this method.
+
+```ts
+await pgStructure({ relationNameFunctions: { o2m: () => {}, m2o: () => {}, m2m: () => {} } });
+```
+
+Please see [relation name functions description](/nav.02.api/#relationnamefunctions) for details.

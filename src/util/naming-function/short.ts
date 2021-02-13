@@ -10,7 +10,7 @@ import { CaseType } from "../../types";
  * @ignore
  * @param relation is the relation to generate name for.
  */
-function m2mName(relation: M2MRelation): string {
+export function m2m(relation: M2MRelation): string {
   const inflectionMethod = relation.sourceTable.nameCaseType === CaseType.CamelCase ? "camelize" : "underscore";
   // (Student --< Message >-- Student) causes `receiver_senders` and `sender_receivers`. Make them senders and receivers.
   const tolerableCorrespondence = relation.targetTable === relation.sourceTable ? 1 : 0;
@@ -40,7 +40,7 @@ function m2mName(relation: M2MRelation): string {
  * @ignore
  * @param relation is the relation to generate name for.
  */
-function o2mName(relation: O2MRelation): string {
+export function o2m(relation: O2MRelation): string {
   const inflectionMethod = relation.sourceTable.nameCaseType === CaseType.CamelCase ? "camelize" : "underscore";
   const fk = relation.foreignKey;
   const sep = relation.sourceTable.separator;
@@ -64,7 +64,7 @@ function o2mName(relation: O2MRelation): string {
  * @ignore
  * @param relation is the relation to generate name for.
  */
-function m2oName(relation: M2ORelation): string {
+export function m2o(relation: M2ORelation): string {
   const inflectionMethod = relation.sourceTable.nameCaseType === CaseType.CamelCase ? "camelize" : "underscore";
 
   const result =
@@ -74,15 +74,3 @@ function m2oName(relation: M2ORelation): string {
 
   return transform(result, ["singularize", inflectionMethod]);
 }
-
-/**
- * Relation name generator function.
- *
- * @ignore
-
- */
-export default {
-  o2m: o2mName,
-  m2o: m2oName,
-  m2m: m2mName,
-};

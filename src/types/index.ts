@@ -56,11 +56,6 @@ export type RelationNameFunctions = {
 };
 
 /**
- * Name of the builtin relation name function.
- */
-export type BuiltinRelationNameFunctions = "short" | "descriptive";
-
-/**
  * Type to store a relation name collision. Keys are relation names and values are information about relations with that name.
  */
 export type RelationNameCollision = { [relationName: string]: string[] };
@@ -110,7 +105,7 @@ export type TriggerEvent = "insert" | "delete" | "update" | "truncate";
 export type TriggerEnabled = "origin" | "disabled" | "replica" | "always";
 
 /**
- * Options for the `pgStructure` function.
+ * Options for the `pgStructure`.
  */
 export interface Options {
   /**
@@ -161,7 +156,7 @@ export interface Options {
   foreignKeyAliasTargetFirst?: boolean;
 
   /**
-   * Optional function to generate names for relationships. If not provided, default naming functions are used.
+   * Optional module that exports functions to generate names for relationships. If not provided, default naming functions are used.
    * All necessary information such as {@link Table table} names, {@link Column columns}, {@link ForeignKey foreign key},
    * {@link DbObject.commentData comment data} can be accessed via passed {@link Relation relation} parameter.
    *
@@ -181,7 +176,7 @@ export interface Options {
    *   relationNameFunctions: "short",
    * }
    */
-  relationNameFunctions?: RelationNameFunctions | BuiltinRelationNameFunctions;
+  relationNameFunctions?: RelationNameFunctions | string;
 
   /**
    * Tag name to extract JSON data from from database object's comments. For example by default JSON data between `[pg-structure][/pg-structure]`

@@ -1,5 +1,5 @@
 import { Memoize } from "@typescript-plus/fast-memoize-decorator/dist/src";
-import { RelationNameFunctions, BuiltinRelationNameFunctions } from "../../types/index";
+import { RelationNameFunctions } from "../../types/index";
 import ForeignKey from "../constraint/foreign-key";
 import Table from "../entity/table";
 import Relation, { RelationConstructorArgs, RelationWithout } from "../base/relation";
@@ -76,18 +76,17 @@ export default class M2MRelation extends Relation {
    */
   @Memoize()
   public get name(): string {
-    const func = this.foreignKey.db._config.relationNameFunctions;
-    return getRelationNameFunctions(func).m2m(this);
+    return this.foreignKey.db._relationNameFunctions.m2m(this);
   }
 
   /**
    * Returns name for the relation using given naming function.
    *
-   * @param relationNameFunctions are custom functions or name of the builtin functions to generate names with.
+   * @param relationNameFunctions are custom functions or name of the module that exports relation name functions to generate names with. `pg-structure` provides two builtin modules (`short` and `descriptive`), but you can use your own.
    * @returns name for the relation using naming function.
    */
   @Memoize()
-  public getName(relationNameFunctions: RelationNameFunctions | BuiltinRelationNameFunctions): string {
+  public getName(relationNameFunctions: RelationNameFunctions | string): string {
     return getRelationNameFunctions(relationNameFunctions).m2m(this);
   }
 
