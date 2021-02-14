@@ -164,6 +164,21 @@ export interface Options {
    *
    * @example
    * const config = {
+   *   relationNameFunctions: "short",
+   * }
+   *
+   * @example
+   * const config = {
+   *   relationNameFunctions: "custom-module",
+   * }
+   *
+   * @example
+   * const config = {
+   *   relationNameFunctions: require.resolve("./my-module"),
+   * }
+   *
+   * @example
+   * const config = {
    *   relationNameFunctions: {
    *     o2m: (relation) => some_func(relation.foreignKey.name),
    *     m2o: (relation) => some_func(relation.foreignKey.name),
@@ -171,10 +186,6 @@ export interface Options {
    *   },
    * }
    *
-   * @example
-   * const config = {
-   *   relationNameFunctions: "short",
-   * }
    */
   relationNameFunctions?: RelationNameFunctions | string;
 
