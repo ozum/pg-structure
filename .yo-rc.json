@@ -20,7 +20,6 @@
           "bugs": "https://github.com/ozum/pg-structure/issues",
           "engines.node": ">= 12.0.0",
           "files": ["dist", "!dist/**/@(*.spec|*.test)*", "!dist/**/__test__", "module-files"],
-          "homepage": "https://github.com/ozum/pg-structure",
           "main": "dist/index.js",
           "repository": "ozum/pg-structure",
           "scripts.build": "tsc",
