@@ -39,6 +39,7 @@ export interface Config {
  * Class which represent a {@link Db database}. Provides attributes and methods for details of the {@link Db database}.
  */
 export default class Db {
+  /** @hidden */
   public _relationNameFunctions: RelationNameFunctions;
 
   /** @ignore */
