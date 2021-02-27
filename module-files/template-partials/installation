@@ -1,6 +1,8 @@
 {% if package.scripts and package.scripts.build %}
   {% if package.scripts.build.match("microbundle") %}
 
+# Installation
+
 | Format                             | Instructions                                                       |
 | ---------------------------------- | ------------------------------------------------------------------ |
 | **TypeScript**                     | `import { ... } from "{{ package.name }}";`                        |
@@ -11,6 +13,8 @@
 Development versions can be found in `dist/dev` directory.
 
   {% elif package.scripts.build.match("rollup") %}
+
+# Installation
 
 | Format                             | Instructions                                                    |
 | ---------------------------------- | --------------------------------------------------------------- |

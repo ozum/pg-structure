@@ -20,11 +20,13 @@ export interface RelationConstructorArgs {} // eslint-disable-line @typescript-e
  */
 export default abstract class Relation {
   /** @ignore */
-
   public constructor(args: RelationConstructorArgs) {
     const stub: any = args; // eslint-disable-line @typescript-eslint/no-unused-vars
     stub.x = 3;
   }
+
+  /** Whether this relationship targets many items. This is `true` for "one to many" and "many to many" relationships. */
+  public toMany = false;
 
   /** @ignore */
   abstract readonly sourceTable: Table;

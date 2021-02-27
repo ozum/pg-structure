@@ -63,14 +63,13 @@ async function md({ out, singleFile = false }) {
 
   const options = [
     "--plugin",
-    "typedoc-plugin-example-tag,typedoc-plugin-markdown",
+    "typedoc-plugin-example-tag,typedoc-plugin-markdown,typedoc-plugin-param-names",
     "--excludeExternals",
     "--excludePrivate",
     "--excludeProtected",
     "--exclude",
     "'src/bin/**/*'",
-    "--theme",
-    "markdown",
+    "--hideInPageTOC",
     "--readme",
     "none",
     "--out",
@@ -94,7 +93,8 @@ async function md({ out, singleFile = false }) {
   }
 
   if (singleFile) {
-    const apiDoc = await concatMd(outDir, { dirNameAsTitle: true });
+    // Remove titles at the beginning. README already has a title.
+    const apiDoc = (await concatMd(outDir, { dirNameAsTitle: true })).replace(new RegExp(`${pkg.name}.+?${pkg.name}`, "sm"), "");
     fs.writeFile(out, apiDoc);
     await rmdir(outDir);
   }

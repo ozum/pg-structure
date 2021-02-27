@@ -37,6 +37,7 @@ export default class O2MRelation extends Relation {
   /** @ignore */
   public constructor(args: O2MRelationConstructorArgs) {
     super(args);
+    this.toMany = true;
     this.foreignKey = args.foreignKey;
   }
 
