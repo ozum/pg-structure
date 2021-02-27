@@ -44,7 +44,7 @@ export default class O2MRelation extends Relation {
   /**
    * Whether the relation targets to many. Since, one to many relations targets many, this is `true`.
    */
-  public readonly toMany = true;
+  public readonly toMany: boolean = true;
 
   /**
    * Suggested name for {@link Relation relation}.

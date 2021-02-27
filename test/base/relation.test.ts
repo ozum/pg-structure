@@ -1,12 +1,12 @@
-import { Db, M2ORelation, O2MRelation, Table } from "../../src/index";
+import { Db, O2MRelation, Table } from "../../src/index";
 import getDb from "../test-helper/get-db";
 
 let db: Db;
-let o2mRelation: M2ORelation;
+let o2mRelation: O2MRelation;
 
 beforeAll(async () => {
   db = await getDb();
-  o2mRelation = db.tables.get("account").o2mRelations.get("primary_contacts") as O2MRelation;
+  o2mRelation = db.tables.get("account").o2mRelations.get("primary_contacts");
 });
 
 describe("constraint", () => {
