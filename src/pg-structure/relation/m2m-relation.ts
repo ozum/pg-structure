@@ -65,8 +65,7 @@ interface M2MRelationConstructorArgs extends RelationConstructorArgs {
 export default class M2MRelation extends Relation {
   /** @ignore */
   public constructor(args: M2MRelationConstructorArgs) {
-    super(args);
-    this.toMany = true;
+    super({ ...args, toMany: true });
     this.foreignKey = args.foreignKey;
     this.targetForeignKey = args.targetForeignKey;
   }
