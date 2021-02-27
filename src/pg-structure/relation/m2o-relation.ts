@@ -44,6 +44,11 @@ export default class M2ORelation extends Relation {
   }
 
   /**
+   * Whether the relation targets to many. Since, many to one relations targets single, this is `true`.
+   */
+  public readonly toMany = false;
+
+  /**
    * Suggested name for {@link Relation relation}.
    *
    * @see {@link ../relation-names.md Relation Names}

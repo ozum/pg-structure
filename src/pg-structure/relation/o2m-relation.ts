@@ -37,9 +37,14 @@ export interface O2MRelationConstructorArgs extends RelationConstructorArgs {
 export default class O2MRelation extends Relation {
   /** @ignore */
   public constructor(args: O2MRelationConstructorArgs) {
-    super({ ...args, toMany: true });
+    super(args);
     this.foreignKey = args.foreignKey;
   }
+
+  /**
+   * Whether the relation targets to many. Since, one to many relations targets many, this is `true`.
+   */
+  public readonly toMany = true;
 
   /**
    * Suggested name for {@link Relation relation}.

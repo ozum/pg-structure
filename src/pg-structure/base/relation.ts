@@ -11,9 +11,7 @@ import getAdjectives from "../../util/get-adjectives";
 export type RelationWithout = "any" | "source" | "target";
 
 /** @ignore */
-export interface RelationConstructorArgs {
-  toMany: boolean;
-} // eslint-disable-line @typescript-eslint/no-empty-interface
+export interface RelationConstructorArgs {} // eslint-disable-line @typescript-eslint/no-empty-interface
 
 /**
  * Class which represent a {@link Relation relationship}. Provides attributes and methods for details of the {@link Relation relationship}.
@@ -25,14 +23,10 @@ export default abstract class Relation {
   public constructor(args: RelationConstructorArgs) {
     const stub: any = args; // eslint-disable-line @typescript-eslint/no-unused-vars
     stub.x = 3;
-    this.toMany = args.toMany ?? false;
   }
 
-  /**
-   * Whether this relationship targets many items. This is `true` for "one to many" and "many to many" relationships.
-   */
-  public readonly toMany;
-
+  /** @ignore */
+  abstract readonly toMany: boolean;
   /** @ignore */
   abstract readonly sourceTable: Table;
   /** @ignore */
