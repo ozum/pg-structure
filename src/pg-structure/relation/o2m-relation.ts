@@ -21,6 +21,7 @@ export interface O2MRelationConstructorArgs extends RelationConstructorArgs {
  * Some definitions used in descriptions for {@link O2MRelation}.
  * * ** Source Table: ** Table which this relationship belongs to.
  * * ** Target Table: ** Table that is related to base table.
+ *
  * @example
  * // Example tables have single primary key and examples first relation. So zero index ([0]) is used. Use all array elements if necessary.
  * // product ----< line_item

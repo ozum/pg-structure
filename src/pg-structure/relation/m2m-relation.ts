@@ -46,6 +46,7 @@ interface M2MRelationConstructorArgs extends RelationConstructorArgs {
  * Product table has 3 foreign keys. Product table is not meant to be a many to many join table.
  * However product could have been join table for `size & vendor`, `color & vendor` and `size & color`. As a result size,
  * color and vendor tables would have many to many relationships.
+ *
  * @example
  * // Example tables have single primary key and and examples first relation. So zero index ([0]) is used. Use all array elements if necessary.
  * // product ----< line_item >---- cart

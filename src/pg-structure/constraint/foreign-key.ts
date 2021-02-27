@@ -30,7 +30,18 @@ export default class ForeignKey extends Constraint {
     this.index = args.index;
     this.columns = IndexableArray.throwingFrom(args.columns, "name");
     this.table = args.table;
+    this.mandatoryParent = this.columns.every((column) => column.notNull);
   }
+
+  /**
+   * Whether all foreign key columns are mandatory at parent table.
+   *
+   * @example
+   * // account table: (PK) id [NN]
+   * // contact table: (PK) id [NN], (FK) account_id [NN]
+   * contactTable.foreignKeys[0].mandatoryParent; // true, because all foreign keys (account_id) is not null.
+   */
+  public readonly mandatoryParent: boolean;
 
   /**
    * Match option of {@link ForeignKey}. One of `FULL`, `PARTIAL`, `NONE`. TypeScript developers should use {@link MatchOption} enum.

@@ -32,6 +32,10 @@ beforeAll(async () => {
 });
 
 describe("O2MRelation", () => {
+  it("should be toMany.", () => {
+    expect(studentTable.o2mRelations[0].toMany).toEqual(true);
+  });
+
   it("should have sourceTable.", () => {
     expect(studentTable.o2mRelations[0].sourceTable.name).toEqual("student");
   });

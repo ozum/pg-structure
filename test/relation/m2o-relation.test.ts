@@ -25,6 +25,10 @@ beforeAll(async () => {
 });
 
 describe("M2ORelation", () => {
+  it("should not be toMany.", () => {
+    expect(messageTable.m2oRelations[0].toMany).toEqual(false);
+  });
+
   it("should have sourceTable.", () => {
     expect(messageTable.m2oRelations[0].sourceTable.name).toEqual("message");
   });

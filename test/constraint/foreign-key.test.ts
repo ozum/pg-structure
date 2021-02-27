@@ -50,4 +50,7 @@ describe("ForeignKey", () => {
       },
     ]);
   });
+  it("should report mandatory parent.", () => {
+    expect(fk.mandatoryParent).toBe(false);
+  });
 });

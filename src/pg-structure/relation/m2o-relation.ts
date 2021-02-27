@@ -23,6 +23,7 @@ export interface M2ORelationConstructorArgs extends RelationConstructorArgs {
  * Some definitions used in descriptions for {@link M2ORelation}.
  * * ** Source Table: ** Table which this relationship belongs to.
  * * ** Target Table: ** Table that is related to base table.
+ *
  * @example
  * // Example tables have single primary key and examples first relation. So zero index ([0]) is used. Use all array elements if necessary.
  * // line_item >---- product
