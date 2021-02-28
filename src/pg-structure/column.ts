@@ -86,6 +86,16 @@ export default class Column extends DbObject {
   }
 
   /**
+   * Name of the object with '.' notation including its parent [[Table]] name.
+   *
+   * @example
+   * const parentalName = column.parentalName; // member.name
+   */
+  public get parentalName(): string {
+    return `${this.parent.name}.${this.name}`;
+  }
+
+  /**
    * Full name of the object with '.' notation including [[Schema]] name.
    *
    * @example

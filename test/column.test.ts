@@ -44,6 +44,10 @@ describe("Column", () => {
     expect(compositeColumn.view).toBeUndefined();
   });
 
+  it("should have parentalName.", () => {
+    expect(idColumn.parentalName).toBe("account.id");
+  });
+
   it("should have fullName.", () => {
     expect(idColumn.fullName).toBe("public.account.id");
   });
