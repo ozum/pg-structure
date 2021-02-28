@@ -1,6 +1,6 @@
 /*
 Created: 9/20/2019
-Modified: 10/20/2020
+Modified: 2/28/2021
 Project: pg-structrue-test
 Model: Main
 Author: Özüm Eldoğan
@@ -477,9 +477,10 @@ CREATE TABLE "public"."type_table"
   "field17" Jsonb,
   "field18" "cross_schema_domain",
   "field19" "price",
+  "field20" "public"."account",
+  "field21" Double precision,
   "a_field1" "udt_composite"[],
-  "a_field2" Timestamp(1) with time zone[][],
-  "field20" "public"."account"
+  "a_field2" Timestamp(1) with time zone[][]
 )
 WITH (
   autovacuum_enabled=true)
@@ -492,6 +493,9 @@ COMMENT ON COLUMN "public"."type_table"."default_empty_string" IS '[pg-structure
 ;
 COMMENT ON COLUMN "public"."type_table"."field1_a" IS 'Comment without data.'
 ;
+
+ALTER TABLE public.type_table
+ADD COLUMN field2_c NUMERIC(3);
 
 ALTER TABLE "public"."type_table" ADD CONSTRAINT "type_table_pk" PRIMARY KEY ("id")
 ;

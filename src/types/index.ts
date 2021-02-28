@@ -5,6 +5,12 @@ import M2MRelation from "../pg-structure/relation/m2m-relation";
 
 export * from "./json";
 
+export const enum NumericType {
+  Integer = "Integer",
+  Exact = "Exact",
+  Floating = "Floating",
+}
+
 /**
  * Actions performed when the data in the foreign key referenced columns is changed.
  */

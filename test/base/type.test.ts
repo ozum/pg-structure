@@ -1,4 +1,4 @@
-import { Db, Type } from "../../src/index";
+import { Column, Db, NumericType, Type } from "../../src/index";
 import getDb from "../test-helper/get-db";
 
 let db: Db;
@@ -28,5 +28,17 @@ describe("Type", () => {
 
   it("should have fullCatalogName", () => {
     expect(type.fullCatalogName).toBe("pg-structure-test-main.public.udt_composite");
+  });
+
+  it("should have numeric type of integer for integer types.", () => {
+    expect((db.get("public.type_table.id") as Column).type.numericType).toBe(NumericType.Integer);
+  });
+
+  it("should have numeric type of exact for exact types.", () => {
+    expect((db.get("public.type_table.field2_a") as Column).type.numericType).toBe(NumericType.Exact);
+  });
+
+  it("should have numeric type of floating for floating types.", () => {
+    expect((db.get("public.type_table.field21") as Column).type.numericType).toBe(NumericType.Floating);
   });
 });

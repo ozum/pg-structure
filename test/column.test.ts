@@ -137,6 +137,46 @@ describe("Column", () => {
     expect(accountTable.get("name").length).toBe(20);
   });
 
+  it("should have minimum value for serial column.", () => {
+    expect(accountTable.get("id").minValue).toBe(1);
+  });
+
+  it("should have maximum value for serial column.", () => {
+    expect(accountTable.get("id").maxValue).toBe(2147483647);
+  });
+
+  it("should not have minimum value for numeric column without precision.", () => {
+    expect(typeTable.get("field2_a").minValue).toBe(undefined);
+  });
+
+  it("should not have maximum value for numeric column without precision.", () => {
+    expect(typeTable.get("field2_a").maxValue).toBe(undefined);
+  });
+
+  it("should have minimum value for numeric column.", () => {
+    expect(typeTable.get("field2_b").minValue).toBe(-10);
+  });
+
+  it("should have maximum value for numeric column.", () => {
+    expect(typeTable.get("field2_b").maxValue).toBe(10);
+  });
+
+  it("should have minimum value for numeric column with only scale but without scale.", () => {
+    expect(typeTable.get("field2_c").minValue).toBe(-1000);
+  });
+
+  it("should have maximum value for numeric column with only scale but without scale.", () => {
+    expect(typeTable.get("field2_c").maxValue).toBe(1000);
+  });
+
+  it("should not have minimum value for floating column.", () => {
+    expect(typeTable.get("field21").minValue).toBe(undefined);
+  });
+
+  it("should nt have maximum value for floating column.", () => {
+    expect(typeTable.get("field21").maxValue).toBe(undefined);
+  });
+
   it("should have referencedColumns.", () => {
     expect(contactTable.get("primary_account_id").referencedColumns.map((c) => c.name)).toEqual(["id"]);
     expect(idColumn.referencedColumns.length).toBe(0);

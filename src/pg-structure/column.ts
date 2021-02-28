@@ -11,6 +11,12 @@ import { replaceTypeCast, isSerial, parseSQLType } from "../util/helper";
 import CompositeType from "./type/composite-type";
 import View from "./entity/view";
 
+const NUMERIC_BOUNDRIES: Record<string, { min: number; max: number }> = {
+  smallint: { min: -32768, max: 32767 },
+  integer: { min: -2147483648, max: 2147483647 },
+  bigint: { min: -9223372036854775808, max: 9223372036854775807 },
+};
+
 /** @ignore */
 export interface ColumnConstructorArgs extends DbObjectConstructorArgs {
   parent: Entity | CompositeType;
@@ -33,7 +39,6 @@ export default class Column extends DbObject {
     this.parent = args.parent;
     const { schema: typeSchema, typeName, length, precision, scale } = parseSQLType(this.db, args.sqlType);
     this.notNull = args.notNull;
-    // if (typeName === "numeric") console.log(args.name);
     this.type =
       typeSchema.typesIncludingEntities.getMaybe(typeName, { key: "internalName" }) || typeSchema.typesIncludingEntities.get(typeName);
     this.length = length;
@@ -42,6 +47,14 @@ export default class Column extends DbObject {
     this.arrayDimension = args.arrayDimension || 0;
     this.defaultWithTypeCast = args.defaultWithTypeCast;
     this.attributeNumber = args.attributeNumber;
+
+    if (this.type.numericType !== undefined) {
+      /* istanbul ignore next */
+      const maxLimit = this.precision ? 10 ** (this.precision - (this.scale ?? 0)) : undefined;
+      const minLimit = maxLimit === undefined ? undefined : -maxLimit;
+      this.minValue = this.isSerial ? 1 : NUMERIC_BOUNDRIES?.[this.type.name]?.min ?? minLimit;
+      this.maxValue = NUMERIC_BOUNDRIES?.[this.type.name]?.max ?? maxLimit;
+    }
   }
 
   /**
@@ -226,6 +239,16 @@ export default class Column extends DbObject {
    * - This value is `undefined` for all other data types or if no maximum length was declared.
    */
   public readonly length?: number;
+
+  /**
+   * For integer and exact numeric columns with scale minimum value of the column.
+   */
+  public readonly minValue?: number;
+
+  /**
+   * For integer and exact numeric columns with scale maximum value of the column.
+   */
+  public readonly maxValue?: number;
 
   /**
    * All referenced columns in all {@link ForeignKey foreign keys} by this column.

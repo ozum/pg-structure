@@ -1,6 +1,19 @@
-import { TypeCategory } from "../../types";
+import { NumericType, TypeCategory } from "../../types";
 import DbObject, { DbObjectConstructorArgs } from "./db-object";
 import Schema from "../schema";
+
+const NUMERIC_TYPES: Record<string, NumericType> = {
+  smallint: NumericType.Integer,
+  integer: NumericType.Integer,
+  bigint: NumericType.Integer,
+  smallserial: NumericType.Integer,
+  serial: NumericType.Integer,
+  bigserial: NumericType.Integer,
+  decimal: NumericType.Exact,
+  numeric: NumericType.Exact,
+  real: NumericType.Floating,
+  "double precision": NumericType.Floating,
+};
 
 /** @ignore */
 export interface TypeConstructorArgs extends DbObjectConstructorArgs {
@@ -30,6 +43,7 @@ export default abstract class Type extends DbObject {
     this.hasLength = args.hasLength || false;
     this.hasScale = args.hasScale || false;
     this.hasPrecision = args.hasPrecision || false;
+    this.numericType = NUMERIC_TYPES?.[args.name];
   }
 
   /** Object identifier for the {@link Entity} */
@@ -91,4 +105,11 @@ export default abstract class Type extends DbObject {
 
   /** Whether the type has precision property. */
   public hasPrecision: boolean;
+
+  /**
+   * If type is a numeric type, its numerical type. If type is non-numeric this is `undefined`.
+   * For TypeScript it is an enum of `NumericType.Integer`, `NumericType.Exact` or `NumericType.Floating`.
+   * For JavaScript ir is a string of `Integer`, `Exact` or `Floating`.
+   */
+  public numericType?: NumericType;
 }
