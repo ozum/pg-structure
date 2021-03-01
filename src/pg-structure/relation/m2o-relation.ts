@@ -1,5 +1,5 @@
 import { Memoize } from "@typescript-plus/fast-memoize-decorator/dist/src";
-import { RelationNameFunctions } from "../../types/index";
+import { RelationNameFunctions, RelationType } from "../../types/index";
 import Relation, { RelationConstructorArgs, RelationWithout } from "../base/relation";
 import Table from "../entity/table";
 import ForeignKey from "../constraint/foreign-key";
@@ -42,6 +42,12 @@ export default class M2ORelation extends Relation {
     super(args);
     this.foreignKey = args.foreignKey;
   }
+
+  /**
+   * Type of the relation, which is `m2o` for [[M2ORelation]].
+   * For TypeScript it is enum of `RelationType.M2O`.
+   */
+  public readonly type = RelationType.M2O;
 
   /**
    * Whether the relation targets to many. Since, many to one relations targets single, this is `true`.

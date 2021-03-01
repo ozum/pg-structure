@@ -5,10 +5,22 @@ import M2MRelation from "../pg-structure/relation/m2m-relation";
 
 export * from "./json";
 
+/**
+ * Type of the numeric type.
+ */
 export const enum NumericType {
   Integer = "Integer",
   Exact = "Exact",
   Floating = "Floating",
+}
+
+/**
+ * Type of the relation.
+ */
+export const enum RelationType {
+  O2M = "o2m",
+  M2M = "m2m",
+  M2O = "m2o",
 }
 
 /**

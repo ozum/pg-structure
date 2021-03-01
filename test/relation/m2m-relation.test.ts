@@ -27,6 +27,10 @@ beforeAll(async () => {
 });
 
 describe("M2MRelation", () => {
+  it("should be type of 'm2m'.", () => {
+    expect(studentTable.m2mRelations[0].type).toEqual("m2m");
+  });
+
   it("should be toMany.", () => {
     expect(studentTable.m2mRelations[0].toMany).toEqual(true);
   });
