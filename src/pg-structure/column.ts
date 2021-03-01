@@ -47,14 +47,8 @@ export default class Column extends DbObject {
     this.arrayDimension = args.arrayDimension || 0;
     this.defaultWithTypeCast = args.defaultWithTypeCast;
     this.attributeNumber = args.attributeNumber;
-
-    if (this.type.numericType !== undefined) {
-      /* istanbul ignore next */
-      const maxLimit = this.precision ? 10 ** (this.precision - (this.scale ?? 0)) : undefined;
-      const minLimit = maxLimit === undefined ? undefined : -maxLimit;
-      this.minValue = this.isSerial ? 1 : NUMERIC_BOUNDRIES?.[this.type.name]?.min ?? minLimit;
-      this.maxValue = NUMERIC_BOUNDRIES?.[this.type.name]?.max ?? maxLimit;
-    }
+    this.minValue = this.isSerial ? 1 : NUMERIC_BOUNDRIES?.[this.type.name]?.min;
+    this.maxValue = NUMERIC_BOUNDRIES?.[this.type.name]?.max;
   }
 
   /**
@@ -241,12 +235,12 @@ export default class Column extends DbObject {
   public readonly length?: number;
 
   /**
-   * For integer and exact numeric columns with scale minimum value of the column.
+   * Minimum value of the column (only for integer types).
    */
   public readonly minValue?: number;
 
   /**
-   * For integer and exact numeric columns with scale maximum value of the column.
+   * Maximum value of the column (only for integer types).
    */
   public readonly maxValue?: number;
 

@@ -145,36 +145,12 @@ describe("Column", () => {
     expect(accountTable.get("id").maxValue).toBe(2147483647);
   });
 
-  it("should not have minimum value for numeric column without precision.", () => {
-    expect(typeTable.get("field2_a").minValue).toBe(undefined);
+  it("should have minimum value for big integer.", () => {
+    expect(typeTable.get("field12").minValue).toBe(-9223372036854775808);
   });
 
-  it("should not have maximum value for numeric column without precision.", () => {
-    expect(typeTable.get("field2_a").maxValue).toBe(undefined);
-  });
-
-  it("should have minimum value for numeric column.", () => {
-    expect(typeTable.get("field2_b").minValue).toBe(-10);
-  });
-
-  it("should have maximum value for numeric column.", () => {
-    expect(typeTable.get("field2_b").maxValue).toBe(10);
-  });
-
-  it("should have minimum value for numeric column with only scale but without scale.", () => {
-    expect(typeTable.get("field2_c").minValue).toBe(-1000);
-  });
-
-  it("should have maximum value for numeric column with only scale but without scale.", () => {
-    expect(typeTable.get("field2_c").maxValue).toBe(1000);
-  });
-
-  it("should not have minimum value for floating column.", () => {
-    expect(typeTable.get("field21").minValue).toBe(undefined);
-  });
-
-  it("should nt have maximum value for floating column.", () => {
-    expect(typeTable.get("field21").maxValue).toBe(undefined);
+  it("should have maximum value for big integer.", () => {
+    expect(typeTable.get("field12").maxValue).toBe(9223372036854775807);
   });
 
   it("should have referencedColumns.", () => {
