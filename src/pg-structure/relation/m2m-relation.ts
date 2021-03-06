@@ -94,7 +94,7 @@ export default class M2MRelation extends Relation {
   /**
    * Returns name for the relation using given naming function.
    *
-   * @param relationNameFunctions are custom functions or name of the module that exports relation name functions to generate names with. `pg-structure` provides two builtin modules (`short` and `descriptive`), but you can use your own.
+   * @param relationNameFunctions are custom functions or name of the module that exports relation name functions to generate names with. `pg-structure` provides some builtin modules (`short`, `optimal` and `descriptive`), but you can use your own.
    * @returns name for the relation using naming function.
    */
   @Memoize()

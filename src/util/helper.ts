@@ -345,8 +345,8 @@ export const getForeignKeysTo = memoize(
  */
 export function getRelationsMarkdown(db: Db, fk = false): string {
   let result: string[] = [
-    `| Tables | Type | Short | Descriptive |   | ${fk ? "Foreign Key |" : ""}`,
-    `| ------ | ---- | ----- |------------ | - | ${fk ? "--- |" : ""}`,
+    `| Tables | Type | Short | Optimal | Descriptive |   | ${fk ? "Foreign Key |" : ""}`,
+    `| ------ | ---- | ----- | ------- | ----------- | - | ${fk ? "--- |" : ""}`,
   ];
 
   db.tables.forEach((t) => {
@@ -354,10 +354,13 @@ export function getRelationsMarkdown(db: Db, fk = false): string {
       const tables = `${r.sourceTable.name}_ → ${r instanceof M2MRelation ? " ... →" : ""} _${r.targetTable.name}`;
       const type = r.constructor.name.replace("Relation", "");
       const short = r.getName("short");
+      const optimal = r.getName("optimal");
       const descriptive = r.getName("descriptive");
-      const diff = short === descriptive ? "" : "•";
+      const diff = short === optimal ? "" : "•";
 
-      return `| _${tables}_ | ${type} | **${short}** | **${descriptive}** | ${diff} | ${fk ? `_${r.foreignKey.name}_ |` : ""}`;
+      return `| _${tables}_ | ${type} | **${short}** | **${optimal}** | **${descriptive}** | ${diff} | ${
+        fk ? `_${r.foreignKey.name}_ |` : ""
+      }`;
     });
     result = result.concat(rels);
   });

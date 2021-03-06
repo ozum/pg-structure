@@ -1,27 +1,27 @@
 /* eslint-disable prefer-destructuring */
 
 import { Db, Table } from "../../src/index";
-import { getRelationNameDb, getReverseRelationNameDb, getDescriptiveNameDb, getReverseDescriptiveNameDb } from "../test-helper/get-db";
+import { getRelationNameDb, getReverseRelationNameDb, getOptimalNameDb, getReverseOptimalNameDb } from "../test-helper/get-db";
 
 let db: Db;
 let reverseDb: Db;
-let descriptiveDb: Db;
-let reverseDescriptiveDb: Db;
+let optimalDb: Db;
+let reverseOptimalDb: Db;
 let studentTable: Table;
 let cartTable: Table;
 
 const getNames = (table: string): string[][] => [
   (db.get(table) as Table).m2mRelations.map((r) => r.name),
   (reverseDb.get(table) as Table).m2mRelations.map((r) => r.name),
-  (descriptiveDb.get(table) as Table).m2mRelations.map((r) => r.name),
-  (reverseDescriptiveDb.get(table) as Table).m2mRelations.map((r) => r.name),
+  (optimalDb.get(table) as Table).m2mRelations.map((r) => r.name),
+  (reverseOptimalDb.get(table) as Table).m2mRelations.map((r) => r.name),
 ];
 
 beforeAll(async () => {
   db = await getRelationNameDb();
   reverseDb = await getReverseRelationNameDb();
-  descriptiveDb = await getDescriptiveNameDb();
-  reverseDescriptiveDb = await getReverseDescriptiveNameDb();
+  optimalDb = await getOptimalNameDb();
+  reverseOptimalDb = await getReverseOptimalNameDb();
   studentTable = db.get("public.student") as Table;
   cartTable = db.get("public.cart") as Table;
 });
@@ -105,63 +105,57 @@ describe("M2MRelation", () => {
   describe("Names", () => {
     it("should be shortest names for 'size' table.", () => {
       const expectedShort = ["shirt_colors", "shoe_colors"];
-      const expectedDescriptive = ["shirt_colors", "shoe_colors"];
+      const expectedOptimal = ["shirt_colors", "shoe_colors"];
       const result = getNames("public.size");
 
       expect(result[0]).toEqual(expectedShort);
       expect(result[1]).toEqual(expectedShort);
-      expect(result[2]).toEqual(expectedDescriptive);
-      expect(result[3]).toEqual(expectedDescriptive);
+      expect(result[2]).toEqual(expectedOptimal);
+      expect(result[3]).toEqual(expectedOptimal);
     });
 
     it("should be shortest names for 'color' table.", () => {
       const expectedShort = ["shirt_sizes", "shoe_sizes"];
-      const expectedDescriptive = ["shirt_sizes", "shoe_sizes"];
+      const expectedOptimal = ["shirt_sizes", "shoe_sizes"];
       const result = getNames("public.color");
 
       expect(result[0]).toEqual(expectedShort);
       expect(result[1]).toEqual(expectedShort);
-      expect(result[2]).toEqual(expectedDescriptive);
-      expect(result[3]).toEqual(expectedDescriptive);
+      expect(result[2]).toEqual(expectedOptimal);
+      expect(result[3]).toEqual(expectedOptimal);
     });
 
     it("should be shortest names for 'status' table.", () => {
       const expectedShort = ["receiver_students", "sender_students"];
-      const expectedDescriptive = ["receiver_students", "sender_students"];
+      const expectedOptimal = ["receiver_students", "sender_students"];
       const result = getNames("public.status");
 
       expect(result[0]).toEqual(expectedShort);
       expect(result[1]).toEqual(expectedShort);
-      expect(result[2]).toEqual(expectedDescriptive);
-      expect(result[3]).toEqual(expectedDescriptive);
+      expect(result[2]).toEqual(expectedOptimal);
+      expect(result[3]).toEqual(expectedOptimal);
     });
 
     it("should be shortest names for 'student' table.", () => {
       const expectedShort = ["classes", "receiver_statuses", "receiver_students", "sender_statuses", "sender_students"];
-      const expectedDescriptive = [
-        "classes",
-        "receiver_students",
-        "receiver_student_statuses",
-        "sender_students",
-        "sender_student_statuses",
-      ];
+      const expectedOptimal = ["classes", "receiver_students", "receiver_student_statuses", "sender_students", "sender_student_statuses"];
       const result = getNames("public.student");
 
       expect(result[0]).toEqual(expectedShort);
       expect(result[1]).toEqual(expectedShort);
-      expect(result[2]).toEqual(expectedDescriptive);
-      expect(result[3]).toEqual(expectedDescriptive);
+      expect(result[2]).toEqual(expectedOptimal);
+      expect(result[3]).toEqual(expectedOptimal);
     });
 
     it("should be shortest names for 'class' table.", () => {
       const expectedShort = ["students"];
-      const expectedDescriptive = ["students"];
+      const expectedOptimal = ["students"];
       const result = getNames("public.class");
 
       expect(result[0]).toEqual(expectedShort);
       expect(result[1]).toEqual(expectedShort);
-      expect(result[2]).toEqual(expectedDescriptive);
-      expect(result[3]).toEqual(expectedDescriptive);
+      expect(result[2]).toEqual(expectedOptimal);
+      expect(result[3]).toEqual(expectedOptimal);
     });
 
     it("should be shortest names for 'product' table.", () => {
@@ -175,7 +169,7 @@ describe("M2MRelation", () => {
         "main_line_item_second_carts",
         "main_products",
       ];
-      const expectedDescriptive = [
+      const expectedOptimal = [
         "alternative_products",
         "alternative_product_line_item_first_carts",
         "alternative_product_line_item_second_carts",
@@ -189,8 +183,8 @@ describe("M2MRelation", () => {
 
       expect(result[0]).toEqual(expectedShort);
       expect(result[1]).toEqual(expectedShort);
-      expect(result[2]).toEqual(expectedDescriptive);
-      expect(result[3]).toEqual(expectedDescriptive);
+      expect(result[2]).toEqual(expectedOptimal);
+      expect(result[3]).toEqual(expectedOptimal);
     });
 
     it("should be shortest names for 'cart' table.", () => {
@@ -204,7 +198,7 @@ describe("M2MRelation", () => {
         "second_line_item_alternative_products",
         "second_line_item_main_products",
       ];
-      const expectedDescriptive = [
+      const expectedOptimal = [
         "cancelled_item_products",
         "favorite_item_products",
         "first_carts",
@@ -218,30 +212,30 @@ describe("M2MRelation", () => {
 
       expect(result[0]).toEqual(expectedShort);
       expect(result[1]).toEqual(expectedShort);
-      expect(result[2]).toEqual(expectedDescriptive);
-      expect(result[3]).toEqual(expectedDescriptive);
+      expect(result[2]).toEqual(expectedOptimal);
+      expect(result[3]).toEqual(expectedOptimal);
     });
 
     it("should be shortest names for 'bike' table.", () => {
       const expectedShort = ["options"];
-      const expectedDescriptive = ["options"];
+      const expectedOptimal = ["options"];
       const result = getNames("public.bike");
 
       expect(result[0]).toEqual(expectedShort);
       expect(result[1]).toEqual(expectedShort);
-      expect(result[2]).toEqual(expectedDescriptive);
-      expect(result[3]).toEqual(expectedDescriptive);
+      expect(result[2]).toEqual(expectedOptimal);
+      expect(result[3]).toEqual(expectedOptimal);
     });
 
     it("should be shortest names for 'option' table.", () => {
       const expectedShort = ["bikes", "first_options", "second_options"];
-      const expectedDescriptive = ["bikes", "first_options", "second_options"];
+      const expectedOptimal = ["bikes", "first_options", "second_options"];
       const result = getNames("public.option");
 
       expect(result[0]).toEqual(expectedShort);
       expect(result[1]).toEqual(expectedShort);
-      expect(result[2]).toEqual(expectedDescriptive);
-      expect(result[3]).toEqual(expectedDescriptive);
+      expect(result[2]).toEqual(expectedOptimal);
+      expect(result[3]).toEqual(expectedOptimal);
     });
   });
 });

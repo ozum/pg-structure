@@ -4,8 +4,8 @@ let db: Db;
 let desscriptiveDb: Db;
 let nameDb: Db;
 let reverseNameDb: Db;
-let descriptiveNameDb: Db;
-let reverseDescriptiveNameDb: Db;
+let optimalNameDb: Db;
+let reverseOptimalNameDb: Db;
 
 export default async function getDb(): Promise<Db> {
   if (!(db instanceof Db)) {
@@ -14,11 +14,11 @@ export default async function getDb(): Promise<Db> {
   return db;
 }
 
-export async function getDescriptiveDb(): Promise<Db> {
+export async function getOptimalDb(): Promise<Db> {
   if (!(desscriptiveDb instanceof Db)) {
     desscriptiveDb = await pgStructure(
       { database: "pg-structure-test-main", user: "user", password: "password" },
-      { relationNameFunctions: "descriptive" }
+      { relationNameFunctions: "optimal" }
     );
   }
   return desscriptiveDb;
@@ -31,14 +31,14 @@ export async function getRelationNameDb(): Promise<Db> {
   return nameDb;
 }
 
-export async function getDescriptiveNameDb(): Promise<Db> {
-  if (!(descriptiveNameDb instanceof Db)) {
-    descriptiveNameDb = await pgStructure(
+export async function getOptimalNameDb(): Promise<Db> {
+  if (!(optimalNameDb instanceof Db)) {
+    optimalNameDb = await pgStructure(
       { database: "pg-structure-test-relation-names", user: "user", password: "password" },
-      { relationNameFunctions: "descriptive" }
+      { relationNameFunctions: "optimal" }
     );
   }
-  return descriptiveNameDb;
+  return optimalNameDb;
 }
 
 export async function getReverseRelationNameDb(): Promise<Db> {
@@ -55,16 +55,16 @@ export async function getReverseRelationNameDb(): Promise<Db> {
   return reverseNameDb;
 }
 
-export async function getReverseDescriptiveNameDb(): Promise<Db> {
-  if (!(reverseDescriptiveNameDb instanceof Db)) {
-    reverseDescriptiveNameDb = await pgStructure(
+export async function getReverseOptimalNameDb(): Promise<Db> {
+  if (!(reverseOptimalNameDb instanceof Db)) {
+    reverseOptimalNameDb = await pgStructure(
       {
         database: "pg-structure-test-relation-names-reverse",
         user: "user",
         password: "password",
       },
-      { foreignKeyAliasTargetFirst: true, relationNameFunctions: "descriptive" }
+      { foreignKeyAliasTargetFirst: true, relationNameFunctions: "optimal" }
     );
   }
-  return reverseDescriptiveNameDb;
+  return reverseOptimalNameDb;
 }

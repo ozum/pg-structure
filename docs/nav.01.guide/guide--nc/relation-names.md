@@ -10,7 +10,7 @@ Whereas foreign keys are defined in DBMS and have names, relations are not prese
 
 ## Builtin Naming Modules
 
-`pg-structure` provides two built-in modules: `short` and `descriptive`. They use foreign key names, join table names, and target table names to generate relation names.
+`pg-structure` provides some built-in modules: `short`, `optimal` and `descriptive`. They use foreign key names, join table names, and target table names to generate relation names.
 
 ### Foreign Key Names
 
@@ -20,7 +20,15 @@ To use built-in functions effectively, foreign keys should be named as one of th
 - **Tables & Optional Adjectives:** adjective_table1_adjective_table2 (i.e. `product_alternative_vendor`, `alternative_vendor_products` or `alternative_vendor_primary_products`)
 - **Separator:** source,target or target,source (i.e. `item,supplier`, `supplier,items` or `item,alternative_supplier` )
 
-Both `short` and `descriptive` functions are developed based on long experience in PostgreSQL, but they **do not guarantee** to produce unique names in all possible scenarios. `descriptive` function has less chance to cause name collisions compared to `short`.
+Built-in functions are developed based on long experience in PostgreSQL, but they **do not guarantee** to produce unique names in all possible scenarios. `optimal`, `descriptive` function has less chance to cause name collisions compared to `short`.
+
+Please note that `optimal` is not deterministic, whereas `short` and `descriptive` are. `optimal` uses `short` names where possible. If there are collisions using `short` names, `optimal` uses `descripive` names.
+
+| Built-in Functions | Type              | Features                                                                                            |
+| ------------------ | ----------------- | --------------------------------------------------------------------------------------------------- |
+| `short`            | Deterministic     | Produces short names, but may result with naming collisions, if databse contains complex relations. |
+| `descriptive`      | Deterministic     | Produces long names especially if foreign keys are named well. Less chance of naming collisions.    |
+| `optimal`          | Non-Deterministic | Produces short names where possible, otherwise produces descriptive names.                          |
 
 ## Example Results
 
@@ -57,7 +65,7 @@ Below are generated names for example. Differences between short and long are in
 
 </div>
 
-Provided built-in functions `short` and `descriptive` try to generate the shortest name possible considering the number of relations and number of join tables between same tables. `descriptive` adds adjectives more freely compared to `short`. Most of the time, they generate the same names.
+Provided built-in functions `short` and `optimal` try to generate the shortest name possible considering the number of relations and number of join tables between same tables. `optimal` adds adjectives more freely compared to `short`. Most of the time, they generate the same names.
 
 ## Custom Modules or Functions
 

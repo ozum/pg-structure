@@ -16,7 +16,7 @@
     "object"
   ],
   "engines": {
-    "node": ">= 12.0.0"
+    "node": ">= 14.0.0"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -65,8 +65,8 @@
     "pg-connection-string": "^2.2.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
     "@ozum/pinst": "^2.1.4",
     "@types/inflection": "^1.5.28",
     "@types/jest": "^26.0.20",
@@ -84,7 +84,7 @@
     "concat-md": "^0.3.5",
     "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jest": "^24.1.5",
     "eslint-plugin-prettier": "^3.3.1",
@@ -99,10 +99,10 @@
     "readmeasy": "^0.2.7",
     "ts-jest": "^26.5.1",
     "ts-node-dev": "^1.1.1",
-    "typedoc": "^0.20.27",
+    "typedoc": "^0.20.28",
     "typedoc-neo-theme": "^1.1.0",
     "typedoc-plugin-example-tag": "^1.0.2",
-    "typedoc-plugin-markdown": "^3.5.0",
+    "typedoc-plugin-markdown": "^3.6.0",
     "typedoc-plugin-param-names": "^2.0.0",
     "typescript": "^4.1.5",
     "vuepress": "^1.8.2",

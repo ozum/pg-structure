@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Db } from "../src/index";
-import getDb, { getDescriptiveDb } from "./test-helper/get-db";
+import getDb, { getOptimalDb } from "./test-helper/get-db";
 
 let db: Db;
-let descriptiveDb: Db;
+let optimalDb: Db;
 
 beforeAll(async () => {
   db = await getDb();
-  descriptiveDb = await getDescriptiveDb();
+  optimalDb = await getOptimalDb();
 });
 
 describe("Db", () => {
@@ -82,6 +82,6 @@ describe("Db", () => {
   });
 
   it("should detect if there are no relation name collisions.", () => {
-    expect(descriptiveDb.relationNameCollisions).toBeUndefined();
+    expect(optimalDb.relationNameCollisions).toBeUndefined();
   });
 });

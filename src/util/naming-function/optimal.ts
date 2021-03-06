@@ -42,8 +42,12 @@ export function m2m(relation: M2MRelation): string {
  */
 export function o2m(relation: O2MRelation): string {
   const inflectionMethod = relation.sourceTable.nameCaseType === CaseType.CamelCase ? "camelize" : "underscore";
+  const fk = relation.foreignKey;
   const sep = relation.sourceTable.separator;
-  const result = relation.getSourceAliasWithout("target") + sep + relation.targetAlias;
+  const result =
+    fk.correspondingForeignKeys.length > 0 || relation.targetAlias === ""
+      ? relation.getSourceAliasWithout("target") + sep + relation.targetAlias
+      : relation.targetAlias;
 
   return `${transform(result, ["pluralize", inflectionMethod])}`;
 }
@@ -58,6 +62,9 @@ export function m2o(relation: M2ORelation): string {
   const inflectionMethod = relation.sourceTable.nameCaseType === CaseType.CamelCase ? "camelize" : "underscore";
   const sep = relation.sourceTable.separator;
   const prefix = relation.sourceAlias !== relation.sourceName ? relation.getSourceAliasWithout("target") + sep : "";
-  const result = prefix + relation.getTargetAliasWithout("source");
+  const result =
+    relation.foreignKey.correspondingForeignKeys.length > 0 || relation.getTargetNameWithout("source") === ""
+      ? prefix + relation.getTargetAliasWithout("source")
+      : relation.getTargetNameWithout("source");
   return transform(result, ["singularize", inflectionMethod]);
 }

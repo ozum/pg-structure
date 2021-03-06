@@ -4,12 +4,13 @@ import { RelationNameFunctions } from "../../types";
 /** @ignore */
 const builtinRelationNameFunctions: Record<string, string> = {
   short: "./short",
+  optimal: "./optimal",
   descriptive: "./descriptive",
 };
 
 /**
  * If functions argument is functions returns them. If it is a module name or one of the built in modules
- * (`short` or `descriptive`) imports and returns their exported functions.
+ * (`short`, `optimal` or `descriptive`) imports and returns their exported functions.
  *
  * @param functions are relation name functions or a module exporting relation name functions.
  * @example

@@ -178,7 +178,7 @@ export interface Options {
    * All necessary information such as {@link Table table} names, {@link Column columns}, {@link ForeignKey foreign key},
    * {@link DbObject.commentData comment data} can be accessed via passed {@link Relation relation} parameter.
    *
-   * It is also possible to use one of the builtin naming functions: `short`, `descriptive`.
+   * It is also possible to use one of the builtin naming functions: `short`, `optimal` or `descriptive`.
    *
    * @example
    * const config = {
