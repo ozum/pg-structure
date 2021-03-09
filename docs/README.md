@@ -1,8 +1,8 @@
 ---
 home: true
 heroImage: /images/hero.png
-heroText:
-tagline:
+heroText: Reverse Engineer PostgreSQL
+tagline: Get database structure as a detailed JavaScript or TypeScript object.
 actionText: Get Started →
 actionLink: /nav.01.guide/
 features:
