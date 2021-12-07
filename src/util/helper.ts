@@ -201,6 +201,7 @@ export async function getConnectedPgClient(
     return { client, shouldCloseConnection: true };
   } catch (error: any) {
     if (error.message.includes("Client has already been connected")) return { client, shouldCloseConnection: false };
+    /* istanbul ignore next */
     throw new Error(`pg-structure cannot connect to the database: ${error.message}`);
   }
 }

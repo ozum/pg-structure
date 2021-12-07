@@ -84,11 +84,12 @@ describe("pgStructure()", () => {
   });
 
   it("should throw if it cannot connect.", async () => {
-    await expect(pgStructure()).rejects.toThrow("cannot connect to the database");
+    await expect(pgStructure()).rejects.toThrow();
   });
 
   it("should accept options as first argument and reads client config from environment variables.", async () => {
     process.env.DBPX_USER = "xyz-user";
+    process.env.DBPX_PASSWORD = "wrong-password";
     await expect(pgStructure({ envPrefix: "DBPX", name: "deneme" })).rejects.toThrow('password authentication failed for user "xyz-user"');
   });
 });
