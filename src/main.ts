@@ -38,6 +38,7 @@ import ExclusionConstraint from "./pg-structure/constraint/exclusion-constraint"
 import ForeignKey from "./pg-structure/constraint/foreign-key";
 
 import RangeType from "./pg-structure/type/range-type";
+import MultiRangeType from "./pg-structure/type/multi-range-type";
 import NormalFunction from "./pg-structure/function/normal-function";
 import Procedure from "./pg-structure/function/procedure";
 import AggregateFunction from "./pg-structure/function/aggregate-function";
@@ -162,7 +163,7 @@ const builtinTypeAliases: Record<string, Record<string, string | boolean>> = {
  * @param rows are query result of types to be added.
  */
 function addTypes(db: Db, rows: TypeQueryResult[]): void {
-  const typeKinds = { d: Domain, e: EnumType, b: BaseType, c: CompositeType, r: RangeType, p: PseudoType }; // https://www.postgresql.org/docs/9.5/catalog-pg-type.html
+  const typeKinds = { d: Domain, e: EnumType, b: BaseType, c: CompositeType, r: RangeType, p: PseudoType, m: MultiRangeType }; // https://www.postgresql.org/docs/9.5/catalog-pg-type.html
   rows.forEach((row) => {
     const schema = db.systemSchemas.getMaybe(row.schemaOid, { key: "oid" }) || db.schemas.get(row.schemaOid, { key: "oid" });
     const builtinTypeData = builtinTypeAliases[row.name] ? { internalName: row.name, ...builtinTypeAliases[row.name] } : {};

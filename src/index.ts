@@ -26,6 +26,7 @@ import Domain from "./pg-structure/type/domain";
 import EnumType from "./pg-structure/type/enum-type";
 import PseudoType from "./pg-structure/type/pseudo-type";
 import RangeType from "./pg-structure/type/range-type";
+import MultiRangeType from "./pg-structure/type/multi-range-type";
 import Func from "./pg-structure/base/func";
 import NormalFunction from "./pg-structure/function/normal-function";
 import Procedure from "./pg-structure/function/procedure";
@@ -66,6 +67,7 @@ export {
   EnumType,
   PseudoType,
   RangeType,
+  MultiRangeType,
   Func,
   NormalFunction,
   Procedure,

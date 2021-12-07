@@ -35,11 +35,17 @@ describe("Schema", () => {
   });
 
   it("should have all types.", () => {
-    expect(schema.types.map((t) => t.name)).toEqual(["cross_schema_domain", "price", "udt_composite", "udt_enum", "udt_range"]);
+    // PostgreSQL added "udt_multirange" types.
+    const typeNames =
+      parseInt(db.serverVersion, 10) >= 14
+        ? ["cross_schema_domain", "price", "udt_composite", "udt_enum", "udt_multirange", "udt_range"]
+        : ["cross_schema_domain", "price", "udt_composite", "udt_enum", "udt_range"];
+
+    expect(schema.types.map((t) => t.name)).toEqual(typeNames);
   });
 
   it("should have all types including entity types.", () => {
-    expect(schema.typesIncludingEntities.map((t) => t.name)).toEqual([
+    const types = [
       "account",
       "cancelled_item",
       "cart",
@@ -64,7 +70,12 @@ describe("Schema", () => {
       "udt_enum",
       "udt_range",
       "v_account_primary_contact",
-    ]);
+    ];
+
+    // PostgreSQL added "udt_multirange" types.
+    if (parseInt(db.serverVersion, 10) >= 14) types.splice(22, 0, "udt_multirange");
+
+    expect(schema.typesIncludingEntities.map((t) => t.name)).toEqual(types);
   });
 
   it("should have views.", () => {

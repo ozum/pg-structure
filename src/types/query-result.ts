@@ -2,7 +2,7 @@ import { TypeCategory, Volatility, ParallelSafety, TriggerOrientation, TriggerTi
 /** @ignore */
 export type EntityTypeLetter = "r" | "i" | "S" | "t" | "v" | "m" | "c" | "f" | "p" | "I"; // r = ordinary table, i = index, S = sequence, t = TOAST table, v = view, m = materialized view, c = composite type, f = foreign table, p = partitioned table, I = partitioned index
 /** @ignore */
-export type TypeKindLetter = "b" | "c" | "d" | "e" | "p" | "r"; // base, composite, domain, enum, pseudo-type, range;
+export type TypeKindLetter = "b" | "c" | "d" | "e" | "p" | "r" | "m"; // base, composite, domain, enum, pseudo-type, range, multi-range;
 /** @ignore */
 export type ActionLetter = "a" | "r" | "c" | "n" | "d"; // a: no action, r: restrict, c: cascade, n: set null, d: set default
 /** @ignore */
