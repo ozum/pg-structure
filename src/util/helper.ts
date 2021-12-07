@@ -154,7 +154,7 @@ export async function executeSqlFile<K extends keyof SQLFileResult>(
       const filePath = join(__dirname, "../../module-files/sql", queryVersion, `${file}.sql`);
       sql = await readFile(filePath, "utf8"); // eslint-disable-line no-await-in-loop
       break; // End if found.
-    } catch (error) {
+    } catch (error: any) {
       /* istanbul ignore if */
       if (error.code !== "ENOENT") throw error;
     }
@@ -199,7 +199,7 @@ export async function getConnectedPgClient(
   try {
     await client.connect();
     return { client, shouldCloseConnection: true };
-  } catch (error) {
+  } catch (error: any) {
     if (error.message.includes("Client has already been connected")) return { client, shouldCloseConnection: false };
     throw new Error(`pg-structure cannot connect to the database: ${error.message}`);
   }
