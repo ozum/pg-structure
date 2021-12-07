@@ -383,6 +383,7 @@ function addObjects(db: Db, queryResults: QueryResults): void {
  * @returns whether given input are options for the `pgStructure` function.
  */
 function isOptions(input?: Client | ClientConfig | string | Options): input is Options {
+  /* istanbul ignore next */
   if (input === undefined) return false;
   const optionsAvailable: Required<{ [K in keyof Options]: true }> = {
     envPrefix: true,
@@ -439,6 +440,7 @@ export async function pgStructure(client?: Client | ClientConfig | string, optio
 export async function pgStructure(options?: Options): Promise<Db>;
 export async function pgStructure(clientOrOptions?: Client | ClientConfig | string | Options, maybeOptions: Options = {}): Promise<Db> {
   const [maybePgClientOrConfig, options] = isOptions(clientOrOptions) ? [undefined, clientOrOptions] : [clientOrOptions, maybeOptions];
+  /* istanbul ignore next */
   const pgClientOrConfig = maybePgClientOrConfig ?? getEnvValues(options.envPrefix ?? "DB");
   const { client, shouldCloseConnection } = await getConnectedPgClient(pgClientOrConfig);
 

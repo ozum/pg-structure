@@ -83,10 +83,6 @@ describe("pgStructure()", () => {
     expect(db.tables.get("account").name).toEqual("account");
   });
 
-  it("should throw if it cannot connect.", async () => {
-    await expect(pgStructure()).rejects.toThrow();
-  });
-
   it("should accept options as first argument and reads client config from environment variables.", async () => {
     process.env.DBPX_USER = "xyz-user";
     process.env.DBPX_PASSWORD = "wrong-password";
