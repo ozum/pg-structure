@@ -185,12 +185,8 @@ export default class Schema extends DbObject {
    * const type         = schema.typesIncludingEntities.get('address');
    * const columns      = type.columns;
    */
-  public readonly typesIncludingEntities: IndexableArray<
-    Type,
-    "name",
-    "oid" | "classOid" | "internalName",
-    true
-  > = IndexableArray.throwingFrom([], "name", "oid", "classOid", "internalName");
+  public readonly typesIncludingEntities: IndexableArray<Type, "name", "oid" | "classOid" | "internalName", true> =
+    IndexableArray.throwingFrom([], "name", "oid", "classOid", "internalName");
 
   /**
    * All {@link Type custom database types} of the {@link Schema schema} as an {@link IndexableArray indexable array} ordered by name.

@@ -1,4 +1,4 @@
-const baseConfig = require("./module-files/configs/lint-staged.config.js");
+const baseConfig = require("./module-files/configs/lint-staged.config");
 
 module.exports = {
   ...baseConfig,

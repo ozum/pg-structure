@@ -1,4 +1,4 @@
-const baseConfig = require("./module-files/configs/prettier.config.js");
+const baseConfig = require("./module-files/configs/prettier.config");
 
 module.exports = {
   ...baseConfig,

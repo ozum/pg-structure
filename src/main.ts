@@ -201,9 +201,11 @@ function addEntities(db: Db, rows: EntityQueryResult[]): void {
  */
 function addColumns(db: Db, rows: ColumnQueryResult[]): void {
   rows.forEach((row) => {
-    const parent = (row.parentKind === "c"
-      ? db.typesIncludingEntities.get(row.parentOid as any, { key: "classOid" })
-      : db.entities.get(row.parentOid as any, { key: "oid" })) as CompositeType | Entity;
+    const parent = (
+      row.parentKind === "c"
+        ? db.typesIncludingEntities.get(row.parentOid as any, { key: "classOid" })
+        : db.entities.get(row.parentOid as any, { key: "oid" })
+    ) as CompositeType | Entity;
 
     parent.columns.push(new Column({ parent, ...row }));
   });
@@ -224,9 +226,9 @@ function addIndexes(db: Db, rows: IndexQueryResult[]): void {
 
     row.columnPositions.forEach((position) => {
       // If position is 0, then it's an index attribute that is not simple column references. It is an expression which is stored in indexExpressions.
-      const columnOrExpression = (position > 0
-        ? parent.columns.find((c: Column) => c.attributeNumber === position)
-        : indexExpressions.shift()) as string | Column;
+      const columnOrExpression = (
+        position > 0 ? parent.columns.find((c: Column) => c.attributeNumber === position) : indexExpressions.shift()
+      ) as string | Column;
       index.columnsAndExpressions.push(columnOrExpression);
     });
 

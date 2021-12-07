@@ -240,9 +240,7 @@ export default class Table extends Entity {
    * @returns through constraints and their details.
    */
   @Memoize()
-  private getThroughConstraints(
-    onlyPk = false
-  ): {
+  private getThroughConstraints(onlyPk = false): {
     toThis: ForeignKey;
     toOther: ForeignKey;
   }[] {
