@@ -20,7 +20,7 @@ SELECT
     (CASE WHEN (tgtype::int::bit(7) & b'0100000')::int = 0 THEN '' ELSE ' truncate' END)
   ), ' ')                                                                                   AS "events", -- Array, Ex:  {insert,delete,update}
 
-  (regexp_matches(pg_get_triggerdef(t.oid), '.{35,} WHEN \((.+)\) EXECUTE FUNCTION'))[1]      AS "condition",
+  (SELECT regexp_matches[1] FROM regexp_matches(pg_get_triggerdef(t.oid), '.{35,} WHEN \((.+)\) EXECUTE FUNCTION'))      AS "condition",
 
   CASE tgenabled
     WHEN 'O' THEN 'origin'
