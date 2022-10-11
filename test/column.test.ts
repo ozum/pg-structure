@@ -150,7 +150,7 @@ describe("Column", () => {
   });
 
   it("should have maximum value for big integer.", () => {
-    expect(typeTable.get("field12").maxValue).toBe(9223372036854775807);
+    expect(typeTable.get("field12").maxValue).toBe(9223372036854775807); // eslint-disable-line @typescript-eslint/no-loss-of-precision
   });
 
   it("should have referencedColumns.", () => {

@@ -14,7 +14,7 @@ import View from "./entity/view";
 const NUMERIC_BOUNDRIES: Record<string, { min: number; max: number }> = {
   smallint: { min: -32768, max: 32767 },
   integer: { min: -2147483648, max: 2147483647 },
-  bigint: { min: -9223372036854775808, max: 9223372036854775807 },
+  bigint: { min: -9223372036854775808, max: 9223372036854775807 }, // eslint-disable-line @typescript-eslint/no-loss-of-precision
 };
 
 /** @ignore */

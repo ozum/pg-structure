@@ -374,7 +374,7 @@ export function getRelationsMarkdown(db: Db, fk = false): string {
  * @param input is the input value to convert to array.
  * @returns array If input is undefined returns undefined.
  */
-export function arrify<T extends any>(input: T | T[] | undefined): T[] | undefined {
+export function arrify<T>(input: T | T[] | undefined): T[] | undefined {
   if (input === undefined) return undefined;
   return Array.isArray(input) ? input : [input];
 }
