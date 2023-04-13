@@ -64,6 +64,7 @@ export interface ColumnQueryResult {
   arrayDimension: number;
   position: number;
   comment: string | null;
+  isGenerated?: boolean;
 }
 
 /** @ignore */

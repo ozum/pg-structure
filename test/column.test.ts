@@ -169,4 +169,8 @@ describe("Column", () => {
   it("should have uniqueIndexesNoPk.", () => {
     expect(idColumn.uniqueIndexesNoPk.map((i) => i.name)).toEqual(["ix_partial_unique"]);
   });
+
+  it("should return false for non generated columns", () => {
+    expect(accountTable.get("name").isGenerated).toBeFalsy();
+  });
 });

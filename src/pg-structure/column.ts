@@ -26,6 +26,7 @@ export interface ColumnConstructorArgs extends DbObjectConstructorArgs {
   arrayDimension: number;
   defaultWithTypeCast: string | null;
   attributeNumber: number;
+  isGenerated?: boolean;
 }
 
 /**
@@ -49,6 +50,7 @@ export default class Column extends DbObject {
     this.attributeNumber = args.attributeNumber;
     this.minValue = this.isSerial ? 1 : NUMERIC_BOUNDRIES?.[this.type.name]?.min;
     this.maxValue = NUMERIC_BOUNDRIES?.[this.type.name]?.max;
+    this.isGenerated = args.isGenerated === true;
   }
 
   /**
@@ -122,6 +124,9 @@ export default class Column extends DbObject {
   public get isSerial(): boolean {
     return isSerial(this.defaultWithTypeCast);
   }
+
+  /** Whether this column is a generated column. */
+  public readonly isGenerated: boolean;
 
   /**
    * - If data type identifies an exact numeric type, this contains the (declared or implicit) scale
