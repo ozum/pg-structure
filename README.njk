@@ -15,7 +15,7 @@ import pgStructure from "pg-structure";
 
 async function demo() {
   // Prefer to use environment variables or ".env" file for the credentials. See the ".env.example" file.
-  const db = await pgStructure({ database: "db", user: "u", password: "pass" }, { includeSchemas: ["public"] });
+  const db = await pgStructure({ host: "host", database: "db", user: "u", password: "pass" }, { includeSchemas: ["public"] });
 
   const table = db.get("contact");
   const columnNames = table.columns.map(c => c.name);
