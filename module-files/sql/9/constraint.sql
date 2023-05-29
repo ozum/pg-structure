@@ -9,6 +9,8 @@ SELECT
   c.confupdtype AS "onUpdate",
   c.confdeltype AS "onDelete",
   c.confmatchtype AS "matchType",
+  c.condeferrable AS "isDeferrable",
+  c.condeferred AS "isDeferred",
   pg_get_constraintdef(c.oid) AS "checkConstraintExpression",
   pg_catalog.obj_description(c.oid, 'pg_constraint') AS "comment"
 FROM

@@ -94,6 +94,8 @@ export interface ConstraintQueryResult {
   typeOid: number;
   kind: ConstrainTypeLetter;
   name: string;
+  isDeferrable: boolean;
+  isDeferred: boolean;
   /** If a table constraint (including foreign keys, but not constraint triggers), list of the constrained columns */
   constrainedColumnPositions: number[];
   /** If a foreign key, list of the referenced columns */

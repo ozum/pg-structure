@@ -63,7 +63,7 @@ async function md({ out, singleFile = false }) {
 
   const options = [
     "--plugin",
-    "typedoc-plugin-example-tag,typedoc-plugin-markdown,typedoc-plugin-param-names",
+    "typedoc-plugin-markdown",
     "--excludeExternals",
     "--excludePrivate",
     "--excludeProtected",
