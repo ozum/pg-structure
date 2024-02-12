@@ -337,7 +337,8 @@ async function getQueryResultsFromDb(
   includeSchemasArray?: string[],
   excludeSchemasArray?: string[],
   includeSystemSchemas?: boolean
-): Promise<QueryResults> {
+  // ): Promise<QueryResults> {
+): Promise<any> {
   const schemaRows = await getSchemas(client, { include: includeSchemasArray, exclude: excludeSchemasArray, system: includeSystemSchemas });
   const systemSchemaRows = await getSystemSchemas(client);
   const schemaOids = schemaRows.map((schema) => schema.oid);

@@ -112,7 +112,10 @@ export function caseTypeOf(input: string): CaseType {
  * @returns major version of given version.
  */
 export function majorVersionOf(version: string): number {
-  return Number(version.replace(/\..+$/, ""));
+  const matched = version.match(/^\d+/);
+  /* istanbul ignore if */
+  if (matched === null) throw new Error(`Invalid version string: ${version}`);
+  return Number(matched[0]);
 }
 
 /**
