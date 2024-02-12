@@ -25,11 +25,11 @@ jobs:
         run: |
           sudo -u postgres psql --command="CREATE USER \"user\" PASSWORD 'password' SUPERUSER CREATEDB REPLICATION" --command="\du"
       - name: Begin CI...
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Use Node 18
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: "lts/*"
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
