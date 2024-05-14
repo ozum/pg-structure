@@ -54,6 +54,7 @@ describe("Schema", () => {
       "class_registry",
       "contact",
       "cross_schema_domain",
+      "game",
       "message",
       "mv_contact_other_schema_cart",
       "Part",
@@ -64,6 +65,7 @@ describe("Schema", () => {
       "price",
       "product",
       "product_category",
+      "publisher",
       "student",
       "type_table",
       "udt_composite",
@@ -73,7 +75,7 @@ describe("Schema", () => {
     ];
 
     // PostgreSQL added "udt_multirange" types.
-    if (parseInt(db.serverVersion, 10) >= 14) types.splice(22, 0, "udt_multirange");
+    if (parseInt(db.serverVersion, 10) >= 14) types.splice(24, 0, "udt_multirange");
 
     expect(schema.typesIncludingEntities.map((t) => t.name)).toEqual(types);
   });

@@ -1,6 +1,6 @@
 /*
 Created: 9/20/2019
-Modified: 2/28/2021
+Modified: 5/14/2024
 Project: pg-structrue-test
 Model: Main
 Author: Özüm Eldoğan
@@ -500,6 +500,33 @@ ADD COLUMN field2_c NUMERIC(3);
 ALTER TABLE "public"."type_table" ADD CONSTRAINT "type_table_pk" PRIMARY KEY ("id")
 ;
 
+-- Table game
+
+CREATE TABLE "game"
+(
+  "id" Serial NOT NULL,
+  "publisher_id" Integer
+)
+WITH (
+  autovacuum_enabled=true)
+;
+
+ALTER TABLE "game" ADD CONSTRAINT "Key_game" PRIMARY KEY ("id")
+;
+
+-- Table publisher
+
+CREATE TABLE "publisher"
+(
+  "id" Serial NOT NULL
+)
+WITH (
+  autovacuum_enabled=true)
+;
+
+ALTER TABLE "publisher" ADD CONSTRAINT "Key_publisher" PRIMARY KEY ("id")
+;
+
 -- Create views section -------------------------------------------------
 
 CREATE VIEW "v_account_primary_contact" AS
@@ -755,6 +782,14 @@ ALTER TABLE "Part"
     REFERENCES "PartGroup" ("id")
       ON DELETE CASCADE
       ON UPDATE CASCADE
+;
+
+ALTER TABLE "game"
+  ADD CONSTRAINT "gamepublisher"
+    FOREIGN KEY ("publisher_id")
+    REFERENCES "publisher" ("id")
+      ON DELETE RESTRICT
+      ON UPDATE RESTRICT
 ;
 
 -- Below tables are generated here, because Toad does not support PostgreSQL partitioned tables.
