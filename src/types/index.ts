@@ -154,7 +154,7 @@ export interface Options {
    * List of the schemas or a pattern similar to SQL's `LIKE` to select included schemas.
    *
    * @example
-   * const config = { includeSchemas: "public_%" }; // include all schemas starting with "public_"
+   * const config = { includeSchemas: "public\\_%" }; // include all schemas starting with "public_". `_` is an SQL wildcard character. You should escape it.
    *
    * @example
    * const config = { includeSchemas: ["public", "extra"] };
