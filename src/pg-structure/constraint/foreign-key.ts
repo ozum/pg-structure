@@ -31,9 +31,8 @@ export default class ForeignKey extends Constraint {
     this.columns = IndexableArray.throwingFrom(args.columns, "name");
     this.table = args.table;
     this.mandatoryParent = this.columns.every((column) => column.notNull);
-    if (this.index === undefined) {
-      throw new Error(`Foreign key ${this.fullName} did not find an index, it might be in another schema`);
-    }
+    /* istanbul ignore if  */
+    if (this.index === undefined) throw new Error(`Foreign key ${this.fullName} did not find an index, it might be in another schema`);
   }
 
   /**
