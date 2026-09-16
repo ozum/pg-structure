@@ -69,6 +69,15 @@ CREATE DOMAIN "cross_schema_domain" AS "udt_composite"[] NOT NULL
 CREATE DOMAIN "price" AS Numeric(8,2) DEFAULT 1.2 NOT NULL CHECK (VALUE > 0)
 ;
 
+CREATE DOMAIN "other_schema"."localised_string" AS jsonb
+;
+
+CREATE TABLE "other_schema"."domain_table"
+(
+  "name" "other_schema"."localised_string" NOT NULL
+)
+;
+
 -- Create functions section -------------------------------------------------
 
 CREATE FUNCTION "trigger_returning_function"()

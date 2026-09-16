@@ -1,5 +1,6 @@
 /* eslint-disable prefer-destructuring, @typescript-eslint/no-non-null-assertion  */
-import { Db, Table, View, Column, CompositeType } from "../src/index";
+import { Client } from "pg";
+import pgStructure, { Db, Table, View, Column, CompositeType, Domain } from "../src/index";
 import getDb from "./test-helper/get-db";
 
 let db: Db;
@@ -63,6 +64,22 @@ describe("Column", () => {
 
   it("should have type.", () => {
     expect(accountTable.get("c").type.name).toBe("circle");
+  });
+
+  it("should resolve an unqualified domain visible through search_path.", async () => {
+    const client = new Client({ database: "pg-structure-test-main", user: "user", password: "password" });
+    await client.connect();
+
+    try {
+      await client.query("SET search_path TO other_schema, public");
+      const searchPathDb = await pgStructure(client);
+      const domainColumn = searchPathDb.schemas.get("other_schema").tables.get("domain_table").columns.get("name");
+
+      expect(domainColumn.type).toBeInstanceOf(Domain);
+      expect(domainColumn.type.schema.name).toBe("other_schema");
+    } finally {
+      await client.end();
+    }
   });
 
   it("should have isSerial.", () => {

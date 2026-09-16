@@ -41,6 +41,8 @@ export default class Column extends DbObject {
     const { schema: typeSchema, typeName, length, precision, scale } = parseSQLType(this.db, args.sqlType);
     this.notNull = args.notNull;
     this.type =
+      this.db.allTypes.getMaybe(args.typeOid, { key: "oid" }) ||
+      this.db.allTypes.getMaybe(args.typeOid, { key: "arrayOid" }) ||
       typeSchema.typesIncludingEntities.getMaybe(typeName, { key: "internalName" }) || typeSchema.typesIncludingEntities.get(typeName);
     this.length = length;
     this.precision = precision;
